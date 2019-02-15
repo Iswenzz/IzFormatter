@@ -1,0 +1,22 @@
+main()
+{
+entTransporter = getentarray( "enter", "targetname" );
+//AUTO AmbientPlay( "ambient5" );
+if(isdefined(entTransporter))
+for( i = 0; i < entTransporter.size; i++ )
+entTransporter[i] thread transporter();
+}
+
+transporter()
+{
+for(;;)
+{
+self waittill( "trigger", player );
+entTarget = getEnt( self.target, "targetname" );
+//AUTO wait 0.1;
+player setOrigin( entTarget.origin );
+player setplayerangles( entTarget.angles );
+//AUTO wait 0.1;
+}
+}
+

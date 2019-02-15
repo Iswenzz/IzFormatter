@@ -1,0 +1,970 @@
+main()
+{
+
+	thread speedrun\_way_name::create_normal_way("Normal Way;");
+	auto_spawn = getEntArray("mp_jumper_spawn", "classname");
+	if(auto_spawn.size > 0)
+		thread speedrun\_way_name::create_spawn_auto(auto_spawn[int(auto_spawn.size / 2)].origin, auto_spawn[int(auto_spawn.size / 2)].angles[1]);
+    precacheModel( "playermodel_mw2_usmc_smg_a" );
+	precacheModel( "playermodel_ghost_recon" );
+	precacheItem( "dragunov_mp" );
+	precacheItem( "barrett_mp" );
+//AUTO 	precacheItem( "ak47_mp" );
+//AUTO 	precacheItem( "ak74u_mp" );
+	precacheItem( "g3_mp" );
+	precacheItem( "m21_mp" );
+	precacheItem( "mp5_mp" );
+	precacheItem( "deserteagle_mp" );
+	precacheItem( "remington700_mp" );
+//AUTO 	precacheItem( "knife_mp" );
+	precacheItem( "p90_mp" );
+	precacheItem( "rpg_mp" );
+	
+	level._effect["cannon"] = loadfx( "horror/cannon" );
+	level._effect["cannon_fire"] = loadfx( "horror/cannon_fire" );
+
+	addTriggerToList( "trig_trap1" );
+    addTriggerToList( "trig_trap2" );
+    addTriggerToList( "trig_trap3" );
+    addTriggerToList( "trig_trap4" );
+    addTriggerToList( "trig_trap5" );
+    addTriggerToList( "trig_trap6" );
+    addTriggerToList( "trig_trap7" );
+    addTriggerToList( "trig_trap8" );
+    addTriggerToList( "trig_trap9" );
+    addTriggerToList( "trig_trap10" );
+    addTriggerToList( "trig_trap11" );
+    addTriggerToList( "trig_trap12" );
+    addTriggerToList( "trig_trap13" );
+	
+	maps\mp\_load::main();
+	maps\mp\_horror_acti_skin::main();
+	maps\mp\_horror_jumper_skin::main();
+	maps\mp\_teleport1::main();
+	maps\mp\_teleport2::main();
+	maps\mp\_teleport3::main();
+	maps\mp\_teleport4::main();
+
+//AUTO //AUTO 	ambientPlay("music1");
+	
+	game["allies"] = "sas";
+	game["axis"] = "opfor";
+	game["attackers"] = "axis";
+	game["defenders"] = "allies";
+	game["allies_soldiertype"] = "woodland";
+	game["axis_soldiertype"] = "woodland";
+	
+	setdvar( "r_specularcolorscale", "1" );
+	
+	setdvar("r_glowbloomintensity0",".25");
+	setdvar("r_glowbloomintensity1",".25");
+	setdvar("r_glowskybleedintensity0",".3");
+	setdvar("compassmaxrange","1800");
+	
+	thread startdoor();
+	thread trap1();
+	thread trap2();
+	thread trap3();
+	thread trap4();
+	thread trap5();
+	thread trap6();
+	thread trap7();
+	thread trap8();
+	thread trap9();
+	thread trap10();
+	thread trap11();
+	thread trap12();
+	thread trap13();
+	thread end_door();
+//AUTO 	thread sniperoom();
+//AUTO 	thread jumproom();
+//AUTO 	thread jumproom_wep();
+//AUTO 	thread virusroom();
+	thread virus_killtele();
+//AUTO 	thread weaponroom();
+//AUTO 	thread old();
+	thread msgs();
+	thread credit();
+}
+
+addTriggerToList( name )
+{
+    if( !isDefined( level.trapTriggers ) )
+        level.trapTriggers = [];
+    level.trapTriggers[level.trapTriggers.size] = getEnt( name, "targetname" );
+}
+
+msgs()
+{
+	wait 8;
+//AUTO 	iprintln("^4>^2Welcome to mp_deathrun_horror!");
+//AUTO 	iprintln("Song: Minoru - Reckless");
+	wait 10;
+//AUTO 	iprintln("^4>^2Have fun and enjoj!");
+	wait 10;
+//AUTO 	iprintln("^4>^2Creator ^7eBc|Legend");
+}
+
+credit()
+{
+wait(10);
+thread drawInformation( 800, 0.8, 1, "Horror" );
+wait(6);
+thread drawInformation( 800, 0.8, 1, "eBc|Legend" );
+wait(6);
+}
+
+drawInformation( start_offset, movetime, mult, text )
+{
+	start_offset *= mult;
+	hud = new_ending_hud( "center", 0.1, start_offset, 90 );
+	hud setText( text );
+	hud moveOverTime( movetime );
+	hud.x = 0;
+	wait( movetime );
+	wait( 3 );
+	hud moveOverTime( movetime );
+	hud.x = start_offset * -1;
+
+	wait movetime;
+	hud destroy();
+}
+
+new_ending_hud( align, fade_in_time, x_off, y_off )
+{
+	hud = newHudElem();
+    hud.foreground = true;
+	hud.x = x_off;
+	hud.y = y_off;
+	hud.alignX = align;
+	hud.alignY = "middle";
+	hud.horzAlign = align;
+	hud.vertAlign = "middle";
+
+ 	hud.fontScale = 3;
+
+	hud.color = (1.0, 0.0, 0.0);
+	hud.font = "objective";
+	hud.glowColor = (1.0, 0.0, 0.0);
+	hud.glowAlpha = 1;
+
+	hud.alpha = 0;
+	hud fadeovertime( fade_in_time );
+	hud.alpha = 1;
+	hud.hidewheninmenu = true;
+	hud.sort = 10;
+	return hud;
+}
+
+startdoor()
+{
+object = getent("startdoor","targetname");
+{
+wait 10;
+object moveZ(172,3);
+object waittill("movedone");
+}
+}
+
+trap1()
+{
+cannonfire1 = getent("cannon1","targetname");
+//effect1 = getent("fire1","targetname");
+trig = getent("trig_trap1","targetname");
+/* AUTO trig waittill("trigger" , user );
+way1 = getent("way1","targetname");
+way2 = getent("way2","targetname");
+way3 = getent("way3","targetname");
+{
+trig delete();
+PlayFX(level._effect["cannon_fire"],(1056, 2600, 688));
+cannonfire1 moveto ( way1.origin, .5);
+cannonfire1 waittill("movedone");
+cannonfire1 moveto ( way2.origin, .5);
+cannonfire1 waittill("movedone");
+cannonfire1 moveto ( way3.origin, .5);
+cannonfire1 waittill("movedone");
+PlayFX(level._effect["cannon"],(1176, 440, 72));
+RadiusDamage( way3.origin, 200, 700, 1000);
+Earthquake( 3, 1, way3.origin, 1000);
+wait 2;
+cannonfire1 delete();
+}
+*/}
+
+trap2()
+{
+cannonfire2 = getent("cannon2","targetname");
+//effect2 = getent("fire2","targetname");
+trig = getent("trig_trap2","targetname");
+/* AUTO trig waittill("trigger" , user );
+way11 = getent("way11","targetname");
+way22 = getent("way22","targetname");
+way33 = getent("way33","targetname");
+{
+trig delete();
+PlayFX(level._effect["cannon_fire"],(1304, 2600, 688));
+cannonfire2 moveto ( way11.origin, .5);
+cannonfire2 waittill("movedone");
+cannonfire2 moveto ( way22.origin, .5);
+cannonfire2 waittill("movedone");
+cannonfire2 moveto ( way33.origin, .5);
+cannonfire2 waittill("movedone");
+PlayFX(level._effect["cannon"],(2280, 280, 24));
+RadiusDamage( way33.origin, 200, 700, 1000);
+Earthquake( 3, 1, way33.origin, 1000);
+wait 2;
+cannonfire2 delete();
+}
+*/}
+
+trap3()
+{
+cannonfire3 = getent("cannon3","targetname");
+//effect3 = getent("fire3","targetname");
+trig = getent("trig_trap3","targetname");
+/* AUTO trig waittill("trigger" , user );
+way13 = getent("way13","targetname");
+way23 = getent("way23","targetname");
+way333 = getent("way333","targetname");
+{
+trig delete();
+PlayFX(level._effect["cannon_fire"],(3800, 2552, 688));
+cannonfire3 moveto ( way13.origin, .5);
+cannonfire3 waittill("movedone");
+cannonfire3 moveto ( way23.origin, .5);
+cannonfire3 waittill("movedone");
+cannonfire3 moveto ( way333.origin, .5);
+cannonfire3 waittill("movedone");
+PlayFX(level._effect["cannon"],(3555.33, 344.615, 72));
+RadiusDamage( way333.origin, 200, 1000, 1000);
+Earthquake( 3, 1, way333.origin, 1000);
+wait 2;
+cannonfire3 delete();
+}
+*/}
+
+trap4()
+{
+trigger = getent("trig_trap4","targetname");
+object = getent("trap4","targetname");
+trap4quake = getent("trap4quake","targetname");
+killtrigger = getent ("kill4" , "targetname");
+/* AUTO trigger waittill ("trigger" , player );
+trigger delete();
+{
+killtrigger enablelinkto ();
+killtrigger linkto (object);
+object movez(-432, 1.5, .5);
+object waittill("movedone");
+Earthquake( 2, 0.5, trap4quake.origin, 500);
+wait 2;
+object movez(432, 1.5, 0.5);
+object waittill("movedone");
+wait 1;
+}
+*/}
+
+trap5()
+{
+trig = getent("trig_trap5","targetname");
+plats = getent("trap5","targetname");
+/* AUTO trig waittill("trigger", user );
+trig delete();
+{
+plats delete();
+}
+*/}
+
+trap6()
+{
+trig = getent("trig_trap6","targetname");
+rotator = getent("trap6","targetname");
+/* AUTO trig waittill("trigger", user );
+trig delete();
+i=0;
+while(i<3)
+{
+rotator rotateyaw(180, 1);
+wait 0.1;
+}
+*/}
+
+trap7()
+{
+	part1 = getentarray ("trap7_1" ,"targetname");
+	part2 = getentarray ("trap7_2" ,"targetname");
+	part3 = getentarray ("trap7_3" ,"targetname");
+	part4 = getentarray ("trap7_4" ,"targetname");
+	trig = getent ("trig_trap7" , "targetname");
+
+/* AUTO  	trig waittill( "trigger", user ); 
+	trig delete ();
+	random = randomint(4);
+
+	switch(random)
+	{
+		case 0:
+				part1[randomInt(part1.size)] notsolid();
+				part4[randomInt(part4.size)] notsolid();
+				break;
+				
+		case 1:	
+				part2[randomInt(part2.size)] notsolid();
+				part3[randomInt(part3.size)] notsolid();
+				break;
+		case 2:	
+				part1[randomInt(part1.size)] notsolid();
+				part3[randomInt(part3.size)] notsolid();
+				break;
+
+		case 3:	
+				part2[randomInt(part2.size)] notsolid();
+				part4[randomInt(part4.size)] notsolid();				
+				
+		default: return;
+	}
+*/}
+
+trap8()
+{
+trig = getent("trig_trap8","targetname");
+object = getent("trap8","targetname");
+/* AUTO trig waittill("trigger", user );
+trig delete();
+{
+object moveZ(-240, 0.5);
+wait 3;
+object moveZ(240, 3);
+wait 1;
+}
+*/}
+
+trap9()
+{
+trig = getent("trig_trap9","targetname");
+pillar1 = getent("pillar1","targetname");
+pillar2 = getent("pillar2","targetname");
+pillar3 = getent("pillar3","targetname");
+pillar4 = getent("pillar4","targetname");
+pillar5 = getent("pillar5","targetname");
+/* AUTO trig waittill("trigger", user );
+trig delete();
+kill1 = getent("kill_1" , "targetname");
+kill2 = getent("kill_2" , "targetname");
+kill3 = getent("kill_3" , "targetname");
+kill4 = getent("kill_4" , "targetname");
+kill5 = getent("kill_5" , "targetname");
+trap9quake = getent("trap9quake","targetname");
+{
+kill1 enablelinkto ();
+kill1 linkto (pillar1);
+kill2 enablelinkto ();
+kill2 linkto (pillar2);
+kill3 enablelinkto ();
+kill3 linkto (pillar3);
+kill4 enablelinkto ();
+kill4 linkto (pillar4);
+kill5 enablelinkto ();
+kill5 linkto (pillar5);
+{
+pillar1 moveZ(-128, 1);
+pillar2 moveZ(-128, 1);
+pillar3 moveZ(-128, 1);
+pillar4 moveZ(-128, 1);
+pillar5 moveZ(-128, 1);
+wait 1;
+Earthquake( 2, 1, trap9quake.origin, 700);
+wait 5;
+Earthquake( 2, 1, trap9quake.origin, 700);
+pillar1 moveZ(128, 1);
+pillar2 moveZ(128, 1);
+pillar3 moveZ(128, 1);
+pillar4 moveZ(128, 1);
+pillar5 moveZ(128, 1);
+}
+}
+*/}
+
+trap10()
+{
+trig = getent("trig_trap10","targetname");
+object = getent("trap10","targetname");
+/* AUTO trig waittill("trigger", user );
+trig delete();
+while(1)
+{
+object rotatepitch(180,2.5);
+wait 0.1;
+}
+*/}
+
+trap11()
+{
+	trig = getent("trig_trap11","targetname");
+	//object1 = getent("trap11_1","targetname");
+	object2 = getent("trap11_2","targetname");
+/* AUTO 	trig waittill("trigger", user );
+	trig delete();
+	while(1)
+	{
+	//object1 rotateYaw(360, 2, 1);
+	object2 rotateYaw(-360, 2, 1);
+	wait 4;
+	object2 rotateYaw(360, 2, 1);
+	wait 4;
+	}
+*/}
+
+trap12()
+{
+	trig = getent("trig_trap12","targetname");
+	object = getent("trap12","targetname");
+/* AUTO 	trig waittill("trigger", user );
+	trig delete();
+	while(1)
+	{
+	object rotateRoll(360, 2);
+	object waittill("rotatedone");
+	wait 0.1;
+	}
+*/}
+
+trap13()
+{
+	level.fan = getEnt("trap13","targetname");
+	trig = getent("trig_trap13","targetname");
+/* AUTO 	trig waittill("trigger", user);
+	trig delete();
+	thread trap13_pusher();
+	{
+		level.fan rotateyaw(3600, 10);
+		wait 0.1;
+	}
+*/}
+
+trap13_pusher()
+{
+	level.pusher = getEnt ( "pusher", "targetname" );
+	thread stop();
+	
+	while(1)
+	{
+/* AUTO     	level.pusher waittill ( "trigger", who );
+	
+	    oldpos = who.origin;
+	    strenght = 10;
+	    for(i=0;i<strenght;i++)
+	    {
+	        who.health += 160;
+            who finishplayerdamage(who, level.jumpattacker, 160, 0, "MOD_FALLING", "jump_mp", who.origin, AnglesToForward((-90,0,0)), "none", 0);
+	    }
+	}
+*/}
+
+stop()
+{
+	wait 10;
+	level.pusher delete();
+}
+
+end_door()
+{
+	door1 = getEnt ("door1","targetname");
+	door2 = getEnt ("door2","targetname");
+	trig = getent ("doortrig","targetname");
+	trig waittill ("trigger", user );
+	trig delete();
+	{
+		door1 moveY(72, 1);
+		door2 moveY(-72, 1);
+	}
+
+}
+
+doHud()
+{
+	level endon( "intermission" );
+		
+	colour = randomInt(20);
+	switch(colour)
+	{
+		case 0:
+			level.randomcolour = (1, 0, 0);
+			break;
+		case 1:
+			level.randomcolour = (0.3, 0.6, 0.3);
+			break;
+		case 2:
+			level.randomcolour = (0.602, 0, 0.563);
+			break;
+		case 3:
+			level.randomcolour = (0.055, 0.746, 1);
+			break;
+		case 4:
+			level.randomcolour = (0, 1, 0);
+			break;
+		case 5:
+			level.randomcolour = (0.043, 0.203, 1);
+			break;
+		case 6:
+			level.randomcolour = (0.5, 0.0, 0.8);
+			break;
+		case 7:
+			level.randomcolour = (1.0, 0.0, 0.0);
+			break;
+		case 8:
+			level.randomcolour = (0.9, 1.0, 0.0);
+			break;
+		case 9:
+			level.randomcolour = (1.0, 0.0, 0.0);
+			break;			
+		case 10:
+			level.randomcolour = (1.0, 0.0, 0.4);
+			break;
+		case 11:
+			level.randomcolour = (1.0, 0.5, 0.0);
+			break;
+		case 12:
+			level.randomcolour = (0.0, 0.5, 1.0);
+			break;
+		case 13:
+			level.randomcolour = (0.5, 0.0, 0.8);
+			break;
+		case 14:
+			level.randomcolour = (1.0, 0.0, 0.4);
+			break;
+		case 15:
+			level.randomcolour = (0.0, 0.5, 1.0);
+			break;
+		case 16:
+			level.randomcolour = (0.3, 0.0, 0.3);
+			break;
+		case 17:
+			level.randomcolour = (0.0, 0.5, 1.0);
+			break;	
+		case 18:
+			level.randomcolour = (0.5, 0.0, 0.2);
+			break;
+		case 19:
+			level.randomcolour = (0.0, 1.0, 1.0);
+			break;
+		case 20:
+			level.randomcolour = (0.0, 0.0, 1.0);
+			break;
+		case 21:
+			level.randomcolour = (0.0, 1.0, 1.0);
+			break;
+		default: 
+			level.randomcolour = (0.0, 0.0, 1.0);
+			break;
+	}
+	
+	//0.5, 0.0, 0.8 - Sexxy purple
+	//1.0, 0.0, 0.0 - Epic Red
+	//1.0, 0.0, 0.4 - Preppy Pink
+	//0.0, 0.8, 0.0 - Epic Green
+//AUTO 	//0.9, 1.0, 0.0 - Banana Yellow
+	//1.0, 0.5, 0.0 - Burnt Orange
+	//0.0, 0.5, 1.0 - Turquoise
+	//0.0, 0.0, 1.0 - Deep Blue
+	//0.3, 0.0, 0.3 - Deep Purple
+	//0.0, 1.0, 0.0 - Light Green
+	//0.5, 0.0, 0.2 - Maroon
+	//0.0, 0.0, 0.0 - Black
+	//1.0, 1.0, 1.0 - White
+	//0.0, 1.0, 1.0 - Cyan
+	
+}
+
+sniperoom()
+{
+    level.snipe_trig = getEnt( "sniper", "targetname");
+    jump = getEnt( "jump_snipe", "targetname" );
+    acti = getEnt( "acti_snipe", "targetname" );
+
+    
+    while(1)
+    {
+        level.snipe_trig waittill( "trigger", player );
+        if( !isDefined( level.snipe_trig ) )
+            return;
+			
+		if(level.firstenter==true)
+		{
+		level.jump_trig delete();
+		level.weapon_trig delete();
+		level.virus_trig delete();
+		level.old_trig delete();
+		level.firstenter=false;
+		}
+        
+			noti = SpawnStruct();
+			noti.titleText = "^2>|^7Sniper Room^2|<";
+			noti.notifyText = level.activ.name + " ^5VS^7 " + player.name;
+			noti.glowcolor = level.randomcolour;
+			noti.duration = 4;
+			players = getentarray("player", "classname");
+			for(i=0;i<players.size;i++)
+			players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
+
+//AUTO 		ambientPlay("music2");
+//AUTO 		iprintln("^4Song: ^2Martin Garrix Virus");
+        player SetPlayerAngles( jump.angles );
+        player setOrigin( jump.origin );
+//AUTO 		player TakeAllWeapons();
+        level.activ setPlayerangles( acti.angles );
+        level.activ setOrigin( acti.origin );
+//AUTO 		level.activ TakeAllWeapons();
+	    player freezeControls(true);
+		level.activ freezeControls(true);
+//AUTO 	    wait 0.1;
+//AUTO         player GiveWeapon( "remington700_mp" );
+//AUTO 		player switchToWeapon( "remington700_mp" );
+//AUTO 		player giveMaxammo("remington700_mp");
+//AUTO 	    wait 0.1;
+//AUTO 		level.activ GiveWeapon( "remington700_mp" );
+//AUTO         level.activ SwitchToWeapon( "remington700_mp" );
+//AUTO         level.activ giveMaxammo("remington700_mp");
+//AUTO         wait 6;
+	    player freezeControls(false);
+		level.activ freezeControls(false);
+        while( isAlive( player ) && isDefined( player ) )
+//AUTO         wait 1;
+    }
+}
+
+jumproom()
+{
+    level.jump_trig = getEnt( "jump", "targetname");
+    jump = getEnt( "jumper_jump", "targetname" );
+    acti = getEnt( "acti_jump", "targetname" );
+
+    
+    while(1)
+    {
+        level.jump_trig waittill( "trigger", player );
+        if( !isDefined( level.jump_trig ) )
+            return;
+			
+		if(level.firstenter==true)
+		{
+		level.snipe_trig delete();
+		level.virus_trig delete();
+		level.weapon_trig delete();
+		level.old_trig delete();
+		level.firstenter=false;
+		}
+        
+			noti = SpawnStruct();
+			noti.titleText = "^2>|^7Jump Room^2|<";
+			noti.notifyText = level.activ.name + " ^5VS^7 " + player.name;
+			noti.glowcolor = level.randomcolour;
+			noti.duration = 4;
+			players = getentarray("player", "classname");
+			for(i=0;i<players.size;i++)
+			players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
+
+//AUTO 		ambientPlay("music2");
+//AUTO 		iprintln("^4Song: ^2Martin Garrix Virus");
+        player SetPlayerAngles( jump.angles );
+        player setOrigin( jump.origin );
+//AUTO 		player TakeAllWeapons();
+        level.activ setPlayerangles( acti.angles );
+        level.activ setOrigin( acti.origin );
+//AUTO 		level.activ TakeAllWeapons();
+	    player freezeControls(true);
+		level.activ freezeControls(true);
+//AUTO 	    wait 0.1;
+//AUTO         player GiveWeapon( "deserteagle_mp" );  
+//AUTO         player switchToWeapon( " deserteagle_mp" );
+		player setWeaponAmmoClip("deserteagle_mp", 0 );
+		player setWeaponAmmoStock( "deserteagle_mp", 0 );
+//AUTO 	    wait 0.1;
+//AUTO         level.activ GiveWeapon( "deserteagle_mp" );  
+//AUTO         level.activ switchToWeapon ( "deserteagle_mp" );
+		level.activ setWeaponAmmoClip("deserteagle_mp", 0 );
+		level.activ setWeaponAmmoStock( "deserteagle_mp", 0 );
+//AUTO         wait 6;
+	    player freezeControls(false);
+		level.activ freezeControls(false);
+        while( isAlive( player ) && isDefined( player ) )
+//AUTO         wait 1;
+    }
+}
+
+jumproom_wep()
+{
+trigger = getent ("jump_wep","targetname");
+trigger waittill ("trigger",user); 
+{  
+trigger delete();
+//AUTO user giveWeapon( "m40a3_mp");
+user setWeaponAmmoStock ( "m40a3_mp", 5 );
+user setWeaponAmmoClip ( "m40a3_mp", 5 );
+//AUTO user switchToWeapon("m40a3_mp");
+wait 0.1;
+}
+}
+
+virusroom()
+{
+    level.virus_trig = getEnt( "virus", "targetname");
+    jump = getEnt( "jumper_virus", "targetname" );
+    acti = getEnt( "acti_virus", "targetname" );
+
+    
+    while(1)
+    {
+        level.virus_trig waittill( "trigger", player );
+        if( !isDefined( level.virus_trig ) )
+            return;
+			
+		if(level.firstenter==true)
+		{
+		level.snipe_trig delete();
+		level.jump_trig delete();
+		level.weapon_trig delete();
+		level.old_trig delete();
+		level.firstenter=false;
+		}
+        
+			noti = SpawnStruct();
+			noti.titleText = "^2>|^7Virus Room^2|<";
+			noti.notifyText = level.activ.name + " ^5VS^7 " + player.name;
+			noti.glowcolor = level.randomcolour;
+			noti.duration = 4;
+			players = getentarray("player", "classname");
+			for(i=0;i<players.size;i++)
+			players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
+
+//AUTO 		ambientPlay("music2");
+//AUTO 		iprintln("^4Song: ^2Martin Garrix Virus");
+        player SetPlayerAngles( jump.angles );
+        player setOrigin( jump.origin );
+//AUTO 		player TakeAllWeapons();
+        level.activ setPlayerangles( acti.angles );
+        level.activ setOrigin( acti.origin );
+//AUTO 		level.activ TakeAllWeapons();
+	 	player freezeControls(true);
+		level.activ freezeControls(true);
+//AUTO 	    wait 0.1;
+//AUTO         player GiveWeapon( "deserteagle_mp" ); 
+        player setWeaponAmmoClip("deserteagle_mp", 0 );
+		player setWeaponAmmoStock( "deserteagle_mp", 0 ); 
+//AUTO         player switchToWeapon( " deserteagle_mp" );
+		player.maxhealth = 300;
+		player.health = player.maxhealth;
+//AUTO 		iprintln ("" + player.name + " ^2H^7ave ^2E^7xtra ^2H^7ealth");
+//AUTO 	    wait 0.1;
+//AUTO 	    level.activ iprintlnbold("^1Y^7ou ^1H^7ave ^1A^7ll ^1S^7nipers");
+//AUTO         level.activ giveWeapon("remington700_mp" );
+//AUTO         level.activ giveWeapon("m40a3_mp ");
+//AUTO         level.activ giveWeapon("dragunov_mp"); 
+//AUTO         level.activ giveWeapon("barrett_mp" ); 
+//AUTO         level.activ giveMaxammo("remington700_mp");
+//AUTO         level.activ giveMaxammo("m40a3_mp");
+//AUTO         level.activ giveMaxammo("dragunov_mp");
+//AUTO         level.activ giveMaxammo("barrett_mp");
+//AUTO         level.activ switchToWeapon("remington700_mp");
+//AUTO         wait 4;
+        player freezeControls(false);
+		level.activ freezeControls(false);
+        while( isAlive( player ) && isDefined( player ) )
+//AUTO         wait 1;
+    }
+}
+
+virus_killtele()
+{
+	trig = getEnt ("virus_tele","targetname");
+	orig = getent ("tele_spot","targetname");
+	trig waittill("trigger", player );
+	{
+		player SetPlayerAngles( orig.angles );
+		player setOrigin( orig.origin );
+		wait 0.1;
+		level.activ freezeControls(true);
+//AUTO 		iprintlnbold ("^1A^7ctivator ^1I^7s ^1U^7nable ^1T^7o ^1M^7ove");
+		player setWeaponAmmoClip("deserteagle_mp", 2);
+		player setWeaponAmmoStock("deserteagle_mp", 2);
+	}
+}
+
+weaponroom()
+{
+    level.weapon_trig = getEnt( "weapon", "targetname");
+    jump = getEnt( "jumper_wep", "targetname" );
+    acti = getEnt( "acti_wep", "targetname" );
+
+    
+    while(1)
+    {
+        level.weapon_trig waittill( "trigger", player );
+        if( !isDefined( level.weapon_trig ) )
+            return;
+			
+		if(level.firstenter==true)
+		{
+		level.snipe_trig delete();
+		level.jump_trig delete();
+		level.virus_trig delete();
+		level.old_trig delete();
+		level.firstenter=false;
+		}
+        
+			noti = SpawnStruct();
+			noti.titleText = "^2>|^7Weapon Room^2|<";
+			noti.notifyText = level.activ.name + " ^5VS^7 " + player.name;
+			noti.glowcolor = level.randomcolour;
+			noti.duration = 4;
+			players = getentarray("player", "classname");
+			for(i=0;i<players.size;i++)
+			players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
+
+//AUTO 		ambientPlay("music2");
+//AUTO 		iprintln("^4Song: ^2Martin Garrix Virus");
+        player SetPlayerAngles( jump.angles );
+        player setOrigin( jump.origin );
+//AUTO 		player TakeAllWeapons();
+        level.activ setPlayerangles( acti.angles );
+        level.activ setOrigin( acti.origin );
+//AUTO 		level.activ TakeAllWeapons();
+	 	player freezeControls(true);
+		level.activ freezeControls(true);
+//AUTO 	    wait 0.1;
+	    level.player = player;
+        thread player_wep(); 
+        thread acti_wep();
+//AUTO         wait 6;
+        player freezeControls(false);
+		level.activ freezeControls(false);
+        while( isAlive( player ) && isDefined( player ) )
+//AUTO         wait 1;
+    }
+}
+
+player_wep()
+{
+	random = randomint(10);
+
+	switch(random)
+	{
+		case 0:
+//AUTO 				level.player giveWeapon("ak47_mp");
+//AUTO 				level.player switchToWeapon("ak47_mp");
+				break;	
+		case 1:	
+//AUTO 				level.player giveWeapon("ak74u_mp");
+//AUTO 				level.player switchToWeapon("ak74u_mp");
+				break;
+		case 2:
+//AUTO 				level.player giveWeapon("g3_mp");
+//AUTO 				level.player switchToWeapon("g3_mp");
+				break;
+		case 3:
+//AUTO 				level.player giveWeapon("m21_mp");
+//AUTO 				level.player switchToWeapon("m21_mp");
+				break;
+		case 4:
+//AUTO 				level.player giveWeapon("mp5_mp");
+//AUTO 				level.player switchToWeapon("mp5_mp");
+				break;
+		case 5:
+//AUTO 				level.player giveWeapon("deserteagle_mp");
+//AUTO 				level.player switchToWeapon("deserteagle_mp");
+				break;
+		case 6:
+//AUTO 				level.player giveWeapon("remington700_mp");
+//AUTO 				level.player switchToWeapon("remington700_mp");
+				break;
+		case 7:
+//AUTO 				level.player giveWeapon("knife_mp");
+//AUTO 				level.player switchToWeapon("knife_mp");
+				break;
+		case 8:
+//AUTO 				level.player giveWeapon("p90_mp");
+//AUTO 				level.player switchToWeapon("p90_mp");
+				break;
+		case 9:
+//AUTO 				level.player giveWeapon("rpg_mp");
+//AUTO 				level.player switchToWeapon("rpg_mp");
+				
+		default: return;
+	}
+
+}
+
+acti_wep()
+{
+	random = randomint(10);
+
+	switch(random)
+	{
+		case 0:
+//AUTO 				level.activ giveWeapon("ak47_mp");
+//AUTO 				level.activ switchToWeapon("ak47_mp");
+				break;	
+		case 1:	
+//AUTO 				level.activ giveWeapon("ak74u_mp");
+//AUTO 				level.activ switchToWeapon("ak74u_mp");
+				break;
+		case 2:
+//AUTO 				level.activ giveWeapon("g3_mp");
+//AUTO 				level.activ switchToWeapon("g3_mp");
+				break;
+		case 3:
+//AUTO 				level.activ giveWeapon("m21_mp");
+//AUTO 				level.activ switchToWeapon("m21_mp");
+				break;
+		case 4:
+//AUTO 				level.activ giveWeapon("mp5_mp");
+//AUTO 				level.activ switchToWeapon("mp5_mp");
+				break;
+		case 5:
+//AUTO 				level.activ giveWeapon("deserteagle_mp");
+//AUTO 				level.activ switchToWeapon("deserteagle_mp");
+				break;
+		case 6:
+//AUTO 				level.activ giveWeapon("remington700_mp");
+//AUTO 				level.activ switchToWeapon("remington700_mp");
+				break;
+		case 7:
+//AUTO 				level.activ giveWeapon("knife_mp");
+//AUTO 				level.activ switchToWeapon("knife_mp");
+				break;
+		case 8:
+//AUTO 				level.activ giveWeapon("p90_mp");
+//AUTO 				level.activ switchToWeapon("p90_mp");
+				break;
+		case 9:
+//AUTO 				level.activ giveWeapon("rpg_mp");
+//AUTO 				level.activ switchToWeapon("rpg_mp");
+				
+		default: return;
+	}
+
+}
+
+old()
+{
+	level.old_trig = getent ("old_trig","targetname");
+	door = getEnt ("old_door","targetname");
+	level.old_trig waittill ("trigger", player );
+	{
+		{
+		level.old_trig delete();
+		level.jump_trig delete();
+		level.snipe_trig delete();
+		level.virus_trig delete();
+		level.weapon_trig delete();
+		}
+
+	door moveZ(-224, 5);
+	door waittill("movedone");
+//AUTO 	iprintlnbold ("^2>|^1O^7ld ^1D^7oor ^1i^7s ^1O^7pened^2|<");
+
+	}
+
+}
+

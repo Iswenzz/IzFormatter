@@ -149,20 +149,20 @@ level.sniper_trigger delete();
 level.akuroom_trigger delete();
 level.firstenter=false;
 }
-//AUTO wait(0.05);
+wait(0.05);
 
 player SetOrigin( telejumporigin2.origin );
 player setplayerangles( telejumporigin2.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon("deserteagle_mp");
 //AUTO player GiveMaxAmmo("deserteagle_mp");
-//AUTO wait .05;
+wait .05;
 //AUTO player SwitchToWeapon("deserteagle_mp");
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactorigin2.origin);
 level.activ setplayerangles (level.teleactorigin2.angles);
 //AUTO iPrintlnBold( " ^7"+ player.name + "^7 has entered the old room^7!" );
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon( "deserteagle_mp" );
 
 player waittill ("death");
@@ -191,25 +191,25 @@ level.oldroom_trigger delete();
 level.sniper_trigger delete();	
 level.firstenter=false;
 }
-//AUTO wait(0.05);
+wait(0.05);
 
 player SetOrigin( telejumporigin1.origin );
 player setplayerangles( telejumporigin1.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon("deserteagle_mp");
 //AUTO player GiveMaxAmmo("deserteagle_mp");
-//AUTO wait .05;
+wait .05;
 //AUTO player SwitchToWeapon("deserteagle_mp");
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactorigin1.origin);
 level.activ setplayerangles (level.teleactorigin1.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "deserteagle_mp" );
 //AUTO level.activ GiveMaxAmmo("deserteagle_mp");
-//AUTO wait .05;
+wait .05;
 //AUTO level.activ SwitchToWeapon("deserteagle_mp");
 //AUTO iPrintlnBold( " ^7"+ player.name + " ^7 has entered the gun room^7!" );
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon( "deserteagle_mp" );
 //AUTO level.activ SwitchToWeapon( "deserteagle_mp" );
 
@@ -239,7 +239,7 @@ level.oldroom_trigger delete();
 level.akuroom_trigger delete();
 level.firstenter=false;
 }
-//AUTO wait(0.05);
+wait(0.05);
 
 player SetOrigin( telejumporigin.origin );
 player setplayerangles( telejumporigin.angles );
@@ -248,9 +248,9 @@ player setplayerangles( telejumporigin.angles );
 //AUTO player GiveWeapon( "remington700_mp" );
 //AUTO player GiveMaxAmmo("m40a3_mp");
 //AUTO player GiveMaxAmmo( "remington700_mp" );
-//AUTO wait .05;
+wait .05;
 //AUTO player SwitchToWeapon("m40a3_mp");
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactorigin.origin);
 level.activ setplayerangles (level.teleactorigin.angles);
 //AUTO level.activ TakeAllWeapons();
@@ -258,10 +258,10 @@ level.activ setplayerangles (level.teleactorigin.angles);
 //AUTO level.activ GiveWeapon( "remington700_mp" );
 //AUTO level.activ GiveMaxAmmo("m40a3_mp");
 //AUTO level.activ GiveMaxAmmo( "remington700_mp" );
-//AUTO wait .05;
+wait .05;
 //AUTO level.activ SwitchToWeapon("m40a3_mp");
 //AUTO iPrintlnBold( " ^7"+ player.name + " ^7 has entered the Sniper room^7!" );
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon( "m40a3_mp" );
 //AUTO level.activ SwitchToWeapon( "m40a3_mp" );
 
@@ -416,19 +416,21 @@ enddoor2()
 trap1()
 {
 	platform1 = getent("trap1", "targetname");
+	level endon("trigger");
     trig1 = getent("trig_trap1", "targetname");
 	trig1 sethintstring("Activate this trap");
-/* AUTO     trig1 waittill("trigger", player );
+    trig1 waittill("trigger", player );
 	trig1 sethintstring("Trap activated");
     platform1 delete();
-*/}
+}
 
 trap2()
 {
 	platform2 = getent("trap2", "targetname");
+	level endon("trigger");
 	trig2 = getent("trig_trap2", "targetname");
 	trig2 sethintstring("Activate this trap");
-/* AUTO 	trig2 waittill("trigger", player);
+	trig2 waittill("trigger", player);
 	trig2 sethintstring("Trap activated");
 	for (;;)
 
@@ -438,14 +440,15 @@ trap2()
 	wait 6;
 	
 }
-*/}
+}
 
 trap3()
 {
 	platform3 = getent("trap3", "targetname");
+	level endon("trigger");
 	trig3 = getent("trig_trap3", "targetname");
 	trig3 sethintstring("Activate this trap");
-/* AUTO 	trig3 waittill("trigger", player);
+	trig3 waittill("trigger", player);
 	trig3 sethintstring("Trap activated");
 	for(;;)
 {
@@ -456,14 +459,15 @@ trap3()
     wait 5;	
 	
 }
-*/}
+}
 
 trap4()
 {
 	platform4 = getent("trap4", "targetname");
+	level endon("trigger");
 	trig4 = getent("trig_trap4", "targetname");
 	trig4 sethintstring("Activate this trap");
-/* AUTO 	trig4 waittill("trigger", player);
+	trig4 waittill("trigger", player);
 	trig4 sethintstring("Trap activated");
 	for(;;)
 {
@@ -474,7 +478,7 @@ trap4()
 	wait 2.5;
 	
 }	
-*/}
+}
 
 secret1()
 {
@@ -504,9 +508,10 @@ player setOrigin(secret1outtele.origin);
 trap5()
 {
 	platform5 = getent("trap5", "targetname");
+	level endon("trigger");
 	trig5 = getent("trig_trap4", "targetname");
 	trig5 sethintstring("Activate this trap");
-/* AUTO 	trig5 waittill("trigger", player);
+	trig5 waittill("trigger", player);
 	trig5 sethintstring("Trap activated");
 	for(;;)
 {
@@ -517,7 +522,7 @@ trap5()
 	wait 2.5;
 	
 }	
-*/}
+}
 
 elevator1()
 {
@@ -599,9 +604,10 @@ eledoors2()
 trap6()
 {
 	platform6 = getent("trap6", "targetname");
+	level endon("trigger");
 	trig7 = getent("trig_trap6", "targetname");
 	trig7 sethintstring("Activate this trap");
-/* AUTO 	trig7 waittill("trigger", player);
+	trig7 waittill("trigger", player);
 	trig7 sethintstring("Trap activated");
 	for(;;)
 {
@@ -612,14 +618,15 @@ trap6()
 	wait 0.6;
 	
 }	
-*/}
+}
 
 trap7()
 {
 	platform7 = getent("trap7", "targetname");
+	level endon("trigger");
 	trig8 = getent("trig_trap7", "targetname");
 	trig8 sethintstring("Activate this trap");
-/* AUTO 	trig8 waittill("trigger", player);
+	trig8 waittill("trigger", player);
 	trig8 sethintstring("Trap activated");
 	for(;;)
 {
@@ -630,14 +637,15 @@ trap7()
 	wait 3;
 	
 }	
-*/}
+}
 
 trap8()
 {
 	platform8 = getent("trap8", "targetname");
+	level endon("trigger");
 	trig9 = getent("trig_trap8", "targetname");
 	trig9 sethintstring("Activate this trap");
-/* AUTO 	trig9 waittill("trigger", player);
+	trig9 waittill("trigger", player);
 	trig9 sethintstring("Trap activated");
 	for(;;)
 {
@@ -648,15 +656,16 @@ trap8()
 	wait 1.2;
 	
 }	
-*/}
+}
 
 trap9()
 {
 	platform9 = getent("trap9_1", "targetname");
+	level endon("trigger");
 	platform10 = getent("trap9_2", "targetname");
 	trig10 = getent("trig_trap9", "targetname");
 	trig10 sethintstring("Activate this trap");
-/* AUTO 	trig10 waittill("trigger", player);
+	trig10 waittill("trigger", player);
 	trig10 sethintstring("Trap activated");
 {
 	wait 0.01;
@@ -665,15 +674,16 @@ trap9()
 	wait 0.01;
 	platform10 moveY(128,1.5);
 }	
-*/}
+}
 
 trap10()
 {
 	platform11 = getent("trap10_1", "targetname");
+	level endon("trigger");
 	platform12 = getent("trap10_2", "targetname");
 	trig11 = getent("trig_trap10", "targetname");
 	trig11 sethintstring("Activate this trap");
-/* AUTO 	trig11 waittill("trigger", player);
+	trig11 waittill("trigger", player);
 	trig11 sethintstring("Trap activated");
 {
 	wait 0.01;
@@ -682,14 +692,15 @@ trap10()
 	wait 0.01;
 	platform12 moveY(-128,1.5);
 }	
-*/}
+}
 
 trap11()
 {
 	platform13 = getent("trap11_1", "targetname");
+	level endon("trigger");
 	trig12 = getent("trig_trap11", "targetname");
 	trig12 sethintstring("Activate this trap");
-/* AUTO 	trig12 waittill("trigger", player);
+	trig12 waittill("trigger", player);
 	trig12 sethintstring("Trap activated");
 	for(;;)
 {
@@ -698,14 +709,15 @@ trap11()
 	platform13 moveY(128,0.8);
 	wait 0.8;
 }	
-*/}
+}
 
 trap12()
 {
 	platform14 = getent("trap11_2", "targetname");
+	level endon("trigger");
 	trig13 = getent("trig_trap11", "targetname");
 	trig13 sethintstring("Activate this trap");
-/* AUTO 	trig13 waittill("trigger", player);
+	trig13 waittill("trigger", player);
 	trig13 sethintstring("Trap activated");
 	for(;;)
 {
@@ -714,43 +726,46 @@ trap12()
 	platform14 moveY(-128,0.8);
 	wait 0.8;
 }	
-*/}
+}
 
 trap13()
 {
 	platform15 = getent("trap12_1", "targetname");
+	level endon("trigger");
 	platform16 = getent("trap12_2", "targetname");
     trig14 = getent("trig_trap12", "targetname");
 	trig14 sethintstring("Activate this trap");
-/* AUTO     trig14 waittill("trigger", player );
+    trig14 waittill("trigger", player );
 	trig14 sethintstring("Trap activated");
 	
 	
     platform15 delete();
 	platform16 delete();
-*/}
+}
 
 trap14()
 {
 	platform17 = getent("trap13_1", "targetname");
+	level endon("trigger");
 	platform18 = getent("trap13_2", "targetname");
     trig19 = getent("trig_trap13", "targetname");
 	trig19 sethintstring("Activate this trap");
-/* AUTO     trig19 waittill("trigger", player );
+    trig19 waittill("trigger", player );
 	trig19 sethintstring("Trap activated");
 	
 	
     platform17 delete();
 	platform18 delete();
-*/}
+}
 
 trap15()
 {
 
+	level endon("trigger");
 	platform19 = getent("trap15_1", "targetname");
 	trig20 = getent("trig_trap15", "targetname");
 	trig20 sethintstring ("Activate this trap");
-/* AUTO 	trig20 waittill ("trigger", player);
+	trig20 waittill ("trigger", player);
 	trig20 setHintString("Trap activated");
 	for(;;)
 {
@@ -758,96 +773,104 @@ trap15()
 	wait 6;
 	
 }	
-*/}
+}
 
 trap16()
 {
 	platform20 = getent("trap16", "targetname");
+	level endon("trigger");
 	trig21 = getent("trig_trap15", "targetname");
-/* AUTO 	trig21 waittill ("trigger", player);
+	trig21 waittill ("trigger", player);
 	for(;;)
 {
 	platform20 rotatepitch(360, 2);
 	wait 6;
 }	
-*/}		
+}		
 
 trap17()
 {
 	platform21 = getent("trap17", "targetname");
+	level endon("trigger");
 	trig21 = getent("trig_trap15", "targetname");
-/* AUTO 	trig21 waittill ("trigger", player);
+	trig21 waittill ("trigger", player);
 	for(;;)
 {
 	wait 2;
 	platform21 rotatepitch(360, 2);
 	wait 4;
 }	
-*/}	
+}	
 
 trap18()
 {
 	platform22 = getent("trap18", "targetname");
+	level endon("trigger");
 	trig22 = getent("trig_trap15", "targetname");
-/* AUTO 	trig22 waittill ("trigger", player);
+	trig22 waittill ("trigger", player);
 	for(;;)
 {
 	wait 2;
 	platform22 rotatepitch(360, 2);
 	wait 4;
 }	
-*/}	
+}	
 
 trap19()
 {
 	platform23 = getent("trap19", "targetname");
+	level endon("trigger");
 	trig23 = getent("trig_trap15", "targetname");
-/* AUTO 	trig23 waittill ("trigger", player);
+	trig23 waittill ("trigger", player);
 	for(;;)
 {
 	wait 4;
 	platform23 rotatepitch(360, 2);
 	wait 2;
 }	
-*/}	
+}	
 
 trap20()
 {
 	platform24 = getent("trap20", "targetname");
+	level endon("trigger");
 	trig24 = getent("trig_trap15", "targetname");
-/* AUTO 	trig24 waittill ("trigger", player);
+	trig24 waittill ("trigger", player);
 	for(;;)
 {
 	wait 4;
 	platform24 rotatepitch(360, 2);
 	wait 2;
 }	
-*/}	
+}	
 
 trap21()
 {
 	platform25 = getent("trap21", "targetname");
+	level endon("trigger");
     trig25 = getent("trig_trap21", "targetname");
 	trig25 sethintstring("Activate this trap");
-/* AUTO     trig25 waittill("trigger", player );
+    trig25 waittill("trigger", player );
 	trig25 sethintstring("Trap activated");
     platform25 delete();
-*/}
+}
 
 trap22()
 {
 	platform26 = getent("trap22", "targetname");
+	level endon("trigger");
     trig26 = getent("trig_trap21", "targetname");
-/* AUTO     trig26 waittill("trigger", player );
+    trig26 waittill("trigger", player );
     platform26 delete();
-*/}
+}
 
 trap23()
 {
 platform27 = getent("trap23", "targetname");
+	level endon("trigger");
 trig27 = getent("trig_trap23", "targetname");
 trig27 sethintstring("Activate this trap");
-/* AUTO trig27 waittill ("trigger", player);
+trig27 waittill ("trigger", player);
 trig27 setHintString("Trap activated");
 for(;;)
 {
@@ -855,7 +878,7 @@ for(;;)
 	platform27 rotateYaw(720,4);
 	wait 8;		
 }	
-*/}
+}
 
 teleport1()
 {

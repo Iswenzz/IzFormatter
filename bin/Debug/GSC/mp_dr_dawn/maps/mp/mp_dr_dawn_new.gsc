@@ -504,13 +504,14 @@ Secretend()
 Trap1()
 {
 	trig = getent("trap1_trigger", "targetname");
+	level endon("trigger");
 	trap1 = getent("trap1", "targetname");
 	trap1slick = getent("trap1slick", "targetname");
 
 	trig SetCursorHint("HINT_ACTIVATE");
 	
 	gold = getent("trap5gold","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	gold delete();
@@ -521,11 +522,12 @@ Trap1()
 	trap1slick waittill (" movedone ");
 	
 	
-*/} 
+} 
 
 Trap2()
 {
 	trig = getEnt( "trap2trig", "targetname" );
+	level endon("trigger");
 	brush1 = getEnt( "trap2_brush1", "targetname" );
 	brush2 = getEnt( "trap2_brush2", "targetname" );
 	brush3 = getEnt( "trap2_brush3", "targetname" );
@@ -535,7 +537,7 @@ Trap2()
 	brush7 = getEnt( "trap2_brush7", "targetname" );
 	brust8 = getEnt ("trap2_brush8", "targetname" );
 
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	
 	while(1)
 	{
@@ -553,16 +555,17 @@ Trap2()
 	brust8 rotateyaw (-360,1,0.5,0.5);
 	brush5 waittill ("rotatedone");
 }
-*/}
+}
 
 Trap3()
 {
  
+	level endon("trigger");
     trig = getEnt( "trap3trigger", "targetname" );
     brush = getEnt( "trap3a", "targetname" );
     brush2 = getEnt( "trap3b", "targetname" );
    
-/* AUTO         trig waittill( "trigger");
+        trig waittill( "trigger");
         trig delete();
        
         wait 0.1;
@@ -572,18 +575,19 @@ Trap3()
 		brush moveX(240,1,0.5,0.5);
 		brush2 moveX(-240,1,0.5,0.5);
        
-*/}
+}
 
 Trap4()
 {
 	trig = getent("trap4trig", "targetname");
+	level endon("trigger");
 	trap4a = getent("trap4a", "targetname");
 	trap4b = getEnt("trap4b", "targetname");
 	trap4c = getEnt("trap4c", "targetname");
 	staabfk = getEnt("staabfk", "targetname");
 	trig SetCursorHint("HINT_ACTIVATE");
 	gold = getent("trap5gold","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	playFX( level.staabfk, staabfk.origin );
 	wait 0.1;
 	trig delete();
@@ -595,11 +599,12 @@ Trap4()
 	playFX( level.staabfk, staabfk.origin );
 	
 	
-*/} 
+} 
 
 Trap5()
 {
         trig = getent("trap5trig", "targetname");
+	level endon("trigger");
         trap5a = getent("trap5a", "targetname");
         trap5b = getEnt("trap5b", "targetname");
         trap5c = getEnt("trap5c", "targetname");
@@ -608,7 +613,7 @@ Trap5()
         hurt3 = getEnt ("400c", "targetname");
         trig SetCursorHint("HINT_ACTIVATE");
         gold = getent("trap5gold","targetname");
-/* AUTO         trig waittill( "trigger", who );
+        trig waittill( "trigger", who );
                 hurt enablelinkto();
                 hurt linkto(trap5a);
                 hurt2 enablelinkto();
@@ -624,17 +629,18 @@ Trap5()
         wait 1.5;
         trap5c moveZ(290,1,0.5,0.5);
        
-*/}
+}
 
 Trap6()
 {
 trigdude = getent("trap6trig", "targetname");
+	level endon("trigger");
 elevate = getent("elevator","targetname");
 
 
 
  
-/* AUTO trigdude waittill("trigger", player); 
+trigdude waittill("trigger", player); 
 trigdude delete(); //deletes the trigger
  
      {
@@ -648,15 +654,16 @@ trigdude delete(); //deletes the trigger
 			
 
  
-*/}
+}
 
 Trap7()
 {
 	trig = getent("trap7trig", "targetname");
+	level endon("trigger");
 	trap7 = getent("trap7", "targetname");
 	trig SetCursorHint("HINT_ACTIVATE");
 	gold = getent("trap5gold","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	gold delete();
@@ -666,30 +673,32 @@ Trap7()
 	wait 0.5;
 	trap7 moveZ(-290,1);
 	
-*/} 
+} 
 
 Trap8()
 {
 	trig = getent("trap8trig", "targetname");
+	level endon("trigger");
 	trap8 = getent("urmum", "targetname");
 	trap8b = getent("urmum2", "targetname");
 	trig SetCursorHint("HINT_ACTIVATE");
 	gold = getent("trap5gold","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	gold delete();
 	trap8 moveY(800,1.3);
 	trap8b moveY (-800,2);
-*/} 
+} 
 
 Trap9()
 {
 	trig = getEnt( "trap9trig", "targetname" );
+	level endon("trigger");
 	trap9 = getEnt( "spinme", "targetname" ); 
 	trig SetCursorHint("HINT_ACTIVATE");
 	
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
  	
 	trap9 rotateYaw(3000,9);
@@ -701,7 +710,7 @@ Trap9()
 	trap9 waittill ("movedone");
 	wait 1.38;
 	
-*/}
+}
 
 Sniper()
 {
@@ -765,7 +774,7 @@ while(1)
                         level.jump_hud setPulseFX( 40, 2000, 99999999 );
        
                         thread jumpstarthud();
-//AUTO                         wait 5;
+                        wait 5;
                         player freezeControls( false );
                         level.activ freezeControls( false );
                         level.jump_hud destroy();
@@ -773,7 +782,7 @@ while(1)
                        
                 }
                 while( isAlive( player ) && isDefined( player ) )
-//AUTO                 wait 0.1;
+                wait 0.1;
         }
  
 }
@@ -873,7 +882,7 @@ while(1)
                         player setOrigin( jump.origin );
 //AUTO                         player takeAllWeapons();
 //AUTO                         player giveWeapon( "knife_mp" );
-//AUTO 						wait 0.05;
+						wait 0.05;
 //AUTO                         player switchToWeapon( "knife_mp" );
                 }
                 if( isDefined( level.activ ) && isAlive( level.activ ) )
@@ -885,7 +894,7 @@ while(1)
                         level.activ setOrigin( acti.origin );
 //AUTO                         level.activ takeAllWeapons();
 //AUTO                         level.activ giveWeapon( "knife_mp");
-//AUTO                         wait 0.05;
+                        wait 0.05;
 //AUTO                         player switchToWeapon( "knife_mp" );
 //AUTO                         level.activ switchToWeapon( "knife_mp" );
                        
@@ -908,7 +917,7 @@ while(1)
                         level.jump_hud setPulseFX( 40, 2000, 99999999 );
        
                         thread jumpstarthud();
-//AUTO                         wait 5;
+                        wait 5;
                         player freezeControls( false );
                         level.activ freezeControls( false );
                         level.jump_hud destroy();
@@ -916,7 +925,7 @@ while(1)
                        
                 }
                 while( isAlive( player ) && isDefined( player ) )
-//AUTO                 wait 0.1;
+                wait 0.1;
         }
  
 }

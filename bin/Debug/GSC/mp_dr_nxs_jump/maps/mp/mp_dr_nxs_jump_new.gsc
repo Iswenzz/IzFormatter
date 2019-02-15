@@ -65,12 +65,13 @@ zene()
 trap1()
 {
 	trig =getent("trap1_t", "targetname");
+	level endon("trigger");
 	trap1_a = getent("trap1_a","targetname");
 	trap1_b = getent("trap1_b","targetname");
 	trap1_c = getent("trap1_c","targetname");
 	
 	trig sethintstring("Press ^3&&1 ^7for activate.");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig sethintstring("^1Activated^2!");
 
 	trap1_c delete();
@@ -83,16 +84,17 @@ trap1()
 	wait 0.05;
 	}
 
-*/}
+}
 
 trap2()
 {
 
+	level endon("trigger");
 	trig =getent("trap2_t", "targetname");
 	trap2 = getent("trap2","targetname");
 	
 	trig sethintstring("Press ^3&&1 ^7for activate.");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig sethintstring("^1Activated^2!");
 
 	while(1)
@@ -102,11 +104,12 @@ trap2()
 	trap2 rotateYaw (-360, 2.3);
 	wait 5;
 	}
-*/}
+}
 
 trap3()
 {
 
+	level endon("trigger");
 	trig =getent("trap3_t", "targetname");
 	trap3_a = getent("trap3_a","targetname");
 	trap3_b = getent("trap3_b","targetname");
@@ -115,7 +118,7 @@ trap3()
 	trap3_e = getent("trap3_e","targetname");
 	
 	trig sethintstring("Press ^3&&1 ^7for activate.");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig sethintstring("^1Activated^2!");
 
 	while(1)
@@ -131,18 +134,19 @@ trap3()
 	trap3_e rotateYaw (360, 1);
 	wait 0.05;
 	}
-*/}
+}
 
 trap4()
 {
 	trap4 = GetEnt("trap4","targetname");
+	level endon("trigger");
 	trig = GetEnt("trap4_t","targetname");
 
 	trap4 NotSolid();
 	trap4 Hide();
 
 	trig sethintstring("Press ^3&&1 ^7for activate.");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig sethintstring("^1Activated^2!");;
 
 	trap4 Show();
@@ -151,7 +155,7 @@ trap4()
 	wait 5;
 
 	trap4 Delete();
-*/}
+}
 
 part2()
 {
@@ -190,21 +194,23 @@ part3()
 trap5()
 {
 	trig =getent("trap5_t", "targetname");
+	level endon("trigger");
 	trap5_a = getent("trap5_a","targetname");
 	trap5_b = getent("trap5_b","targetname");
 	
 	trig sethintstring("Press ^3&&1 ^7for activate.");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig sethintstring("^1Activated^2!");
 
 	trap5_a notsolid();
 	wait 0.5;
 	trap5_b Hide();
-*/}
+}
 
 trap6()
 {
 	trap6 = GetEnt("trap6","targetname");
+	level endon("trigger");
 	hurt = GetEnt("trap6_dmg","targetname");
 	trig = GetEnt("trap6_t","targetname");
 
@@ -213,7 +219,7 @@ trap6()
 	trap6 Hide();
 
 	trig sethintstring("Press ^3&&1 ^7for activate.");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig sethintstring("^1Activated^2!");
 
 	while(1)
@@ -230,19 +236,20 @@ trap6()
 	wait 0.5;
 	}
 
-*/}
+}
 
 trap7()
 {
 	trig =getent("trap7_t", "targetname");
+	level endon("trigger");
 	trap7 = getent("trap7","targetname");
 	
 	trig sethintstring("Press ^3&&1 ^7for activate.");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig sethintstring("^1Activated^2!");
 
 	trap7 Hide();
-*/}
+}
 
 addTriggerToList( name )
 {
@@ -264,7 +271,7 @@ room()
 	player SetPlayerAngles (end.angles);
 //AUTO 	iprintLnbold ("^1" + player.name + " ^7has enetered the ^1Minigames ^7selections^1!!");
 	while( isAlive( player ) && isDefined( player ) )
-//AUTO 	wait 1;
+	wait 1;
 	}
 }
 
@@ -294,19 +301,19 @@ bounce()
 //AUTO 		level.activ GiveMaxAmmo( "knife_mp" );
 		player freezeControls(1);
 		level.activ freezeControls(1);
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ switchToWeapon( "knife_mp" );
 		level.activ setclientDvar("cg_fovscale", 1.3);
 		player setclientDvar("cg_fovscale", 1.3);
 //AUTO   		iPrintLnBold("^1" + player.name + " ^7has chosen ^1Bounce^7!");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^73^1]");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^72^1]");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^71^1]");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^7FIGHT!^1]");
 		player freezeControls(0);
 		level.activ freezeControls(0);
@@ -368,19 +375,19 @@ knife()
 //AUTO 		level.activ GiveMaxAmmo( "knife_mp" );
 		player freezeControls(1);
 		level.activ freezeControls(1);
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ switchToWeapon( "knife_mp" );
 		level.activ setclientDvar("cg_fovscale", 1.3);
 		player setclientDvar("cg_fovscale", 1.3);
 //AUTO   		iPrintLnBold("^1" + player.name + " ^7has chosen ^1Knife^7!");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^73^1]");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^72^1]");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^71^1]");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^7FIGHT!^1]");
 		player freezeControls(0);
 		level.activ freezeControls(0);
@@ -417,7 +424,7 @@ sniper()
 //AUTO 		level.activ GiveMaxAmmo( "m40a3_mp" );
 		player freezeControls(1);
 		level.activ freezeControls(1);
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "remington700_mp" );
 //AUTO 		player switchToWeapon( "m40a3_mp" );
 //AUTO 		level.activ SwitchToWeapon( "remington700_mp" );
@@ -425,13 +432,13 @@ sniper()
 		level.activ setclientDvar("cg_fovscale", 1.3);
 		player setclientDvar("cg_fovscale", 1.3);
 //AUTO   		iPrintLnBold("^1" + player.name + " ^7has choosen ^1Sniper^7!");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^73^1]");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^72^1]");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^71^1]");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^7FIGHT!^1]");
 		player freezeControls(0);
 		level.activ freezeControls(0);
@@ -464,19 +471,19 @@ deagle()
 //AUTO 		level.activ GiveMaxAmmo( "deserteagle_mp" );
 		player freezeControls(1);
 		level.activ freezeControls(1);
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "deserteagle_mp" );
 //AUTO 		level.activ switchToWeapon( "deserteagle_mp" );
 		level.activ setclientDvar("cg_fovscale", 1.3);
 		player setclientDvar("cg_fovscale", 1.3);
 //AUTO   		iPrintLnBold("^1" + player.name + " ^7has choosen ^1Deagle^7!");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^73^1]");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^72^1]");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^71^1]");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[^7FIGHT!^1]");
 		player freezeControls(0);
 		level.activ freezeControls(0);

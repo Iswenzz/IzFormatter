@@ -72,10 +72,11 @@ music()
 trap1()
 {
     block1 = getent("trap1-1","targetname");
+	level endon("trigger");
 	block2 = getent("trap1-2","targetname");
 	block3 = getent("trap1-3","targetname");
 	trig = getent("trig_trap1","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
 
 	for(;;)
@@ -87,15 +88,16 @@ trap1()
 	wait 8;
 	}
 	
-*/}
+}
 
 trap2()
 {
     block1 = getent("trap2-1","targetname");
+	level endon("trigger");
 	block2 = getent("trap2-2","targetname");
 	block3 = getent("trap2-3","targetname");
 	trig = getent("trig_trap2","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
 
 	for(;;)
@@ -107,13 +109,14 @@ trap2()
 	wait 8;
 	}
 	
-*/}
+}
 
 trap3()
 {
     block1 = getent("trap3","targetname");
+	level endon("trigger");
 	trig = getent("trig_trap3","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
 	
 	for(;;)
@@ -124,11 +127,12 @@ trap3()
 	wait 2;
 	}
 	
-*/}
+}
 
 trap4()
 {
     block1 = getent("trap4-1","targetname");
+	level endon("trigger");
 	block2 = getent("trap4-2","targetname");
 	block3 = getent("trap4-3","targetname");
     block4 = getent("trap4-4","targetname");
@@ -137,7 +141,7 @@ trap4()
 	block7 = getent("trap4-7","targetname");
 	block8 = getent("trap4-8","targetname");
 	trig = getent("trig_trap4","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
 
 	for(;;)
@@ -154,15 +158,16 @@ trap4()
 	wait 0.1;
 	}
 	
-*/}
+}
 
 trap5()
 {
     block1 = getent("trap5-1","targetname");
+	level endon("trigger");
 	block2 = getent("trap5-2","targetname");
 	block3 = getent("trap5-3","targetname");
 	trig = getent("trig_trap5","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
 
     for(;;)
@@ -174,7 +179,7 @@ trap5()
 	wait 0.1;
 	}
 	
-*/}
+}
 
 sniper()
 {
@@ -195,7 +200,7 @@ sniper()
    level.jump_trigger delete();
    level.firstenter=false;
    } 
-//AUTO    wait(0.05);
+   wait(0.05);
 
    player SetOrigin((-5048, -440, 712));
    player SetPlayerAngles((0,135,0));
@@ -204,9 +209,9 @@ sniper()
 //AUTO    player GiveWeapon( "remington700_mp" ); 
 //AUTO    player GiveMaxAmmo("m40a3_mp");
 //AUTO    player GiveMaxAmmo( "remington700_mp" );
-//AUTO    wait .05;
+   wait .05;
 //AUTO    player SwitchToWeapon("m40a3_mp"); 
-//AUTO    wait(0.05);
+   wait(0.05);
    level.activ SetOrigin((-6776, 1320, 672));
    level.activ SetPlayerAngles((0,315,0));
 //AUTO    level.activ TakeAllWeapons();
@@ -214,10 +219,10 @@ sniper()
 //AUTO    level.activ GiveWeapon( "remington700_mp" );
 //AUTO    level.activ GiveMaxAmmo("m40a3_mp");
 //AUTO    level.activ GiveMaxAmmo( "remington700_mp" );
-//AUTO    wait .05;
+   wait .05;
 //AUTO    level.activ SwitchToWeapon("m40a3_mp"); 
 //AUTO    iPrintlnBold( " ^9" + player.name + " ^4 has entered the Sniper room^8!" ); 
-//AUTO    wait(0.05);
+   wait(0.05);
 //AUTO    player switchToWeapon( "m40a3_mp" );
 //AUTO    level.activ SwitchToWeapon( "m40a3_mp" );
    player waittill( "death" );
@@ -276,21 +281,21 @@ bounce()
    level.jump_trigger delete();
    level.firstenter=false;
    } 
-//AUTO    wait(0.05);
+   wait(0.05);
 
    player SetOrigin((-3576, -2792, 648));
    player SetPlayerAngles((0,90,0));
 //AUTO    player TakeAllWeapons();
-//AUTO    wait(0.05);
+   wait(0.05);
    level.activ SetOrigin((-3608, -88, 648));
    level.activ SetPlayerAngles((0,270,0));
 //AUTO    level.activ TakeAllWeapons();
-//AUTO    wait .05;
+   wait .05;
 //AUTO    level.activ giveweapon("tomahawk_mp");
 //AUTO    player giveweapon("tomahawk_mp");
 //AUTO    level.activ SwitchToWeapon("tomahawk_mp"); 
 //AUTO    iPrintlnBold(" ^9" + player.name + " ^4 has entered the Bounce room^8!"); 
-//AUTO    wait(0.05);
+   wait(0.05);
 
 
 

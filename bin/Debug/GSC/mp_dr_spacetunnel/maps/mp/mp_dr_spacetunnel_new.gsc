@@ -528,16 +528,17 @@ wait RandomInt(4);
 trap2()
 {
 level.brush = getent("triangle", "targetname");
+	level endon("trigger");
 gettrigger("trap2_trig", "Trap 2");
 thread trap2a();
 for(;;)
 {
-/* AUTO level.brush waittill("trigger", player);
+level.brush waittill("trigger", player);
 PlayFXOnTag( level.fireball, player, "j_head" );
 wait 0.01;
 player suicide();
 }
-*/}
+}
 
 trap2a()
 {
@@ -594,9 +595,10 @@ level.shock delete();
 trap4a()
 {
 level.shock = getent("shock", "targetname");
-/* AUTO level.shock waittill("trigger", player);
+	level endon("trigger");
+level.shock waittill("trigger", player);
 player ShellShock("frag_grenade_mp", 3 );
-*/}
+}
 
 trap5()
 {
@@ -748,15 +750,15 @@ sniper()
                     for(i=0;i<players.size;i++)
                         players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
                     
-//AUTO             wait 2;
+            wait 2;
             
             level.activ FreezeControls(0);
             player FreezeControls(0);
             
-//AUTO             wait 0.1;
+            wait 0.1;
                      
             while(isAlive(player))
-//AUTO                 wait 1;
+                wait 1;
 
         }
 }
@@ -809,14 +811,14 @@ knife()
             players = getEntArray("player", "classname");
             for(i=0;i<players.size;i++)
             players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );         
-//AUTO             wait 2;
+            wait 2;
             
             level.activ FreezeControls(0);
             player FreezeControls(0);
             
-//AUTO             wait 0.1;          
+            wait 0.1;          
             while(isAlive(player))
-//AUTO                 wait 1;
+                wait 1;
 
         }
 }

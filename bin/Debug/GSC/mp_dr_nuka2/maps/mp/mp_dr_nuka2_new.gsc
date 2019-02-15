@@ -234,24 +234,26 @@ secreteasy_tele1()
 trap1()
 {
 	trig = getEnt( "trigger_trap1", "targetname" );
+	level endon("trigger");
 	brushGroup1 = getent( "trap1_1", "targetname" );
 	brushGroup2 = getent( "trap1_2", "targetname" );
 
 	trig SetHintString("^5Activate");
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig delete();
 	
 	brushGroup1[randomInt(brushGroup1.size)] notSolid();
 	brushGroup2[randomInt(brushGroup2.size)] notSolid();
-*/}
+}
 
 trap2()
 {
 	trig = getEnt("trigger_trap2", "targetname");
+	level endon("trigger");
 	trap = getEnt("trap2", "targetname");
 	secret = getEnt("actisecret", "targetname");
 	trig SetHintString("^5Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	secret notsolid();
 	trig delete();
@@ -261,14 +263,15 @@ trap2()
 	wait 5;
 	trap show();
 	trap solid();
-*/}
+}
 
 trap3()
 {
 	trig = getEnt("trigger_trap3", "targetname");
+	level endon("trigger");
 	platform = getEnt("trap3", "targetname");
 	trig SetHintString("^5Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -277,14 +280,15 @@ trap3()
 	wait 5;
 	platform show();
 	platform solid();
-*/}
+}
 
 trap4()
 {
 	trig = getEnt("trigger_trap4", "targetname");
+	level endon("trigger");
 	platform = getEnt("trap4", "targetname");
 	trig SetHintString("^5Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -293,14 +297,15 @@ trap4()
 		platform rotateRoll (-360, 3);
 		wait 8;
 	}
-*/}
+}
 
 trap5()
 {
 	trig = getEnt("trigger_trap5", "targetname");
+	level endon("trigger");
 	platform = getEnt("trap5", "targetname");
 	trig SetHintString("^5Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -314,15 +319,16 @@ trap5()
 		wait 10;
 		platform rotatePitch (360, 3);
 	}
-*/}
+}
 
 trap6()
 {
 	trig = getEnt("trigger_trap6", "targetname");
+	level endon("trigger");
 	platform = getEnt("trap6", "targetname");
 	//death = getEnt("trap6death", "targetname");
 	trig SetHintString("^5Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -332,11 +338,12 @@ trap6()
 		//death rotatePitch (-360, 4);
 		wait 1;
 	}
-*/}
+}
 
 trap7()
 {
 	trig = getEnt("trigger_trap7", "targetname");
+	level endon("trigger");
 	trap_a = getEnt("trap7a", "targetname");
 	trap_b = getEnt("trap7b", "targetname");
 	trap_c = getEnt("trap7c_test", "targetname");
@@ -344,7 +351,7 @@ trap7()
 	trap_e = getEnt("trap7e", "targetname");
 	
 	trig SetHintString("^5Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -415,15 +422,16 @@ trap7()
 	trap_a solid();
 	wait 1;
 	}
-*/}
+}
 
 trap8()
 {
 	trig = getEnt("trigger_trap8", "targetname");
+	level endon("trigger");
 	trap = getEnt("trap8", "targetname");
 	trap_red = getEnt("trap8_red", "targetname");
 	trig SetHintString("^5Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -432,15 +440,16 @@ trap8()
 	trap notsolid();
 	wait 10;
 	trap_red solid();
-*/}
+}
 
 trap9()
 {
 	trig = getEnt("trigger_trap9", "targetname");
+	level endon("trigger");
 	trap_a = getEnt("trap9a", "targetname");
 	trap_b = getEnt("trap9b", "targetname");
 	trig SetHintString("^5Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -450,11 +459,12 @@ trap9()
 		trap_b rotateRoll(-360, 3);
 		wait 6;
 	}
-*/}
+}
 
 trap10()
 {
 	trig = getEnt("trigger_trap10", "targetname");
+	level endon("trigger");
 	trap_a = getEnt("trap10a", "targetname");
 	trap_b = getEnt("trap10b", "targetname");
 	trap_c = getEnt("trap10c", "targetname");
@@ -468,7 +478,7 @@ trap10()
 	trap_c_3 = getEnt("trap10c_3", "targetname");
 	
 	trig SetHintString("^5Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -487,15 +497,16 @@ trap10()
 		trap_c_2 rotateyaw (360, 1);
 		trap_a_2 waittill ("rotatedone");
 	}
-*/}
+}
 
 trap11()
 {
 	trig = getEnt("trigger_trap11", "targetname");
+	level endon("trigger");
 	trap = getEnt("trap11death", "targetname");
 	trapwater = getEnt("trap11water", "targetname");
 	trig SetHintString("^5Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -504,11 +515,12 @@ trap11()
 	wait 4;
 	trap movez (-65, 1);
 	trapwater movez (-100, 1);
-*/}
+}
 
 trap12()
 {
 	trig = getEnt("trigger_trap12", "targetname");
+	level endon("trigger");
 	
 	trap_a_1 = getEnt("trap12a_1", "targetname");
 	trap_a_2 = getEnt("trap12a_2", "targetname");
@@ -520,7 +532,7 @@ trap12()
 	trap_c_2 = getEnt("trap12c_2", "targetname");
 	
 	trig SetHintString("^5Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -534,17 +546,18 @@ trap12()
 		trap_c_2 rotateyaw (-360, 1);
 		trap_a_1 waittill ("rotatedone");
 	}
-*/}
+}
 
 trap13()
 {
 	trig = getEnt("trigger_trap13", "targetname");
+	level endon("trigger");
 	
 	trapa = getEnt("trap13a", "targetname");
 	trapb = getEnt("trap13b", "targetname");
 	
 	trig SetHintString("^5Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -557,17 +570,18 @@ trap13()
 		trapa waittill ("rotatedone");
 		wait 5;
 	}
-*/}
+}
 
 trap14()
 {
 	trig = getEnt("trigger_trap14", "targetname");
+	level endon("trigger");
 	
 	trapa = getEnt("trap14a", "targetname");
 	trapb = getEnt("trap14b", "targetname");
 	
 	trig SetHintString("^5Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -578,15 +592,16 @@ trap14()
 		trapb rotateRoll (-360, 3);
 		trapa waittill ("rotatedone");
 	}
-*/}
+}
 
 trap15()
 {
 	trig = getEnt("trigger_trap15", "targetname");
+	level endon("trigger");
 	trap = getEnt("trap15", "targetname");
 	
 	trig SetHintString("^5Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -595,7 +610,7 @@ trap15()
 		trap rotateRoll (360, 4);
 		trap waittill ("rotatedone");
 	}
-*/}
+}
 
 actielevator()
 {
@@ -753,7 +768,7 @@ sniper()
 		
 		thread createhud(player.name + " ^5selected ^7snipah ^4war!");
 		//noobsnip triggerOn();
-//AUTO 		wait 5;
+		wait 5;
 //AUTO 		player iprintlnbold("^5FIGHT ^7!!!");
 //AUTO 		activator iprintlnbold("^5FIGHT ^7!!!");
 		
@@ -807,7 +822,7 @@ knife() //Knife room lel
 //AUTO 		activator giveweapon("tomahawk_mp");
 //AUTO 		player giveweapon("tomahawk_mp");
 		thread createhud(player.name + " ^5Selected ^7Knife ^5room^7!!");
-//AUTO 		wait 5;
+		wait 5;
 		
 		player freezeControls(false);
 		activator freezeControls(false);

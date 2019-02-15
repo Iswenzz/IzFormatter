@@ -140,6 +140,7 @@ addTriggerToList( name )
 trap_rotator()
 {
 platform=getent("brush_rotator","targetname");
+	level endon("trigger");
 trigger=getent("trigger_brush_rotator","targetname");
 
 if (!isdefined(platform.speed))
@@ -147,7 +148,7 @@ if (!isdefined(platform.speed))
 if (!isdefined(platform.script_noteworthy))
  platform.script_noteworthy = "z";
  
-/* AUTO trigger waittill("trigger", player);
+trigger waittill("trigger", player);
  while(true)
 {
  // rotateYaw(float rot, float time, <float acceleration_time>, <float deceleration_time>);
@@ -160,7 +161,7 @@ if (!isdefined(platform.script_noteworthy))
  wait ((platform.speed)-0.1); // removes the slight hesitation that waittill("rotatedone"); gives.
  // self waittill("rotatedone");
 }
-*/}
+}
 
 antilagg()
 {
@@ -249,22 +250,22 @@ level.firstteleportknife = false;
 while(1)
 {
 level.kniferoom waittill("trigger", player);
-//AUTO wait(0.05);
+wait(0.05);
 if(level.firstteleportknife == false)
 {
 player FreezeControls(true);
 level.activ FreezeControls(true);
 player PlaySoundToPlayer( "tele", player );
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( jumperspot.origin );
 player setplayerangles(jumperspot.angles );
 player thread findburner();
 //AUTO iPrintLnBold(player.name+ " has entered ^1Knife room ! !"); //Change the message if you want
 level.activ PlaySoundToPlayer( "tele", level.activ );
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin( activatorspot.origin );
 level.activ setplayerangles(activatorspot.angles );
-//AUTO wait(0.05);
+wait(0.05);
 level.activ thread findburner();
 AmbientStop();
 //AUTO ambientPlay("endzor");
@@ -278,16 +279,16 @@ else
 player FreezeControls(true);
 level.activ FreezeControls(true);
 player PlaySoundToPlayer( "tele", player );
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( jumperspot.origin );
 player setplayerangles(jumperspot.angles );
 player thread findburner();
 //AUTO iPrintLnBold(player.name+ " has entered ^1Knife room ! !"); //Change the message if you want
 level.activ PlaySoundToPlayer( "tele", level.activ );
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin( activatorspot.origin );
 level.activ setplayerangles(activatorspot.angles );
-//AUTO wait(0.05);
+wait(0.05);
 AmbientStop();
 //AUTO ambientPlay("endzor");
 thread kniferoomdeadcounter();
@@ -296,7 +297,7 @@ player thread tillstayalive();
 level.activ thread countdown();
 }
 level.firstteleportknife = true;
-//AUTO wait(3);
+wait(3);
 }
 }
 

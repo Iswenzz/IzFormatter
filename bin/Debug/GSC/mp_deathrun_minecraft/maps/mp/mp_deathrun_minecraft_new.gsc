@@ -58,12 +58,13 @@ main()
 trap_1()
 {
 	trig = getEnt("trigger1", "targetname");	
+	level endon("trigger");
 	
-/* AUTO 	trig waittill("trigger", who );
+	trig waittill("trigger", who );
 	trig delete();
 	
 	thread StartFiringLightnings();
-*/}
+}
 
 StartFiringLightnings()
 {
@@ -340,6 +341,7 @@ tnt()
 trap_3()
 {
 	trig = getEnt( "trigger3", "targetname" );
+	level endon("trigger");
 	brush1 = getEnt( "block1", "targetname" );
 	brush2 = getEnt( "block2", "targetname" );
 	brush3 = getEnt( "block3", "targetname" );
@@ -370,7 +372,7 @@ trap_3()
 	brush28 = getEnt( "block28", "targetname" );
 	brush29 = getEnt( "block29", "targetname" );										
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	brush1 moveZ( -64, 0.1 );
@@ -444,27 +446,29 @@ trap_3()
 	brush28 moveZ( 64, 0.1 );
 	wait 0.5;
 
-*/}
+}
 
 trap_5()
 {
 	trig = getEnt( "trigger5", "targetname" );
+	level endon("trigger");
 	brush1 = getEnt( "trap5_1", "targetname" );
 	brush2 = getEnt( "trap5_2", "targetname" );
 	brush3 = getEnt( "trap5_3", "targetname" );
 	brush4 = getEnt( "trap5_4", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	brush1 delete();
 	brush2 delete();
 	brush3 delete();
 	brush4 delete();
-*/}
+}
 
 trap_2()
 {
 	trig = getEnt( "trigger2", "targetname" );
+	level endon("trigger");
 	brush1 = getEnt( "piston1", "targetname" );
 	brush2 = getEnt( "piston2", "targetname" );
 	brush3 = getEnt( "piston3", "targetname" );
@@ -483,7 +487,7 @@ trap_2()
 	brush16 = getEnt( "pistonblock4_4", "targetname" );
 	blockclip = getEnt( "blockclip", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	
 	
@@ -539,7 +543,7 @@ trap_2()
 	wait 5;
 	
 	
-*/}
+}
 
 
 {
@@ -599,10 +603,11 @@ addtrapstofreerun()
 trap_6()
 {
 	trig = getEnt( "trigger6", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap_6", "targetname" );
 
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	
 	
@@ -612,7 +617,7 @@ trap_6()
 	brush movex( -200, 1 );
 	
 
-*/}
+}
 
 ding()
 {
@@ -776,6 +781,7 @@ final()
 trap_4()
 {
 	trig = getent ("trigger4","targetname");
+	level endon("trigger");
 	dmg = getent ("trap4_dmg","targetname");
 	tnt1 = getEnt( "tnt1", "targetname" );
 	tnt2 = getEnt( "tnt2", "targetname" );
@@ -812,7 +818,7 @@ trap_4()
 
 	dmg maps\mp\_utility::triggerOff();
 	
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig delete();
 	
 	dmg maps\mp\_utility::triggerOn();	
@@ -872,7 +878,7 @@ trap_4()
 	dmg delete();
 					
 
-*/}
+}
 
 pickaxe()
 {

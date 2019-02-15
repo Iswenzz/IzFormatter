@@ -229,6 +229,7 @@ gettrigger(trigname, hint)
 trap_1()
 {
     spike = getEntArray("spikes", "targetname");
+	level endon("trigger");
     spike_dmg0 = getent("spike_dmg0", "targetname");
 	spike_dmg1 = getent("spike_dmg1", "targetname");
 	spike_dmg2 = getent("spike_dmg2", "targetname");
@@ -248,7 +249,7 @@ trap_1()
     spike_dmg3 linkto (spike[3]);
     gettrigger("trap1_trig", "Trap 1");
     spike[0] moveZ(160, 1); spike[1] moveZ(160, 1); spike[2] moveZ(160, 1); spike[3] moveZ(160, 1);
-/* AUTO     spike[0] waittill("movedone"); wait 3;
+    spike[0] waittill("movedone"); wait 3;
     spike[0] moveZ(-160, 1); spike[1] moveZ(-160, 1); spike[2] moveZ(-160, 1); spike[3] moveZ(-160, 1);
     spike[0] waittill("movedone");
 	for(;;)
@@ -261,7 +262,7 @@ trap_1()
 		spike[random] waittill("movedone");
 		wait 1;
 	}
-*/}
+}
 
 trap_3()
 {
@@ -274,6 +275,7 @@ trap_3()
 trap_3_a()
 {
     enemy1 = getEnt("enemy1", "targetname");
+	level endon("trigger");
 	enemy1_dmg = getEnt("enemydmg1", "targetname");
 	enemy1_origin1 = (2176, -1440, 72);
 	enemy1_origin2 = (2276, -1768, 56);
@@ -284,18 +286,19 @@ trap_3_a()
 	{
 	    enemy1 moveTo(enemy1_origin1, 0.8);
 		enemy1 rotateYaw (80,0.9);
-/* AUTO 		enemy1 waittill("movedone");
+		enemy1 waittill("movedone");
 		wait 0.5;
 		enemy1 moveTo(enemy1_origin2, 0.8);
 		enemy1 rotateYaw (-80,0.9);
 		enemy1 waittill("movedone");
 		wait 0.5;
 	}	
-*/}
+}
 
 trap_3_b()
 {
     enemy2 = getEnt("enemy2", "targetname");
+	level endon("trigger");
 	enemy2_dmg = getEnt("enemydmg2", "targetname");
 	enemy2_origin1 = (2040, -1496, 72);
 	enemy2_origin2 = (2180, -1816, 56);
@@ -305,18 +308,19 @@ trap_3_b()
 	{
 	    enemy2 moveTo(enemy2_origin2, 0.8);
 		enemy2 rotateYaw (-80,0.9);
-/* AUTO 		enemy2 waittill("movedone");
+		enemy2 waittill("movedone");
 		wait 0.2;
 		enemy2 moveTo(enemy2_origin1, 0.8);
 		enemy2 rotateYaw (80,0.9);
 		enemy2 waittill("movedone");
 		wait 0.2;
 	}	
-*/}
+}
 
 trap_3_c()
 {
     enemy3 = getEnt("enemy3", "targetname");
+	level endon("trigger");
 	enemy3_dmg = getEnt("enemydmg3", "targetname");
 	enemy3_origin1 = (1912, -1520, 72);
 	enemy3_origin2 = (2052, -1856, 56);
@@ -326,18 +330,19 @@ trap_3_c()
 	{
 	    enemy3 moveTo(enemy3_origin1, 0.8);
 		enemy3 rotateYaw (80,0.9);
-/* AUTO 		enemy3 waittill("movedone");
+		enemy3 waittill("movedone");
 		wait 0.5;
 		enemy3 moveTo(enemy3_origin2, 0.8);
 		enemy3 rotateYaw (-80,0.9);
 		enemy3 waittill("movedone");
 		wait 0.5;
 	}
-*/}
+}
 
 trap_4()
 {
     redblob = getEnt("redblob", "targetname");
+	level endon("trigger");
 	redblob_dmg = getEnt("redblob_dmg", "targetname");
 	origin1 = (2676, -492, 44);
 	origin2 = (2372, -916, 44);	
@@ -347,13 +352,14 @@ trap_4()
     redblob movex(-250, 0.1);
 	gettrigger("trap4_trig", "Trap 3");	
 	redblob moveTo(origin1, 1, 0.2, 0);
-/* AUTO 	redblob waittill("movedone");
+	redblob waittill("movedone");
 	redblob moveTo(origin2, 1, 0, 0.2);
-*/}
+}
 
 trap_5()
 {
     level.redball = getEnt("redball", "targetname");
+	level endon("trigger");
 	redball_dmg = getEnt("redball", "targetname");
 //AUTO 	sound = getEnt("bang_origin", "targetname");
 	gettrigger("trap5_trig", "Trap 4");	
@@ -361,14 +367,14 @@ trap_5()
 //AUTO 	sound playSound("bang");
 	playFx( level.fx_blue_star, (redball_dmg.origin - (0,0,55)) );
 	level.redball moveZ (452, 0.8, 0.1, 0.4);
-/* AUTO 	level.redball waittill("movedone");
+	level.redball waittill("movedone");
 	level.redball moveZ (-460, 0.7, 0.3, 0.1);
 	level.redball waittill("movedone");
 	radiusDamage (redball_dmg.origin, 640, 200, 200);//pretty sure this doesnt kill act :P
 	wait 0.05;
 	level.redball delete();
 	sound playSound("splash");
-*/}		
+}		
 
 spinball()
 {
@@ -378,6 +384,7 @@ spinball()
 trap_6()
 {
     brush = getEnt("blue", "targetname");
+	level endon("trigger");
 	brush2 = getEnt("yellow", "targetname");
 	brush3 = getEnt("plzno", "targetname");
 	plzno_dmg = getEnt("plzno_dmg", "targetname");
@@ -389,13 +396,13 @@ trap_6()
 	brush2 show();
 	brush3 moveZ (272, 1.6, 0.3, 0.3);
 	plzno_dmg playSound("mine");
-/* AUTO 	brush3 waittill("movedone");
+	brush3 waittill("movedone");
 	wait 0.5;
 	radiusDamage (plzno_dmg.origin, 288, 200, 200);
 	//play fx
 	wait 0.05;
 	brush3 delete();
-*/}
+}
 
 trap_7()//lame trap
 {
@@ -408,9 +415,10 @@ trap_7()//lame trap
 trap_7_a()
 {
 	brush = getEnt("blob1", "targetname");
+	level endon("trigger");
 	trig = getEnt("blob1_trig", "targetname");
 	sound = getEnt("slurp1", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	wait 2.5;
 	sound playSound("slurp");
 	brush notSolid();
@@ -418,14 +426,15 @@ trap_7_a()
 	wait 5;
 	brush solid();
 	brush show();
-*/}
+}
 
 trap_7_b()
 {
 	brush = getEnt("blob2", "targetname");
+	level endon("trigger");
 	trig = getEnt("blob2_trig", "targetname");
 	sound = getEnt("slurp1", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	wait 2.5;
 	sound playSound("slurp");
 	brush notSolid();
@@ -433,16 +442,17 @@ trap_7_b()
 	wait 5;
 	brush solid();
 	brush show();
-*/}
+}
 
 trap_8()
 {
     trig = getEnt("bullet_trig", "targetname");
+	level endon("trigger");
     level.firing = false;
     gettrigger("trap8_trig", "Trap 7");	
     while(1)
     {
-/* AUTO         trig waittill("trigger", player);
+        trig waittill("trigger", player);
         if( !isPlayer( player ) )
             continue; 
         if( level.firing == true )
@@ -450,7 +460,7 @@ trap_8()
         shootbullet( player );
         
     }
-*/}
+}
 
 shootbullet( victim )
 {

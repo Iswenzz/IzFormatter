@@ -6,6 +6,7 @@ thread runtrap3();
 runtrap3()
 {
 	trab_n3 = [];
+	level endon("trigger");
 	trab_n3[0]= getent("dr_trap_3[0]","targetname"); 	//search the bush dr_trap_3
 	trab_n3[1]= getent("dr_trap_3[1]","targetname");
 	trab_n3[2]= getent("dr_trap_3[2]","targetname");
@@ -22,10 +23,10 @@ runtrap3()
 	{
 		n3 = RandomInt(10);
 		trab_n3[n3] rotatePitch(-30,1);					// the Z^ X> axis rotation (+360� , speed)
-/* AUTO 		trab_n3[n3] waittill ("rotatedone");			//expected end of the movement
+		trab_n3[n3] waittill ("rotatedone");			//expected end of the movement
 		trab_n3[n3] rotatePitch(30,1);
 		trab_n3[n3] waittill ("rotatedone");	
 		wait(RandomInt(2));			   					// wait 0 to 2 seconds
 	}			
-*/}	
+}	
 

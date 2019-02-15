@@ -159,13 +159,14 @@ curv_pusher(who)
 trap1()
 {
 	part1 = getentarray ("trap1_1" ,"targetname");
+	level endon("trigger");
 	part2 = getentarray ("trap1_2" ,"targetname");
 	part3 = getentarray ("trap1_3" ,"targetname");
 	part4 = getentarray ("trap1_4" ,"targetname");
 	trig = getent ("trig_trap1" , "targetname");
 
 	trig sethintstring("Press ^1[USE]^7 To Activate");
-/* AUTO  	trig waittill( "trigger", user ); 
+ 	trig waittill( "trigger", user ); 
 	trig delete ();
 //AUTO 	iprintln("^0[^5SpaceBallv2^0]^7Trap1 ^1Activated!");
 	random = randomint(4);
@@ -195,14 +196,15 @@ trap1()
 				
 		default: return;
 	}
-*/}
+}
 
 trap2()
 {
 rotator = getent("trap2","targetname");
+	level endon("trigger");
 trig = getent("trig_trap2","targetname");
 trig sethintstring("Press ^1[USE]^7 To Activate");
-/* AUTO trig waittill("trigger", user );
+trig waittill("trigger", user );
 trig delete();
 //AUTO iprintln("^0[^5SpaceBallv2^0]^7Trap2 ^1Activated!");
 while(1)
@@ -210,15 +212,16 @@ while(1)
 rotator rotateYaw(360, 3);
 wait 0.1;
 }
-*/}
+}
 
 trap3()
 {
 	plats1 = getent("trap3_plats1","targetname");
+	level endon("trigger");
 	plats2 = getent("trap3_plats2","targetname");
 	trig = getent("trig_trap3","targetname");
 	trig sethintstring("Press ^1[USE]^7 To Activate");
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 //AUTO 	iprintln("^0[^5SpaceBallv2^0]^7Trap3 ^1Activated!");
 	trig delete();
 	while(1)
@@ -230,16 +233,17 @@ trap3()
 		plats2 moveZ(60, 3);
 		wait 4;
 	}
-*/}
+}
 
 trap4()
 {
 	splasher = getent("trap4","targetname");
+	level endon("trigger");
 	trig = getent("trig_trap4","targetname");
 	killtrig = getent("trap4_killtrig","targetname");
 	quake = getent("trap4_quake","targetname");
 	trig sethintstring("Press ^1[USE]^7 To Activate");
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 //AUTO 	iprintln("^0[^5SpaceBallv2^0]^7Trap4 ^1Activated!");
 	trig delete();
 	{
@@ -255,11 +259,12 @@ trap4()
 		killtrig unlink();
 		killtrig delete();
 	}
-*/}
+}
 
 trap5()
 {
 	rot1 = getent("trap5_1","targetname");
+	level endon("trigger");
 	rot2 = getent("trap5_2","targetname");
 	rot3 = getent("trap5_3","targetname");
 	rot4 = getent("trap5_4","targetname");
@@ -268,7 +273,7 @@ trap5()
 	rot7 = getent("trap5_7","targetname");
 	trig = getent("trig_trap5","targetname");
 	trig sethintstring("Press ^1[USE]^7 To Activate");
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 //AUTO 	iprintln("^0[^5SpaceBallv2^0]^7Trap5 ^1Activated!");
 	trig delete();
 	{
@@ -288,11 +293,12 @@ trap5()
 		wait 1.5;
 	}
 
-*/}
+}
 
 trap6()
 {
 	plat1 = getentarray("trap6_1","targetname");
+	level endon("trigger");
 	plat2 = getentarray("trap6_2","targetname");
 	plat3 = getentarray("trap6_3","targetname");
 	plat4 = getentarray("trap6_4","targetname");
@@ -300,7 +306,7 @@ trap6()
 	plat6 = getentarray("trap6_6","targetname");
 	trig = getent("trig_trap6","targetname");
 	trig sethintstring("Press ^1[USE]^7 To Activate");
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 //AUTO 	iprintln("^0[^5SpaceBallv2^0]^7Trap6 ^1Activated!");
 	trig delete();
 	trap6 = randomint(5);
@@ -335,15 +341,16 @@ trap6()
 		default: return;
 	}
 
-*/}
+}
 
 trap7()
 {
 	rotator1 = getent("trap7_1","targetname");
+	level endon("trigger");
 	rotator2 = getent("trap7_2","targetname");
 	trig = getent("trig_trap7","targetname");
 	trig sethintstring("Press ^1[USE]^7 To Activate");
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 //AUTO 	iprintln("^0[^5SpaceBallv2^0]^7Trap7 ^1Activated!");
 	trig delete();
 	while(1)
@@ -354,14 +361,15 @@ trap7()
 		//rotator2 waittill("rotatedone");
 		wait .1;
 	}
-*/}
+}
 
 trap8()
 {
 	curver = getent("trap8","targetname");
+	level endon("trigger");
 	trig = getent("trig_trap8","targetname");
 	trig sethintstring("Press ^1[USE]^7 To Activate");
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 //AUTO 	iprintln("^0[^5SpaceBallv2^0]^7Trap8 ^1Activated!");
 	trig delete();
 	{
@@ -372,15 +380,16 @@ trap8()
 		curver show();
 		wait 0.05;
 	}
-*/}
+}
 
 trap9()
 {
 	trap9_1 = getent("trap9_1","targetname");
+	level endon("trigger");
 	trap9_2 = getent("trap9_2","targetname");
 	trig = getent("trig_trap9","targetname");
 	trig sethintstring("Press ^1[USE]^7 To Activate");
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 //AUTO 	iprintln("^0[^5SpaceBallv2^0]^7Trap9 ^1Activated!");
 	trig delete();
 	{
@@ -391,15 +400,16 @@ trap9()
 		trap9_2 rotatePitch(90, 3, 1);
 		wait 0.05;
 	}
-*/}
+}
 
 trap10()
 {
 	plats1 = getent("trap10_1","targetname");
+	level endon("trigger");
 	plats2 = getent("trap10_2","targetname");
 	trig = getent("trig_trap10","targetname");
 	trig sethintstring("Press ^1[USE]^7 To Activate");
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 //AUTO 	iprintln("^0[^5SpaceBallv2^0]^7Trap10 ^1Activated!");
 	trig delete();
 	{
@@ -415,11 +425,12 @@ trap10()
 		plats2 show();
 		plats2 solid();
 	}
-*/}
+}
 
 trap11()
 {
 	level.meteor1 = getent ("meteor1","targetname");
+	level endon("trigger");
 	level.meteor2 = getent ("meteor2","targetname");
 	level.meteor3 = getent ("meteor3","targetname");
 
@@ -429,7 +440,7 @@ trap11()
 
 	trig = getent("trig_trap11","targetname");
 	trig sethintstring("Press ^1[USE]^7 To Activate");
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 //AUTO 	iprintln("^0[^5SpaceBallv2^0]^7Trap11 ^1Activated!");
 	//thread firefxes();
 	thread qwakes();
@@ -444,7 +455,7 @@ trap11()
 		level.meteor3 moveto(level.meteorpoint3.origin, 2);
 		level.meteor3 rotatePitch (360, 2);
 	}
-*/}
+}
 
 firefxes()
 {
@@ -472,9 +483,10 @@ qwakes()
 trap12()
 {
 	level.ring = getent("trap12","targetname");
+	level endon("trigger");
 	trig = getent("trig_trap12","targetname");
 	trig sethintstring("Press ^1[USE]^7 To Activate");
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 //AUTO 	iprintln("^0[^5SpaceBallv2^0]^7Trap12 ^1Activated!");
 	trig delete();
 	{
@@ -483,7 +495,7 @@ trap12()
 		wait 2;
 		level.ring delete();
 	}
-*/}
+}
 
 gravityknife()
 {
@@ -526,10 +538,10 @@ gravityknife()
 //AUTO         level.activ GiveWeapon( "knife_mp" ); 	
 		level.activ AllowJump(true);
 //AUTO 	    level.activ AllowSprint(true);
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
-//AUTO         wait 3;
+        wait 3;
 		player freezeControls(false);
 		level.activ freezeControls(false);
 		player thread jumpheight(4);
@@ -537,7 +549,7 @@ gravityknife()
 //AUTO 		player SetMoveSpeedScale (3.2);
 //AUTO 		level.activ SetMoveSpeedScale(3.2);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait .05;
+        wait .05;
     }
 }
 
@@ -608,32 +620,33 @@ sniperoom()
 //AUTO 			player TakeAllWeapons();
 //AUTO 			player GiveWeapon("remington700_mp");
 //AUTO 			player GiveMaxAmmo("remington700_mp");
-//AUTO 			wait .05;
+			wait .05;
 			level.activ setPlayerangles( acti.angles );
 			level.activ setOrigin( acti.origin );
 //AUTO 			level.activ TakeAllWeapons();
 //AUTO 			level.activ GiveWeapon("remington700_mp");
 			level.activ AllowJump(true);
 //AUTO 	        level.activ AllowSprint(true);
-//AUTO 			wait 3;
+			wait 3;
 //AUTO 			player switchToWeapon("remington700_mp");
 //AUTO 			level.activ switchToWeapon("remington700_mp");
 			player freezeControls(false);
 			level.activ freezeControls(false);
 			while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait .05;
+			wait .05;
 	}
 }
 
 trapescape()
 {
 	level.trapes_trig = getent("trapescape","targetname");
+	level endon("trigger");
 	level.trapes_trig sethintstring("Trapescape");
 	level.jump = getent ("jump_escape","targetname");
 	level.acti = getent ("acti_escape","targetname");
 	while(1)
 	{
-/* AUTO 		level.trapes_trig waittill( "trigger", player );
+		level.trapes_trig waittill( "trigger", player );
         if( !isDefined( level.trapes_trig ) )
             return;
         if(level.firstenter==true)
@@ -680,7 +693,7 @@ trapescape()
 			while( isAlive( player ) && isDefined( player ) )
 			wait .05;
 	}
-*/}
+}
 
 spin()
 {
@@ -799,20 +812,20 @@ bounceroom()
 //AUTO 			player TakeAllWeapons();
 //AUTO 			player GiveWeapon("knife_mp");
 //AUTO 			player GiveMaxAmmo("knife_mp");
-//AUTO 			wait .05;
+			wait .05;
 			level.activ setPlayerangles( level.bounceacti.angles );
 			level.activ setOrigin( level.bounceacti.origin );
 //AUTO 			level.activ TakeAllWeapons();
 //AUTO 			level.activ GiveWeapon("knife_mp");
 			level.activ AllowJump(true);
 //AUTO 	        level.activ AllowSprint(true);
-//AUTO 			wait 3;
+			wait 3;
 //AUTO 			player switchToWeapon("knife_mp");
 //AUTO 			level.activ switchToWeapon("knife_mp");
 			player freezeControls(false);
 			level.activ freezeControls(false);
 			while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait .05;
+			wait .05;
 	}
 }
 

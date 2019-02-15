@@ -190,10 +190,10 @@ bigBounceTeleport()
 		{
 			user freezeControls(1);
 //AUTO 			user iPrintLnBold("^5You were frozen!");
-//AUTO 			wait 1;
+			wait 1;
 			user freezeControls(0);
 //AUTO 			user iPrintLnBold("^5You were unfrozen!");
-//AUTO 			wait 1;
+			wait 1;
 		}
 	}
 }

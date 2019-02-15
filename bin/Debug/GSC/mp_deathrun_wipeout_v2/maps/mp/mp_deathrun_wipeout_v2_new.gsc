@@ -154,13 +154,14 @@ wait 0.5;
 trap_4squares()
 {
 wait 10;
+	level endon("trigger");
 platforms = getEntArray("4squares", "targetname");
 level.square = getEnt("trigger_4squares", "targetname");
 trigger=getent("act7","targetname");
-/* AUTO trigger waittill("trigger", player);
+trigger waittill("trigger", player);
 wait(0.05);
 platforms[randomInt(platforms.size)] movez(-200,4);
-*/}
+}
 
 sweepert()
 {
@@ -780,9 +781,10 @@ if (!isdefined(main.script_noteworthy))
 trap3swings()
 {
 trap3_inner=getent("trap3_inner","targetname");
+	level endon("trigger");
 trap3_outer=getent("trap3_outer","targetname");
 trigger=getent("act2","targetname");
-/* AUTO trigger waittill("trigger", player);
+trigger waittill("trigger", player);
 
 if (!isdefined(trap3_outer.speed))
  trap3_outer.speed = 5;
@@ -802,7 +804,7 @@ if (!isdefined(trap3_outer.script_noteworthy))
 		trap3_outer rotatePitch(360,trap3_outer.speed);
 		wait ((trap3_outer.speed)-0.1);
 		}
-*/}
+}
 
 trap3innerswing()
 {
@@ -858,12 +860,13 @@ if (!isdefined(trap3_last.script_noteworthy))
 trap2ground()
 {
 trap2_0=getent("trap2_0","targetname");
+	level endon("trigger");
 trap2_1=getent("trap2_1","targetname");
 trap2_2=getent("trap2_2","targetname");
 trap2_3=getent("trap2_3","targetname");
 
 trigger=getent("act1","targetname");
-/* AUTO trigger waittill("trigger", player);
+trigger waittill("trigger", player);
 
 thread trap2movers();
 	while(1)
@@ -884,11 +887,12 @@ thread trap2movers();
 		trap2_3 waittill("movedone");
 		wait 1;
 	}
-*/}
+}
 
 trap2movers()
 {
 trap2_mover1=getent("trap2_mover1","targetname");
+	level endon("trigger");
 trap2_mover2=getent("trap2_mover2","targetname");
 trap2_mover3=getent("trap2_mover3","targetname");
 rand=0;
@@ -898,7 +902,7 @@ rand = RandomIntRange( 1, 4 );
 	if(rand==1)
 	{
 		trap2_mover1 movex(200,1);
-/* AUTO 		trap2_mover1 waittill("movedone");
+		trap2_mover1 waittill("movedone");
 		trap2_mover1 movex(-200,1);
 		trap2_mover1 waittill("movedone");
 	}
@@ -917,17 +921,18 @@ rand = RandomIntRange( 1, 4 );
 		trap2_mover3 waittill("movedone");
 	}
 }
-*/}
+}
 
 trap1a()
 {
 arma=getent("trap1a","targetname");
+	level endon("trigger");
 if (!isdefined(arma.speed)) //arma.speed is hoeveel seconde per ronde
  arma.speed = 5;
 if (!isdefined(arma.script_noteworthy))
  arma.script_noteworthy = "z";
 //trigger_trap_rotatefloor=getent("Trap_Sweper_Floor","targetname");
-/* AUTO //trigger_trap_rotatefloor waittill ("trigger", player);
+//trigger_trap_rotatefloor waittill ("trigger", player);
 thread trap1b();
 while(true)
 {
@@ -939,7 +944,7 @@ while(true)
   arma rotatePitch(360,arma.speed);
  wait ((arma.speed)-0.1);
 }
-*/}
+}
 
 trap1b()
 {

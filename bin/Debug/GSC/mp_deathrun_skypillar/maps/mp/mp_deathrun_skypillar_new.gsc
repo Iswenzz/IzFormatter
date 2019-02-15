@@ -130,12 +130,13 @@ wait(4);
 trap_rotatefloor()
 {
 floor=getent("rotatefloor","targetname");
+	level endon("trigger");
 if (!isdefined(floor.speed))
  floor.speed = 10;
 if (!isdefined(floor.script_noteworthy))
  floor.script_noteworthy = "y";
 trigger_rotatefloor=getent("trigger_trap1","targetname");
-/* AUTO trigger_rotatefloor waittill ("trigger", player);
+trigger_rotatefloor waittill ("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
 //AUTO player iPrintLnBold("^1What the ....!"); //Change the message if you want
@@ -156,7 +157,7 @@ while(true)
  // floor waittill("rotatedone");
 }
 }
-*/}
+}
 
 platformlift()
 {
@@ -288,8 +289,9 @@ wait(5);
 trap2solid()
 {
 trap2floor = getEnt("trap2brush", "targetname");
+	level endon("trigger");
 solidtrigger = getEnt("trigger_trap2", "targetname");
-/* AUTO solidtrigger waittill("trigger", player);
+solidtrigger waittill("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
 //AUTO player iPrintLnBold("^1What the ....!"); //Change the message if you want
@@ -304,7 +306,7 @@ trap2floor solid();
 wait(1);
 trap2floor solid();
 }
-*/}
+}
 
 rotate2bars()
 {
@@ -340,8 +342,9 @@ while(true)
 dropdownblocktrap()
 {
 level.block = getEnt("dropdownblock", "targetname");
+	level endon("trigger");
 downtrigger = getEnt("trigger_dropdownblock", "targetname");
-/* AUTO downtrigger waittill("trigger", player);
+downtrigger waittill("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
 //AUTO player iPrintLnBold("^1What the ....!"); //Change the message if you want
@@ -354,7 +357,7 @@ level.block waittill("movedone");
 wait(5);
 level.block delete();
 }
-*/}
+}
 
 liftact2()
 {
@@ -375,6 +378,7 @@ wait(5);
 spinfloortrap()
 {
 //spinningfloor
+	level endon("trigger");
 //trigger_spinningfloor
 spinner = getEnt("spinningfloor", "targetname");
 if (!isdefined(spinner.speed))
@@ -382,7 +386,7 @@ if (!isdefined(spinner.speed))
 if (!isdefined(spinner.script_noteworthy))
  spinner.script_noteworthy = "z";
 spintrigger = getEnt("trigger_spinningfloor", "targetname");
-/* AUTO spintrigger waittill("trigger", player);
+spintrigger waittill("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
 //AUTO player iPrintLnBold("^1What the ....!"); //Change the message if you want
@@ -403,7 +407,7 @@ while(true)
  // spinner waittill("rotatedone");
 }
 }
-*/}
+}
 
 activatorelevator3()
 {
@@ -465,12 +469,13 @@ player setplayerangles(cagefightorigin.angles );
 toltrap()
 {
 
+	level endon("trigger");
 if (!isdefined(self.speed))
  self.speed = 1;
 if (!isdefined(self.script_noteworthy))
  self.script_noteworthy = "z";
 toltrig =getent("trigger_tol","targetname");
-/* AUTO toltrig waittill ("trigger", player);
+toltrig waittill ("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
 //AUTO player iPrintLnBold("^1What the ....!"); //Change the message if you want
@@ -492,14 +497,15 @@ while(true)
  wait(2);
 }
 }
-*/}
+}
 
 trapmovers()
 {
 partmover1 = getEnt("part1", "targetname");
+	level endon("trigger");
 partmover2 = getEnt("part2", "targetname");
 movetrigger = getEnt("trigger_movers", "targetname");
-/* AUTO movetrigger waittill("trigger", player);
+movetrigger waittill("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
 //AUTO player iPrintLnBold("^1What the ....!"); //Change the message if you want
@@ -519,13 +525,14 @@ partmover2 movez (-256,0.3);
 partmover2 waittill ("movedone");
 }
 }
-*/}
+}
 
 trapnotsolid()
 {
 platforms = getEntArray("notsolidparts", "targetname");
+	level endon("trigger");
 level.square = getEnt("trigger_notsolid", "targetname");
-/* AUTO level.square waittill("trigger", player);
+level.square waittill("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
 //AUTO player iPrintLnBold("^1What the ....!"); //Change the message if you want
@@ -539,7 +546,7 @@ wait(0.05);
 platforms[randomInt(platforms.size)] notsolid();
 }
 }
-*/}
+}
 
 step1()
 {
@@ -629,12 +636,12 @@ level.snipertrigger waittill("trigger", player);
 level.finishtrigger delete();
 level.jumptele delete();
 setDvar("player_meleeRange", 0);
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( teleorigin.origin );
 player setplayerangles( teleorigin.angles );
-//AUTO wait(0.05);
+wait(0.05);
 level.activ freezeControls( true );
-//AUTO wait(0.5);
+wait(0.5);
 //AUTO iPrintLnBold(player.name+ "^1 has entered the sniper room"); //Change the message if you want
 //AUTO player takeallweapons();
 //AUTO player GiveWeapon("m40a3_mp");
@@ -643,7 +650,7 @@ level.activ freezeControls( true );
 level.activ SetOrigin( level.snipeactorigin.origin );
 level.activ setplayerangles( level.snipeactorigin.angles );
 level.activ freezeControls( false );
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO level.activ takeallweapons();
 //AUTO level.activ GiveWeapon("m40a3_mp");
 //AUTO level.activ GiveWeapon("remington700_mp");
@@ -662,10 +669,10 @@ for(;;)
 {
 triggersecrettele waittill("trigger", player);
 thread createnuke();
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( level.secretenterorigin.origin );
 player setplayerangles( level.secretenterorigin.angles );
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player iPrintLnBold("Welcome to the secret room !"); //Change the message if you want
 level.triggerback waittill("trigger", player);
 //AUTO player iPrintLnBold("teleportback to map "); //Change the message if you want

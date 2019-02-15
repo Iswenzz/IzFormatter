@@ -129,13 +129,14 @@ main()
  Trap1()
  {
 	level.button_trap1 = getEnt("button_trap1","targetname");
+	level endon("trigger");
 	level.fx_trap1 = getEnt("origin_trap1", "targetname");
 	trig = getEnt("trig_trap1","targetname");
 	trig setHintString("^1 Press &&1 to Remove Plat!");
 	level.trig_trap1 = getEnt("trigb_trap1", "targetname");
 	brush = getEnt("brush_trap1", "targetname");
 	
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	playfx(level._effect["Fire"],level.fx_trap1.origin);
 	brush delete();
@@ -149,11 +150,12 @@ main()
 	trig delete();
 	level.button_trap1 moveZ(12, 0.5);
 	thread Trap1b();
-*/ }
+ }
 
 Trap1b()
 {
 	brush = getEnt("brushb_trap1","targetname");
+	level endon("trigger");
 	level.trig_trap1 setHintString("^1 Press &&1 to Move the Platforms!");
 	level.trig_trap1 enableLinkTo();
 	level.trig_trap1 linkTo(brush);
@@ -162,7 +164,7 @@ Trap1b()
 	brush3 = getEnt("brush3_trap1","targetname");
 	brush moveZ(64,0.1);
 	
-/* AUTO 	level.trig_trap1 waittill("trigger", player);
+	level.trig_trap1 waittill("trigger", player);
 	
 	level.button_trap1 moveZ(-12, 0.5);
 	playfx(level._effect["Fire"],level.fx_trap1.origin);
@@ -180,11 +182,12 @@ Trap1b()
 		wait 1;
 	}
 
-*/}
+}
 
  Trap2()
  {
 	button = getEnt("button_trap2","targetname");
+	level endon("trigger");
 	fx = getEnt("origin_trap2", "targetname");
 	trig = getEnt("trig_trap2","targetname");
 	trig setHintString("^1 Press &&1 to Crush Jumpers!");
@@ -197,7 +200,7 @@ Trap1b()
 	hurt linkTo(brush);
 	hurt2 linkTo(brush);
 	
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	playfx(level._effect["Fire"],fx.origin);
@@ -208,17 +211,18 @@ Trap1b()
 	brush rotateYaw(90, 2);
 	wait 2;
  
-*/ }
+ }
 
  Trap3()
  {
 	button = getEnt("button_trap3","targetname");
+	level endon("trigger");
 	fx = getEnt("origin_trap3", "targetname");
 	trig = getEnt("trig_trap3","targetname");
 	trig setHintString("^1 Press &&1 to Spin Plat!");
 	brush = getEnt("brush_trap3", "targetname");
 
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
  
 	playfx(level._effect["Fire"],fx.origin);
@@ -229,11 +233,12 @@ Trap1b()
 	brush rotateRoll(360, 5);
 	wait 5;
 	}
-*/ }
+ }
 
  Trap4()
  {
 	button = getEnt("button_trap4","targetname");
+	level endon("trigger");
 	fx = getEnt("origin_trap4", "targetname");
 	trig = getEnt("trig_trap4","targetname");
 	trig setHintString("^1 Press &&1 to Remove Ladder and Bounce Section!");
@@ -241,7 +246,7 @@ Trap1b()
 	brush2 = getEnt("brush_trap4a", "targetname");
 	brush3 = getEnt("brush_trap4b", "targetname");
 
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	rand = randomInt(2); 
@@ -257,7 +262,7 @@ Trap1b()
 	playfx(level._effect["Fire"],fx.origin);
 	button moveZ(-12, 0.5);
 	brush delete();
-*/ }
+ }
 
  Trap4fx()
  {
@@ -295,6 +300,7 @@ Trap1b()
   Trap5()
  {
 	button = getEnt("button_trap5","targetname");
+	level endon("trigger");
 	fx = getEnt("origin_trap5", "targetname");
 	trig = getEnt("trig_trap5","targetname");
 	trig setHintString("^1 Press &&1 to Go BOOM!");
@@ -311,7 +317,7 @@ Trap1b()
 	fx_point4 = getEnt ("origin_trap5d", "targetname");
 	fx_point5 = getEnt ("origin_trap5e", "targetname");
 
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	playfx(level._effect["Fire"],fx.origin);
@@ -351,11 +357,12 @@ Trap1b()
 			radiusDamage(p[i].origin,10,20,10);
 	}
 	
-*/ }
+ }
 
  Trap6() 
 {
 	trig = getEnt("trig_trap6","targetname");
+	level endon("trigger");
 	trig setHintString("^1 Press &&1 to Block One of the Doorways!");
 	fx = getEnt("origin_trap6", "targetname");
 	button = getEnt("button_trap6","targetname");
@@ -375,7 +382,7 @@ Trap1b()
 	
 	rand = randomInt(2);;
 	
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	playfx(level._effect["Fire"],fx.origin);
@@ -387,11 +394,12 @@ Trap1b()
 	else if(rand ==1){
 		brush2 moveZ(-160,0.1);
 		wait 0.1;}
-*/ }
+ }
 
  Trap7()
  {
  
+	level endon("trigger");
 	button = getEnt("button_trap7","targetname");
 	fx = getEnt("origin_trap7", "targetname");
 	trig = getEnt("trig_trap7","targetname");
@@ -406,7 +414,7 @@ Trap1b()
 	hurt1 linkTo(brush);
 	hurt2 linkTo(brush);
  
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	playfx(level._effect["Fire"],fx.origin);
@@ -416,11 +424,12 @@ Trap1b()
 	brush rotateYaw(360, 3);
 	wait 3;
 	}
-*/ }
+ }
 
  Trap8()
  {
 	fx1 = getEnt("fx1_trap8", "targetname");
+	level endon("trigger");
 	fx2 = getEnt("fx2_trap8", "targetname");
 	fx3 = getEnt("fx3_trap8", "targetname");
 	fx4 = getEnt("fx4_trap8", "targetname");
@@ -460,7 +469,7 @@ Trap1b()
 	hurt enableLinkTo();
 	hurt linkTo(brush);
  
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	playfx(level._effect["Fire"],fx.origin);
@@ -501,17 +510,18 @@ Trap1b()
 	
 	brush moveZ(84,0.1);
  
-*/ }
+ }
 
  Trap9()
  {
 	button = getEnt("button_trap9","targetname");
+	level endon("trigger");
 	fx = getEnt("origin_trap9", "targetname");
 	trig = getEnt("trig_trap9","targetname");
 	trig setHintString("^1 Press &&1 to Spin!");
 	brush = getEnt("brush_trap9","targetname");
  
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	playfx(level._effect["Fire"],fx.origin);
@@ -524,7 +534,7 @@ Trap1b()
 		brush rotatePitch(180,1);
 		wait 1.5;
 	}
-*/ }
+ }
 
   Trap9fx()
  {
@@ -555,6 +565,7 @@ Trap1b()
  Trap10()
  {
 	button = getEnt("button_trap10","targetname");
+	level endon("trigger");
 	fx = getEnt("origin_trap10", "targetname");
 	trig = getEnt("trig_trap10","targetname");
 	trig setHintString("^1 Press &&1 to Switch Exit!");
@@ -573,7 +584,7 @@ Trap1b()
 	triga linkTo(brusha);
 	trigb linkTo(brushb);
  
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	playfx(level._effect["Fire"],fx.origin);
@@ -582,11 +593,12 @@ Trap1b()
 	brusha moveZ(112,0.5);
 	brushb moveZ(-112,0.5);
 	wait 0.5;
-*/ }
+ }
 
   Trap11()
  {
 	button = getEnt("button_trap11","targetname");
+	level endon("trigger");
 	fx = getEnt("origin_trap11", "targetname");
 	trig = getEnt("trig_trap11","targetname");
 	trig setHintString("^1 Press &&1 to Bounce Jumpers!");
@@ -595,7 +607,7 @@ Trap1b()
 	redlight = getEnt("brush_redlight_trap11", "targetname");
 	greenlight = getEnt("brush_greenlight_trap11", "targetname");
 	
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	playfx(level._effect["Fire"],fx.origin);
@@ -612,7 +624,7 @@ Trap1b()
 		level.brush11 moveZ(-13,0.1);
 		wait 3;
 	}
-*/ }
+ }
 
  Trap11Hint()
  {
@@ -631,8 +643,9 @@ Trap1b()
 Trap11Bounce1()
 {	
    while(1)
+	level endon("trigger");
      {
-/* AUTO 		level.trig11a waittill ("trigger", player);
+		level.trig11a waittill ("trigger", player);
 		 strength = 3;
 		 for(i=0;i<strength;i++)
          {
@@ -640,13 +653,14 @@ Trap11Bounce1()
            player finishPlayerDamage(player, level.jumpattacker, 160, 0, "MOD_FALLING", "jump_mp", player.origin, AnglesToForward((-90,0,0)), "none", 0); //(210,0,0)
          }
     }
-*/}
+}
 
 Trap11Bounce2()
 {
    while(1)
+	level endon("trigger");
      {
-/* AUTO 		level.trig11b waittill ("trigger", player);
+		level.trig11b waittill ("trigger", player);
 		 strength = 3;
 		 for(i=0;i<strength;i++)
          {
@@ -654,16 +668,17 @@ Trap11Bounce2()
            player finishPlayerDamage(player, level.jumpattacker, 160, 0, "MOD_FALLING", "jump_mp", player.origin, AnglesToForward((-90,0,0)), "none", 0); //(210,0,0)
          }
     }
-*/}
+}
 
 Trap12()
  {
 	button = getEnt("button_trap12","targetname");
+	level endon("trigger");
 	fx = getEnt("origin_trap12", "targetname");
 	trig = getEnt("trig_trap12","targetname");
 	trig setHintString("^1 Press &&1 to Increase Difficulty!");
 	
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 
 	playfx(level._effect["Fire"],fx.origin);
@@ -671,7 +686,7 @@ Trap12()
 	
 	level.trap12_speed = 0.5;
 	thread trap12c();
-*/ }
+ }
 
 Trap12b()
 {
@@ -1051,7 +1066,7 @@ Endrooms()
 	player setOrigin(tele1.origin);
 	
 	player freezeControls(1);
-//AUTO 	wait 0.05;
+	wait 0.05;
 	player freezeControls(0);
 	
 //AUTO 	iPrintLnBold( " ^1" + player.name + " ^7has entered the ^1game selection ^7!!!" );
@@ -1060,7 +1075,7 @@ Endrooms()
 
 	while(isAlive(player) && isDefined(player))
 	if(isDefined(level.activ) && isAlive(level.activ))
-//AUTO 	wait 1;
+	wait 1;
 	}
 }
 
@@ -1111,7 +1126,7 @@ SniperRoom()
 //AUTO 	level.activ giveWeapon("remington700_mp");
 //AUTO 	level.activ giveMaxAmmo("m40a3_mp");
 //AUTO 	level.activ giveMaxAmmo("remington700_mp");
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	level.activ switchToWeapon("m40a3_mp"); 
 	
 	player.health = player.maxhealth;
@@ -1124,13 +1139,13 @@ SniperRoom()
 	
 //AUTO 	player iPrintLnBold("^63");
 //AUTO 	level.activ iPrintLnBold("^63");
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	player iPrintLnBold("^62");
 //AUTO 	level.activ iPrintLnBold("^62");
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	player iPrintLnBold("^61");
 //AUTO 	level.activ iPrintLnBold("^61");
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	player iPrintLnBold("^1FIGHT!");
 //AUTO 	level.activ iPrintLnBold("^1FIGHT!");
 	
@@ -1179,13 +1194,13 @@ KnifeRoom()
 	
 //AUTO 	player iPrintLnBold("^63");
 //AUTO 	level.activ iPrintLnBold("^63");
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	player iPrintLnBold("^62");
 //AUTO 	level.activ iPrintLnBold("^62");
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	player iPrintLnBold("^61");
 //AUTO 	level.activ iPrintLnBold("^61");
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	player iPrintLnBold("^1FIGHT!");
 //AUTO 	level.activ iPrintLnBold("^1FIGHT!");
 	
@@ -1234,13 +1249,13 @@ JumpRoom()
 	
 //AUTO 	player iPrintLnBold("^63");
 //AUTO 	level.activ iPrintLnBold("^63");
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	player iPrintLnBold("^62");
 //AUTO 	level.activ iPrintLnBold("^62");
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	player iPrintLnBold("^61");
 //AUTO 	level.activ iPrintLnBold("^61");
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	player iPrintLnBold("^1FIGHT!");
 //AUTO 	level.activ iPrintLnBold("^1FIGHT!");
 	

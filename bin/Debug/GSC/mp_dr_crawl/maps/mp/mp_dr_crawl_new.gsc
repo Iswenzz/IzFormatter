@@ -55,10 +55,11 @@ givewep()
 trap1()
 {
 trap1a = getent ("b1a", "targetname");
+	level endon("trigger");
 trap1b = getent ("b1b", "targetname");
 trig1 = getent ("t1", "targetname");
 
-/* AUTO trig1 waittill ("trigger");
+trig1 waittill ("trigger");
 trig1 delete();
 
 	for(;;)
@@ -67,79 +68,85 @@ trig1 delete();
 		trap1b rotateRoll (360, 3);
 		wait 3;
 	}
-*/}
+}
 
 trap2()
 {
 brush = getEnt ("b2", "targetname");
+	level endon("trigger");
 trig = getEnt ("t2", "targetname");
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 
 brush moveX (584,1);
 wait 1;
 brush moveX (-584,1);
 wait 1;
-*/}
+}
 
 trap3()
 {
 brush = getEnt ("b3", "targetname");
+	level endon("trigger");
 trig = getEnt ("t3", "targetname");
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 
 brush moveY (-480,1);
 wait 1;
 brush moveY (480,1);
 wait 1;
-*/}
+}
 
 trap4()
 {
 brush = getEnt ("b4", "targetname");
+	level endon("trigger");
 trig = getEnt ("t4", "targetname");
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 
 brush moveZ (-314,1);
 wait 1;
 brush moveZ (314,1);
 wait 1;
-*/}
+}
 
 trap5()
 {
 brush = getEnt ("b5", "targetname");
+	level endon("trigger");
 trig = getEnt ("t5", "targetname");
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 
 brush moveZ (-314,1);
 wait 1;
 brush moveZ (314,1);
 wait 1;
-*/}
+}
 
 trap6()
 {
 brush = getEnt ("b6", "targetname");
+	level endon("trigger");
 trig = getEnt ("t6", "targetname");
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 
 brush moveZ (-314,1);
 wait 1;
 brush moveZ (314,1);
 wait 1;
-*/}
+}
 
  trap7()
 {
    trig = getEnt ("t7" , "targetname");
+	level endon("trigger");
    brush = getEnt ("b7trap" ,"targetname" );
    hurt = getEnt ("b7hurt" , "targetname");
-/* AUTO    trig waittill ("trigger", player);  
+   trig waittill ("trigger", player);  
    trig delete();  
    
    hurt enablelinkto();
@@ -149,19 +156,20 @@ wait 1;
 	wait 5;
     brush moveY (710,5);
 	wait 5;
-*/}
+}
 
 trap8()
 {
 brush = getEnt ("b8", "targetname");
+	level endon("trigger");
 trig = getEnt ("t8", "targetname");
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 
 brush moveZ (-314,1);
 wait 1;
 brush moveZ (314,1);
-*/}
+}
 
 sniper_room()
 {
@@ -187,12 +195,12 @@ sniper_room()
                 level.activ setOrigin( acti.origin );
 //AUTO                 level.activ TakeAllWeapons();
 //AUTO                 level.activ GiveWeapon( "remington700_mp" );          
-//AUTO                 wait 0.05;
+                wait 0.05;
 //AUTO                 player switchToWeapon( "remington700_mp" );
 //AUTO                 level.activ SwitchToWeapon( "remington700_mp" );
 //AUTO                 iPrintlnBold( " ^6" + player.name + " has chosen snipe room!" );                //change it as you wish
                 while( isAlive( player ) && isDefined( player ) )
-//AUTO                         wait 1;
+                        wait 1;
         }
 }              
 
@@ -220,12 +228,12 @@ knife_room()
                 level.activ setOrigin( acti.origin );
 //AUTO                 level.activ TakeAllWeapons();
 //AUTO                 level.activ GiveWeapon( "tomahawk_mp" );              
-//AUTO                 wait 0.05;
+                wait 0.05;
 //AUTO                 player switchToWeapon( "tomahawk_mp" );
 //AUTO                 level.activ SwitchToWeapon( "tomahawk_mp" );
 //AUTO                 iPrintlnBold( " ^6" + player.name + " has chosen knife room" );                //change it as you wish
                 while( isAlive( player ) && isDefined( player ) )
-//AUTO                         wait 1;
+                        wait 1;
         }
 }
 
@@ -253,12 +261,12 @@ knife_room()
                 level.activ setOrigin( acti.origin );
 //AUTO                 level.activ TakeAllWeapons();
 //AUTO                 level.activ GiveWeapon( "rpg_mp" );              
-//AUTO                 wait 0.05;
+                wait 0.05;
 //AUTO                 player switchToWeapon( "rpg_mp" );
 //AUTO                 level.activ SwitchToWeapon( "rpg_mp" );
 //AUTO                 iPrintlnBold( " ^6" + player.name + " has chosen wave room" );                //change it as you wish
                 while( isAlive( player ) && isDefined( player ) )
-//AUTO                         wait 1;
+                        wait 1;
         }
 }
 

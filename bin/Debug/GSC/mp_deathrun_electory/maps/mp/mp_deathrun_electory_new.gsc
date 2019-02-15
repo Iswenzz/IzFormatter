@@ -251,8 +251,9 @@ autofunc()
 trap1() //Works (Add Fx)
 {
 	
+	level endon("trigger");
 	trigger = getent("trap1_trig","targetname"); 
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	hurt = getent("trap1_hurt","targetname");
 	laser = getent("t1laser","targetname");
 	trigger sethintstring("^5>> ^3Trap Activated ^5<<");
@@ -262,7 +263,7 @@ trap1() //Works (Add Fx)
 	wait 5;
 	hurt maps\mp\_utility::triggerOff();
 	laser hide();
-*/}
+}
 
 teleport1()
 {
@@ -520,15 +521,16 @@ lasers()
 logotrap()
 {
 	trigger = getent("logotrap_trig","targetname");
+	level endon("trigger");
 	brush = getent("logotrap","targetname");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	trigger sethintstring("^5>> ^3Trap Activated ^5<<");
 	
 	brush moveY(-384,.5);
 	brush waittill("movedone");
 	brush moveY(384,4);
 	
-*/}
+}
 
 roller()
 {
@@ -1044,8 +1046,9 @@ autoplatform2()
 rotaterecttrap()
 {
 	trigger = GetEnt("recttrap_trig","targetname");
+	level endon("trigger");
 	
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	trigger setHintString("^5>> ^3Trap Activated ^5<<");
 	
 	thread rect1();
@@ -1053,7 +1056,7 @@ rotaterecttrap()
 	
 	trigger delete();
 	
-*/}
+}
 
 rect1()
 {
@@ -1261,7 +1264,7 @@ bouncefall()
 			player setOrigin( spawn_acti.origin );
 			player setPlayerAngles(spawn_acti.angles );
 		}
-//AUTO 		wait .05; //try that
+		wait .05; //try that
 	}
 }
 
@@ -1590,8 +1593,9 @@ lazah()
 lasttrap()
 {
 	trigger = getent("lasttrap_trigger","targetname");
+	level endon("trigger");
 	brush = getent("lasttrap_brush","targetname");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	
 	trigger sethintstring("^5>> ^3Trap Activated ^5<<");
 	
@@ -1606,7 +1610,7 @@ lasttrap()
 	}
 	
 	trigger delete();
-*/}
+}
 
 ltlaser()
 {
@@ -1738,9 +1742,10 @@ old()
 lasertrap1() //multiple lasers
 {
 	brush = getent("lasertrap1_brush","targetname");
+	level endon("trigger");
 	hurt = getent("lasertrap1_hurt","targetname");
 	trigger = getent("lasertrap1_trigger","targetname");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 
 	trigger sethintstring("^5>> ^3Trap Activated ^5<<");
 
@@ -1756,16 +1761,17 @@ lasertrap1() //multiple lasers
 
 	hurt maps\mp\_utility::triggerOff();
 
-*/}
+}
 
 lasertrap2() //One dynamic laser
 {
 	base = getent("lasertrap2_base","targetname");
+	level endon("trigger");
 	brush = getent("lasertrap2_brush","targetname");
 	trigger = getent("lasertrap2_trigger","targetname");
 	hurt = getent("lasertrap2_hurt","targetname");
 
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 
 	trigger sethintstring("^5>> ^3Trap Activated ^5<<");
 
@@ -1790,7 +1796,7 @@ lasertrap2() //One dynamic laser
 		base moveZ( 192, time );
 		base waittill("movedone");
 	}
-*/}
+}
 
 pixel() //I don't know why this is called Pixel, move on //radiant bugs, fix later
 {
@@ -1891,10 +1897,10 @@ bounce()
 //AUTO                         level.activ TakeAllWeapons();
 //AUTO 						level.activ GiveWeapon( "knife_mp" );
 //AUTO 						level.activ SwitchToWeapon( "knife_mp" );
-//AUTO                         wait 0.05;
+                        wait 0.05;
                        
                 }
-//AUTO                 wait 0.05;
+                wait 0.05;
                
 			   player freezeControls(false);
    }
@@ -2409,15 +2415,16 @@ slaya4()
 anothertrap()
 {
 
+	level endon("trigger");
 	trigger = getEnt( "at_trigger", "targetname" );
-/* AUTO 	trigger waittill("trigger" , player );
+	trigger waittill("trigger" , player );
 	trigger sethintstring("^5>> ^3Trap Activated ^5<<");
 
 	thread anothertrap1();
 	thread anothertrap2();
 	thread anothertrap3();
 
-*/}
+}
 
 anothertrap1()
 {

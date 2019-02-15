@@ -151,11 +151,12 @@ J = getent ("J", "targetname");
 trap1()
 {
     trig1 = getEnt("trap1_trig", "targetname");
+	level endon("trigger");
     trap1a = getEnt("trap1a", "targetname");
     trap1b = getEnt("trap1b", "targetname");
     trap1c = getEnt("trap1c", "targetname");
 
-/* AUTO     trig1 waittill("trigger");
+    trig1 waittill("trigger");
     trig1 delete();
 
 	for(;;)
@@ -165,15 +166,16 @@ trap1()
 		trap1b rotateRoll (-360, 2);
 		wait 3;
 	}
-*/}
+}
 
 trap2()
 {
 trap2a = getent ("trap2a", "targetname");
+	level endon("trigger");
 trap2b = getent ("trap2b", "targetname");
 trig2 = getent ("trap2_trig", "targetname");
 
-/* AUTO trig2 waittill ("trigger");
+trig2 waittill ("trigger");
 trig2 delete();
 
 	for(;;)
@@ -182,17 +184,18 @@ trig2 delete();
 		trap2b rotateRoll (360, 3);
 		wait 3;
 	}
-*/}
+}
 
 trap3()
 {
 trap3a = getent ("trap3a", "targetname");
+	level endon("trigger");
 trap3b = getent ("trap3b", "targetname");
 trap3c = getent ("trap3c", "targetname");
 trap3d = getent ("trap3d", "targetname");
 trig3 = getent ("trap3_trig", "targetname");
 
-/* AUTO trig3 waittill ("trigger");
+trig3 waittill ("trigger");
 trig3 delete();
 
 	for(;;)
@@ -203,17 +206,18 @@ trig3 delete();
 		trap3d rotateYaw (-1800, 5);
 		wait 6;
 	}
-*/}
+}
 
 trap4()
 {
 trap4a = getent ("trap4a", "targetname");
+	level endon("trigger");
 trap4b = getent ("trap4b", "targetname");
 trap4c = getent ("trap4c", "targetname");
 trap4f = getent ("trap4f", "targetname");
 trig4 = getent ("trap4_trig", "targetname");
 
-/* AUTO trig4 waittill ("trigger");
+trig4 waittill ("trigger");
 trig4 delete();
 
 	for(;;)
@@ -229,15 +233,16 @@ trig4 delete();
 		trap4f rotateYaw (-90, 4);
 		wait 10;
 	}
-*/}
+}
 
 trap5()
 {
 trap5a = getent ("trap5a", "targetname");
+	level endon("trigger");
 trap5b = getent ("trap5b", "targetname");
 trig5 = getent ("trap5_trig", "targetname");
 
-/* AUTO trig5 waittill ("trigger");
+trig5 waittill ("trigger");
 trig5 delete();
 
 	for(;;)
@@ -255,17 +260,18 @@ trig5 delete();
 		trap5b movez (88, 1);
 		wait 1;
 	}
-*/}
+}
 
 trap6()
 {
 trap6a = getent ("trap6a", "targetname");
+	level endon("trigger");
 trap6b = getent ("trap6b", "targetname");
 trap6c = getent ("trap6c", "targetname");
 trap6d = getent ("trap6d", "targetname");
 trig6 = getent ("trap6_trig", "targetname");
 
-/* AUTO trig6 waittill ("trigger");
+trig6 waittill ("trigger");
 trig6 delete();
 
 	for(;;)
@@ -289,7 +295,7 @@ trig6 delete();
 		trap6d rotateYaw (-360, 1);
 		wait 1;
 	}
-*/}
+}
 
 trap7a()
 {
@@ -329,14 +335,14 @@ jumptrig = getent ("jump_trigger", "targetname");
 snipertrig waittill("trigger", player);
 weapontrig delete();
 jumptrig delete();
-//AUTO wait(0.05);
+wait(0.05);
 
 player SetOrigin (sniperjumpertele.origin);
 player setplayerangles (sniperjumpertele.angles);
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon ("m40a3_mp"); 
 //AUTO player GiveWeapon ("remington700_mp"); 
-//AUTO wait(0.05);
+wait(0.05);
 
 level.activ SetOrigin (sniperactitele.origin);
 level.activ setplayerangles (sniperactitele.angles);
@@ -345,22 +351,22 @@ level.activ setplayerangles (sniperactitele.angles);
 //AUTO level.activ GiveWeapon ("remington700_mp");
 //AUTO player GiveWeapon ("m40a3_mp"); 
 //AUTO player GiveWeapon ("remington700_mp"); 
-//AUTO wait(0.05);
+wait(0.05);
 
 //AUTO player switchToWeapon ("m40a3_mp");
 //AUTO level.activ SwitchToWeapon ("m40a3_mp");
 //AUTO iPrintLnBold(player.name+ "^4 has entered the ^1Sniper Room");
-//AUTO wait 0.4;
+wait 0.4;
 
 player thread onDeath_sniper();
-//AUTO wait 0.1;
+wait 0.1;
 	
     for(;;)
     {
-//AUTO 		wait .1;		
+		wait .1;		
 		while(isAlive(player))
 		{
-//AUTO 			wait 1;
+			wait 1;
 		}
 		
     }
@@ -390,23 +396,23 @@ jumptrig = getent ("jump_trigger", "targetname");
 weapontrig waittill ("trigger", player);
 snipertrig delete();
 jumptrig delete();
-//AUTO wait 0.05;
+wait 0.05;
 player SetOrigin (weaponjumpertele.origin);
 player setplayerangles (weaponjumpertele.angles);
 level.activ SetOrigin (weaponactitele.origin);
 level.activ setplayerangles (weaponactitele.angles);
 //AUTO iPrintLnBold(player.name+ "^4 has entered the ^1Weapon Room");
-//AUTO wait 0.01;
+wait 0.01;
 thread weapon_room_gun();
 thread onDeath_weapon();
-//AUTO wait 0.1;
+wait 0.1;
 
     for(;;)
     {
-//AUTO 		wait .1;		
+		wait .1;		
 		while(isAlive(player))
 		{
-//AUTO 			wait 1;
+			wait 1;
 		}
 		
     }

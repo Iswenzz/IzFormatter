@@ -463,25 +463,27 @@ trap21()
 trap1()
 {
 trigger = getEnt("trigger_trap1", "targetname");
+	level endon("trigger");
 brush = getEnt("trap1","targetname");
-/* AUTO trigger waittill("trigger", player);
+trigger waittill("trigger", player);
 trigger delete();
 {
 wait(0.01);
 brush movez(-3000,3);
 } 
       
-*/}
+}
 
 trap2()
 {
 	trigger = getEnt("trigger_trap2","targetname");
+	level endon("trigger");
 	c1 = getEnt("c1","targetname");
 		c2 = getEnt("c2","targetname");
 			c3 = getEnt("c3","targetname");
 				c4 = getEnt("c4","targetname");
 					c5 = getEnt("c5","targetname");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	while(1)
 	{
 wait(0.1);
@@ -496,7 +498,7 @@ wait(0.1);
 c5 rotateroll(-360,1);
 wait(5);
 	}
-*/}
+}
 
 trap12()
 {
@@ -548,15 +550,16 @@ wait 0.5;
 trap3()
 {
 trigger = getEnt("trigger_trap3", "targetname");
+	level endon("trigger");
 brush = getEnt("trap3","targetname");
-/* AUTO trigger waittill("trigger", player);
+trigger waittill("trigger", player);
 trigger delete();
 {
 wait(0.01);
 brush movez(-3000,3);
 } 
       
-*/}
+}
 
 	deagle()
 	{
@@ -576,9 +579,10 @@ brush movez(-3000,3);
 trap4()
 	{
 	trigger = getent ("trigger_trap4","targetname");
+	level endon("trigger");
 	brush = getent ("trap4","targetname");
 	
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 	trigger delete ();
 	
 	while (1)
@@ -593,14 +597,15 @@ trap4()
 		
 		}
 		
-*/	}
+	}
 
 trap5()
 {
 	trigger = getEnt("trigger_trap5","targetname");
+	level endon("trigger");
 	brush = getEnt("trap5","targetname");
 	brush1 = getEnt("trap6","targetname");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	while(1)
 	{
 		brush rotateroll(-100,.2);
@@ -612,16 +617,17 @@ trap5()
 		brush1 rotateroll(100,.2);
 		wait 5;
 	}
-*/}
+}
 
 trap7()
 {
 	trigger = getEnt("trigger_trap7","targetname");
+	level endon("trigger");
 	brush = getEnt("trap7","targetname");
 	bol = getEnt("bol","targetname");
 	bol1 = getEnt("bol1","targetname");
 	brush1 = getEnt("trap8","targetname");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	bol enablelinkto(); 
 	bol linkto (brush); 
 	bol1 enablelinkto(); 
@@ -637,11 +643,12 @@ brush1 waittill ("movedone");
 		brush1 rotateroll(180 , 1);
 brush1 waittill ("movedone");
 	}
-*/}
+}
 
 trap10()
 {
 trigger1 = getEnt("d1", "targetname");
+	level endon("trigger");
 trigger2 = getEnt("d2", "targetname");
 trigger3 = getEnt("d3", "targetname");
 trigger4 = getEnt("d4", "targetname");
@@ -661,7 +668,7 @@ a10 = getEnt("a10","targetname");
 a11 = getEnt("a11","targetname");
 a12 = getEnt("a12","targetname");
 a13 = getEnt("a13","targetname");
-/* AUTO trigger1 waittill("trigger", player);
+trigger1 waittill("trigger", player);
 trigger2 waittill("trigger", player);
 trigger3 waittill("trigger", player);
 trigger4 waittill("trigger", player);
@@ -697,7 +704,7 @@ wait(0.1);
 a13 movez(-30,1);
 wait(0.1);
 }
-*/} 
+} 
 
 solid()
 {
@@ -714,9 +721,10 @@ brush rotateroll(360,1);
 trap11()
 	{
 	trigger = getEnt ("trigger_trap11","targetname");
+	level endon("trigger");
 	brush = getEnt ("trap11","targetname");
 	
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 	trigger delete ();
 	
 	while (1)
@@ -726,13 +734,14 @@ trap11()
 		
 		}
 		
-*/	}
+	}
 
 	trap15()
 {
 	trigger = getEnt("trigger_trap15","targetname");
+	level endon("trigger");
 	brush = getEnt("trap15","targetname");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	{
 		brush movex(250,0.1);
 		wait 0.5;
@@ -740,13 +749,14 @@ trap11()
 		wait 0.5;
 
 	}
-*/}
+}
 
 trap16()
 {
 	trigger = getEnt("trigger_trap16","targetname");
+	level endon("trigger");
 	brush = getEnt("trap16","targetname");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	while(1)
 	{
 		brush rotatepitch(180 , 1);
@@ -755,7 +765,7 @@ trap16()
 		wait 1;
 
 	}
-*/}
+}
 
 hammer()
 {
@@ -818,7 +828,7 @@ finalknife()
 		level.activ setWeaponAmmoClip( "deserteagle_mp", 0 );
 		level.activ setweaponammostock( "deserteagle_mp", 0 );	
 level.activ thread superpowers();			
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "deserteagle_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "deserteagle_mp" );
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^7 HAS ENTERED KNIFE^1!" );     //change to what you want it to be
@@ -826,11 +836,11 @@ level.activ thread superpowers();
 //AUTO ambientPlay("blue");
 						player freezeControls(true);
 						level.activ freezeControls(true);
-//AUTO             wait 2;
+            wait 2;
 					player freezeControls(false);
 					 level.activ freezeControls(false);
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -861,7 +871,7 @@ finalsniper()
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "lol_remington700_mp" ); 
 //AUTO 		level.activ GiveMaxAmmo("lol_remington700_mp");	
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "lol_remington700_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "lol_remington700_mp" );
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^5 HAS ENTERED SNIPER^1!" );     //change to what you want it to be
@@ -869,12 +879,12 @@ finalsniper()
 //AUTO ambientPlay("blue");
 						player freezeControls(true);
 						level.activ freezeControls(true);
-//AUTO             wait 2;
+            wait 2;
 					player freezeControls(false);
 											level.activ freezeControls(false);
 											
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

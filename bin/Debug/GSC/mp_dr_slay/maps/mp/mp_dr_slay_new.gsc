@@ -86,11 +86,12 @@ thread jump_a_fail();
 trap1()
 {
 	trig = getEnt("trap1_trig","targetname");
+	level endon("trigger");
 	block1 = getEnt("trap1_block1","targetname");
 	block2 = getEnt("trap1_block2","targetname");
 
 	trig setHintString("^7Press ^1&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig Delete();
 
 	rz = floor(randomint(2));
@@ -106,11 +107,12 @@ trap1()
 		block2 waittill ("movedone");
 		block2 Delete();
 	}
-*/}
+}
 
 trap2()
 {
 	trig = getEnt("trap2_trig","targetname");
+	level endon("trigger");
 	spike1 = getEnt("trap2_spike1","targetname");
 	spike2 = getEnt("trap2_spike2","targetname");
 	spike1_trig = getEnt("trap2_spike1_trig","targetname");
@@ -122,7 +124,7 @@ trap2()
 	spike2_trig linkto (spike2);	
 
 	trig setHintString("^7Press ^1&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig Delete();
 
 	while(1)
@@ -137,18 +139,19 @@ trap2()
 		spike1 waittill ("movedone");
 		wait 1;
 	}
-*/}
+}
 
 trap3()
 {
 	trig = getEnt("trap3_trig","targetname");
+	level endon("trigger");
 	t1 = getEnt("trap3_1","targetname");
 	t2 = getEnt("trap3_2","targetname");
 	t3 = getEnt("trap3_3","targetname");
 	t4 = getEnt("trap3_4","targetname");
 
 	trig setHintString("^7Press ^1&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig Delete();
 
 	todel = floor(randomint(5));
@@ -175,13 +178,14 @@ trap3()
 	{
 		t2 Delete();
 	}
-*/}
+}
 
 trap4()
 {
 	trig = getEnt("trap4_trig","targetname");
+	level endon("trigger");
 	trig setHintString("^7Press ^1&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig Delete();
 
 	thread t4_rot1();
@@ -189,7 +193,7 @@ trap4()
 	thread t4_rot3();
 	thread t4_rot4();
 	thread t4_rot5();
-*/}
+}
 
 t4_rot1()
 {
@@ -244,11 +248,12 @@ t4_rot5()
 trap5()
 {
 	trig = getEnt("trap5_trig","targetname");
+	level endon("trigger");
 	t1 = getEnt("trap5_1","targetname");
 	t2 = getEnt("trap5_2","targetname");
 
 	trig setHintString("^7Press ^1&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig Delete();
 
 	todel = floor(randomint(2));
@@ -258,7 +263,7 @@ trap5()
 		t2 Delete();
 
 	thread t5_rotb();
-*/}
+}
 
 t5_rotb()
 {
@@ -274,14 +279,15 @@ t5_rotb()
 trap6()
 {
 	trig = getEnt("trap6_trig","targetname");
+	level endon("trigger");
 	trig setHintString("^7Press ^1&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig Delete();
 
 	thread t6_rot1();
 	thread t6_rot2();
 	thread t6_move3();
-*/}
+}
 
 t6_rot1()
 {
@@ -316,14 +322,15 @@ t6_move3()
 trap7()
 {
 	trig = getEnt("trap7_trig","targetname");
+	level endon("trigger");
 	trig setHintString("^7Press ^1&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig Delete();
 
 	thread t7_move1();
 	wait 1.5;
 	thread t7_move2();
-*/}
+}
 
 t7_move1()
 {
@@ -352,25 +359,27 @@ t7_move2()
 trap8()
 {
 	trig = getEnt("trap8_trig","targetname");
+	level endon("trigger");
 	t1 = getEnt("trap8_1","targetname");
 
 	trig setHintString("^7Press ^1&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig Delete();
 
 	t1 MoveZ(176,.5);
 	t1 waittill("movedone");
 	wait 3;
 	t1 MoveZ(-176,3);
-*/}
+}
 
 trap9()
 {
 	trig = getEnt("trap9_trig","targetname");
+	level endon("trigger");
 	t1 = getEnt("trap9_1","targetname");
 
 	trig setHintString("^7Press ^1&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig Delete();
 
 	while(1)
@@ -382,18 +391,19 @@ trap9()
 		t1 waittill("rotatedone");
 		wait 2;
 	}
-*/}
+}
 
 trap10()
 {
 	trig = getEnt("trap10_trig","targetname");
+	level endon("trigger");
 	clip1 = getEnt("trap10_clîp1","targetname");
 	clip2 = getEnt("trap10_clîp2","targetname");
 	t1 = getEnt("trap10_1","targetname");
 	t2 = getEnt("trap10_2","targetname");
 
 	trig setHintString("^7Press ^1&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig Delete();
 
 	todel = floor(randomint(2));
@@ -407,15 +417,16 @@ trap10()
 		clip2 Delete();
 		t1 Delete();
 	}
-*/}
+}
 
 trap11()
 {
 	trig = getEnt("trap11_trig","targetname");
+	level endon("trigger");
 	t1 = getEnt("trap11_1","targetname");
 
 	trig setHintString("^7Press ^1&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig Delete();
 
 	while(1)
@@ -427,7 +438,7 @@ trap11()
 		t1 waittill("movedone");
 		wait 1.5;
 	}
-*/}
+}
 
 spawn_cage()
 {
@@ -758,7 +769,7 @@ rm_knife()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" ); 
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
         player FreezeControls(1);
@@ -771,11 +782,11 @@ rm_knife()
 				players = getentarray("player", "classname");
 				for(i=0;i<players.size;i++)
 					players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 				wait 5;
+				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 

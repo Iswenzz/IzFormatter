@@ -187,26 +187,26 @@ endroom_template(trigger, jumper_origin, acti_origin, weapon, weapon2, weapon_ro
 		}
  
 //AUTO         iPrintlnBold( " ^8" + player.name + " ^6Entered" + " ^9" + weapon_room + " ^6room." );
-//AUTO         wait 0.05;
+        wait 0.05;
         player freezecontrols(true);
         level.activ freezecontrols(true);
-//AUTO         wait 1;
+        wait 1;
 //AUTO         player iPrintlnBold("^93");
 //AUTO         level.activ iPrintlnBold("^93");
-//AUTO         wait 1;
+        wait 1;
 //AUTO         player iPrintlnBold("^82");
 //AUTO         level.activ iPrintlnBold("^82");
-//AUTO         wait 1;
+        wait 1;
 //AUTO         player iPrintlnBold("^91");
 //AUTO         level.activ iPrintlnBold("^91");
-//AUTO         wait 1;
+        wait 1;
 //AUTO         player iPrintlnBold("^8FIGHT^9!");
 //AUTO         level.activ iPrintlnBold("^8FIGHT^9!");
         player freezecontrols(false);
         level.activ freezecontrols(false);
  
         while(isAlive(player) && isDefined(player)){
-//AUTO             wait 0.1;
+            wait 0.1;
 		}
 		
 		level.inEndRoom = false;

@@ -6,6 +6,7 @@ thread runtrap9();
 runtrap9()
 {
 	trab_n9 = [];
+	level endon("trigger");
 	trab_n9[0] = getent("dr_trap_9a","targetname");		//search the bush dr_trap_9a
 	trab_n9[1] = getent("dr_trap_9b","targetname");
 	trab_n9[2] = getent("dr_trap_9c","targetname");	
@@ -29,9 +30,9 @@ runtrap9()
 	{	
 	n9 = RandomInt(3);
 	trab_n9[n9] rotateYaw(360,1);			// the Y^ X> axis rotation (+360� , speed)
-/* AUTO 	trab_n9[n9] waittill ("rotatedone");	//expected end of the movement
+	trab_n9[n9] waittill ("rotatedone");	//expected end of the movement
 	wait(RandomInt(2));			   				// wait 0 to 2 seconds
 	}
 		
-*/}
+}
 

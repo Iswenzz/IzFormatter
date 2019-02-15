@@ -66,9 +66,10 @@ wait_spawn()
 
 onactivetrap()
 {
-/* AUTO 	self waittill("trigger");
+	self waittill("trigger");
+	level endon("trigger");
 	self delete();
-*/}
+}
 
 door()
 {
@@ -489,7 +490,7 @@ weapons(final1,final2,final3,final4)
 			
 //AUTO 			players[i] TakeAllWeapons();
 //AUTO 			players[i] GiveWeapon(weap);
-//AUTO 			wait 0.01;
+			wait 0.01;
 //AUTO 			players[i] SwitchToWeapon(weap);
 		}
 	}

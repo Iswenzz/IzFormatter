@@ -32,17 +32,17 @@ sniperoom()
         level.activ setOrigin( acti.origin );
 //AUTO         player TakeAllWeapons();
 //AUTO 	level.activ TakeAllWeapons();
-//AUTO 	wait 0.1;
+	wait 0.1;
 //AUTO         player GiveWeapon( "remington700_mp" );
 //AUTO         level.activ GiveWeapon( "remington700_mp" );
-//AUTO 	wait 0.1;
+	wait 0.1;
 //AUTO 	player GiveWeapon( "M40A3_mp" );
 //AUTO 	level.activ GiveWeapon( "M40A3_mp" );
-//AUTO 	wait 0.1;;
+	wait 0.1;;
 //AUTO 	player switchToWeapon( "remington700_mp" );
 //AUTO         level.activ SwitchToWeapon( "remington700_mp" );
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

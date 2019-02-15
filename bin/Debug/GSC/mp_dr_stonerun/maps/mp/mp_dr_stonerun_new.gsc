@@ -402,6 +402,7 @@ stange6()
 secrettrap()
 {
 	
+	level endon("trigger");
 	object1 = getent("secretstangen1", "targetname");
 	
 	while(1)
@@ -409,24 +410,25 @@ secrettrap()
 	thread secrettrap2();
 	
 	object1 moveZ (-40, 3);
-/* AUTO 	object1 waittill("movedone");
+	object1 waittill("movedone");
 	object1 moveZ (40, 3);
 	object1 waittill("movedone");
 	}
-*/}
+}
 
 secrettrap2()
 {
 	
+	level endon("trigger");
 	object2 = getent("secretstangen2", "targetname");
 	
 	
 	object2 moveZ (40, 3);
-/* AUTO 	object2 waittill("movedone");
+	object2 waittill("movedone");
 	object2 moveZ (-40, 3);
 	object2 waittill("movedone");
 	
-*/}
+}
 
 	lift()
 	{
@@ -822,7 +824,7 @@ finalRoom1( tp, weap, health )
 		player SetPlayerAngles( target.angles );
 		
 //AUTO 		player giveWeapon("remington700_mp");
-//AUTO 		wait(0.05);
+		wait(0.05);
 //AUTO 		player giveMaxAmmo("remington700_mp");
 //AUTO 		player switchToWeapon("remington700_mp");
 	}
@@ -842,7 +844,7 @@ finalRoom1( tp, weap, health )
 		player SetPlayerAngles( target.angles );
 		
 //AUTO 		player giveWeapon("remington700_mp");
-//AUTO 		wait(0.05);
+		wait(0.05);
 //AUTO 		player giveMaxAmmo("remington700_mp");
 //AUTO 		player switchToWeapon("remington700_mp");
 	}

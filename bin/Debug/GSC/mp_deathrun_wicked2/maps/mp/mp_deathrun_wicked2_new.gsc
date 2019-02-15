@@ -322,6 +322,7 @@ credits()
 trap1()
 {
 
+	level endon("trigger");
 trap = getEnt ("trap1", "targetname");
 trig = getEnt("trap1_trig", "targetname");
 hurt = getEnt( "trap1_hurt", "targetname");
@@ -329,21 +330,22 @@ hurt = getEnt( "trap1_hurt", "targetname");
 	hurt enableLinkTo();
 	hurt LinkTo(trap);
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 		trap moveZ( 18, 0.3, 0.1, 0.1);
 		wait 1.5;
 		trap moveZ( -18, 0.3, 0.1, 0.1);
-*/}
+}
 
 trap2()
 {
 	trap = getEnt ("trap2", "targetname");
+	level endon("trigger");
 	trig = getEnt("trap2_trig", "targetname");
 	
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	while( 1 )
@@ -351,16 +353,17 @@ trap2()
 		trap rotateYaw(360, 4.5);
 		wait 4.5;
 	}
-*/}
+}
 
 trap3_pushers()
 {
 	trapa = getEnt ("trap3a", "targetname");
+	level endon("trigger");
 	trapb = getEnt ("trap3b", "targetname");
 	trapc = getEnt ("trap3c", "targetname");
 	trig = getEnt("trap3_trig", "targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	while( 1 )
@@ -389,15 +392,16 @@ trap3_pushers()
 		
 		wait 0.5;
 	}
-*/}
+}
 
 trap4()
 {
 	rings = getEnt("trap4", "targetname");
+	level endon("trigger");
 	trig = getEnt("trap4_trig", "targetname");
 	
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 while( 1 )
@@ -415,18 +419,19 @@ while( 1 )
 		rings waittill ("movedone");
 		wait 0.3;
 	}
-*/}
+}
 
 trap5()
 {
 	trig = getEnt("trap5_trig", "targetname");
+	level endon("trigger");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	thread spinner( "trap5a", 360, 1.65 );
 	thread spinner( "trap5b", -360, 1.65 );
-*/}
+}
 
 trap6()
 {
@@ -438,8 +443,9 @@ thread hammertrap( "trap6c_trig", "hammer3l", "hammer3r", 360, 2.10);
 trap8()
 {
 	trig = getEnt ("trap8_trig", "targetname");
+	level endon("trigger");
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 
 	wait 0.05;
@@ -460,7 +466,7 @@ trap8()
 	thread ef( "ps14", 110, 0.8, 1.4 );
 	thread ef( "ps15", -110, 0.8, 1.4 );
 	thread ef( "ps16", 115, 0.8, 1.9 );	
-*/}
+}
 
 acti_move1()
 {
@@ -500,9 +506,10 @@ acti_move1()
 trap9()
 {
 	pusher = getEnt( "trap9", "targetname" );
+	level endon("trigger");
 	trig = getEnt( "trap9_trig", "targetname" );
 
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	
 	wait 0.05;
 	
@@ -510,15 +517,16 @@ trap9()
 	wait 2.5;
 	pusher moveY( 232, 1.3, 0.2, 0.2 );
 	wait 2;
-*/}
+}
 
 trap10()
 {
 
+	level endon("trigger");
 	spinner = getEnt( "trap10", "targetname" );
 	trig = getEnt("trap10_trig", "targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	while( 1 )
@@ -533,7 +541,7 @@ trap10()
 			wait .5;
 		}
 	}
-*/}
+}
 
 drawInformation( start_offset, movetime, mult, text )
 {
@@ -632,11 +640,12 @@ ef( id, fz, ft, st )
 hammertrap( trigger, hammer1, hammer2, distance, time)
 {
 
+	level endon("trigger");
 trig = getEnt( trigger, "targetname");
 hammer1 = getEnt( hammer1, "targetname");
 hammer2 = getEnt( hammer2, "targetname");
 
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 
 while(true)
@@ -646,7 +655,7 @@ hammer1 rotateRoll ( distance, time);
 hammer2 rotateRoll ( distance, time);
 wait time;
 }
-*/}
+}
 
 spinner( spinner_id, v, t )
 {

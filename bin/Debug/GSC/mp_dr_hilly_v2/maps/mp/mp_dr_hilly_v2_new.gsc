@@ -78,6 +78,7 @@ seconddoor()
 trap1()
 {
 	trig = getEnt("trap1_trig","targetname");
+	level endon("trigger");
 	door1 = getEnt("trap1_door1","targetname");
 	brush = getEnt("trap1","targetname");
 	hurt = getEnt("trap1_hurt","targetname");
@@ -88,7 +89,7 @@ trap1()
 	
 	door1 moveZ (110,1);
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	door1 moveZ (-110,0.1);
@@ -104,48 +105,51 @@ trap1()
 	wait 1;
 	door1 delete();
 	door2 delete();
-*/}
+}
 
 trap2()
 {
 	trig = getEnt("trap2_trig","targetname");
+	level endon("trigger");
 	brush = getEnt("trap2","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	brush moveZ (-200,1);
 	wait 3;
 	brush moveZ (200,3);
-*/}
+}
 
 trap3()
 {
 	trig = getEnt("trap3_trig","targetname");
+	level endon("trigger");
 	hurt = getEnt("trap3_hurt","targetname");
 	brush = getEnt("trap3","targetname");
 	
 	hurt enablelinkto();
 	hurt linkto(brush);
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	brush moveZ (400,0.5);
 	wait 3;
 	brush moveZ (-400,3);
-*/}
+}
 
 trap4()
 {
 	trig = getEnt("trap4_trig","targetname");
+	level endon("trigger");
 	brush = getEnt("trap4","targetname");
 	hurt = getEnt("trap4_hurt","targetname");
 	
 	hurt enablelinkto();
 	hurt linkto(brush);
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	while(1)
@@ -155,24 +159,26 @@ trap4()
 		brush moveZ(250,2);
 		wait 1;
 	}
-*/}
+}
 
 trap5()
 {
 	trig = getEnt("trap5_trig","targetname");
+	level endon("trigger");
 	brush = getEnt("trap5","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	brush moveZ(-200,0.5);
 	wait 5;
 	brush moveZ(200,3);
-*/}
+}
 
 trap6()
 {
 	trig = getEnt("trap6_trig","targetname");
+	level endon("trigger");
 	hurt = getEnt("trap6_hurt","targetname");
 	brush = getEnt("trap6","targetname");
 	fx_origin = getEnt("fx_fusrodah","targetname");
@@ -182,7 +188,7 @@ trap6()
 	
 	brush hide();
 	
-/* AUTO 	trig waittill("trigger", who);
+	trig waittill("trigger", who);
 	trig delete();
 	
 	who PlaySound("fusrodah");
@@ -193,7 +199,7 @@ trap6()
 	
 	wait 5;
 	brush moveZ(-100,3);
-*/}
+}
 
 weapon()
 {
@@ -224,21 +230,21 @@ weapon()
 	
 //AUTO 	player TakeAllWeapons();
 //AUTO 	player GiveWeapon("deserteagle_mp");
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	player SwitchToWeapon("deserteagle_mp");
-//AUTO 	wait 2;
+	wait 2;
 	player FreezeControls (0);
 	
 	player thread onDeath_weapon();
-//AUTO 	wait 0.1;
+	wait 0.1;
 	
 	
     for(;;)
     {
-//AUTO 		wait .1;		
+		wait .1;		
 		while(isAlive(player))
 		{
-//AUTO 			wait 1;
+			wait 1;
 		}
 		
     }
@@ -302,21 +308,21 @@ sniper()
 	
 //AUTO 	player TakeAllWeapons();
 //AUTO 	player GiveWeapon("m40a3_mp");
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	player SwitchToWeapon("m40a3_mp");
-//AUTO 	wait 2;
+	wait 2;
 	player FreezeControls (0);
 	
 	player thread onDeath_sniper();
-//AUTO 	wait 0.1;
+	wait 0.1;
 	
 	
     for(;;)
     {
-//AUTO 		wait .1;		
+		wait .1;		
 		while(isAlive(player))
 		{
-//AUTO 			wait 1;
+			wait 1;
 		}
 		
     }
@@ -380,21 +386,21 @@ knife()
 	
 //AUTO 	player TakeAllWeapons();
 //AUTO 	player GiveWeapon("tomahawk_mp");
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	player SwitchToWeapon("tomahawk_mp");
-//AUTO 	wait 2;
+	wait 2;
 	player FreezeControls (0);
 	
 	player thread onDeath_knife();
-//AUTO 	wait 0.1;
+	wait 0.1;
 	
 	
     for(;;)
     {
-//AUTO 		wait .1;		
+		wait .1;		
 		while(isAlive(player))
 		{
-//AUTO 			wait 1;
+			wait 1;
 		}
 		
     }

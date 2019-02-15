@@ -151,13 +151,14 @@ addTriggerToList( name )
 trap1()
 { 
    trig = getent( "trap1_trig", "targetname" );
+	level endon("trigger");
    spike = getent("spikes","targetname"); 
    hurt1 = getent("trap1_hurt","targetname");
    
    hurt1 enablelinkto();
    hurt1 linkto(spike);
    
-/* AUTO    trig waittill("trigger", player); 
+   trig waittill("trigger", player); 
    trig delete();   
    {
    spike movez( -185, 0.2);
@@ -165,16 +166,17 @@ trap1()
    wait 2;
    spike movez( 185, 1.5); 
    }
-*/}
+}
 
 trap2()
 { 
    trig = getent( "trap2_trig", "targetname" );
+	level endon("trigger");
    t01 = getent("t1","targetname"); 
    t02 = getent("t2","targetname");
    t03 = getent("t3","targetname");
 
-/* AUTO    trig waittill("trigger", player); 
+   trig waittill("trigger", player); 
    trig delete();  
    
    while(1)
@@ -188,7 +190,7 @@ trap2()
    t03 movex( -110, 1.5);
    wait 1.5;
    }
-*/}
+}
 
 trap3_a()
 { 
@@ -224,6 +226,7 @@ trap3_a()
 trap3_b()
 { 
    trig = getent( "trap3_trig", "targetname" );
+	level endon("trigger");
    t3sh1 = getent("trap3_shark1","targetname");
    s1o1 = getent("shark1_origin1","targetname");
    s1o2 = getent("shark1_origin2","targetname");
@@ -282,7 +285,7 @@ trap3_b()
    s8h enablelinkto();
    s8h linkto(t3sh8);
    
-/* AUTO    trig waittill("trigger", player); 
+   trig waittill("trigger", player); 
    trig delete();  
   
    {
@@ -359,11 +362,12 @@ trap3_b()
 	t3sh8 rotateroll( 60,0.3);
 	wait 2.5;
 	}
-*/}
+}
 
 trap4()
 { 
    trig = getent( "trap4_trig", "targetname" );
+	level endon("trigger");
    t4b1 = getent("trap4_b1","targetname");
    t4b2 = getent("trap4_b2","targetname");
    t4b3 = getent("trap4_b3","targetname");
@@ -375,7 +379,7 @@ trap4()
    t4o4 = getent("trap4_origin4","targetname");
    t4o5 = getent("trap4_origin5","targetname");
    
-/* AUTO    trig waittill("trigger", player); 
+   trig waittill("trigger", player); 
    trig delete(); 
    
    {
@@ -396,18 +400,19 @@ trap4()
 	t4b4 delete();
 	t4b5 delete();
    }
-*/}
+}
 
 trap5()
 { 
    trig = getent( "trap5_trig", "targetname" );
+	level endon("trigger");
    t5b1 = getent("trap5_brush1","targetname");
    t5h = getent("trap5_hurt","targetname"); 
    
    t5h enablelinkto();
    t5h linkto(t5b1);
    
-/* AUTO    trig waittill("trigger", player); 
+   trig waittill("trigger", player); 
    trig delete();   
    
    while(1)
@@ -417,17 +422,18 @@ trap5()
 	t5b1 rotatePitch( -360,1);
 	wait 2;
    }
-*/}
+}
 
 trap6()
 { 
    trig = getent( "trap6_trig", "targetname" );
+	level endon("trigger");
    spike6 = getent("spikes_2","targetname"); 
    hurt6 = getent("hurt_t6","targetname"); 
    hurt6 enablelinkto();
    hurt6 linkto(spike6);
    
-/* AUTO    trig waittill("trigger", player); 
+   trig waittill("trigger", player); 
    trig delete();   
    {
    spike6 movez( 74, 0.2);
@@ -435,18 +441,19 @@ trap6()
    wait 3;
    spike6 movez( -80, 1.5); 
    }
-*/}
+}
 
 trap7()
 { 
    trig = getent( "trap7_trig", "targetname" );
+	level endon("trigger");
    t7b1 = getent("t7_brush1","targetname"); 
    t7b2 = getent("t7_brush2","targetname");
    t7b3 = getent("t7_brush3","targetname");
    t7b4 = getent("t7_brush4","targetname");
    t7b5 = getent("t7_brush5","targetname");
 
-/* AUTO    trig waittill("trigger", player); 
+   trig waittill("trigger", player); 
    trig delete();  
    
    while(1)
@@ -471,11 +478,12 @@ trap7()
 	wait 1;
    }
    
-*/}
+}
 
 trap8()
 { 
    trig = getent( "trap8_trig", "targetname" );
+	level endon("trigger");
    sb1 = getent("snowb1","targetname");
    sb2 = getent("snowb2","targetname");
    sb3 = getent("snowb3","targetname");
@@ -520,7 +528,7 @@ trap8()
    sb6 hide();
    sb7 hide();
    
-/* AUTO    trig waittill("trigger", player); 
+   trig waittill("trigger", player); 
    trig delete();
    
    sb1 show();
@@ -571,11 +579,12 @@ trap8()
    sbh7 delete();
    break;
    }
-*/}
+}
 
 trap9()
 { 
    trig = getent( "trap9_trig", "targetname" );
+	level endon("trigger");
    spikes1 = getent("t9_spikes1","targetname");
    spikes2 = getent("t9_spikes2","targetname"); 
    slide = getent("t9_slide","targetname");
@@ -586,7 +595,7 @@ trap9()
    t9s2h enablelinkto();
    t9s2h linkto(spikes2);
    
-/* AUTO    trig waittill("trigger", player); 
+   trig waittill("trigger", player); 
    trig delete();  
    
    slide movez( 3, 1);
@@ -602,17 +611,18 @@ trap9()
    spikes2 movez( -33, 0.5);
    spikes2 waittill ("movedone");
    }
-*/}
+}
 
 trap10()
 { 
    trig = getent( "trap10_trig", "targetname" );
+	level endon("trigger");
    pol1 = getent("trap10_pol1","targetname");
    pol2 = getent("trap10_pol2","targetname");
    pol3 = getent("trap10_pol3","targetname");
    pol4 = getent("trap10_pol4","targetname");   
    
-/* AUTO    trig waittill("trigger", player); 
+   trig waittill("trigger", player); 
    trig delete();  
    
    while(1)
@@ -628,7 +638,7 @@ trap10()
    pol2 movez( 25, 1.5);
    wait 1.5;
    }
-*/}
+}
 
 obstacles()
 { 
@@ -1260,24 +1270,24 @@ sniper()
 //AUTO 	 level.activ GiveWeapon( "remington700_mp" );
 //AUTO 	 player giveweapon( "m40a3_mp");
 //AUTO 	 player GiveWeapon( "remington700_mp" );
-//AUTO 	 wait 0.05;
+	 wait 0.05;
 //AUTO 	 player switchToWeapon( "m40a3_mp" );
 //AUTO 	 level.activ SwitchToWeapon( "m40a3_mp" );
 //AUTO 	 iPrintLnBold(player.name+ "^1 has entered the sniper room");
 	 level.activ freezeControls(1);
 	 player FreezeControls(1);
-//AUTO 	 wait 3;
+	 wait 3;
 	 level.activ FreezeControls(0);
 	 player FreezeControls(0);
      player thread class_sniper();
-//AUTO      wait 0.1;
+     wait 0.1;
        
      for(;;)
      {
-//AUTO          wait .1;               
+         wait .1;               
          while(isAlive(player))
          {
-//AUTO              wait 1;
+             wait 1;
             }
                
      }
@@ -1319,24 +1329,24 @@ weapons()
 //AUTO 	 level.activ giveweapon( "ak74u_mp");
 //AUTO 	 player giveMaxAmmo( "ak74u_mp");
 //AUTO 	 level.activ giveMaxAmmo( "ak74u_mp");
-//AUTO 	 wait 0.05;
+	 wait 0.05;
 //AUTO 	 player switchToWeapon( "ak74u_mp", 100 );
 //AUTO 	 level.activ SwitchToWeapon( "ak74u_mp", 100 );
 //AUTO 	 iPrintLnBold(player.name+ "^1 has entered the weapon room");
 	 level.activ freezeControls(1);
 	 player FreezeControls(1);
-//AUTO 	 wait 3;
+	 wait 3;
 	 level.activ FreezeControls(0);
 	 player FreezeControls(0);
      player thread class_weapon();
-//AUTO      wait 0.1;
+     wait 0.1;
        
      for(;;)
      {
-//AUTO          wait .1;               
+         wait .1;               
          while(isAlive(player))
          {
-//AUTO              wait 1;
+             wait 1;
             }
                
      }
@@ -1377,24 +1387,24 @@ jumproom()
 //AUTO 	 player TakeAllWeapons();
 //AUTO 	 level.activ giveweapon( "knife_mp");
 //AUTO 	 player giveweapon( "knife_mp");
-//AUTO 	 wait 0.05;
+	 wait 0.05;
 //AUTO 	 player switchToWeapon( "knife_mp" );
 //AUTO 	 level.activ SwitchToWeapon( "knife_mp" );
 //AUTO 	 iPrintLnBold(player.name+ "^1 has entered jump room");
 	 level.activ freezeControls(1);
 	 player FreezeControls(1);
-//AUTO 	 wait 3;
+	 wait 3;
 	 level.activ FreezeControls(0);
 	 player FreezeControls(0);
      player thread class_jumproom();
-//AUTO      wait 0.1;
+     wait 0.1;
        
      for(;;)
      {
-//AUTO          wait .1;               
+         wait .1;               
          while(isAlive(player))
          {
-//AUTO              wait 1;
+             wait 1;
             }
                
      }

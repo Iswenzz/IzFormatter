@@ -188,7 +188,8 @@ trapsetup()
 trap1()
 {
 trig = getent("trap_1_t","targetname");
-/* AUTO trig waittill("trigger" , user );
+	level endon("trigger");
+trig waittill("trigger" , user );
 
 b1 = getent("trap_1_1","targetname");
 b2 = getent("trap_1_2","targetname");
@@ -216,12 +217,13 @@ trig SetHintString("^2Activated");
 	{
 		b2 notsolid();
 	}
-*/}
+}
 
 trap2()
 {
 trig = getent("trap_2_t","targetname");
-/* AUTO trig waittill("trigger" , user );
+	level endon("trigger");
+trig waittill("trigger" , user );
 
 b1 = getEnt("trap_2","targetname");
 
@@ -243,12 +245,13 @@ trig SetHintString("^2Activated");
 		b1 rotateYaw(360, 4);
 		wait 7;
 	}
-*/}
+}
 
 trap3()
 {
 trig = getent("trap_3_t","targetname");
-/* AUTO trig waittill("trigger" , user );
+	level endon("trigger");
+trig waittill("trigger" , user );
 
 b1_n = getEnt("trap_3_1_n","targetname");
 b2_n = getEnt("trap_3_2_n","targetname");
@@ -281,12 +284,13 @@ trig SetHintString("^2Activated");
 		b3_y rotateYaw(1440, 5);
 		wait 7.5;
 	}
-*/}
+}
 
 trap4()
 {
 trig = getent("trap_4_t","targetname");
-/* AUTO trig waittill("trigger" , user );
+	level endon("trigger");
+trig waittill("trigger" , user );
 
 b1 = getent("trap_4_1","targetname");
 b2 = getent("trap_4_2","targetname");
@@ -314,12 +318,13 @@ trig SetHintString("^2Activated");
 		b3 rotatePitch(360, 2);
 		wait 2;
 	}
-*/}
+}
 
 trap5()
 {
 trig = getent("trap_5_t","targetname");
-/* AUTO trig waittill("trigger" , user );
+	level endon("trigger");
+trig waittill("trigger" , user );
 
 b1 = getEnt("trap_5","targetname");
 
@@ -339,12 +344,13 @@ trig SetHintString("^2Activated");
 	b1 notsolid();
 	wait 5;
 	b1 solid();
-*/}
+}
 
 trap6()
 {
 trig = getent("trap_6_t","targetname");
-/* AUTO trig waittill("trigger" , user );
+	level endon("trigger");
+trig waittill("trigger" , user );
 
 b_up = getent("trap_6_up","targetname");
 b_down = getent("trap_6_down","targetname");
@@ -371,7 +377,7 @@ trig SetHintString("^2Activated");
 		b_down moveZ(100,1);
 		wait 1;
 	}
-*/}
+}
 
 messages()
 {
@@ -680,7 +686,7 @@ bounce_respawn_acti()
 	player setOrigin(a_o.origin);
 	player setPlayerAngles(a_o.angles);
 	player freezeControls(true);
-//AUTO 	wait .05;
+	wait .05;
 	player freezeControls(false);
 	}
 }
@@ -696,7 +702,7 @@ bounce_respawn_jumper()
 	player setOrigin(j_o.origin);
 	player setPlayerAngles(j_o.angles);
 	player freezeControls(true);
-//AUTO 	wait .05;
+	wait .05;
 	player freezeControls(false);
 	}
 }
@@ -712,7 +718,7 @@ for(;;)
 	player thread waitdead();
 	level.activ.health=100;
 	player.health=100;
-//AUTO 	wait 0.5;
+	wait 0.5;
 //AUTO 	player takeallweapons();
 //AUTO 	level.activ takeallweapons();
 	player freezeControls(true);
@@ -724,7 +730,7 @@ for(;;)
 //AUTO 	level.activ giveweapon("knife_mp");
 //AUTO 	player giveweapon("knife_mp");
 	thread createhud(player.name + " ^1Selected ^7bounce ^1Room ^7!");
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("GO^3!^7!^3!");
 //AUTO 	level.activ iprintlnbold("GO^3!^7!^3!");
 	player freezeControls(false);
@@ -745,7 +751,7 @@ for(;;)
 	player thread waitdead();
 	level.activ.health=100;
 	player.health=100;
-//AUTO 	wait 0.5;
+	wait 0.5;
 	player freezeControls(true);
 	player setorigin(jumper.origin);
 	player setPlayerAngles(jumper.angles);
@@ -759,7 +765,7 @@ for(;;)
 //AUTO 	player giveweapon("remington700_mp");
 //AUTO 	level.activ giveweapon("remington700_mp");
 	thread createhud(player.name + " ^1selected ^7snipah ^1war ^7!");
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("^1FIGHT ^7!!!");
 //AUTO 	level.activ iprintlnbold("^1FIGHT ^7!!!");
 	player freezeControls(false);

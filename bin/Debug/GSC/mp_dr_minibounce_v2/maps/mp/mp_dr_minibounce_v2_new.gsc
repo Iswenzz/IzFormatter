@@ -184,12 +184,12 @@ WatchKnife()
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "tomahawk_mp" );		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "tomahawk_mp" );
 //AUTO 		level.activ SwitchToWeapon( "tomahawk_mp" );
 //AUTO 		iprintlnbold ("" + "." + "^1"+ player.name + "."+" ^5Has Choosen ^2KNIFE ^6Room!");	
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 		wait 1;
+		wait 1;
 	}
 }
 
@@ -397,7 +397,7 @@ WatchSniper()
 //AUTO 		player GiveWeapon( "m40a3_mp" );
 //AUTO 		level.activ GiveMaxAmmo( "remington700_mp" );
 //AUTO 		level.activ GiveMaxAmmo( "m40a3_mp" );
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "remington700_mp" );
 //AUTO 		player switchToWeapon( "m40a3_mp" );
 //AUTO 		level.activ SwitchToWeapon( "remington700_mp" );
@@ -405,7 +405,7 @@ WatchSniper()
 //AUTO 	      iprintlnbold ("" + "." + "^1"+ player.name + "."+ " ^5Has Choosen ^2SNIPER ^5Room!");
 
             while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 

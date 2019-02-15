@@ -173,6 +173,7 @@ torch_sound()
 trap2()
 {
 	trap2_trig = getent("trap2_trig","targetname");
+	level endon("trigger");
 	trap2_brush = getent("trap2_brush","targetname");
 	trap2_ori = getent("trap2_ori","targetname");
 	trap2_hurt = getent("trap2_hurt","targetname");
@@ -181,7 +182,7 @@ trap2()
 	trap2_hurt enablelinkto();
 	trap2_hurt linkto (trap2_brush);
 	
-/* AUTO 	trap2_trig waittill("trigger");
+	trap2_trig waittill("trigger");
 	trap2_push movey(6,2);
 	trap2_trig delete();
 	
@@ -192,16 +193,17 @@ trap2()
 	wait 4;
 	trap2_brush movey(236,2);
 	wait 2;
-*/}
+}
 
 trap5()
 {
 	trap5_trig = getent("trap5_trig","targetname");
+	level endon("trigger");
 	trap5_brush = getent("trap5","targetname");
 	trap5_ori = getent("trap5_ori","targetname");
 	trap5_push = getent("trap5_push","targetname");
 	
-/* AUTO 	trap5_trig waittill("trigger");
+	trap5_trig waittill("trigger");
 	trap5_push movey(6,2);
 	trap5_trig delete();
 	
@@ -212,11 +214,12 @@ trap5()
 	wait 4;
 	trap5_brush movez(-200,2);
 	wait 2;
-*/}
+}
 
 trap4()
 {
 	trap4_trig=getent("trap4_trig","targetname");
+	level endon("trigger");
 	trap4_good=getent("trap4_good","targetname");
 	trap4_broken=getent("trap4_broken","targetname");
 	trap4_bomb1=getent("trap4_bomb1","targetname");
@@ -229,7 +232,7 @@ trap4()
 	
 	trap4_broken hide();
 	
-/* AUTO 	trap4_trig waittill("trigger");
+	trap4_trig waittill("trigger");
 	trap4_push movex(6,2);
 	trap4_trig delete();
 	
@@ -250,16 +253,17 @@ trap4()
 	trap4_bomb3 hide();
 	trap4_bomb4 hide();
 	wait 2;
-*/}
+}
 
 trap3()
 {
 	start = getEnt( "origin_fireball_start", "targetname" );
+	level endon("trigger");
 	end = getEnt( "origin_fireball_end", "targetname" );
 	trap3_push = getEnt( "trap3_push", "targetname" );
 	trap3_trig = getEnt( "trap3_trig", "targetname" );
 
-/* AUTO 	trap3_trig waittill("trigger");
+	trap3_trig waittill("trigger");
 	trap3_push movex(6,2);
 	trap3_trig delete();
 	
@@ -280,15 +284,16 @@ trap3()
 	end PlaySound( "exp_suitcase_bomb_main" );
 	RadiusDamage( end.origin, 500, 200, 50 );
 	wait 5;
-*/}
+}
 
 trap7()
 {
 	trap7_rotate = getent("trap7_rotate","targetname");
+	level endon("trigger");
 	trap7_trig = getent("trap7_trig","targetname");
 	trap7_push = getent("trap7_push","targetname");
 	
-/* AUTO 	trap7_trig waittill("trigger");
+	trap7_trig waittill("trigger");
 	trap7_push movex(6,2);
 	trap7_trig delete();;
 	
@@ -297,16 +302,17 @@ trap7()
 		trap7_rotate rotateroll (-720,2.5);
 		wait 1 ;
 	}
-*/}
+}
 
 trap8()
 {
 	trap8_a = getent("trap8_a","targetname");
+	level endon("trigger");
 	trap8_b = getent("trap8_b","targetname");
 	trap8_trig = getent("trap8_trig","targetname");
 	trap8_push = getent("trap8_push","targetname");
 	
-/* AUTO 	trap8_trig waittill("trigger");
+	trap8_trig waittill("trigger");
 	trap8_push movex(6,2);
 	trap8_trig delete();;
 	
@@ -315,7 +321,7 @@ trap8()
 	wait 5;
 	trap8_a movex(120,.5);
 	trap8_b movex(-120,.5);
-*/}
+}
 
 finaldoor()
 {
@@ -337,6 +343,7 @@ finaldoor()
 trap6()
 {
 	trap6_push = getEnt( "trap6_push", "targetname" );
+	level endon("trigger");
 	trap6_trig = getEnt( "trap6_trig", "targetname" );
 	
 	trap6_a = getEnt( "trap6_a", "targetname" );
@@ -367,7 +374,7 @@ trap6()
 	trap6_dhurt enablelinkto();
 	trap6_dhurt linkto (trap6_d);
 
-/* AUTO 	trap6_trig waittill("trigger");
+	trap6_trig waittill("trigger");
 	trap6_push movex(6,2);
 	trap6_trig delete();
 	
@@ -393,7 +400,7 @@ trap6()
 	trap6_b movex(448,2);
 	trap6_d movex(448,2);
 	wait 1;
-*/}
+}
 
 secretz()
 {

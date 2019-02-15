@@ -147,10 +147,11 @@ brush2 = getEnt("move0","targetname");
 trap1()
 {
 trig = getEnt("trigger1","targetname");
+	level endon("trigger");
 level.brush = getEnt("move","targetname");
 level.brush2 = getEnt("move0","targetname");
 
-/* AUTO trig waittill("trigger", user);
+trig waittill("trigger", user);
 trig delete();
 
 level.brush notsolid();
@@ -158,15 +159,16 @@ level.brush2 notsolid();
 wait 3;
 level.brush solid();
 level.brush2 solid();
-*/}
+}
 
 trap2()
 {
 trig = getEnt("trigger2","targetname");
+	level endon("trigger");
 rotater = getEnt("rotater","targetname");
 rotater2 = getEnt("rotater0","targetname");
 
-/* AUTO trig waittill("trigger", user);
+trig waittill("trigger", user);
 trig delete();
 
 	while(1)
@@ -175,16 +177,17 @@ trig delete();
 		rotater2 RotatePitch(-360,3);
 		wait 0.001;
 	}
-*/}
+}
 
 trap3()
 {
 	trig = getEnt("trigger3","targetname");
+	level endon("trigger");
 	brush = getEnt("delete0","targetname");
 	brush1 = getEnt("delete1","targetname");
 
 	
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 	trig delete();
 	
 	randomend = randomint(2);
@@ -199,17 +202,18 @@ trap3()
 				
 		default: return;
 	}
-*/}
+}
 
 trap4()
 {
 	trig = getEnt("trigger4","targetname");
+	level endon("trigger");
 	brush = getEnt("gone","targetname");
 	brush1 = getEnt("gone1","targetname");
 	brush2 = getEnt("gone2","targetname");
 	brush3 = getEnt("gone3","targetname");
 	
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 	trig delete();
 	
 	randomend = randomint(2);
@@ -226,7 +230,7 @@ trap4()
 				
 		default: return;
 	}
-*/}
+}
 
 elevator()
 {
@@ -294,9 +298,10 @@ wait 0.01;
 trap5()
 {
 trig = getEnt("trigger5","targetname");
+	level endon("trigger");
 brush = getEnt("circle","targetname");
 
-/* AUTO trig waittill("trigger", user);
+trig waittill("trigger", user);
 trig delete();
 
 while(1)
@@ -304,16 +309,17 @@ while(1)
 brush RotateYaw(360,5);
 wait 0.01;
 }
-*/}
+}
 
 trap6()
 {
 trig = getEnt("trigger6","targetname");
+	level endon("trigger");
 brush = getEnt("stick","targetname");
 brush2 = getEnt("stick2","targetname");
 decoy = getEnt("decoy","targetname");
 
-/* AUTO trig waittill("trigger", user);
+trig waittill("trigger", user);
 trig delete();
 
 decoy moveZ(-225,3);
@@ -330,16 +336,17 @@ wait 4;
 brush2 moveZ(225,3);
 wait 5;
 }
-*/}
+}
 
 trap7()
 {
 	trig = getent("trigger7","targetname");
+	level endon("trigger");
 	floor1 = getEnt("door1","targetname");
 	door1 = getEnt("trap7_door","targetname");
 	door2 = getEnt("trap7_door2","targetname");
 	
-/* AUTO 	trig waittill("trigger", other);
+	trig waittill("trigger", other);
 	trig delete();
 	
 	door1 moveX(65,1);
@@ -355,14 +362,15 @@ trap7()
 	door2 waittill("movedone");
 	door1 delete();
 	door2 delete();
-*/}
+}
 
 trap8()
 {
 trig = getEnt("trigger8","targetname");
+	level endon("trigger");
 brush = getEnt("rotateback","targetname");
 
-/* AUTO trig waittill("trigger", user);
+trig waittill("trigger", user);
 trig delete();
 
 while(1)
@@ -370,7 +378,7 @@ while(1)
 brush RotateRoll(-360,5);
 wait 0.01;
 }
-*/}
+}
 
 elevator2()
 {
@@ -417,9 +425,10 @@ brush delete();
 trap9()
 {
 trig = getEnt("trigger9","targetname");
+	level endon("trigger");
 brush = getEnt("seperator","targetname");
 
-/* AUTO trig waittill("trigger", user);
+trig waittill("trigger", user);
 trig delete();
 
 while(1)
@@ -429,15 +438,16 @@ wait 4;
 brush RotatePitch(180,2);
 wait 4;
 }
-*/}
+}
 
 trap10()
 {
 trig = getEnt("trigger10","targetname");
+	level endon("trigger");
 rotater = getEnt("rotater10","targetname");
 mantle = getEnt("mantle10","targetname");
 
-/* AUTO trig waittill("trigger", user);
+trig waittill("trigger", user);
 trig delete(); 
 mantle delete();
 
@@ -446,16 +456,17 @@ while(1)
 rotater RotateYaw(-360,3);
 wait 0.001;
 }
-*/}
+}
 
 trap11()
 {
 trig = getEnt("trigger11","targetname");
+	level endon("trigger");
 brush = getEnt("cylinder1","targetname");
 brush2 = getEnt("cylinder2","targetname");
 brush3 = getEnt("cylinder3","targetname");
 
-/* AUTO trig waittill("trigger", user);
+trig waittill("trigger", user);
 trig delete();
 
 while(1)
@@ -465,7 +476,7 @@ brush2 RotatePitch(-360,1);
 brush RotatePitch(360,1);
 wait 3;
 }
-*/}
+}
 
 third_door()
 {
@@ -633,7 +644,7 @@ jumper SetPlayerAngles((0,90,0));
 //AUTO jumper TakeAllWeapons();
 //AUTO jumper GiveWeapon("winchester1200_grip_mp");
 //AUTO jumper GiveMaxAmmo("winchester1200_grip_mp");
-//AUTO wait 0.01;
+wait 0.01;
 //AUTO jumper SwitchToWeapon("winchester1200_grip_mp");
 
 thread shotgun_activator();
@@ -681,7 +692,7 @@ jumper SetPlayerAngles((0,90,0));
 //AUTO jumper TakeAllWeapons();
 //AUTO jumper GiveWeapon("knife_mp");
 //AUTO jumper GiveMaxAmmo("knife_mp");
-//AUTO wait 0.01;
+wait 0.01;
 //AUTO jumper SwitchToWeapon("knife_mp");
 
 thread knife_activator();
@@ -729,7 +740,7 @@ while(1)
 //AUTO 		jumper TakeAllWeapons();
 //AUTO 		jumper GiveWeapon("remington700_mp");
 //AUTO 		jumper GiveMaxAmmo("remington700_mp");
-//AUTO 		wait 0.01;
+		wait 0.01;
 //AUTO 		jumper SwitchToWeapon("remington700_mp");
 		
 		thread sniper_activator();

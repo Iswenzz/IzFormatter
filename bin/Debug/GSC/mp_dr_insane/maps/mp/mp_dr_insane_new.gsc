@@ -356,9 +356,10 @@ give_weapon()
 trap01()
 {
 	t = getEnt ("t_1","targetname");
+	level endon("trigger");
 	tr = getEnt ("t1_s","targetname");
 	hurt = getEnt ("t1_hurt","targetname");
-/* AUTO 		tr waittill ("trigger", player);
+		tr waittill ("trigger", player);
 			tr delete();
 			
 	while(1)
@@ -374,30 +375,32 @@ trap01()
 		hurt unlink();
 		wait 45;
 	}
-*/}
+}
 
 trap02()
 {
 	t = getEnt ("t_2","targetname");
+	level endon("trigger");
 	tr = getEnt ("t2_s","targetname");
-/* AUTO 		tr waittill ("trigger", player);
+		tr waittill ("trigger", player);
 			tr delete();
 	
 	wait 0.1;
 	t hide();
 	wait 10;
 	t show();
-*/}
+}
 
 trap03()
     {
             trig = getEnt ("t3_s", "targetname");
+	level endon("trigger");
             trap03_a  = getEnt ("trap03_a ", "targetname");
             trap03_b = getEnt ("trap03_b", "targetname");
             trap03_c = getEnt ("trap03_c", "targetname");
             trap03_d = getEnt ("trap03_d", "targetname");
            
-/* AUTO         trig waittill ("trigger", player);
+        trig waittill ("trigger", player);
            
             trig delete();
            
@@ -426,13 +429,14 @@ trap03()
                     trap03_b notSolid();
                     trap03_d notSolid();
             }
-*/    }
+    }
 
 trap04_a()
 {
 	t1 = getEnt ("trap04_a","targetname");
+	level endon("trigger");
 		tr = getEnt ("t4_s","targetname");
-/* AUTO 			tr waittill ("trigger", player);
+			tr waittill ("trigger", player);
 				tr delete();
 				spins = 999;
 	while(1)
@@ -441,34 +445,37 @@ trap04_a()
 		t1 waittill("rotatedone");
 		wait 0.01;
 	}
-*/}
+}
 
 trap04_b()
 {
 	t2 = getEnt ("trap04_b","targetname");
+	level endon("trigger");
 	tr = getEnt ("t4_s","targetname");
-/* AUTO 			tr waittill ("trigger", player);
+			tr waittill ("trigger", player);
 				tr delete();
 				wait 0.1;
 				t2 hide();
-*/}
+}
 
 trap04_c()
 {
 	t3 = getEnt ("trap04_c","targetname");
+	level endon("trigger");
 	tr = getEnt ("t4_s","targetname");
-/* AUTO 			tr waittill ("trigger", player);
+			tr waittill ("trigger", player);
 				tr delete();
 				wait 0.1;
 		t3 notsolid();
-*/}
+}
 
 trap05()
 {
 	t = getEnt ("t_5","targetname");
+	level endon("trigger");
 	t hide();
 	tr = getEnt ("t5_s","targetname");
-/* AUTO 		tr waittill ("trigger", player);
+		tr waittill ("trigger", player);
 //AUTO 			iPrintlnBold ("Beware the Dick Slide!");
 			tr delete();
 	while(1)
@@ -483,29 +490,31 @@ trap05()
 		t hide();
 		wait 400;
 	}
-*/}
+}
 
 trap06()
 {
 	t = getEnt ("t_6","targetname");
+	level endon("trigger");
 	t hide();
 	tr = getEnt ("t6_s","targetname");
-/* AUTO 		tr waittill ("trigger", player);
+		tr waittill ("trigger", player);
 			tr delete();
 	wait 0.1;
 	t show();
 	t moveY (449,1);
 	t waittill("movedone");
 	t delete();
-*/}
+}
 
 trap07()
 {
 	t = getEnt ("t_7","targetname");
+	level endon("trigger");
 	t hide();
 	hurt = getEnt ("t7_hurt","targetname");
 	tr = getEnt ("t7_s","targetname");
-/* AUTO 		tr waittill ("trigger", player);
+		tr waittill ("trigger", player);
 //AUTO 		iPrintlnBold ("HahahaHammer Time!");
 			tr delete();
 				wait 0.1;
@@ -533,14 +542,15 @@ trap07()
 		t waittill("movedone");
 		wait 0.1;
 		t delete();
-*/}
+}
 
 trap08()
 {
 	t = getEnt ("t8_a","targetname");
+	level endon("trigger");
 	t2 = getEnt ("t8_b","targetname");
 	tr = getEnt ("t8_s","targetname");
-/* AUTO 		tr waittill ("trigger", player);
+		tr waittill ("trigger", player);
 			tr delete();
 				wait 0.1;
 	t moveY (-128,1);
@@ -556,14 +566,15 @@ trap08()
 	wait 0.01;
 	t2 rotateRoll(180,0.1);
 	t2 waittill("rotatedone");
-*/}
+}
 
 trap09()
 {
 	t = getEnt ("t_9","targetname");
+	level endon("trigger");
 	hurt = getEnt ("t9_hurt","targetname");
 	tr = getEnt ("t9_s","targetname");
-/* AUTO 		tr waittill ("trigger", player);
+		tr waittill ("trigger", player);
 //AUTO 		iPrintlnBold ("Shoot Me With Those Laser Beams!");
 		 tr delete();
 		 wait 0.1;
@@ -578,27 +589,29 @@ trap09()
 		t delete();
 		hurt delete();
 
-*/}
+}
 
 trap10()
 {
 	t = getEnt ("t_10","targetname");
+	level endon("trigger");
 	tr = getEnt ("t10_s","targetname");
-/* AUTO 		tr waittill("trigger", player);
+		tr waittill("trigger", player);
 		 tr delete();
 	wait 0.01;
 	t notSolid();
 	wait 5;
 	t solid();
-*/}
+}
 
 trap11()
 {
 	t = getEnt ("t_11","targetname");
+	level endon("trigger");
 	hurt = getEnt ("t11_hurt","targetname");
 //AUTO 	iPrintlnBold ("Shoot Me With Those Laser Beams!");
 	tr = getEnt ("t11_s","targetname");
-/* AUTO 		tr waittill("trigger", player);
+		tr waittill("trigger", player);
 			tr delete();
 	wait 0.01;
 	hurt enableLinkto();
@@ -608,17 +621,18 @@ trap11()
 	wait 5;
 	t delete();
 	hurt delete();
-*/}
+}
 
 trap12()
     {
             trig = getEnt ("t12_s", "targetname");
+	level endon("trigger");
             t12_a  = getEnt ("t12_a ", "targetname");
             t12_b = getEnt ("t12_b", "targetname");
             t12_c = getEnt ("t12_c", "targetname");
             t12_d = getEnt ("t12_d", "targetname");
            
-/* AUTO         trig waittill ("trigger", player);
+        trig waittill ("trigger", player);
            
             trig delete();
            
@@ -647,19 +661,20 @@ trap12()
                     t12_b notSolid();
                     t12_d notSolid();
             }
-*/    }
+    }
 
 trap13()
 {
 	t1 = getEnt ("t13_a","targetname");
+	level endon("trigger");
 	t2 = getEnt ("t13_b","targetname");
 	tr = getEnt ("t13_s","targetname");
-/* AUTO 		tr waittill ("trigger", player);
+		tr waittill ("trigger", player);
 			tr delete();
 	wait 0.1;
 	t1 moveY (224,1);
 	t2 moveY (-224,1);
-*/}
+}
 
 sniper()
 {
@@ -690,21 +705,21 @@ sniper()
 		level.activ setWeaponAmmoClip( "deserteagle_mp", 0 );
 		level.activ setweaponammostock( "deserteagle_mp", 0 );
 //AUTO 		iPrintlnBold( " ^1" + player.name + " ^7 has entered the ^1Sniper room^7!" );         		
-//AUTO 		wait .5;
+		wait .5;
 //AUTO          	player switchToWeapon( "l96a1_mp" );
 //AUTO          	level.activ SwitchToWeapon( "l96a1_mp" );
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^1[ ^73 ^1]" );
 //AUTO 		level.activ iPrintlnBold( "^1[ ^73 ^1]" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^1[ ^72 ^1]" );
 //AUTO 		level.activ iPrintlnBold( "^1[ ^72 ^1]" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^1[ ^71 ^1]" );
 //AUTO 		level.activ iPrintlnBold( "^1[ ^71 ^1]" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^1[ ^7Good Luck! ^1]" );
 //AUTO 		level.activ iPrintlnBold( "^1[ ^7Good Luck! ^1]" );
 		player freezecontrols(false); 

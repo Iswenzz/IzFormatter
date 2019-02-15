@@ -70,21 +70,23 @@ goSecondMover()
 
 fallTrap()
 {
-/* AUTO 	level.ft_trig waittill( "trigger" );
+	level.ft_trig waittill( "trigger" );
+	level endon("trigger");
 	level.ft_trig  delete();
 	
 	level.ft1[randomInt(level.ft1.size)] notSolid();
 	level.ft2[randomInt(level.ft2.size)] notSolid();
-*/}
+}
 
 firstTrap()
 {
-/* AUTO 	level.trap1_trig waittill( "trigger" );
+	level.trap1_trig waittill( "trigger" );
+	level endon("trigger");
 	level.trap1_trig delete();
 	brush = level.trap1;
 
 	brush delete();
-*/}
+}
 
 goPusher()
 {

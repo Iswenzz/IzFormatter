@@ -120,7 +120,7 @@ gun = GetRandomWeapon( x );
 
 //AUTO jumper TakeAllWeapons();
 //AUTO jumper GiveWeapon( gun );
-//AUTO wait 0.01;
+wait 0.01;
 //AUTO jumper SwitchToWeapon( gun );
 
 

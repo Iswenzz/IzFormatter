@@ -53,24 +53,26 @@ addTriggerToList( targetname )
 gaptrap_slider() 
 { 
 	gaptrap = getent( "gap_trap", "targetname" ); 
+	level endon("trigger");
 	gap_trig = getent( "trigger_gap", "targetname" );
 
-/* AUTO 		gap_trig waittill ("trigger"); 
+		gap_trig waittill ("trigger"); 
 		//wait 4; 
 		gaptrap movez (-200,2,0,0.6); 
 		gaptrap waittill ("movedone"); 
 		wait 4;  
 		gaptrap movez(200,4,0,0.6); 
 		gaptrap waittill ("movedone");
-*/}
+}
 
 liftertrap_slider() 
 { 
 	lifter_left_trap = getent( "lifter_left", "targetname" );
+	level endon("trigger");
 	lifter_right_trap = getent( "lifter_right", "targetname" );
 	lifter_trig = getent( "trigger_lifter", "targetname" );
 
-/* AUTO 		lifter_trig waittill ("trigger");
+		lifter_trig waittill ("trigger");
 			//left lifter movement
 		lifter_left_trap movez (-100,1,0,0);
 		lifter_right_trap movez (100,1,0,0);
@@ -103,7 +105,7 @@ liftertrap_slider()
 		lifter_left_trap movez (100,1,0,0);
 		lifter_right_trap movez (-100,1,0,0);
 		lifter_right_trap waittill ("movedone");
-*/}
+}
 
 labyrinth_slider()
 {

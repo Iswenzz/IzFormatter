@@ -6,15 +6,16 @@ main()
 trap1_Initialize()
 {
   t1 = getent ("trap5" , "targetname");
+	level endon("trigger");
   //red = getent ("trfx1" ,"targetname"); 
-/* AUTO   t1 waittill ("trigger");//Pockame az activator zapne past
+  t1 waittill ("trigger");//Pockame az activator zapne past
   t1 delete ();//Dovolime mu to pouze jednou
   
   maps\mp\mp_deathrun_easy\coins::AddCoin( 5, level.coinPrice );
   
   //fx = PlayLoopedFX( level._effect["trapflame"], 1, red.origin );//Zapneme majacek
   trap1_Activate();//A aktivujeme pasti ! 
-*/}
+}
 
 trap1_Activate()
 {
@@ -36,11 +37,12 @@ for (j = 0; j < 3; j++)//Projedeme radky
 trap1_WaitForPlayer(i)
 {
  trig = getent( "prepadliste_trig"+i , "targetname" );
-/* AUTO  trig waittill ("trigger");
+	level endon("trigger");
+ trig waittill ("trigger");
  field = getent("prepadliste"+i , "targetname");
  field delete (); 
  trig delete (); 
-*/}
+}
 
 trap1_getRandoms(count)
 {

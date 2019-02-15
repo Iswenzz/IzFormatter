@@ -64,14 +64,15 @@ dooro waittill ("movedone");
 trapka()
 {
 trigdoor = getent ("mujtriggerer" , "targetname");
+	level endon("trigger");
 trapka = getent ("mujbrusher" ,"targetname" );
-/* AUTO trigdoor waittill ("trigger",player);
+trigdoor waittill ("trigger",player);
 trigdoor delete ();
 trapka moveY (-200 , 0.2);
 wait 4;
 trapka moveY (200 , 5);
 trapka waittill ("movedone");
-*/}
+}
 
 past1()
 {

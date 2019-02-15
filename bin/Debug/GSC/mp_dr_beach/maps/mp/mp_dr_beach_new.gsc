@@ -140,11 +140,12 @@ randomsong()
 trap1()
 {
 	p1 = getEnt("trap1_p1", "targetname");
+	level endon("trigger");
 	p2 = getEnt("trap1_p2", "targetname");
 	p3 = getEnt("trap1_p3", "targetname");
 	p4 = getEnt("trap1_p4", "targetname");
 	trig = getEnt("trap1_trig", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 //AUTO 	if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -173,12 +174,13 @@ trap1()
 			wait 1;
 		}
 	}
-*/}
+}
 
 trap2()
 {
 	trig = getEnt("trap2_trig", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	level endon("trigger");
+	trig waittill("trigger", player);
 	trig delete();
 //AUTO 	if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -193,7 +195,7 @@ trap2()
 		thread trap2_right();
 		}
 	}
-*/}
+}
 
 trap2_left()
 {
@@ -231,8 +233,9 @@ trap2_right()
 trap3()
 {
 trig = getEnt("trap3_trig", "targetname");
+	level endon("trigger");
 rollers = getEnt("trap3_rollers", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 //AUTO 	if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -245,14 +248,15 @@ rollers = getEnt("trap3_rollers", "targetname");
 			wait 3;
 		}
 	}
-*/}
+}
 
 trap4()
 {
 g1 = getEnt("trap4_g1", "targetname");
+	level endon("trigger");
 g2 = getEnt("trap4_g2", "targetname");
 trig = getEnt("trap4_trig", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 //AUTO 	if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -267,14 +271,15 @@ trig = getEnt("trap4_trig", "targetname");
 		g2 notsolid();
 		}
 	}
-*/}
+}
 
 trap5()
 {
 b1 = getEnt("trap5_bounce1", "targetname");
+	level endon("trigger");
 b2 = getEnt("trap5_bounce2", "targetname");
 trig = getEnt("trap5_trig", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 //AUTO 	if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -289,16 +294,17 @@ trig = getEnt("trap5_trig", "targetname");
 		wait 2;
 		}
 	}
-*/}
+}
 
 trap6()
 {
 lol = getEnt("trap6_lol", "targetname");
+	level endon("trigger");
 trig = getEnt("trap6_trig", "targetname");
 hurt = getEnt("hurt2", "targetname");
 hurt enableLinkTo();
 hurt linkTo( lol );
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 	trig delete();
 //AUTO 	if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -313,16 +319,17 @@ hurt linkTo( lol );
 		wait 3;
 		}
 	}
-*/}
+}
 
 trap7()
 {
 p1 = getEnt("trap7_p1", "targetname");
+	level endon("trigger");
 p2 = getEnt("trap7_p2", "targetname");
 p3 = getEnt("trap7_p3", "targetname");
 p4 = getEnt("trap7_p4", "targetname");
 trig = getEnt("trap7_trig", "targetname");
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 	trig delete();
 //AUTO 	if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -339,16 +346,17 @@ trig = getEnt("trap7_trig", "targetname");
 		wait 1;
 		}
 	}
-*/}
+}
 
 trap8()
 {
 door1 = getEnt("trap8_door1", "targetname");
+	level endon("trigger");
 door2 = getEnt("trap8_door2", "targetname");
 floor1 = getEnt("trap8_floor", "targetname");
 floor2 = getEnt("trap8_floor2", "targetname");
 trig = getEnt("trap8_trig", "targetname");
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 	trig delete();
 //AUTO 	if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -365,7 +373,7 @@ trig = getEnt("trap8_trig", "targetname");
 	door1 movey(-80, 2.5);
 	door2 movey(80, 2.5);
 	}
-*/}
+}
 
 walls()
 {
@@ -383,6 +391,7 @@ walls()
 trap10()
 {
 	s1 = getEnt("trap10_s1", "targetname");
+	level endon("trigger");
 	hurt1 = getEnt("s_hurt1", "targetname");
 	s2 = getEnt("trap10_s2", "targetname");
 	hurt2 = getEnt("s_hurt2", "targetname");
@@ -392,7 +401,7 @@ trap10()
 	hurt2 enableLinkTo();
 	hurt3 enableLinkTo();
 	trig = getEnt("trap10_trig", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 //AUTO 	if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -407,7 +416,7 @@ trap10()
 		wait 0.05;
 		}
 	}
-*/}
+}
 
 spikesroll(s1, s2 ,s3)
 {
@@ -438,8 +447,9 @@ spikesmove(s1, s2 ,s3)
 trap11()
 {
 	rollers = getEnt("trap11_rollers", "targetname");
+	level endon("trigger");
 	trig = getEnt("trap11_trig", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 //AUTO 	if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -450,7 +460,7 @@ trap11()
 		wait 2;
 		}
 	}
-*/}
+}
 
 secret_open()
 {
@@ -734,19 +744,19 @@ r_trig = getEnt("r_trig", "targetname");
 //AUTO 			level.activ SwitchToWeapon( "m40a3_mp" );
 			player freezeControls(1);
 			level.activ freezeControls(1);
-//AUTO 			wait 0.3;
+			wait 0.3;
 //AUTO 			player iprintlnbold("^5Get ready for the ^1BATTLE !");
 //AUTO 			level.activ iprintlnbold("^5Get ready for the ^1BATTLE !");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^33");
 //AUTO 			level.activ iprintlnbold("^33");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^22");
 //AUTO 			level.activ iprintlnbold("^22");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^11");
 //AUTO 			level.activ iprintlnbold("^11");
-//AUTO 			wait 1;
+			wait 1;
 			player freezeControls(0);
 			level.activ freezeControls(0);			
 			player death();
@@ -788,21 +798,21 @@ r_trig = getEnt("r_trig", "targetname");
 //AUTO 			level.activ SwitchToWeapon( "tomahawk_mp" );
 			player freezeControls(1);
 			level.activ freezeControls(1);
-//AUTO 			wait 0.3;			
+			wait 0.3;			
 //AUTO 			player iprintlnbold("^5Get ready for the ^1BATTLE !");
 //AUTO 			level.activ iprintlnbold("^5Get ready for the ^1BATTLE !");
 //AUTO 			player iprintlnbold("^51 Fail ^7= ^1GG");
 //AUTO 			level.activ iprintlnbold("^51 Fail ^7= ^1GG");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^33");
 //AUTO 			level.activ iprintlnbold("^33");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^22");
 //AUTO 			level.activ iprintlnbold("^22");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^11");
 //AUTO 			level.activ iprintlnbold("^11");
-//AUTO 			wait 1;
+			wait 1;
 			player freezeControls(0);
 			level.activ freezeControls(0);
 			player death();
@@ -844,19 +854,19 @@ r_trig = getEnt("r_trig", "targetname");
 //AUTO 			level.activ SwitchToWeapon( "knife_mp" );
 			player freezeControls(1);
 			level.activ freezeControls(1);
-//AUTO 			wait 0.3;
+			wait 0.3;
 //AUTO 			player iprintlnbold("^5Get ready for the ^1BATTLE !");
 //AUTO 			level.activ iprintlnbold("^5Get ready for the ^1BATTLE !");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^33");
 //AUTO 			level.activ iprintlnbold("^33");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^22");
 //AUTO 			level.activ iprintlnbold("^22");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^11");
 //AUTO 			level.activ iprintlnbold("^11");
-//AUTO 			wait 1;
+			wait 1;
 			player freezeControls(0);
 			level.activ freezeControls(0);
 			player death();

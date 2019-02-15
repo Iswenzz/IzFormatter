@@ -167,10 +167,11 @@ music()
 trap1()
 {
         trap1 = getEnt("trap1","targetname");
+	level endon("trigger");
 		origin = getEnt("trap1_origin","targetname");
 		trig = getEnt("trap1_trig","targetname");
 		ent = getEnt( "boom", "targetname" );
-/* AUTO         trig waittill ("trigger", player);
+        trig waittill ("trigger", player);
         trig delete();
                 trap1 hide();
 				trap1 notsolid();
@@ -179,11 +180,12 @@ trap1()
 		        wait 10;
 				ent delete();
 		
-*/}
+}
 
 trap3()
 {
  
+	level endon("trigger");
     trig = getEnt ("trap3_trig", "targetname");
     hurt = getEnt ("trap3_hurt", "targetname"); 
 	trap3 = getEnt ("trap3", "targetname");
@@ -191,14 +193,14 @@ trap3()
     hurt enablelinkto(); 
 	hurt linkto (trap3); 
 
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
     
     trap3 moveZ (56,3);
     wait 5;
     trap3 moveZ (-56,3);
      
-*/}
+}
 
 platform()
 {
@@ -222,10 +224,11 @@ platform()
 trap6()
 {
  
+	level endon("trigger");
     trig = getEnt ("trap6_trig", "targetname");
 	trap6 = getEnt ("trap6", "targetname");
     
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 	
 	while(1)
@@ -233,15 +236,16 @@ trap6()
     trap6 rotateYaw(360,3);
     wait 0.1;
     }
-*/}
+}
 
 trap5()
 {
         trap5 = getEnt("trap5","targetname");
+	level endon("trigger");
 		origin = getEnt("trap5_origin","targetname");
 		trig = getEnt("trap5_trig","targetname");
 		ent = getEnt( "boom1", "targetname" );
-/* AUTO         trig waittill ("trigger", player);
+        trig waittill ("trigger", player);
         trig delete();
                 trap5 hide();
 				trap5 notsolid();
@@ -250,7 +254,7 @@ trap5()
 		        wait 10;
 				ent delete();
 		
-*/}
+}
 
 sniper()
 {
@@ -282,7 +286,7 @@ sniper()
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "remington700_mp" );
 //AUTO         level.activ GiveWeapon( "m40a3_mp" );         
-//AUTO         wait 0.05;
+        wait 0.05;
 		AmbientStop( 4 );
 //AUTO 		AmbientPlay( "ambient4" );
 //AUTO         player switchToWeapon( "remington700_mp" ); 
@@ -297,11 +301,11 @@ sniper()
 				players = getentarray("player", "classname");
 				for(i=0;i<players.size;i++)
 					players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 				wait 5;
+				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 			
     }
 
@@ -350,6 +354,7 @@ noob()
 trap4()
 {
  
+	level endon("trigger");
     trig = getEnt ("trap4_trig", "targetname");
 	hurt = getEnt ("trap4_hurt", "targetname"); 
 	trap4_spikes = getEnt ("trap4_spikes", "targetname");
@@ -360,7 +365,7 @@ trap4()
 	hurt enablelinkto(); 
 	hurt linkto (trap4_spikes); 
     
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 	
 	while(1)
@@ -375,7 +380,7 @@ trap4()
 	trap4_c rotateroll(360,2);
 	wait 2;
     }
-*/}
+}
 
 teleport()
 {
@@ -396,6 +401,7 @@ teleport()
 trap8()
 {
  
+	level endon("trigger");
     trig = getEnt ("trap8_trig", "targetname");
 	trap8 = getEnt ("trap8", "targetname");
 	hurt = getEnt ("trap8_hurt", "targetname"); 
@@ -403,13 +409,13 @@ trap8()
 	hurt enablelinkto(); 
 	hurt linkto (trap8); 
     
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
     trap8 moveZ(192,3);
     wait 3;
 	trap8 moveZ(-192,3);
 	
-*/}
+}
 
 teleport1()
 {
@@ -429,15 +435,16 @@ teleport1()
 trap7()
 {
  
+	level endon("trigger");
     trig = getEnt ("trap7_trig", "targetname");
 	trap7 = getEnt ("trap7", "targetname");
 
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
     
     trap7 notsolid();
      
-*/}
+}
 
 xenia()
 {
@@ -478,7 +485,7 @@ knife()
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );
 //AUTO         level.activ GiveWeapon( "knife_mp" );         
-//AUTO         wait 0.05;
+        wait 0.05;
 		AmbientStop( 4 );
 //AUTO 		AmbientPlay( "ambient5" );
 //AUTO         player switchToWeapon( "knife_mp" ); 
@@ -493,11 +500,11 @@ knife()
 				players = getentarray("player", "classname");
 				for(i=0;i<players.size;i++)
 					players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 				wait 5;
+				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 			
     }
 
@@ -506,14 +513,15 @@ knife()
 trap2()
 {
  
+	level endon("trigger");
     trig = getEnt ("trap2_trig", "targetname");
 	trap2 = getEnt ("trap2", "targetname");
     
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 	
     trap2 moveZ(-136,3);
     wait 0.1;
     
-*/}
+}
 

@@ -352,10 +352,11 @@ wait 0.7;
 trap2_rotating()
 {
 
+	level endon("trigger");
 trap = getEnt ("trap2", "targetname");
 trig = getEnt ("trap2_trig", "targetname");
 
-/* AUTO trig waittill ("trigger", user);
+trig waittill ("trigger", user);
 trig delete();
 
 while(true)
@@ -365,17 +366,18 @@ trap rotateRoll(1080,7.5);
 wait 7.5;
 
 }
-*/}
+}
 
 trap3_pushers()
 {
 
+	level endon("trigger");
 trapa = getEnt ("trap3a", "targetname");
 trapb = getEnt ("trap3b", "targetname");
 trapc = getEnt ("trap3c", "targetname");
 trig = getEnt ("trap3_trig", "targetname");
 
-/* AUTO trig waittill ("trigger", user);
+trig waittill ("trigger", user);
 trig delete();
 
 while(true)
@@ -398,7 +400,7 @@ trapb moveX (272, 0.5);
 trapc moveX (-272, 0.5);
 wait 0.5;
 }
-*/}
+}
 
 jump()
 {
@@ -505,10 +507,11 @@ acti_jump()
 trap4()
 {
 
+	level endon("trigger");
 pusher = getEnt ("trap4_pusher", "targetname");
 trig = getEnt ("trap4_trig", "targetname");
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 
 wait 0.05;
 {
@@ -520,17 +523,18 @@ pusher moveY (-260, 1);
 wait 1.5;
 
 }
-*/}
+}
 
 trap5()
 {
 platforms1 = getEnt ("trap5_1", "targetname");
+	level endon("trigger");
 platforms2 = getEnt ("trap5_2", "targetname");
 platforms3 = getEnt ("trap5_3", "targetname");
 platforms4 = getEnt ("trap5_4", "targetname");
 trig = getEnt ("trap5_trig", "targetname");
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 wait(0.05);
 {
@@ -540,7 +544,7 @@ thread trap5_3();
 thread trap5_4();
 thread trap5_5();
 }
-*/}
+}
 
 trap5_1()
 {
@@ -616,9 +620,10 @@ wait 0.75;
 trap6()
 {
 
+	level endon("trigger");
 trigger = getEnt ("trap6_trig", "targetname");
 
-/* AUTO trigger waittill ("trigger");
+trigger waittill ("trigger");
 trigger delete();
 wait 0.05;
 {
@@ -626,7 +631,7 @@ thread hammers1();
 thread hammers2();
 wait 1;
 }
-*/}
+}
 
 hammers1()
 {
@@ -657,10 +662,11 @@ wait 1.4;
 trap7()
 {
     trig = getEnt("trap7_trig", "targetname");
+	level endon("trigger");
     trapa = getEnt("brushes1", "targetname");
     trapb = getEnt("brushes2", "targetname");
 
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
     trig delete();
 
     possibility = randomIntRange(0,1);
@@ -676,18 +682,19 @@ trap7()
         trapb hide();
         trapb notSolid();
     }
-*/}
+}
 
 trap8()
 {
 wall1 = getEnt ("trap8_1", "targetname");
+	level endon("trigger");
 wall2 = getEnt ("trap8_2", "targetname");
 boom1_2 = getEnt ("wall1_2", "targetname");
 trig = getEnt ("trap8_trig", "targetname");
 
 level._effect[ "explosion" ] = loadfx( "explosions/boom" );
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 wait 0.05;
 
@@ -703,15 +710,16 @@ wall1 notSolid();
 wall2 hide();
 wall2 notSolid();
 
-*/}
+}
 
 trap9()
 {
 
+	level endon("trigger");
 spinner = getEnt ("trap9", "targetname");
 trig = getEnt ("trap9_trig", "targetname");
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 
 while(true)
 {
@@ -732,7 +740,7 @@ spinner rotateYaw (-900,2.5,0.3,0.3);
 spinner waittill ("rotatedone");
 wait .4;
 }
-*/}
+}
 
 end_boom()
 {

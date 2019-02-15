@@ -340,10 +340,11 @@ movers(num)
 trap1()
 {
 	bounce1 = getent("bounce1","targetname");
+	level endon("trigger");
 	bounce2 = getent("bounce2","targetname");
 	trig = getent("trap1trig","targetname");
 	trig sethintstring("Press [&&1] To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	if(level.trapsDisabled == true)
 	{
 		trig sethintstring("Its freerun");
@@ -377,15 +378,16 @@ trap1()
 			break;
 		}
 	}
-*/}
+}
 
 trap2()
 {
 	plat1 = getent("plat1","targetname");
+	level endon("trigger");
 	plat2 = getent("plat2","targetname");
 	trig = getent("trap2trig","targetname");
 	trig sethintstring("Press [&&1] To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	if(level.trapsDisabled == true)
 	{
 		trig sethintstring("Its freerun");
@@ -415,18 +417,19 @@ trap2()
 
 		}
 	}
-*/}
+}
 
 trap3()
 {
 	level.plat = getent("plat_trap3","targetname");
+	level endon("trigger");
 	level.balls = getent("balls","targetname");
 	trig = getent("trap3trig","targetname");
 	level.onplat = getent("onplat_trig","targetname");
 	level.onplat enablelinkto();
 	level.onplat linkto(level.plat);
 	trig sethintstring("Press [&&1] To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	if(level.trapsDisabled == true)
 	{
 		trig sethintstring("Its freerun");
@@ -448,7 +451,7 @@ trap3()
 			level.plat waittill("movedone");
 		}
 	}
-*/}
+}
 
 rotateballs()
 {
@@ -462,13 +465,14 @@ rotateballs()
 trap3on()
 {
 	for(;;)
+	level endon("trigger");
 	{
-/* AUTO 		level.onplat waittill("trigger", player);
+		level.onplat waittill("trigger", player);
 		level.plat rotatePitch(180,1);
 		wait 2;
 		level.plat rotatePitch(180,1);
 	}
-*/}
+}
 
 removetrig()
 {
@@ -480,11 +484,12 @@ removetrig()
 trap4()
 {
 	rpg_rocket = getent("trap4","targetname");
+	level endon("trigger");
 	trig = getent("trap4trig","targetname");
 	position = getent("position","targetname");
 	destroypart = getent("destroypart","targetname");
 	trig sethintstring("Press [&&1] To Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	if(level.trapsDisabled == true)
 	{
 		trig sethintstring("Its freerun");
@@ -504,11 +509,12 @@ trap4()
 		RadiusDamage( position.origin, 500, 90, 50 );
 		position playsound("grenade_explode_layer");
 	}
-*/}
+}
 
 trap5()
 {
 	bridge_1 = getent("bridge_1","targetname");
+	level endon("trigger");
 	bridge_2 = getent("bridge_2","targetname");
 	c4_1 = getent("c4_1","targetname");
 	c4_2 = getent("c4_2","targetname");
@@ -516,7 +522,7 @@ trap5()
 	bridgepart = getent("bridgepart","targetname");
 	trig = getent("trap5trig","targetname");
 	trig sethintstring("Press [&&1] To Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	if (level.trapsDisabled == true)
 	{
 		trig sethintstring("Its freerun");
@@ -539,14 +545,15 @@ trap5()
 		bridge_1 moveZ(-592,2.5,1);
 		bridge_2 moveZ(-592,2.5,1);
 	}
-*/}
+}
 
 trap6()
 {
 	trig = getent("trap6trig","targetname");
+	level endon("trigger");
 	obj = getent("mover","targetname");
 	trig sethintstring("Press [&&1] To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	if(level.trapsDisabled == true)
 	{
 		trig sethintstring("Its freerun");
@@ -565,18 +572,19 @@ trap6()
 			obj waittill("movedone");
 		}
 	}
-*/}
+}
 
 trap7()
 {
 	wall1 = getent("wall1","targetname");
+	level endon("trigger");
 	trig = getent("trap7trig","targetname");
 	rot1 = getent("rot1","targetname");
 	rot2 = getent("rot2","targetname");
 	dmg1 = getent("dmg1trig","targetname");
 	dmg2 = getent("dmg2trig","targetname");
 	trig sethintstring("Press [&&1] To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	if(level.trapsDisabled == true)
 	{
 		trig sethintstring("Its freerun");
@@ -615,14 +623,15 @@ trap7()
 		}
 		wall1 show();
 	}
-*/}
+}
 
 trap8()
 {
 	trig = getent("trap8trig","targetname");
+	level endon("trigger");
 	bounce = getent("movingbounce","targetname");
 	trig sethintstring("Press [&&1] To Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	if(level.trapsDisabled == true)
 	{
 		trig sethintstring("Its freerun");
@@ -641,13 +650,14 @@ trap8()
 			bounce waittill("movedone");
 		}
 	}
-*/}
+}
 
 trap9setup()
 {
 	trig = getent("trap9trig","targetname");
+	level endon("trigger");
 	trig sethintstring("Press [&&1] To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	if(level.trapsDisabled == true)
 	{
 		trig sethintstring("Its freerun");
@@ -661,13 +671,14 @@ trap9setup()
 			thread trap9(i);
 		}
 	}
-*/}
+}
 
 trap9(num)
 {
 	obj = getent("p_"+num,"targetname");
+	level endon("trigger");
 	trig = getent("t_"+num,"targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 
 //AUTO 	player braxi\_rank::giveRankXp( undefined, 50 );
 	x = randomint(2);
@@ -682,15 +693,16 @@ trap9(num)
 		trig delete();
 		break;
 	}
-*/}
+}
 
 trap10()
 {
 	plat = getent("trap10plat","targetname");
+	level endon("trigger");
 	tper = getent("tper","targetname");
 	trig = getent("trap10trig","targetname");
 	trig sethintstring("Press [&&1] To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	if(level.trapsDisabled == true)
 	{
 		trig sethintstring("Its freerun");
@@ -709,7 +721,7 @@ trap10()
 		plat delete();
 		tper delete();
 	}
-*/}
+}
 
 ktp()
 {
@@ -726,8 +738,9 @@ ktp()
 trap11setup()
 {
 	trig = getent("trap11trig","targetname");
+	level endon("trigger");
 	trig sethintstring("Press [&&1] To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	if(level.trapsDisabled == true)
 	{
 		trig sethintstring("Its freerun");
@@ -742,7 +755,7 @@ trap11setup()
 		}
 		wait 10;
 	}
-*/}
+}
 
 trap11(num)
 {
@@ -759,10 +772,11 @@ trap11(num)
 trap12()
 {
 	trig = getent("trap12trig","targetname");
+	level endon("trigger");
 	trig sethintstring("Press [&&1] To Activate The Spiner");
 	dmgtrig = getent("trap12dmg","targetname");
 	obj = getent("trap12","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	if(level.trapsDisabled == true)
 	{
 		trig sethintstring("Its freerun");
@@ -779,15 +793,16 @@ trap12()
 			wait 3;
 		}
 	}
-*/}
+}
 
 trap13()
 {
 	trig = getent("trap13trig","targetname");
+	level endon("trigger");
 	trig sethintstring("Press [&&1] To Activate The Jump Blocker");
 	dmgtrig = getent("trap13dmg","targetname");
 	obj = getent("trap13","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	{
 		if(level.trapsDisabled == true)
 		{
@@ -809,18 +824,19 @@ trap13()
 			}
 		}
 	}
-*/}
+}
 
 trap14()
 {
 	breakingball = getent("breakingball","targetname");
+	level endon("trigger");
 	wall = getent("trap14wall","targetname");
 	m1 = getent("trap14_1","targetname");
 	m2 = getent("trap14_2","targetname");
 	m3 = getent("trap14_3","targetname");//origins to move
 	trig = getent("trap14trig","targetname");
 	trig sethintstring("Press [&&1] To Activate The Breaking Ball");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	{
 		if(level.trapsDisabled == true)
 		{
@@ -846,7 +862,7 @@ trap14()
 			RadiusDamage( m3.origin, 300, 100, 90 );
 		}
 	}
-*/}
+}
 
 room_doors_setup()
 {
@@ -942,7 +958,7 @@ acticantleavroom()
 			level.activ setOrigin(inold.origin);
 //AUTO 			level.activ iprintlnbold("^1Activator Can Not Leav This Room");
 		}
-//AUTO 		wait .1;
+		wait .1;
 	}
 }
 
@@ -1010,15 +1026,15 @@ kniferoom()
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" ); 
 
-//AUTO         wait 0.05;
+        wait 0.05;
 
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
-//AUTO         wait 5;
+        wait 5;
 		player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 0.1;
+        wait 0.1;
     }
 }
 
@@ -1066,11 +1082,11 @@ sniperoom()
 
 //AUTO 		player switchToWeapon( "remington700_mp" );
 //AUTO 		level.activ SwitchToWeapon( "remington700_mp" );
-//AUTO 		wait 5;
+		wait 5;
 	    player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 0.1;
+        wait 0.1;
     }
 }
 
@@ -1118,11 +1134,11 @@ jumproom()
 
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ SwitchToWeapon( "knife_mp" );
-//AUTO 		wait 5;
+		wait 5;
 	    player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 0.1;
+        wait 0.1;
     }
 }
 
@@ -1144,7 +1160,7 @@ jumproom_failtrig()
 			level.activ setOrigin(acti_load.origin);
 			level.activ setPlayerangles(acti_load.angles);
 		}
-//AUTO 		wait .1;
+		wait .1;
 	}
 }
 

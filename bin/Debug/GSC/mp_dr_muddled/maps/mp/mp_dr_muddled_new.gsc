@@ -221,22 +221,24 @@ wait 2;
 trap1()
 {
 trig = getEnt ("trap1_trig", "targetname"); 
+	level endon("trigger");
 brush = getEnt ("brush1", "targetname");
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 trig delete();
 brush movex (-1376,2);
 brush waittill("movedone");
 brush movex (1376,2);
 brush waittill("movedone");
-*/}
+}
 
 trap2()
 {
 trig = getEnt ("trap2_trig", "targetname"); 
+	level endon("trigger");
 brush = getEnt ("bounce1", "targetname");
 brush2 = getEnt ("bounce2", "targetname");
 brush3 = getEnt ("bounce3", "targetname");
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 trig delete();
 for(;;)
 {
@@ -249,26 +251,28 @@ wait 0.1;
 brush3 rotatepitch (360,1);
 brush3 waittill("rotatedone");
 }
-*/}
+}
 
 trap3()
 {
 trig = getEnt ("trap3_trig", "targetname"); 
+	level endon("trigger");
 brush = getEnt ("slide1", "targetname");
 brush2 = getEnt ("slide2", "targetname");
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 trig delete();
 brush rotatepitch (360,1);
 brush2 rotatepitch (360,1);
 brush2 waittill("rotatedone");
-*/}
+}
 
 trap4()
 {
 trig = getEnt ("trap4_trig", "targetname"); 
+	level endon("trigger");
 brush1 = getEnt ("platforms1", "targetname");
 brush2 = getEnt ("platforms2", "targetname");
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 trig delete();
 for (;;)
 {
@@ -279,55 +283,59 @@ brush2 rotateyaw (-360,1);
 brush2 waittill("rotatedone");
 wait 1;
 }
-*/}
+}
 
 trap5()
 {
 trig = getEnt ("trap5_trig", "targetname");
+	level endon("trigger");
 brush1 = getEnt ("moveup", "targetname");
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 trig delete();
 brush1 movez (336,0.1);
 brush1 waittill("movedone");
 wait 1;
 brush1 movez (-336,2);
 brush1 waittill("movedone");
-*/}
+}
 
 trap6()
 {
 trig = getEnt ("trap6_trig", "targetname"); 
+	level endon("trigger");
 brush = getEnt ("spinners", "targetname");
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 trig delete();
 brush rotateroll (360,1);
-*/}
+}
 
 trap7()
 {
 trig = getEnt ("trap7_trig", "targetname");
+	level endon("trigger");
 brush = getEnt ("nipples", "targetname");
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 trig delete();
 for(;;)
 {
 brush rotateyaw (360,3);
 wait 3;
 }
-*/}
+}
 
 trap8()
 {
 trig = getEnt ("trap8_trig", "targetname"); 
+	level endon("trigger");
 brush = getEnt ("weiner", "targetname");
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 trig delete();
 for(;;)
 {
 brush rotateyaw (360,1.5);
 wait 2;
 }
-*/}
+}
 
 sniper()// name of the thread
 {
@@ -356,18 +364,18 @@ sniper()// name of the thread
 //AUTO 	 level.activ SwitchToWeapon( "m40a3_mp" );
 	 level.activ freezeControls(1);
 	 player FreezeControls(1);
-//AUTO 	 wait 2;
+	 wait 2;
 	 level.activ FreezeControls(0);
 	 player FreezeControls(0);
 	 player thread onDeath_sniper();  //player thread onDeath_knife();
-//AUTO      wait 0.1;
+     wait 0.1;
        
      for(;;)
      {
-//AUTO      wait .1;               
+     wait .1;               
      while(isAlive(player))
      {
-//AUTO      wait 1;
+     wait 1;
      }
      }
 }
@@ -406,18 +414,18 @@ knife()// name of the thread
 //AUTO 	 level.activ SwitchToWeapon( "tomahawk_mp" );
 	 level.activ freezeControls(1);
 	 player FreezeControls(1);
-//AUTO 	 wait 2;
+	 wait 2;
 	 level.activ FreezeControls(0);
 	 player FreezeControls(0);
 	 player thread onDeath_knife();  //player thread onDeath_knife();
-//AUTO      wait 0.1;
+     wait 0.1;
        
      for(;;)
      {
-//AUTO      wait .1;               
+     wait .1;               
      while(isAlive(player))
      {
-//AUTO      wait 1;
+     wait 1;
      }
      }
 }

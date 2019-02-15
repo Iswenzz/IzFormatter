@@ -274,12 +274,13 @@ main_door()
 trap1()
 {
 	trap =getent("trap1","targetname");
+	level endon("trigger");
 	trig  =getent("trig_trap1","targetname");
 	sound  = getent( "trap1_sound", "targetname" );
 	touch = getent("touch_trap1", "targetname");
 
 	
-/* AUTO 		trig waittill("trigger");
+		trig waittill("trigger");
 		trig delete();
 		thread trap1_1();
 		sound playsound ("trap1_sound");
@@ -293,7 +294,7 @@ trap1()
 		trap movez (-20,0.1);
 		trap waittill ("movedone");
 		level notify ("trap1_stop");
-*/}
+}
 
 trap1_1()
 {
@@ -325,6 +326,7 @@ trap1_push()
 trap2()
 {
 	trap1  =getent("trap2_1","targetname");
+	level endon("trigger");
 	trap2  =getent("trap2_2","targetname");
 	trap3  =getent("trap2_3","targetname");
 	trap4  =getent("trap2_4","targetname");
@@ -365,7 +367,7 @@ trap2()
 	floor movex (-384,0.1);	
 
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 
@@ -542,7 +544,7 @@ trap2()
 	dmg5 delete();
 	dmg6 delete();
 		
-*/}
+}
 
 door1()
 {
@@ -565,21 +567,23 @@ door1()
 trap3()
 {
 	trig  =getent("trig_trap3","targetname");
+	level endon("trigger");
 	sound1      =getent( "trap3_1_sound", "targetname" );
 	sound2      =getent( "trap3_2_sound", "targetname" );
 
 	sound1 PlayloopSound ("trap3_sound");
 	sound2 PlayloopSound ("trap3_sound");
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	level notify ("check_stop");
 	thread trap3_3();
-*/}
+}
 
 trap3_1()
 {
 	trap  =getent("trap3","targetname");
+	level endon("trigger");
 	dmg   =getent("dmg_trap3","targetname");
 
 	dmg enablelinkto();
@@ -589,11 +593,11 @@ trap3_1()
 	{
 	wait 0.1;
 	trap movex ( -310, 3);
-/* AUTO 	trap waittill ("movedone");
+	trap waittill ("movedone");
 	trap movex (310, 3);
 	trap waittill ("movedone");
 	}
-*/}
+}
 
 trap3_2()
 {
@@ -621,13 +625,14 @@ trap3_3()
 trap4()
 {
 	trig = getent("trig_trap4", "targetname");
+	level endon("trigger");
 	point1 = getent("smoke1", "targetname");
 	dmg   =getent("dmg_trap4","targetname");
 	sound   =getent("trap4_sound","targetname");
 
 	fxObj1 = SpawnFx( level.afterburn_fx, point1.origin);
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	thread trap4_1();
 	sound PlaySound ("steam");
@@ -639,7 +644,7 @@ trap4()
 	wait 2;
 	fxObj1 delete();
 		
-*/}
+}
 
 trap4_1()
 {
@@ -705,6 +710,7 @@ door2()
 trap5()
 {	
 	trig = getent("trig_trap5", "targetname");
+	level endon("trigger");
 	c1_1 = getent ("trap5_c4_1_1", "targetname");
 	c1_2 = getent ("trap5_c4_1_2", "targetname");
 	c2_1 = getent ("trap5_c4_2_1", "targetname");
@@ -719,7 +725,7 @@ trap5()
 	triggerFx (fxObj3);
 	triggerFx (fxObj4);
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 
 	x = RandomInt(100);
 		if( x < 50 )
@@ -763,11 +769,12 @@ trap5()
 		c2_2 delete();
 		}
 	trig delete();
-*/}
+}
 
 trap6()
 {
 	trap  =getent("trap6","targetname");
+	level endon("trigger");
 	trig  =getent("trig_trap6","targetname");
 	dmg  =getent("trap6_dmg","targetname");
 	sound  = getent( "trap6_sound", "targetname" );
@@ -775,7 +782,7 @@ trap6()
 	dmg enablelinkto();
 	dmg linkto(trap);
 
-/* AUTO 		trig waittill("trigger");
+		trig waittill("trigger");
 		trap movez (-176,0.3);
 		trap waittill ("movedone");
 		sound playsound ("hit_metal");
@@ -827,11 +834,12 @@ trap6()
 		wait 1;
 		trap movez (176,0.3);
 		trig delete();
-*/}
+}
 
 trap7()
 {
 	trap  =getent("trap7","targetname");
+	level endon("trigger");
 	dmg  =getent("trap7_dmg","targetname");
 	model1  =getent("trap7_model1","targetname");
 	model2  =getent("trap7_model2","targetname");
@@ -855,13 +863,13 @@ trap7()
 	model4 PlayloopSound ("trap7_sound");
 
 	trig  =getent("trig_trap7","targetname");
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	
 	level notify ("trap7_stop");
 	thread trap7_2();
 
-*/}
+}
 
 trap7_1()
 {
@@ -896,10 +904,11 @@ trap8()
 trap8_1()
 {
 	touch  =getent("trig_trap8_1","targetname");
+	level endon("trigger");
 	barrel =getent("trap8_1","targetname");
 	origin =getent("trap8_origin_1","targetname");
 
-/* AUTO 	touch waittill ("trigger",who);
+	touch waittill ("trigger",who);
 	who suicide();
 	touch delete();
 
@@ -907,15 +916,16 @@ trap8_1()
 	PlayFX( level.barrel_fx, origin.origin );
 	Earthquake( 2, 1, origin.origin, 70);
 	origin playsound ("exp");
-*/}
+}
 
 trap8_2()
 {
 	touch  =getent("trig_trap8_2","targetname");
+	level endon("trigger");
 	barrel =getent("trap8_2","targetname");
 	origin =getent("trap8_origin_2","targetname");
 
-/* AUTO 	touch waittill ("trigger",who);
+	touch waittill ("trigger",who);
 	who suicide();
 	touch delete();
 
@@ -923,15 +933,16 @@ trap8_2()
 	PlayFX( level.barrel_fx, origin.origin );
 	Earthquake( 2, 1, origin.origin, 70);
 	origin playsound ("exp");
-*/}
+}
 
 trap8_3()
 {
 	touch  =getent("trig_trap8_3","targetname");
+	level endon("trigger");
 	barrel =getent("trap8_3","targetname");
 	origin =getent("trap8_origin_3","targetname");
 
-/* AUTO 	touch waittill ("trigger",who);
+	touch waittill ("trigger",who);
 	who suicide();
 	touch delete();
 
@@ -939,15 +950,16 @@ trap8_3()
 	PlayFX( level.barrel_fx, origin.origin );
 	Earthquake( 2, 1, origin.origin, 70);
 	origin playsound ("exp");
-*/}
+}
 
 trap8_4()
 {
 	touch  =getent("trig_trap8_4","targetname");
+	level endon("trigger");
 	barrel =getent("trap8_4","targetname");
 	origin =getent("trap8_origin_4","targetname");
 
-/* AUTO 	touch waittill ("trigger",who);
+	touch waittill ("trigger",who);
 	who suicide();
 	touch delete();
 
@@ -955,15 +967,16 @@ trap8_4()
 	PlayFX( level.barrel_fx, origin.origin );
 	Earthquake( 2, 1, origin.origin, 70);
 	origin playsound ("exp");
-*/}
+}
 
 trap8_5()
 {
 	touch  =getent("trig_trap8_5","targetname");
+	level endon("trigger");
 	barrel =getent("trap8_5","targetname");
 	origin =getent("trap8_origin_5","targetname");
 
-/* AUTO 	touch waittill ("trigger",who);
+	touch waittill ("trigger",who);
 	who suicide();
 	touch delete();
 
@@ -971,15 +984,16 @@ trap8_5()
 	PlayFX( level.barrel_fx, origin.origin );
 	Earthquake( 2, 1, origin.origin, 70);
 	origin playsound ("exp");
-*/}
+}
 
 trap8_6()
 {
 	touch  =getent("trig_trap8_6","targetname");
+	level endon("trigger");
 	barrel =getent("trap8_6","targetname");
 	origin =getent("trap8_origin_6","targetname");
 
-/* AUTO 	touch waittill ("trigger",who);
+	touch waittill ("trigger",who);
 	who suicide();
 	touch delete();
 
@@ -987,15 +1001,16 @@ trap8_6()
 	PlayFX( level.barrel_fx, origin.origin );
 	Earthquake( 2, 1, origin.origin, 70);
 	origin playsound ("exp");
-*/}
+}
 
 trap8_7()
 {
 	touch  =getent("trig_trap8_7","targetname");
+	level endon("trigger");
 	barrel =getent("trap8_7","targetname");
 	origin =getent("trap8_origin_7","targetname");
 
-/* AUTO 	touch waittill ("trigger",who);
+	touch waittill ("trigger",who);
 	who suicide();
 	touch delete();
 
@@ -1003,15 +1018,16 @@ trap8_7()
 	PlayFX( level.barrel_fx, origin.origin );
 	Earthquake( 2, 1, origin.origin, 70);
 	origin playsound ("exp");
-*/}
+}
 
 trap8_8()
 {
 	touch  =getent("trig_trap8_8","targetname");
+	level endon("trigger");
 	barrel =getent("trap8_8","targetname");
 	origin =getent("trap8_origin_8","targetname");
 
-/* AUTO 	touch waittill ("trigger",who);
+	touch waittill ("trigger",who);
 	who suicide();
 	touch delete();
 
@@ -1019,15 +1035,16 @@ trap8_8()
 	PlayFX( level.barrel_fx, origin.origin );
 	Earthquake( 2, 1, origin.origin, 70);
 	origin playsound ("exp");
-*/}
+}
 
 trap8_9()
 {
 	touch  =getent("trig_trap8_9","targetname");
+	level endon("trigger");
 	barrel =getent("trap8_9","targetname");
 	origin =getent("trap8_origin_9","targetname");
 
-/* AUTO 	touch waittill ("trigger",who);
+	touch waittill ("trigger",who);
 	who suicide();
 	touch delete();
 
@@ -1035,15 +1052,16 @@ trap8_9()
 	PlayFX( level.barrel_fx, origin.origin );
 	Earthquake( 2, 1, origin.origin, 70);
 	origin playsound ("exp");
-*/}
+}
 
 trap8_10()
 {
 	touch  =getent("trig_trap8_10","targetname");
+	level endon("trigger");
 	barrel =getent("trap8_10","targetname");
 	origin =getent("trap8_origin_10","targetname");
 
-/* AUTO 	touch waittill ("trigger",who);
+	touch waittill ("trigger",who);
 	who suicide();
 	touch delete();
 
@@ -1051,15 +1069,16 @@ trap8_10()
 	PlayFX( level.barrel_fx, origin.origin );
 	Earthquake( 2, 1, origin.origin, 70);
 	origin playsound ("exp");
-*/}
+}
 
 trap8_11()
 {
 	touch  =getent("trig_trap8_11","targetname");
+	level endon("trigger");
 	barrel =getent("trap8_11","targetname");
 	origin =getent("trap8_origin_11","targetname");
 
-/* AUTO 	touch waittill ("trigger",who);
+	touch waittill ("trigger",who);
 	who suicide();
 	touch delete();
 
@@ -1067,15 +1086,16 @@ trap8_11()
 	PlayFX( level.barrel_fx, origin.origin );
 	Earthquake( 2, 1, origin.origin, 70);
 	origin playsound ("exp");
-*/}
+}
 
 trap8_12()
 {
 	touch  =getent("trig_trap8_12","targetname");
+	level endon("trigger");
 	barrel =getent("trap8_12","targetname");
 	origin =getent("trap8_origin_12","targetname");
 
-/* AUTO 	touch waittill ("trigger",who);
+	touch waittill ("trigger",who);
 	who suicide();
 	touch delete();
 
@@ -1083,15 +1103,16 @@ trap8_12()
 	PlayFX( level.barrel_fx, origin.origin );
 	Earthquake( 2, 1, origin.origin, 70);
 	origin playsound ("exp");
-*/}
+}
 
 trap8_13()
 {
 	touch  =getent("trig_trap8_13","targetname");
+	level endon("trigger");
 	barrel =getent("trap8_13","targetname");
 	origin =getent("trap8_origin_13","targetname");
 
-/* AUTO 	touch waittill ("trigger",who);
+	touch waittill ("trigger",who);
 	who suicide();
 	touch delete();
 
@@ -1099,15 +1120,16 @@ trap8_13()
 	PlayFX( level.barrel_fx, origin.origin );
 	Earthquake( 2, 1, origin.origin, 70);
 	origin playsound ("exp");
-*/}
+}
 
 trap8_14()
 {
 	touch  =getent("trig_trap8_14","targetname");
+	level endon("trigger");
 	barrel =getent("trap8_14","targetname");
 	origin =getent("trap8_origin_14","targetname");
 
-/* AUTO 	touch waittill ("trigger",who);
+	touch waittill ("trigger",who);
 	who suicide();
 	touch delete();
 
@@ -1115,15 +1137,16 @@ trap8_14()
 	PlayFX( level.barrel_fx, origin.origin );
 	Earthquake( 2, 1, origin.origin, 70);
 	origin playsound ("exp");
-*/}
+}
 
 trap8_15()
 {
 	touch  =getent("trig_trap8_15","targetname");
+	level endon("trigger");
 	barrel =getent("trap8_15","targetname");
 	origin =getent("trap8_origin_15","targetname");
 
-/* AUTO 	touch waittill ("trigger",who);
+	touch waittill ("trigger",who);
 	who suicide();
 	touch delete();
 
@@ -1131,7 +1154,7 @@ trap8_15()
 	PlayFX( level.barrel_fx, origin.origin );
 	Earthquake( 2, 1, origin.origin, 70);
 	origin playsound ("exp");
-*/}
+}
 
 door3()
 {
@@ -1154,8 +1177,9 @@ door3()
 trap9()
 {
 	trig  =getent("trig_trap9","targetname");
+	level endon("trigger");
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 
 	thread trap9_1();
 
@@ -1164,7 +1188,7 @@ trap9()
 	trig delete();
 
 	
-*/}
+}
 
 trap9_1()
 {
@@ -1240,6 +1264,7 @@ getPlayers()
 trap10()  // Thx for BraXi
 {
 	activator = getEnt( "trig_trap10", "targetname" ); 
+	level endon("trigger");
 	area = getEnt( "trap10_check", "targetname" ); 
 	
 	trafficLightRed = getEnt( "lamp_red", "targetname" ); 
@@ -1249,7 +1274,7 @@ trap10()  // Thx for BraXi
 	trafficLightRed hide();
 	trafficLightYellow hide();
 
-/* AUTO 	activator waittill( "trigger" ); // wait for trigger
+	activator waittill( "trigger" ); // wait for trigger
 
 	trafficLightGreen hide();
 	trafficLightRed show(); //red light now
@@ -1298,7 +1323,7 @@ trap10()  // Thx for BraXi
 
 	area delete();
 
-*/}
+}
 
 door5()
 {
@@ -1703,7 +1728,7 @@ end_knife()
 				who SetOrigin( startj.origin );
 				who SetPlayerAngles( startj.angles );
 				who FreezeControls(1);
-//AUTO 				wait 0.001;
+				wait 0.001;
 //AUTO 				who TakeAllWeapons();
 //AUTO 				who GiveWeapon("tomahawk_mp");
 				who SetSpawnWeapon("tomahawk_mp");
@@ -1719,7 +1744,7 @@ end_knife()
 						players[i] SetOrigin( starta.origin );
 						players[i] SetPlayerAngles( starta.angles );
 						players[i] FreezeControls(1);
-//AUTO 						wait 0.001;
+						wait 0.001;
 //AUTO 						players[i] TakeAllWeapons();
 //AUTO 						players[i] GiveWeapon("tomahawk_mp");
 						players[i] SetSpawnWeapon("tomahawk_mp");
@@ -1742,7 +1767,7 @@ end_knife()
 				for(i=0;i<players.size;i++)
 				players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
 			
-//AUTO 				wait 5;
+				wait 5;
 				who FreezeControls(0);
 				acti FreezeControls(0);
 			}

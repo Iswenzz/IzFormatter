@@ -129,6 +129,7 @@ wait 0.5;
  trap1()
 {
         trap1_1	= getEnt("trap1_1","targetname");
+	level endon("trigger");
 		trap1_2 = getEnt("trap1_2","targetname");
 		trap1_3 = getEnt("trap1_3","targetname");
 		trap1_4 = getEnt("trap1_4","targetname");
@@ -136,7 +137,7 @@ wait 0.5;
 		trap1_6 = getEnt("trap1_6","targetname");
 		trap1_7 = getEnt("trap1_7","targetname");
 		cba_trig = getEnt("trig1","targetname");
-/* AUTO         cba_trig waittill ("trigger");
+        cba_trig waittill ("trigger");
         cba_trig delete();
 		while(1)
         {
@@ -149,18 +150,19 @@ wait 0.5;
 				trap1_7 rotateyaw (360 ,1);
 	wait 1;
         }
-*/}
+}
 
 trap2()
 {
         trap2_1 = getEnt("trap2_1","targetname");
+	level endon("trigger");
 		trap2_2 = getEnt("trap2_2","targetname");
 		trap2_3 = getEnt("trap2_3","targetname");
 		trap2_4 = getEnt("trap2_4","targetname");
 		trap2_5 = getEnt("trap2_5","targetname");
 		trap2_6 = getEnt("trap2_6","targetname");
         cba_trig2 = getEnt("trig2","targetname");
-/* AUTO         cba_trig2 waittill ("trigger");
+        cba_trig2 waittill ("trigger");
         cba_trig2 delete();
         {
                 trap2_1 moveZ(-100 ,1);
@@ -171,7 +173,7 @@ trap2()
 				trap2_6 moveZ(-100 ,1);
 	wait 1;
         }
-*/}
+}
 
 addTriggerToList( name )
 {
@@ -197,8 +199,9 @@ addtrapstofreerun()
 trap4 ()
 	{
 	trig4 = getent ("trig4","targetname");
+	level endon("trigger");
 	trap4 = getent ("trap4","targetname");
-/* AUTO 	trig4 waittill ("trigger");
+	trig4 waittill ("trigger");
 	trig4 delete ();
 	
 	while (1)
@@ -206,7 +209,7 @@ trap4 ()
 		trap4 rotatePitch (360 , 1 );
 		wait 1 ;
 		}
-*/	}
+	}
 
 Czone1 ()
 {
@@ -340,7 +343,7 @@ while (1)
 //AUTO                             level.activ giveWeapon( "remington700_mp");
 //AUTO                             level.activ giveMaxAmmo( "m40a3_mp");
 //AUTO                             level.activ giveMaxAmmo( "remington700_mp");
-//AUTO                             wait 0.05;
+                            wait 0.05;
 //AUTO                             player switchToWeapon( "remington700_mp" );
 //AUTO                             level.activ switchToWeapon( "m40a3_mp" );
      
@@ -363,13 +366,13 @@ while (1)
                             level.jump_hud setPulseFX( 40, 2000, 99999999 );               
                            
            
-//AUTO                             wait 5;
+                            wait 5;
                             player freezeControls( false );
                             level.activ freezeControls( false );
                            
                     }
                     while( isAlive( player ) && isDefined( player ) )
-//AUTO                     wait 1;
+                    wait 1;
             }
      
     }
@@ -402,7 +405,7 @@ while (1)
                             level.activ setOrigin( acti.origin );
 //AUTO                             level.activ takeAllWeapons();
 //AUTO                             level.activ giveWeapon( "knife_mp");
-//AUTO                             wait 0.05;
+                            wait 0.05;
 //AUTO                             player switchToWeapon( "knife_mp" );
 //AUTO                             level.activ switchToWeapon( "knife_mp" );
      
@@ -425,13 +428,13 @@ while (1)
                             level.jump_hud setPulseFX( 40, 2000, 99999999 );               
                            
            
-//AUTO                             wait 5;
+                            wait 5;
                             player freezeControls( false );
                             level.activ freezeControls( false );
                            
                     }
                     while( isAlive( player ) && isDefined( player ) )
-//AUTO                     wait 1;
+                    wait 1;
             }
      
     }
@@ -534,7 +537,7 @@ rpgtele()
 //AUTO 							level.activ giveMaxAmmo( "ak74u_mp");
 //AUTO 						    level.activ giveWeapon( "deserteagle_mp");
 //AUTO 							level.activ giveMaxAmmo( "deserteagle_mp");
-//AUTO                             wait 0.05;
+                            wait 0.05;
 //AUTO                             player switchToWeapon( "ak74u_mp" );
 //AUTO                             level.activ switchToWeapon( "ak74u_mp" );
      
@@ -557,13 +560,13 @@ rpgtele()
                             level.jump_hud setPulseFX( 40, 2000, 99999999 );               
                            
            
-//AUTO                             wait 5;
+                            wait 5;
                             player freezeControls( false );
                             level.activ freezeControls( false );
                            
                     }
                     while( isAlive( player ) && isDefined( player ) )
-//AUTO                     wait 1;
+                    wait 1;
             }
      
     }

@@ -145,6 +145,7 @@ new_hud( align, fade_in_time, x_off, y_off )
 trap0()
 {	
 	trig = getEnt ("trap0trigger", "targetname");	
+	level endon("trigger");
 	hurt = getEnt ("trap0_spikeshurt", "targetname");	
 	spikes = getEnt ("trap0", "targetname"); 
 	button = getEnt ("trap0button", "targetname");
@@ -153,7 +154,7 @@ trap0()
 	hurt linkto (spikes); 
 	
 	trig sethintstring(" Press [Use] ");
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	{ 
 		button moveY(-3,0.4);
@@ -162,7 +163,7 @@ trap0()
 		wait 5;
 		spikes moveZ (-176,2);	
 	}
-*/}
+}
 
 trap0moving()
 {
@@ -184,6 +185,7 @@ trap0moving()
 trap1()
 {
 	t1 = getEnt("trap1_a", "targetname" );
+	level endon("trigger");
 	t2 = getEnt("trap1_b", "targetname" );
 	t3 = getEnt("trap1_c", "targetname" );
 	t4 = getEnt("trap1_d", "targetname" );
@@ -219,7 +221,7 @@ trap1()
 	t1 moveZ (-70, 1);
 	
 	trig sethintstring(" Press [Use] ");
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	
 	button moveY(-3,0.4);
@@ -253,16 +255,17 @@ trap1()
 		t1 moveZ (-70, 1);
 		wait 0.5;
 	}
-*/}	
+}	
 
 trap2()
 {
 	trap2	= getent( "trap2", "targetname" );
+	level endon("trigger");
 	trig	= getent( "trap2trigger", "targetname" );
 	button = getEnt ("trap2button", "targetname");
 
 	trig sethintstring(" Press [Use] ");
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	
 	button moveY(3,0.4);
@@ -273,16 +276,17 @@ trap2()
 		trap2 rotatepitch (360, 2);
 		wait 2.8;
 	}
-*/}
+}
 
 trap3()
 {	
 	trig = getEnt ("trap3trigger", "targetname");	
+	level endon("trigger");
 	platform = getEnt ("trap3", "targetname"); 
 	button = getEnt ("trap3button", "targetname");
 
 	trig sethintstring(" Press [Use] ");
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	
 	button moveX(3,0.4);
@@ -293,23 +297,24 @@ trap3()
 		wait 10;
 		platform moveZ (250,3);
 	}
-*/}
+}
 
 trap4()
 {
 	trig = getent ("trap4trigger", "targetname");
+	level endon("trigger");
 	trap = getent ("trap4", "targetname");
 	button = getEnt ("trap4button", "targetname");
 
 	trig sethintstring(" Press [Use] ");
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	{
 		button moveY(3,0.4);
 		wait 0.5;
 		trap rotateyaw(90, 1);
 	}
-*/}
+}
 
 trap5()
 {
@@ -325,6 +330,7 @@ trap5()
 trap6()
 {	
 	trig = getEnt ("trap6trigger", "targetname");	
+	level endon("trigger");
 	hurta = getEnt ("trap6_hurt_a", "targetname");
 	hurtb = getEnt ("trap6_hurt_b", "targetname");
 	hurtc = getEnt ("trap6_hurt_c", "targetname");
@@ -349,7 +355,7 @@ trap6()
 	hurte linkto (trap6e); 
 
 	trig sethintstring(" Press [Use] ");
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	
 	button moveY(3,0.4);
@@ -388,16 +394,17 @@ trap6()
 			trap6e moveZ (64,0.9); 
 			wait 0.9; 
 		}
-*/}
+}
 
 trap7()
 {
 	bar = getEnt( "t7c", "targetname" );
+	level endon("trigger");
 	trig = getEnt( "trap7trigger", "targetname" );
 	button = getEnt ("trap7button", "targetname");
 	
 	trig sethintstring(" Press [Use] ");
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	
 	{
 		button moveY (3,0.4);
@@ -417,11 +424,12 @@ trap7()
 		trig sethintstring(" Press [Use] ");
 		thread trap7c();
 	}
-*/}
+}
 
 trap7c()
 {
 	Spikes = getEnt( "trap7", "targetname" );
+	level endon("trigger");
 	Hurt = getEnt( "trap7hurt", "targetname" );
 	Trig = getEnt( "trap7trigger", "targetname" );
 	button = getEnt( "trap7button", "targetname" );
@@ -429,7 +437,7 @@ trap7c()
 	Hurt enablelinkto();
 	Hurt linkto (Spikes);
 	
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	
 	{
@@ -440,11 +448,12 @@ trap7c()
 		Spikes delete();
 		wait 1;
 	}
-*/}
+}
 
 trap7a()
 {
 	a = getent( "a", "targetname" );
+	level endon("trigger");
 	b = getent( "b", "targetname" );
 	c = getent( "c", "targetname" );
 	d = getent( "d", "targetname" );
@@ -509,7 +518,7 @@ trap7a()
 	tze = getent( "tze", "targetname" );
 	tzf = getent( "tzf", "targetname" );
 	
-/* AUTO 	ta waittill ("trigger");
+	ta waittill ("trigger");
 	ta delete();
 	
 	{
@@ -745,7 +754,7 @@ trap7a()
 	}
 	
 	
-*/}
+}
 
 trap7b()
 {
@@ -801,11 +810,12 @@ trap8movingb()
 trap8()
 {
 	trap8 = getent( "trap8", "targetname" );
+	level endon("trigger");
 	trig = getent( "trap8trigger", "targetname" );
 	button = getEnt ("trap8button", "targetname");
 	
 	trig sethintstring(" Press [Use] ");
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	
 	button moveY(-3,0.4);
@@ -822,7 +832,7 @@ trap8()
 		trap8 moveY(432,2);
 		wait 2;
 	}
-*/}
+}
 
 trap9_moving()
 {
@@ -1071,7 +1081,7 @@ final_knife()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
 //AUTO         iPrintlnBold( " ^2" + player.name + " HAS CHOSEN ^1KNIFE!" );
@@ -1079,11 +1089,11 @@ final_knife()
 		player FreezeControls(1);
 		level.activ FreezeControls(1);
 		
-//AUTO 		wait 2;
+		wait 2;
 		
 //AUTO 		iPrintlnBold( "^1GET READY" );
 		
-//AUTO 		wait 2;
+		wait 2;
 		
 //AUTO 		player iPrintlnBold( "^1GO!" );
 //AUTO 		level.activ iPrintlnBold( "^1GO!" );
@@ -1092,7 +1102,7 @@ final_knife()
 		level.activ FreezeControls(0);
 		
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -1159,22 +1169,22 @@ final_sniper()
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "m40a3_mp" );   
 //AUTO 		level.activ GiveWeapon( "remington700_mp" );
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "m40a3_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "m40a3_mp" );
 		
 		player FreezeControls(1);
 		level.activ FreezeControls(1);
 		
-//AUTO 		wait 4;
+		wait 4;
 		
 //AUTO         iPrintlnBold( " ^2" + player.name + " HAS CHOSEN ^1SNIPPER!" );
 		
-//AUTO 		wait 2;
+		wait 2;
 		
 //AUTO 		iPrintlnBold( "^1GET READY" );
 		
-//AUTO 		wait 2;
+		wait 2;
 
 //AUTO 		player iPrintlnBold( "^1GO!" );
 //AUTO 		level.activ iPrintlnBold( "^1GO!" );
@@ -1184,7 +1194,7 @@ final_sniper()
 		
 		
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

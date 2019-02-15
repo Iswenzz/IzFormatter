@@ -209,9 +209,10 @@ first_door()
 trap1()
 {
 	trig = getEnt("trap1_trig","targetname");
+	level endon("trigger");
 	brush = getEnt("trap1","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 
@@ -220,15 +221,16 @@ trap1()
 		brush rotateroll(360,9); 
 		wait 5; 
 	}
-*/}
+}
 
 trap2()
 {
 trig = getEnt ("trap2_trig", "targetname");	
+	level endon("trigger");
 spikes = getEnt ("trap2", "targetname"); 
 
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete ();
 
 
@@ -238,17 +240,18 @@ wait 5;
 spikes moveZ (210,2); 
 wait 5;
 }
-*/}
+}
 
 trap3()
 {
 part1 = getentarray ("t3_1" ,"targetname");
+	level endon("trigger");
 part2 = getentarray ("t3_2" ,"targetname");
 
 //red = getent ("red7" ,"targetname"); //origin
 t3 = getent ("t3" , "targetname");
 
-/* AUTO t3 waittill ("trigger");
+t3 waittill ("trigger");
 t3 delete ();
 
 
@@ -256,7 +259,7 @@ t3 delete ();
 
 part1[randomInt(part1.size)] notsolid();
 part2[randomInt(part2.size)] notsolid();
-*/}
+}
 
 text()
 {
@@ -274,13 +277,14 @@ text()
 trap4()
 {
 trig = getEnt ("trap4_trig", "targetname");	
+	level endon("trigger");
 hurt = getEnt ("trap4_spikeshurt", "targetname");	
 spikes = getEnt ("trap4_spike", "targetname"); 
 
 hurt enablelinkto(); 
 hurt linkto (spikes); 
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete ();
 
 
@@ -290,14 +294,15 @@ wait 5;
 spikes moveZ (196,1); 
 wait 5;
 }
-*/}
+}
 
 trap5()
 {
 	trig = getEnt("trap5_trig","targetname");
+	level endon("trigger");
 	platform = getEnt("trap5","targetname");
 
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 	trig delete();
 	
 	
@@ -305,14 +310,15 @@ trap5()
 	wait 3;
 	platform moveY(-416,3);
 	wait 3;
-*/}
+}
 
 trap6()
 {
 	trig = getEnt("trap6_trig","targetname");
+	level endon("trigger");
 	roll1 = getEnt("trap6","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	while(true)
 	{
@@ -321,18 +327,19 @@ trap6()
 		roll1 rotateroll(-1440,4);
 		wait 8;
 	}
-*/}
+}
 
 trap7()
 {
    trigger = getEnt ("trap7_trig" , "targetname");
+	level endon("trigger");
    spikes = getEnt ("trap7" ,"targetname" );
    hurt = getEnt ("trap7_spikehurt", "targetname");
    
    hurt enablelinkto(); 
    hurt linkto (spikes); 
 
-/* AUTO    trigger waittill ("trigger",player);  
+   trigger waittill ("trigger",player);  
    trigger delete ();
    
    for( i = 0; i < 999; i++ )
@@ -342,7 +349,7 @@ trap7()
         spikes moveY (-700,4); 
         wait 3;
     }
-*/}
+}
 
 trap8()
 {
@@ -650,7 +657,7 @@ weapons(final1,final2,final3,final4)
 			
 //AUTO 			players[i] TakeAllWeapons();
 //AUTO 			players[i] GiveWeapon(weap);
-//AUTO 			wait 0.01;
+			wait 0.01;
 //AUTO 			players[i] SwitchToWeapon(weap);
 		}
 	}

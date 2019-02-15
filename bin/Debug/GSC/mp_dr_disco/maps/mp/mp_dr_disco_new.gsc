@@ -304,6 +304,7 @@ fun4()
 trap1a()
 {
 	za1 = getent("trap1_a1","targetname");
+	level endon("trigger");
 	zb1 = getent("trap1_b1","targetname");
 	zc1 = getent("trap1_c1","targetname");
 	za3 = getent("trap1_a3","targetname");
@@ -314,7 +315,7 @@ trap1a()
 	r1 = randomIntRange(5,10)/10;
 	r2 = r1/2;
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	
 	za3 rotateyaw(360,r2);
 	zb3 rotateyaw(360,r2);
@@ -337,18 +338,19 @@ trap1a()
 		zb3 rotateyaw(360,r2);
 		zc3 rotateyaw(360,r2);
 	}
-*/}
+}
 
 trap1b()
 {
 	za2 = getent("trap1_a2","targetname");
+	level endon("trigger");
 	zb2 = getent("trap1_b2","targetname");
 	zc2 = getent("trap1_c2","targetname");
 	trig = getent("trig_trap1","targetname");
 	
 	r3 = randomIntRange(15,30)/10;
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	
 	while(true)
 	{
@@ -357,11 +359,12 @@ trap1b()
 		zc2 rotateyaw(-360,r3);
 		wait r3;
 	}
-*/}
+}
 
 trap1c()
 {
 	za4 = getent("trap1_a4","targetname");
+	level endon("trigger");
 	zb4 = getent("trap1_b4","targetname");
 	zc4 = getent("trap1_c4","targetname");
 	za5 = getent("trap1_a5","targetname");
@@ -372,7 +375,7 @@ trap1c()
 	r4 = randomIntRange(10,20)/10;
 	r5 = r4*2;
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	
 	za5 rotateyaw(-360,r5);
 	zb5 rotateyaw(-360,r5);
@@ -395,18 +398,19 @@ trap1c()
 		zb4 rotateyaw(-360,r4);
 		zc4 rotateyaw(-360,r4);
 	}
-*/}
+}
 
 trap1d()
 {
 	za6 = getent("trap1_a6","targetname");
+	level endon("trigger");
 	zb6 = getent("trap1_b6","targetname");
 	zc6 = getent("trap1_c6","targetname");
 	trig = getent("trig_trap1","targetname");
 	
 	r6 = randomIntRange(15,20)/10;
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	
 	while (true)
 	{
@@ -415,18 +419,19 @@ trap1d()
 		zc6 rotateyaw(360,r6);
 		wait r6;
 	}
-*/}
+}
 
 trap1e()
 {
 	za7 = getent("trap1_a7","targetname");
+	level endon("trigger");
 	zb7 = getent("trap1_b7","targetname");
 	zc7 = getent("trap1_c7","targetname");
 	trig = getent("trig_trap1","targetname");
 	
 	r7 = randomIntRange(20,30)/10;
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	while (true)
@@ -436,11 +441,12 @@ trap1e()
 		zc7 rotateyaw(-360,r7);
 		wait r7;
 	}
-*/}
+}
 
 trap2()
 {
 	p1 = getent("trap2_1","targetname");
+	level endon("trigger");
 //	p2 = getent("trap2_2","targetname");
 //	p3 = getent("trap2_3","targetname");
 	p4 = getent("trap2_4","targetname");
@@ -470,7 +476,7 @@ trap2()
 	p28 = getent("trap2_28","targetname");
 	trig = getent("trig_trap2","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	while (true)
 	{
@@ -533,16 +539,17 @@ trap2()
 
 		p1 waittill("movedone");
 	}
-*/}
+}
 
 trap3()
 {
 	bka = getent("trap3_a","targetname");
+	level endon("trigger");
 	bkb = getent("trap3_b","targetname");
 	bkc = getent("trap3_c","targetname");
 	trig = getent("trig_trap3","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	while(true)
 	{
@@ -561,14 +568,15 @@ trap3()
 		bkc movex (-352,1);
 		wait 2;
 	}
-*/}
+}
 
 trap4()
 {
 	trig = getent("trig_trap4","targetname");
+	level endon("trigger");
 	floor = getEntArray("trap4","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	while(true)
@@ -603,22 +611,24 @@ trap4()
 		wait 1;
 	}
 	
-*/}
+}
 
 trap4killzone()
 {
 	trig = getent("killtrig_trap4","targetname");
+	level endon("trigger");
 	
 	while (true)
 	{
-/* AUTO 		trig waittill("trigger", player);
+		trig waittill("trigger", player);
 		player suicide();
 	}
-*/}
+}
 
 trap5()
 {
 	trig = getent("trig_trap5","targetname");
+	level endon("trigger");
 	row1 = getEntArray("trap5_1","targetname");
 	row2 = getEntArray("trap5_2","targetname");
 	row3 = getEntArray("trap5_3","targetname");
@@ -626,7 +636,7 @@ trap5()
 	row5 = getEntArray("trap5_5","targetname");
 	row6 = getEntArray("trap5_6","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	row1[randomIntRange(0,2)] notSolid();
@@ -636,11 +646,12 @@ trap5()
 	row5[randomIntRange(0,2)] notSolid();
 	row6[randomIntRange(0,2)] notSolid();
 
-*/}
+}
 
 trap6()
 {
 	trig = getent("trig_trap6","targetname");
+	level endon("trigger");
 	block1 = getent("trap6_1","targetname");
 	block2 = getent("trap6_2","targetname");
 	block3 = getent("trap6_3","targetname");
@@ -651,7 +662,7 @@ trap6()
 	block8 = getent("trap6_8","targetname");
 	block9 = getent("trap6_9","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	
 	
 	block1 movex(-750,1);
@@ -691,7 +702,7 @@ trap6()
 		wait 5;
 	}
 	
-*/}
+}
 
 trap7platform()
 {
@@ -708,12 +719,13 @@ trap7platform()
 trap7()
 {
 	trig = getEnt("trig_trap7","targetname");
+	level endon("trigger");
 	block1 = getEnt("trap7a","targetname");
 	block2 = getEnt("trap7b","targetname");
 	block3 = getEnt("trap7c","targetname");
 	block4 = getEnt("trap7d","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	block1 movex(272,1.5);
@@ -734,18 +746,19 @@ trap7()
 		block4 movex(-544,3);
 	
 	}
-*/}
+}
 
 trap8()
 {
 	trig = getEnt("trig_trap8","targetname");
+	level endon("trigger");
 	block1 = getEnt("trap8a","targetname");
 	block2 = getEnt("trap8b","targetname");
 	block3 = getEnt("trap8c","targetname");
 	block4 = getEnt("trap8d","targetname");
 	
 	rand = randomInt(2);
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	if(rand==0)
 	{
@@ -757,15 +770,16 @@ trap8()
 		block2 delete();
 		block4 delete();
 	}
-*/}
+}
 
 trap9()
 {
 	trig = getEnt("trig_trap9","targetname");
+	level endon("trigger");
 	roll1 = getEnt("trap9a","targetname");
 	roll2 = getEnt("trap9b","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	while(true)
 	{
@@ -776,7 +790,7 @@ trap9()
 		roll2 rotatepitch(1440,4);
 		wait 8;
 	}
-*/}
+}
 
 end()
 {

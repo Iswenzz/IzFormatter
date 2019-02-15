@@ -54,13 +54,14 @@ wait 4.5;
 trap2()
 {
 brush = getent("brush2", "targetname");
+	level endon("trigger");
 gettrigger("trap2_trig", "^6A^7ctivate Sinking bounce");
 brush movez(-140,4,2,0);
-/* AUTO brush waittill("movedone");
+brush waittill("movedone");
 wait 2;
 brush movez(140,4,0,2);
 brush waittill("movedone");
-*/}
+}
 
 trap3()
 {
@@ -143,17 +144,18 @@ brush2 movez (80, 2);
 trap8()
 {
 brush = getent("brush13", "targetname");
+	level endon("trigger");
 gettrigger("trap8_trig", "^6A^7ctivate Spinner");
 for(;;)
 {
 brush rotateroll (1440,5);
-/* AUTO brush waittill("rotatedone");
+brush waittill("rotatedone");
 wait 3;
 brush rotateroll (-1440,5);
 brush waittill("rotatedone");
 wait 3;
 }
-*/}
+}
 
 trap9()
 {

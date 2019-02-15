@@ -412,9 +412,10 @@ hardplat10 = getent("hard_plat_10","targetname");
 traphardmodeon() //Hard mod
 {
 lazer1 = getent("hard_mode_1a","targetname");
+	level endon("trigger");
 lazertrig1 = getent("hard_mode_1b","targetname");
 trig = getent("trig_trap13","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -436,7 +437,7 @@ trig SetHintString("^2Activated");
 	thread lazer1move();
 	thread hardplatmdr();
 	}
-*/}
+}
 
 lazer1move()
 {
@@ -460,9 +461,10 @@ lazertrig1 linkto(lazer1);
 trap1()
 {
 part1 = getentarray("platmove1","targetname");
+	level endon("trigger");
 part2 = getentarray("platmove2","targetname");
 trig = getent("trig_trap1","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -488,13 +490,14 @@ random = randomint(2);
 				
 		default: return;
 	}
-*/}
+}
 
 trap2()
 {
 trap2a = getEnt("platmove3trap","targetname");
+	level endon("trigger");
 trig = getent("trig_trap2","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -508,11 +511,12 @@ trig delete();
 //AUTO user braxi\_rank::giveRankXP("", 90);
 trig SetHintString("^2Activated");
 trap2a notsolid();
-*/}
+}
 
 trap3()
 {
 hardplatturn1a = getEnt("platturn1","targetname");
+	level endon("trigger");
 hardplatturn2a = getEnt("platturn2","targetname");
 hardplatturn3a = getEnt("platturn3","targetname");
 hardplatturn4a = getEnt("platturn4","targetname");
@@ -521,7 +525,7 @@ hardplatturn6a = getEnt("platturn6","targetname");
 hardplatturn7a = getEnt("platturn7","targetname");
 hardplatturn8a = getEnt("platturn8","targetname");
 trig = getent("trig_trap3","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -547,13 +551,14 @@ trig SetHintString("^2Activated");
 	hardplatturn8a rotatePitch(-360, 2, 0.2);
 	wait 1;
 	}
-*/}
+}
 
 trap4()
 {
 trig = getent("trig_trap4","targetname");
+	level endon("trigger");
 level._effect["c4"] = loadfx("explosions/custom_explo_small");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -568,7 +573,7 @@ trig delete();
 trig SetHintString("^2Activated");
 thread trap4a();
 thread trap4b();
-*/}
+}
 
 trap4a()
 {
@@ -625,10 +630,11 @@ for(k=0;k<players.size;k++)
 trap5()
 {
 trap5a = getent("trap5a","targetname");
+	level endon("trigger");
 trap5b = getent("trap5b","targetname");
 trap5c = getent("trap5c","targetname");
 trig = getent("trig_trap5","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -656,15 +662,16 @@ trig SetHintString("^2Activated");
 	trap5c rotateYaw(360, 3, 0.5, 0.5);
 	wait 3;
 	}
-*/}
+}
 
 trap6()
 {
 trap6a = getent("trap6a","targetname");
+	level endon("trigger");
 trap6b = getent("trap6b","targetname");
 trap6c = getent("trap6c","targetname");
 trig = getent("trig_trap6","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -693,14 +700,15 @@ trig SetHintString("^2Activated");
 	trap6c rotateroll(360, 2);
 	wait 2;
 	}
-*/}
+}
 
 trap7()
 {
 trap7a = getent("trap7a","targetname");
+	level endon("trigger");
 trap7b = getent("trap7b","targetname");
 trig = getent("trig_trap7","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -723,13 +731,14 @@ trig SetHintString("^2Activated");
 		trap7b moveZ(56,0.5);
 		wait 0.5;
 	}
-*/}
+}
 
 trap8()
 {
 trap8a = getent("trap8a","targetname");
+	level endon("trigger");
 trig = getent("trig_trap8","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -748,13 +757,14 @@ trig SetHintString("^2Activated");
 	trap8a rotateYaw(360, 4);
 	wait 3;
 	}
-*/}
+}
 
 trap9()
 {
 trap9a = getEnt("trap9a","targetname");
+	level endon("trigger");
 trig = getent("trig_trap9","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -771,13 +781,14 @@ trap9a moveX(900, 2);
 wait 3;
 trap9a moveX(-900, 2);
 
-*/}
+}
 
 trap10()
 {
 trap10a = getent("trap10a","targetname");
+	level endon("trigger");
 trig = getent("trig_trap10","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -797,16 +808,17 @@ wait 0.5;
 	trap10a rotateYaw(360, 1);
 	wait 1;
 	}
-*/}
+}
 
 trap11()
 {
 part1 = getentarray("trap11a","targetname");
+	level endon("trigger");
 part2 = getentarray("trap11b","targetname");
 part3 = getentarray("trap11c","targetname");
 part4 = getentarray("trap11d","targetname");
 trig = getent("trig_trap11","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -834,15 +846,16 @@ random = randomint(2);
 				
 		default: return;
 	}
-*/}
+}
 
 trap12()
 {
 part1 = getentarray("trap12a","targetname");
+	level endon("trigger");
 part2 = getentarray("trap12b","targetname");
 part3 = getentarray("trap12c","targetname");
 trig = getent("trig_trap12","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -869,7 +882,7 @@ random = randomint(2);
 				
 		default: return;
 	}
-*/}
+}
 
 actitpsetup() //TP ACTI & FX
 {
@@ -2107,7 +2120,7 @@ for(;;)
 //AUTO 	player giveweapon("intervention_mp");
 //AUTO 	activator giveweapon("intervention_mp");
 	thread createhud(player.name + " ^5selected ^7snipah ^4war!");
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("^5FIGHT ^7!!!");
 //AUTO 	activator iprintlnbold("^5FIGHT ^7!!!");
 	player freezeControls(false);
@@ -2153,7 +2166,7 @@ for(;;)
 	activator setPlayerAngles(acti.angles);
 //AUTO 	player takeallweapons();
 //AUTO 	activator takeallweapons();
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	IPrintLnbold("^2Fight!!!.");
 	i = randomintrange(0, 8);
 	weapon = "rpg_mp";
@@ -2195,7 +2208,7 @@ for(;;)
 //AUTO 	activator giveweapon(weapon);
 //AUTO 	activator givemaxammo(weapon);
 //AUTO 	player givemaxammo(weapon);
-//AUTO 	wait .1;
+	wait .1;
 //AUTO 	player switchtoweapon(weapon);
 //AUTO 	activator switchtoweapon(weapon);
 	player freezeControls(false);
@@ -2226,7 +2239,7 @@ for(;;)
 //AUTO 	activator giveweapon("knife_mp");
 //AUTO 	player giveweapon("knife_mp");
 	thread createhud(player.name + " ^5Selected 7bounce ^5Room ^7:]");
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("^5GO^5!!!");
 //AUTO 	activator iprintlnbold("^5GO^5!!!");
 	player freezeControls(false);
@@ -2535,7 +2548,7 @@ for(;;)
 //AUTO 	activator giveweapon("tomahawk_mp");
 //AUTO 	player giveweapon("tomahawk_mp");
 	thread createhud(player.name + " ^5Selected ^7Knife ^5ruum ^7!");
-//AUTO 	wait 5;
+	wait 5;
 	player freezeControls(false);
 	activator freezeControls(false);
 //AUTO 	player switchtoweapon("tomahawk_mp");

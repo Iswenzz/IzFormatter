@@ -378,35 +378,38 @@ umbrella()
 	trap1()
 {
     trig = getEnt( "trap1_trigger", "targetname" );
+	level endon("trigger");
     brush = getEnt( "trap1_brush", "targetname" );
 {
-/* AUTO 	trig waittill ("trigger", player );
+	trig waittill ("trigger", player );
 
 	brush delete();
 
 	trig delete();
 }
-*/}
+}
 
 trap3()
 {
     trig = getEnt( "trap3_trigger", "targetname" );
+	level endon("trigger");
     brush = getEnt( "trap3_brush", "targetname" );
 	
-/* AUTO 	trig waittill ("trigger", player );
+	trig waittill ("trigger", player );
 {
 	trig delete();
 	
 	brush rotatepitch (360,2);
 }
-*/}
+}
 
 trap4()
 {
     trig = getEnt( "trap4_trigger", "targetname" );
+	level endon("trigger");
     brush = getEnt( "trap4_brush", "targetname" );
 {
-/* AUTO 	trig waittill ("trigger", player );
+	trig waittill ("trigger", player );
 
 	trig delete();
 	
@@ -420,14 +423,15 @@ trap4()
 	
 	brush delete();
 }
-*/}
+}
 
 trap5()
 {
     trig = getEnt( "trap5_trigger", "targetname" );
+	level endon("trigger");
     brush = getEnt( "trap5_brush", "targetname" );
 
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	
 	while(1)
 {
@@ -441,11 +445,12 @@ trap5()
 	
 	wait 2;
 }
-*/}
+}
 
 	trap6()
 {
     trig = getEnt( "trap6_trigger", "targetname" );
+	level endon("trigger");
 	brush1 = getEnt( "tarp6_brush1", "targetname" );
 	brush2 = getEnt( "tarp6_brush2", "targetname" );
 	brush3 = getEnt( "tarp6_brush3", "targetname" );
@@ -456,7 +461,7 @@ trap5()
 	fx3 = getEnt( "trap6_origin3", "targetname" );
 	fx4 = getEnt( "trap6_origin4", "targetname" );
 {
-/* AUTO 	trig waittill ("trigger", player );
+	trig waittill ("trigger", player );
 	trig delete();
 	brush1 delete();
 	fx1 playsound("explo");
@@ -475,14 +480,15 @@ trap5()
 	playFx(level.java, fx4.origin);
 	wait 1.5;
 }
-*/}
+}
 
 trap7()
 {
     trig = getEnt( "trap7_trigger", "targetname" );
+	level endon("trigger");
     brush = getEnt( "trap7_brush", "targetname" );
 	
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	
 	while(1)
 {
@@ -491,14 +497,15 @@ trap7()
 	brush waittill ("rotatedone");
 	wait 4 ;
 }
-*/}
+}
 
 trap8()
 {
     trig = getEnt( "trap8_trigger", "targetname" );
+	level endon("trigger");
     brush = getEnt( "trap8_brush", "targetname" );
 {
-/* AUTO 	trig waittill ("trigger", player );
+	trig waittill ("trigger", player );
 
 	trig delete();
 	
@@ -508,16 +515,17 @@ trap8()
 	
 	brush movey( 20, 2 );	
 }
-*/}
+}
 
 trap9()
 {
     trig = getEnt( "trap9_trigger", "targetname" );
+	level endon("trigger");
     brush1 = getEnt( "trap9_brush1", "targetname" );
     brush2 = getEnt( "trap9_brush2", "targetname" );
     brush3 = getEnt( "trap9_brush3", "targetname" );
 
-/* AUTO 	trig waittill ("trigger", player );
+	trig waittill ("trigger", player );
 	while(1)
 	{
 	trig delete();
@@ -532,35 +540,37 @@ trap9()
 	brush1 waittill ("rotatedone");
 
 }
-*/}
+}
 
 trap10()
 {
 	brush = getent ("trap10_brush1", "targetname");
+	level endon("trigger");
 	trig = getent ("trap10_trigger", "targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	while(1)
 {
 	trig SetHintString("^9Activated");
 	brush rotatepitch (720,4);
 	wait 0.5;
 }
-*/}
+}
 
 trap11()
 {
 	brush = getent ("trap11_brush1", "targetname");
+	level endon("trigger");
 	trig = getent ("trap11_trigger", "targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	while(1)
 {
 	trig SetHintString("^9Activated");
 	brush rotatepitch (720,4);
 	wait 0.5;
 }
-*/}
+}
 
 old()
 {
@@ -668,7 +678,7 @@ knife()
         level.activ setPlayerangles( acti.angles );
         level.activ setOrigin( acti.origin );
 
-//AUTO 		wait 0.5;
+		wait 0.5;
         ambientStop( 1.5 );
 //AUTO         ambientPlay("ambient3");
 
@@ -691,19 +701,19 @@ knife()
             players = getEntArray("player", "classname");
             for(i=0;i<players.size;i++)
             players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO             wait 2;
+            wait 2;
 
-//AUTO         wait 5;
+        wait 5;
 
 //AUTO         iPrintLnBold("^9F^3ight"); 
 
-//AUTO         wait 2;       
+        wait 2;       
 
 		player FreezeControls(0);
 		level.activ FreezeControls(0);
 
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 
     }
 }
@@ -729,7 +739,7 @@ bounce()
         level.activ setPlayerangles( acti.angles );
         level.activ setOrigin( acti.origin );
 
-//AUTO         wait 0.5;
+        wait 0.5;
         ambientStop( 1.5 );
 //AUTO         ambientPlay("ambient7");
 
@@ -752,17 +762,17 @@ bounce()
             players = getEntArray("player", "classname");
             for(i=0;i<players.size;i++)
             players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO             wait 2;
+            wait 2;
 
 //AUTO         iPrintLnBold("^9F^3ight");
 
-//AUTO         wait 2;
+        wait 2;
 
         player FreezeControls(0);
         level.activ FreezeControls(0);
 
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 
     }
 }

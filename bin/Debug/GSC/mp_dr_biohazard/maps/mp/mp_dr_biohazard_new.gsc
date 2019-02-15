@@ -503,10 +503,11 @@ door01()
 trap01()
 {
 	trap1 = getEnt ("trap01_a", "targetname");
+	level endon("trigger");
 	trap2 = getEnt ("trap01_b", "targetname");
 	trap3 = getEnt ("trap01_c", "targetname");
 		trig = getEnt ("trap01_switch", "targetname");
-/* AUTO 			trig waittill ("trigger", player);
+			trig waittill ("trigger", player);
 				trig delete();
 //AUTO 					player braxi\_rank::giveRankXP("", 100);
 	
@@ -522,13 +523,14 @@ trap01()
 		trap3 waittill ("rotatedone");
 		wait 0.01;
 	}
-*/}
+}
 
 trap02()
 {
 		trap = getEnt ("trap02", "targetname");
+	level endon("trigger");
 		trig = getEnt ("trap02_switch", "targetname");
-/* AUTO 			trig waittill ("trigger", player);
+			trig waittill ("trigger", player);
 				trig delete();
 //AUTO 					player braxi\_rank::giveRankXP("", 100);
 	while(1)
@@ -536,15 +538,16 @@ trap02()
 		wait 0.2;
 		trap delete();
 	}
-*/}
+}
 
 trap03()
 {
 	trap = getEnt ("trap03", "targetname");
+	level endon("trigger");
 	hurt = getEnt ("trap03_hurt", "targetname");
 	effect = getEnt ("trap03_origin", "targetname");
 	trig = getEnt ("trap03_switch", "targetname");
-/* AUTO 		trig waittill ("trigger", player);
+		trig waittill ("trigger", player);
 			trig delete();
 //AUTO 				player braxi\_rank::giveRankXP("", 100);
 			
@@ -561,13 +564,14 @@ trap03()
 		trap moveZ (-256,1);
 		wait 1000;
 	}
-*/}
+}
 
 trap04()
 {
 	trap = getEnt ("trap04", "targetname");
+	level endon("trigger");
 	trig = getEnt ("trap04_switch", "targetname");
-/* AUTO 		trig waittill ("trigger", player);
+		trig waittill ("trigger", player);
 			trig delete();
 //AUTO 				player braxi\_rank::giveRankXP("", 100);
 	while(1)
@@ -575,13 +579,14 @@ trap04()
 		trap delete();
 		wait 1;
 	}
-*/}
+}
 
 trap05()
 {
 	trap = getEnt ("trap05_1", "targetname");
+	level endon("trigger");
 	trig = getEnt ("trap05_switch", "targetname");
-/* AUTO 		trig waittill ("trigger", player);
+		trig waittill ("trigger", player);
 			trig delete();
 //AUTO 				player braxi\_rank::giveRankXP("", 100);
 	while(1)
@@ -589,7 +594,7 @@ trap05()
 		trap delete();
 		wait 100000;
 	}
-*/}
+}
 
 trap06()
 {
@@ -702,21 +707,21 @@ knife()
 //AUTO          	level.activ GiveWeapon( "knife_mp" );
 //AUTO 	 	level.activ givemaxammo( "knife_mp" );
 //AUTO 		iPrintlnBold( " ^2" + player.name + " ^7 has ^2entered KNIFE^2!" );         		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO          	player switchToWeapon( "knife_mp" );
 //AUTO          	level.activ SwitchToWeapon( "knife_mp" );
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^2[ ^73 ^2]" );
 //AUTO 		level.activ iPrintlnBold( "^2[ ^73 ^2]" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^2[ ^72 ^2]" );
 //AUTO 		level.activ iPrintlnBold( "^2[ ^72 ^2]" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^2[ ^71 ^2]" );
 //AUTO 		level.activ iPrintlnBold( "^2[ ^71 ^2]" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^2[ ^7Good Luck! ^2]" );
 //AUTO 		level.activ iPrintlnBold( "^2[ ^7Good Luck! ^2]" );
 		player freezecontrols(false); 

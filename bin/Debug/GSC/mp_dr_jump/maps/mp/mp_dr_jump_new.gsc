@@ -253,13 +253,14 @@ endmap()
 trap1()
 {
     block1 = getent("trap1-1","targetname");
+	level endon("trigger");
 	block2 = getent("trap1-2","targetname");
 	block3 = getent("trap1-3","targetname");
     block4 = getent("trap1-4","targetname");
 	block5 = getent("trap1-5","targetname");
 	block6 = getent("trap1-6","targetname");
 	trig = getent("trig_trap1","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 
 	for(;;)
@@ -274,15 +275,16 @@ trap1()
 	wait 0.1;
 	}
 	
-*/}
+}
 
 trap2()
 {
     block1 = getent("trap2-1","targetname");
+	level endon("trigger");
 	block2 = getent("trap2-2","targetname");
 	block3 = getent("trap2-3","targetname");
 	trig = getent("trig_trap2","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 
 	for(;;)
@@ -294,14 +296,15 @@ trap2()
 	wait 8;
 	}
 	
-*/}
+}
 
 trap3()
 {
     block1 = getent("trap3-1","targetname");
+	level endon("trigger");
 	block2 = getent("trap3-2","targetname");
 	trig = getent("trig_trap3","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 	
 	for(;;)
@@ -314,13 +317,14 @@ trap3()
 	wait 3;
 	}
 	
-*/}
+}
 
 trap4()
 {
     block1 = getent("trap4","targetname");
+	level endon("trigger");
 	trig = getent("trig_trap4","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 
 	for(;;)
@@ -330,13 +334,14 @@ trap4()
 	wait 8;
 	}
 	
-*/}
+}
 
 trap5()
 {
     block1 = getent("trap5","targetname");
+	level endon("trigger");
 	trig = getent("trig_trap5","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 
 	for(;;)
@@ -346,27 +351,29 @@ trap5()
 	wait 8;
 	}
 	
-*/}
+}
 
 trap6()
 {
    platform = getent("trap6","targetname");
+	level endon("trigger");
    trig = getent("trig_trap6","targetname");
-/* AUTO    trig waittill("trigger",player);
+   trig waittill("trigger",player);
 //AUTO    player braxi\_rank::giveRankXP("", 60);
    
    platform delete();
    
    trig delete();
    
-*/}
+}
 
 trap8()
 {
     block1 = getent("trap8-1","targetname");
+	level endon("trigger");
 	block2 = getent("trap8-2","targetname");
 	trig = getent("trig_trap8","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 
 	for(;;)
@@ -377,15 +384,16 @@ trap8()
 	wait 5;
 	}
 	
-*/}
+}
 
 trap7()
 {
     block1 = getent("trap7-1","targetname");
+	level endon("trigger");
 	block2 = getent("trap7-2","targetname");
 	block3 = getent("trap7-3","targetname");
 	trig = getent("trig_trap7","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 
 	for(;;)
@@ -397,17 +405,18 @@ trap7()
 	wait 0.1;
 	}
 	
-*/}
+}
 
 trap9()
 {
     block1 = getent("trap9-1","targetname");
+	level endon("trigger");
 	block2 = getent("trap9-2","targetname");
 	block3 = getent("trap9-3","targetname");
 	block4 = getent("trap9-4","targetname");
 	block5 = getent("trap9-5","targetname");
 	trig = getent("trig_trap9","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 
 	for(;;)
@@ -421,15 +430,16 @@ trap9()
 	wait 0.1;
 	}
 	
-*/}
+}
 
 trap10()
 {
     block1 = getent("trap10-1","targetname");
+	level endon("trigger");
 	block2 = getent("trap10-2","targetname");
 	block3 = getent("trap10-3","targetname");
 	trig = getent("trig_trap10","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 
 	for(;;)
@@ -441,7 +451,7 @@ trap10()
 	wait 2;
 	}
 	
-*/}
+}
 
 secret()
 {
@@ -602,7 +612,7 @@ sniper()
    level.jump_trigger delete();
    level.firstenter=false;
    } 
-//AUTO    wait(0.05);
+   wait(0.05);
 
    player SetOrigin((7726, 1208, -84));
    player SetPlayerAngles((0,330,0));
@@ -611,9 +621,9 @@ sniper()
 //AUTO    player GiveWeapon( "remington700_mp" ); 
 //AUTO    player GiveMaxAmmo("m40a3_mp");
 //AUTO    player GiveMaxAmmo( "remington700_mp" );
-//AUTO    wait .05;
+   wait .05;
 //AUTO    player SwitchToWeapon("m40a3_mp"); 
-//AUTO    wait(0.05);
+   wait(0.05);
    level.activ SetOrigin((10286, -616, -84));
    level.activ SetPlayerAngles((0,150,0));
 //AUTO    level.activ TakeAllWeapons();
@@ -621,10 +631,10 @@ sniper()
 //AUTO    level.activ GiveWeapon( "remington700_mp" );
 //AUTO    level.activ GiveMaxAmmo("m40a3_mp");
 //AUTO    level.activ GiveMaxAmmo( "remington700_mp" );
-//AUTO    wait .05;
+   wait .05;
 //AUTO    level.activ SwitchToWeapon("m40a3_mp"); 
 //AUTO    iPrintlnBold( " ^9" + player.name + " ^4 has entered the Sniper room^8!" ); 
-//AUTO    wait(0.05);
+   wait(0.05);
 //AUTO    player switchToWeapon( "m40a3_mp" );
 //AUTO    level.activ SwitchToWeapon( "m40a3_mp" );
    player waittill( "death" );
@@ -670,20 +680,20 @@ bounce()
    level.jump_trigger delete();
    level.firstenter=false;
    } 
-//AUTO    wait(0.05);
+   wait(0.05);
 
    player SetOrigin((7928, 3384, 136));
    player SetPlayerAngles((0,360,0));
 //AUTO    player TakeAllWeapons();
-//AUTO    wait(0.05);
+   wait(0.05);
    level.activ SetOrigin((7928, 5128, 136));
    level.activ SetPlayerAngles((0,360,0));
 //AUTO    level.activ TakeAllWeapons();
-//AUTO    wait .05;
+   wait .05;
 //AUTO    level.activ giveweapon("knife_mp");
 //AUTO    player giveweapon("knife_mp");
 //AUTO    iPrintlnBold(" ^9" + player.name + " ^4 has entered the Bounce room^8!"); 
-//AUTO    wait(0.05);
+   wait(0.05);
 
 
 

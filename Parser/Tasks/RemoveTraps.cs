@@ -16,21 +16,15 @@ namespace Iswenzz.CoD4.Parser.Tasks
         public static List<string> RemoveTraps(AbstractFunction instance)
         {
             List<string> new_lines = instance.Lines;
-            int firstWaitillIndex = 0;
+            bool AsTrigger = false;
 
-            for (int i = 0; i < new_lines.Count; i++)
-            {
-                if (new_lines[i].Contains("waittill", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    firstWaitillIndex = i;
-                    break;
-                }
-            }
-            if (firstWaitillIndex == 0)
+            if (new_lines.Any(l => l.Contains("waittill", StringComparison.InvariantCultureIgnoreCase)))
+                AsTrigger = true;
+
+            if (!AsTrigger)
                 return new_lines;
 
-            new_lines[firstWaitillIndex] = "/* AUTO " + new_lines[firstWaitillIndex];
-            new_lines[new_lines.Count - 1] = "*/" + new_lines[new_lines.Count - 1];
+            new_lines.Insert(3, "\tlevel endon(\"trigger\");");
             return new_lines;
         }
     }

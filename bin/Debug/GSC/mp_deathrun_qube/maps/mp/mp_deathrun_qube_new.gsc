@@ -275,7 +275,8 @@ self waittill("movedone");
 trap1()
 {
 trigger = getEnt("trigger_trap1", "targetname");
-/* AUTO trigger waittill("trigger");
+	level endon("trigger");
+trigger waittill("trigger");
 trigger delete();
 {
 wait(1);
@@ -285,7 +286,7 @@ wait(30);
 self movez(-300, 3, 1, 2);
 wait(0.5);
 } 
-*/}
+}
 
 twister()
 {
@@ -908,17 +909,17 @@ level.knifetrigger delete();
 level.snipertrigger delete();
 level.oldtrigger delete();
 level.oldtrigger2 delete();
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( telebounceorigin.origin );
 player setplayerangles( telebounceorigin.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon( "knife_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactorigin2.origin);
 level.activ setplayerangles (level.teleactorigin2.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "knife_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon( "knife_mp" );
 //AUTO level.activ SwitchToWeapon( "knife_mp" );
 level.telebounceorigin delete();
@@ -926,7 +927,7 @@ level.telebounceorigin delete();
 AmbientStop( 2 );
 //AUTO 		ambientplay( "bounce" );
 while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 }
 }
 
@@ -943,23 +944,23 @@ level.bouncetrigger delete();
 level.snipertrigger delete();
 level.oldtrigger delete();
 level.oldtrigger2 delete();
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( teleknifeorigin.origin );
 player setplayerangles( teleknifeorigin.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon( "knife_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactorigin3.origin);
 level.activ setplayerangles (level.teleactorigin3.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "knife_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon( "knife_mp" );
 //AUTO level.activ SwitchToWeapon( "knife_mp" );
 level.teleknifeorigin delete();
 //AUTO iPrintLnBold(player.name+ "^4 has entered the ^1Knife Room"); //Change the message if you want
 while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 }
 }
 
@@ -976,19 +977,19 @@ level.knifetrigger delete();
 level.jumpertrigger delete();
 level.oldtrigger delete();
 level.oldtrigger2 delete();
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( telesniperorigin.origin );
 player setplayerangles( telesniperorigin.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon( "m40a3_mp" ); 
 //AUTO player Giveweapon( "remington700_mp" );
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactorigin4.origin);
 level.activ setplayerangles (level.teleactorigin4.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "m40a3_mp" );
 //AUTO level.activ Giveweapon( "remington700_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon( "m40a3_mp" );
 //AUTO level.activ SwitchToWeapon( "m40a3_mp" );
 level.teleorigin delete();
@@ -996,7 +997,7 @@ level.teleorigin delete();
 AmbientStop( 2 );
 //AUTO 		ambientplay( "sniper" );
 while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 }
 }
 

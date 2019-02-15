@@ -209,9 +209,10 @@ MusicPlay ("song2");
 maptrap1()
 {
 trapbrush = getEnt ("trap1", "targetname");
+	level endon("trigger");
 trapactivation = getEnt ("activatortrap1", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation setHintString ( "^1Activated" );
 
 trapbrush moveZ (256, 0.25);
@@ -219,15 +220,16 @@ trapbrush waittill ("movedone");
 trapbrush moveZ (-256, 4);
 
 trapactivation delete();
-*/}
+}
 
 maptrap2()
 {
 trapbrush = getEnt ("trap2part1", "targetname");
+	level endon("trigger");
 trapbrushpartly = getEnt ("trap2part2", "targetname");
 trapactivation = getEnt ("activatortrap2", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation setHintString ( "^1Activated" );
 
 while(1)
@@ -240,16 +242,17 @@ trapbrushpartly moveX (250, 0.7);
 trapbrush waittill ("movedone");
 }
 trapactivation delete();
-*/}
+}
 
 maptrap3()
 {
 trapbrushrotate = getEnt ("trap3part1", "targetname");
+	level endon("trigger");
 trapbrushrotatepart = getEnt ("trap3part2", "targetname");
 trapbrushrotatepartly = getEnt ("trap3part3", "targetname");
 trapactivation = getEnt ("activatortrap3", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation setHintString ( "^1Activated" );
 
 while(1)
@@ -260,18 +263,19 @@ trapbrushrotatepartly rotatePitch (360, 1.5);
 wait 0.05;
 }
 trapactivation delete();
-*/}
+}
 
 maptrap4()
 {
 brush = getEnt ("trap4part1", "targetname");
+	level endon("trigger");
 trig = getEnt ("trap4part2", "targetname");
 trapactivation = getEnt ("activatortrap4", "targetname");
 
 trig enableLinkTo();
 trig LinkTo(brush);
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation setHintString ( "^1Activated" );
 
 brush moveZ (250, 1);
@@ -280,17 +284,18 @@ brush moveZ (-250, 1);
 
 
 trapactivation delete();
-*/}
+}
 
 maptrap5()
 {
 brush = getEnt ("trap5part1", "targetname");
+	level endon("trigger");
 brush2 = getEnt ("hiddenblock1", "targetname");
 mine = getEnt ("minefield", "targetname");
 trapactivation = getEnt ("activatortrap5", "targetname");
 holdmine = getEnt ("mineholder", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation setHintString ( "^1Activated" );
 
 brush moveX (192, 1);
@@ -303,7 +308,7 @@ wait 2;
 holdmine moveZ (-64, 1);
 brush moveX (-192, 1);
 brush2 moveZ (-144, 1);
-*/}
+}
 
 teleporter()
 {
@@ -335,13 +340,14 @@ for(;; )
 maptrap6()
 {
 brush = getEnt ("trap6part1", "targetname");
+	level endon("trigger");
 trig = getEnt ("trap6part2", "targetname");
 trapactivation = getEnt ("activatortrap6", "targetname");
 
 trig enableLinkTo();
 trig LinkTo(brush);
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation sethintString ("^1Activated");
 
 while(1)
@@ -352,17 +358,18 @@ brush moveZ (-432, 1.5);
 wait 10;
 }
 trapactivation delete();
-*/}
+}
 
 maptrap7()
 {
 
+	level endon("trigger");
 brush = getEnt ("trap7part1", "targetname");
 brush2 = getEnt ("trap7part2", "targetname");
 brush3 = getEnt ("trap7part3", "targetname");
 trigger = getEnt( "activatortrap7" , "targetname" );
 
-/* AUTO trigger waittill( "trigger" , player );
+trigger waittill( "trigger" , player );
 trigger sethintString ("^1Activated");
 
 while(1)
@@ -374,17 +381,18 @@ wait 3;
 }
 trigger delete();
 
-*/}
+}
 
 maptrap8()
 {
 
+	level endon("trigger");
 brush = getEnt ("trap8part1", "targetname");
 brush2 = getEnt ("trap8part2", "targetname");
 brush3 = getEnt ("trap8part3", "targetname");
 trapactivation = getEnt ("activatortrap8", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation setHintString ("^1Activated");
 
  while(1)
@@ -412,14 +420,15 @@ trapactivation setHintString ("^1Activated");
  }
 trapactivation delete();
 
-*/}
+}
 
 maptrap8addon()
 {
 brush = getEnt ("trap8part4", "targetname");
+	level endon("trigger");
 trapactivation = getEnt ("activatortrap8", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 while(1)
 {
 brush moveX (-80, 2, 1, 1);
@@ -427,11 +436,12 @@ brush waittill ("movedone");
 brush moveX (80, 2, 1, 1);
 brush waittill ("movedone");
  }
-*/}
+}
 
 maptrap9()
 {
 brush = getEnt ("trap9part1", "targetname");
+	level endon("trigger");
 brush2 = getEnt ("trap9part2", "targetname");
 trig = getEnt ("trap9part3", "targetname");
 trapactivation = getEnt ("activatortrap9", "targetname");
@@ -440,7 +450,7 @@ trig enableLinkTo();
 trig LinkTo (brush);
 trig LinkTo (brush2);
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation setHintString ("^1Activated");
 
 while(1)
@@ -453,7 +463,7 @@ brush2 moveX (-39, 2, 1, 1);
 brush waittill ("movedone");
 }
 trapactivation delete();
-*/}
+}
 
 lift()
 {
@@ -477,13 +487,14 @@ wait 10;
 maptrap10()
 {
 brush = getEnt ("trap10", "targetname");
+	level endon("trigger");
 trig = getEnt ("trap10part2", "targetname");
 trapactivation = getEnt ("activatortrap10", "targetname");
 
 trig enableLinkTo();
 trig LinkTo (brush);
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation setHintString ("^1Activated");
 
 while(1)
@@ -495,14 +506,15 @@ wait 15;
 }
 
 trapactivation delete();
-*/}
+}
 
 maptrap11()
 {
 brush = getEnt ("trap11", "targetname");
+	level endon("trigger");
 trapactivation = getEnt ("activatortrap11", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation sethintString ("^1Activated");
 while(1)
 {
@@ -510,14 +522,15 @@ brush rotateRoll (360, 3.5);
 wait 0.05;
 }
 trapactivation delete();
-*/}
+}
 
 maptrap12()
 {
 brush = getEnt ("trap12part1", "targetname");
+	level endon("trigger");
 trapactivation = getEnt ("activatortrap12", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation sethintString ("^1Activated");
 
 while(1)
@@ -526,31 +539,33 @@ brush rotatePitch (360, 4);
 wait 3;
 }
 trapactivation delete();
-*/}
+}
 
 maptrap12addon()
 {
 brush2 = getEnt ("trap12part2", "targetname");
+	level endon("trigger");
 trapactivation = getEnt ("activatortrap12", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 while(1)
 {
 brush2 rotatePitch (-360, 3);
 wait 3;
 }
-*/}
+}
 
 maptrap13()
 {
 brush = getEnt ("trap13part1", "targetname");
+	level endon("trigger");
 trig = getEnt ("trap13part2", "targetname");
 trapactivation = getEnt ("activatortrap13", "targetname");
 
 trig enableLinkTo();
 trig LinkTo(brush);
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation sethintString ("^1Activated");
 
 while(1)
@@ -561,7 +576,7 @@ brush moveZ (176, 0.7);
 brush waittill ("movedone");
 }
 trapactivation delete();
-*/}
+}
 
 lettingdown()
 {
@@ -846,6 +861,7 @@ trig waittill ("trigger", player);
 maptrap14()
 {
 brush = getEnt ("letdownplat1", "targetname");
+	level endon("trigger");
 brush2 = getEnt ("letdownplat2", "targetname");
 brush3 = getEnt ("letdownplat3", "targetname");
 brush4 = getEnt ("letdownplat4", "targetname");
@@ -868,7 +884,7 @@ brush20 = getEnt ("letdownplat20", "targetname");
 brushhelper = getEnt ("jellyfish", "targetname");
 trapactivation = getEnt ("activatortrap14", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation setHintString ("^1Activated");
 
 brushhelper moveZ (-112, 1);
@@ -917,15 +933,16 @@ brush19 moveZ (32, 1, 0.5, 0.5);
 brush20 moveZ (32, 1, 0.5, 0.5);
 
 trapactivation delete();
-*/}
+}
 
 maptrap15()
 {
 brush = getEnt ("trap15part1", "targetname");
+	level endon("trigger");
 brush2 = getEnt ("trap15part2", "targetname");
 trapactivation = getEnt ("activatortrap15", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation setHintString ("^1Activated");
 
 brush moveZ (-416, 1);
@@ -938,18 +955,19 @@ wait 5;
 }
 
 trapactivation delete();
-*/}
+}
 
 maptrap16()
 {
 brush = getEnt ("trap16part1", "targetname");
+	level endon("trigger");
 trig = getEnt ("trap16part2", "targetname");
 trapactivation = getEnt ("activatortrap16", "targetname");
 
 trig enableLinkTo();
 trig LinkTo(brush);
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 
 while(1)
 {
@@ -959,7 +977,7 @@ brush moveY (-112, 3, 1.5, 1.5);
 brush waittill ("movedone");
 }
 trapactivation delete();
-*/}
+}
 
 endrooms()
 {
@@ -1024,11 +1042,11 @@ sniper()
                     
 }
                  
-//AUTO                 wait 0.05;
+                wait 0.05;
                
 //AUTO                 iPrintLnBold( " ^4" + player.name + " ^7has chosen ^4Sniper ^7Room!" ); 
                 while( isAlive( player ) && isDefined( player ) ) 
-//AUTO                         wait 1;
+                        wait 1;
 						
 						player waittill( "death" );
 level.race_trig show(); //deletes all other rooms from being used.
@@ -1081,7 +1099,7 @@ bounce()
                     
 }
                  
-//AUTO                 wait 0.05;
+                wait 0.05;
                
 //AUTO                 iPrintLnBold( " ^4" + player.name + " ^3has chosen the ^4Bounce Room!" ); 
 player waittill( "death" );					
@@ -1292,7 +1310,7 @@ weapon()
                     
 }
                  
-//AUTO                 wait 0.05;
+                wait 0.05;
                
 //AUTO                 iPrintLnBold( " ^4" + player.name + " ^3has chosen the ^4Weapon Room!" ); 
 player waittill( "death" );					
@@ -1554,11 +1572,12 @@ for(;; )
 maptrap17()
 {
 brush = getEnt ("trap17part1", "targetname");
+	level endon("trigger");
 brush2 = getEnt ("trap17part2", "targetname");
 
 trapactivation = getEnt ("activatortrap17", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation sethintString ("^1Activated");
 
 while(1)
@@ -1573,11 +1592,12 @@ brush2 moveZ (-176, 1);
 brush2 waittill ("movedone");
 }
 trapactivation delete();
-*/}
+}
 
 maptrap18()
 {
 brush = getEnt ("trap18part1", "targetname");
+	level endon("trigger");
 brush2 = getEnt ("trap18part2", "targetname");
 trig = getEnt ("trap18part3", "targetname");
 trig2 = getEnt ("trap18part4", "targetname");
@@ -1589,7 +1609,7 @@ trig LinkTo(brush);
 trig2 enableLinkTo();
 trig2 LinkTo(brush2);
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation setHintString("^1Activated");
 
 while(1)
@@ -1599,14 +1619,15 @@ brush2 rotateYaw (-360, 3);
 wait 0.05;
 }
 trapactivation delete();
-*/}
+}
 
 maptrap18addon()
 {
 brush = getEnt ("trap18part5", "targetname");
+	level endon("trigger");
 trapactivation = getEnt ("activatortrap18", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 
 while(1)
 {
@@ -1615,18 +1636,19 @@ wait 2;
 brush moveZ (-304, 1);
 wait 2;
 }
-*/}
+}
 
 maptrap19()
 {
 brush = getEnt ("trap19", "targetname");
+	level endon("trigger");
 trapactivation = getEnt ("activatortrap19", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation setHintString("^1Activated");
 brush delete();
 trapactivation delete();
-*/}
+}
 
 chocochase()
 {
@@ -1723,12 +1745,13 @@ for(;; )
 mapchocotrap1()
 {
 brush = getEnt ("chocotrap1part1", "targetname");
+	level endon("trigger");
 brush2 = getEnt ("chocotrap1part2", "targetname");
 brush3 = getEnt ("chocotrap1part3", "targetname");
 brush4 = getEnt ("chocotrap1part4", "targetname");
 trapactivation = getEnt ("activatorchoco1", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation setHintString ("^1Activated");
 
 while(1)
@@ -1740,15 +1763,16 @@ brush4 rotateYaw (360, 1);
 wait 0.05;
 }
 trapactivation delete();
-*/}
+}
 
 mapchocotrap2()
 {
 brush = getEnt ("chocotrap2part1", "targetname");
+	level endon("trigger");
 brush2 = getEnt ("chocotrap2part2", "targetname");
 trapactivation = getEnt ("activatorchoco2", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation setHintString ("^1Activated");
 
 while(1)
@@ -1762,19 +1786,20 @@ brush2 moveX (15, 0.5);
 brush2 waittill ("movedone");
 }
 trapactivation delete();
-*/}
+}
 
 mapchocotrap3()
 {
 brush = getEnt ("chocotrap3", "targetname");
+	level endon("trigger");
 trapactivation = getEnt ("activatorchoco3", "targetname");
 
-/* AUTO trapactivation waittill ("trigger", player);
+trapactivation waittill ("trigger", player);
 trapactivation setHintString ("^1Activated");
 
 brush delete();
 trapactivation delete();
-*/}
+}
 
 thefail()
 {

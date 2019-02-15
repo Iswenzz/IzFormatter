@@ -417,6 +417,7 @@ main()
 	treetrap()
 {
 	trig = getEnt ("trig_treetrap","targetname");
+	level endon("trigger");
 	kill = getEnt ("tree_killtrig","targetname");
 	tree = getEnt ("treetrap_tree","targetname");
 	carrot = getEnt ("tree_carrot","targetname");
@@ -425,7 +426,7 @@ main()
 	tree_sound = getEnt ("tree_sound","targetname");
 	clip = getEnt ("treetrap","targetname");
 	
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trig SetHintString("^5Activated");
 	carrot delete();
@@ -441,23 +442,24 @@ main()
 	wait 0.1;
 	playfx(level.snowplode,tree2_fx.origin);
 	kill delete();
-*/}
+}
 
 	trap1()
 {
 	trigger = getEnt ("trap1_trig","targetname");
+	level endon("trigger");
 	cloud = getEnt ("trap1","targetname");
 	carrot = getEnt ("trap1_carrot","targetname");
 	trap1_fx = getEnt ("trap1_fx","targetname");
 	cloud hide();
-/* AUTO 	trigger waittill ("trigger", player);
+	trigger waittill ("trigger", player);
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^5Activated");
 	playfx(level.snowplode,trap1_fx.origin);
 	carrot delete();
 	trap1_fx playSound("poof");
 	cloud show();
-*/}
+}
 
 	icicle1()
 {
@@ -952,12 +954,13 @@ main()
 	trap3()
 {
 	trigger = getEnt ("trap3_trig","targetname");
+	level endon("trigger");
 	snow = getEnt ("trap_3","targetname");
 	cave1 = getEnt ("cavefall1","targetname");
 	cave2 = getEnt ("cavefall2","targetname");
 	cave3 = getEnt ("cavefall3","targetname");
 	carrot = getEnt ("trap3_carrot","targetname");
-/* AUTO 	trigger waittill ("trigger", player);
+	trigger waittill ("trigger", player);
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^5Activated");
 	snow movez(-225,3.3);
@@ -967,11 +970,12 @@ main()
 	playfx(level.snowplode,cave2.origin);
 	playfx(level.snowplode,cave3.origin);
 	carrot delete();
-*/}
+}
 
 	trap2()
 {
 	trigger = getEnt ("trap2_trig","targetname");
+	level endon("trigger");
 	box1_1 = getEnt ("box1_1","targetname");
 	box1_2 = getEnt ("box1_2","targetname");
 	box2_1 = getEnt ("box2_1","targetname");
@@ -1033,7 +1037,7 @@ main()
 	fx12_1 = getEnt ("box12fx_1","targetname");
 	fx12_2 = getEnt ("box12fx_2","targetname");
 	carrot = getEnt ("trap2_carrot","targetname");
-/* AUTO 	trigger waittill ("trigger", player);
+	trigger waittill ("trigger", player);
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^5Activated");
 	carrot delete();
@@ -1624,16 +1628,17 @@ main()
 		playfx(level.snowplode,fx12_2.origin);
 		fx12_1 playSound("boxplode");
 	}
-*/}
+}
 
 	trap4()
 {
 	trigger = getEnt ("trap4_trig","targetname");
+	level endon("trigger");
 	object = getEnt ("trap4_delete","targetname");
 	carrot = getEnt ("trap4_carrot","targetname");
 	c4 = getEnt ("trap4_c4","targetname");
 	efx = getEnt ("trap4_efx","targetname");
-/* AUTO 	trigger waittill ("trigger", player);
+	trigger waittill ("trigger", player);
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^5Activated");
 	efx playSound ("boxplode");
@@ -1641,11 +1646,12 @@ main()
 	object delete();
 	c4 delete();
 	carrot delete();
-*/}
+}
 
 	treetrap2()
 {
 	trig = getEnt ("treetrap2_trig","targetname");
+	level endon("trigger");
 	kill = getEnt ("tree2_killtrig","targetname");
 	tree = getEnt ("treetrap2_tree","targetname");
 	carrot = getEnt ("tree2_carrot","targetname");
@@ -1654,7 +1660,7 @@ main()
 	tree_sound = getEnt ("tree2_sound","targetname");
 	clip = getEnt ("treetrap2","targetname");
 	
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trig SetHintString("^5Activated");
 	carrot delete();
@@ -1670,7 +1676,7 @@ main()
 	wait 0.1;
 	playfx(level.snowplode,tree2_fx.origin);
 	kill delete();
-*/}
+}
 
 	wtf()
 {

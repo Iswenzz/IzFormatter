@@ -311,8 +311,9 @@ wait(0.05);
 trap_4squares()
 {
 platforms = getEntArray("4squares", "targetname");
+	level endon("trigger");
 level.square = getEnt("trigger_4squares", "targetname");
-/* AUTO level.square waittill("trigger", player);
+level.square waittill("trigger", player);
 level.square delete();
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
@@ -326,7 +327,7 @@ wait(0.05);
 platforms[randomInt(platforms.size)] notsolid();
 }
 }
-*/}
+}
 
 elevator()
 {
@@ -364,8 +365,9 @@ wait(1);
 trap_pusher()
 {
 pusher = getent("pusher","targetname");
+	level endon("trigger");
 level.pushertrig = getEnt("trigger_pusher", "targetname");
-/* AUTO level.pushertrig waittill("trigger", player);
+level.pushertrig waittill("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
 //AUTO player iPrintLnBold("^1Stop being a low"); //Change the message if you want
@@ -376,16 +378,17 @@ pusher movex(567,2);
 pusher waittill("movedone");
 pusher movex(-567,5);
 }
-*/}
+}
 
 trap_rollers()
 {
 if (!isdefined(self.speed))
+	level endon("trigger");
  self.speed = 3;
 if (!isdefined(self.script_noteworthy))
  self.script_noteworthy = "y";
 level.rollertrig = getEnt("trigger_rollers", "targetname");
-/* AUTO level.rollertrig waittill("trigger", player);
+level.rollertrig waittill("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
 //AUTO player iPrintLnBold("^1Stop being a low"); //Change the message if you want
@@ -407,7 +410,7 @@ wait(0.05);
  wait(6);
 }
 }
-*/}
+}
 
 platform_pusher()
 {
@@ -426,11 +429,12 @@ platform waittill ("movedone");
 trap_spikes_left()
 {
 spikes = getEntarray("trap_spikes_left", "targetname");
+	level endon("trigger");
 hurt = getEnt("spikes_hurt", "targetname");	
 level.spiketrig = getEnt("trigger_spikes", "targetname");
 distance = 40; //change this to change the distance the spikes will travel
 time = 1; //change this to make the spikes faster or slower
-/* AUTO level.spiketrig waittill("trigger", player);
+level.spiketrig waittill("trigger", player);
 level.spiketrig delete();
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
@@ -448,16 +452,17 @@ spikes[i] movex(150,1);
 hurt delete();
 }
 }
-*/}
+}
 
 trap_spikes_right()
 {
 spikes = getEntarray("trap_spikes_right", "targetname");
+	level endon("trigger");
 hurt = getEnt("spikes_hurt_right", "targetname");	
 level.spiketrig = getEnt("trigger_spikes", "targetname");
 distance = 40; //change this to change the distance the spikes will travel
 time = 1; //change this to make the spikes faster or slower
-/* AUTO level.spiketrig waittill("trigger", player);
+level.spiketrig waittill("trigger", player);
 level.spiketrig delete();
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
@@ -475,13 +480,14 @@ spikes[i] movex(-150,1);
 hurt delete();
 }
 }
-*/}
+}
 
 trap_lifter()
 {
 lifter = getEnt("trap_lifter", "targetname");	
+	level endon("trigger");
 level.liftertrig = getEnt("trigger_lifter", "targetname");
-/* AUTO level.liftertrig waittill("trigger", player);
+level.liftertrig waittill("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
 //AUTO player iPrintLnBold("^1Stop being a low"); //Change the message if you want
@@ -491,7 +497,7 @@ else
 lifter movez(233,1);
 lifter waittill("movedone");
 }
-*/}
+}
 
 finaldoors()
 {
@@ -510,11 +516,12 @@ trigger waittill("trigger", player);
 trap_twister()
 {
 if (!isdefined(self.speed))
+	level endon("trigger");
  self.speed = 8;
 if (!isdefined(self.script_noteworthy))
  self.script_noteworthy = "z";
 level.twistertrig = getEnt("spintest", "targetname");
-/* AUTO level.twistertrig waittill("trigger", player);
+level.twistertrig waittill("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
 //AUTO player iPrintLnBold("^1Stop being a low"); //Change the message if you want
@@ -534,7 +541,7 @@ while(true)
  // self waittill("rotatedone");
 }
 }
-*/}
+}
 
 teleportsniperroom()
 {	
@@ -546,17 +553,17 @@ for(;;)
 level.snipertrigger waittill("trigger", player);
 level.classictrigger delete();
 level.jumpertrigger delete();
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( teleorigin.origin );
 player setplayerangles( teleorigin.angles );
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO iPrintLnBold(player.name+ "^1 has entered the sniper room"); //Change the message if you want
 //AUTO player takeallweapons();
 //AUTO player GiveWeapon("m40a3_mp");
 //AUTO player SwitchToWeapon( "m40a3_mp" );
 level.activ SetOrigin( level.actorigin.origin );
 level.activ setplayerangles( level.actorigin.angles );
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO level.activ takeallweapons();
 //AUTO level.activ GiveWeapon("m40a3_mp");
 //AUTO level.activ GiveWeapon("remington700_mp");
@@ -592,12 +599,13 @@ else
 trap_floor()
 {
 floor = getEnt("rotatefloor","targetname");
+	level endon("trigger");
 if (!isdefined(floor.speed))
  floor.speed = 5;
 if (!isdefined(floor.script_noteworthy))
  floor.script_noteworthy = "x";
 level.floortrig = getEnt("trap_rotatefloor", "targetname");
-/* AUTO level.floortrig waittill("trigger",player);
+level.floortrig waittill("trigger",player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
 //AUTO player iPrintLnBold("^1Stop being a low"); //Change the message if you want
@@ -617,7 +625,7 @@ while(true)
  //floor waittill("rotatedone");
 }
 }
-*/}
+}
 
 teleportjump()
 {
@@ -662,10 +670,10 @@ jumperspawn = getEnt("teleport_bounce", "targetname");
 for(;;)
 {
 jumperspawn waittill("trigger", player);
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( telejumporigin.origin );
 player setplayerangles( telejumporigin.angles );
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player iPrintLnBold("Respawned"); //Change the message if you want
 }
 }
@@ -677,11 +685,11 @@ jumperspawn = getEnt("jumproomleft", "targetname");
 for(;;)
 {
 jumperspawn waittill("trigger", player);
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( telejumporiginleft.origin );
 player setplayerangles( telejumporiginleft.angles );
 //AUTO iPrintLnBold(player.name+ " reached the ^1activator"); //Change the message if you want
-//AUTO wait(0.05);
+wait(0.05);
 }
 }
 
@@ -692,11 +700,11 @@ jumperspawn = getEnt("jumproommid", "targetname");
 for(;;)
 {
 jumperspawn waittill("trigger", player);
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( telejumporiginmid.origin );
 player setplayerangles( telejumporiginmid.angles );
 //AUTO iPrintLnBold(player.name+ " reached the ^1activator"); //Change the message if you want
-//AUTO wait(0.05);
+wait(0.05);
 }
 }
 
@@ -707,11 +715,11 @@ jumperspawn = getEnt("jumproomright", "targetname");
 for(;;)
 {
 jumperspawn waittill("trigger", player);
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( telejumporiginright.origin );
 player setplayerangles( telejumporiginright.angles );
 //AUTO iPrintLnBold(player.name+ " reached the ^1activator"); //Change the message if you want
-//AUTO wait(0.05);
+wait(0.05);
 }
 }
 
@@ -763,13 +771,13 @@ secret = getEnt("secretroom_teleporter_origin", "targetname");
 for(;;)
 {
 teleporter waittill("trigger", player);
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( secret.origin );
 player setplayerangles( secret.angles );
 //AUTO player iPrintLnBold("You have entered the secret room"); //Change the message if you want
 //AUTO player GiveWeapon("deserteaglegold_mp");
 //AUTO player SwitchToWeapon( "deserteaglegold_mp" );	
-//AUTO wait(0.05);
+wait(0.05);
 }
 }
 
@@ -780,13 +788,13 @@ secret = getEnt("secretroom_teleporter_back_origin", "targetname");
 for(;;)
 {
 teleporter waittill("trigger", player);
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( secret.origin );
 player setplayerangles( secret.angles );
 //AUTO player iPrintLnBold("Teleport back to map"); //Change the message if you want
 //AUTO player GiveWeapon("ak74u_mp");
 //AUTO player SwitchToWeapon( "ak74u_mp" );
-//AUTO wait(0.05);
+wait(0.05);
 }
 }
 
@@ -797,11 +805,11 @@ secret = getEnt("secretroom_teleporter_origin", "targetname");
 for(;;)
 {
 teleporter waittill("trigger", player);
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( secret.origin );
 player setplayerangles( secret.angles );
 //AUTO player iPrintLnBold("Respawned"); //Change the message if you want
-//AUTO wait(0.05);
+wait(0.05);
 }
 }
 
@@ -812,11 +820,11 @@ secret = getEnt("secretroom_teleporter_origin2", "targetname");
 for(;;)
 {
 teleporter waittill("trigger", player);
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( secret.origin );
 player setplayerangles( secret.angles );
 //AUTO player iPrintLnBold("Respawned"); //Change the message if you want
-//AUTO wait(0.05);
+wait(0.05);
 }
 }
 
@@ -827,11 +835,11 @@ secret = getEnt("secretroom_teleporter_origin3", "targetname");
 for(;;)
 {
 teleporter waittill("trigger", player);
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( secret.origin );
 player setplayerangles( secret.angles );
 //AUTO player iPrintLnBold("Respawned"); //Change the message if you want
-//AUTO wait(0.05);
+wait(0.05);
 }
 }
 
@@ -842,11 +850,11 @@ secret = getEnt("secretroom_teleporter_origin4", "targetname");
 for(;;)
 {
 teleporter waittill("trigger", player);
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( secret.origin );
 player setplayerangles( secret.angles );
 //AUTO player iPrintLnBold("Respawned"); //Change the message if you want
-//AUTO wait(0.05);
+wait(0.05);
 }
 }
 
@@ -857,11 +865,11 @@ secret = getEnt("secretroom_teleporter_origin5", "targetname");
 for(;;)
 {
 teleporter waittill("trigger", player);
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( secret.origin );
 player setplayerangles( secret.angles );
 //AUTO player iPrintLnBold("Respawned"); //Change the message if you want
-//AUTO wait(0.05);
+wait(0.05);
 }
 }
 
@@ -872,11 +880,11 @@ secret = getEnt("secretroom_teleporter_origin6", "targetname");
 for(;;)
 {
 teleporter waittill("trigger", player);
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( secret.origin );
 player setplayerangles( secret.angles );
 //AUTO player iPrintLnBold("Respawned"); //Change the message if you want
-//AUTO wait(0.05);
+wait(0.05);
 }
 }
 
@@ -887,11 +895,11 @@ secret = getEnt("secretroom_teleporter_origin7", "targetname");
 for(;;)
 {
 teleporter waittill("trigger", player);
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( secret.origin );
 player setplayerangles( secret.angles );
 //AUTO player iPrintLnBold("Respawned"); //Change the message if you want
-//AUTO wait(0.05);
+wait(0.05);
 }
 }
 

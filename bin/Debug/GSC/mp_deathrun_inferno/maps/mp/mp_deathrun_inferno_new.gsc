@@ -67,18 +67,20 @@ Traps()
 Trap1()
 {
 	trig = getEnt("trigger_trap1","targetname");
+	level endon("trigger");
  	brush = getEnt("trap1","targetname");
 
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
 	brush moveZ(8, 2);
-*/}
+}
 
 Trap2_1()
 {
 	trig = getEnt("trigger_trap2","targetname");
+	level endon("trigger");
  	brush1 = getEnt("trap2_1","targetname");
 	brush2 = getEnt("trap2_2","targetname");
 	brush3 = getEnt("trap2_3","targetname");
@@ -90,7 +92,7 @@ Trap2_1()
 	brush9 = getEnt("trap2_9","targetname");
 	brush10 = getEnt("trap2_10","targetname");
 
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -109,15 +111,16 @@ Trap2_1()
 		brush10 rotateYaw( 360, 1 );
 		wait randomIntRange(1, 3);
 	}
-*/}
+}
 
 Trap2_2()
 {
 	trig = getEnt("trigger_trap2","targetname");
+	level endon("trigger");
 	trap2_11 = getEnt("trap2_11","targetname");
 	trap2_12 = getEnt("trap2_12","targetname");
 	
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
        
 	trig delete();
     
@@ -136,16 +139,17 @@ Trap2_2()
 		trap2_12 moveX(608, 1.5);
 		trap2_12 waittill("movedone");
 	}	
-*/}
+}
 
 Trap3()
 {
 	trig = getEnt("trigger_trap3","targetname");
+	level endon("trigger");
  	brush1 = getEnt("trap3_1","targetname");
 	brush2 = getEnt("trap3_2","targetname");
 	brush3 = getEnt("trap3_3","targetname");
 
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -160,14 +164,15 @@ Trap3()
 	wait 3;
 	brush1 moveZ (168, 3);
 	brush2 moveZ (168, 3);
-*/}
+}
 
 Trap4()
 {
 	trig = getEnt("trigger_trap4","targetname");
+	level endon("trigger");
  	brush = getEnt("trap4","targetname");
 	
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -178,14 +183,15 @@ Trap4()
 		brush moveX (-200, 3);
 		wait 2;
 	}
-*/}
+}
 
 Trap5()
 {
 	trig = getEnt("trigger_trap5","targetname");
+	level endon("trigger");
  	brush = getEnt("trap5","targetname");
 	
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -194,14 +200,15 @@ Trap5()
 		wait 0.01;
 		brush rotatePitch (-360, 3);
 	}
-*/}
+}
 
 Trap6()
 {
 	trig = getEnt("trigger_trap6","targetname");
+	level endon("trigger");
  	brush = getEnt("trap6","targetname");
 
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 
 	trig delete();
 
@@ -209,13 +216,14 @@ Trap6()
 	brush waittill ("movedone");
 	wait 1;
 	brush moveZ (250, 5);
-*/}
+}
 
 Trap7()
 {
 	trig = getEnt ("trigger_trap7", "targetname");
+	level endon("trigger");
 	
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	
 	trig delete();
 	
@@ -227,7 +235,7 @@ Trap7()
 	thread minefunc( "trap7_mine6trig", "trap7_mine6");
 	thread minefunc( "trap7_mine7trig", "trap7_mine7");
 	thread minefunc( "trap7_mine8trig", "trap7_mine8");
-*/}
+}
 
 minefunc( trigger, mine )
 {
@@ -246,6 +254,7 @@ minefunc( trigger, mine )
 Trap8()
 {
 	trig = getEnt("trigger_trap8","targetname");
+	level endon("trigger");
 	brush1 = getEnt("trap8_1","targetname");
 	brush2 = getEnt("trap8_2","targetname");
 	brush3 = getEnt("trap8_3","targetname");
@@ -267,7 +276,7 @@ Trap8()
 	brush_trigger5 enableLinkTo(); // This is the most important part of the script. this allows you to move the trigger.
 	brush_trigger5 linkTo(brush5); //Now you must link the trigger to the base
 
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
@@ -282,13 +291,14 @@ Trap8()
 	brush3 moveZ(288, 2);
 	brush4 moveZ(288, 2);
 	brush5 moveZ(288, 2);
-*/}
+}
 
 Trap9()
 {
     trig = getEnt ("trigger_trap9", "targetname");
+	level endon("trigger");
     
-/* AUTO     trig waittill ("trigger", player);
+    trig waittill ("trigger", player);
 	
     trig delete();
     
@@ -296,11 +306,12 @@ Trap9()
         thread Trap9_1();
     else
         thread Trap9_2();
-*/}
+}
 
 Trap9_1()
 {
     trig = getEnt ("trig_trap9_1", "targetname");
+	level endon("trigger");
     brush1 = getEnt ("trap9_1", "targetname");
 	trig enableLinkTo(); // This is the most important part of the script. this allows you to move the trigger.
 	trig linkTo(brush1); //Now you must link the trigger to the base
@@ -309,16 +320,17 @@ Trap9_1()
     {
 		brush1 moveZ(-320, 1);
 		
-/* AUTO         trig waittill ("trigger", player);
+        trig waittill ("trigger", player);
 		
         player suicide();
         wait 0.5;
     }
-*/}
+}
 
 Trap9_2()
 {
     trig = getEnt ("trig_trap9_2", "targetname");
+	level endon("trigger");
 	brush2 = getEnt ("trap9_2", "targetname");
 	trig enableLinkTo(); // This is the most important part of the script. this allows you to move the trigger.
 	trig linkTo(brush2); //Now you must link the trigger to the base
@@ -327,16 +339,17 @@ Trap9_2()
     {
 		brush2 moveZ(-320, 1);
 		
-/* AUTO         trig waittill ("trigger", player);
+        trig waittill ("trigger", player);
 		
         player suicide();
         wait 0.5;
     }
-*/}
+}
 
 Trap10()
 {
     trig = getEnt ("trigger_trap10", "targetname"); 
+	level endon("trigger");
     brush1 = getEnt ("trap10_1", "targetname");
 	brush2 = getEnt ("trap10_2", "targetname");
 	brush_trigger1 = getEnt("trap10_trigkill1","targetname"); //Name of your hurt_trigger
@@ -346,7 +359,7 @@ Trap10()
 	brush_trigger2 enableLinkTo(); // This is the most important part of the script. this allows you to move the trigger.
 	brush_trigger2 linkTo(brush2); //Now you must link the trigger to the base
 	
-/* AUTO     trig waittill ("trigger", player);
+    trig waittill ("trigger", player);
 	
 	trig delete();
 	
@@ -355,14 +368,15 @@ Trap10()
 	wait 2;
 	brush1 moveZ(272, 2);
 	brush2 moveZ(-152,2);
-*/}
+}
 
 Trap11()
 {
 	trig = getEnt ("trigger_trap11", "targetname"); 
+	level endon("trigger");
 	brush = getEnt ("trap11", "targetname");
     
-/* AUTO     trig waittill ("trigger", player);
+    trig waittill ("trigger", player);
 	
 	trig delete();
 	
@@ -373,28 +387,30 @@ Trap11()
 		brush moveZ (168, 3);
 		wait 5;
 	}
-*/}
+}
 
 Trap12()
 {
 	trig = getEnt ("trigger_trap12", "targetname"); 
+	level endon("trigger");
 	brush = getEnt ("trap12", "targetname");
     
-/* AUTO     trig waittill ("trigger", player);
+    trig waittill ("trigger", player);
 
 	trig delete();
 	
 	brush notSolid();
 	brush hide(); 
-*/}
+}
 
 Trap13()
 {
 	trig = getEnt ("trigger_trap13", "targetname"); 
+	level endon("trigger");
 	brush1 = getEnt ("trap13_1", "targetname");
 	brush2 = getEnt ("trap13_2", "targetname");
 	
-/* AUTO     trig waittill ("trigger", player);
+    trig waittill ("trigger", player);
 	
 	trig delete();
 	
@@ -403,15 +419,16 @@ Trap13()
 	wait 4;
 	brush1 moveY (-320, 2);
 	brush2 moveY (320, 2);
-*/}
+}
 
 Trap14()
 {
 	trig = getEnt ("trigger_trap14", "targetname"); 
+	level endon("trigger");
 	brush1 = getEnt ("trap14_1", "targetname");
 	brush2 = getEnt ("trap14_2", "targetname");
 
-/* AUTO     trig waittill ("trigger", player);
+    trig waittill ("trigger", player);
 	
 	trig delete();
 	
@@ -424,24 +441,25 @@ Trap14()
     {
 		brush2 moveZ (-184, 2);
     }
-*/}
+}
 
 Trap15()
 {
 	trig = getEnt("trigger_trap15","targetname");
+	level endon("trigger");
 	spikes = getEnt("trap15","targetname");
 	spikes_trigger = getEnt("trap15_trigkill","targetname"); //Name of your hurt_trigger
 	spikes_trigger enableLinkTo(); // This is the most important part of the script. this allows you to move the trigger.
 	spikes_trigger linkTo(spikes); //Now you must link the trigger to the base
 	
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 	trig delete();
 	
 	spikes moveZ(40, 3);
 	wait 4;
 	spikes moveZ(-40, 4);
-*/}
+}
 
 OtherShit()
 {
@@ -1239,7 +1257,7 @@ Bounce()
         if(isDefined(player))
 //AUTO             iPrintlnBold( " ^1" + player.name + " ^7has chosen Bounce Room" );
         while( isDefined( player ) && isAlive( player ) )
-//AUTO             wait 1;
+            wait 1;
         if(isDefined(player))
 //AUTO             iPrintlnBold(player.name + " has Died.");
     }
@@ -1285,7 +1303,7 @@ Sniper()
         if(isDefined(player))
 //AUTO             iPrintlnBold( " ^1" + player.name + " ^7has chosen Sniper Room" );
         while( isDefined( player ) && isAlive( player ) )
-//AUTO             wait 1;
+            wait 1;
         if(isDefined(player))
 //AUTO             iPrintlnBold(player.name + " has Died.");
     }
@@ -1327,7 +1345,7 @@ Ak47()
         if(isDefined(player))
 //AUTO             iPrintlnBold( " ^1" + player.name + " ^7has chosen AK47 Room" );
         while( isDefined( player ) && isAlive( player ) )
-//AUTO             wait 1;
+            wait 1;
         if(isDefined(player))
 //AUTO             iPrintlnBold(player.name + " has Died.");
     }

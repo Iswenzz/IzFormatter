@@ -110,10 +110,11 @@ startdoor()
 trap1()
 {
   trigger = getEnt("trap1_trig", "targetname");
+	level endon("trigger");
   trap = getEnt("trap1", "targetname");
   
   trigger setHintString("^1Activate:^7 Trap1");
-/* AUTO   trigger waittill("trigger");
+  trigger waittill("trigger");
   trigger delete();
   
   while(1)
@@ -121,16 +122,17 @@ trap1()
     trap rotatePitch(360, 11);
 	  wait 1;
 	}
-*/}
+}
 
 trap2()
 {
   trigger = getEnt("trap2_trig", "targetname");
+	level endon("trigger");
   atrap = getEnt("trap2a", "targetname");
   btrap = getEnt("trap2b", "targetname");
   
   trigger setHintString("^1Activate:^7 Trap2");
-/* AUTO   trigger waittill("trigger");
+  trigger waittill("trigger");
   trigger delete();
   
   while(1)
@@ -140,16 +142,17 @@ trap2()
     wait 0.1;
 	}
 
-*/}
+}
 
 trap3()
 { 
   trigger = getEnt("trap3_trig", "targetname");
+	level endon("trigger");
   atrap = getEnt("trap3a", "targetname");
   btrap = getEnt("trap3b", "targetname");
   
   trigger setHintString("^1Activate:^7 Trap3");
-/* AUTO   trigger waittill("trigger");
+  trigger waittill("trigger");
   trigger delete();
   
   wait 0.1;
@@ -159,16 +162,17 @@ trap3()
     btrap rotateYaw(-360,4);
 	  wait 0.1;
 	}
-*/}
+}
 
 trap4()
 {
   trigger = getEnt("trap4_trig", "targetname");
+	level endon("trigger");
   atrap = getEnt("trap4a", "targetname");
   btrap = getEnt("trap4b", "targetname");
   
   trigger setHintString("^1Activate:^7 Trap4");
-/* AUTO   trigger waittill("trigger");
+  trigger waittill("trigger");
   trigger delete();
   
   while(1)
@@ -177,11 +181,12 @@ trap4()
     btrap rotateYaw(-360, 2);
     wait 7;
   }
-*/}
+}
 
 trap5()
 { 
   trigger = getEnt("trap5_trig", "targetname"); 
+	level endon("trigger");
   atrap = getEnt("trap5a", "targetname"); 
   btrap = getEnt("trap5b", "targetname");
   ctrap = getEnt("trap5c", "targetname");
@@ -189,7 +194,7 @@ trap5()
   etrap = getEnt("trap5e", "targetname");
 
   trigger setHintString("^1Activate:^7 Trap5");
-/* AUTO   trigger waittill("trigger");
+  trigger waittill("trigger");
   trigger delete();
 
   while(1)
@@ -215,17 +220,18 @@ trap5()
     etrap movex(330,2);
     wait 5;
   }
-*/}
+}
 
 trap6()
 { 
   trigger = getEnt("trap6_trig", "targetname"); 
+	level endon("trigger");
   atrap = getEnt("trap6a", "targetname");
   btrap = getEnt("trap6b", "targetname");
   ctrap = getEnt("trap6c", "targetname");
 
   trigger setHintString("^1Activate:^7 Trap6");
-/* AUTO   trigger waittill("trigger");
+  trigger waittill("trigger");
   trigger delete();
 
   while(1)
@@ -237,16 +243,17 @@ trap6()
     ctrap rotateyaw(360, 2);
     wait 2;
 	}
-*/}
+}
 
 trap7()
 {
   trigger = getEnt("trap7_trig", "targetname");
+	level endon("trigger");
   atrap = getEnt("trap7a", "targetname");
   btrap = getEnt("trap7b", "targetname");
   
   trigger setHintString("^1Activate:^7 Trap7");
-/* AUTO   trigger waittill("trigger");
+  trigger waittill("trigger");
   trigger delete();
   
   vc = randomint(2);
@@ -258,15 +265,16 @@ trap7()
   {
     btrap delete();
   }
-*/}
+}
 
 trap8()
 {
   trigger = getEnt("trap8_trig", "targetname");
+	level endon("trigger");
   trap = getEnt("trap8", "targetname");
   
   trigger setHintString("^1Activate:^7 Trap8");
-/* AUTO   trigger waittill("trigger");
+  trigger waittill("trigger");
   trigger delete();
   
   while(1)
@@ -274,15 +282,16 @@ trap8()
     trap rotateYaw(360, 6);
     wait .1;
 	}
-*/}
+}
 
 trap9()
 {
   trigger = getEnt("trap9_trig", "targetname");
+	level endon("trigger");
   trap = getEnt("trap9", "targetname");
   
   trigger setHintString("^1Activate:^7 Trap9");
-/* AUTO   trigger waittill("trigger");
+  trigger waittill("trigger");
   trigger delete();
 
   while(1)
@@ -292,7 +301,7 @@ trap9()
     trap show();
     wait 4;
   }
-*/}
+}
 
 secret_open()
 {    
@@ -409,13 +418,13 @@ r_sniper()
 //AUTO         iprintlnbold("^1S^7niper ^1R^7oom");
 //AUTO         iprintlnbold(player.name+" ^1vs "+level.activ);
 
-//AUTO         wait 5;
+        wait 5;
 
     player FreezeControls(0);
     level.activ FreezeControls(0);
 
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -464,13 +473,13 @@ r_knife()
 //AUTO         iprintlnbold("^1K^7nife ^1R^7oom");
 //AUTO         iprintlnbold(player.name+" ^1vs^7 "+level.activ);
 
-//AUTO         wait 5;
+        wait 5;
 
     player FreezeControls(0);
     level.activ FreezeControls(0);
 
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -519,13 +528,13 @@ r_weapon()
 //AUTO         iprintlnbold("^1W^7eapon ^1R^7oom");
 //AUTO         iprintlnbold(player.name+" ^1vs "+level.activ);
 
-//AUTO         wait 5;
+        wait 5;
 
     player FreezeControls(0);
     level.activ FreezeControls(0);
 
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

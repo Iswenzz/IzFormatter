@@ -42,9 +42,10 @@ main()
 trap_1()
 {
 	trig = getEnt( "trigger1", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap1", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	while( isDefined( brush ) )
@@ -52,14 +53,15 @@ trap_1()
 		brush rotateRoll( 180, 3 );
 		wait 3;
 	}
-*/}
+}
 
 trap_2()
 {
 	trig = getEnt( "trigger2", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap2", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	for( i = 0; i < 4; i++ )
@@ -68,24 +70,26 @@ trap_2()
 		wait 2;
 	}
 	brush.angles = (0,0,0);
-*/}
+}
 
 trap_3()
 {
 	trig = getEnt( "trigger3", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap3", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	brush rotatePitch( 90, 2 );
 	wait 4;
 	brush rotatePitch( 90, 2 );
-*/}
+}
 
 trap_4()
 {
 	trig = getEnt( "trigger4", "targetname" );
+	level endon("trigger");
 
 	brush1 = getEnt( "trap4_1", "targetname" );
 	brush2 = getEnt( "trap4_2", "targetname" );
@@ -93,7 +97,7 @@ trap_4()
 	oldOrigin1 = brush1.origin;
 	oldOrigin2 = brush2.origin;
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 
 	moveTo = getEnt( brush1.target, "targetname" );
 	brush1 moveTo( moveTo.origin, 1.2 );
@@ -107,7 +111,7 @@ trap_4()
 
 	brush1 moveTo( oldOrigin1, 1.2 );
 	brush2 moveTo( oldOrigin2, 1.2 );
-*/}
+}
 
 trap_5()
 {
@@ -131,42 +135,46 @@ trap_5()
 trap_6()
 {
 	trig = getEnt( "trigger5", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap6", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	brush delete();
-*/}
+}
 
 trap_7()
 {
 	trig = getEnt( "trigger7", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap7", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	brush delete();
-*/}
+}
 
 trap_8()
 {
 	trig = getEnt( "trigger8", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap8", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	brush moveZ( 200, 1 );
 	wait 5;
 	brush moveZ( -200, 1 );
-*/}
+}
 
 trap_9()
 {
 	trig = getEnt( "trigger9", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap9", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	for( i = 0; i < 8; i++ )
@@ -174,16 +182,17 @@ trap_9()
 		brush rotateYaw( 360, 1 );
 		wait 1;
 	}
-*/}
+}
 
 trap_10()
 {
 	trig = getEnt( "trigger10", "targetname" );
+	level endon("trigger");
 	killtrigger = getEnt( "trap10_killtrigger", "targetname" );
 	killtrigger2 = getEnt( "trap10_killtrigger2", "targetname" );
 	brush = getEnt( "trap10", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	killtrigger enableLinkTo();
@@ -204,27 +213,29 @@ trap_10()
 
 	wait 6;
 	brush moveTo( oldOrigin, 3 );
-*/}
+}
 
 trap_11()
 {
 	trig = getEnt( "trigger11", "targetname" );
+	level endon("trigger");
 	brushGroup1 = getEntArray( "trap11_1", "targetname" );
 	brushGroup2 = getEntArray( "trap11_2", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	
 	brushGroup1[randomInt(brushGroup1.size)] notSolid();
 	brushGroup2[randomInt(brushGroup2.size)] notSolid();
-*/}
+}
 
 trap_12()
 {
 	trig = getEnt( "trigger12", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap12", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	
 	for( i = 0; i < 2; i++ )
@@ -234,15 +245,16 @@ trap_12()
 		brush rotateYaw( -512, 3 );
 		wait 3;
 	}
-*/}
+}
 
 trap_13()
 {
 	trig = getEnt( "trigger13", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap13", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	brush delete();
-*/}
+}
 

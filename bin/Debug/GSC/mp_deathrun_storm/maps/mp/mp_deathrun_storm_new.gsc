@@ -127,13 +127,14 @@ acti5()
 trap4()
 {
 		trap4_1 = getEnt ("trap4_1", "targetname");
+	level endon("trigger");
 		trap4_2 = getEnt ("trap4_2", "targetname");
 		trap4_3 = getEnt ("trap4_3", "targetname");
 		trap4_4 = getEnt ("trap4_4", "targetname");
 		trig = getEnt ("trap4_trig", "targetname");
 		
 	trig setHintString ("^3USE ^4T^0o ^1A^0ctivate^2!");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig setHintString ("^0Activated^2!");
 	
 	while(1)
@@ -144,18 +145,19 @@ trap4()
 	trap4_2 RotatePitch (-360, 3);
 	wait 1;
 	}
-*/} 
+} 
 
 trap5()
 {
 		trap5_1 = getEnt ("trap5_1", "targetname");
+	level endon("trigger");
 		trap5_2 = getEnt ("trap5_2", "targetname");
 		trap5_3 = getEnt ("trap5_3", "targetname");
 		trap5_4 = getEnt ("trap5_4", "targetname");
 		trig = getEnt ("trap5_trig", "targetname");
 
     trig setHintString ("^3USE ^4T^0o ^1A^0ctivate^2!");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig setHintString ("^0Activated^2!");
 	
 	while(1)
@@ -169,11 +171,12 @@ trap5()
 	trap5_4 Rotatepitch   (-360, 5);
 	wait 1;
 	}
-*/}
+}
 
 trap7()
 {
 		trap7_1 = getEnt ("trap7_1", "targetname");
+	level endon("trigger");
 		trap7_2 = getEnt ("trap7_2", "targetname");
 		trap7_3 = getEnt ("trap7_3", "targetname");
 		trap7_4 = getEnt ("trap7_4", "targetname");
@@ -183,7 +186,7 @@ trap7()
 		trig = getEnt ("trap7_trig", "targetname");
 
     trig setHintString ("^3USE ^4T^0o ^1A^0ctivate^2!");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig setHintString ("^0Activated^2!");
 	
 	while(1)
@@ -241,16 +244,17 @@ trap7()
 	trap7_7 RotateRoll (-360, 5);
 	wait 3;
 	}
-*/}
+}
 
 trap6()
 {
 		trap6_1 = getEnt ("trap6_1", "targetname");
+	level endon("trigger");
 		trap6_2 = getEnt ("trap6_2", "targetname");
 		trig = getEnt ("trap6_trig", "targetname");
 
     trig setHintString ("^3USE ^4T^0o ^1A^0ctivate^2!");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig setHintString ("^0Activated^2!");
 	
 	while(1)
@@ -268,11 +272,12 @@ trap6()
 	trap6_2 moveZ (-50,1);
 	wait 1;
 	}
-*/}
+}
 
 trap3()  
 {  
     trap3_1 = getEnt ("trap3_1", "targetname");  
+	level endon("trigger");
     trap3_2 = getEnt ("trap3_2", "targetname");  
     trap3_3 = getEnt ("trap3_3", "targetname");  
     trap3_4 = getEnt ("trap3_4", "targetname");  
@@ -294,7 +299,7 @@ trap3()
     hurt4 LinkTo(trap3_4); 
      
     trig setHintString ("^3USE ^4T^0o ^1A^0ctivate^2!");  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig setHintString ("^0Activated^2!");  
 
     while(1)  
@@ -320,32 +325,34 @@ trap3()
         trap3_4 moveZ (180,0.8);  
         wait 1;  
     }  
-*/} 
+} 
 
 trap1()
 {
 		trap1_1 = getEnt ("trap1_1", "targetname");
+	level endon("trigger");
 		trap1_2 = getEnt ("trap1_2", "targetname");
 		trig = getEnt ("trap1_trig", "targetname");
 
     trig setHintString ("^3USE ^4T^0o ^1A^0ctivate^2!");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig setHintString ("^0Activated^2!");
 	
 	
 	trap1_1 RotatePitch (90, 3);
 	trap1_2 RotatePitch (-90, 3);
 	wait 1;
-*/	}
+	}
 
 trap8()
 {
 		trap8 = getEnt ("trap8", "targetname");
+	level endon("trigger");
 		trap8_1 = getEnt ("trap8_1", "targetname");
 		trig = getEnt ("trap8_trig", "targetname");
 
     trig setHintString ("^3USE ^4T^0o ^1A^0ctivate^2!");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig setHintString ("^0Activated^2!");
 	
 	while(1)
@@ -362,16 +369,17 @@ trap8()
 	trap8_1 moveZ (-60,0.8);
 	wait 1;
 	}
-*/}
+}
 
 trap9()
 {
 		trap9 = getEnt ("trap9", "targetname");
+	level endon("trigger");
 		trap9_1 = getEnt ("trap9_1", "targetname");
 		trig = getEnt ("trap9_trig", "targetname");
 
     trig setHintString ("^3USE ^4T^0o ^1A^0ctivate^2!");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig setHintString ("^0Activated^2!");
 	
 	while(1)
@@ -388,16 +396,17 @@ trap9()
 	trap9_1 moveZ (-60,0.8);
 	wait 1;
 	}
-*/}
+}
 
 trap10()
 {
 		trap10 = getEnt ("trap10", "targetname");
+	level endon("trigger");
 		trap10_1 = getEnt ("trap10_1", "targetname");
 		trig = getEnt ("trap10_trig", "targetname");
 
     trig setHintString ("^3USE ^4T^0o ^1A^0ctivate^2!");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig setHintString ("^0Activated^2!");
 	
 	while(1)
@@ -414,7 +423,7 @@ trap10()
 	trap10_1 moveZ (-60,0.8);
 	wait 1;
 	}
-*/}
+}
 
 text()
 {	
@@ -485,7 +494,7 @@ sniper()
                 level.final_knife_trig delete();
                 level.final_jump_trig delete();
                         AmbientStop( 4 );
-//AUTO                         wait 1;
+                        wait 1;
 //AUTO                         AmbientPlay ("song4" );
  
                
@@ -501,7 +510,7 @@ sniper()
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "remington700_mp" );
 //AUTO         level.activ GiveWeapon( "m40a3_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "remington700_mp" );
 //AUTO         level.activ SwitchToWeapon( "remington700_mp" );
         player FreezeControls(1);
@@ -514,11 +523,11 @@ sniper()
                                 players = getentarray("player", "classname");
                                 for(i=0;i<players.size;i++)
                                         players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO                                 wait 5;
+                                wait 5;
                                 player FreezeControls(0);
                                 level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
                        
     }
  
@@ -599,7 +608,7 @@ knife()
                 //level.final_knife_trig delete();
                 level.final_jump_trig delete();
             AmbientStop( 4 );
-//AUTO                         wait 1;
+                        wait 1;
 //AUTO                         AmbientPlay ("song3" );
      
          player.health = player.maxhealth;
@@ -614,7 +623,7 @@ knife()
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );
 //AUTO         level.activ GiveWeapon( "knife_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
         player FreezeControls(1);
@@ -627,11 +636,11 @@ knife()
                                 players = getentarray("player", "classname");
                                 for(i=0;i<players.size;i++)
                                         players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO                                 wait 5;
+                                wait 5;
                                 player FreezeControls(0);
                                 level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

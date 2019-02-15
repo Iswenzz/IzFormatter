@@ -130,9 +130,10 @@ for( i = 1; i < trig.size; i++ )
 trap1()
 {
 ent = level.trap1_1;
+	level endon("trigger");
 ent2 = level.trap1_2;
 trig = level.trigger1;
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 ent[randomInt(ent.size)] notsolid();
 ent2[randomInt(ent2.size)] notsolid();
@@ -140,14 +141,15 @@ level waittill("traps_disabled");
 wait 1;
 ent[randomInt(ent.size)] solid();
 ent2[randomInt(ent2.size)] solid();
-*/}
+}
 
 trap2()
 {
 ent = level.trap2_1;
+	level endon("trigger");
 ent2 = level.trap2_2;
 trig = level.trigger2;
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 ent[randomInt(ent.size)] notsolid();
 ent2[randomInt(ent2.size)] notsolid();
@@ -155,25 +157,27 @@ level waittill("traps_disabled");
 wait 1;
 ent[randomInt(ent.size)] solid();
 ent2[randomInt(ent2.size)] solid();
-*/}
+}
 
 trap3()
 {
 ent = level.trap3;
+	level endon("trigger");
 ent1 = level.trap3_oil;
 trig = level.trigger3;
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 ent hide();
 ent notsolid ();
 ent1 hide();
 ent1 notsolid();
 
-*/}
+}
 
 trap4()
 {
 ent_1 = level.trap4;
+	level endon("trigger");
 ent_1_2 = level.trap4_kill;
 ent_2 = level.trap4_2;
 ent_2_2 = level.trap4_2_kill;
@@ -182,18 +186,19 @@ ent_1_2 enablelinkto();
 ent_2_2 enablelinkto();
 ent_1_2 linkto(ent_1);
 ent_2_2 linkto(ent_2);
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 ent_1 movez(-250,1);
 ent_2 movez(234,1);
 wait 2;
 ent_2 movez(-234,1);
 ent_1 movez(250,1);
-*/}
+}
 
 trap5()
 {
 ent_1 = level.trap5;
+	level endon("trigger");
 ent_1_2 = level.trap5_kill;
 ent_2 = level.trap5_2;
 ent_2_2 = level.trap5_2_kill;
@@ -202,22 +207,23 @@ ent_1_2 enablelinkto();
 ent_2_2 enablelinkto();
 ent_1_2 linkto(ent_1);
 ent_2_2 linkto(ent_2);
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 ent_1 movez(-250,1);
 ent_2 movez(234,1);
 wait 2;
 ent_2 movez(-234,1);
 ent_1 movez(250,1);
-*/}
+}
 
 trap6()
 {
 ent_1 = level.trap6;
+	level endon("trigger");
 ent_2 = level.trap6_1;
 trig = level.trigger6;
 
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 	ent_1 rotateroll (30 ,0.4);
 	ent_2 rotateroll (-30 ,0.4);
@@ -233,14 +239,15 @@ trig delete();
 		ent_2 rotateroll (-60 ,0.8);
 		wait 0.8;
 	}
-*/}
+}
 
 trap7()
 {
 ent = level.trap7_1;
+	level endon("trigger");
 ent2 = level.trap7_2;
 trig = level.trigger7;
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 ent rotateroll (3600 ,10);
 ent2 rotateroll (3600 ,10);
@@ -256,11 +263,12 @@ ent2 waittill("rotatedone");
 wait randomInt(10);
 ent rotateroll (3600 ,10);
 ent2 rotateroll (3600 ,10);
-*/}
+}
 
 trap8()
 {
 ent_1 = level.trap8;
+	level endon("trigger");
 ent_1_2 = level.trap8_kill;
 ent_2 = level.trap8_2;
 ent_2_2 = level.trap8_2_kill;
@@ -269,14 +277,14 @@ ent_1_2 enablelinkto();
 ent_2_2 enablelinkto();
 ent_1_2 linkto(ent_1);
 ent_2_2 linkto(ent_2);
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 ent_1 movez(-250,1);
 ent_2 movez(250,1);
 wait 2;
 ent_2 movez(-250,1);
 ent_1 movez(250,1);
-*/}
+}
 
 mover1()
 {

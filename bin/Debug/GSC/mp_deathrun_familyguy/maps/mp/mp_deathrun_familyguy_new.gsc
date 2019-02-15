@@ -193,6 +193,7 @@ noSpeedForYou() {
 trap_7()
 {
 	trig = getEnt( "trigger7", "targetname" );
+	level endon("trigger");
 	trig SetHintString("Press ^1&&1^7 to put meg inside of the them!");
 	spikes = getEntArray( "trap7_spikes", "targetname" );
 	button = getEnt("trap7_button", "targetname");
@@ -201,7 +202,7 @@ trap_7()
 		spikes[i] hide();
 	hurt enableLinkTo();
 	hurt LinkTo(spikes[0]);
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	who playsound( "megbrian");
@@ -215,18 +216,19 @@ trap_7()
 	wait 0.75;
 	for( i = 0; i < spikes.size; i++ )
 			spikes[i] hide();
-*/}
+}
 
 trap_4()
 {
 	thread linkHurtToModel( "4hurt", "trap4left" );
+	level endon("trigger");
 	thread linkHurtToModel( "4hurt2", "tra4right" );
 	trig = getEnt( "trigger4", "targetname" );
 	trig SetHintString("Press ^1&&1^7 to squish the runners!");
 	trap4right = getEntArray( "trap4right", "targetname" );
 	trap4left = getEntArray( "trap4left", "targetname" );
 	button = getEnt("trap4_button", "targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	who playsound( "close");
@@ -241,11 +243,12 @@ trap_4()
 	for( i = 0; i < trap4right.size; i++ )
 		trap4right[i] moveY( -124, 0.9 );
 
-*/}
+}
 
 trap_6()
 {
 	trig = getEnt( "trigger6", "targetname" );
+	level endon("trigger");
 	trig SetHintString("Press ^1&&1^7 to crush everybody!");
 	box1 = getEntArray( "trap6_box1", "targetname" );
 	box2 = getEntArray( "trap6_box2", "targetname" );
@@ -264,7 +267,7 @@ trap_6()
 	hurt4 = getEnt("hurtbox4","targetname");
 	hurt4 enableLinkTo();
 	hurt4 LinkTo(box4[0]);
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	for( i = 0; i < box1.size; i++ )
@@ -301,18 +304,19 @@ trap_6()
 	hurt2 delete();
 	hurt3 delete();
 	hurt4 delete();
-*/}
+}
 
 trap_18()
 {
 	trig = getEnt( "trigger18", "targetname" );
+	level endon("trigger");
 	trig SetHintString("Press ^1&&1^7 to make them flat!");
 	thing = getEntArray( "trap18", "targetname" );
 	button = getEnt("trap18_button", "targetname");
 	hurt = getEnt("hurt18","targetname");
 	hurt enableLinkTo();
 	hurt LinkTo(thing[0]);
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	for( i = 0; i < thing.size; i++ )
@@ -320,15 +324,16 @@ trap_18()
 	wait 6.5;
 	for( i = 0; i < thing.size; i++ )
 		thing[i] moveZ( 150, 1 );
-*/}
+}
 
 trap_10()
 {
 	trig = getEnt( "trigger10", "targetname" );
+	level endon("trigger");
 	trig SetHintString("Press ^1&&1^7 to send them down to their death!");
 	thing = getEntArray( "watertrap", "targetname" );
 	button = getEnt("trap10_button", "targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	for( i = 0; i < thing.size; i++ )
@@ -336,7 +341,7 @@ trap_10()
 	wait 9;
 	for( i = 0; i < thing.size; i++ )
 		thing[i] moveZ( 464, 6 );
-*/}
+}
 
 movingp()
 {
@@ -367,28 +372,30 @@ movingp()
 trap_6pt1()
 {
 	go = getEnt( "bar1go", "targetname" );
+	level endon("trigger");
 	bar1 = getEnt( "bar1", "targetname" );
 	trig = getEnt( "trigger6pt1", "targetname" );
 	trig SetHintString("Press ^1&&1^7 to push them into the water!");
 	button = getEnt("trap6pt1_button", "targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	bar1 moveTo( go.origin, 3.5 );
-*/}
+}
 
 trap_6pt2()
 {
 	go = getEnt( "bar2go", "targetname" );
+	level endon("trigger");
 	trig = getEnt( "trigger6pt2", "targetname" );
 	trig SetHintString("Press ^1&&1^7 to push them into the water AGAIN!");
 	bar2 = getEnt( "bar2", "targetname" );
 	button = getEnt("trap6pt2_button", "targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	bar2 moveTo( go.origin, 3.5 );
-*/}
+}
 
 
 blue_stuff() {
@@ -427,6 +434,7 @@ blue_stuff_kill( killTrigger ) {
 trap_8()
 {
 	trig = getEnt( "trigger8", "targetname" );
+	level endon("trigger");
 	platform = getEnt( "trap8", "targetname" );
 	dead= getEnt( "trap81", "targetname" );
 	platform solid();
@@ -436,14 +444,14 @@ trap_8()
 	wait 0.5;
 	trig SetHintString("Press ^1&&1^7 to poison them!");
 	button = getEnt("trap8_button", "targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	who playsound( "poison" );
 	dead delete();
 	wait 5;
 	platform moveX( 512, 0.01 );
-*/}
+}
 
 
 poison_dmg() {
@@ -469,10 +477,11 @@ poison_kill() {
 trap3()
 {
 	trap = getEnt("trap3", "targetname");
+	level endon("trigger");
 	trig = getEnt("trigger3", "targetname");
 	button = getEnt("trap3_button", "targetname");
 	trig SetHintString("Press ^1&&1^7 to let the evil monkey eat them!");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	player playsound( "monkey" );
 	button moveZ( -4, 0.5 );
 	trig delete();
@@ -481,7 +490,7 @@ trap3()
 	trap thread dealDamage();
 	wait 6;
 	trap notify("fuckingstopyoulittlebitch");
-*/}
+}
 
 
 dealDamage() {
@@ -534,6 +543,7 @@ monkeyteeth()
 trap_11()
 {
 	trig = getEnt( "trigger11", "targetname" );
+	level endon("trigger");
 	trig SetHintString("Press ^1&&1^7 to smash them to bits (for a hat..)!");
 	right = getEntArray( "rightlog", "targetname" );
 	left = getEntArray( "leftlog", "targetname" );
@@ -544,7 +554,7 @@ trap_11()
 	hurt2 = getEnt("righthurt","targetname");
 	hurt2 enableLinkTo();
 	hurt2 LinkTo(right[0]);
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	who playsound( "logs" );
@@ -558,7 +568,7 @@ trap_11()
 		right[i] rotatePitch( 90, 2.5 );
 	for( i = 0; i < left.size; i++ )
 		left[i] rotatePitch( -90, 2.5 );
-*/}
+}
 
 hat()
 {
@@ -595,70 +605,75 @@ actitele2()
 trap121()
 {
 	trig = getEnt( "trigger121", "targetname" );
+	level endon("trigger");
 	trigother = getEnt( "trigger122", "targetname" );
 	trig SetHintString("Press ^1&&1^7 to destroy the right plank!");
 	button = getEnt("trap121_button", "targetname");
 	plank = getEnt("plank2", "targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	trigother delete();
 	wait 0.1;
 	who playsound( "wood1" );
 	plank delete();
-*/}
+}
 
 trap122()
 {
 	trig = getEnt( "trigger122", "targetname" );
+	level endon("trigger");
 	trigother = getEnt( "trigger121", "targetname" );
 	trig SetHintString("Press ^1&&1^7 to destroy the left plank!");
 	button = getEnt("trap122_button", "targetname");
 	plank = getEnt("plank1", "targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	trigother delete();
 	wait 0.1;
 	who playsound( "wood2" );
 	plank delete();
-*/}
+}
 
 trap123()
 {
 	trig = getEnt( "trigger123", "targetname" );
+	level endon("trigger");
 	trigother = getEnt( "trigger124", "targetname" );
 	trig SetHintString("Press ^1&&1^7 to destroy the right plank!");
 	button = getEnt("trap123_button", "targetname");
 	plank = getEnt("plank4", "targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	trigother delete();
 	wait 0.1;
 	who playsound( "wood2" );
 	plank delete();
-*/}
+}
 
 trap124()
 {
 	trig = getEnt( "trigger124", "targetname" );
+	level endon("trigger");
 	trigother = getEnt( "trigger123", "targetname" );
 	trig SetHintString("Press ^1&&1^7 to destroy the left plank!");
 	button = getEnt("trap124_button", "targetname");
 	plank = getEnt("plank3", "targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	trigother delete();
 	wait 0.1;
 	who playsound( "wood1" );
 	plank delete();
-*/}
+}
 
 trap13()
 {
 	thread linkHurtToModel( "balls1hurt", "balls1" );
+	level endon("trigger");
 	trig = getEnt( "trigger13", "targetname" );
 	trig2 = getEnt( "trigger133", "targetname" );
 	balls1hurt = getEnt( "balls1hurt", "targetname" );
@@ -668,7 +683,7 @@ trap13()
 	button = getEnt("trap13_button", "targetname");
 	for( i = 0; i < balls.size; i++ )
 		balls[i] hide();
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig2 delete();
 	button moveZ( -4, 0.5 );
 	trig delete();
@@ -684,11 +699,12 @@ trap13()
 	for( i = 0; i < balls.size; i++ )
 		balls[i] delete();
 	who playsound("end");
-*/}
+}
 
 trap133()
 {
 	thread linkHurtToModel( "balls2hurt", "balls2" );
+	level endon("trigger");
 	trig = getEnt( "trigger133", "targetname" );
 	trig2 = getEnt( "trigger13", "targetname" );
 	balls2hurt = getEnt( "balls2hurt", "targetname" );
@@ -697,7 +713,7 @@ trap133()
 	button = getEnt("trap133_button", "targetname");
 	for( i = 0; i < balls.size; i++ )
 		balls[i] hide();
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig2 delete();
 	button moveZ( -4, 0.5 );
 	trig delete();
@@ -713,11 +729,12 @@ trap133()
 	for( i = 0; i < balls.size; i++ )
 		balls[i] delete();
 	who playsound("end");
-*/}
+}
 
 trap16()
 {
 	thread linkHurtToModel( "wheels1hurt", "wheels1" );
+	level endon("trigger");
 	thread linkHurtToModel( "wheels2hurt", "wheels2" );
 	trig = getEnt( "trigger16", "targetname" );
 	trig SetHintString("Press ^1&&1^7 to let the stone wheels out!");
@@ -730,7 +747,7 @@ trap16()
 		wheels1[i] hide();
 	for( i = 0; i < wheels2.size; i++ )
 		wheels2[i] hide();
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	who playsound( "wheel");
 	button moveZ( -4, 0.5 );
 	trig delete();
@@ -750,7 +767,7 @@ trap16()
 	wait 0.1;
 	for( i = 0; i < wheels1.size; i++ )
 		wheels1[i] delete();
-*/}
+}
 
 linkHurtToModel( hurt, model )
 {
@@ -791,9 +808,10 @@ trap162()
 trap_14_1()
 {
 	trig = getEnt( "trigger14_1", "targetname" );
+	level endon("trigger");
 	trigother = getEnt( "trigger14_2", "targetname");
 	trig SetHintString("Press ^1&&1^7 to make the blue door dangerous!");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	nigtrig = getEnt( "14_1", "targetname" );
 	bhoptele1 = getEnt( "bhoptele1", "targetname" );
 	trig delete();
@@ -804,14 +822,15 @@ trap_14_1()
 			who SetOrigin( bhoptele1.origin );
 			who SetPlayerAngles( (bhoptele1.angles) );
 	}
-*/}
+}
 
 trap_14_2()
 {
 	trig = getEnt( "trigger14_2", "targetname" );
+	level endon("trigger");
 	trigother = getEnt( "trigger14_1", "targetname");
 	trig SetHintString("Press ^1&&1^7 to make the red door dangerous!");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	nigtrig = getEnt( "14_2", "targetname" );
 	bhoptele1 = getEnt( "bhoptele1", "targetname" );
 	trig delete();
@@ -822,14 +841,15 @@ trap_14_2()
 			who SetOrigin( bhoptele1.origin );
 			who SetPlayerAngles( (bhoptele1.angles) );
 	}
-*/}
+}
 
 trap_14_3()
 {
 	trig = getEnt( "trigger14_3", "targetname" );
+	level endon("trigger");
 	trigother = getEnt( "trigger14_4", "targetname");
 	trig SetHintString("Press ^1&&1^7 to make the blue door dangerous!");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	nigtrig = getEnt( "14_3", "targetname" );
 	bhoptele1 = getEnt( "bhoptele1", "targetname" );
 	trig delete();
@@ -840,14 +860,15 @@ trap_14_3()
 			who SetOrigin( bhoptele1.origin );
 			who SetPlayerAngles( (bhoptele1.angles) );
 	}
-*/}
+}
 
 trap_14_4()
 {
 	trig = getEnt( "trigger14_4", "targetname" );
+	level endon("trigger");
 	trigother = getEnt( "trigger14_3", "targetname");
 	trig SetHintString("Press ^1&&1^7 to make the red door dangerous!");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	nigtrig = getEnt( "14_4", "targetname" );
 	bhoptele1 = getEnt( "bhoptele1", "targetname" );
 	trig delete();
@@ -858,7 +879,7 @@ trap_14_4()
 			who SetOrigin( bhoptele1.origin );
 			who SetPlayerAngles( (bhoptele1.angles) );
 	}
-*/}
+}
 
 desttrigger()
 {
@@ -961,6 +982,7 @@ bhoppush()
 trap_2()
 {
 	trig = getEnt( "trigger2", "targetname" );
+	level endon("trigger");
 	mover = getEnt( "mover2", "targetname" );
 	hurt = getEnt( "move2", "targetname" );
 	hurt enableLinkTo();
@@ -970,7 +992,7 @@ trap_2()
 	kill = getEnt( "fartdeath", "targetname" );
 	fart = getEnt( "fart", "targetname" );
 	button = getEnt("trap2_button", "targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	who playsound( "fart");
@@ -983,7 +1005,7 @@ trap_2()
 	}
 	mover delete();
 	hurt delete();
-*/}
+}
 
 /*
 blue_stuff_kill2( kill ) {
@@ -999,6 +1021,7 @@ blue_stuff_kill2( kill ) {
 trap_1()
 {
 	trig = getEnt( "trigger1", "targetname" );
+	level endon("trigger");
 	mover = getEnt( "mover1", "targetname" );
 	hurt = getEnt( "move1", "targetname" );
 	hurt enableLinkTo();
@@ -1013,7 +1036,7 @@ trap_1()
 	trap1_fx3 = getEnt( "trap1_fx1", "targetname" );
 	trig SetHintString("Press ^1&&1^7 to blow them up!");
 	button = getEnt("trap1_button", "targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	who playsound( "giggle");
@@ -1036,7 +1059,7 @@ trap_1()
 		kill delete();
 	}
 */
-*/}
+}
 
 delete()
 {
@@ -1048,6 +1071,7 @@ delete()
 trap_9()
 {
 	trig = getEnt( "trigger9", "targetname" );
+	level endon("trigger");
 	gun1 = getEnt( "gun1", "targetname" );
 	gun2 = getEnt( "gun2", "targetname" );
 	gun3 = getEnt( "gun3", "targetname" );
@@ -1060,7 +1084,7 @@ trap_9()
 	mover moveZ( -500, 0.1 );
 	trig SetHintString("Press ^1&&1^7 to gun the runners!");
 	button = getEnt("trap9_button", "targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	who playsound( "gunns");
@@ -1073,11 +1097,12 @@ trap_9()
 	wait 5;
 	mover delete();
 	hurt delete();
-*/}
+}
 
 trap_15()
 {
 	trig = getEnt( "trigger15", "targetname" );
+	level endon("trigger");
 	bomb = getEnt( "ugotme", "targetname" );
 	//thing = spawn( "tag_origin", bomb getOrigin() );
 	mover = getEnt( "mover3", "targetname" );
@@ -1092,7 +1117,7 @@ trap_15()
 	trig SetHintString("Press ^1&&1^7 to make them explode!");
 	kill = getEnt( "bombhurt", "targetname" );
 	button = getEnt("trap15_button", "targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	bomb playsound( "yougotme");
@@ -1106,7 +1131,7 @@ trap_15()
 	wait 0.2;
 	mover delete();
 	hurter delete();
-*/}
+}
 
 
 playloopedfxontag( effect, entity, tag, time, end ) {
@@ -1120,6 +1145,7 @@ playloopedfxontag( effect, entity, tag, time, end ) {
 trap_17()
 {
 	trig = getEnt( "trigger17", "targetname" );
+	level endon("trigger");
 	trig SetHintString("Press ^1&&1^7 to burn the runners with lasers!");
 	l1 = getEnt( "l1", "targetname" );
 	l2 = getEnt( "l2", "targetname" );
@@ -1158,7 +1184,7 @@ trap_17()
 	l5 moveY( 1000, 0.1);
 	l6 moveY( 1000, 0.1);
 	button = getEnt("trap15_button", "targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	button moveZ( -4, 0.5 );
 	trig delete();
 	who playsound( "fantastic");
@@ -1192,7 +1218,7 @@ trap_17()
 	l4h delete();
 	l5h delete();
 	l6h delete();
-*/}
+}
 
 lastdoors()
 {
@@ -1324,21 +1350,21 @@ endroom1()
 	player Setorigin(pos.origin);
 	player SetPlayerAngles( pos.angles );
 //AUTO 	player GiveWeapon("m40a3_acog_mp");
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	Player SwitchToWeapon("m40a3_acog_mp");
-//AUTO 	wait 2;
+	wait 2;
 	player FreezeControls (0);
 
 	player thread onDeath_endroom1();
-//AUTO 	wait 0.1;
+	wait 0.1;
 
 
     for(;;)
     {
-//AUTO 		wait .1;
+		wait .1;
 		while(isAlive(player))
 		{
-//AUTO 			wait 1;
+			wait 1;
 		}
 
     }
@@ -1391,19 +1417,19 @@ endroom2()
 //AUTO 	player TakeAllWeapons();
 	player Setorigin(pos.origin);
 	player SetPlayerAngles( pos.angles );;
-//AUTO 	wait 2;
+	wait 2;
 	player FreezeControls (0);
 
 	player thread onDeath_endroom2();
-//AUTO 	wait 0.1;
+	wait 0.1;
 
 
     for(;;)
     {
-//AUTO 		wait .1;
+		wait .1;
 		while(isAlive(player))
 		{
-//AUTO 			wait 1;
+			wait 1;
 		}
 
     }
@@ -1456,21 +1482,21 @@ endroom3()
 	player Setorigin(pos.origin);
 	player SetPlayerAngles( pos.angles );
 //AUTO 	player GiveWeapon("dragunov_acog_mp");
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	Player SwitchToWeapon("dragunov_acog_mp");
-//AUTO 	wait 2;
+	wait 2;
 	player FreezeControls (0);
 
 	player thread onDeath_endroom3();
-//AUTO 	wait 0.1;
+	wait 0.1;
 
 
     for(;;)
     {
-//AUTO 		wait .1;
+		wait .1;
 		while(isAlive(player))
 		{
-//AUTO 			wait 1;
+			wait 1;
 		}
 
     }

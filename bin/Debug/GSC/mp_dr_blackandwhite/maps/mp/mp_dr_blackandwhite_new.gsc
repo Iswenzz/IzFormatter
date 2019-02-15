@@ -147,23 +147,25 @@ transporter()
 trap_1()
 {
 trig = getent ("trap_1trig", "targetname");
+	level endon("trigger");
 floor = getent ("trap_1", "targetname");
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 
 floor movez (200, 0.5);
 wait 2;
 floor movez (-200, 2);
 wait 2;
-*/}
+}
 
 trap_2()
 {
 trig = getent ("trap_2trig", "targetname");
+	level endon("trigger");
 Pusher1 = getent ("trap_2", "targetname");
 Pusher2 = getent ("trap_2a", "targetname");
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 
 	for(;;)
 	{
@@ -176,7 +178,7 @@ Pusher2 = getent ("trap_2a", "targetname");
 		Pusher2 movey (-576, 0.3);
 		wait 1;
 	}
-*/}
+}
 
 ele1()
 {
@@ -219,80 +221,86 @@ trig waittill ("trigger");
 trap_4a()
 {
 brush = getent ("trap_4", "targetname");
+	level endon("trigger");
 trig = getent ("trap_4trig", "targetname");
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 
 	for(;;)
 	{
 		brush rotateRoll (360, 1);
 		wait 2;
 	}
-*/}
+}
 
 trap_4b()
 {
 brush = getent ("trap_4a", "targetname");
+	level endon("trigger");
 trig = getent ("trap_4trig", "targetname");
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 
 	for(;;)
 	{
 		brush rotateRoll (-360, 1);
 		wait 2;
 	}
-*/}
+}
 
 trap_5()
 {
 floor = getent ("trap_5", "targetname");
+	level endon("trigger");
 trig = getent ("trap_5trig", "targetname");
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 
 floor movez (-200, 1);
 wait 3;
 floor movez (200, 1);
-*/}
+}
 
 trap_6a()
 {
 hammer_1 = getent ("trap_6a", "targetname");
+	level endon("trigger");
 trig = getent ("trap_6trig", "targetname");
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 
 	for(;;)
 	{
 		hammer_1 rotateRoll (360, 4);
 		wait 2;
 	}
-*/}
+}
 
 trap_6b()
 {
 hammer_2 = getent ("trap_6b", "targetname");
+	level endon("trigger");
 trig = getent ("trap_6trig", "targetname");
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 
 	for(;;)
 	{
 		hammer_2 rotateRoll (-360, 3);
 		wait 2;
 	}
-*/}
+}
 
 trap_7a()
 {
 floor = getent ("trap_7a", "targetname");
+	level endon("trigger");
 trig = getent ("trap_7trig", "targetname");
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 
 floor notsolid();
-*/}
+}
 
 tunnel_car1()
 {
@@ -478,14 +486,14 @@ snipertrig waittill("trigger", player);
 knifetrig delete();
 oldtrig delete();
 jumptrig delete();
-//AUTO wait(0.05);
+wait(0.05);
 
 player SetOrigin (sniperjumpertele.origin);
 player setplayerangles (sniperjumpertele.angles);
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon ("m40a3_mp"); 
 //AUTO player GiveWeapon ("remington700_mp"); 
-//AUTO wait(0.05);
+wait(0.05);
 
 level.activ SetOrigin (sniperactitele.origin);
 level.activ setplayerangles (sniperactitele.angles);
@@ -494,22 +502,22 @@ level.activ setplayerangles (sniperactitele.angles);
 //AUTO level.activ GiveWeapon ("remington700_mp");
 //AUTO player GiveWeapon ("m40a3_mp"); 
 //AUTO player GiveWeapon ("remington700_mp"); 
-//AUTO wait(0.05);
+wait(0.05);
 
 //AUTO player switchToWeapon ("m40a3_mp");
 //AUTO level.activ SwitchToWeapon ("m40a3_mp");
 //AUTO iPrintLnBold(player.name+ "^4 has entered the ^1Sniper Room");
-//AUTO wait 0.4;
+wait 0.4;
 
 player thread onDeath_sniper();
-//AUTO wait 0.1;
+wait 0.1;
 	
     for(;;)
     {
-//AUTO 		wait .1;		
+		wait .1;		
 		while(isAlive(player))
 		{
-//AUTO 			wait 1;
+			wait 1;
 		}
 		
     }
@@ -550,30 +558,30 @@ knifetrig waittill("trigger", player);
 snipertrig delete();
 oldtrig delete();
 jumptrig delete();
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin (knifejumpertele.origin);
 player setplayerangles (knifejumpertele.angles);
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon ("knife_mp"); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (knifeactitele.origin);
 level.activ setplayerangles (knifeactitele.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon ("knife_mp");
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon ("knife_mp");
 //AUTO level.activ SwitchToWeapon ("knife_mp");
 //AUTO iPrintLnBold(player.name+ "^4 has entered the ^1Knife Room");
-//AUTO wait 0.4;
+wait 0.4;
 player thread onDeath_knife();
-//AUTO wait 0.1;
+wait 0.1;
 
     for(;;)
     {
-//AUTO 		wait .1;		
+		wait .1;		
 		while(isAlive(player))
 		{
-//AUTO 			wait 1;
+			wait 1;
 		}
 		
     }

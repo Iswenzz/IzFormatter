@@ -230,19 +230,19 @@ k_trig = getEnt("k_trig", "targetname");
 			s_trig hide();
 			player freezeControls(1);
 			level.activ freezeControls(1);
-//AUTO 			wait 0.3;
+			wait 0.3;
 //AUTO 			player iprintlnbold("^5Get ready for the ^1BATTLE !");
 //AUTO 			level.activ iprintlnbold("^5Get ready for the ^1BATTLE !");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^33");
 //AUTO 			level.activ iprintlnbold("^33");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^22");
 //AUTO 			level.activ iprintlnbold("^22");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^11");
 //AUTO 			level.activ iprintlnbold("^11");
-//AUTO 			wait 1;
+			wait 1;
 			player freezeControls(0);
 			level.activ freezeControls(0);			
 			player death();
@@ -281,19 +281,19 @@ s_trig = getEnt("s_trig", "targetname");
 			b_trig hide();
 			player freezeControls(1);
 			level.activ freezeControls(1);
-//AUTO 			wait 0.3;			
+			wait 0.3;			
 //AUTO 			player iprintlnbold("^5Get ready for the ^1BATTLE !");
 //AUTO 			level.activ iprintlnbold("^5Get ready for the ^1BATTLE !");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^33");
 //AUTO 			level.activ iprintlnbold("^33");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^22");
 //AUTO 			level.activ iprintlnbold("^22");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^11");
 //AUTO 			level.activ iprintlnbold("^11");
-//AUTO 			wait 1;
+			wait 1;
 			player freezeControls(0);
 			level.activ freezeControls(0);
 			player death();
@@ -330,19 +330,19 @@ s_trig = getEnt("s_trig", "targetname");
 			k_trig hide();
 			player freezeControls(1);
 			level.activ freezeControls(1);
-//AUTO 			wait 0.3;
+			wait 0.3;
 //AUTO 			player iprintlnbold("^5Get ready for the ^1BATTLE !");
 //AUTO 			level.activ iprintlnbold("^5Get ready for the ^1BATTLE !");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^33");
 //AUTO 			level.activ iprintlnbold("^33");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^22");
 //AUTO 			level.activ iprintlnbold("^22");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			player iprintlnbold("^11");
 //AUTO 			level.activ iprintlnbold("^11");
-//AUTO 			wait 1;
+			wait 1;
 			player freezeControls(0);
 			level.activ freezeControls(0);
 			player death();
@@ -462,7 +462,7 @@ tp2 = getEnt("a_b_room_fail1", "targetname");
 	while(1)
 		{
 			hit waittill("trigger", player);
-//AUTO 			wait 0.1;
+			wait 0.1;
 			if (player.pers["team"] == "axis")
 			{
 			player setOrigin( tp2.origin );
@@ -473,7 +473,7 @@ tp2 = getEnt("a_b_room_fail1", "targetname");
 			{
 				if( player.pers["team"] == "allies")
 				{
-//AUTO 				wait 0.1;
+				wait 0.1;
 				player setOrigin( tp1.origin );
 				player setplayerangles( tp1.angles );
 //AUTO 				player iprintlnbold ( "Teleported back" );
@@ -490,7 +490,7 @@ tp2 = getEnt("a_b_room_fail2", "targetname");
 	while(1)
 		{
 			hit waittill("trigger", player);
-//AUTO 			wait 0.1;
+			wait 0.1;
 			if (player.pers["team"] == "axis")
 			{
 			player setOrigin( tp2.origin );
@@ -501,7 +501,7 @@ tp2 = getEnt("a_b_room_fail2", "targetname");
 			{
 				if( player.pers["team"] == "allies")
 				{
-//AUTO 				wait 0.1;
+				wait 0.1;
 				player setOrigin( tp1.origin );
 				player setplayerangles( tp1.angles );
 //AUTO 				player iprintlnbold ( "Teleported back" );
@@ -513,11 +513,12 @@ tp2 = getEnt("a_b_room_fail2", "targetname");
 trap_1()
 {
 pf1 = getEnt("t1_pf1", "targetname");
+	level endon("trigger");
 pf2 = getEnt("t1_pf2", "targetname");
 pf3 = getEnt("t1_pf3", "targetname");
 pf4 = getEnt("t1_pf4", "targetname");
 t1_trig = getEnt("trap1", "targetname");
-/* AUTO t1_trig waittill("trigger", player);
+t1_trig waittill("trigger", player);
 t1_trig delete();
 //AUTO if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -544,16 +545,17 @@ t1_trig delete();
 		pf4 notsolid();
 		}
 	}
-*/}
+}
 
 trap_2()
 {
 pf = getEnt("t2_pf", "targetname");
+	level endon("trigger");
 bounce = getEnt("t2_bounce", "targetname");
 bounce2 = getEnt("t2_bounce2", "targetname");
 bounce3 = getEnt("t2_bounce3", "targetname");
 t2_trig = getEnt("trap2", "targetname");
-/* AUTO t2_trig waittill("trigger", player);
+t2_trig waittill("trigger", player);
 t2_trig delete();
 //AUTO if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -578,18 +580,19 @@ t2_trig delete();
 		pf notsolid();
 		}
 	}
-*/}
+}
 
 trap_3()
 {
 pf1 = getEnt("t3_pf1", "targetname");
+	level endon("trigger");
 pf2 = getEnt("t3_pf2", "targetname");
 pf3 = getEnt("t3_pf3", "targetname");
 p1 = getEnt("t3_p1", "targetname");
 p2 = getEnt("t3_p2", "targetname");
 p3 = getEnt("t3_p3", "targetname");
 t3_trig = getEnt("trap3", "targetname");
-/* AUTO t3_trig waittill("trigger", player);
+t3_trig waittill("trigger", player);
 t3_trig delete();
 //AUTO if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -605,13 +608,14 @@ t3_trig delete();
 		wait 3;
 		}
 	}
-*/}
+}
 
 trap_4()
 {
 plat = getEnt("t4_pf", "targetname");
+	level endon("trigger");
 t4_trig = getEnt("trap4", "targetname");
-/* AUTO t4_trig waittill("trigger", player);
+t4_trig waittill("trigger", player);
 t4_trig delete();
 //AUTO if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -622,12 +626,13 @@ t4_trig delete();
 			wait 1;
 		}
 	}
-*/}
+}
 
 trap_5()
 {
 t5_trig = getEnt("trap5", "targetname");
-/* AUTO t5_trig waittill("trigger", player);
+	level endon("trigger");
+t5_trig waittill("trigger", player);
 t5_trig delete();
 //AUTO if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -635,16 +640,17 @@ t5_trig delete();
 		thread spikes_right();
 		thread spikes_left();
 	}
-*/}
+}
 
 trap_6()
 {
 pf1 = getEnt("t6_group1", "targetname");
+	level endon("trigger");
 pf2 = getEnt("t6_group2", "targetname");
 pf3 = getEnt("t6_group3", "targetname");
 pf4 = getEnt("t6_group4", "targetname");
 t6_trig = getEnt("trap6", "targetname");
-/* AUTO t6_trig waittill("trigger", player);
+t6_trig waittill("trigger", player);
 t6_trig delete();
 //AUTO if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -663,13 +669,14 @@ t6_trig delete();
 			wait 2;
 		}
 	}
-*/}
+}
 
 trap_7()
 {
 pf = getEnt("moving_pf", "targetname");
+	level endon("trigger");
 t7_trig = getEnt("trap7", "targetname");
-/* AUTO t7_trig waittill("trigger", player);
+t7_trig waittill("trigger", player);
 t7_trig delete();
 //AUTO if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -677,14 +684,15 @@ t7_trig delete();
 		pf rotateroll(360, 1);
 		pf rotatepitch(360, 1);
 	}
-*/}
+}
 
 trap_8()
 {
 group1 = getEnt("t8_bnc", "targetname");
+	level endon("trigger");
 group2 = getEnt("t8_pf", "targetname");
 t8_trig = getEnt("trap8", "targetname");
-/* AUTO t8_trig waittill("trigger", player);
+t8_trig waittill("trigger", player);
 t8_trig delete();
 //AUTO if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -696,14 +704,15 @@ t8_trig delete();
 			wait 3.3;
 		}
 	}
-*/}
+}
 
 trap_9()
 {
 brush1 = getEnt("t9_brush1", "targetname");
+	level endon("trigger");
 brush2 = getEnt("t9_brush2", "targetname");
 t9_trig = getEnt("trap9", "targetname");
-/* AUTO t9_trig waittill("trigger", player);
+t9_trig waittill("trigger", player);
 t9_trig delete();
 //AUTO if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -728,14 +737,15 @@ t9_trig delete();
 			}	
 		}
 	}
-*/}
+}
 
 trap_10()
 {
 pf = getEnt("t10_block", "targetname");
+	level endon("trigger");
 group2 = getEnt("t10_unlock", "targetname");
 t10_trig = getEnt("trap10", "targetname");
-/* AUTO t10_trig waittill("trigger", player);
+t10_trig waittill("trigger", player);
 t10_trig delete();
 //AUTO if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
@@ -748,20 +758,21 @@ t10_trig delete();
 		group2 hide();
 		group2 notsolid();
 	}
-*/}
+}
 
 trap_11()
 {
 pf = getEnt("t11_pf", "targetname");
+	level endon("trigger");
 t11_trig = getEnt("trap11", "targetname");
-/* AUTO t11_trig waittill("trigger", player);
+t11_trig waittill("trigger", player);
 t11_trig delete();
 //AUTO if( isDefined( level.trapsDisabled ) && level.trapsDisabled){player iPrintLnBold("^2You are a noob");}
 	else
 	{
 		pf notsolid();
 	}
-*/}
+}
 
 moving_pf()
 {

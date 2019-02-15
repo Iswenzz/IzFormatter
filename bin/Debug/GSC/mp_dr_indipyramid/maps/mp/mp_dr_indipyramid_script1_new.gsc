@@ -57,24 +57,26 @@ while (1)
 trap1()
 {
 t1 = getent ("t1" , "targetname");
+	level endon("trigger");
 kill = getent ("t1_kill" , "targetname");
 
-/* AUTO t1 waittill ("trigger");
+t1 waittill ("trigger");
 t1 delete ();
 //fx = PlayLoopedFX(level._effect["redflash"], 1, red.origin );
 
 kill movez ( -100, 1 );
 wait 5;
 kill movez ( 100, 5 );
-*/}
+}
 
 trap2()
 {
 rotate = getent( "t2_kill" , "targetname" );
+	level endon("trigger");
 t2 = getent ("t2" , "targetname");
 //red = getent ("red5" ,"targetname"); //origin
 
-/* AUTO t2 waittill ("trigger");
+t2 waittill ("trigger");
 t2 delete ();
 //fx = PlayLoopedFX( level._effect["redflash"], 1, red.origin );
 
@@ -84,41 +86,44 @@ t2 delete ();
 	rotate rotateroll( -360, cas );
     wait cas;
 	}
-*/}
+}
 
 trap3()
 {
 part1 = getentarray ("t3_1" ,"targetname");
+	level endon("trigger");
 part2 = getentarray ("t3_2" ,"targetname");
 
 //red = getent ("red7" ,"targetname"); //origin
 t3 = getent ("t3" , "targetname");
 
-/* AUTO t3 waittill ("trigger");
+t3 waittill ("trigger");
 t3 delete ();
 //fx = PlayLoopedFX(level._effect["redflash"], 1, red.origin );
 
 part1[randomInt(part1.size)] notsolid();
 part2[randomInt(part2.size)] notsolid();
-*/}
+}
 
 trap4()
 {
 part1 = getentarray ("t4_1" ,"targetname");
+	level endon("trigger");
 
 //red = getent ("red7" ,"targetname"); //origin
 t4 = getent ("t4" , "targetname");
 
-/* AUTO t4 waittill ("trigger");
+t4 waittill ("trigger");
 t4 delete ();
 //fx = PlayLoopedFX(level._effect["redflash"], 1, red.origin );
 
 part1[randomInt(part1.size)] notsolid();
-*/}
+}
 
 trap5()
 {
 kill = getent( "t5_kill" , "targetname" );
+	level endon("trigger");
 trig = getent( "t5_trig" , "targetname" );
 trig_door = getent( "t5_door_trig" , "targetname" );
 m = getent( "t5_mac" , "targetname" );
@@ -129,7 +134,7 @@ trig_door enableLinkTo();
 trig_door linkTo( door );
 door movez ( 84, 1 );
 
-/* AUTO t5 waittill ("trigger");
+t5 waittill ("trigger");
 t5 delete ();
 
 door movez ( -96, 5 , 0.5, 0.5 );
@@ -153,11 +158,12 @@ wait 2;
 m movey (284, 5);
 door movez ( 96, 5 , 0.5, 0.5 );
 earthquake( 0.5, 5, door.origin, 512 );
-*/}
+}
 
 trap6()
 {
 t6 = getent ("t6" , "targetname");
+	level endon("trigger");
 m1 = getent ("t6_m1" ,"targetname");
 m2 = getent ("t6_m2" ,"targetname");
 kill = getent ("t6_kill" ,"targetname");
@@ -166,7 +172,7 @@ trig = getent ("t6_trig" ,"targetname");
 m1 movey (82,0.5);
 m2 movey (-78,0.5);
 
-/* AUTO t6 waittill ("trigger");
+t6 waittill ("trigger");
 t6 delete ();
 
 m1 movey (-210,1);
@@ -185,11 +191,12 @@ kill delete();
 
 m1 movey (210,3);
 m2 movey (-210,3);
-*/}
+}
 
 trap7()
 {
 gula = getent ("t7_gula" ,"targetname");
+	level endon("trigger");
 trig = getent ("gula_trig" ,"targetname");
 origin = getent ("gula_origin" ,"targetname");
 door = getent ("t7_door" ,"targetname");
@@ -207,7 +214,7 @@ door movey ( 53, 1 );
 wait 1;
 door movez ( 196, 1 );
 
-/* AUTO t7 waittill ("trigger");
+t7 waittill ("trigger");
 t7 delete ();
 
 trig thread killtrigger();
@@ -247,7 +254,7 @@ wait 2;
 door movez ( 196, 10 );
 earthquake( 0.5, 10, door.origin, 512 );
 
-*/}
+}
 
 killtrigger()
 {

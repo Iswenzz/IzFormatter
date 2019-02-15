@@ -48,8 +48,9 @@ traps()
 trap1()
 {
 	trig = getent("trap1acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap_1","targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	wait 0.1;
 	trig delete();
 	wait 0.1;
@@ -61,13 +62,14 @@ trap1()
 	obj1 movez(90,1);
 	obj1 waittill("movedone");
 	}
-*/}
+}
 
 trap2()
 {
 	trig = getent("trap2acti", "targetname");
+	level endon("trigger");
 	obj = getent("trap22","targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	wait 0.1;
 	trig delete();
 	wait 0.1;
@@ -76,14 +78,15 @@ trap2()
 	obj waittill("movedone");
 	obj delete();
 
-*/}
+}
 
 trap3()
 {
 	trig = getent("trap3acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap3_1","targetname");
 	obj2 = getent("trap3_2","targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	wait 0.1;
 	trig delete();
 	wait 0.1;
@@ -94,26 +97,28 @@ trap3()
 	obj2 waittill("movedone");
 	obj1 movez(50, 5);
 	obj2 movez(-50, 5);
-*/}
+}
 
 trap4()
 {
 	trig = getent("trap4acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap4","targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	wait 0.1;
 	trig delete();
 	wait 0.1;
 //AUTO 	iprintln ("^1Trap 4 ^2Activated");
 	obj1 delete();
 
-*/}
+}
 
 trap5()
 {
 	trig = getent("trap5acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap5","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 //AUTO 	iprintln ("^1Trap 5 ^2Activated");
@@ -121,13 +126,14 @@ trap5()
 	obj1 movez(-100, 1);
 	wait 4;
 	obj1 movez(100, 1);
-*/}
+}
 
 trap6()
 {
 	trig = getent("trap6acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap6","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 //AUTO 	iprintln ("^1Trap 6 ^2Activated");
@@ -137,13 +143,14 @@ trap6()
 		obj1 rotateYaw(360,1);
 		wait 3;
 	}
-*/}
+}
 
 trap7()
 {
 	trig = getent("trap7acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap7","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	wait 0.1;
@@ -154,13 +161,14 @@ trap7()
 		obj1 waittill("rotatedone");
 		wait 2;
 	}
-*/}
+}
 
 trap8()
 {
 	trig = getent("trap8acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap8","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	wait 0.1;
@@ -171,7 +179,7 @@ trap8()
 		obj1 waittill("rotatedone");
 		wait 2;
 	}
-*/}
+}
 
 ending()
 {

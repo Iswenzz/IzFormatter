@@ -6,6 +6,7 @@ thread runtrap8();
 runtrap8()
 {
 	trab_n8a = getent("dr_trap_8a","targetname");	//search the bush dr_trap_8a
+	level endon("trigger");
 	trab_n8b = getent("dr_trap_8b","targetname");
 	
 	hurt_n8a = getent("dr_trap_8a_hurt","targetname");	//search the bush dr_trap_8a_hurt
@@ -22,7 +23,7 @@ runtrap8()
 	{	
 		trab_n8a movey (50,1,0);					//move to y
 		trab_n8b movey (-50,1,0);					//move to -y
-/* AUTO 		trab_n8b waittill ("movedone");				//expected end of the movement
+		trab_n8b waittill ("movedone");				//expected end of the movement
 		
 		trab_n8a movey (-50,1,0);
 		trab_n8b movey (50,1,0);
@@ -30,5 +31,5 @@ runtrap8()
 		wait(RandomInt(10));			   			// wait 0 to 4 seconds
 	}
 		
-*/}
+}
 

@@ -90,6 +90,7 @@ spawn_door()
 trap4_platform_small()
 {
 	t = getEnt("trap4_platform_small","targetname");
+	level endon("trigger");
 	secret_step2_trig = getEnt("secret_step2_trig","targetname");
 
 	secret_step2_trig enablelinkto();
@@ -101,7 +102,7 @@ trap4_platform_small()
 		if(tt < 3)
 			tt = 3;
 		t moveX(448, tt);
-/* AUTO 		t waittill("movedone");
+		t waittill("movedone");
 
 		tt = floor(randomint(5));
 		if(tt < 3)
@@ -109,7 +110,7 @@ trap4_platform_small()
 		t moveX(-448, tt);
 		t waittill("movedone");
 	}
-*/}
+}
 
 end_door()
 {
@@ -320,7 +321,7 @@ room_snipe()
 //AUTO 	        level.activ GiveMaxAmmo( "remington700_mp" );
 //AUTO 	        level.activ GiveMaxAmmo( "m40a3_mp" );
 	        level.activ thread default_vars();
-//AUTO 	        wait 0.05;
+	        wait 0.05;
 //AUTO 	        player switchToWeapon( "remington700_mp" ); 
 //AUTO 	        level.activ SwitchToWeapon( "remington700_mp" );
 	        player FreezeControls(1);
@@ -333,7 +334,7 @@ room_snipe()
 					players = getentarray("player", "classname");
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 					wait 5;
+					wait 5;
 					player FreezeControls(0);
 					level.activ FreezeControls(0);
 			player waittill("death");
@@ -372,7 +373,7 @@ room_jump()
 //AUTO 	        level.activ GiveWeapon( "knife_mp" );     
 //AUTO 	        level.activ GiveMaxAmmo( "knife_mp" );
 	        level.activ thread default_vars();
-//AUTO 	        wait 0.05;
+	        wait 0.05;
 //AUTO 	        player switchToWeapon( "knife_mp" ); 
 //AUTO 	        level.activ SwitchToWeapon( "knife_mp" );
 	        player FreezeControls(1);
@@ -385,7 +386,7 @@ room_jump()
 					players = getentarray("player", "classname");
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 					wait 5;
+					wait 5;
 					player FreezeControls(0);
 					level.activ FreezeControls(0);
 			player waittill("death");
@@ -426,7 +427,7 @@ room_knife()
 //AUTO 	        level.activ GiveMaxAmmo( "knife_mp" );
 //AUTO 	        level.activ setClientDvar("jump_height",250);
 //AUTO 	        level.activ setClientDvar("g_gravity",500);
-//AUTO 	        wait 0.05;
+	        wait 0.05;
 //AUTO 	        player switchToWeapon( "knife_mp" ); 
 //AUTO 	        level.activ SwitchToWeapon( "knife_mp" );
 	        player FreezeControls(1);
@@ -439,7 +440,7 @@ room_knife()
 					players = getentarray("player", "classname");
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 					wait 5;
+					wait 5;
 					player FreezeControls(0);
 					level.activ FreezeControls(0);
 			player waittill("death");
@@ -484,6 +485,7 @@ room_jump_sniper()
 trap1()
 {
 	trig = getEnt("trap1_trig","targetname");
+	level endon("trigger");
 	bottom1 = getEnt("trap1_bottom1","targetname");
 	bottom2 = getEnt("trap1_bottom2","targetname");
 	top1 = getEnt("trap1_top1","targetname");
@@ -516,7 +518,7 @@ trap1()
 	}
 
 	trig setHintString("^6Press ^3&&1 ^6to Activate Trap");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig Delete();
 	while(1)
 	{
@@ -533,17 +535,18 @@ trap1()
 		top2 moveZ(304,3);
 		wait 2;
 	}
-*/}
+}
 
 trap2()
 {
 	trig = getEnt("trap2_trig","targetname");
+	level endon("trigger");
 	t1 = getEnt("trap2_1","targetname");
 	t2 = getEnt("trap2_2","targetname");
 	t3 = getEnt("trap2_3","targetname");
 
 	trig setHintString("^6Press ^3&&1 ^6to Activate Trap");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig Delete();
 
 	t_effect = randomint(100);
@@ -568,15 +571,16 @@ trap2()
 			wait 3.05;
 		}
 	}
-*/}
+}
 
 trap3()
 {
 	trig = getEnt("trap3_trig","targetname");
+	level endon("trigger");
 	t = getEnt("trap3_platforms","targetname");
 
 	trig setHintString("^6Press ^3&&1 ^6to Activate Trap");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig Delete();
 
 	while(1)
@@ -609,15 +613,16 @@ trap3()
 		else
 			wait(rott + 0.5);
 	}
-*/}
+}
 
 trap4()
 {
 	trig = getEnt("trap4_trig","targetname");
+	level endon("trigger");
 	t = getEntArray("trap4_platform","targetname");
 
 	trig setHintString("^6Press ^3&&1 ^6to Activate Trap");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig Delete();
 
 	while(1)
@@ -637,17 +642,18 @@ trap4()
 			t[i] rotateroll(rotd, rott);
 		wait(rott + delay);
 	}
-*/}
+}
 
 trap5()
 {
 	trig = getEnt("trap5_trig","targetname");
+	level endon("trigger");
 	t1 = getEnt("trap5_1","targetname");
 	t2 = getEnt("trap5_2","targetname");
 	t3 = getEnt("trap5_3","targetname");
 
 	trig setHintString("^6Press ^3&&1 ^6to Activate Trap");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig Delete();
 
 	toRemove = floor(randomint(2));
@@ -659,16 +665,17 @@ trap5()
 	t1 moveZ(-256,3);
 	t1 waittill("movedone");
 	t1 Delete();
-*/}
+}
 
 trap6()
 {
 	trig = getEnt("trap6_trig","targetname");
+	level endon("trigger");
 	t1 = getEnt("trap6_1","targetname");
 	t2 = getEnt("trap6_2","targetname");
 
 	trig setHintString("^6Press ^3&&1 ^6to Activate Trap");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig Delete();
 
 	t1 moveX(-256,3);
@@ -684,16 +691,17 @@ trap6()
 		t2 moveX(-320,3);
 		wait 6;
 	}
-*/}
+}
 
 trap7()
 {
 	trig = getEnt("trap7_trig","targetname");
+	level endon("trigger");
 	trig_j = getEnt("trap7_trig_j","targetname");
 	end = getEnt("trap7_end","targetname");
 
 	trig setHintString("^6Press ^3&&1 ^6to Activate Trap");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig Delete();
 
 	thread trap7_deactivate();
@@ -705,7 +713,7 @@ trap7()
 		player SetPlayerAngles( end.angles );
 //AUTO 		iPrintlnBold("^3" + player.name + "^6 was picked for the Sweeper!");
 	}
-*/}
+}
 
 trap7_deactivate()
 {
@@ -717,6 +725,7 @@ trap7_deactivate()
 trap7_room_activate()
 {
 	roof1 = getEnt("t7_roof1","targetname");
+	level endon("trigger");
 	roof1_hurt = getEnt("t7_roof1_hurt","targetname");
 	roof2 = getEnt("t7_roof2","targetname");
 	roof2_hurt = getEnt("t7_roof2_hurt","targetname");
@@ -753,7 +762,7 @@ trap7_room_activate()
 			if( t < 50 )
 			{
 				roof1 moveZ(-272,2);
-/* AUTO 				roof1 waittill("movedone");
+				roof1 waittill("movedone");
 				wait 2;
 				roof1 moveZ(272,2);
 				roof1 waittill("movedone");
@@ -816,11 +825,12 @@ trap7_room_activate()
 		player SetPlayerAngles( finish_end.angles );
 //AUTO 		iPrintlnBold("^3" + player.name + "^6 has survived the Sweeper!");
 	}
-*/}
+}
 
 trap8()
 {
 	trig = getEnt("trap8_trig","targetname");
+	level endon("trigger");
 	t1 = getEnt("trap8_1","targetname");
 	t2 = getEnt("trap8_2","targetname");
 	t2_hurt = getEnt("trap8_2_hurt","targetname");
@@ -829,7 +839,7 @@ trap8()
 	t2_hurt linkto(t2);
 
 	trig setHintString("^6Press ^3&&1 ^6to Activate Trap");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig Delete();
 
 	while(1)
@@ -853,16 +863,17 @@ trap8()
 		t2 moveZ(272,spd);
 		wait(spd + 0.5);
 	}
-*/}
+}
 
 trap9()
 {
 	trig = getEnt("trap9_trig","targetname");
+	level endon("trigger");
 	t1 = getEnt("trap9_1","targetname");
 	t2 = getEnt("trap9_2","targetname");
 
 	trig setHintString("^6Press ^3&&1 ^6to Activate Trap");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig Delete();
 
 	t2 moveZ(-272,2);
@@ -874,11 +885,12 @@ trap9()
 		t1 waittill("rotatedone");
 		wait 1;
 	}
-*/}
+}
 
 trap10()
 {
 	trig = getEnt("trap10_trig","targetname");
+	level endon("trigger");
 	t1 = getEnt("trap10_1","targetname");
 	t2 = getEnt("trap10_2","targetname");
 	t1_hurt = getEntArray("trap10_1_hurt","targetname");
@@ -896,7 +908,7 @@ trap10()
 	}
 
 	trig setHintString("^6Press ^3&&1 ^6to Activate Trap");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig Delete();
 
 	while(1)
@@ -912,18 +924,19 @@ trap10()
 		t2 rotatepitch(-360,1.5);
 		wait 1.75;
 	}
-*/}
+}
 
 trap10_platform()
 {
 	trig = getEnt("trap10_platform_trig","targetname");
+	level endon("trigger");
 	p = getEnt("trap10_platform","targetname");
 	hurt = getEnt("trap10_platform_hurt","targetname");
 
 	hurt enablelinkto();
 	hurt linkto(p);
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	wait 1.5;
 	while(1)
 	{
@@ -934,7 +947,7 @@ trap10_platform()
 		p waittill("movedone");
 		wait 1.5;
 	}
-*/}
+}
 
 ChangeName(name, delay)
 {

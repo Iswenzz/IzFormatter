@@ -1821,6 +1821,7 @@ room( tp, weap, health )
 trap_01()
 {
 	trig = getent ("trigger1","targetname");
+	level endon("trigger");
 	dmg = getent ("trap1_dmg","targetname");
 	c41 = getEnt( "c41", "targetname" );
 	c42 = getEnt( "c42", "targetname" );
@@ -1832,7 +1833,7 @@ trap_01()
 
 		dmg maps\mp\_utility::triggerOff();
 	
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig delete();
 	
 	
@@ -1860,15 +1861,16 @@ trap_01()
 	dmg delete();
 					
 
-*/}
+}
 
 trap_02()
 {
 	trig = getEnt( "trigger2", "targetname" );
+	level endon("trigger");
 	squeeze1 = getEnt( "squeeze1", "targetname" );
 	squeeze2 = getEnt( "squeeze2", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	squeeze1 movex( 240, 3 );
@@ -1877,30 +1879,32 @@ trap_02()
 	squeeze1 movex( -240, 3 );
 	squeeze2 movex( 240, 3 );
 	
-*/}
+}
 
 trap_03()
 {
 	trig = getent ("trigger3","targetname");
+	level endon("trigger");
 	brush = getent ("trap_03brush","targetname");
 		
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	
 	brush PlaySound ("lightning_hit");
 	brush delete();
 
-*/}
+}
 
 trap_04()
 {
 	slid1 =getent("slid1","targetname");
+	level endon("trigger");
 	slid2 =getent("slid2","targetname");
 
 	while(1)
 		{
 		slid1 movex( -192, 1 );
-/* AUTO 		slid1 waittill ("movedone");
+		slid1 waittill ("movedone");
 		slid2 movex( 192, 1 );
 		slid2 waittill ("movedone");
 		wait(1);
@@ -1909,11 +1913,12 @@ trap_04()
 		slid2 movex( -192, 1 );
 		slid2 waittill ("movedone");
 		}
-*/}
+}
 
 trap_05()
 {
 	trig = getent ("trigger5","targetname");
+	level endon("trigger");
 	dmg = getent ("trap05_dmg","targetname");
 	safe = getent ("safe","targetname");
 	firesound =	getent("firesound","targetname");
@@ -1921,7 +1926,7 @@ trap_05()
 
 	dmg maps\mp\_utility::triggerOff();
 	
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig delete();
 
 
@@ -1940,11 +1945,12 @@ trap_05()
 	dmg delete();
 	
 					
-*/}
+}
 
 trap_07()
 {
 	trig = getEnt( "trigger7", "targetname" );
+	level endon("trigger");
 	brushGroup1 = getEntArray( "trap07_1", "targetname" );
 	brushGroup2 = getEntArray( "trap07_2", "targetname" );
 	clip1 = getent("clip1","targetname");
@@ -1954,7 +1960,7 @@ trap_07()
 
 
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	
@@ -1980,11 +1986,12 @@ trap_07()
 	block1 movez( -112, 2 );
 	block2 movez( -112, 2 );
 
-*/}
+}
 
 trap_08()
 {
 	trig = getEnt( "trigger8", "targetname" );
+	level endon("trigger");
 	updown1 =getent("updown1","targetname");
 	updown2 =getent("updown2","targetname");
 	updown3 =getent("updown3","targetname");
@@ -1996,7 +2003,7 @@ trap_08()
 
 	
 	
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	
 	
@@ -2026,18 +2033,19 @@ trap_08()
 
 		wait(7);	
 		}
-*/}
+}
 
 trap_09()
 {
 	trig = getEnt( "trigger9", "targetname" );
+	level endon("trigger");
 	movingdown =getent("movingdown","targetname");
 	clip112 =getent("clip112","targetname");
 	dmg = getent ("trap9_dmg","targetname");
 
 	dmg maps\mp\_utility::triggerOff();
 		
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	
 		movingdown movez( -152, 2 );
@@ -2050,11 +2058,12 @@ trap_09()
 		
 	dmg delete();
 
-*/}
+}
 
 trap_10()
 {
 	trig = getent ("trigger10","targetname");
+	level endon("trigger");
 	dmg = getent ("trap10_dmg","targetname");
 	clips = getEnt( "clips", "targetname" );
 	be1 = getEnt( "be1", "targetname" );
@@ -2077,7 +2086,7 @@ trap_10()
 	
 		dmg maps\mp\_utility::triggerOff();
 	
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig delete();
 	
 		dmg maps\mp\_utility::triggerOn();	
@@ -2112,28 +2121,30 @@ trap_10()
 	dmg delete();
 					
 
-*/}
+}
 
 trap_11()
 {
 	slid1_1 =getent("slid1_1","targetname");
+	level endon("trigger");
 
 	while(1)
 		{
 		slid1_1 movey( 284, 3 );
-/* AUTO 		slid1_1 waittill ("movedone");
+		slid1_1 waittill ("movedone");
 		wait(2);
 		slid1_1 movey( -284, 3 );
 		slid1_1 waittill ("movedone");
 		}
-*/}
+}
 
 trap_12()
 {
 	trig = getEnt( "trigger12", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap12", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	while( isDefined( brush ) )
@@ -2141,20 +2152,21 @@ trap_12()
 		brush rotateRoll( 180, 8 );
 		wait 4;
 	}
-*/}
+}
 
 trap_13()
 {
 	trig = getEnt( "trigger13", "targetname" );
+	level endon("trigger");
 	catshit = getEnt( "catshit", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	catshit movez( -232, 2 );
 	wait 5;
 	catshit movez( 232, 2 );
-*/}
+}
 
 moveme()
 {
@@ -2174,6 +2186,7 @@ moveme()
 trap_14()
 {
 	trig = getent ("trigger14","targetname");
+	level endon("trigger");
 	dmg = getent ("trap14_dmg","targetname");
 	firesound112 =getent("firesound112","targetname");
 	help1 = getEnt( "help1", "targetname" );
@@ -2182,7 +2195,7 @@ trap_14()
 
 	dmg maps\mp\_utility::triggerOff();
 	
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig delete();
 
 	PlayFX( level.fire_blue_fx, (-1314,4758,-99) );
@@ -2196,44 +2209,47 @@ trap_14()
 	help2 movez( 256, 1 );
 	
 					
-*/}
+}
 
 trap_15()
 {
 	trig = getent ("trigger15","targetname");
+	level endon("trigger");
 	moveme1 = getEnt( "moveme1", "targetname" );
 	
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig delete();
 
 	moveme1 movez( 384, 2 );
 	wait 5;
 	moveme1 movez( -384, 2 );
 
-*/}
+}
 
 trap_16()
 {
 	trig = getent ("trigger16","targetname");
+	level endon("trigger");
 	upme = getEnt( "upme", "targetname" );
 	
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig delete();
 
 	upme movez( 240, 1 );
 	wait 2.5;
 	upme movez( -240, 1 );
 
-*/}
+}
 
 trap_17() 
 { 
 	trapdoor1 = getent( "trapdoor1", "targetname" );
+	level endon("trigger");
 	trapdoor2 = getent( "trapdoor2", "targetname" ); 
 	goup = getent( "goup", "targetname" ); 
 	trig = getent( "trigger17", "targetname" ); 
 	
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig delete();
 
 		trapdoor1 rotateto( ( -90, 0, 0 ), 1); 
@@ -2250,32 +2266,34 @@ trap_17()
 		
 		goup movez( 240, 5 );
 
-*/}
+}
 
 trap_18()
 {
 	trig = getEnt( "trigger18", "targetname" );
+	level endon("trigger");
 	brush = getent ("delette","targetname");
 	
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	
 	brush PlaySound ("lightning_hit");
 	brush delete();
 	
-*/}
+}
 
 trap_19()
 {
 	trig = getEnt( "trigger19_fixed", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap19_fixed", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	
 	brush PlaySound ("lightning_hit");
 	brush delete();
-*/}
+}
 
 movearound()
 {
@@ -2294,22 +2312,24 @@ movearound()
 trap_20()
 {
 	trig = getent ("trigger20","targetname");
+	level endon("trigger");
 	trap_20 = getEnt( "trap_20", "targetname" );
 	
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig delete();
 
 	trap_20 movez( 120, 2 );
 	trap_20 movey( 850, 2.5 );
 	trap_20 movez( -120, 5 );
-*/}
+}
 
 trap_21()
 {
 	trig = getEnt( "trigger21", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap21", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	
 	for( i = 0; i < 2; i++ )
@@ -2319,13 +2339,14 @@ trap_21()
 		brush rotateYaw( -512, 3 );
 		wait 3;
 	}
-*/}
+}
 
 trap_22()
 {
 	trig = getEnt( "trigger22", "targetname" );
+	level endon("trigger");
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	height = 559;
 	for(i=0;i<5;i++)
 	{
@@ -2340,15 +2361,16 @@ trap_22()
 	who PlaySound("shot");
 	trig delete();
 
-*/}
+}
 
 trap_23 ()
 {
 	trigger23 = getent ("trigger23","targetname");
+	level endon("trigger");
 	brush_3 = getent ("brush_3","targetname");
 	killa = getent ("kill","targetname");
 	
-/* AUTO 	trigger23 waittill ("trigger");
+	trigger23 waittill ("trigger");
 	trigger23 delete ();
 	
 	killa enablelinkto ();
@@ -2358,15 +2380,16 @@ trap_23 ()
 	wait 4 ;
 	brush_3 movez( -12, 0.5 );
 	wait 4 ; 
-*/}
+}
 
 trap_24 ()
 {
 	trigger = getent ("trigger24","targetname");
+	level endon("trigger");
 	brush = getent ("olotrolo","targetname");
 
 	
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete ();
 	
 	
@@ -2374,17 +2397,18 @@ trap_24 ()
 	wait 4 ;
 	brush movez( -286, 2 );
 
-*/}
+}
 
 trap_26()
 {
 	trigger = getent ("trigger26","targetname");
+	level endon("trigger");
 	brush1 =getent("brushyt1","targetname");
 	brush2 =getent("brushyt2","targetname");
 	brush3 =getent("brushyt3","targetname");
 	brush4 =getent("brushyt4","targetname");
 	
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete ();
 	
 	while(1)
@@ -2407,15 +2431,16 @@ trap_26()
 		brush4 movex( -320, 3 );
 		brush4 waittill ("movedone");
 		}
-*/}
+}
 
 trap_27()
 {
 	trigger = getent ("trigger27","targetname");
+	level endon("trigger");
 	brush1 =getent("brushz1","targetname");
 	brush2 =getent("brushz2","targetname");
 
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete ();
 	
 	while(1)
@@ -2430,13 +2455,14 @@ trap_27()
 		brush2 movex( 490, 3 );
 		brush2 waittill ("movedone");
 		}
-*/}
+}
 
 trap_28()
 {
 	trig = getEnt("trigger28", "targetname");	
+	level endon("trigger");
 	
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 //AUTO 	player TakeAllWeapons();
@@ -2445,15 +2471,16 @@ trap_28()
 //AUTO 	player SwitchToWeapon( "deserteaglegold_mp" );
 				
 
-*/}
+}
 
 trap_29()
 {
 	trigger = getent ("trigger29","targetname");
+	level endon("trigger");
 	brush =getent("spikestogether","targetname");
 	dmg1 =getent("linkeddmg","targetname");
 
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete ();
 
 	dmg1 enablelinkto();
@@ -2463,16 +2490,17 @@ trap_29()
 	wait 5;
 	brush movex( 656, 5 );
 	
-*/}
+}
 
 trap_30()
 {
 	trigger = getent ("trigger30","targetname");
+	level endon("trigger");
 	blocklooping = getent ("blocklooping","targetname");
 	dmg = getent ("trigger_dmg_30","targetname");
 	dmg maps\mp\_utility::triggerOff();
 	
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete ();
 	
 	dmg maps\mp\_utility::triggerOn();	
@@ -2483,14 +2511,15 @@ trap_30()
 	wait(3);
 	blocklooping movez( -1000, 2 );
 
-*/}
+}
 
 trap_31()
 {
 	trigger = getent ("trigger31","targetname");
+	level endon("trigger");
 	brush =getent("removertrap31","targetname");
 
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete ();
 	
 	while(1)
@@ -2502,30 +2531,32 @@ trap_31()
 		brush waittill ("movedone");
 		wait(3);
 		}
-*/}
+}
 
 trap_32()
 {
 	trigger = getent ("trigger32","targetname");
+	level endon("trigger");
 	dmg = getent ("trigger_dmg_32","targetname");
 	dmg maps\mp\_utility::triggerOff();
 	
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete ();
 	
 	dmg maps\mp\_utility::triggerOn();	
 	PlayFX( level.sperm, (-360,8904,72) );
 	wait(3);
 	dmg maps\mp\_utility::triggerOff();
-*/}
+}
 
 trap_33()
 {
 	trigger = getent ("trigger33","targetname");
+	level endon("trigger");
 	brush = getent ("smasher33","targetname");
 	dmg = getent ("trigger_dmg_33","targetname");
 	
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete ();
 	
 	dmg enablelinkto();
@@ -2544,28 +2575,30 @@ trap_33()
 		wait(2);
 		}
 
-*/}
+}
 
 trap_34()
 {
 	trigger = getent ("trigger34","targetname");
+	level endon("trigger");
 	brush = getent("pushmeup","targetname");
 	
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete ();
 
 	wait(0.5);
 	brush movez( -800, 2 );
 	brush PlaySound ("lightning_hit");
-*/}
+}
 
 trap_35()
 {
 	trigger = getent ("trigger35","targetname");
+	level endon("trigger");
 	brush = getent("spikesrot","targetname");
 	dmg = getent ("dmg_rot","targetname");
 	
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete ();
 
 		
@@ -2578,11 +2611,12 @@ trap_35()
 	wait(2);
 	brush movex( -288, 2 );
 	brush PlaySound ("doormove2");
-*/}
+}
 
 trap_36()
 {
 	trigger = getent ("trigger36","targetname");
+	level endon("trigger");
 	brush1 = getent("smasha1","targetname");
 	brush2 = getent("smasha2","targetname");
 	brush3 = getent("smasha3","targetname");
@@ -2595,7 +2629,7 @@ trap_36()
 	dmg5 = getent ("dmg_smasha5","targetname");
 
 	
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete ();
 
 		
@@ -2651,15 +2685,16 @@ while(1)
 	brush5 movez( 204, 2 );
 	brush5 PlaySound ("stonemove");
 	}
-*/}
+}
 
 trap_37()
 {
 	trigger = getent ("trigger37","targetname");
+	level endon("trigger");
 	brush = getent("rotaspikes","targetname");
 	dmg = getent ("dmg_sikes","targetname");
 	
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete ();
 
 	dmg enablelinkto();
@@ -2667,29 +2702,31 @@ trap_37()
 	
 	brush rotateyaw( 18000, 150 );
 	brush waittill ("movedone");
-*/}
+}
 
 trap_38()
 {
 	trigger = getent ("trigger38","targetname");
+	level endon("trigger");
 	brush = getent("deletelie","targetname");
 	
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete ();
 
 	brush delete();
 
-*/}
+}
 
 trap_39 ()
 {
 	trigger = getent ("trigger39","targetname");
+	level endon("trigger");
 	brush = getent ("trap_39","targetname");
 	killa = getent ("trap_39_dmg","targetname");
 	
 	killa maps\mp\_utility::triggerOff();
 		
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete ();
 	
 	killa maps\mp\_utility::triggerOn();
@@ -2700,17 +2737,18 @@ trap_39 ()
 	brush movez( 36, 0.5 );
 	wait 10 ;
 	brush movez( -36, 0.5 );
-*/}
+}
 
 trap_40()
 {
 	trig = getEnt("trigger40", "targetname");	
+	level endon("trigger");
 	
-/* AUTO 	trig waittill("trigger", who );
+	trig waittill("trigger", who );
 	trig delete();
 	
 	thread StartFiringLightnings();
-*/}
+}
 
 StartFiringLightnings()
 {
@@ -2748,12 +2786,13 @@ StartFiringLightnings()
 trap_41 ()
 {
 	trigger = getent ("trigger41","targetname");
+	level endon("trigger");
 	brush = getent ("trap41","targetname");
 	brushsound = getent ("trap41_sound","targetname");
 	killaa = getent ("trap41_dmg","targetname");
 
 		
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete ();
 
 	
@@ -2777,11 +2816,12 @@ trap_41 ()
 	brushsound PlaySound ("stoneimpact");
 	wait 1.5 ;
 	brush movez( 104, 1 );
-*/}
+}
 
 trap_42()
 {
 	trig = getent ("trigger42","targetname");
+	level endon("trigger");
 	brush = getEnt( "trap42", "targetname" );
 	dmg1 = getent ("trap42_dmg_1","targetname");
 	dmg2 = getent ("trap42_dmg_2","targetname");
@@ -2800,7 +2840,7 @@ trap_42()
 	dmg4 enablelinkto ();
 	dmg4 linkto (brush);
 	
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	
 
@@ -2814,5 +2854,5 @@ while(1)
 	brush waittill ("movedone");
 	}
 
-*/}
+}
 

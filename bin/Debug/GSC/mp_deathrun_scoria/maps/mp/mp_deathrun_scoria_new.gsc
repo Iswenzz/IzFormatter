@@ -85,6 +85,7 @@ elevator waittill("movedone");
 trap1()
 {
 trig = getent("trap1", "targetname");
+	level endon("trigger");
 damage = getent("spikesdmg", "targetname");
 brush = getent("spikes","targetname");
 
@@ -92,7 +93,7 @@ damage enablelinkto();
 damage linkto (brush);
 
  
-/* AUTO trig waittill("trigger", player); 
+trig waittill("trigger", player); 
 trig delete(); 
  
 
@@ -105,15 +106,16 @@ trig delete();
               
          }
  
-*/}
+}
 
 trap2()
 {
 trig2 = getent("trap2", "targetname");
+	level endon("trigger");
 brush2 = getent("spinpillar1","targetname");
 brush3 = getent("spinpillar2","targetname");
  
-/* AUTO trig2 waittill("trigger", player); 
+trig2 waittill("trigger", player); 
 trig2 delete(); //deletes the trigger
  
 for(;;)
@@ -127,15 +129,16 @@ for(;;)
 			 
 			 
               
-*/         }
+         }
 
 trap3()
 {
 trig = getent("trap3", "targetname");
+	level endon("trigger");
 brush4 = getent("killball","targetname");
 
  
-/* AUTO trig waittill("trigger", player); 
+trig waittill("trigger", player); 
 trig delete(); //deletes the trigger
  
 while(1)
@@ -148,15 +151,16 @@ while(1)
 			
 
  
-*/}
+}
 
 trap3_2()
 {
 trig = getent("trap3_2", "targetname");
+	level endon("trigger");
 brush5 = getent("killball2","targetname");
 
  
-/* AUTO trig waittill("trigger", player); 
+trig waittill("trigger", player); 
 trig delete(); //deletes the trigger
  
 while(1)
@@ -168,15 +172,16 @@ while(1)
 		}	 
 			
  
-*/}
+}
 
 trap3_3()
 {
 trig = getent("trap3_3", "targetname");
+	level endon("trigger");
 brush6 = getent("killball3","targetname");
 
  
-/* AUTO trig waittill("trigger", player); 
+trig waittill("trigger", player); 
 trig delete(); //deletes the trigger
  
 while(1)
@@ -188,7 +193,7 @@ while(1)
 		}	 
 			
  
-*/}
+}
 
 hud()
 {
@@ -238,6 +243,7 @@ player setClientDvar( "r_specularmap", 2 );
 trap4()
 {
 trig = getent("trap4", "targetname");
+	level endon("trigger");
 snap = getent("snap","targetname");
 snapdmg = getent("dmgsnap","targetname");
 
@@ -245,7 +251,7 @@ snapdmg enablelinkto();
 snapdmg linkto (snap);
 
  
-/* AUTO trig waittill("trigger", player); 
+trig waittill("trigger", player); 
 trig delete(); //deletes the trigger
  
      {
@@ -257,7 +263,7 @@ trig delete(); //deletes the trigger
 			
 
  
-*/}
+}
 
 skert() 
 {
@@ -283,12 +289,13 @@ player setPlayerAngles(target2.angles);
 trap5()
 {
 trigdude = getent("trap5", "targetname");
+	level endon("trigger");
 elevate = getent("elevator","targetname");
 
 
 
  
-/* AUTO trigdude waittill("trigger", player); 
+trigdude waittill("trigger", player); 
 trigdude delete(); //deletes the trigger
  
      {
@@ -301,18 +308,19 @@ trigdude delete(); //deletes the trigger
 			
 
  
-*/}
+}
 
 trap6()
 {
 trigm8 = getent("trap6", "targetname");
+	level endon("trigger");
 slats1 = getent("slats1","targetname");
 slats2 = getent("slats2","targetname");
 
 
 
  
-/* AUTO trigm8 waittill("trigger", player); 
+trigm8 waittill("trigger", player); 
 trigm8 delete(); //deletes the trigger
  
     x = randomInt(2); 
@@ -329,13 +337,14 @@ trigm8 delete(); //deletes the trigger
 		slats2 solid();
     }
 
-*/}
+}
 
 trap7()
 {
 swagm8 = getent("trap7", "targetname");
+	level endon("trigger");
 
-/* AUTO swagm8 waittill("trigger", player);
+swagm8 waittill("trigger", player);
 swagm8 delete();
  
 thread spinner1a();
@@ -345,7 +354,7 @@ thread spinner2b();
 thread spinner3a();
 thread spinner3b();
  
-*/}
+}
 
 spinner1a()
 {
@@ -541,12 +550,12 @@ knifegame()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "tomahawk_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "tomahawk_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "tomahawk_mp" );
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN KNIFE^1!" );     //change to what you want it to be
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

@@ -93,9 +93,10 @@ joker_jumper()
 trap1 ()
 	{
 	trig_1 = getent ("trig1","targetname");
+	level endon("trigger");
 	brush_1 = getent ("brush_1","targetname");
 	coin_1 = getent ("coin_1","targetname");
-/* AUTO 	trig_1 waittill ("trigger");
+	trig_1 waittill ("trigger");
 	trig_1 PlaySound("coin");
 	trig_1 delete ();
 	coin_1 movez (12 , 0.1);
@@ -107,15 +108,16 @@ trap1 ()
 		brush_1 rotatePitch (360 , 8 );
 		wait 1 ;
 		}
-*/	}
+	}
 
 trap2 ()
 	{
 	part1 = getentarray ("part_1" ,"targetname");
+	level endon("trigger");
 	part2 = getentarray ("part_2" ,"targetname");
 	trig_2 = getent ("trig2" , "targetname");
 	coin_2 = getent ("coin_2","targetname");
-/* AUTO 	trig_2 waittill ("trigger" , player );
+	trig_2 waittill ("trigger" , player );
 	trig_2 PlaySound("coin");
 	trig_2 delete ();
 	coin_2 movez (12 , 0.1);
@@ -123,17 +125,18 @@ trap2 ()
 	coin_2 movez (-12 , 0.1);
 	part1[randomInt(part1.size)] notsolid();
     part2[randomInt(part2.size)] notsolid();
-*/	}
+	}
 
 trap3 ()
 	{
 	trig_3 = getent ("trig3","targetname");
+	level endon("trigger");
 	brush_3 = getent ("brush_3","targetname");
 	coin_3 = getent ("coin_4","targetname");
 	killa = getent ("kill","targetname");
 	//brush = getent (brush_3.target, "targetname");
 	
-/* AUTO 	trig_3 waittill ("trigger");
+	trig_3 waittill ("trigger");
 	trig_3 PlaySound("coin");
 	trig_3 delete ();
 	
@@ -150,7 +153,7 @@ trap3 ()
 	wait 4 ;
 	brush_3 rotateroll (-180, 1 );
 	wait 4 ; 
-*/	}
+	}
 
 plat ()
 	{
@@ -172,11 +175,12 @@ plat ()
 trap4 ()
 	{
 	trig_4 = getent ("trig4","targetname");
+	level endon("trigger");
 	spikes = getent ("spikes","targetname");
 	kill1 = getent ("kill1","targetname");
 	coin_4 = getent ("coin_3","targetname");
 	
-/* AUTO 	trig_4 waittill ("trigger",player);
+	trig_4 waittill ("trigger",player);
 	trig_4 PlaySound("coin");
 	trig_4 delete ();
 	
@@ -192,15 +196,16 @@ trap4 ()
 	spikes movez (-24 , 0.5 );
 	wait 2 ;
 	
-*/	}
+	}
 
 trap5 ()
 	{
 	trig_5 = getent ("trig5","targetname");
+	level endon("trigger");
 	brush_5 = getent ("brushro","targetname");
 	coin_5 = getent ("coin_5","targetname");
 	
-/* AUTO 	trig_5 waittill ("trigger",player);
+	trig_5 waittill ("trigger",player);
 	trig_5 PlaySound("coin");
 	trig_5 delete ();
 	
@@ -214,15 +219,16 @@ trap5 ()
 		wait 1 ;
 		}
 		
-*/	}
+	}
 
 trap6 ()
 	{
 	half_1 = getentarray ("half_1" ,"targetname");
+	level endon("trigger");
 	half_2 = getentarray ("half_2" ,"targetname");
 	coin_6 = getent ("coin_6","targetname");
 	trig_6 = getent ("trig6" , "targetname");
-/* AUTO 	trig_6 waittill ("trigger" , player );
+	trig_6 waittill ("trigger" , player );
 	trig_6 PlaySound("coin");
 	trig_6 delete ();
 	
@@ -232,7 +238,7 @@ trap6 ()
 	
 	half_1[randomInt(half_1.size)] delete();
     half_2[randomInt(half_2.size)] delete();
-*/	}
+	}
 
 moving ()
 	{
@@ -258,6 +264,7 @@ moving ()
 trap7 ()
 	{
 	hid = getent ("hid","targetname");
+	level endon("trigger");
 	hid hide ();
 	
 	sh = getent ("sh","targetname");
@@ -269,7 +276,7 @@ trap7 ()
 	dmg123 maps\mp\_utility::triggerOff();
 		
 		
-/* AUTO 	trig_7 waittill ("trigger",player);
+	trig_7 waittill ("trigger",player);
 	trig_7 PlaySound("coin");
 	trig_7 delete ();
 	
@@ -283,11 +290,12 @@ trap7 ()
 	hid hide ();
 	sh show ();
 	dmg123 delete();
-*/	}
+	}
 
 trap8 ()
 	{
 	trig_8 = getent ("trig8","targetname");
+	level endon("trigger");
 	brush_8 = getent ("fall1","targetname");
 	dmg1 = getent ("dmg_1","targetname");
 	dmg2 = getent ("dmg_2","targetname");
@@ -298,7 +306,7 @@ trap8 ()
 	dmg1 maps\mp\_utility::triggerOff();
 	dmg2 maps\mp\_utility::triggerOff();
 	
-/* AUTO 	trig_8 waittill ("trigger");
+	trig_8 waittill ("trigger");
 	trig_8 PlaySound("coin");
 	trig_8 delete ();
 	
@@ -318,11 +326,12 @@ trap8 ()
 	dmg1 delete();
 	dmg2 delete();
 	
-*/	}
+	}
 
 trap9 ()
 	{
 	trig_9 = getent ("trig9","targetname");
+	level endon("trigger");
 	brush_9 = getent ("fall2","targetname");
 	trag1 = getent (brush_9.target , "targetname");
 	dmg = getent ("dmg","targetname");
@@ -330,7 +339,7 @@ trap9 ()
 	
 	dmg maps\mp\_utility::triggerOff();
 
-/* AUTO 	trig_9 waittill ("trigger");
+	trig_9 waittill ("trigger");
 	trig_9 PlaySound("coin");
 	trig_9 delete ();
 	
@@ -347,7 +356,7 @@ trap9 ()
 	wait 4 ;
 	brush_9 delete ();
 	dmg delete();
-*/	}
+	}
 
 teleportertoflag ()
 	{

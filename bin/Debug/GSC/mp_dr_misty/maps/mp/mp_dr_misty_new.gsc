@@ -207,23 +207,25 @@ teleport2(trigger_name, origin, rotate, message_to_player, message_to_all_bold, 
 trap1()
 {
 	blocks = getentarray("trap1_blocks", "targetname");
+	level endon("trigger");
 	trap1 = getent("trap1", "targetname");
-/* AUTO 	trap1 waittill("trigger", player);
+	trap1 waittill("trigger", player);
 	trap1 delete();
 		for(i=0;i<17;i++)
 		{
 		blocks[i] thread randomMovement();
 		blocks[i] thread firstRandomMovement();
 		}
-*/}
+}
 
 trap2()
 {
 	left = getentarray("trap2_left", "targetname");
+	level endon("trigger");
 	right = getentarray("trap2_right", "targetname");
 	mid = getent("trap2_mid", "targetname");
 	trap2 = getent("trap2", "targetname");
-/* AUTO 	trap2 waittill("trigger", player);
+	trap2 waittill("trigger", player);
 	trap2 delete();
 		switch(randomInt(3))
 		{
@@ -255,27 +257,29 @@ trap2()
 				mid delete();
 		break;
 		}
-*/}
+}
 
 trap3()
 {
 	blocks = getentarray("trap3_blocks", "targetname");
+	level endon("trigger");
 	trap3 = getent("trap3", "targetname");
-/* AUTO 	trap3 waittill("trigger", player);
+	trap3 waittill("trigger", player);
 	trap3 delete();
 		for(i=0;i<6;i++)
 		{
 		blocks[i] thread randomRotation();
 		blocks[i] thread firstRandomRotation();
 		}
-*/}
+}
 
 trap4()
 {
 	left = getentarray("trap4_left", "targetname");
+	level endon("trigger");
 	right = getentarray("trap4_right", "targetname");
 	trap4 = getent("trap4", "targetname");
-/* AUTO 	trap4 waittill("trigger", player);
+	trap4 waittill("trigger", player);
 	trap4 delete();
 		for(i=3;i>-1;i--)
 		{
@@ -283,14 +287,15 @@ trap4()
 		left[i] thread sequentialMovement( "left" );
 		wait 2;
 		}
-*/}
+}
 
 trap5()
 {
 	blocks = getentarray("trap5_blocks", "targetname");
+	level endon("trigger");
 	kill = getentarray("trap5_kill", "targetname");
 	trap5 = getent("trap5", "targetname");
-/* AUTO 	trap5 waittill("trigger", player);
+	trap5 waittill("trigger", player);
 	trap5 delete();
 		for(i=0;i<3;i++)
 			{
@@ -305,14 +310,15 @@ trap5()
 			wait 1;
 			}
 		}
-*/}
+}
 
 trap6()
 {
 	left = getent("trap6_blocks1", "targetname");
+	level endon("trigger");
 	right = getent("trap6_blocks2", "targetname");
 	trap6 = getent("trap6", "targetname");
-/* AUTO 	trap6 waittill("trigger", player);
+	trap6 waittill("trigger", player);
 	trap6 delete();
 		switch(randomInt(2))
 		{
@@ -325,25 +331,27 @@ trap6()
 			right delete();
 		break;
 		}
-*/}
+}
 
 /*trap6() // OLD
 {
 	blocks = getent("trap6_blocks", "targetname");
+	level endon("trigger");
 	trap6 = getent("trap6", "targetname");
-/* AUTO 	trap6 waittill("trigger", player);
+	trap6 waittill("trigger", player);
 	trap6 delete();
 	blocks_place = blocks.origin;
 	blocks moveTo( ( blocks.origin+( 200, -200, 0 ) ), 1);
 	wait 1;
 	blocks moveTo( blocks_place, 1 );
-*/}*/
+}*/
 
 trap7()
 {
 	blocks = getentarray("trap7_blocks", "targetname");
+	level endon("trigger");
 	trap7 = getent("trap7", "targetname");
-/* AUTO 	trap7 waittill("trigger", player);
+	trap7 waittill("trigger", player);
 	trap7 delete();
 	remove1 = randomInt(6);
 	remove2 = randomInt(6);
@@ -353,13 +361,14 @@ trap7()
 		}
 	blocks[remove1] delete();
 	blocks[remove2] delete();
-*/}
+}
 
 trap8()
 {
 	blocks = getent("trap8_block", "targetname");
+	level endon("trigger");
 	trap8 = getent("trap8", "targetname");
-/* AUTO 	trap8 waittill("trigger", player);
+	trap8 waittill("trigger", player);
 	trap8 delete();
 	blocks_place = blocks.origin;
 		while(1)
@@ -369,13 +378,14 @@ trap8()
 		blocks moveTo( blocks_place, 1 );
 		wait 3;
 		}
-*/}
+}
 
 trap9()
 {
 	blocks = getent("trap9_block", "targetname");
+	level endon("trigger");
 	trap9 = getent("trap9", "targetname");
-/* AUTO 	trap9 waittill("trigger", player);
+	trap9 waittill("trigger", player);
 	trap9 delete();
 		while(1)
 		{
@@ -386,13 +396,14 @@ trap9()
 		blocks waittill("movedone");
 		wait 1;
 		}
-*/}
+}
 
 trap10()
 {
 	arrow = getentarray("arrows", "targetname");
+	level endon("trigger");
 	trap10 = getent("trap10", "targetname");
-/* AUTO 	trap10 waittill("trigger", player);
+	trap10 waittill("trigger", player);
 	trap10 delete();
 		for(i=0;i<arrow.size;i++)
 		{
@@ -403,7 +414,7 @@ trap10()
 		{
 		arrow[i] delete();
 		}
-*/}
+}
 
 hammers()
 {
@@ -531,7 +542,7 @@ jumper = getEnt("jump_jumper", "targetname");
 		player freezeControls(true);
 		player setOrigin(jumper.origin);
 		player setplayerangles(jumper.angles);
-//AUTO 		wait 0.1;
+		wait 0.1;
 		player freezeControls(false);
 		}
 		else
@@ -539,7 +550,7 @@ jumper = getEnt("jump_jumper", "targetname");
 		player freezeControls(true);
 		player setOrigin(acti.origin);
 		player setplayerangles(acti.angles);
-//AUTO 		wait 0.1;
+		wait 0.1;
 		player freezeControls(false);
 		}
 	}

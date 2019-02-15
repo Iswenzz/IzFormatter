@@ -238,11 +238,12 @@ transporter3()
 trap1a()
 {
 	trigger1 = getEnt ("trigger_trap1", "targetname");
+	level endon("trigger");
 	trap1a = getEnt ("trap1a", "targetname");
 	trap1b = getEnt ("trap1b", "targetname");
 
 	trigger1 setHintString ("^3Press [Use] To Activate");
-/* AUTO 		trigger1 waittill ("trigger", player);
+		trigger1 waittill ("trigger", player);
 	trigger1 setHintString ("^8Activated");
 
 		trap1a rotateroll(90,0.5);
@@ -253,14 +254,15 @@ trap1a()
 		trap1a rotateroll(-90,0.5);
 		trap1a waittill ("rotatedone");
 		
-*/}
+}
 
 trap1b()
 {
 	trigger1 = getEnt ("trigger_trap1", "targetname");
+	level endon("trigger");
 	trap1b = getEnt ("trap1b", "targetname");
 
-/* AUTO 		trigger1 waittill ("trigger", player);
+		trigger1 waittill ("trigger", player);
 	
 		trap1b rotateroll(-90,0.5);
 		trap1b waittill ("rotatedone");
@@ -270,15 +272,16 @@ trap1b()
 		trap1b rotateroll(90,0.5);
 		trap1b waittill ("rotatedone");
 		
-*/}
+}
 
 trap2()
 {
 	trigger2 = getEnt ("trigger_trap2", "targetname");
+	level endon("trigger");
 	rotating = getent ("rotate_trap", "targetname");
 
 	trigger2 setHintString ("^3Press [Use] To Activate");
-/* AUTO     	trigger2 waittill ("trigger", player);
+    	trigger2 waittill ("trigger", player);
 	trigger2 setHintString ("^8Activated");
 
 	while(1)
@@ -286,15 +289,16 @@ trap2()
 		rotating rotateroll(360,4);
 		rotating waittill ("rotatedone");
 		}
-*/}
+}
 
 trap3a()
 {
 	trigger3 = getEnt ("trigger_trap3", "targetname");
+	level endon("trigger");
 	trap3a = getEnt ("trap3a", "targetname");
 	
 	trigger3 setHintString ("^3Press [Use] To Activate");
-/* AUTO     	trigger3 waittill ("trigger", player);
+    	trigger3 waittill ("trigger", player);
 	trigger3 setHintString ("^8Activated");
 
 	while(1)
@@ -304,14 +308,15 @@ trap3a()
 	
 	wait(2);
 	}
-*/}
+}
 
 trap3b()
 {
 	trigger3 = getEnt ("trigger_trap3", "targetname");
+	level endon("trigger");
 	trap3b = getEnt ("trap3b", "targetname");
 	
-/* AUTO     	trigger3 waittill ("trigger", player);
+    	trigger3 waittill ("trigger", player);
 
 	while(1)
 	{
@@ -320,16 +325,17 @@ trap3b()
 	
 	wait(2);
 	}
-*/}
+}
 
 trap4()
 {
 	trigger4 = getEnt ("trigger_trap4", "targetname");
+	level endon("trigger");
 	solid = getent ("nosolid", "targetname");
 
 
 	trigger4 setHintString ("^3Press [Use] To Activate");
-/* AUTO     	trigger4 waittill ("trigger", player);
+    	trigger4 waittill ("trigger", player);
 	trigger4 setHintString ("^8Activated");
 	
 		playFx(level.boom, (0, -3100, 255));
@@ -338,15 +344,16 @@ trap4()
 		solid hide();
 		solid notsolid();
 	
-*/}
+}
 
 trap5()
 {
 	trigger5 = getEnt ("trigger_trap5", "targetname");
+	level endon("trigger");
 	rotate_trap5 = getent ("trap5", "targetname");
 
 	trigger5 setHintString ("^3Press [Use] To Activate");
-/* AUTO     	trigger5 waittill ("trigger", player);
+    	trigger5 waittill ("trigger", player);
 	trigger5 setHintString ("^8Activated");
 
 	while(1)
@@ -355,15 +362,16 @@ trap5()
 		rotate_trap5 waittill ("rotatedone");
 		wait(5);
 		}
-*/}
+}
 
 trap6a()
 {
 	trigger6 = getEnt ("trigger_trap6", "targetname");
+	level endon("trigger");
 	rotation1 = getent ("trap6a", "targetname");
 
 	trigger6 setHintString ("^3Press [Use] To Activate");
-/* AUTO     	trigger6 waittill ("trigger", player);
+    	trigger6 waittill ("trigger", player);
 	trigger6 setHintString ("^8Activated");
 
 	while(1)
@@ -371,14 +379,15 @@ trap6a()
 		rotation1 rotatepitch(360,2);
 		rotation1 waittill ("rotatedone");
 		}
-*/}
+}
 
 trap6b()
 {
 	trigger6 = getEnt ("trigger_trap6", "targetname");
+	level endon("trigger");
 	rotation2 = getent ("trap6b", "targetname");
 
-/* AUTO 	trigger6 waittill ("trigger", player);
+	trigger6 waittill ("trigger", player);
 
 	while(1)
 		{
@@ -386,14 +395,15 @@ trap6b()
 		rotation2 waittill ("rotatedone");
 		}
 
-*/}
+}
 
 trap6c()
 {
 	trigger6 = getEnt ("trigger_trap6", "targetname");
+	level endon("trigger");
 	rotation3 = getent ("trap6c", "targetname");
 
-/* AUTO 	trigger6 waittill ("trigger", player);
+	trigger6 waittill ("trigger", player);
 
 	while(1)
 		{
@@ -401,14 +411,15 @@ trap6c()
 		rotation3 waittill ("rotatedone");
 		}
 
-*/}
+}
 
 trap6d()
 {
 	trigger6 = getEnt ("trigger_trap6", "targetname");
+	level endon("trigger");
 	rotation4 = getent ("trap6d", "targetname");
 
-/* AUTO 	trigger6 waittill ("trigger", player);
+	trigger6 waittill ("trigger", player);
 
 	while(1)
 		{
@@ -416,17 +427,18 @@ trap6d()
 		rotation4 waittill ("rotatedone");
 		}
 
-*/}
+}
 
 trap7()
 {
 	trigger7 = getEnt ("trigger_trap7", "targetname");
+	level endon("trigger");
 	trap7a = getent ("trap7a", "targetname");
 	trap7b = getent ("trap7b", "targetname");
 	trap7c = getent ("trap7c", "targetname");
 
 	trigger7 setHintString ("^3Press [Use] To Activate");
-/* AUTO     trigger7 waittill ("trigger", player);
+    trigger7 waittill ("trigger", player);
 	trigger7 setHintString ("^8Activated");
 
 	while(1)
@@ -447,20 +459,21 @@ trap7()
 
 		wait(0.5);
 	}
-*/}
+}
 
 trap10()
 {
 	trigger10 = getEnt ("trigger_trap10", "targetname");
+	level endon("trigger");
 	nonsolid10 = getent ("trap_10", "targetname");
 
 	trigger10 setHintString ("^3Press [Use] To Activate");
-/* AUTO     trigger10 waittill ("trigger", player);
+    trigger10 waittill ("trigger", player);
 	trigger10 setHintString ("^8Activated");
 
 	nonsolid10 hide();
 	nonsolid10 notsolid();
-*/}
+}
 
 olddoor()
 {
@@ -517,15 +530,15 @@ deagleroom()
 //AUTO 		iprintLnBold(player.name + " ^3Entered The Deagle Room");
 		
 		player thread onDeath_deagle();
-//AUTO 		wait 0.1;
+		wait 0.1;
 	
 	
 		for(;;)
 		{
-//AUTO 			wait .1;		
+			wait .1;		
 			while(isAlive(player))
 			{
-//AUTO 				wait 1;
+				wait 1;
 			}
 		
 		}
@@ -572,15 +585,15 @@ sniperroom()
 //AUTO 		iPrintLnBold(player.name + " ^3Entered The Sniper Room");
 		
 		player thread onDeath_snipe();
-//AUTO 		wait 0.1;
+		wait 0.1;
 	
 	
 		for(;;)
 		{
-//AUTO 			wait .1;		
+			wait .1;		
 			while(isAlive(player))
 			{
-//AUTO 				wait 1;
+				wait 1;
 			}
 		
 		}
@@ -628,15 +641,15 @@ bounceroom()
 //AUTO 		iprintLnBold(player.name + " ^3Entered The Bounce Room");
 		
 		player thread onDeath_bounce();
-//AUTO 		wait 0.1;
+		wait 0.1;
 	
 	
 		for(;;)
 		{
-//AUTO 			wait .1;		
+			wait .1;		
 			while(isAlive(player))
 			{
-//AUTO 				wait 1;
+				wait 1;
 			}
 		
 		}
@@ -685,15 +698,15 @@ kniferoom()
 		
 		
 		player thread onDeath_knife();
-//AUTO 		wait 0.1;
+		wait 0.1;
 	
 	
 		for(;;)
 		{
-//AUTO 			wait .1;		
+			wait .1;		
 			while(isAlive(player))
 			{
-//AUTO 				wait 1;
+				wait 1;
 			}
 		
 		}

@@ -211,21 +211,21 @@ knife()
 //AUTO          	level.activ TakeAllWeapons();
 //AUTO          	level.activ GiveWeapon( "tomahawk_mp" ); 
 //AUTO 		iPrintlnBold( " ^2" + player.name + " ^5 has entered the Knife room^1!" );               
-//AUTO          	wait 0.05;
+         	wait 0.05;
 //AUTO          	player switchToWeapon( "tomahawk_mp" );
 //AUTO          	level.activ SwitchToWeapon( "tomahawk_mp" );
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^53" );
 //AUTO 		level.activ iPrintlnBold( "^53" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^52" );
 //AUTO 		level.activ iPrintlnBold( "^52" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^51" );
 //AUTO 		level.activ iPrintlnBold( "^51" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^5Fight^1!" );
 //AUTO 		level.activ iPrintlnBold( "^5Fight^1!" );
 		player freezecontrols(false); 
@@ -255,21 +255,21 @@ bounce()
 //AUTO          	level.activ TakeAllWeapons();
 //AUTO 		level.activ giveweapon( "tomahawk_mp" ); 
 //AUTO 		iPrintlnBold( " ^2" + player.name + " ^5 has entered the Bounce room^1!" );         
-//AUTO          	wait 0.05;
+         	wait 0.05;
 //AUTO 		level.activ switchtoweapon( "tomahawk_mp" );
 //AUTO 		player switchtoweapon( "tomahawk_mp" );
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^53" );
 //AUTO 		level.activ iPrintlnBold( "^53" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^52" );
 //AUTO 		level.activ iPrintlnBold( "^52" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^51" );
 //AUTO 		level.activ iPrintlnBold( "^51" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^5Bounce^1!" );
 //AUTO 		level.activ iPrintlnBold( "^5Bounce^1!" );
 		player freezecontrols(false); 
@@ -376,21 +376,21 @@ deagle()
 //AUTO          	level.activ GiveWeapon( "deserteagle_mp" );
 //AUTO 	 	level.activ givemaxammo( "deserteagle_mp" );
 //AUTO 		iPrintlnBold( " ^2" + player.name + " ^5 has entered the Deagle room^1!" );         		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO          	player switchToWeapon( "deserteagle_mp" );
 //AUTO          	level.activ SwitchToWeapon( "deserteagle_mp" );
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^53" );
 //AUTO 		level.activ iPrintlnBold( "^53" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^52" );
 //AUTO 		level.activ iPrintlnBold( "^52" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^51" );
 //AUTO 		level.activ iPrintlnBold( "^51" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^5Fight^1!" );
 //AUTO 		level.activ iPrintlnBold( "^5Fight^1!" );
 		player freezecontrols(false); 
@@ -572,10 +572,11 @@ run_end()
 trap1()
 {
 	trig = getEnt("trigger1","targetname");
+	level endon("trigger");
  	brush1 = getEnt("trap1_ran1","targetname");
  	brush2 = getEnt("trap1_ran2","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig SetHintstring ("^1Activated!");
 	random = randomInt(2);
 	switch(random)
@@ -588,15 +589,16 @@ trap1()
 				
 		default: return;
 	}
-*/}
+}
 
 trap2()
 {
 	trig = getEnt("trigger2","targetname");
+	level endon("trigger");
  	brush1 = getEnt("trap2_ran1","targetname");
  	brush2 = getEnt("trap2_ran2","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig SetHintstring ("^1Activated!");
 	random = randomInt(2);
 	switch(random)
@@ -609,7 +611,7 @@ trap2()
 				
 		default: return;
 	}
-*/}
+}
 
 elev()
 {
@@ -630,22 +632,24 @@ elev()
 trapelev()
 {
    	brush = getEnt ("trap_ele" ,"targetname" );
+	level endon("trigger");
 	trig = getEnt("notsolid2","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig SetHintstring ("^1Activated!");
 
 	brush notsolid();
 	wait 3;	
 	brush solid();
-*/}
+}
 
 trap3()
 {
 	trig = getEnt( "trigger3", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap3", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig SetHintstring ("^1Activated!");
 
 	while( isDefined( brush ) )
@@ -653,14 +657,15 @@ trap3()
 		brush rotateRoll( 360, 5 );
 		wait 5;
 	}
-*/}
+}
 
 trap4()
 {
 	trig = getEnt( "trigger5", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap5", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig SetHintstring ("^1Activated!");
 
 	while( isDefined( brush ) )
@@ -668,16 +673,17 @@ trap4()
 		brush rotateRoll( 360, 4.5 );
 		wait 4.5;
 	}
-*/}
+}
 
 trap5()
 {
 	trig = getEnt("trigger6","targetname");
+	level endon("trigger");
  	brush1 = getEnt("trap6_ran1","targetname");
  	brush2 = getEnt("trap6_ran2","targetname");
 	brush3 = getEnt("trap6_ran3","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig SetHintstring ("^1Activated!");
 	while(1)
 	{
@@ -688,14 +694,15 @@ trap5()
 		brush3 rotateyaw( 360, 2 );
 		wait 2;
 	}
-*/}
+}
 
 trap6()
 {
    	trig = getEnt ("trigger7" , "targetname");
+	level endon("trigger");
    	brush = getEnt ("trap7" ,"targetname" );
 
-/* AUTO    	trig waittill ("trigger",player);  
+   	trig waittill ("trigger",player);  
 	trig SetHintstring ("^1Activated!");
 
    	while( 1 )
@@ -706,15 +713,16 @@ trap6()
   	 	brush moveZ ( -90, 1 );
    		wait 1;
 	}
-*/}
+}
 
 trap7()
 {
 	trig = getEnt("trigger8","targetname");
+	level endon("trigger");
  	brush1 = getEnt("trap8_ran1","targetname");
  	brush2 = getEnt("trap8_ran2","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig SetHintstring ("^1Activated!");
 	random = randomInt(2);
 	switch(random)
@@ -727,15 +735,16 @@ trap7()
 				
 		default: return;
 	}
-*/}
+}
 
 trap8()
 {
 	trig = getEnt( "trigger9", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap9_1", "targetname" );	
 	brush1 = getEnt( "trap9_2", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig SetHintstring ("^1Activated!");
 
 	while(1)
@@ -744,14 +753,15 @@ trap8()
 		brush1 rotateroll( -360, 3 );
 		wait 3;
 	}
-*/}
+}
 
 trap9()
 {
 	trig = getEnt( "trigger10", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap10", "targetname" );
 
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	trig SetHintstring ("^1Activated!");
 
 	while(1)
@@ -759,27 +769,29 @@ trap9()
 		brush rotateyaw( 360, 2 );
 		wait 2;
 	}
-*/}
+}
 
 trap11()
 {
    	brush = getEnt ("trap12" ,"targetname" );
+	level endon("trigger");
 	trig = getEnt("trigger11","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig SetHintstring ("^1Activated!");
 
 	brush notsolid();
 	wait 4;	
 	brush solid();
-*/}
+}
 
 trap12()
 {
    	trig = getEnt ("trigger12" , "targetname");
+	level endon("trigger");
    	brush = getEnt ("trap13" ,"targetname" );
 	
-/* AUTO    	trig waittill ("trigger");
+   	trig waittill ("trigger");
 	trig SetHintstring ("^1Activated!");  
   
    	for( i = 0; i < 7; i++ )
@@ -787,15 +799,16 @@ trap12()
 		brush rotateYaw( 360, 1 );
 		wait 1;
 	}
-*/}
+}
 
 trap13()
 {
    	brush = getEnt ("trap13_1" ,"targetname" );
+	level endon("trigger");
    	brush1 = getEnt ("trap13_2" ,"targetname" );
 	trig = getEnt ("trigger13" , "targetname");
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig SetHintstring ("^1Activated!");
      
    	while(1)
@@ -804,15 +817,16 @@ trap13()
 		brush1 rotateRoll( -360, 1.5 );
 		wait 1.5;
 	}
-*/}
+}
 
 trap14()
 {
 	brush = getEnt ("trap14_oben" ,"targetname" );
+	level endon("trigger");
 	things = getEnt ("things" ,"targetname" );
 	trig = getEnt ("trigger14" , "targetname");
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig SetHintstring ("^1Activated!");
 
 	brush notsolid();
@@ -828,15 +842,16 @@ trap14()
 		things movez ( 160, .4);
 		wait 1;
 	}
-*/}
+}
 
 trap15()
 {
 	trig = getEnt ("trigger15" , "targetname");
+	level endon("trigger");
 	brush = getEnt( "trap15_links", "targetname" );
 	brush1 = getEnt( "trap15_rechts", "targetname" );
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig SetHintstring ("^1Activated!");
 
 	brush notsolid();
@@ -851,15 +866,16 @@ trap15()
 		brush1 rotateyaw( -360, 2.5 );
 		wait 2.5;
 	}
-*/}
+}
 
 trap16()
 {
 	doors = getEnt ("trap16_doors" ,"targetname" );
+	level endon("trigger");
 	wall = getEnt ("trap16_wall" ,"targetname" );
 	trig = getEnt ("trigger16" , "targetname");
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig SetHintstring ("^1Activated!");
    	
 	doors movey( -306 , 2);
@@ -869,7 +885,7 @@ trap16()
 	wall movey ( -745 , 1);
 	wait 1;
 	doors movey( 306 , 2);
-*/}
+}
 
 lazers1()
 {

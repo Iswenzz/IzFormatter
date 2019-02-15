@@ -109,11 +109,12 @@ randomRoute()
 trapjump()
 {
 	trig = getEnt("trapjumptrig", "targetname");
+	level endon("trigger");
 	explode = getEnt("trapjumpexplode", "targetname");
 	startdoor = getEnt("trapjumperdoor", "targetname");
 
 	trig setHintString("Press [^1USE^7] to detonate");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	playFx ( level.explosion, explode.origin );
 	wait 0.1;
@@ -121,23 +122,24 @@ trapjump()
 	wait 0.1;
 	startdoor delete();
 //AUTO 	ambientPlay("trap");
-*/}
+}
 
 trapport()
 {
   trigger = getEnt("sendtotrap", "targetname");
+	level endon("trigger");
   target = getEnt("trap_origin", "targetname");
   
   while(1)
   {
-/* AUTO 	 trigger waittill ("trigger", player);
+	 trigger waittill ("trigger", player);
 		
 	  {
 	    player SetOrigin(target.origin);
 	    player SetPlayerAngles( target.angles );
 	  }
     }
-*/}
+}
 
 trancejump()
 {
@@ -210,10 +212,11 @@ fx()
 trap_trap1()
 {
 	trig = getEnt("trap_trap1_trig", "targetname");
+	level endon("trigger");
 	trap = getEnt("trap_trap1", "targetname");
 
 	trig setHintString("Press [^1USE^7] to activate");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 
 	trig delete();
 
@@ -222,17 +225,18 @@ trap_trap1()
 		trap rotatePitch(-360, 14);
 		wait 1;
 	}
-*/}
+}
 
 trap_trap2()
 {
 	trig = getEnt("trap_trap2_trig", "targetname");
+	level endon("trigger");
 	trap = getEnt("trap_trap2", "targetname");
 	trap2 = getEnt("trap_trap2a", "targetname");
 	trap3 = getEnt("trap_trap2b", "targetname");
 
 	trig setHintString("Press [^1USE^7] to activate");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 
 	trig delete();
 	trap2 moveX(-160, 1);
@@ -249,15 +253,16 @@ trap_trap2()
 		trap moveX(50, 1.5);
 		wait 2;
 	}
-*/}
+}
 
 trap_trap3()
 {
 	trig = getEnt("trap_trap3_trig", "targetname");
+	level endon("trigger");
 	trap = getEnt("trap_trap3", "targetname");
 
 	trig setHintString("Press [^1USE^7] to activate");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 
 	trig delete();
 
@@ -266,16 +271,17 @@ trap_trap3()
 		trap rotateYaw(360, 1);
 		wait 0.1;
 	}
-*/}
+}
 
 trap_trap4()
 {
   	trigger = getEnt("trap_trap4_trig", "targetname");
+	level endon("trigger");
   	trap = getEnt("trap_trap4", "targetname");
  	 trap2 = getEnt("trap_trap4a", "targetname");
   
   	trigger setHintString("Press [^1USE^7] to activate");
-/* AUTO   	trigger waittill("trigger");
+  	trigger waittill("trigger");
   	trigger delete();
   
   	wait 0.1;
@@ -285,21 +291,22 @@ trap_trap4()
 		trap2 rotatePitch(-360,1.5);
     	wait 0.1;
   	}
-*/}
+}
 
 trap_trap5()
 {
 	fire = getEnt("trap_5fx", "targetname");
+	level endon("trigger");
 	trig = getEnt("trap_trap5_trig", "targetname");
 
 	trig setHintString("Press [^1USE^7] to activate");
-/* AUTO   	trig waittill("trigger");
+  	trig waittill("trigger");
   	trig delete();
 
 	playFx ( level.fire, fire.origin );
 	wait 10;
 //AUTO 	iPrintLnBold("Hahaha, scared? It's just fake.");
-*/}
+}
 
 movetoend()
 {
@@ -362,11 +369,12 @@ movetoend2()
 trance_trap1()
 {
 	trig = getEnt("trance_trap1_trig", "targetname");
+	level endon("trigger");
 	trap1 = getEnt("trance_trap1", "targetname");
 	trap2 = getEnt("trance_trap1a", "targetname");
 
 	trig setHintString("Press [^1USE^7] to activate");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	while(1)
@@ -378,17 +386,18 @@ trance_trap1()
 		trap2 moveZ(-150, 0.5);
 		wait 1;
 	}
-*/}
+}
 
 trance_trap2()
 {
 	trig = getEnt("trance_trap2_trig", "targetname");
+	level endon("trigger");
 	trap1 = getEnt("trance_trap2", "targetname");
 	trap2 = getEnt("trance_trap2a", "targetname");
 	trap3 = getEnt("trance_trap2b", "targetname");
 
 	trig setHintString("Press [^1USE^7] to activate");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	trap2 rotateYaw(90, 1);
@@ -401,17 +410,18 @@ trance_trap2()
 		trap1 moveZ(200, 2);
 		wait 2;
 	}
-*/}
+}
 
 trance_trap3()
 {
 	trig = getEnt("trance_trap3_trig", "targetname");
+	level endon("trigger");
 	trap1 = getEnt("trance_trap3", "targetname");
 	explode = getEnt("shakeme", "targetname");
 
 
 	trig setHintString("Press [^1USE^7] to activate");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 
@@ -424,7 +434,7 @@ trance_trap3()
 		trap1 moveZ(450, 1);
 		wait 3;
 	}
-*/}
+}
 
 welcomecucc()
 {

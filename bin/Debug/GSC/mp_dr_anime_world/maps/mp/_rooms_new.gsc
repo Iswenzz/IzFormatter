@@ -56,17 +56,17 @@ sniper_room()
         else
         {thread battle_hud(100,-100,""+level.activ.name+"");}
 		thread battle_hud(-100,-100,""+player.name+"");
-//AUTO 		wait 4;
+		wait 4;
 //AUTO         player GiveWeapon( "remington700_mp" );
 //AUTO 		player switchToWeapon( "remington700_mp" );
 //AUTO 		player GiveMaxAmmo("remington700_mp");
-//AUTO 	    wait 0.1;
+	    wait 0.1;
 //AUTO 		level.activ GiveWeapon( "remington700_mp" );
 //AUTO         level.activ SwitchToWeapon( "remington700_mp" );
 //AUTO         level.activ GiveMaxAmmo("remington700_mp");
 	    player freezeControls(false);
 		level.activ freezeControls(false);
-//AUTO         wait 1;
+        wait 1;
     }
 }
 
@@ -118,12 +118,12 @@ bounce_room()
         else
 		{thread battle_hud(100,-100,""+level.activ.name+"");}
 		thread battle_hud(-100,-100,""+player.name+"");
-//AUTO 		wait 2;
+		wait 2;
 //AUTO         player GiveWeapon( "deserteagle_mp" );
 //AUTO 		player switchToWeapon( "deserteagle_mp" );
 		player setWeaponAmmoClip("deserteagle_mp", 0 );
 		player setWeaponAmmoStock( "deserteagle_mp", 0 );
-//AUTO 	    wait 0.1;
+	    wait 0.1;
 //AUTO 		level.activ GiveWeapon( "deserteagle_mp" );
 //AUTO         level.activ SwitchToWeapon( "deserteagle_mp" );
         level.activ setWeaponAmmoClip("deserteagle_mp", 0 );
@@ -131,7 +131,7 @@ bounce_room()
 	    player freezeControls(false);
 		level.activ freezeControls(false);
         player = level.bounceplayer;
-//AUTO         wait 1;
+        wait 1;
     }
 }
 
@@ -151,7 +151,7 @@ bounce_room_fail()
         {
             level.activ setOrigin(actifail.origin);
         }
-//AUTO         wait .1;
+        wait .1;
     }
 }
 
@@ -224,10 +224,10 @@ superpower_room()
         player thread healthup();
         level.activ superpower();
         level.activ thread healthup();
-//AUTO         wait 2;
+        wait 2;
         player freezeControls(false);
         level.activ freezeControls(false);
-//AUTO         wait 1;
+        wait 1;
     }
 }
 
@@ -259,7 +259,7 @@ fight_room()
         level.firstenter=false;
         }
         level.fightplayer = player;
-//AUTO         wait .1;
+        wait .1;
         level.fightplayer SetPlayerAngles( level.jumper_superpower.angles );
         level.fightplayer setOrigin( level.jumper_superpower.origin );
 //AUTO         level.fightplayer TakeAllWeapons();
@@ -292,10 +292,10 @@ fight_room()
 //AUTO         level.activ switchToWeapon(wep);
 //AUTO         level.fightplayer SetMoveSpeedScale( 3 );
 //AUTO         level.activ SetMoveSpeedScale( 3 );
-//AUTO         wait 2;
+        wait 2;
         level.fightplayer freezeControls(false);
         level.activ freezeControls(false);
-//AUTO         wait 1;
+        wait 1;
     }
 }
 

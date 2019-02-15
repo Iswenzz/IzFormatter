@@ -158,24 +158,26 @@ GiveJumpersWeapon( weap )
 trap1()
 {
      trig = getent("trap1_trig", "targetname");
+	level endon("trigger");
 	 up = getent("trap1_up", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 up moveZ (69, 1);
 	 wait 4;
 	 up moveZ (-69, 3);
 	 
-*/}
+}
 
 trap2()
 {
      trig = getent("trap2_trig", "targetname");
+	level endon("trigger");
 	 spin = getent("trap2_spin", "targetname");
 	 spin1 = getent("trap2_spin1", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 while(1)
@@ -184,15 +186,16 @@ trap2()
 		 spin1 rotateroll (180, 0.6);
 		 wait 0.6;
 		}
-*/}
+}
 
 trap3()
 {
      trig = getent("trap3_trig", "targetname");
+	level endon("trigger");
 	 plat = getent("trap3_plat", "targetname");
 	 plat2 = getent("trap3_plat2", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 while(1)
@@ -204,15 +207,16 @@ trap3()
 		 plat2 moveZ (64,0.8);
 		 wait 1;
 		}
-*/}
+}
 
 trap4()
 {
      trig = getent("trap4_trig", "targetname");
+	level endon("trigger");
 	 push = getent("trap4_push", "targetname");
 	 push2 = getent("trap4_push2", "targetname");
 	
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 while(1)
@@ -224,15 +228,16 @@ trap4()
 		 push2 moveX (-400, 0.6);
 		 wait 0.5;
 		}
-*/}
+}
 
 trap5()
 {
      trig = getent("trap5_trig", "targetname");
+	level endon("trigger");
 	 slide = getent("trap5_slide", "targetname");
 	 slide2 = getent("trap5_slide2", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 while(1)
@@ -245,14 +250,15 @@ trap5()
 		 wait 0.3;
 		}
 	 
-*/}
+}
 
 trap6()
 {
      trig = getent("trap6_trig", "targetname");
+	level endon("trigger");
 	 sp = getent("trap6_sp", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 while(1)
@@ -260,14 +266,15 @@ trap6()
 	     sp rotateyaw (180,3);
 		 wait 3;
 		}
-*/}
+}
 
 trap7()
 {
      trig = getent("trap7_trig", "targetname");
+	level endon("trigger");
 	 down = getent("trap7_down", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 while(1)
@@ -277,14 +284,15 @@ trap7()
 		 down moveZ (320,0.3);
 		 wait 3;
 		}
-*/}
+}
 
 trap8()
 {
      trig = getent("trap8_trig", "targetname");
+	level endon("trigger");
 	 aaa = getent("trap8_aaa", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 while(1)
@@ -294,14 +302,15 @@ trap8()
 		 aaa moveX (-400,0.8);
 		 wait 1;
 		}
-*/}
+}
 
 trap9()
 {
      trig = getent("trap9_trig", "targetname");
+	level endon("trigger");
 	 bbb = getent("trap9_bbb", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 while(1)
@@ -311,15 +320,16 @@ trap9()
 		 bbb moveZ (10,0.1);
 		 wait 0.5;
 		}
-*/}
+}
 
 trap10()
 {
      trig = getent("trap10_trig", "targetname");
+	level endon("trigger");
 	 ccc = getent("trap10_ccc", "targetname");
 	 ccc2 = getent("trap10_ccc2", "targetname");
 	
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 
 	 while(1)
@@ -328,14 +338,15 @@ trap10()
 		 ccc2 rotateyaw (180,0.3);
 		 wait 0.3;
 		}
-*/}
+}
 
 trap11()
  {   
 	 trig = getent("trap11_trig", "targetname");
+	level endon("trigger");
 	 ddd = getent("trap11_ddd", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 while(1)
@@ -345,14 +356,15 @@ trap11()
 		 ddd moveY (240,1);
 		 wait 2;
 		}
-*/}
+}
 
 trap12()
 {
      trig = getent("trap12_trig", "targetname");
+	level endon("trigger");
 	 eee = getent("trap12_eee", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 while(1)
@@ -360,7 +372,7 @@ trap12()
 	     eee rotatepitch (180, 1);
 		 wait 4.5;
 		}
-*/}
+}
 
 end()//end room add more weapons if you wish
 {

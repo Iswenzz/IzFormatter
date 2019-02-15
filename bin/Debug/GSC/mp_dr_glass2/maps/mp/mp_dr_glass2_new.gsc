@@ -102,9 +102,10 @@ GetTraps()
 DoTrap1()
 {
 	doora = getEnt("trap1_a", "targetname");
+	level endon("trigger");
 	doorb = getEnt("trap1_b", "targetname");
 	
-/* AUTO 	self waittill("trigger");
+	self waittill("trigger");
 	self delete();
 	
 	doora RotatePitch( 90, 0.5, 0.25, 0.25 );
@@ -114,11 +115,12 @@ DoTrap1()
 	
 	doora RotatePitch( -90, 0.5, 0.25, 0.25 );
 	doorb RotatePitch( 90, 0.5, 0.25, 0.25 );
-*/}
+}
 
 DoTrap2()
 {
 	spikes = getEnt("trap2_spikes", "targetname");
+	level endon("trigger");
 	smasher = getEnt("trap2_smasher", "targetname");
 	
 	spikes.oldpos = spikes.origin;
@@ -132,7 +134,7 @@ DoTrap2()
 	smasher_trig LinkTo( smasher );
 	smasher_trig thread BloodyTrigger(2);
 	
-/* AUTO 	self waittill("trigger");
+	self waittill("trigger");
 	self delete();
 	
 	spikes MoveZ( 48, 0.5, 0.5, 0 );
@@ -146,35 +148,37 @@ DoTrap2()
 	
 	spikes MoveTo( spikes.oldpos, 1, 0.5, 0.5 );
 	smasher MoveTo( smasher.oldpos, 2, 1, 1 );
-*/}
+}
 
 DoTrap3()
 {
 	inside = getEnt("trap3_inside", "targetname");
+	level endon("trigger");
 	outside = getEnt("trap3_outside", "targetname");
 	
 	inside NotSolid();
 	
-/* AUTO 	self waittill("trigger");
+	self waittill("trigger");
 	self delete();
 	
 	inside Solid();
 	outside NotSolid();
-*/}
+}
 
 DoTrap4()
 {
 	platform1 = getEnt("trap4_platform1", "targetname");
+	level endon("trigger");
 	platform2 = getEnt("trap4_platform2", "targetname");
 	platform3 = getEnt("trap4_platform3", "targetname");
 	
-/* AUTO 	self waittill("trigger");
+	self waittill("trigger");
 	self delete();
 	
 	platform1 thread MovePlatformRandom( -256 );
 	platform2 thread MovePlatformRandom( 256 );
 	platform3 thread MovePlatformRandom( -256 );
-*/}
+}
 
 MovePlatformRandom( amount )
 {
@@ -194,8 +198,9 @@ MovePlatformRandom( amount )
 DoTrap5()
 {
 	hammer = getEnt("trap5_hammer", "targetname");
+	level endon("trigger");
 	
-/* AUTO 	self waittill("trigger");
+	self waittill("trigger");
 	self delete();
 	
 	while(1)
@@ -203,15 +208,16 @@ DoTrap5()
 		hammer RotateRoll( 360, 3, 0, 0 );
 		wait 3;
 	}
-*/}
+}
 
 DoTrap6()
 {
 	//392 y
+	level endon("trigger");
 	smasher = getEnt("trap6_smasher", "targetname");
 	smasher.oldpos = smasher.origin;
 	
-/* AUTO 	self waittill("trigger");
+	self waittill("trigger");
 	self delete();
 	
 	smasher MoveY( 392, 1, 1, 0 );
@@ -223,11 +229,12 @@ DoTrap6()
 	wait 2;
 	
 	smasher MoveTo( smasher.oldpos, 3, 1, 1 );
-*/}
+}
 
 DoTrap7()
 {
 	//-36 z
+	level endon("trigger");
 	spikes = getEnt("trap7_spikes", "targetname");
 	spikes.oldpos = spikes.origin;
 	
@@ -236,19 +243,20 @@ DoTrap7()
 	spikes_trig LinkTo( spikes );
 	spikes_trig thread BloodyTrigger(1);
 	
-/* AUTO 	self waittill("trigger");
+	self waittill("trigger");
 	self delete();
 	
 	spikes MoveZ( -36, 1, 0.5, 0 );
 	wait 3;
 	spikes MoveTo( spikes.oldpos, 1, 0.5, 0 );
-*/}
+}
 
 DoTrap8()
 {
 	rotator = getEnt("trap8_rotator", "targetname");
+	level endon("trigger");
 	
-/* AUTO 	self waittill("trigger");
+	self waittill("trigger");
 	self delete();
 	
 	while(1)
@@ -256,18 +264,19 @@ DoTrap8()
 		rotator RotateRoll( -360, 2.5, 0, 0 );
 		wait 1.5;
 	}
-*/}
+}
 
 DoTrap9()
 {
 	block_up = getEntArray("trap9_blocker_up", "targetname");
+	level endon("trigger");
 	for(i=0;i<block_up.size;i++)
 		block_up[i].up = true;
 	block_down = getEntArray("trap9_blocker_down", "targetname");
 	for(i=0;i<block_down.size;i++)
 		block_down[i].up = false;
 	
-/* AUTO 	self waittill("trigger");
+	self waittill("trigger");
 	self delete();
 	
 	//z 136
@@ -297,17 +306,18 @@ DoTrap9()
 		}
 		wait 10+RandomInt(10);
 	}
-*/}
+}
 
 DoTrap11()
 {
 	pusher = getEnt("trap11_pusher", "targetname");
+	level endon("trigger");
 	fan = getEnt("trap11_fan", "targetname");
 	fan.online = false;
 	fan thread FanPush( pusher );
 	fan LinkTo( pusher );
 	
-/* AUTO 	self waittill("trigger");
+	self waittill("trigger");
 	self delete();
 	
 	while(1)
@@ -324,7 +334,7 @@ DoTrap11()
 			fan.online = false;
 		wait 10;
 	}
-*/}
+}
 
 FanPush( pusher )
 {

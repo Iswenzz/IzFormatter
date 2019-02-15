@@ -186,13 +186,14 @@ startdoor()
 trap1()
 {
 	trig=getent("tirg_trap1","targetname");
+	level endon("trigger");
 	pf1 = getent("trap1_1", "targetname");
 	pf2 = getent("trap1_2", "targetname");
 	pf3 = getent("trap1_3", "targetname");
 	pf4 = getent("trap1_4", "targetname");
 
 	trig sethintstring("Press ^1&&1^7 to activate the trap.");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	switch(randomint(4))
@@ -214,15 +215,16 @@ trap1()
 			pf4 delete();
 			break;
 	}
-*/}
+}
 
 trap2()
 {
 	trig=getent("tirg_trap2","targetname");
+	level endon("trigger");
 	spin = getent("trap2", "targetname");
 
 	trig sethintstring("Press ^1&&1^7 to activate the trap.");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	while(1)
@@ -232,15 +234,16 @@ trap2()
 		spin rotateyaw (-360, 2.5);
 		wait 2.5;
 	}
-*/}
+}
 
 trap3()
 {
 	trig=getent("tirg_trap3","targetname");
+	level endon("trigger");
 	twoway = getent("trap3", "targetname");
 
 	trig sethintstring("Press ^1&&1^7 to activate the trap.");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	twoway moveY (80, 1.5);
@@ -253,18 +256,19 @@ trap3()
 		twoway moveY (160, 3);
 		wait 3;
 	}
-*/}
+}
 
 trap4()
 {
 	trig=getent("tirg_trap4","targetname");
+	level endon("trigger");
 	spike = getent("trap4", "targetname");
 	bspike = getent("trap4_1", "targetname");
 	spike_hurt = getent("trap4_hurt", "targetname");
 	bspike_hurt = getent("trap4_1_hurt", "targetname");
 
 	trig sethintstring("Press ^1&&1^7 to activate the trap.");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	spike_hurt enablelinkto();
@@ -282,15 +286,16 @@ trap4()
 	bspike delete();
 	spike_hurt delete();
 	bspike_hurt delete();
-*/}
+}
 
 trap5()
 {
 	trig=getent("tirg_trap5","targetname");
+	level endon("trigger");
 	bou = getent("trap5", "targetname");
 
 	trig sethintstring("Press ^1&&1^7 to activate the trap.");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	while(1)
@@ -300,7 +305,7 @@ trap5()
 		bou rotateroll (360, 4);
 		wait 6;
 	}
-*/}
+}
 
 platforms()
 {
@@ -365,13 +370,14 @@ platf2()
 trap6()
 {
 	trig=getent("tirg_trap6","targetname");
+	level endon("trigger");
 	laser1 = getent("trap6_1", "targetname");
 	laser2 = getent("trap6_2", "targetname");
 	laser1_hurt = getent("trap6_1_hurt", "targetname");
 	laser2_hurt = getent("trap6_2_hurt", "targetname");
 
 	trig sethintstring("Press ^1&&1^7 to activate the trap.");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	laser1_hurt enablelinkto();
@@ -388,22 +394,23 @@ trap6()
 		wait 5.5;
 		laser2 moveZ (300, 5);
 	}
-*/}
+}
 
 trap7()
 {
 	trig=getent("tirg_trap7","targetname");
+	level endon("trigger");
 	wall = getent("trap7", "targetname");
 	wall_hurt = getent("trap7_hurt", "targetname");
 
 	trig sethintstring("Press ^1&&1^7 to activate the trap.");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	wall_hurt enablelinkto();
 	wall_hurt linkto (wall);
 	wall moveZ (624, 2);
-*/}
+}
 
 actitp()
 {
@@ -420,10 +427,11 @@ actitp()
 trap8()
 {
 	trig=getent("tirg_trap8","targetname");
+	level endon("trigger");
 	ad1 = getent("trap8", "targetname");
 
 	trig sethintstring("Press ^1&&1^7 to activate the trap.");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	x = Randomint(4);
@@ -467,11 +475,12 @@ trap8()
 			wait 5;
 		}
 	}
-*/}
+}
 
 trap9()
 {
 	trig=getent("tirg_trap9","targetname");
+	level endon("trigger");
 	pf1 = getent("trap9_pf_1", "targetname");
 	pf2 = getent("trap9_pf_2", "targetname");
 	pf3 = getent("trap9_pf_3", "targetname");
@@ -479,7 +488,7 @@ trap9()
 	pf0 = getent("trap9", "targetname");
 
 	trig sethintstring("Press ^1&&1^7 to activate the trap.");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	pf0 delete();
@@ -516,7 +525,7 @@ trap9()
 		pf4 moveZ (176, 3);
 		wait 3.1;
 	}
-*/}
+}
 
 endroom()
 {
@@ -535,7 +544,7 @@ endroom()
 		who setplayerangles(targ.angles);
 
 		while(isalive(who) && isdefined(who))
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 

@@ -216,10 +216,11 @@ while(1)
  trap1()
 {
         trap1_1	= getEnt("trap1_1","targetname");
+	level endon("trigger");
 		trap1_2	= getEnt("trap1_2","targetname");
 		trap1_3	= getEnt("trap1_3","targetname");
 		trig = getEnt("trig1","targetname");
-/* AUTO         trig waittill ("trigger", player);
+        trig waittill ("trigger", player);
         trig delete();
 		while(1)
         {
@@ -228,15 +229,16 @@ while(1)
 				trap1_3 rotatepitch (-360 , 2);
 		wait 1;		
 		}
-*/}
+}
 
 trap2()
 {
 origin = GetEnt("trap2_1","targetname");
+	level endon("trigger");
 origin2 = GetEnt("trap2_2","targetname");
 kill = GetEnt("trap2kill","targetname");
 trig = GetEnt("trig2","targetname");
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 trig delete();
 thread trap2_1();
 PlayFX( level.trap2, origin.origin );
@@ -248,7 +250,7 @@ kill waittill("trigger", player);
 wait 0.01;
 player suicide();
 }
-*/}
+}
 
 trap2_1()
 {
@@ -262,9 +264,10 @@ kill delete();
 						trap3()
 	{
 	trap3 = getEnt ("trap3","targetname");
+	level endon("trigger");
 	kill3 = getEnt ("trap3kill","targetname");
 	trig = getEnt ("trig3","targetname");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig delete ();
 	
 			kill3 enablelinkto();
@@ -273,27 +276,29 @@ kill delete();
 		trap3 moveZ(410, 4);
 		wait 7;
 		trap3 moveZ(-410, 4);
-*/}
+}
 
 						trap4()
 	{
 	trap4 = getEnt ("trap4","targetname");
+	level endon("trigger");
 	trig = getEnt ("trig4","targetname");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig delete ();
 
 		trap4 moveZ(-200, 2);
 		trap4 waittill("movedone");
 		wait 3;
 		trap4 moveZ(200, 1);
-*/}
+}
 
 trap5()
 {
 origin = GetEnt("farmer","targetname");
+	level endon("trigger");
 kill = GetEnt("trap5kill","targetname");
 trig = GetEnt("trig5","targetname");
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 trig delete();
 thread trap5_1();
 PlayFX( level.trap5, origin.origin );
@@ -304,7 +309,7 @@ kill waittill("trigger", player);
 wait 0.01;
 player suicide();
 }
-*/}
+}
 
 trap5_1()
 {
@@ -328,8 +333,9 @@ scarytrig delete();
 						trap6()
 	{
 	trap6 = getEnt ("trap6","targetname");
+	level endon("trigger");
 	trig = getEnt ("trig6","targetname");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig delete ();
 	
 while(1)
@@ -343,13 +349,14 @@ while(1)
 		trap6 movex(-480, 2);
 		wait 2;
 }
-*/	}
+	}
 
  trap7()
 {
         trap7 = getEnt("trap7","targetname");
+	level endon("trigger");
 		trig = getEnt("trig7","targetname");
-/* AUTO         trig waittill ("trigger", player);
+        trig waittill ("trigger", player);
         trig delete();
 		while(1)
         {
@@ -360,58 +367,62 @@ while(1)
 
 		wait 7;		
 		}
-*/}
+}
 
 trap8back()
 {
 	tele = GetEnt("trap8backtomap","targetname");
+	level endon("trigger");
 	origin = GetEnt("trap8backtomaporigin","targetname");
 	while(1)
         {
-/* AUTO 	tele waittill("trigger", player);
+	tele waittill("trigger", player);
 	
 			player SetPlayerAngles( origin.angles );
 	        player setOrigin( origin.origin );
 }	
-*/}
+}
 
 trap8()
 {
 origin = GetEnt("trap8","targetname");
+	level endon("trigger");
 teleportorigin = GetEnt("trap8origin","targetname");
 teleport = GetEnt("trap8teleport","targetname");
 trig = GetEnt("trig8","targetname");
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 trig delete();
 thread trap8_1();
 PlayFX( level.trap8, origin.origin );
 
-*/}
+}
 
 trap8_1()
 {
 teleportorigin = GetEnt("trap8origin","targetname");
+	level endon("trigger");
 teleport = GetEnt("trap8teleport","targetname");
 	while(1)
         {
-/* AUTO 	teleport waittill("trigger", player);
+	teleport waittill("trigger", player);
 	
 			player SetPlayerAngles( teleportorigin.angles );
 	        player setOrigin( teleportorigin.origin );
 }	
-*/}
+}
 
  trap9()
 {
         trap9 = getEnt("trap9","targetname");
+	level endon("trigger");
 		origin = getEnt("trap9origin","targetname");
 		trig = getEnt("trig9","targetname");
-/* AUTO         trig waittill ("trigger", player);
+        trig waittill ("trigger", player);
         trig delete();
                 trap9 hide();
 				trap9 notsolid();
 				PlayFX( level.trap9, origin.origin );
-*/}
+}
 
 	treetrig()
 {
@@ -467,26 +478,28 @@ trig waittill("trigger", player);
 						trapextra()
 	{
 	trapextra = getEnt ("trapextra","targetname");
+	level endon("trigger");
 	trig = getEnt ("trigextra","targetname");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig delete ();
 
 		trapextra moveZ(200, 2);
 
-*/}
+}
 
 						trap10()
 	{
 	trap10 = getEnt ("trap10","targetname");
+	level endon("trigger");
 	trig = getEnt ("trig10","targetname");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig delete ();
 
 		trap10 moveZ(-200, 2);
 		trap10 waittill("movedone");
 		wait 3;
 		trap10 moveZ(200, 2);
-*/}
+}
 
 sniper()
 {
@@ -521,7 +534,7 @@ sniper()
 //AUTO 	        level.activ GiveMaxAmmo( "remington700_mp" );
 //AUTO 			level.activ GiveWeapon( "m40a3_mp" );
 //AUTO 	        level.activ GiveMaxAmmo( "m40a3_mp" );
-//AUTO 	        wait .05;
+	        wait .05;
 //AUTO 	        player switchToWeapon( "remington700_mp" ); 
 //AUTO 	        level.activ SwitchToWeapon( "remington700_mp" );
 	        player FreezeControls(1);
@@ -534,7 +547,7 @@ sniper()
 					players = getentarray("player", "classname");
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 					wait 5;
+					wait 5;
 					player FreezeControls(0);
 					level.activ FreezeControls(0);
 			player waittill( "death" );
@@ -576,7 +589,7 @@ weapon()
 //AUTO 	        level.activ GiveMaxAmmo( "ak74u_mp" );
 //AUTO 			level.activ GiveWeapon( "deserteagle_mp" );
 //AUTO 	        level.activ GiveMaxAmmo( "deserteagle_mp" );
-//AUTO 	        wait .05;
+	        wait .05;
 //AUTO 	        player switchToWeapon( "ak74u_mp" ); 
 //AUTO 	        level.activ SwitchToWeapon( "ak74u_mp" );
 	        player FreezeControls(1);
@@ -589,7 +602,7 @@ weapon()
 					players = getentarray("player", "classname");
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 					wait 5;
+					wait 5;
 					player FreezeControls(0);
 					level.activ FreezeControls(0);
 			player waittill( "death" );
@@ -625,7 +638,7 @@ bounce()
 	        level.activ setOrigin( acti.origin );
 //AUTO 	        level.activ TakeAllWeapons();
 //AUTO 	        level.activ GiveWeapon( "tomahawk_mp" );
-//AUTO 	        wait .05;
+	        wait .05;
 //AUTO 	        player switchToWeapon( "tomahawk_mp" ); 
 //AUTO 	        level.activ SwitchToWeapon( "tomahawk_mp" );
 	        player FreezeControls(1);
@@ -638,7 +651,7 @@ bounce()
 					players = getentarray("player", "classname");
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 					wait 5;
+					wait 5;
 					player FreezeControls(0);
 					level.activ FreezeControls(0);
 			player waittill( "death" );
@@ -713,7 +726,7 @@ knife()
 	        level.activ setOrigin( acti.origin );
 //AUTO 	        level.activ TakeAllWeapons();
 //AUTO 	        level.activ GiveWeapon( "tomahawk_mp" );
-//AUTO 	        wait .05;
+	        wait .05;
 //AUTO 	        player switchToWeapon( "tomahawk_mp" ); 
 //AUTO 	        level.activ SwitchToWeapon( "tomahawk_mp" );
 	        player FreezeControls(1);
@@ -726,7 +739,7 @@ knife()
 					players = getentarray("player", "classname");
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 					wait 5;
+					wait 5;
 					player FreezeControls(0);
 					level.activ FreezeControls(0);
 			player waittill( "death" );

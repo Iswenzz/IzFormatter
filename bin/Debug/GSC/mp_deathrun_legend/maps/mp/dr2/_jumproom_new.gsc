@@ -28,13 +28,13 @@ Jumproom()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
 //AUTO         iPrintlnBold( " ^4" + player.name + " ^2 picked ^9JUMP^7!" );
-//AUTO 		wait 0.1;
+		wait 0.1;
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

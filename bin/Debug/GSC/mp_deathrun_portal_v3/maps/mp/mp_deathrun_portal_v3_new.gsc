@@ -62,30 +62,32 @@ main()
 trap_1()
 {
 	trig = getEnt( "trigger1", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap1", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	who PlaySound("button_synth_positive_01");
 	trig delete();
 
 	brush movey( -368, 2 );
 	wait 5;
 	brush movey( 368, 2 );
-*/}
+}
 
 trap_2()
 {
 	trig = getEnt( "trigger2", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap2", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	who PlaySound("button_synth_positive_01");
 	trig delete();
 
 	brush moveZ( -500, 3 );
 	wait 5;
 	brush moveZ( 500, 1 );
-*/}
+}
 
 hidedoor()
 {
@@ -105,23 +107,25 @@ hidedoor()
 trap_3()
 {
 	trig = getEnt( "trigger3", "targetname" );
+	level endon("trigger");
 	brushGroup1 = getEntArray( "trap3_1", "targetname" );
 	brushGroup2 = getEntArray( "trap3_2", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	who PlaySound("button_synth_positive_01");
 	trig delete();
 	
 	brushGroup1[randomInt(brushGroup1.size)] notSolid();
 	brushGroup2[randomInt(brushGroup2.size)] notSolid();
-*/}
+}
 
 trap_4()
 {
 	trig = getEnt( "trigger4", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap4", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	who PlaySound("button_synth_positive_01");
 	trig delete();
 
@@ -129,7 +133,7 @@ trap_4()
 	wait 3;
 	brush movey( 288, 2 );
 
-*/}
+}
 
 stairs()
 {
@@ -250,9 +254,10 @@ play_the_sound( used_trigger, sound )
 trap_5()
 {
 	trig = getEnt( "trigger5", "targetname" );
+	level endon("trigger");
 	trap5 = getEnt( "trap5", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	who PlaySound("button_synth_positive_01");
 	trig delete();
 
@@ -260,22 +265,24 @@ trap_5()
 	wait 5;
 	trap5 movez( 250, 2 );
 
-*/}
+}
 
 trap_6()
 {
 	trig = getEnt( "trigger6", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap6", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	who PlaySound("button_synth_positive_01");
 	trig delete();
 	brush delete();
-*/}
+}
 
 trap_7()
 {
 	trig = getEnt( "trigger7", "targetname" );
+	level endon("trigger");
 
 	brush1 = getEnt( "trap7_1", "targetname" );
 	brush2 = getEnt( "trap7_2", "targetname" );
@@ -283,7 +290,7 @@ trap_7()
 	oldOrigin1 = brush1.origin;
 	oldOrigin2 = brush2.origin;
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	who PlaySound("button_synth_positive_01");
 
 	moveTo = getEnt( brush1.target, "targetname" );
@@ -298,7 +305,7 @@ trap_7()
 
 	brush1 moveTo( oldOrigin1, 1.2 );
 	brush2 moveTo( oldOrigin2, 1.2 );
-*/}
+}
 
 finalDoor()
 {

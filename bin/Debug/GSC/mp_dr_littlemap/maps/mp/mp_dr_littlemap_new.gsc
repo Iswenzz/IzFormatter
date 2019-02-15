@@ -97,9 +97,10 @@ automove2()
 trap1()
 {
     block = getent("trap1","targetname");
+	level endon("trigger");
 	trig = getent("trig_trap1","targetname");
 	trig SetHintString("^3 Move the brush");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	
 	for(;;)
 	{
@@ -109,14 +110,15 @@ trap1()
 	block moveZ (-100, 0.5);
 	}
 	
-*/}
+}
 
 trap2()
 {
     block = getent("trap2","targetname");
+	level endon("trigger");
 	trig = getent("trig_trap2","targetname");
 	trig SetHintString("^3 Rotate the bounce");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	
 	for(;;)
 	{
@@ -125,14 +127,15 @@ trap2()
 	wait 10;	
 	}
 	
-*/}
+}
 
 trap3()
 {
     block = getent("trap3","targetname");
+	level endon("trigger");
     trig = getent("trig_trap3","targetname");
 	trig SetHintString("^3 Rotate the bounce");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	
 	for(;;)
 	{
@@ -141,40 +144,43 @@ trap3()
 	wait 10;	
 	}
 	
-*/}
+}
 
 trap4()
 {
     platform = getent("trap4","targetname");
+	level endon("trigger");
     trig = getent("trig_trap4","targetname");
     trig SetHintString("^3 Remove the brush");
-/* AUTO     trig waittill("trigger",player);
+    trig waittill("trigger",player);
    
     platform delete();
    
     trig delete();
    
-*/}
+}
 
 trap7()
 {
     platform = getent("trap7","targetname");
+	level endon("trigger");
     trig = getent("trig_trap7","targetname");
     trig SetHintString("^3 Remove the brush");
-/* AUTO     trig waittill("trigger",player);
+    trig waittill("trigger",player);
    
     platform delete();
    
     trig delete();
    
-*/}
+}
 
 trap6()
 {
     block = getent("trap6","targetname");
+	level endon("trigger");
 	trig = getent("trig_trap6","targetname");
 	trig SetHintString("^3 Move the brush");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	
 	for(;;)
 	{
@@ -184,14 +190,15 @@ trap6()
 	block moveX (-100, 3);
 	}
 	
-*/}
+}
 
 trap8()
 {
     block = getent("trap8","targetname");
+	level endon("trigger");
 	trig = getent("trig_trap8","targetname");
 	trig SetHintString("^3 Rotate the bounce");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	
 	for(;;)
 	{
@@ -200,7 +207,7 @@ trap8()
 	wait 10;	
 	}
 	
-*/}
+}
 
 porte1()
 {
@@ -330,7 +337,7 @@ sniper()
    level.bounce_trigger delete();
    level.firstenter=false;
    } 
-//AUTO    wait(0.05);
+   wait(0.05);
 
    player SetOrigin( telejumporigin.origin );
    player setplayerangles( telejumporigin.angles );
@@ -339,9 +346,9 @@ sniper()
 //AUTO    player GiveWeapon( "remington700_mp" ); 
 //AUTO    player GiveMaxAmmo("m40a3_mp");
 //AUTO    player GiveMaxAmmo( "remington700_mp" );
-//AUTO    wait .05;
+   wait .05;
 //AUTO    player SwitchToWeapon("m40a3_mp"); 
-//AUTO    wait(0.05);
+   wait(0.05);
    level.activ SetOrigin (level.teleactorigin.origin);
    level.activ setplayerangles (level.teleactorigin.angles);
 //AUTO    level.activ TakeAllWeapons();
@@ -349,10 +356,10 @@ sniper()
 //AUTO    level.activ GiveWeapon( "remington700_mp" );
 //AUTO    level.activ GiveMaxAmmo("m40a3_mp");
 //AUTO    level.activ GiveMaxAmmo( "remington700_mp" );
-//AUTO    wait .05;
+   wait .05;
 //AUTO    level.activ SwitchToWeapon("m40a3_mp"); 
 //AUTO    iPrintlnBold( " ^8" + player.name + " ^4 has entered the Sniper room^8!" ); 
-//AUTO    wait(0.05);
+   wait(0.05);
 //AUTO    player switchToWeapon( "m40a3_mp" );
 //AUTO    level.activ SwitchToWeapon( "m40a3_mp" );
 
@@ -383,18 +390,18 @@ bounce()
    level.sniper_trigger delete();
    level.firstenter=false;
    } 
-//AUTO    wait(0.05);
+   wait(0.05);
 
    player SetOrigin(telejumporigin.origin );
    player setplayerangles(telejumporigin.angles );
 //AUTO    player TakeAllWeapons();
-//AUTO    wait(0.05);
+   wait(0.05);
    level.activ SetOrigin (level.teleactorigin.origin);
    level.activ setplayerangles (level.teleactorigin.angles);
 //AUTO    level.activ TakeAllWeapons();
-//AUTO    wait .05;
+   wait .05;
 //AUTO    iPrintlnBold(" ^8" + player.name + " ^4 has entered the Bounce room^8!"); 
-//AUTO    wait(0.05);
+   wait(0.05);
 
 
 

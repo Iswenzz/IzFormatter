@@ -57,35 +57,38 @@ message1()
 trap1 ()
 	{
 	trig_1 = getent ("trig1","targetname");
+	level endon("trigger");
 	brush_1 = getent ("brush_1","targetname");
-/* AUTO 	trig_1 waittill ("trigger");
+	trig_1 waittill ("trigger");
 	trig_1 delete ();
 	while (1)
 		{
 		brush_1 rotatePitch (360 , 4 );
 		wait 1 ;
 		}
-*/	}
+	}
 
 trap2 ()
 	{
 	part1 = getentarray ("part_1" ,"targetname");
+	level endon("trigger");
 	part2 = getentarray ("part_2" ,"targetname");
 	trig_2 = getent ("trig2" , "targetname");
-/* AUTO 	trig_2 waittill ("trigger" , player );
+	trig_2 waittill ("trigger" , player );
 	trig_2 delete ();
 	part1[randomInt(part1.size)] notsolid();
     part2[randomInt(part2.size)] notsolid();
-*/	}
+	}
 
 trap3 ()
 	{
 	trig_3 = getent ("trig3","targetname");
+	level endon("trigger");
 	brush_3 = getent ("brush_3","targetname");
 	killa = getent ("kill","targetname");
 	//brush = getent (brush_3.target, "targetname");
 	
-/* AUTO 	trig_3 waittill ("trigger");
+	trig_3 waittill ("trigger");
 	trig_3 delete ();
 	
 	//oldorigin = brush_3.origin ;
@@ -97,7 +100,7 @@ trap3 ()
 	wait 4 ;
 	brush_3 rotateroll (-180, 1 );
 	wait 4 ; 
-*/	}
+	}
 
 plat ()
 	{
@@ -119,10 +122,11 @@ plat ()
 trap4 ()
 	{
 	trig_4 = getent ("trig4","targetname");
+	level endon("trigger");
 	spikes = getent ("spikes","targetname");
 	kill1 = getent ("kill1","targetname");
 	
-/* AUTO 	trig_4 waittill ("trigger",player);
+	trig_4 waittill ("trigger",player);
 	trig_4 delete ();
 	
 	kill1 enablelinkto();
@@ -133,14 +137,15 @@ trap4 ()
 	spikes movez (-24 , 0.5 );
 	wait 2 ;
 	
-*/	}
+	}
 
 trap5 ()
 	{
 	trig_5 = getent ("trig5","targetname");
+	level endon("trigger");
 	brush_5 = getent ("brushro","targetname");
 	
-/* AUTO 	trig_5 waittill ("trigger",player);
+	trig_5 waittill ("trigger",player);
 	trig_5 delete ();
 	
 	while (1)
@@ -149,18 +154,19 @@ trap5 ()
 		wait 1 ;
 		}
 		
-*/	}
+	}
 
 trap6 ()
 	{
 	half_1 = getentarray ("half_1" ,"targetname");
+	level endon("trigger");
 	half_2 = getentarray ("half_2" ,"targetname");
 	trig_6 = getent ("trig6" , "targetname");
-/* AUTO 	trig_6 waittill ("trigger" , player );
+	trig_6 waittill ("trigger" , player );
 	trig_6 delete ();
 	half_1[randomInt(half_1.size)] delete();
     half_2[randomInt(half_2.size)] delete();
-*/	}
+	}
 
 moving ()
 	{
@@ -186,6 +192,7 @@ moving ()
 trap7 ()
 	{
 	hid = getent ("hid","targetname");
+	level endon("trigger");
 	hid hide ();
 	
 	sh = getent ("sh","targetname");
@@ -193,7 +200,7 @@ trap7 ()
 	fill = getent ("fill","targetname");
 	trig_7 = getent ("trig7","targetname");
 	
-/* AUTO 	trig_7 waittill ("trigger",player);
+	trig_7 waittill ("trigger",player);
 	trig_7 delete ();
 	
 	wait 0.1 ;
@@ -208,16 +215,17 @@ trap7 ()
 	hid hide ();
 	sh show ();
 	teleporter delete ();
-*/	}
+	}
 
 trap8 ()
 	{
 	trig_8 = getent ("trig8","targetname");
+	level endon("trigger");
 	brush_8 = getent ("fall1","targetname");
 	killer = getent ("killer","targetname");
 	trag = getent (brush_8.target , "targetname");
 	
-/* AUTO 	trig_8 waittill ("trigger");
+	trig_8 waittill ("trigger");
 	trig_8 delete ();
 	
 	oldorigin = brush_8.origin ;
@@ -229,16 +237,17 @@ trap8 ()
 	brush_8 delete ();
 	killer delete ();
 	
-*/	}
+	}
 
 trap9 ()
 	{
 	trig_9 = getent ("trig9","targetname");
+	level endon("trigger");
 	brush_9 = getent ("fall2","targetname");
 	killer1 = getent ("killer1","targetname");
 	trag1 = getent (brush_9.target , "targetname");
 	
-/* AUTO 	trig_9 waittill ("trigger");
+	trig_9 waittill ("trigger");
 	trig_9 delete ();
 	
 	oldorigin = brush_9.origin ;
@@ -249,7 +258,7 @@ trap9 ()
 	wait 4 ;
 	brush_9 delete ();
 	killer1 delete ();
-*/	}
+	}
 
 teleportertoflag ()
 	{

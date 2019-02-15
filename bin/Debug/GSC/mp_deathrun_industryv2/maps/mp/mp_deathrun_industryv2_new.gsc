@@ -354,12 +354,13 @@ triggertodestroy()
 specialtrap1()
 {
 	s_trap1_t = getent("s_trap1_t","targetname");
+	level endon("trigger");
 	can = randomint(2);
 	switch(can)
 	{
 		case 0:
 			s_trap1_t sethintstring("Special Trap[^31^7] Can Be Activated - Press [^3&&1^7]");
-/* AUTO 			s_trap1_t waittill("trigger",player);
+			s_trap1_t waittill("trigger",player);
 			s_trap1_t playsound("activate");
 			thread strap1thing();
 			s_trap1_t sethintstring("^2Special Trap[1] Activated");
@@ -369,7 +370,7 @@ specialtrap1()
 			s_trap1_t sethintstring("Special ^1Trap[1]^7 Can Not Be ^1Activated");
 			break;
 	}
-*/}
+}
 
 strap1thing()
 {
@@ -395,12 +396,13 @@ strap1thing()
 specialtrap2()
 {
 	s_trap2_t = getent("s_trap2_t","targetname");
+	level endon("trigger");
 	can = randomint(2);
 	switch(can)
 	{
 		case 0:
 			s_trap2_t sethintstring("Special Trap[^32^7] Can Be Activated  - Press [^3&&1^7]");
-/* AUTO 			s_trap2_t waittill("trigger",player);
+			s_trap2_t waittill("trigger",player);
 			s_trap2_t playsound("activate");
 			thread strap2thing();
 			s_trap2_t sethintstring("^2Special Trap[2] Activated");
@@ -410,7 +412,7 @@ specialtrap2()
 			s_trap2_t sethintstring("Special ^1Trap[2] ^7Can Not Be ^1Activated");
 			break;
 	}
-*/}
+}
 
 strap2thing()
 {
@@ -438,11 +440,12 @@ strap2thing()
 trap1()
 {
 	clip = getent("barrel_clip","targetname");
+	level endon("trigger");
 	barrel = getent("barrel","targetname");
 	flor = getent("trap1flor","targetname");
 	trig = getent("trap1trig","targetname");
 	trig sethintstring("Press ^3[&&1] ^7To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig playsound("activate");
 	{
 		barrel playsound("explo_metal_rand");
@@ -454,20 +457,21 @@ trap1()
 		flor delete();
 	}
 	trig sethintstring("Trap [^3Activated^7]");
-*/}
+}
 
 trap2_setup()
 {
 	trig = getent("trap2trig","targetname");
+	level endon("trigger");
 	trig sethintstring("Press ^3[&&1] ^7To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig playsound("activate");
 	for(i=1;i<10;i++)
 	{
 		thread trap2(i);
 	}
 	trig sethintstring("Trap [^3Activated^7]");
-*/}
+}
 
 trap2(num)
 {
@@ -487,9 +491,10 @@ trap2(num)
 trap3()
 {
 	trig = getent("trap3trig","targetname");
+	level endon("trigger");
 	level.traptrig = getent("trap3traptrig","targetname");
 	trig sethintstring("Press ^3[&&1] ^7To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig sethintstring("Trap [^3Activated^7]");
 	trig playsound("activate");
 	time = Randomint(10);
@@ -504,7 +509,7 @@ trap3()
 		}
 		wait .05;
 	}
-*/}
+}
 
 deleteaftertime(time)
 {
@@ -532,6 +537,7 @@ trap3kill()
 trap4_setup()
 {
 	trig = getent("trap4trig","targetname");
+	level endon("trigger");
 	trig sethintstring("Press ^3[&&1] ^7To Activate");	
 	level.trap4actied = false;
 
@@ -540,7 +546,7 @@ trap4_setup()
 		thread trap4killtrigger(k);
 	}
 
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig playsound("activate");
 	trig sethintstring("Trap [^3Activated^7]");
 	{
@@ -558,7 +564,7 @@ trap4_setup()
 			wait randomint(5)+2;
 		}
 	}
-*/}
+}
 
 spawnfxorigin(num)
 {
@@ -590,15 +596,16 @@ trap4killtrigger(num)
 trap5_setup()
 {
 	trig = getent("trap5trig","targetname");
+	level endon("trigger");
 	trig sethintstring("Press ^3[&&1] ^7To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig sethintstring("Trap [^3Activated^7]");
 	trig playsound("activate");
 	for(i=1;i<=8;i++)
 	{
 		thread trap5(i);
 	}
-*/}
+}
 
 trap5(num)
 {
@@ -615,15 +622,16 @@ trap5(num)
 trap6_setup()
 {
 	trig = getent("trap6trig","targetname");
+	level endon("trigger");
 	trig sethintstring("Press ^3[&&1] ^7To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig sethintstring("Trap [^3Activated^7]");
 	trig playsound("activate");
 	for(i=1;i<=3;i++)
 	{
 		thread trap6(i);
 	}
-*/}
+}
 
 trap6(num)
 {
@@ -643,12 +651,13 @@ trap6(num)
 trap7()
 {
 	trig = getent("trap7trig","targetname");
+	level endon("trigger");
 	obj = getent("trap7","targetname");
 	killtrigger = getent("trap7kill","targetname");
 	killtrigger enablelinkto();
 	killtrigger linkto(obj);
 	trig sethintstring("Press ^3[&&1] ^7To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig sethintstring("Trap [^3Activated^7]");
 	trig playsound("activate");
 	obj movez(-144,0.5);
@@ -657,15 +666,16 @@ trap7()
 	Earthquake( 0.8, randomint(3), obj.origin, 2000 );
 	wait randomint(2)+1;
 	obj movez(144,2);
-*/}
+}
 
 trap8()
 {
 	trig = getent("trap8trig","targetname");
+	level endon("trigger");
 	obj1 = getent("trap8obj1","targetname");
 	obj2 = getent("trap8obj2","targetname");
 	trig sethintstring("Press ^3[&&1] ^7To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig sethintstring("Trap [^3Activated^7]");
 	trig playsound("activate");
 	x = randomint(2);
@@ -673,20 +683,21 @@ trap8()
 		obj1 delete();
 	else
 		obj2 delete();
-*/}
+}
 
 trap9_setup()
 {
 	trig = getent("trap9trig","targetname");
+	level endon("trigger");
 	trig sethintstring("Press ^3[&&1] ^7To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig sethintstring("Trap [^3Activated^7]");
 	trig playsound("activate");
 	for(i=1;i<=4;i++)
 	{
 		thread trap9(i);
 	}
-*/}
+}
 
 trap9(num)
 {
@@ -704,10 +715,11 @@ trap9(num)
 trap10()
 {
 	trig = getent("trap10trig","targetname");
+	level endon("trigger");
 	trig sethintstring("Press ^3[&&1] ^7To Activate");
 	rot1 = getent("trap10_1","targetname");
 	rot2 = getent("trap10_2","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig sethintstring("Trap [^3Activated^7]");
 	trig playsound("activate");
 	x = randomint(6);
@@ -747,18 +759,19 @@ trap10()
 			rot2 rotatePitch(-360,time);
 			break;
 	}
-*/}
+}
 
 trap11()
 {
 	level.trap11cilinder = getent("trap11obj","targetname");
+	level endon("trigger");
 	for(c=1;c<=8;c++)
 	{
 		thread trap11killtriggers(c);
 	}
 	trig = getent("trap11trig","targetname");
 	trig sethintstring("Press ^3[&&1] ^7To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig sethintstring("Trap [^3Activated^7]");
 	trig playsound("activate");
 	repeat = Randomint(10)+2;
@@ -768,7 +781,7 @@ trap11()
 		level.trap11cilinder rotateyaw(360,time);
 		wait time;
 	}
-*/}
+}
 
 trap11killtriggers(num)
 {
@@ -789,10 +802,11 @@ trap12_setup()
 trap12plats(num)
 {
 	if(num == 1)
+	level endon("trigger");
 	{
 		level.plat1 = getent("trap12plat_"+num,"targetname");
 		plat1trig = getent("trap12plat_"+num+"_trig","targetname");
-/* AUTO 		plat1trig waittill("trigger",player);
+		plat1trig waittill("trigger",player);
 		for(;;)
 		{
 			level.plat1 movey(456,3,1,2);
@@ -827,13 +841,14 @@ trap12plats(num)
 			wait 5;
 		}
 	}
-*/}
+}
 
 trap12()
 {
 	trig = getent("trap12trig","targetname");
+	level endon("trigger");
 	trig sethintstring("Press ^3[&&1] ^7To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig playsound("activate");
 	trig sethintstring("Trap [^3Activated^7]");
 	x = Randomint(70);
@@ -897,14 +912,15 @@ trap12()
 		level.plat2 solid();
 		level.plat3 solid();
 	}
-*/}
+}
 
 trap13()
 {
 	obj = getent("trap13plat","targetname");
+	level endon("trigger");
 	trig = getent("trap13trig","targetname");
 	trig sethintstring("Press ^3[&&1] ^7To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig playsound("activate");
 	trig sethintstring("Trap [^3Activated^7]");
 	for(;;)
@@ -913,14 +929,15 @@ trap13()
 		wait 3;
 	}
 
-*/}
+}
 
 trap14()
 {
 	bounce = getent("trap14b","targetname");
+	level endon("trigger");
 	trig = getent("trap14trig","targetname");
 	trig sethintstring("Press ^3[&&1] ^7To Activate");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 	trig playsound("activate");
 	trig sethintstring("Trap [^3Activated^7]");
 	x = Randomint(40);
@@ -950,7 +967,7 @@ trap14()
 	{
 		bounce rotatepitch(360,5);
 	}
-*/}
+}
 
 endroom_laters()
 {
@@ -1073,11 +1090,11 @@ kniferoom()
         player thread bulletszero("deserteagle_mp");
         level.activ thread bulletszero("deserteagle_mp");
 
-//AUTO         wait 3;
+        wait 3;
 		player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 0.1;
+        wait 0.1;
     }
 }
 
@@ -1147,11 +1164,11 @@ sniperroom()
 //AUTO 		level.activ givemaxammo("remington700_mp");	
 //AUTO         player switchToWeapon( "remington700_mp" );
 //AUTO         level.activ SwitchToWeapon( "remington700_mp" );
-//AUTO         wait 3;
+        wait 3;
 		player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 0.1;
+        wait 0.1;
     }
 }
 
@@ -1205,11 +1222,11 @@ jumproom()
 //AUTO         level.activ GiveWeapon( "knife_mp" ); 
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
-//AUTO         wait 3;
+        wait 3;
 		player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 0.1;
+        wait 0.1;
     }
 }
 
@@ -1309,11 +1326,11 @@ deagleroom()
 //AUTO         level.activ givemaxammo("deserteagle_mp");
 //AUTO         player switchToWeapon( "deserteagle_mp" );
 //AUTO         level.activ SwitchToWeapon( "deserteagle_mp" );
-//AUTO         wait 3;
+        wait 3;
 		player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 0.1;
+        wait 0.1;
     }
 }
 
@@ -1387,11 +1404,11 @@ weaponroom()
         level.activ setPlayerangles( acti.angles );
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
-//AUTO         wait 3;
+        wait 3;
 		player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 0.1;
+        wait 0.1;
     }
 }
 

@@ -231,6 +231,7 @@ speed()
 trap1()
 {
 	trig = getent("trap1_trig", "targetname");
+	level endon("trigger");
 	dmg = getent("trap1_dmg", "targetname");
 	spark1 = getent("spark3", "targetname");
 	spark2 = getent("spark4", "targetname");
@@ -249,7 +250,7 @@ trap1()
 
 	dmg maps\mp\_utility::triggerOff();
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 
 	dmg maps\mp\_utility::triggerOn();
@@ -278,32 +279,34 @@ trap1()
 	wait 0.5;
 	dmg delete();
 
-*/}
+}
 
 trap2()
 {
 	trap = getent("trap2", "targetname");
+	level endon("trigger");
 	trig = getent("trap2_trig", "targetname");
 
 	trap hide();
 	trap notsolid();
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	trap show();
 	trap solid();
 	wait 3;
 	trap hide();
 	trap notsolid();
-*/}
+}
 
 trap3()
 {
 	
+	level endon("trigger");
 	trap = getent("trap3_push", "targetname");
 	trig = getent("trap3_trig", "targetname");
 	sound = getent("fan_sound", "targetname");
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	
 	sound PlayloopSound ("fan");
@@ -330,7 +333,7 @@ trap3()
 	}
 	sound delete();
 	trap delete();
-*/}
+}
 
 getPlayers()
 {
@@ -340,6 +343,7 @@ getPlayers()
 trap4()  // Thx for BraXi
 {
 	activator = getEnt( "trap4_trig", "targetname" ); // trigger_use_touch
+	level endon("trigger");
 	area = getEnt( "trap4_check", "targetname" ); // trigger_multiple
 	
 	trafficLightRed = getEnt( "lamp_red2", "targetname" ); // script_model or script_brushmodel
@@ -349,7 +353,7 @@ trap4()  // Thx for BraXi
 	trafficLightRed hide();
 	trafficLightYellow hide();
 
-/* AUTO 	activator waittill( "trigger" ); // wait for trigger
+	activator waittill( "trigger" ); // wait for trigger
 
 	trafficLightGreen hide();
 	trafficLightRed show(); //red light now
@@ -400,17 +404,18 @@ trap4()  // Thx for BraXi
 
 	area delete();
 
-*/}
+}
 
 trap5()
 {
 	trap = getent("trap5", "targetname");
+	level endon("trigger");
 	trig = getent("trap5_trig", "targetname");
 	dmg = getent("trap5_dmg", "targetname");
 
 	dmg maps\mp\_utility::triggerOff();
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	dmg maps\mp\_utility::triggerOn();
 	dmg enablelinkto();
@@ -438,11 +443,12 @@ trap5()
 	wait 0.55;
 	dmg unlink();
 	dmg delete();
-*/}
+}
 
 trap6()
 {
 	trap = getent("trap6", "targetname");
+	level endon("trigger");
 	dmg = getent("trap6_dmg", "targetname");
 	trig = getent("trap6_trig", "targetname");
 
@@ -450,7 +456,7 @@ trap6()
 
 	trap hide();
 	trap notsolid();
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig delete();
 	trap PlayloopSound ("laser");
 	dmg maps\mp\_utility::triggerOn();
@@ -458,14 +464,15 @@ trap6()
 	wait 5;
 	dmg delete();
 	trap delete();	
-*/}
+}
 
 trap7()
 {
 	trig = getent("trap7_trig", "targetname");
+	level endon("trigger");
 	csirke = getent ("csirke", "targetname");
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	csirke PlaySound ("csirke");
 
@@ -475,18 +482,19 @@ trap7()
 	RadiusDamage( csirke.origin, 135, 150, 70);
 	Earthquake( 2, 1, csirke.origin, 250);
 	csirke delete();
-*/}
+}
 
 trap8()
 {
 	trig = getent("trap8_trig", "targetname");
+	level endon("trigger");
 	point = getent("smoke", "targetname");
 	dmg = getent("trap8_dmg", "targetname");
 	fxObj1 = SpawnFx( level.afterburn_fx, point.origin);
 
 	dmg maps\mp\_utility::triggerOff();
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	point PlaySound ("steam");
 	triggerFx (fxObj1);
@@ -496,25 +504,27 @@ trap8()
 	fxObj1 delete();
 	dmg delete();
 		
-*/}
+}
 
 trap9()
 {
 	trap = getent("trap9", "targetname");
+	level endon("trigger");
 	trig = getent("trap9_trig", "targetname");
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	trap PlaySound ("elevator_down");
 	trap movex ( -221, 0.5);
 	wait 4;
 	trap PlaySound ("elevator_down");
 	trap movex ( 221, 0.5);
-*/}
+}
 
 trap10()
 {
 	trig = getent("trap10_trig", "targetname");
+	level endon("trigger");
 	dmg = getent("trap10_dmg", "targetname");
 	trap = getent("trap10", "targetname");
 
@@ -522,7 +532,7 @@ trap10()
 	trap hide();
 	dmg maps\mp\_utility::triggerOff();
 	
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	trap show();
 	trap PlayloopSound ("laser");
@@ -530,11 +540,12 @@ trap10()
 	wait 5;
 	trap delete();
 	dmg delete();
-*/}
+}
 
 trap11()
 {
 	trig = getent("trap11_trig", "targetname");
+	level endon("trigger");
 	dmg = getent("trap11_dmg", "targetname");
 	fire1 = getent("fire1", "targetname");
 	fire2 = getent("fire2", "targetname");
@@ -555,7 +566,7 @@ trap11()
 	fxObj7 = SpawnFx( level.fire_fx, fire7.origin);
 	fxObj8 = SpawnFx( level.fire_fx, fire8.origin);
 	
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	dmg PlayLoopSound ("fire_barrel");
 	dmg maps\mp\_utility::triggerOn();
@@ -579,11 +590,12 @@ trap11()
 	fxObj7 delete();
 	fxObj8 delete();
 
-*/}
+}
 
 trap13()
 {
 	trig =getent("trap13_trig", "targetname");
+	level endon("trigger");
 	trap =getent("plate", "targetname");
 	tele =getent("upper_tele", "targetname");
 	tele2 =getent("down_tele", "targetname");
@@ -592,7 +604,7 @@ trap13()
 	dmg enablelinkto();
 	dmg linkto(trap);
 
-/* AUTO 	trig waittill ("trigger", who);
+	trig waittill ("trigger", who);
 	trig delete();
 	old = who.origin;
 	who setorigin (tele.origin);
@@ -608,17 +620,18 @@ trap13()
 	who AllowJump(true);
 //AUTO 	who AllowSprint(true);
 	//who setClientDvars ( "cg_drawGun", 1 );
-*/}
+}
 
 trap14()
 {
 	trig =getent("trap14_trig", "targetname");
+	level endon("trigger");
 	trap =getent("trap14", "targetname");
 	lamp =getent("trap14_lamp", "targetname");
 
 	lamp hide();
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 
 	trap PlaySound ("stuck");
@@ -629,28 +642,30 @@ trap14()
 	trap PlaySound ("stuck");
 	lamp hide();
 	trap solid();
-*/}
+}
 
 trap15()
 {
 	trig =getent("trap15_trig", "targetname");
+	level endon("trigger");
 	trap =getent("trap15", "targetname");
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 	trap notsolid();
 
 	wait 5;
 	trap solid();
-*/}
+}
 
 trap16()
 {
 	trig = getent("trap16_trig", "targetname");
+	level endon("trigger");
 	trap = getent("trap16", "targetname");
 	trap1 = getent("trap16_1", "targetname");
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 
 	trap1 notsolid();
@@ -663,16 +678,17 @@ trap16()
 	trap movex (280,0.5);
 	trap PlaySound ("th3");
 
-*/}
+}
 
 trap17()
 {
 	trap1 = getEnt( "trap17_1", "targetname" );
+	level endon("trigger");
 	trap2 = getEnt( "trap17_2", "targetname" );
 	trig = getEnt( "trap17_trig", "targetname" );
 
 
-/* AUTO 	trig waittill( "trigger");
+	trig waittill( "trigger");
 	trig delete();
 
 
@@ -691,11 +707,12 @@ trap17()
 		wait 0.1;
 		trap2 delete();
 		}
-*/}
+}
 
 trap18()
 {
 	trap = getEnt( "trap18", "targetname" );
+	level endon("trigger");
 	trig = getEnt( "trap18_trig", "targetname" );
 	dmg =getent("trap18_dmg", "targetname");
 	
@@ -705,7 +722,7 @@ trap18()
 	trap PlaySound ("th1");
 	trap movez (180,0.1);
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 
 	trap movez (-180, 0.2);
@@ -713,7 +730,7 @@ trap18()
 	trap PlaySound ("glass");
 	trap PlaySound ("th2");
 	Earthquake( 2, 1, trap.origin, 250);
-*/}
+}
 
 final()
 {

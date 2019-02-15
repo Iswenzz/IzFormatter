@@ -38,7 +38,7 @@ sniper()
 		player FreezeControls(1);
 		level.activ FreezeControls(1);
 
-//AUTO 		wait 0.1;
+		wait 0.1;
 
 //AUTO 		player takeallweapons();
 //AUTO 		player GiveWeapon( "remington700_mp" );
@@ -62,14 +62,14 @@ sniper()
 			players = getentarray("player", "classname");
 			for(i=0;i<players.size;i++)
 				players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 		wait 3;
+		wait 3;
 		
 //AUTO 		iPrintLnBold ("^2<< ^33 ^2>>");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold ("^2<< ^32 ^2>>");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold ("^2<< ^31 ^2>>");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold ("^2<< ^3Go! ^2>>");
 		
 		playFx ( level.water, target_1.origin );
@@ -79,13 +79,13 @@ sniper()
 		player FreezeControls(0);
 		level.activ FreezeControls(0);
 		
-//AUTO 		wait 0.5;
+		wait 0.5;
 		protect delete();
 
 //AUTO 		iPrintLn("^1>> ^7" + player.name + " choose Sniper");
 		while(isAlive(player) && isDefined(player))
 		{
-//AUTO 			wait 0.1;
+			wait 0.1;
 			level.sniper_trigger show();
 		}
 	level.sniper_trigger waittill("trigger", player);
@@ -118,7 +118,7 @@ knife()
 		player FreezeControls(1);
 		level.activ FreezeControls(1);
 
-//AUTO 		wait 0.1;
+		wait 0.1;
 
 //AUTO 		player takeallweapons();
 //AUTO 		player GiveWeapon( "knife_mp" );
@@ -136,14 +136,14 @@ knife()
 			players = getentarray("player", "classname");
 			for(i=0;i<players.size;i++)
 				players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 		wait 3;
+		wait 3;
 		
 //AUTO 		iPrintLnBold ("^2<< ^33 ^2>>");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold ("^2<< ^32 ^2>>");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold ("^2<< ^31 ^2>>");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold ("^2<< ^3Go! ^2>>");
 		
 		playFx ( level.water, target_1.origin );
@@ -154,7 +154,7 @@ knife()
 //AUTO 		iPrintLn("^1>> ^7" + player.name + " choose knife");
 		while(isAlive(player) && isDefined(player))
 		{
-//AUTO 			wait 0.1;
+			wait 0.1;
 			level.knife_trigger show();
 		}
 	level.knife_trigger waittill("trigger", player);
@@ -192,7 +192,7 @@ bounce()
 		player FreezeControls(1);
 		level.activ FreezeControls(1);
 
-//AUTO 		wait 0.1;
+		wait 0.1;
 
 //AUTO 		player takeallweapons();
 //AUTO 		player GiveWeapon( "tomahawk_mp" );
@@ -210,14 +210,14 @@ bounce()
 			players = getentarray("player", "classname");
 			for(i=0;i<players.size;i++)
 				players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 		wait 3;
+		wait 3;
 		
 //AUTO 		iPrintLnBold ("^2<< ^33 ^2>>");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold ("^2<< ^32 ^2>>");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold ("^2<< ^31 ^2>>");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold ("^2<< ^3Go! ^2>>");
 		
 		playFx ( level.water, target_1.origin );
@@ -233,7 +233,7 @@ bounce()
 //AUTO 		iPrintLn("^1>> ^7" + player.name + " choose bounce");
 		while(isAlive(player) && isDefined(player))
 		{
-//AUTO 			wait 0.1;
+			wait 0.1;
 			level.bounce_trigger show();
 		}
 	level.bounce_trigger waittill("trigger", player);
@@ -268,7 +268,7 @@ deagle()
 		player FreezeControls(1);
 		level.activ FreezeControls(1);
 
-//AUTO 		wait 0.1;
+		wait 0.1;
 
 //AUTO 		player takeallweapons();
 //AUTO 		player GiveWeapon( "deserteagle_mp" );
@@ -292,14 +292,14 @@ deagle()
 			players = getentarray("player", "classname");
 			for(i=0;i<players.size;i++)
 				players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 		wait 3;
+		wait 3;
 		
 //AUTO 		iPrintLnBold ("^2<< ^33 ^2>>");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold ("^2<< ^32 ^2>>");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold ("^2<< ^31 ^2>>");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold ("^2<< ^3Go! ^2>>");
 		
 		playFx ( level.water, target_1.origin );
@@ -313,7 +313,7 @@ deagle()
 //AUTO 		iPrintLn("^1>> ^7Deagle room made by ^1Blade");
 		while(isAlive(player) && isDefined(player))
 		{
-//AUTO 			wait 0.1;
+			wait 0.1;
 			level.deagle_trigger show();
 		}
 	level.deagle_trigger waittill("trigger", player);

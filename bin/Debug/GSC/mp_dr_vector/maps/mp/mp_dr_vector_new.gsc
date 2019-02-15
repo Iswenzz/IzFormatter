@@ -138,13 +138,14 @@ onPlayerSpawned()
 trap1()
 {
 	a = getent ("laser_act","targetname");
+	level endon("trigger");
 	a setHintString("^2Speed+");
-/* AUTO 	a waittill ("trigger",player);
+	a waittill ("trigger",player);
 	a setHintString("^1Activated");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	level.slow = 0;
 	wait 1;
-*/}
+}
 
 t1()
 {
@@ -436,8 +437,9 @@ snipfx()
 trap2()
 {
 	a = getent ("tr2_act","targetname");
+	level endon("trigger");
 	a setHintString("^2Sink");
-/* AUTO 	a waittill ("trigger",player);
+	a waittill ("trigger",player);
 	a setHintString("^1Activated");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	
@@ -453,7 +455,7 @@ trap2()
 	thread t2_10();
 	thread t2_11();
 	thread t2_12();
-*/}
+}
 
 t2_1()
 {
@@ -626,6 +628,7 @@ t2_12()
 trap3()
 {
     tr = getEnt( "tr3_act", "targetname" );
+	level endon("trigger");
     t1 = getEnt( "t2_b1", "targetname" );
 	t2 = getEnt( "t2_b2", "targetname" );
 	t3 = getEnt( "t2_b3", "targetname" );
@@ -645,7 +648,7 @@ trap3()
 	fxObj4 = SpawnFx( level.lav2, f4.origin);
 	fxObj5 = SpawnFx( level.lav2, f5.origin);
 	fxObj6 = SpawnFx( level.lav2, f6.origin);
-/* AUTO 	tr waittill( "trigger", player );
+	tr waittill( "trigger", player );
 	tr setHintString("^1Activated");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
  	x = RandomInt(2);
@@ -684,7 +687,7 @@ trap3()
 		 }
 		}
 	
-*/}
+}
 
 event1_1()
 {
@@ -881,10 +884,11 @@ kill()
 trap4()
 {
 	tr = getent ("tr4_act","targetname");
+	level endon("trigger");
 	
 	
 	tr setHintString("^2Crusher #1");
-/* AUTO     tr waittill( "trigger", player );
+    tr waittill( "trigger", player );
 	thread  trap4_1();
 	tr setHintString("^2Crusher #2");
 	tr waittill( "trigger", player );
@@ -892,7 +896,7 @@ trap4()
 	thread  trap4_2();
 	tr setHintString("^1Activated");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
-*/ }
+ }
 
  trap4_1()
  {
@@ -945,9 +949,10 @@ burnt2()
 trap5()
 {
 	a = getent ("tr5_act","targetname");
+	level endon("trigger");
 	p = getent ("pusher","targetname");
 	a setHintString("^2Pusher");
-/* AUTO 	a waittill ("trigger",player);
+	a waittill ("trigger",player);
 	a setHintString("^1Activated");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	
@@ -958,14 +963,15 @@ trap5()
 	p rotateyaw(-720,4,2,2);
 	wait 6;
 	}
-*/}
+}
 
 trap6()
 {
 	a = getent ("tr6_act","targetname");
+	level endon("trigger");
 	r = getent ("rotor","targetname");
 	a setHintString("^2Rotate");
-/* AUTO 	a waittill ("trigger",player);
+	a waittill ("trigger",player);
 	a setHintString("^1Activated");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	while(1)
@@ -975,7 +981,7 @@ trap6()
 	r rotateyaw(-720,4,2,2);
 	wait 6;
 	}
-*/}
+}
 
 }
 trap7() {
@@ -1043,10 +1049,11 @@ timeout_blesk(index) {
 trap8()
 {
 	a = getent ("tr8_act","targetname");
+	level endon("trigger");
 	s1 = getent ("slider1","targetname");
 	s2 = getent ("slider2","targetname");
 	a setHintString("^2Slider");
-/* AUTO 	a waittill ("trigger",player);
+	a waittill ("trigger",player);
 	a setHintString("^1Activated");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	s1 moveX(512,2,1,1);
@@ -1061,16 +1068,17 @@ trap8()
 	s2 moveX(-1024,2,1,1);
 	wait 2;
 	}	
-*/	}
+	}
 
 trap9()
 {
     a = getent ("tr9_act","targetname");
+	level endon("trigger");
 	a2 = getent ("tr9_act2","targetname");
 	ori = getent ("tr9","targetname");
 	ori2 = getent ("tr92","targetname");
 	a setHintString("^2Go to laser room?");
-/* AUTO 	a waittill ("trigger",player);
+	a waittill ("trigger",player);
 	
 	player setOrigin( ori.origin );
 	
@@ -1080,11 +1088,12 @@ trap9()
 	
 	player setOrigin( ori2.origin );
 	wait 1;
-*/}	
+}	
 
 trap9_1()
 {
     t1 = getEnt( "t1", "targetname");
+	level endon("trigger");
 	t2 = getEnt( "t2", "targetname");
 	t3 = getEnt( "t3", "targetname");
 	t4 = getEnt( "t4", "targetname");
@@ -1123,7 +1132,7 @@ trap9_1()
 	wait 1;
 
 	t setHintString("^2Activate!");
-/* AUTO 	t waittill("trigger", player);
+	t waittill("trigger", player);
 	t setHintString("^1Activated.");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	triggerFx (fxObj1);
@@ -1140,11 +1149,12 @@ trap9_1()
 	b3 delete();
 	b4 delete();
     wait 1;
-*/}
+}
 
 trap9_2()
 {
 	t5 = getEnt( "t5", "targetname");
+	level endon("trigger");
 	t6 = getEnt( "t6", "targetname");
 	t7 = getEnt( "t7", "targetname");
 	t8 = getEnt( "t8", "targetname");
@@ -1183,7 +1193,7 @@ trap9_2()
 	wait 1;
 
 	t setHintString("^2Activate!");
-/* AUTO 	t waittill("trigger", player);
+	t waittill("trigger", player);
 	t setHintString("^1Activated.");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	triggerFx (fxObj1);
@@ -1200,11 +1210,12 @@ trap9_2()
 	b7 delete();
 	b8 delete();
     wait 1;
-*/}
+}
 
 trap9_3()
 {
 	t9 = getEnt( "t9", "targetname");
+	level endon("trigger");
 	t10 = getEnt( "t10", "targetname");
 	t11 = getEnt( "t11", "targetname");
 	b9 = getEnt( "b9", "targetname");
@@ -1235,7 +1246,7 @@ trap9_3()
 	wait 1;
 
 	t setHintString("^2Activate!");
-/* AUTO 	t waittill("trigger", player);
+	t waittill("trigger", player);
 	t setHintString("^1Activated.");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	triggerFx (fxObj1);
@@ -1249,14 +1260,15 @@ trap9_3()
 	b10 delete();
 	b11 delete();
     wait 1;
-*/}	
+}	
 
 trap10()
 {
 	a = getent ("tr10_act","targetname");
+	level endon("trigger");
 	r = getent ("roller","targetname");
 	a setHintString("^2Roll");
-/* AUTO 	a waittill ("trigger",player);
+	a waittill ("trigger",player);
 	a setHintString("^1Activated");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	while(1)
@@ -1266,7 +1278,7 @@ trap10()
 	r rotateyaw(-180,4,2,2);
 	wait 7;
 	}
-*/}
+}
 
 addTestClients()
 {

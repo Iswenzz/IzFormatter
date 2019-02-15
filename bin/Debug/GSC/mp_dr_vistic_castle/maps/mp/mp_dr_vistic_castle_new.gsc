@@ -417,9 +417,10 @@ addTriggerToList(name)
 	trap1()
 {
 	trigger = getEnt ("trig_trap1","targetname");
+	level endon("trigger");
 	object1 = getEnt ("trap1","targetname");
 	object2 = getEnt ("trap1_2","targetname");
-/* AUTO 	trigger waittill ("trigger", player );
+	trigger waittill ("trigger", player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	trigger playSound("zap");
@@ -433,24 +434,26 @@ addTriggerToList(name)
 	{
 		object2 delete();
 	}
-*/}
+}
 
 	trap2()
 {
 	trigger = getEnt ("trig_trap2","targetname");
+	level endon("trigger");
 	object = getEnt ("trap2","targetname");
-/* AUTO 	trigger waittill ("trigger", player );
+	trigger waittill ("trigger", player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	trigger playSound("zap");
 	object rotateroll (-75, 3);
-*/}
+}
 
 	trap3()
 {
 	trigger = getEnt ("trig_trap3","targetname");
+	level endon("trigger");
 	object = getEnt ("trap_3","targetname");
-/* AUTO 	trigger waittill ("trigger", player );
+	trigger waittill ("trigger", player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	trigger playSound("zap");
@@ -458,13 +461,14 @@ addTriggerToList(name)
 	object waittill ("rotatedone");
 	wait 5;
 	object  rotatepitch (90, 5);
-*/}
+}
 
 	trap4()
 {
 	trigger = getEnt ("trig_trap4","targetname");
+	level endon("trigger");
 	object = getEnt ("trap_4","targetname");
-/* AUTO 	trigger waittill ("trigger", player );
+	trigger waittill ("trigger", player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	trigger playSound("zap");
@@ -477,17 +481,18 @@ addTriggerToList(name)
 		object waittill ("rotatedone");
 		wait 4;
 	}
-*/}
+}
 
 	trap5()
 {
 	trigger = getEnt ("trig_trap5","targetname");
+	level endon("trigger");
 	object1 = getEnt ("trap_5_1","targetname");
 	object2 = getEnt ("trap_5_2","targetname");
 	object3 = getEnt ("trap_5_3","targetname");
 	object4 = getEnt ("trap_5_4","targetname");
 	object5 = getEnt ("trap_5_5","targetname");
-/* AUTO 	trigger waittill ("trigger", player );
+	trigger waittill ("trigger", player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	trigger playSound("zap");
@@ -516,13 +521,14 @@ addTriggerToList(name)
 		object1 waittill ("movedone");
 		wait 0.1;
 	}
-*/}
+}
 
 	trap6()
 {
 	trigger = getEnt ("trig_trap6","targetname");
+	level endon("trigger");
 	object = getEnt ("mover1","targetname");
-/* AUTO 	trigger waittill ("trigger", player );
+	trigger waittill ("trigger", player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	trigger playSound("zap");
@@ -530,17 +536,18 @@ addTriggerToList(name)
 	object waittill ("movedone");
 	wait 8;
 	object rotatepitch (-180,2);
-*/}
+}
 
 	trap7()
 {
 	trigger = getEnt ("trig_trap7","targetname");
+	level endon("trigger");
 	object1 = getEnt ("trap7","targetname");
 	object2 = getEnt ("wallrun7","targetname");
 	trap7_fx = getEnt ("trap7_fx","targetname");
 	wait 1;
 	object2 rotatepitch (110, 1);
-/* AUTO 	trigger waittill ("trigger", player );
+	trigger waittill ("trigger", player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	trigger playSound("zap");
@@ -548,18 +555,19 @@ addTriggerToList(name)
 	wait 0.1;
 	object1 delete();
 	object2 delete();
-*/}
+}
 
 	trap8()
 {
 	trigger = getEnt ("trig_trap8","targetname");
+	level endon("trigger");
 	slide1 = getEnt ("trap_8_1","targetname");
 	slide2 = getEnt ("trap_8_2","targetname");
 	slide3 = getEnt ("trap_8_3","targetname");
 	slide1 notSolid();
 	slide2 notSolid();
 	slide3 notSolid();
-/* AUTO 	trigger waittill ("trigger", player );
+	trigger waittill ("trigger", player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	trigger playSound("zap");
@@ -577,29 +585,31 @@ addTriggerToList(name)
 	{
 		slide3 Solid();
 	}
-*/}
+}
 
 	trap9()
 {
 	trigger = getEnt ("trig_trap9","targetname");
+	level endon("trigger");
 	object = getEnt ("trap9","targetname");
 	fx_spot = getEnt ("trap9_fx","targetname");
-/* AUTO 	trigger waittill ("trigger", player );
+	trigger waittill ("trigger", player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	playfx(level.platrip,fx_spot.origin);
 	trigger playSound("zap");
 	wait 0.3;
 	object delete();
-*/}
+}
 
 	trap10()
 {
 	trigger = getEnt ("trig_trap10","targetname");
+	level endon("trigger");
 	object = getEnt ("trap10","targetname");
 	killtrig = getEnt ("trap10_killtrig","targetname");
 	object movey (-1024,0.1);
-/* AUTO 	trigger waittill ("trigger", player );
+	trigger waittill ("trigger", player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	trigger playSound("zap");
@@ -608,14 +618,15 @@ addTriggerToList(name)
 	object movez (10,0.5);
 	wait 5;
 	object movez (-10,0.5);
-*/}
+}
 
 	trap11()
 {
 	trigger = getEnt ("trig_trap11","targetname");
+	level endon("trigger");
 	bounce = getEnt ("trap11_1","targetname");
 	rope = getEnt ("trap11_2","targetname");
-/* AUTO 	trigger waittill ("trigger", player );
+	trigger waittill ("trigger", player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	trigger playSound("zap");
@@ -630,7 +641,7 @@ addTriggerToList(name)
 		rope hide();
 	}
 
-*/}
+}
 
 	knifeplat()
 {

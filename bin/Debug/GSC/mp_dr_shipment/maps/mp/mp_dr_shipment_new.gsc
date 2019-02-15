@@ -167,9 +167,10 @@ strafes()
 trap2()
 {
 explosion = GetEnt("explosion_origin","targetname");
+	level endon("trigger");
 explosionkill = GetEnt("explosionkill","targetname");
 trig = GetEnt("explosiontrig","targetname");
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 trig delete();
 thread trap2_1();
 PlayFX( level.explosion, explosion.origin );
@@ -181,7 +182,7 @@ explosionkill waittill("trigger", player);
 wait 0.01;
 player suicide();
 }
-*/}
+}
 
 trap2_1()
 {
@@ -193,8 +194,9 @@ explosionkill delete();
 trap3()
 {
 	planks = GetEnt("planks","targetname");
+	level endon("trigger");
 	trig = GetEnt("trap3trig","targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	
@@ -202,13 +204,14 @@ trap3()
 	wait 1;
 	planks hide();
 
-*/}	
+}	
 
 trap4()
 {
 	floor = GetEnt("moving_floor","targetname");
+	level endon("trigger");
 	trig = GetEnt("trig4","targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 while(1)
@@ -219,13 +222,14 @@ while(1)
 	
 wait 0.5;
 }	
-*/}
+}
 
 trap5()
 {
 	floor = GetEnt("drop_floor","targetname");
+	level endon("trigger");
 	trig = GetEnt("trig5","targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 
 	
@@ -233,15 +237,16 @@ trap5()
 	wait 5;
 	floor moveZ(88, 1);
 
-*/}	
+}	
 
 trap6()
 {
 	crate = GetEnt("falling_box","targetname");
+	level endon("trigger");
 	chain = GetEnt("chain","targetname");
 	kill = GetEnt("falling_box_kill","targetname");
 	trig = GetEnt("trig6","targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	kill EnableLinkTo();
@@ -253,13 +258,14 @@ trap6()
 	wait 5;
 	crate moveZ(160, 4);
 	chain moveZ(160, 1);
-*/}	
+}	
 
 trap7()
 {
 	spinner = GetEnt("spinner1","targetname");
+	level endon("trigger");
 	trig = GetEnt("trig7_1","targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	
@@ -272,13 +278,14 @@ while(1)
 	
 wait 0.5;
 }	
-*/}
+}
 
 trap8()
 {
 	spinner = GetEnt("spinner2","targetname");
+	level endon("trigger");
 	trig = GetEnt("trig7_2","targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	
@@ -290,7 +297,7 @@ while(1)
 	
 wait 0.5;
 }	
-*/}
+}
 
 vip()
 {
@@ -364,7 +371,7 @@ endroom()
 //AUTO 	        level.activ TakeAllWeapons();
 //AUTO 	        level.activ GiveWeapon( "python_mp" );
 //AUTO 	        level.activ GiveMaxAmmo( "python_mp" );
-//AUTO 	        wait .05;
+	        wait .05;
 //AUTO 	        player switchToWeapon( "python_mp" ); 
 //AUTO 	        level.activ SwitchToWeapon( "python_mp" );
 	        player FreezeControls(1);
@@ -377,7 +384,7 @@ endroom()
 					players = getentarray("player", "classname");
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 					wait 5;
+					wait 5;
 					player FreezeControls(0);
 					level.activ FreezeControls(0);
 			player waittill( "death" );
@@ -414,7 +421,7 @@ endroom2()
 //AUTO 	        level.activ TakeAllWeapons();
 //AUTO 	        level.activ GiveWeapon( "remington700_mp" );
 //AUTO 	        level.activ GiveMaxAmmo( "remington700_mp" );
-//AUTO 	        wait .05;
+	        wait .05;
 //AUTO 	        player switchToWeapon( "remington700_mp" ); 
 //AUTO 	        level.activ SwitchToWeapon( "remington700_mp" );
 	        player FreezeControls(1);
@@ -427,7 +434,7 @@ endroom2()
 					players = getentarray("player", "classname");
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 					wait 5;
+					wait 5;
 					player FreezeControls(0);
 					level.activ FreezeControls(0);
 			player waittill( "death" );
@@ -468,7 +475,7 @@ endroom3()
 //AUTO 	        level.activ GiveMaxAmmo( "ak74u_mp" );
 //AUTO 			level.activ GiveWeapon( "deserteagle_mp" );
 //AUTO 	        level.activ GiveMaxAmmo( "deserteagle_mp" );
-//AUTO 	        wait .05;
+	        wait .05;
 //AUTO 	        player switchToWeapon( "ak74u_mp" ); 
 //AUTO 	        level.activ SwitchToWeapon( "ak74u_mp" );
 	        player FreezeControls(1);
@@ -481,7 +488,7 @@ endroom3()
 					players = getentarray("player", "classname");
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 					wait 5;
+					wait 5;
 					player FreezeControls(0);
 					level.activ FreezeControls(0);
 			player waittill( "death" );
@@ -493,28 +500,30 @@ endroom3()
 trap9()
 {
 	trap8 = GetEnt("trap8","targetname");
+	level endon("trigger");
 	trig = GetEnt("trig8","targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	
 	trap8 hide();
 	trap8 notsolid();
 
-*/}	
+}	
 
 trap10()
 {
 	trap9 = GetEnt("trap9","targetname");
+	level endon("trigger");
 	trig = GetEnt("trig9","targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	
 	trap9 hide();
 	trap9 notsolid();
 
-*/}	
+}	
 
 hsecretp1()
 {

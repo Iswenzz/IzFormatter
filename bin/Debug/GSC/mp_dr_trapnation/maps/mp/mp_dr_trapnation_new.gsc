@@ -400,13 +400,14 @@ acti_teleport_fail2()
 actitrap1() //code pour activer la trap//
 {
 	trig = getent("trig_trap1", "targetname"); //le trigger pour lacti//
+	level endon("trigger");
     trig setHintString("^7P^5ress ^7[^2USE^7] ^7T^5o ^7A^5ctivate^2!");
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 	trig setHintString("^5Activated^2!");
 //AUTO 	user braxi\_rank::giveRankXP("", 50);
 	thread trap1(); //et la la thread//
 	thread buttontrap1();
-*/}
+}
 
 buttontrap1()
 {
@@ -418,26 +419,28 @@ buttontrap1()
 trap1()
 {
 	bounce = getent("bouncetrap1", "targetname");
+	level endon("trigger");
 	   while( 1 )
 		{
 			bounce rotateYaw(2520, 5, 0.1, 0.5);
-/* AUTO 			bounce waittill("movedone");
+			bounce waittill("movedone");
 			wait 6; 
 		}
-*/}
+}
 
 actitrap2()
 {
 	trig = getent("trig_trap2", "targetname"); //le trigger pour lacti//
+	level endon("trigger");
     trig setHintString("^7P^5ress ^7[^2USE^7] ^7T^5o ^7A^5ctivate^2!");
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 	trig setHintString("^5Activated^2!");
 //AUTO 	user braxi\_rank::giveRankXP("", 50);
 	thread buttontrap2();
 	thread trap2plata(); //et la la thread//
 	thread trap2platb();
 	thread trap2platmid();
-*/}
+}
 
 buttontrap2()
 {
@@ -449,8 +452,9 @@ buttontrap2()
 trap2plata()
 {
 	platatrap2 = getent("platatrap2","targetname");
+	level endon("trigger");
 	platatrap2 movez(190, 2, 0.1, 0.2);
-/* AUTO 	platatrap2 waittill("movedone");
+	platatrap2 waittill("movedone");
 	wait(0.5);
 	   for(;;)
 		{
@@ -461,13 +465,14 @@ trap2plata()
 			platatrap2 waittill("movedone");
 			wait(0.5);
 		}
-*/}
+}
 
 trap2platb()
 {
 	platbtrap2 = getent("platbtrap2","targetname");
+	level endon("trigger");
 	platbtrap2 movez(-190, 2, 0.1, 0.2);
-/* AUTO 	platbtrap2 waittill("movedone");
+	platbtrap2 waittill("movedone");
 	wait(0.5);
 	   for(;;)
 		{
@@ -478,29 +483,31 @@ trap2platb()
 			platbtrap2 waittill("movedone");
 			wait(0.5);
 		}
-*/}
+}
 
 trap2platmid() 
 {
 	platmidtrap2 = getent("platmidtrap2","targetname");
+	level endon("trigger");
 	   for(;;)
 		{
 			platmidtrap2 RotateYaw(360,2, 0.3, 0.5);
-/* AUTO 			platmidtrap2 waittill("rotatedone");
+			platmidtrap2 waittill("rotatedone");
 			wait(3);
 		}
-*/}
+}
 
 actitrap3()
 {
 	trig = getent("trig_trap3", "targetname"); 
+	level endon("trigger");
     trig setHintString("^7P^5ress ^7[^2USE^7] ^7T^5o ^7A^5ctivate^2!");
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 	trig setHintString("^2Activated^1!");
 //AUTO 	user braxi\_rank::giveRankXP("", 50);
 	thread trap3();
 	thread buttontrap3();
-*/}
+}
 
 buttontrap3()
 {
@@ -542,15 +549,16 @@ trap3()
 actitrap4()
 {
 	trig = getent("trig_trap4", "targetname"); 
+	level endon("trigger");
     trig setHintString("^7P^5ress ^7[^2USE^7] ^7T^5o ^7A^5ctivate^2!");
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 	trig setHintString("^2Activated^1!");
 //AUTO 	user braxi\_rank::giveRankXP("", 50);
 	thread trap4();
 	thread trap4a();
 	thread trap4b();
 	thread buttontrap4();
-*/	}
+	}
 
 buttontrap4()
 {
@@ -815,7 +823,7 @@ sniperoom()
 //AUTO 						player GiveMaxAmmo("remington700_mp");
 //AUTO 						player GiveWeapon("m40a3_mp");
 //AUTO 						player GiveMaxAmmo("m40a3_mp");
-//AUTO 						wait .05;
+						wait .05;
 						level.activ setPlayerangles( acti.angles );
 						level.activ setOrigin( acti.origin );
 //AUTO 						level.activ TakeAllWeapons();
@@ -823,13 +831,13 @@ sniperoom()
 //AUTO 						level.activ GiveMaxAmmo("remington700_mp");
 //AUTO 						level.activ GiveWeapon("m40a3_mp");
 //AUTO 						level.activ GiveMaxAmmo("m40a3_mp");
-//AUTO 						wait 3;
+						wait 3;
 //AUTO 						player switchToWeapon("remington700_mp");
 //AUTO 						level.activ switchToWeapon("remington700_mp");
 						player freezeControls(false);
 						level.activ freezeControls(false);
 						   while( isAlive( player ) && isDefined( player ) )
-//AUTO 							wait .05;
+							wait .05;
 	}
 }
 

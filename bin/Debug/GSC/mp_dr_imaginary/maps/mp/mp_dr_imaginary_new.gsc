@@ -87,9 +87,10 @@ weapon()
 trap1()
 {
 	bounce = getEnt("trap1_bounce","targetname");
+	level endon("trigger");
 	trig = getEnt("trap1_trig","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	{
 		trig setHintString ("^4Activated!"); 
 		bounce moveZ(-192,2);
@@ -97,14 +98,15 @@ trap1()
 		bounce moveZ(192,2);
 		bounce waittill("movedone");
 	}
-*/}
+}
 
 trap2()
 {
 	cylinder = getEnt("trap2_cylinder","targetname");
+	level endon("trigger");
 	trig = getEnt("trap2_trig","targetname");
 	
-/* AUTO 	trig waittill("trigger"); 
+	trig waittill("trigger"); 
 	
 	while(1) 
 	{
@@ -113,7 +115,7 @@ trap2()
 		cylinder waittill("rotatedone");
 		
 	}
-*/}
+}
 
 elevator1()
 {
@@ -190,10 +192,11 @@ elevator5()
 trap3()
 {
 	spikes = getEnt("trap3_spikes","targetname" );
+	level endon("trigger");
 	trig = getEnt("trap3_trig","targetname");
 	hurt = getEnt("trap3_hurt","targetname");
 	
-/* AUTO 	trig waittill("trigger"); 
+	trig waittill("trigger"); 
 	{
 		trig setHintString ("^4Activated!"); 
 		
@@ -205,14 +208,15 @@ trap3()
 		spikes moveZ(-180,3);
 		spikes waittill("movedone");
 	}
-*/}
+}
 
 trap4()
 {
 	trig = getEnt("trap4_trig","targetname");
+	level endon("trigger");
 	platform = getEnt("trap4_platform","targetname");
 	
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	
 	while(1)
 	{
@@ -224,7 +228,7 @@ trap4()
 		platform show();
 		wait(5);
 	}
-*/}
+}
 
 schuifding()
 {
@@ -244,9 +248,10 @@ schuifding()
 trap5()
 {
 	squares = getEnt("trap5_squares","targetname");
+	level endon("trigger");
 	trig = getEnt("trap5_trig","targetname");
 	
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	
 	while(1)
 	{
@@ -256,14 +261,15 @@ trap5()
 		squares rotateYaw(-360,2);
 		wait(4);
 	}	
-*/}
+}
 
 trap6()
 {
 	bounce = getEnt("trap6_bounce","targetname");
+	level endon("trigger");
 	trig = getEnt("trap6_trig","targetname");
 	
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig setHintString ("^4Activated!"); 
 	
 	while(1)
@@ -271,11 +277,12 @@ trap6()
 		bounce rotateYaw(360,3);
 		wait(6);
 	}	
-*/}
+}
 
 trap7()
 {
 	trig = getEnt("trap7_trig","targetname");
+	level endon("trigger");
 	muur1_1 = getEnt("muur1_1","targetname");
 	muur1_2 = getEnt("muur1_2","targetname");
 	muur2 = getEnt("trap7_muur2","targetname");
@@ -284,7 +291,7 @@ trap7()
 	stairs3 = getEnt("trap7_stair3","targetname");
 	stairs4 = getEnt("trap7_stair4","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig setHintString ("^4Activated!"); 
 	{
 	muur1_2 moveY(575,4);
@@ -295,27 +302,29 @@ trap7()
 	stairs3 moveX(-46,4);
 	stairs4 moveX(-23,4);
 	}
-*/}
+}
 
 trap8()
 {
 	trig = getEnt("trap8_trig","targetname");
+	level endon("trigger");
 	blok = getEnt("trap8_blok","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig setHintString ("^4Activated!"); 
 	{
 	blok hide();
 	blok notsolid();
 	}
-*/}
+}
 
 trap9()
 {
 	trig = getEnt("trap9_trig","targetname");
+	level endon("trigger");
 	blok = getEnt("trap9_blok","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig setHintString ("^4Activated!"); 
 	 
 	while(1)
@@ -323,15 +332,16 @@ trap9()
 		blok rotatePitch(180,1);
 		wait(4);
 	}
-*/}
+}
 
 trap10()
 {
 	trig = getEnt("trap10_trig","targetname");
+	level endon("trigger");
 	squares1 = getEnt("trap10_squares1","targetname");
 	squares2 = getEnt("trap10_squares2","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig setHintString ("^4Activated!"); 
 	squares1 moveZ(-150,1);
 	squares1 waittill("movedone");
@@ -346,14 +356,15 @@ trap10()
 	squares2 moveZ(150,1);
 
 	}
-*/}
+}
 
 trap11()
 {
 	trig = getEnt("trap11_trig","targetname");
+	level endon("trigger");
 	windows = getEnt("trap11_windows","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig setHintString ("^4Activated!"); 
 	windows moveZ(90,2);
 	windows waittill("movedone");
@@ -366,16 +377,17 @@ trap11()
 	windows waittill("movedone");
 	}
 	
-*/}
+}
 
 trap12()
 {
 	trig = getEnt("trap12_trig","targetname");
+	level endon("trigger");
 	stairs1 = getEnt("trap12_stairs1","targetname");
 	stairs2 = getEnt("trap12_stairs2","targetname");
 	stairs3 = getEnt("trap12_stairs3","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig setHintString ("^4Activated!"); 
 	
 	while(1){
@@ -392,7 +404,7 @@ trap12()
 	stairs3 moveZ(320,2);
 	wait(2);
 	}
-*/}
+}
 
 cave_spinner()
 {
@@ -495,23 +507,23 @@ if(!isDefined(level.sniper_trigger))
 		level.knife_trigger delete();
 		level.firstenter=false;
 		}	
-//AUTO 		wait(0.05);
+		wait(0.05);
 player SetOrigin( telejumporigin7.origin );
 player setplayerangles( telejumporigin7.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon("m40a3_mp"); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactorigin7.origin);
 level.activ setplayerangles (level.teleactorigin7.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "m40a3_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon( "m40a3_mp" );
 //AUTO level.activ SwitchToWeapon( "m40a3_mp" );
 level.telejumporigin delete();
 //AUTO iPrintlnBold( " ^7" +  player.name  + " ^3 HAS ENTERED THE SNIPER ROOM^7!" ); //Change the message if you want
 while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 }
 }
 
@@ -547,24 +559,24 @@ if(!isDefined(level.bounce_trigger))
 		{
 		level.firstenter=false;
 		}	
-//AUTO 		wait(0.05);
+		wait(0.05);
 player setOrigin( telejumporigins.origin );
 player setplayerangles( telejumporigins.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon( "knife_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactorigins.origin);
 level.activ setplayerangles (level.teleactorigins.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "knife_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon( "knife_mp" );
 //AUTO level.activ SwitchToWeapon( "knife_mp" );
 level.telejumporigin delete();
 //AUTO iPrintlnBold( " ^7" + player.name + " ^3 HAS ENTERED THE BOUNCE ROOM^7!" ); 
 				
 while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
         }
 }
 
@@ -606,7 +618,7 @@ bounceroom_3rdstage_jumpertp()
 		player setplayerangles( origin_3rd_stage.angles );
 //AUTO 		player TakeAllWeapons();
 //AUTO 		player GiveWeapon("m40a3_mp"); 
-//AUTO 		wait(0.05);
+		wait(0.05);
 //AUTO 		player switchToWeapon( "m40a3_mp" );
 	}	
 }
@@ -623,7 +635,7 @@ bounceroom_3rdstage_actitp()
 		player setplayerangles( origin_3rd_stage.angles );
 //AUTO 		player TakeAllWeapons();
 //AUTO 		player GiveWeapon("m40a3_mp"); 
-//AUTO 		wait(0.05);
+		wait(0.05);
 //AUTO 		player switchToWeapon( "m40a3_mp" );///laat me ff iets veranderen bij de bounce script :D daar irriteer ik me aan :D. ok
 	}
 }
@@ -653,23 +665,23 @@ if(!isDefined(level.knife_trigger))
 
 
 		}	
-//AUTO 		wait(0.05);
+		wait(0.05);
 player SetOrigin( telejumporiginss.origin );
 player setplayerangles( telejumporiginss.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon( "knife_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactoriginss.origin);
 level.activ setplayerangles (level.teleactorigin.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "knife_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon( "knife_mp" );
 //AUTO level.activ SwitchToWeapon( "knife_mp" );
 level.telejumporigin delete();
 //AUTO iPrintlnBold( " ^7" + player.name + " ^3 HAS ENTERED THE KNIFE ROOM^7!" ); //Change the message if you want
 while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 }
 }
 

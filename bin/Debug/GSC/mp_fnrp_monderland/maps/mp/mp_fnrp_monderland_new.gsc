@@ -88,99 +88,107 @@ MakeTriggers()
 trapN1()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap1();
 		self delete();
 		break;
 	}
 	
-*/}
+}
 
 trapN2()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap2();
 		self delete();
 		break;
 	}	
-*/}
+}
 
 trapN3()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap3();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN4()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap4();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN5()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap5();
 		self delete();
 		break;
 	}	
-*/}
+}
 
 trapN6()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap6();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN7()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap7();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN8()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap8();
 		self delete();
 		break;
 	}
-*/}
+}
 
 gotrap1()
 {
@@ -198,37 +206,40 @@ gotrap1()
 movetrap1()
 {
 	while(1)
+	level endon("trigger");
 	{
 		self rotatePitch(360,0.5);
-/* AUTO 		self waittill("rotatedone");
+		self waittill("rotatedone");
 		wait(RandomInt(4));
 		
 	}
 
-*/}
+}
 
 gotrap2()
 {
 	trabn2_obj = getent("trap2","targetname");
+	level endon("trigger");
 	level.roll = 1;
 	while(1)
 	{
 		trabn2_obj rotatePitch(-360,100);
-/* AUTO 		trabn2_obj waittill ("rotatedone"); 
+		trabn2_obj waittill ("rotatedone"); 
 	}	
 
-*/}
+}
 
 gotrap3()
 {
 	trabn3_obj = getent("trap3","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		trabn3_obj rotateYaw(360,10);
-/* AUTO 		trabn3_obj waittill ("rotatedone");
+		trabn3_obj waittill ("rotatedone");
 		wait(RandomInt(4)); 
 	}		
-*/}
+}
 
 gotrap4()
 {
@@ -246,44 +257,48 @@ gotrap4()
 movetrap4()
 {
 		
+	level endon("trigger");
 	self.nun = RandomInt(2);
 	if (self.nun != 1)
 	{
 		self movez (-300,1,0,0.1);
-/* AUTO 		self waittill ("movedone");
+		self waittill ("movedone");
 	}
 
-*/}
+}
 
 gotrap5()
 {
 	trabn5_obj = getent("trap5","targetname");
+	level endon("trigger");
 	
 		trabn5_obj movez (-500,1,0,0.1);
-/* AUTO 		trabn5_obj waittill ("movedone");
+		trabn5_obj waittill ("movedone");
 		
 		wait (4);
 		
 		trabn5_obj movez (500,2,0,0.6);
 		trabn5_obj waittill ("movedone");
-*/}
+}
 
 gotrap6()
 {
 	trabn6_obj = getent("trap6","targetname");
+	level endon("trigger");
 	
 		trabn6_obj movex (-150,1,0,0.1);
-/* AUTO 		trabn6_obj waittill ("movedone");
+		trabn6_obj waittill ("movedone");
 		
 		wait (4);
 		
 		trabn6_obj movex (150,2,0,0.6);
 		trabn6_obj waittill ("movedone");
-*/}
+}
 
 gotrap7()
 {
 	trabn7_obj1 = getent("trap71","targetname");
+	level endon("trigger");
 	trabn7_obj2 = getent("trap72","targetname");
 
 	while(1)
@@ -291,10 +306,10 @@ gotrap7()
 		trabn7_obj1 rotateRoll(-360,6);
 		wait(RandomInt(2));
 		trabn7_obj2 rotatePitch(360,6);
-/* AUTO 		trabn7_obj2 waittill ("rotatedone");
+		trabn7_obj2 waittill ("rotatedone");
 		wait(RandomInt(3));
 	}	
-*/}
+}
 
 gotrap8()
 {
@@ -312,14 +327,15 @@ gotrap8()
 movetrap8()
 {
 		
+	level endon("trigger");
 	self.nun = RandomInt(2);
 	if (self.nun != 1)
 	{
 		self movey (-300,1,0,0.1);
-/* AUTO 		self waittill ("movedone");
+		self waittill ("movedone");
 	}
 
-*/}
+}
 
 WatchGame()
 {

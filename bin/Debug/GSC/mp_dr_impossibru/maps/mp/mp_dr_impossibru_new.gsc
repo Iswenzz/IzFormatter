@@ -63,13 +63,14 @@ addTriggerToList( name )
 trap1()                        
 {
 	trigger = getent("trap1_trig", "targetname");
+	level endon("trigger");
 	object = getent("trap1a", "targetname");
 	object2 = getent("trap1b", "targetname");
 	object3 = getent("trap1c", "targetname");
 	object4 = getent("trap1d", "targetname");
 	trigger setHintString("^1Spin");
 
-/* AUTO 	trigger waittill( "trigger", player );
+	trigger waittill( "trigger", player );
 	trigger delete();
 
 	while(1)
@@ -80,46 +81,50 @@ trap1()
 		object4 rotateyaw(360,3);
 		wait 3;
 	}
-*/}
+}
 
 trap2()
 {
 	trigger = getEnt("trap2_trig", "targetname");
+	level endon("trigger");
 	object = getEnt("trap2", "targetname");
 	trigger setHintString("^2Hide Blocks");
-/* AUTO 	trigger waittill("trigger", who );
+	trigger waittill("trigger", who );
 	trigger delete();
 	object  notSolid();
 	object hide();
-*/}
+}
 
 trap3()
 {
 	trigger = getent("trap3_trig", "targetname");
+	level endon("trigger");
 	object = getent("trap3", "targetname");
 	trigger setHintString("^3Rotate Circles");
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 	trigger delete();
 	while(1)
 	{
 		object rotateyaw(360,3);
 		wait 3;
 	}
-*/}
+}
 
 trap3a()
 {
 	trigger = getent("trap3b_trig","targetname");
+	level endon("trigger");
 	object = getent("trap3a","targetname");
 	trigger setHintString("^4No Short Cuts!!!");
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 	trigger delete();
 	object  notSolid();
-*/}
+}
 
 trap4()
 {
 	trigger = getent("trap4_trig", "targetname");
+	level endon("trigger");
 	object = getent("trap4", "targetname");
 	killtrigger = getent ("killtrig4" , "targetname");
 
@@ -127,7 +132,7 @@ trap4()
 	killtrigger linkto (object);
 
 	trigger setHintString("^5Spikes");
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 	trigger delete();
 
 	while(1)
@@ -139,7 +144,7 @@ trap4()
 		object waittill("movedone");
 		wait(1);
 	}
-*/}
+}
 
 sniper()  
 {
@@ -172,7 +177,7 @@ sniper()
 		}
 //AUTO 		iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN Sniper^1!" );
 		while( isDefined( player ) && isAlive( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 
@@ -212,7 +217,7 @@ knife()
 		}
 //AUTO 		iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN Knife^1!" );
 		while( isDefined( player ) && isAlive( player ) )
-//AUTO 			wait 0.05;
+			wait 0.05;
 
 		if( !isDefined( player ) )
 			continue;
@@ -330,15 +335,16 @@ playerJoined()
 trap3a_trig()
 {
 	trig = getEnt ("trap3a_trig", "targetname");
+	level endon("trigger");
 	
 	for(;;)
 	{
-/* AUTO 		trig waittill ("trigger", player);
+		trig waittill ("trigger", player);
 		trig delete();
 		
 //AUTO 		player iprintlnbold ("^1No easy way :/");
 	}
-*/}
+}
 
 prank()
 {
@@ -369,8 +375,9 @@ update()
 trapdoor()
 {
 	object = getEnt ("trapdoor", "targetname");
+	level endon("trigger");
 	trigger = getEnt ("trapdoor_trig", "targetname");
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 	trigger delete();
 	wait 0.01;
 //AUTO 	iPrintlnBold("^1Hurry the door is closing!!!!");
@@ -383,7 +390,7 @@ trapdoor()
 	object waittill("movedone");
 	wait 0.01;
 //AUTO 	iPrintlnBold("^3Door opened!!!");
-*/}
+}
 
 bounce()
 {
@@ -417,7 +424,7 @@ bounce()
 //AUTO 		iPrintlnBold( "^6" + player.name + " ^5 HAS CHOSEN Bounce^1!" );
 
 		while( isDefined( player ) && isAlive( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 

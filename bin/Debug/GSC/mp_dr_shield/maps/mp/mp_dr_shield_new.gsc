@@ -249,18 +249,20 @@ new_ending_hud( align, fade_in_time, x_off, y_off )
 trap1()
 {
 	trigger = getEnt ("trig_trap1","targetname");
+	level endon("trigger");
 	dead = getEnt ("trap1","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	wait 1;
 	dead delete();
-*/}
+}
 
 trap2()
 {
 	trigger = getEnt ("trig_trap2","targetname");
+	level endon("trigger");
 	ob1 = getEnt ("trap2","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	while(1)
 		{
@@ -269,26 +271,28 @@ trap2()
 			ob1 moveZ (-100,2);
 			wait 2;
 		}
-*/}
+}
 
 trap3()
 {
 	trigger = getEnt ("trig_trap3","targetname");
+	level endon("trigger");
 	bounce = getEnt ("trap3","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	while(1)
 		{
 			bounce rotateYaw (720,4);
 			wait (5);
 		}
-*/}
+}
 
 trap4()
 {
 	trigger = getEnt ("trig_trap4","targetname");
+	level endon("trigger");
 	blocks = getEnt ("trap4","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	while(1)
 		{
@@ -297,23 +301,25 @@ trap4()
 			blocks moveY (-100,4);
 			blocks waittill ("movedone");
 		}
-*/}
+}
 
 trap5()
 {
 	trigger = getEnt ("trig_trap5","targetname");
+	level endon("trigger");
 	form = getEnt ("trap5","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	wait (4);
 	form notsolid();
-*/}
+}
 
 trap6()
 {
 	trigger = getEnt ("trig_trap6","targetname");
+	level endon("trigger");
 	rot = getEnt ("trap6","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	while(1)
 		{
@@ -322,27 +328,29 @@ trap6()
 			rot rotateYaw (720,2);
 			wait 3;
 		}
-*/}
+}
 
 trap7()
 {
 	trigger = getEnt ("trig_trap7","targetname");
+	level endon("trigger");
 	spikes = getEnt ("trap7","targetname");
 	kill = getEnt ("death","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	kill enablelinkto();
 	kill linkto (spikes);
 	spikes moveZ (130,0.1);
 	wait (5);
 	spikes moveZ (-130,0.1);
-*/}
+}
 
 trap8()
 {
 	trigger = getEnt ("trig_trap8","targetname");
+	level endon("trigger");
 	boom = getEnt("boom","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 //AUTO 	iPrintLnBold(3);
 	wait 0.05;
@@ -352,7 +360,7 @@ trap8()
 	wait (0.5);
 	playfx(level._effect["c4explosion"], (boom.origin));
 	RadiusDamage (boom.origin, 200, 200, 200);
-*/}
+}
 
 lift()
 {
@@ -412,18 +420,20 @@ fx1()
 trap9()
 {
 	trigger = getEnt ("trig_trap9","targetname");
+	level endon("trigger");
 	object = getEnt ("trap9","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	wait 0.5;
 	object delete();
-*/}
+}
 
 trap10()
 {
 	trigger = getEnt ("trig_trap10","targetname");
+	level endon("trigger");
 	schieber = getEnt ("trap10","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	while(1)
 	{
@@ -432,13 +442,14 @@ trap10()
 		schieber moveX (-1118,1);
 		schieber waittill ("movedone");
 	}
-*/}
+}
 
 trap11()
 {
 	trigger = getEnt ("trig_trap11","targetname");
+	level endon("trigger");
 	move = getEnt ("trap11","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	while(1)
 	{
@@ -447,34 +458,37 @@ trap11()
 		move moveZ (-80,2);
 		move waittill ("movedone");
 	}
-*/}
+}
 
 trap12()
 {
 	trigger = getEnt ("trig_trap12","targetname");
+	level endon("trigger");
 	ui = getEnt ("fire","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	playfx(level._effect["gas"],(ui.origin));
 	RadiusDamage (ui.origin, 125, 125, 125);
-*/	}
+	}
 
 trap13()
 {
 	trigger = getEnt ("trig_trap13","targetname");
+	level endon("trigger");
 	eff = getEnt ("green","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	playfx(level._effect["fireball"],(eff.origin));
 	RadiusDamage (eff.origin, 150, 150, 150);
 	
-*/}
+}
 
 trap14()
 {
 	trigger = getEnt ("trig_trap14","targetname");
+	level endon("trigger");
 	object = getEnt ("trap14","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	while(1)
 	{
@@ -483,17 +497,18 @@ trap14()
 		object moveX (1113,5);
 		object waittill ("movedone");
 	}
-*/}
+}
 
 trap15()
 {
 	trigger = getEnt ("trig_trap15","targetname");
+	level endon("trigger");
 	brush = getEnt ("trap15","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	wait 1;
 	brush notsolid();
-*/}
+}
 
 tele2()
 {
@@ -509,19 +524,21 @@ tele2()
 trap16()
 {
 	trigger = getEnt ("trig_trap16","targetname");
+	level endon("trigger");
 	plat = getEnt ("trap16","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	plat moveZ (-500,2);
 	plat waittill ("movedone");
 	plat moveZ (500,2);
-*/}
+}
 
 trap17()
 {
 	trigger = getEnt ("trig_trap17","targetname");
+	level endon("trigger");
 	rot = getEnt ("trap17","targetname");
-/* AUTO 	trigger waittill ("trigger",player);
+	trigger waittill ("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 100);
 	while(1)
 	{
@@ -529,7 +546,7 @@ trap17()
 	rot rotateYaw (720,2);
 	wait 4;
 	}
-*/}
+}
 
 oldroom()
 {
@@ -553,7 +570,7 @@ oldroom()
 //AUTO 			player takeAllWeapons();
 //AUTO 			player giveWeapon ("knife_mp");
 //AUTO 			player switchToWeapon ("knife_mp");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			iPrintLnBold ("^2Oldroom is for noobs");
 		}
 		
@@ -691,16 +708,16 @@ bounceroom()
 //AUTO       level.activ takeAllWeapons();
 //AUTO       level.activ giveWeapon("knife_mp");
 //AUTO       level.activ switchToWeapon( "knife_mp" );
-//AUTO       wait 0.05;
+      wait 0.05;
 //AUTO 	  level.activ IprintLnBold ("^13");
 //AUTO 	  player IprintLnBold ("^13");
-//AUTO 	  wait 0.5;
+	  wait 0.5;
 //AUTO 	  level.activ IprintLnBold ("^22");
 //AUTO 	  player IprintLnBold ("^22");
-//AUTO 	  wait 0.5;
+	  wait 0.5;
 //AUTO 	  level.activ IprintLnBold ("^31");
 //AUTO 	  player IprintLnBold ("^31");
-//AUTO       wait 1;
+      wait 1;
 //AUTO 	  player IprintLnBold ("Get the sniper!");
 //AUTO 	  level.activ IprintLnBold ("Get the sniper!");
 	  player freezecontrols(false);

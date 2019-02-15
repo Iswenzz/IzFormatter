@@ -72,21 +72,23 @@ trig delete();
 trap1()
 {
 trig = getEnt ("t1", "targetname");
+	level endon("trigger");
 b = getEnt ("b1", "targetname");
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 trig delete();
 
 b moveZ (500,1);
 wait 3;
 b moveZ (-500,1);
 wait 3;
-*/}
+}
 
 trap2()
 {
 trig = getEnt ("t2", "targetname");
+	level endon("trigger");
 b = getEnt ("b2", "targetname");
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 trig delete();
 
 b moveZ (100,1);
@@ -97,13 +99,14 @@ b moveZ (100,1);
 wait 3;
 b moveZ (-100,1);
 wait 3;
-*/}
+}
 
 trap3()
 {
 trig = getEnt ("t3", "targetname");
+	level endon("trigger");
 b = getEnt ("b3", "targetname");
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 trig delete();
 while(1)
 {
@@ -112,15 +115,16 @@ wait 3;
 b moveZ (300,1);
 wait 3;
 }
-*/}
+}
 
  trap4()
 {
    trig = getEnt ("t4" , "targetname");
+	level endon("trigger");
    spikes = getEnt ("b4" ,"targetname" );
    hurt = getEnt ("hurtspike" , "targetname");
    hurt2= getEnt ("hurtspike2" , "targetname");
-/* AUTO    trig waittill ("trigger", player);  
+   trig waittill ("trigger", player);  
    trig delete();  
    
    hurt enablelinkto();
@@ -133,25 +137,27 @@ wait 3;
          spikes moveZ (-20,1); 
         wait 5;
     
-*/}
+}
 
 trap5()
 {
 trig = getEnt ("t5", "targetname");
+	level endon("trigger");
 b = getEnt ("b5", "targetname");
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 trig delete();
 
 b moveZ (-900,1);
 wait 3;
-*/}
+}
 
 trap6()
 {
 trig = getEnt ("t6", "targetname");
+	level endon("trigger");
 b = getEnt ("b6a", "targetname");
 b2 = getEnt ("b6b", "targetname");
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 trig delete();
 
 
@@ -161,25 +167,27 @@ wait 1;
 b moveZ (300,1);
 b2 moveZ (-300,1);
 wait 1;
-*/}
+}
 
 trap7()
 {
 trig = getEnt ("t7", "targetname");
+	level endon("trigger");
 b = getEnt ("b7", "targetname");
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 trig delete();
 
 b rotateRoll (-360,1);
 wait 1;
-*/}
+}
 
 trap8()
 {
 trig = getEnt ("t8", "targetname");
+	level endon("trigger");
 b = getEnt ("b8a", "targetname");
 b2 = getEnt ("b8b", "targetname");
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 trig delete();
 
 
@@ -189,13 +197,14 @@ wait 1;
 b moveY (190,1);
 b2 moveY (-190,1);
 wait 1;
-*/}
+}
 
 trap9()
 {
 trig = getEnt("t9","targetname");
+	level endon("trigger");
 trap = getEnt("b9","targetname");
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 
 while(1)
@@ -203,14 +212,15 @@ while(1)
 trap RotatePitch (360,2);
 wait 5;
 }
-*/}
+}
 
  trap10()
 {
    trig = getEnt ("t10" , "targetname");
+	level endon("trigger");
    spikes = getEnt ("b10" ,"targetname" );
    hurt = getEnt ("hurtlast" , "targetname");
-/* AUTO    trig waittill ("trigger", player);  
+   trig waittill ("trigger", player);  
    trig delete();  
    
    hurt enablelinkto();
@@ -221,7 +231,7 @@ wait 5;
          spikes moveZ (-240,1); 
         wait 10;
     
-*/}
+}
 
 tele1()
 {
@@ -458,12 +468,12 @@ sniper_room()
                 level.activ setOrigin( acti.origin );
 //AUTO                 level.activ TakeAllWeapons();
 //AUTO                 level.activ GiveWeapon( "remington700_mp" );          
-//AUTO                 wait 0.05;
+                wait 0.05;
 //AUTO                 player switchToWeapon( "remington700_mp" );
 //AUTO                 level.activ SwitchToWeapon( "remington700_mp" );
 //AUTO                 iPrintlnBold( " ^6LoL" + player.name + " ^4 has chosen ^1snipe room!" );                //change it as you wish
                 while( isAlive( player ) && isDefined( player ) )
-//AUTO                         wait 1;
+                        wait 1;
         }
 }              
 
@@ -491,12 +501,12 @@ knife_room()
                 level.activ setOrigin( acti.origin );
 //AUTO                 level.activ TakeAllWeapons();
 //AUTO                 level.activ GiveWeapon( "tomahawk_mp" );              
-//AUTO                 wait 0.05;
+                wait 0.05;
 //AUTO                 player switchToWeapon( "tomahawk_mp" );
 //AUTO                 level.activ SwitchToWeapon( "tomahawk_mp" );
 //AUTO                 iPrintlnBold( " ^6LoL" + player.name + " ^3has chosen ^1knife room" );                //change it as you wish
                 while( isAlive( player ) && isDefined( player ) )
-//AUTO                         wait 1;
+                        wait 1;
         }
 }
 
@@ -524,12 +534,12 @@ jump_room()
                 level.activ setOrigin( acti.origin );
 //AUTO                 level.activ TakeAllWeapons();
 //AUTO                 level.activ GiveWeapon( "tomahawk_mp" );              
-//AUTO                 wait 0.05;
+                wait 0.05;
 //AUTO                 player switchToWeapon( "tomahawk_mp" );
 //AUTO                 level.activ SwitchToWeapon( "tomahawk_mp" );
 //AUTO                 iPrintlnBold( " ^6 LoL" + player.name + " ^3has chosen ^1Jump room" );                //change it as you wish
                 while( isAlive( player ) && isDefined( player ) )
-//AUTO                         wait 1;
+                        wait 1;
         }
 }
 

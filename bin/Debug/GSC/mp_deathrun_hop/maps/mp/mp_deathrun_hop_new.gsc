@@ -390,7 +390,7 @@ main()
 //AUTO 			activator giveweapon(weapon);
 //AUTO 			activator givemaxammo(weapon);
 //AUTO 			player givemaxammo(weapon);
-//AUTO 			wait .1;
+			wait .1;
 //AUTO 			player switchtoweapon(weapon);
 //AUTO 			activator switchtoweapon(weapon);
 			player freezeControls(false);
@@ -430,7 +430,7 @@ main()
 //AUTO 			activator giveweapon(weapon);
 //AUTO 			activator givemaxammo(weapon);
 //AUTO 			player givemaxammo(weapon);
-//AUTO 			wait .1;
+			wait .1;
 //AUTO 			player switchtoweapon(weapon);
 //AUTO 			activator switchtoweapon(weapon);
 			player freezeControls(false);
@@ -587,7 +587,7 @@ main()
 			{
 				once_jumper_low = 1;
 //AUTO 				activator iPrintLnBold ("^1Your current enemy is too low, he will die within 5 sec!");
-//AUTO 				wait 5;
+				wait 5;
 				player suicide();
 			}
 			if ( once_knife == 0 && level.bounce_jumper == 21 && level.bounce_activator == 21 )
@@ -624,7 +624,7 @@ main()
 //AUTO 				player switchtoweapon("tomahawk_mp");
 //AUTO 				activator switchtoweapon("tomahawk_mp");
 			}
-//AUTO 			wait .1;
+			wait .1;
 		}
 	}
 
@@ -677,7 +677,7 @@ main()
 //AUTO 			player givemaxammo("m40a3_mp");
 //AUTO 			activator givemaxammo("remington700_mp");
 //AUTO 			player givemaxammo("remington700_mp");
-//AUTO 			wait .1;
+			wait .1;
 //AUTO 			player switchtoweapon("m40a3_mp");
 //AUTO 			activator switchtoweapon("m40a3_mp");
 			
@@ -698,8 +698,8 @@ main()
 			low freezeControls(true);
 			low setorigin(fail_on.origin);
 			low setPlayerAngles(fail_on.angles);
-//AUTO //AUTO 			low iPrintLnBold ("^4Wait 3 seconds!");
-//AUTO 			wait 3;
+//AUTO 			low iPrintLnBold ("^4Wait 3 seconds!");
+			wait 3;
 			low setorigin(fail_off.origin);
 			low setPlayerAngles(fail_on.angles);
 //AUTO 			low iPrintLnBold ("^4You can move again!");
@@ -925,22 +925,24 @@ main()
 	trap1()
 	{
 		level endon("traps_disabled");
+	level endon("trigger");
 		trig = getEnt ("trap1_trig","targetname");
 		trap = getEnt ("trap1","targetname");
-/* AUTO 		trig waittill ("trigger");
+		trig waittill ("trigger");
 		trig delete();
 		trap moveZ (240,0.5);
 		wait 1;
 		trap moveZ (-240,4);
-*/	}
+	}
 
 	trap2()
 	{
 		level endon("traps_disabled");
+	level endon("trigger");
 		trig = getEnt ("trap2_trig","targetname");
 		trap1 = getEnt ("trap2_a","targetname");	
 		trap2 = getEnt ("trap2_b","targetname");
-/* AUTO 		trig waittill ("trigger");
+		trig waittill ("trigger");
 		trig delete();
 		x = RandomIntRange(1,10);
 		if (x<5)
@@ -951,52 +953,56 @@ main()
 		{
 			trap2 notsolid();
 		}
-*/	}
+	}
 
 	trap3()
 	{
 		level endon("traps_disabled");
+	level endon("trigger");
 		trig = getEnt ("trap3_trig","targetname");
-/* AUTO 		trig waittill ("trigger");
+		trig waittill ("trigger");
 		trig delete();
 		thread trap3_a();
 		thread trap3_b();
-*/	}
+	}
 
 	trap3_a()
 	{
 		trap = getEnt ("trap3","targetname");
+	level endon("trigger");
 		while(1)
 		{
 			trap rotateRoll(-180,1);
-/* AUTO 			trap waittill("rotatedone");
+			trap waittill("rotatedone");
 			wait 2;
 		}	
-*/	}
+	}
 
 	trap3_b()
 	{
 		trap = getEnt ("bounce_trap3","targetname");
+	level endon("trigger");
 		trap moveX (115,1);
 		wait 1;
 		while(1)
 		{
 			trap moveX(-230,2);
-/* AUTO 			trap waittill("movedone");
+			trap waittill("movedone");
 			wait 1;
 			trap moveX(230,2);
 			trap waittill("movedone");
 			wait 1;
 		}
-*/	}
+	}
 
 	trap4()
 	{
 		level endon("traps_disabled");
+	level endon("trigger");
 		trig = getEnt ("trap4_trig","targetname");
 		pipe_a = getEnt ("rotate_a","targetname");
 		pipe_b = getEnt ("rotate_b","targetname");
-/* AUTO 		trig waittill ("trigger");
+		trig waittill ("trigger");
 		trig delete();
 		y = RandomIntRange(1,11);
 		if (y<6)
@@ -1010,7 +1016,7 @@ main()
 		
 		thread wood_a();
 		thread wood_b();
-*/	}
+	}
 
 	wood_a()
 	{
@@ -1037,10 +1043,11 @@ main()
 	trap5()
 	{
 		level endon("traps_disabled");
+	level endon("trigger");
 		trap1 = getEnt ("trap5_a","targetname");
 		trap2 = getEnt ("trap5_b","targetname");
 		trig = getEnt ("trap5_trig","targetname");
-/* AUTO 		trig waittill ("trigger");
+		trig waittill ("trigger");
 		trap1 moveY (-410,2);
 		trap1 waittill("movedone");
 		trap1 delete();
@@ -1049,18 +1056,19 @@ main()
 		trap2 waittill("movedone");
 		trap2 delete();
 		trig delete();
-*/	}
+	}
 
 	trap6()
 	{
 		level endon("traps_disabled");
+	level endon("trigger");
 		trig = getEnt("trap6_trig","targetname");
 		trap_a = getEnt("trap6_a","targetname");
 		trap_b = getEnt("trap6_b","targetname");
 		trap_c = getEnt("trap6_c","targetname");
 		trap_d = getEnt("trap6_d","targetname");
 		trap_e = getEnt("trap6_e","targetname");
-/* AUTO 		trig waittill ("trigger");
+		trig waittill ("trigger");
 		trig delete();
 		while( 1 )
 		{
@@ -1087,11 +1095,12 @@ main()
 			trap_e waittill("movedone");
 			wait 1;
 		}
-*/	}
+	}
 
 	trap7()
 	{
 		level endon("traps_disabled");
+	level endon("trigger");
 		trig = getEnt("trap7_trig","targetname");
 		
 		trap_l1 = getEnt("trap7_l1","targetname");
@@ -1100,7 +1109,7 @@ main()
 		trap_r2 = getEnt("trap7_r2","targetname");
 		trap_m = getEnt("trap7_m","targetname");
 		
-/* AUTO 		trig waittill ("trigger");
+		trig waittill ("trigger");
 		trig delete();
 		
 		thread trap7_left(trap_l1);
@@ -1108,7 +1117,7 @@ main()
 		thread trap7_middle(trap_m);
 		thread trap7_right(trap_r1);
 		thread trap7_right(trap_r2);
-*/	}
+	}
 
 	trap7_left(trap)
 	{
@@ -1122,7 +1131,8 @@ main()
 	trap7_middle(trap)
 	{
 		trap rotateYaw(90,2);
-/* AUTO 		trap waittill("rotatedone");
+	level endon("trigger");
+		trap waittill("rotatedone");
 		while(1)
 		{
 			trap rotateYaw(180,3);
@@ -1131,7 +1141,7 @@ main()
 			trap waittill("rotatedone");
 			
 		}
-*/	}
+	}
 
 	trap7_right(trap)
 	{
@@ -1145,6 +1155,7 @@ main()
 	trap8()
 	{
 		level endon("traps_disabled");
+	level endon("trigger");
 		trig = getEnt("trap8_trig","targetname");
 		
 		trap_a = getEnt("trap8_a","targetname");
@@ -1153,7 +1164,7 @@ main()
 		trap_d = getEnt("trap8_d","targetname");
 		trap_e = getEnt("trap8_e","targetname");
 		
-/* AUTO 		trig waittill ("trigger");
+		trig waittill ("trigger");
 		trig delete();
 		
 		thread trap8_f(trap_a);
@@ -1161,33 +1172,36 @@ main()
 		thread trap8_f(trap_c);
 		thread trap8_l(trap_d);
 		thread trap8_f(trap_e);
-*/	}
+	}
 
 	trap8_l(trap)
 	{
 		while(1)
+	level endon("trigger");
 		{
 			trap rotatePitch (-140,1);
-/* AUTO 			trap waittill ("rotatedone");
+			trap waittill ("rotatedone");
 			trap rotatePitch (140,1);
 			trap waittill ("rotatedone");
 		}
-*/	}
+	}
 
 	trap8_f(trap)
 	{
 		while(1)
+	level endon("trigger");
 		{
 			trap rotatePitch (140,1);
-/* AUTO 			trap waittill ("rotatedone");
+			trap waittill ("rotatedone");
 			trap rotatePitch (-140,1);
 			trap waittill ("rotatedone");
 		}
-*/	}
+	}
 
 	trap9()
 	{
 		level endon("traps_disabled");
+	level endon("trigger");
 		trig = getEnt("trap9_trig","targetname");
 		
 		trap_01 = getEnt("trap9_01","targetname"); 
@@ -1203,7 +1217,7 @@ main()
 		trap_11 = getEnt("trap9_11","targetname");
 		trap_12 = getEnt("trap9_12","targetname");
 			
-/* AUTO 		trig waittill ("trigger");
+		trig waittill ("trigger");
 		trig delete();
 		
 		thread trap9_lift_a(trap_01);
@@ -1219,12 +1233,13 @@ main()
 		thread trap9_lift_b(trap_08);
 		thread trap9_lift_b(trap_10);
 		thread trap9_lift_b(trap_12);
-*/	}
+	}
 
 	trap9_lift_a(trap)
 	{
 		trap moveZ(50,1);
-/* AUTO 		trap waittill ("movedone");
+	level endon("trigger");
+		trap waittill ("movedone");
 		while(1)
 		{				
 			trap moveZ(-100,2);
@@ -1232,12 +1247,13 @@ main()
 			trap moveZ(100,2);
 			trap waittill ("movedone");
 		}
-*/	}
+	}
 
 	trap9_lift_b(trap)
 	{
 		trap moveZ(-50,1);
-/* AUTO 		trap waittill ("movedone");
+	level endon("trigger");
+		trap waittill ("movedone");
 		while(1)
 		{				
 			trap moveZ(100,2);
@@ -1245,47 +1261,51 @@ main()
 			trap moveZ(-100,2);
 			trap waittill ("movedone");
 		}
-*/	}
+	}
 
 	trap10()
 	{
 		level endon("traps_disabled");
+	level endon("trigger");
 		trig = getEnt("trap10_trig","targetname");
-/* AUTO 		trig waittill ("trigger");
+		trig waittill ("trigger");
 		trig delete();
 		thread trap10_left();
 		thread trap10_right();
-*/	}
+	}
 
 	trap10_left()
 	{
 		trap = getEnt("trap10_l","targetname");
+	level endon("trigger");
 		while(1)
 		{
 			trap moveY (210,2);
-/* AUTO 			trap waittill("movedone");
+			trap waittill("movedone");
 			wait 1;
 			trap moveY (-210,2);
 			trap waittill("movedone");
 		}
-*/	}
+	}
 
 	trap10_right()	
 	{
 		trap = getEnt("trap10_r","targetname");
+	level endon("trigger");
 		while(1)
 		{
 			trap moveY (-210,2);
-/* AUTO 			trap waittill("movedone");
+			trap waittill("movedone");
 			wait 1;
 			trap moveY (210,2);
 			trap waittill("movedone");
 		}
-*/	}
+	}
 
 	trap11()
 	{
 		level endon("traps_disabled");
+	level endon("trigger");
 		trig = getEnt("trap11_trig","targetname");
 		trap_a = getEnt("trap11_a","targetname");
 		trap_b = getEnt("trap11_b","targetname");
@@ -1295,7 +1315,7 @@ main()
 		trap_bside = getEnt("trap11_bside","targetname");
 		trap_mside = getEnt("trap11_mside","targetname");
 		
-/* AUTO 		trig waittill("trigger");
+		trig waittill("trigger");
 		
 		h = RandomIntRange(1,11);
 		if( h < 6 )
@@ -1314,7 +1334,7 @@ main()
 			trap_mside notsolid();
 			trap_m delete();
 		}
-*/	}
+	}
 
 	secret_lift_a()
 	{

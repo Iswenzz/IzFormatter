@@ -191,8 +191,9 @@ while(1)
 trap1()
 {
         trap1 = getEnt("trap1","targetname");
+	level endon("trigger");
         trig1 = getEnt("trig1","targetname");
-/* AUTO         trig1 waittill ("trigger");
+        trig1 waittill ("trigger");
         trig1 delete();
         {
                 trap1 moveZ(-136 ,1);
@@ -201,14 +202,15 @@ trap1()
 
 	wait 8;
         }
-*/}
+}
 
 trap2()
 	{
 	trap2 = getEnt ("trap2","targetname");
+	level endon("trigger");
 	kill = getEnt ("trap2kill","targetname");
 	trig2 = getEnt ("trig2","targetname");
-/* AUTO 	trig2 waittill ("trigger", player);
+	trig2 waittill ("trigger", player);
 	trig2 delete ();
 	thread trap2a();
 	
@@ -221,22 +223,24 @@ trap2()
 		
 		
 	wait 15;
-*/	}
+	}
 
 trap2a()
 	{
 		kill = getEnt ("trap2kill","targetname");
-/* AUTO 		kill waittill("trigger", player);
+	level endon("trigger");
+		kill waittill("trigger", player);
 		player suicide();
 		wait 7;
 		kill delete();
-*/	}
+	}
 
 trap3()
 {
         trap3 = getEnt("trap3","targetname");
+	level endon("trigger");
         trig3 = getEnt("trig3","targetname");
-/* AUTO         trig3 waittill ("trigger");
+        trig3 waittill ("trigger");
         trig3 delete();
         {
 			while(1)
@@ -246,13 +250,14 @@ trap3()
 	wait 1;
         }
 }
-*/}
+}
 
 trap4()
 {
         trap4 = getEnt("trap4","targetname");
+	level endon("trigger");
         trig4 = getEnt("trig4","targetname");
-/* AUTO         trig4 waittill ("trigger");
+        trig4 waittill ("trigger");
         trig4 delete();
         {
                 trap4 moveZ(608 ,1);
@@ -261,13 +266,14 @@ trap4()
 
 	wait 15;
         }
-*/}
+}
 
 trap5()
 {
         trap5 = getEnt("trap5","targetname");
+	level endon("trigger");
         trig5 = getEnt("trig5","targetname");
-/* AUTO         trig5 waittill ("trigger");
+        trig5 waittill ("trigger");
         trig5 delete();
         {
 	
@@ -277,7 +283,7 @@ trap5()
 
 	wait 6;
         }
-*/}
+}
 
 snipersecret()
 {
@@ -353,7 +359,7 @@ sniper()
 //AUTO 	        level.activ GiveMaxAmmo( "remington700_mp" );
 //AUTO 			level.activ GiveWeapon( "m40a3_mp" );
 //AUTO 	        level.activ GiveMaxAmmo( "m40a3_mp" );
-//AUTO 	        wait .05;
+	        wait .05;
 //AUTO 	        player switchToWeapon( "remington700_mp" ); 
 //AUTO 	        level.activ SwitchToWeapon( "remington700_mp" );
 	        player FreezeControls(1);
@@ -366,7 +372,7 @@ sniper()
 					players = getentarray("player", "classname");
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 					wait 5;
+					wait 5;
 					player FreezeControls(0);
 					level.activ FreezeControls(0);
 			player waittill( "death" );
@@ -407,7 +413,7 @@ weapon()
 //AUTO 	        level.activ GiveMaxAmmo( "ak74u_mp" );
 //AUTO 			level.activ GiveWeapon( "deserteagle_mp" );
 //AUTO 	        level.activ GiveMaxAmmo( "deserteagle_mp" );
-//AUTO 	        wait .05;
+	        wait .05;
 //AUTO 	        player switchToWeapon( "ak74u_mp" ); 
 //AUTO 	        level.activ SwitchToWeapon( "ak74u_mp" );
 	        player FreezeControls(1);
@@ -420,7 +426,7 @@ weapon()
 					players = getentarray("player", "classname");
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 					wait 5;
+					wait 5;
 					player FreezeControls(0);
 					level.activ FreezeControls(0);
 			player waittill( "death" );
@@ -455,7 +461,7 @@ bounce()
 	        level.activ setOrigin( acti.origin );
 //AUTO 	        level.activ TakeAllWeapons();
 //AUTO 	        level.activ GiveWeapon( "tomahawk_mp" );
-//AUTO 	        wait .05;
+	        wait .05;
 //AUTO 	        player switchToWeapon( "tomahawk_mp" ); 
 //AUTO 	        level.activ SwitchToWeapon( "tomahawk_mp" );
 	        player FreezeControls(1);
@@ -468,7 +474,7 @@ bounce()
 					players = getentarray("player", "classname");
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 					wait 5;
+					wait 5;
 					player FreezeControls(0);
 					level.activ FreezeControls(0);
 			player waittill( "death" );
@@ -553,9 +559,10 @@ syndcarnagesecret()
 trap6()
 {
 origin = GetEnt("trap6origin","targetname");
+	level endon("trigger");
 kill = GetEnt("trap6kill","targetname");
 trig = GetEnt("trap6trig","targetname");
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 trig delete();
 thread trap6_1();
 PlayFX( level.trap6fx, origin.origin );
@@ -566,7 +573,7 @@ kill waittill("trigger", player);
 wait 0.01;
 player suicide();
 }
-*/}
+}
 
 trap6_1()
 {

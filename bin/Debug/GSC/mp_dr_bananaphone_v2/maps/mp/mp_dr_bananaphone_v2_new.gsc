@@ -143,12 +143,13 @@ trap104 notSolid();
 trap9()
 {
 trap9 = getEnt("trap9", "targetname");
+	level endon("trigger");
 use9 = getEnt("use9", "targetname");
 use9 setHintString("Press [Use] to activate the trap");
-/* AUTO use9 waittill("trigger", player);
+use9 waittill("trigger", player);
 trap9 rotateYaw(3600,5);
 use9 setHintString("");
-*/}
+}
 
 }
 trap8(){

@@ -49,37 +49,40 @@ GetActivator()
 trapN1()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_trap_1::main();
 		self delete();
 		break;
 	}
 	
-*/}
+}
 
 trap2()
 {
 trap = getEnt("trap2","targetname");
+	level endon("trigger");
 
 	while( 1 )
 	{
 	trap rotateYaw(360, 1);
-/* AUTO 	trap waittill("movedone");
+	trap waittill("movedone");
 	wait 4; 
 	}
-*/}
+}
 
 trap3()
 {
 trap = getEnt("trap3","targetname");
+	level endon("trigger");
 
 	while( 1 )
 	{
 	trap rotateYaw(360, 1);
-/* AUTO 	trap waittill("movedone");
+	trap waittill("movedone");
 	wait 6; 
 	}
-*/}
+}
 

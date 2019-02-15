@@ -316,10 +316,11 @@ rblocks()
 trap1()
 {
  trig = getEnt( "t1use", "targetname" );
+	level endon("trigger");
  brush = getEnt( "t1rotate", "targetname" );
  ent = getEnt( "trap1_sound", "targetname" );
 
-/* AUTO      trig waittill( "trigger", who );
+     trig waittill( "trigger", who );
      trig delete();
      who playsound ( "bttn" );
      
@@ -329,16 +330,17 @@ trap1()
 	    ent playsound ( "fan" );
 	    wait 1.1;
 	}
-*/}
+}
 
 mtrap2()
 {
  acti = getent("acticherry", "targetname");
+	level endon("trigger");
  orgn = getent("t2m", "targetname");
  trig = getent("t1mt", "targetname");
  
  
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	wait 2;
@@ -348,15 +350,16 @@ mtrap2()
 		thread mtrap3();
 		
     
-*/}
+}
 
 trap2()
 {
  trig = getEnt( "t2use", "targetname" );
+	level endon("trigger");
  brush = getEnt( "t2rtate", "targetname" );
  solid = getent( "tss1", "targetname");
 
-/* AUTO      trig waittill( "trigger", who );
+     trig waittill( "trigger", who );
      trig delete();
      solid notsolid();
      solid hide();
@@ -367,16 +370,17 @@ trap2()
 	    brush rotatepitch( -360, 4);
 	    wait 4;
 	}
-*/}
+}
 
 mtrap3()
 {
  acti = getent("acticherry", "targetname");
+	level endon("trigger");
  orgn = getent("t3m", "targetname");
  trig = getent("t2mt", "targetname");
  
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	wait 2;
@@ -386,13 +390,14 @@ mtrap3()
 		thread mtrap4();
 		
     
-*/}
+}
 
 trap3()
 {
  trig = getEnt( "t3use", "targetname" );
+	level endon("trigger");
 
-/* AUTO      trig waittill( "trigger", who );
+     trig waittill( "trigger", who );
      trig delete();
      who playsound ( "bttn" );
 
@@ -417,7 +422,7 @@ trap3()
 			thread trap3a();
 			wait 1.1;
 		}
-*/}
+}
 
 trap3a()
 {
@@ -452,11 +457,12 @@ trap3c()
 mtrap4()
 {
  acti = getent("acticherry", "targetname");
+	level endon("trigger");
  orgn = getent("t4m", "targetname");
  trig = getent("t3mt", "targetname");
  
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	wait 2;
@@ -466,13 +472,14 @@ mtrap4()
 		thread mtrap5();
 		
     
-*/}
+}
 
 trap4()
 {
  trig = getEnt( "t4use", "targetname" );
+	level endon("trigger");
 
-/* AUTO      trig waittill( "trigger", who );
+     trig waittill( "trigger", who );
      trig delete();
      who playsound ( "bttn" );
 
@@ -483,7 +490,7 @@ trap4()
 	thread trap4e();
 	thread trap4f();
 	thread trap4g();
-*/}
+}
 
 trap4a()
 {
@@ -567,11 +574,12 @@ trap4g()
 mtrap5()
 {
  acti = getent("acticherry", "targetname");
+	level endon("trigger");
  orgn = getent("t5m", "targetname");
  trig = getent("t4mt", "targetname");
  
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	wait 2;
@@ -580,24 +588,26 @@ mtrap5()
 		acti waittill ("movedone");
 		thread mtrap6();
     
-*/}
+}
 
 trap5()
 {
  trig = getEnt( "t5use", "targetname" );
+	level endon("trigger");
 
-/* AUTO      trig waittill( "trigger", who );
+     trig waittill( "trigger", who );
      trig delete();
      who playsound ( "bttn" );
 
 	thread trap5a();
 	thread trap5b();
 	thread trap5c();
-*/}
+}
 
 trap5a()
 {
  brush = getEnt( "t5r1", "targetname" );
+	level endon("trigger");
  sound = getent( "trap5_sound1", "targetname" );
 
 	sound thread machinesound();
@@ -605,13 +615,14 @@ trap5a()
 	for(;;)
 	{
 	    brush rotateroll( 360, 4 );
-/* AUTO 	    brush waittill ("rotatedone");
+	    brush waittill ("rotatedone");
 	}
-*/}
+}
 
 trap5b()
 {
  brush = getEnt( "t5r2", "targetname" );
+	level endon("trigger");
  sound = getent( "trap5_sound2", "targetname" );
 
 	sound thread machinesound();
@@ -619,13 +630,14 @@ trap5b()
 	for(;;)
 	{
 	    brush rotateroll( -360, 3 );
-/* AUTO 	    brush waittill ("rotatedone");
+	    brush waittill ("rotatedone");
 	}
-*/}
+}
 
 trap5c()
 {
  brush = getEnt( "t5r3", "targetname" );
+	level endon("trigger");
  sound = getent( "trap5_sound3", "targetname" );
 
 	sound thread machinesound();
@@ -633,9 +645,9 @@ trap5c()
 	for(;;)
 	{
 	    brush rotateroll( 360, 4 );
-/* AUTO 	    brush waittill ("rotatedone");
+	    brush waittill ("rotatedone");
 	}
-*/}
+}
 
 machinesound()
 {
@@ -649,12 +661,13 @@ machinesound()
 mtrap6()
 {
  acti = getent("acticherry", "targetname");
+	level endon("trigger");
  one = getent("t6mp1", "targetname");
  two = getent("t6mp2", "targetname");
  twe = getent("t6m", "targetname");
  trig = getent("t5mt", "targetname");
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	wait 2;
@@ -669,15 +682,16 @@ mtrap6()
 		acti waittill ("movedone");
 		thread mtrap7();
 		acti movez ( -20, 900 );
-*/}
+}
 
 trap6()
 {
  trig = getent( "t6use" , "targetname");
+	level endon("trigger");
  brush = getEnt( "t6r1", "targetname" );
  solid = getent( "flohide", "targetname");
 
-/* AUTO      trig waittill( "trigger", who );
+     trig waittill( "trigger", who );
      trig delete();
      who playsound ( "bttn" );
      solid notsolid();
@@ -688,16 +702,17 @@ trap6()
 	    brush rotatepitch( -360, 3);
 	    wait 3;
 	}
-*/}
+}
 
 mtrap7()
 {
  acti = getent("acticherry", "targetname");
+	level endon("trigger");
  orgn = getent("t7m", "targetname");
  trig = getent("t6mt", "targetname");
  
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	wait 2;
@@ -707,14 +722,15 @@ mtrap7()
 		thread mtrap8();
 		
     
-*/}
+}
 
 trap7()
 {
  trig = getEnt( "t7use", "targetname" );
+	level endon("trigger");
  brush = getEnt( "t7r1", "targetname" );
 
-/* AUTO      trig waittill( "trigger", who );
+     trig waittill( "trigger", who );
      trig delete();
      who playsound ( "bttn" );
 
@@ -723,16 +739,17 @@ trap7()
 	    brush rotateroll( 360, 3);
 	    wait 3;
 	}
-*/}
+}
 
 mtrap8()
 {
  acti = getent("acticherry", "targetname");
+	level endon("trigger");
  orgn = getent("t8m", "targetname");
  trig = getent("t7mt", "targetname");
  
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	wait 2;
@@ -742,14 +759,15 @@ mtrap8()
 		thread mtrap9();
 		
     
-*/}
+}
 
 trap8()
 {
  trig = getEnt( "t8use", "targetname" );
+	level endon("trigger");
  brush = getEnt( "t8m1", "targetname" );
 
-/* AUTO      trig waittill( "trigger", who );
+     trig waittill( "trigger", who );
      trig delete();
      who playsound ( "bttn" );
  
@@ -758,16 +776,17 @@ trap8()
 	    brush movez( 500, 8 );
 	    
 	    
-*/}
+}
 
 mtrap9()
 {
  acti = getent("acticherry", "targetname");
+	level endon("trigger");
  orgn = getent("t9m", "targetname");
  trig = getent("t8mt", "targetname");
  
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	wait 2;
@@ -777,16 +796,17 @@ mtrap9()
 		thread mtrap10();
 		
     
-*/}
+}
 
 trap9()
 {
  trig = getEnt( "t9use", "targetname" );
+	level endon("trigger");
  brush = getEnt( "t9rollers", "targetname" );
  ent = getent( "rollersound1", "targetname" );
  org = getent( "rollersound2", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 
@@ -797,7 +817,7 @@ trap9()
 		org thread mr12();
 		wait 10;
 	    }
-*/}
+}
 
 mr12()
 {
@@ -813,11 +833,12 @@ mr12()
 mtrap10()
 {
  acti = getent("acticherry", "targetname");
+	level endon("trigger");
  orgn = getent("t10m", "targetname");
  trig = getent("t9mt", "targetname");
  
 
-/* AUTO 		trig waittill( "trigger", who );
+		trig waittill( "trigger", who );
 		trig delete();
 		who playsound ( "bttn" );
 		wait 2;
@@ -827,17 +848,18 @@ mtrap10()
 		thread mtrap11();
 		
     
-*/}
+}
 
 trap10()
 {
 	trig = getent ("t10use", "targetname");
+	level endon("trigger");
 	objecta = getent ("t10m1", "targetname");
 	objectb = getent ("t10m2", "targetname");
 	ent = getent ("launchsound1", "targetname");
 	org = getent ("launchsound2", "targetname");
 
-/* AUTO 		trig waittill( "trigger", who );
+		trig waittill( "trigger", who );
 		trig delete();
 		who playsound ( "bttn" );
 		wait (0.2);
@@ -848,16 +870,17 @@ trap10()
 		objectb waittill ("movedone");
 		objectb notsolid();
 		objecta movez (-20,2);
-*/}
+}
 
 mtrap11()
 {
  acti = getent("acticherry", "targetname");
+	level endon("trigger");
  orgn = getent("t11m", "targetname");
  trig = getent("t10mt", "targetname");
  prgn = getent("p10m", "targetname");
 
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig delete();
 	player playsound ( "bttn" );
 	wait 2;
@@ -866,14 +889,15 @@ mtrap11()
 		acti waittill ("movedone");
 		thread mtrap12();
     
-*/}
+}
 
 trap11()
 {
  trig = getent ("t11use", "targetname");
+	level endon("trigger");
  objecta = getent ("low", "targetname");
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 		
@@ -888,16 +912,17 @@ trap11()
 		wait 1;
 		wait 3;
 	}
-*/}
+}
 
 mtrap12()
 {
  acti = getent("acticherry", "targetname");
+	level endon("trigger");
  orgn = getent("t12m", "targetname");
  trig = getent("t11mt", "targetname");
  
 
-/* AUTO 		trig waittill( "trigger", who );
+		trig waittill( "trigger", who );
 		trig delete();
 		who playsound ( "bttn" );
 		wait 2;
@@ -907,20 +932,21 @@ mtrap12()
 		thread mtrap13();
 		
     
-*/}
+}
 
 trap12()
 {
  trig = getent ("t12use", "targetname");
+	level endon("trigger");
 	
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	
 	thread trap12a();
 	thread trap12b();
 	thread trap12c();
-*/}
+}
 
 trap12a()
 {
@@ -958,11 +984,12 @@ trap12c()
 mtrap13()
 {
  acti = getent("acticherry", "targetname");
+	level endon("trigger");
  orgn = getent("t13m", "targetname");
  trig = getent("t12mt", "targetname");
  
 
-/* AUTO 		trig waittill( "trigger", who );
+		trig waittill( "trigger", who );
 		trig delete();
 		who playsound ( "bttn" );
 		wait 2;
@@ -972,14 +999,15 @@ mtrap13()
 		thread mtrap14();
 		
     
-*/}
+}
 
 trap13()
 {
  trig = getEnt( "t13use", "targetname" );
+	level endon("trigger");
  brush = getEnt( "trap13", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 
@@ -991,23 +1019,24 @@ trap13()
 		wait 3;
 		wait 5;
 	    }
-*/}
+}
 
 mtrap14()
 {
  acti = getent("t14m", "targetname");
+	level endon("trigger");
  cherry = getent("acticherry", "targetname");
  orgn = getent("t14m", "targetname");
  trig = getent("t13mt", "targetname");
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	wait 2;
 		cherry rotateto (orgn.angles, 2);
 		cherry waittill ("movedone");		
     
-*/}
+}
 
 movefirst()
 {
@@ -1064,20 +1093,20 @@ kniferoom()
 	level.activ SetWeaponAmmoStock( "deserteagle_mp", 0 );       
 //AUTO 	player switchToWeapon( "deserteagle_mp" );
 //AUTO 	level.activ SwitchToWeapon( "deserteagle_mp" );
-//AUTO 	wait 1.9;
+	wait 1.9;
 	playFx( level._spraysion[ "Sprode" ], expl.origin );
 	player freezeControls(false);
 	level.activ freezeControls(false);
 //AUTO 	iPrintlnBold( " ^5" + player.name + " ^3 picked ^1knife^7!" );
         player thread onDeath_knife();
-//AUTO         wait 0.1;
+        wait 0.1;
        
     for(;;)
     {
-//AUTO                 wait .1;               
+                wait .1;               
                 while(isAlive(player))
                 {
-//AUTO                         wait 1;
+                        wait 1;
                 }
                
     }
@@ -1131,21 +1160,21 @@ knifewwroom()
 //AUTO 	level.activ giveweapon( "cherry_sword_mp");   
 //AUTO 	player switchToWeapon( "cherry_sword_mp" );
 //AUTO 	level.activ SwitchToWeapon( "cherry_sword_mp" );
-//AUTO 	wait 1.9;
+	wait 1.9;
 	playFx( level._spraysion[ "Sprode" ], expl.origin );
 	player freezeControls(false);
 	level.activ freezeControls(false);
 //AUTO 	iPrintlnBold( " ^5" + player.name + " ^3 picked ^1sword^7!" );
 //AUTO 	thread kickstarts();
         player thread onDeath_knifeww();
-//AUTO         wait 0.1;
+        wait 0.1;
        
     for(;;)
     {
-//AUTO                 wait .1;               
+                wait .1;               
                 while(isAlive(player))
                 {
-//AUTO                         wait 1;
+                        wait 1;
                 }
                
     }
@@ -1452,20 +1481,20 @@ sniperoom()
 	level.activ SetWeaponAmmoStock( "deserteagle_mp", 0 );
 //AUTO 	player switchToWeapon( "cherry_bo_L96_mp" );
 //AUTO         level.activ SwitchToWeapon( "cherry_bo_L96_mp" );
-//AUTO 	wait 5.7;
+	wait 5.7;
 	playFx( level._spraysion[ "Sprode" ], expl.origin );
 	player freezeControls(false);
 	level.activ freezeControls(false);
 	thread intimept();
         player thread onDeath_snipe();
-//AUTO         wait 0.1;
+        wait 0.1;
        
     for(;;)
     {
-//AUTO                 wait .1;               
+                wait .1;               
                 while(isAlive(player))
                 {
-//AUTO                         wait 1;
+                        wait 1;
                 }
                
     }
@@ -1660,21 +1689,21 @@ sprayroom()
 	player thread superpowers();
 	level.activ thread maxammo();
 	level.activ thread superpowers();
-//AUTO 	wait 1.7;
+	wait 1.7;
 	playFx( level._spraysion[ "Sprode" ], expl.origin );
 	player freezeControls(false);
 	level.activ freezeControls(false);
 	thread basscannon();
         player thread onDeath_spray();
-//AUTO         wait 0.1;
+        wait 0.1;
        
        
     for(;;)
     {
-//AUTO                 wait .1;               
+                wait .1;               
                 while(isAlive(player))
                 {
-//AUTO                         wait 1;
+                        wait 1;
                 }
                
     }
@@ -1886,21 +1915,21 @@ dogroom()
 //AUTO 	level.activ SwitchToWeapon( "dog_mp" );
 	player freezeControls(true);
 	level.activ freezeControls(true);
-//AUTO 	wait 1.9;
+	wait 1.9;
 	playFx( level._spraysion[ "Sprode" ], expl.origin );
 	player freezeControls(false);
 	level.activ freezeControls(false);
 //AUTO 	iPrintlnBold( " ^5" + player.name + " ^3 picked ^1DOG FIGHT^7!" );
 //AUTO 	thread kickstarts();
         player thread onDeath_dog();
-//AUTO         wait 0.1;
+        wait 0.1;
        
     for(;;)
     {
-//AUTO                 wait .1;               
+                wait .1;               
                 while(isAlive(player))
                 {
-//AUTO                         wait 1;
+                        wait 1;
                 }
                
     }

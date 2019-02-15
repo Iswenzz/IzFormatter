@@ -78,12 +78,13 @@ main()
 trap2()
 {
 floor=getent("trap1","targetname");
+	level endon("trigger");
 if (!isdefined(floor.speed))
  floor.speed = 4;
 if (!isdefined(floor.script_noteworthy))
  floor.script_noteworthy = "x";
 trigger_trap_rotatefloor=getent("trap1_trig","targetname");
-/* AUTO trigger_trap_rotatefloor waittill ("trigger", player);
+trigger_trap_rotatefloor waittill ("trigger", player);
 trigger_trap_rotatefloor delete();
 while(true)
 {
@@ -97,16 +98,17 @@ while(true)
  wait ((floor.speed)-0.1); // removes the slight hesitation that waittill("rotatedone"); gives.
  // self waittill("rotatedone");
 }
-*/}
+}
 
 trap5()
 {
      trig = getEnt ("trap5_trig", "targetname");
+	level endon("trigger");
 	   bla = getEnt ("trap3", "targetname");
 	   bla1 = getEnt ("trap4", "targetname");
 	   bla2 = getEnt ("trap5", "targetname");
 	   
-/* AUTO 	   trig waittill ("trigger");
+	   trig waittill ("trigger");
 	   trig delete();
 	   
 	   while (1)
@@ -117,7 +119,7 @@ trap5()
 		   wait 1.5;
 		   }
 		   
-*/}
+}
 
 trap6()
 {
@@ -135,30 +137,33 @@ trap6()
 trap1()
 {
     trig = getEnt("trig_trap1","targetname");
+	level endon("trigger");
     {
-/* AUTO         trig waittill ("trigger");
+        trig waittill ("trigger");
 		trig delete();
         getEntArray("trap1_tex_a","targetname")[RandomInt(2)] notsolid();
         getEntArray("trap1_tex_b","targetname")[RandomInt(2)] notsolid();
     }
-*/}
+}
 
 trap3()
 {
            trig = getEnt ("trig_trap17", "targetname");
+	level endon("trigger");
            bla = getEnt ("trap_fake", "targetname");
 		   
-/* AUTO 		   trig waittill ("trigger");
+		   trig waittill ("trigger");
 	       trig delete();
 		   
 		   bla notsolid();
 		   wait 10;
 		   bla solid();
-*/}
+}
 
 trap4()
 {
     trig = getEnt ("trap7_trig", "targetname");
+	level endon("trigger");
 	b1 = getEnt ("trap_moveup1", "targetname");
 	b2 = getEntArray ("trap_moveup2", "targetname");
 	b3 = getEnt ("trap_moveup3", "targetname");
@@ -166,7 +171,7 @@ trap4()
 	b5 = getEnt ("trap_moveup5", "targetname");
 	b6 = getEnt ("trap_moveup6", "targetname");
 			
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete();
 			
 	while (1)
@@ -188,14 +193,15 @@ trap4()
         b5 moveZ (-100,1.5);	
 		wait 1.5;
 	}
-*/}
+}
 
 trap7()
 {
           trig = getEnt ("trap8rot_trig", "targetname");
+	level endon("trigger");
 		  plat = getEnt ("trap_finalrot", "targetname");
 		  
-/* AUTO 		  trig waittill ("trigger");
+		  trig waittill ("trigger");
 	      trig delete();
 		  
 		  while (1)
@@ -204,11 +210,12 @@ trap7()
 		   wait 1;
 		   
    }
-*/}
+}
 
 trap8()
 {
         trig = getEnt ("trap9_trig", "targetname");
+	level endon("trigger");
 		plat = getEnt ("traplast_lowest_1", "targetname");
 		plat3 = getEnt ("traplast_lowest_2", "targetname");
 		plat4 = getEnt ("traplast_lowest_3", "targetname");
@@ -217,7 +224,7 @@ trap8()
 		plat1 = getEnt ("traplast_medium_3", "targetname");
 		plat2 = getEnt ("traplast_fastest", "targetname");
 		
-/* AUTO 		trig waittill ("trigger");
+		trig waittill ("trigger");
 		trig delete();
 		
 		while (1)
@@ -235,7 +242,7 @@ trap8()
        plat2 rotateyaw (360,0.5);
        wait 0.5;
    }
-*/}
+}
 
 credit()
 {
@@ -293,6 +300,7 @@ new_ending_hud( align, fade_in_time, x_off, y_off )
 trap9()
 {	
 trig = getEnt ("finalspike_trig", "targetname");	
+	level endon("trigger");
 hurt = getEnt ("trapspikes_relfinal", "targetname");	
 spikes = getEnt ("trapspikes_lastmovingspike", "targetname"); 
 spikes notsolid();
@@ -300,7 +308,7 @@ spikes notsolid();
 hurt enablelinkto(); 
 hurt linkto (spikes); 
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 
 spikes moveZ (384,4);
@@ -309,13 +317,14 @@ wait 9;
 spikes moveZ (-384,4);
 hurt moveZ (-384,4);	
 
-*/}
+}
 
 trap_credit()
 {
 trig = getEnt ("credits_trig", "targetname");
+	level endon("trigger");
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 
 wait(4);
@@ -330,27 +339,29 @@ wait(4);
 thread drawInformation( 800, 0.8, 1, "Without them this map Would be history." );
 wait(4);
 
-*/}
+}
 
 trap10()
 {
 trig = getEnt ("trig_strafe", "targetname");
+	level endon("trigger");
 strafe = getEnt ("trap_strafe", "targetname");
 strafe1 = getEnt ("trap_strafe2", "targetname");
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 
 strafe moveZ (-900,8);
 strafe1 moveZ (-900,8);
-*/}
+}
 
 trap11()
 {
 		  plat = getEnt ("trap11_fup", "targetname");
+	level endon("trigger");
 		  trig = getEnt ("trap11_fup_trig", "targetname");
 		  
-/* AUTO 		  trig waittill ("trigger", player);
+		  trig waittill ("trigger", player);
 	      trig delete();
 		  
 		  while (1)
@@ -361,11 +372,12 @@ trap11()
 		   wait 5;
 		   
    }
-*/}
+}
 
 trap12()
 {
 floor=getent("trap12_a","targetname");
+	level endon("trigger");
 floor1=getent("trap12_b","targetname");
 if (!isdefined(floor.speed))
  floor.speed = 1.5;
@@ -376,7 +388,7 @@ if (!isdefined(floor.script_noteworthy))
 if (!isdefined(floor1.script_noteworthy))
  floor1.script_noteworthy = "y";
 trigger_trap_rotatefloor=getent("trap12_trig","targetname");
-/* AUTO trigger_trap_rotatefloor waittill ("trigger", player);
+trigger_trap_rotatefloor waittill ("trigger", player);
 trigger_trap_rotatefloor delete();
 while(true)
 {
@@ -397,7 +409,7 @@ while(true)
  wait ((floor1.speed)-0.1);
  // self waittill("rotatedone");
 }
-*/}
+}
 
 jumper()
 {
@@ -537,7 +549,7 @@ weapon_mini()
 		level.activ thread GiveWep(wep);
 		player thread GiveWep(wep);
 		while(isdefined(player) && player.sessionstate == "playing" && isdefined(level.activ) && level.activ.sessionstate == "playing" )
-//AUTO 			wait .1;
+			wait .1;
 	}
 }
 
@@ -623,10 +635,10 @@ vip_teleport()
             else
             {
 //AUTO                 player iprintlnbold ("You are ^1not ^3authorized^7!");
-//AUTO 				wait 0.5;
+				wait 0.5;
             }
         }
-//AUTO 		wait .05;
+		wait .05;
     }
 }
 
@@ -743,6 +755,7 @@ acti_teleport1()
 secret_trap()
 {
 floor=getent("trap_secret","targetname");
+	level endon("trigger");
 if (!isdefined(floor.speed))
  floor.speed = 2;
 if (!isdefined(floor.script_noteworthy))
@@ -757,10 +770,10 @@ while(true)
   floor rotateRoll(-360,floor.speed);
  else if (floor.script_noteworthy == "y")
   floor rotatePitch(360,floor.speed);
-/* AUTO  wait ((floor.speed+1.5)-0.1); // removes the slight hesitation that waittill("rotatedone"); gives.
+ wait ((floor.speed+1.5)-0.1); // removes the slight hesitation that waittill("rotatedone"); gives.
  // self waittill("rotatedone");
 }
-*/}
+}
 
 old_mini()
 {

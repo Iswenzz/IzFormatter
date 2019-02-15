@@ -130,24 +130,26 @@ addTriggerToList( name )
 trap1()
  {
  
+	level endon("trigger");
     trig = getEnt ("trap1_trig", "targetname");
     lift = getEnt ("trap1_lift", "targetname");
      
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
      
     lift moveZ (244,2);
     wait 5;
     lift moveZ (-244,2);
      
-*/ }
+ }
 
 trap2()
 {
 	trig = getEnt ("trap2_trig", "targetname");
+	level endon("trigger");
 	plat = getEnt ("trap2_rotate", "targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	while(1)
@@ -155,7 +157,7 @@ trap2()
 		plat rotateyaw (360, 2);
 		wait 4;
 	}
-*/}
+}
 
 teleport1()
 {
@@ -229,11 +231,12 @@ giveweap()
 trap3()
 {
 	trig = getEnt ("trap3_trig", "targetname");
+	level endon("trigger");
 	twist1 = getEnt ("trap3_run1", "targetname");
 	twist2 = getEnt ("trap3_run2", "targetname");
 	twist3 = getEnt ("trap3_run3", "targetname");
 	
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 	
 	while(1)
@@ -243,7 +246,7 @@ trap3()
 		twist3 rotatepitch (900,3,0.1);
 		wait 3;
 	}
-*/}
+}
 
 main_door()
 {
@@ -346,6 +349,7 @@ elevator_call()
 trap4()
 {
  
+	level endon("trigger");
     trig = getEnt ("trap4_trig", "targetname");
     hurt = getEnt ("trap4_hurt", "targetname"); 
 	spikes = getEnt ("spikes", "targetname");
@@ -353,21 +357,22 @@ trap4()
     hurt enablelinkto(); 
 	hurt linkto (spikes); 
 
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
     
     spikes moveZ (210,3);
     wait 5;
     spikes moveZ (-210,3);
      
-*/}
+}
 
 trap5()
 {
 	trig = getEnt ("trap5_trig", "targetname");
+	level endon("trigger");
 	plat = getEnt ("trap5_turn123", "targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	while(1)
@@ -375,7 +380,7 @@ trap5()
 		plat rotateyaw (900, 6 ,0.01);
 		wait 1;
 	}
-*/}
+}
 
 sniper()
 {
@@ -410,7 +415,7 @@ sniper()
     	}
 //AUTO     	level.acti GiveMaxAmmo( "m40a3_mp" );
 //AUTO 		level.acti GiveMaxAmmo( "remington700_mp" ); 
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "m40a3_mp" ); //activator weapon      remington700_mp
 //AUTO         level.activ SwitchToWeapon( "m40a3_mp" );
 //AUTO         iPrintlnBold( " ^3" + player.name + " ^7 has chosen the ^3Sniper Room^7!" );

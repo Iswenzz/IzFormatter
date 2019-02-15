@@ -855,9 +855,10 @@ bounce_r7002()
 trap1()
 {
 	trigger = getent("trig_trap1","targetname");
+	level endon("trigger");
 	object = getent("trap1_spikes","targetname");
 	killtrigger = getent ("trap1_killtrig" , "targetname");
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	killtrigger enablelinkto ();
@@ -868,23 +869,25 @@ trap1()
 	object movez(-53, 1);
 	object waittill("movedone");
 	wait 1;
-*/}
+}
 
 trap2()
 {
 	trigger = getent("trig_trap2","targetname");
+	level endon("trigger");
 	object = getent("trap2","targetname");
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	object delete();
-*/}
+}
 
 trap3()
 {
 	trigger = getent("trig_trap3","targetname");
+	level endon("trigger");
 	object = getent("trap3","targetname");
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	while(1)
@@ -895,13 +898,14 @@ trap3()
 		object waittill ("movedone");
 		wait 5;
 	}
-*/}
+}
 
 trap4()
 {	
 	trigger = getent("trig_trap4","targetname");
+	level endon("trigger");
 	object = getent("trap4","targetname");
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	object movez(244,1);
@@ -919,14 +923,15 @@ trap4()
 		object waittill("rotatedone");
 		wait 5;
 	}
-*/}
+}
 
 trap5()
 {
 	trigger = getEnt ( "trig_trap5", "targetname" );
+	level endon("trigger");
 	object1 = getEnt ( "trap5_bou1", "targetname" );
 	object2 = getEnt ( "trap5_bou2", "targetname" );
-/* AUTO 	trigger waittill ( "trigger", player );
+	trigger waittill ( "trigger", player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	
@@ -940,11 +945,12 @@ trap5()
 		object2 delete();
 
 	}
-*/}
+}
 
 trap6()
 {
 	trigger = getent("trig_trap6","targetname");
+	level endon("trigger");
 	object1 = getent("trap6_spikes1","targetname");
 	object2 = getent("trap6_spikes2","targetname");
 	object3 = getent("trap6_spikes3","targetname");
@@ -953,7 +959,7 @@ trap6()
 	killtrigger2 = getent ("trap6_killtrig2" , "targetname");
 	killtrigger3 = getent ("trap6_killtrig3" , "targetname");
 	killtrigger4 = getent ("trap6_killtrig4" , "targetname");
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	killtrigger1 enablelinkto ();
@@ -994,48 +1000,52 @@ trap6()
 		object4 movez(-36, 1.5);
 		object4 waittill("movedone");
 	}
-*/}
+}
 
 trap7()
 {
 	trigger = getent("trig_trap7","targetname");
+	level endon("trigger");
 	object = getent("trap7","targetname");
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	object notsolid();
-*/}
+}
 
 trap8()
 {
 	trigger = getent("trig_trap8","targetname");
+	level endon("trigger");
 	object = getent("trap8","targetname");
 	object notsolid();
 	object hide();
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	object show();
 	object solid();
-*/}
+}
 
 trap8_mover()
 {
 	object = getent("trap8_mover","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object movey(781,5);
-/* AUTO 		object waittill ("movedone");
+		object waittill ("movedone");
 		wait 3;
 		object movey(-781,5);
 		object waittill ("movedone");
 		wait 3;
 	}
-*/}
+}
 
 trap9()
 {
 	trigger = getEnt ( "trig_trap9", "targetname" );
+	level endon("trigger");
 	object1 = getEnt ( "trap9_1", "targetname" );
 	object2 = getEnt ( "trap9_2", "targetname" );
 	object3 = getEnt ( "trap9_3", "targetname" );
@@ -1045,7 +1055,7 @@ trap9()
 	object7 = getEnt ( "trap9_7", "targetname" );
 	object8 = getEnt ( "trap9_8", "targetname" );
 	object9 = getEnt ( "trap9_9", "targetname" );
-/* AUTO 	trigger waittill ( "trigger", player );
+	trigger waittill ( "trigger", player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	
@@ -1108,15 +1118,16 @@ trap9()
 		thread trap9_floor5();
 		thread trap9_floor6();
 	}
-*/}
+}
 
 trap9_mover1()
 {
 	object1 = getEnt ("trap9_1","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object1 movey(48,0.5);
-/* AUTO 		object1 waittill ("movedone");
+		object1 waittill ("movedone");
 		object1 movex(-48,0.5);
 		object1 waittill ("movedone");
 		object1 movey(-48,0.5);
@@ -1124,15 +1135,16 @@ trap9_mover1()
 		object1 movex(48,0.5);
 		object1 waittill ("movedone");
 	}
-*/}
+}
 
 trap9_mover2()
 {
 	object1 = getEnt ("trap9_2","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object1 movey(48,0.5);
-/* AUTO 		object1 waittill ("movedone");
+		object1 waittill ("movedone");
 		object1 movex(48,0.5);
 		object1 waittill ("movedone");
 		object1 movey(-48,0.5);
@@ -1140,25 +1152,27 @@ trap9_mover2()
 		object1 movex(-48,0.5);
 		object1 waittill ("movedone");
 	}
-*/}
+}
 
 trap9_mover3()
 {
 	object1 = getEnt ("trap9_3","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object1 rotateyaw(360,4);
-/* AUTO 		object1 waittill ("rotatedone");
+		object1 waittill ("rotatedone");
 	}
-*/}
+}
 
 trap9_mover4()
 {
 	object1 = getEnt ("trap9_4","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object1 movey(48,0.5);
-/* AUTO 		object1 waittill ("movedone");
+		object1 waittill ("movedone");
 		object1 movex(-48,0.5);
 		object1 waittill ("movedone");
 		object1 movey(-48,0.5);
@@ -1166,15 +1180,16 @@ trap9_mover4()
 		object1 movex(48,0.5);
 		object1 waittill ("movedone");
 	}
-*/}
+}
 
 trap9_mover5()
 {
 	object1 = getEnt ("trap9_5","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object1 movey(48,0.5);
-/* AUTO 		object1 waittill ("movedone");
+		object1 waittill ("movedone");
 		object1 movex(48,0.5);
 		object1 waittill ("movedone");
 		object1 movey(-48,0.5);
@@ -1182,25 +1197,27 @@ trap9_mover5()
 		object1 movex(-48,0.5);
 		object1 waittill ("movedone");
 	}
-*/}
+}
 
 trap9_mover6()
 {
 	object1 = getEnt ("trap9_6","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object1 rotateyaw(-360,4);
-/* AUTO 		object1 waittill ("rotatedone");
+		object1 waittill ("rotatedone");
 	}
-*/}
+}
 
 trap9_mover7()
 {
 	object1 = getEnt ("trap9_7","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object1 movey(48,0.5);
-/* AUTO 		object1 waittill ("movedone");
+		object1 waittill ("movedone");
 		object1 movex(-48,0.5);
 		object1 waittill ("movedone");
 		object1 movey(-48,0.5);
@@ -1208,15 +1225,16 @@ trap9_mover7()
 		object1 movex(48,0.5);
 		object1 waittill ("movedone");
 	}
-*/}
+}
 
 trap9_mover8()
 {
 	object1 = getEnt ("trap9_8","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object1 movey(48,0.5);
-/* AUTO 		object1 waittill ("movedone");
+		object1 waittill ("movedone");
 		object1 movex(48,0.5);
 		object1 waittill ("movedone");
 		object1 movey(-48,0.5);
@@ -1224,25 +1242,27 @@ trap9_mover8()
 		object1 movex(-48,0.5);
 		object1 waittill ("movedone");
 	}
-*/}
+}
 
 trap9_mover9()
 {
 	object1 = getEnt ("trap9_9","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object1 rotateyaw(360,4);
-/* AUTO 		object1 waittill ("rotatedone");
+		object1 waittill ("rotatedone");
 	}
-*/}
+}
 
 trap9_floor1()
 {
 	object1 = getEnt ("trap9_1","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object1 movey(924,6);
-/* AUTO 		object1 waittill("movedone");
+		object1 waittill("movedone");
 		object1 movex(186,0.5);
 		object1 waittill("movedone");
 		object1 movey(-924,6);
@@ -1250,15 +1270,16 @@ trap9_floor1()
 		object1 movex(-186,0.5);
 		object1 waittill("movedone");
 	}
-*/}
+}
 
 trap9_floor2()
 {
 	object1 = getEnt ("trap9_4","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object1 movey(462,3);
-/* AUTO 		object1 waittill ("movedone");
+		object1 waittill ("movedone");
 		object1 movex(186,0.5);
 		object1 waittill("movedone");
 		object1 movey(-924,6);
@@ -1268,15 +1289,16 @@ trap9_floor2()
 		object1 movey(462,3);
 		object1 waittill("movedone");
 	}
-*/}
+}
 
 trap9_floor3()
 {
 	object1 = getEnt ("trap9_7","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object1 movex(186,0.5);
-/* AUTO 		object1 waittill("movedone");
+		object1 waittill("movedone");
 		object1 movey(-924,6);
 		object1 waittill("movedone");
 		object1 movex(-186,0.5);
@@ -1284,15 +1306,16 @@ trap9_floor3()
 		object1 movey(924,6);
 		object1 waittill("movedone");
 	}
-*/}
+}
 
 trap9_floor4()
 {
 	object1 = getEnt ("trap9_8","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object1 movey(-924,6);
-/* AUTO 		object1 waittill("movedone");
+		object1 waittill("movedone");
 		object1 movex(-186,0.5);
 		object1 waittill("movedone");
 		object1 movey(924,6);
@@ -1300,15 +1323,16 @@ trap9_floor4()
 		object1 movex(186,0.5);
 		object1 waittill("movedone");
 	}
-*/}
+}
 
 trap9_floor5()
 {
 	object1 = getEnt ("trap9_5","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object1 movey(-462,3);
-/* AUTO 		object1 waittill ("movedone");
+		object1 waittill ("movedone");
 		object1 movex(-186,0.5);
 		object1 waittill("movedone");
 		object1 movey(924,6);
@@ -1319,15 +1343,16 @@ trap9_floor5()
 		object1 waittill("movedone");
 
 	}
-*/}
+}
 
 trap9_floor6()
 {
 	object1 = getEnt ("trap9_2","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		object1 movex(-186,0.5);
-/* AUTO 		object1 waittill("movedone");
+		object1 waittill("movedone");
 		object1 movey(924,6);
 		object1 waittill("movedone");
 		object1 movex(186,0.5);
@@ -1335,37 +1360,40 @@ trap9_floor6()
 		object1 movey(-924,6);
 		object1 waittill("movedone");
 	}
-*/}
+}
 
 trap10()
 {
 	trigger = getent("trig_trap10","targetname");
+	level endon("trigger");
 	object = getent("trap10","targetname");
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	object delete();
-*/}
+}
 
 trap11()
 {
 	trigger = getent("trig_trap11","targetname");
+	level endon("trigger");
 	object = getent("trap11_mover","targetname");
 	killtrig = getent("trap11_killtrig","targetname");
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	killtrig movez(-55,0.1);
 	object movez(-54,5);
 	object waittill ("movedone");
 	killtrig delete();
-*/}
+}
 
 trap12()
 {
 	trigger = getent("trig_trap12","targetname");
+	level endon("trigger");
 	object = getent("trap12","targetname");
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	while(1)
@@ -1378,26 +1406,28 @@ trap12()
 		object waittill ("rotatedone");
 		object rotateyaw(-360,10);
 	}
-*/}
+}
 
 trap13()
 {
 	trigger = getent("trig_trap13","targetname");
+	level endon("trigger");
 	object = getent("trap13","targetname");
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	object delete();
-*/}
+}
 
 trap14()
 {
 	trigger = getEnt ( "trig_trap14", "targetname" );
+	level endon("trigger");
 	object1 = getEnt ( "trap14_1", "targetname" );
 	object2 = getEnt ( "trap14_2", "targetname" );
 	object3 = getEnt ( "trap14_3", "targetname" );
 	object4 = getEnt ( "trap14_4", "targetname" );
-/* AUTO 	trigger waittill ( "trigger", player );
+	trigger waittill ( "trigger", player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	
@@ -1432,17 +1462,18 @@ trap14()
 		object3 delete();
 		object4 delete();
 	}
-*/}
+}
 
 trap15()
 {
 	trigger = getent("trig_trap15","targetname");
+	level endon("trigger");
 	object = getent("trap15","targetname");
 	wall = getent("trap15_wall","targetname");
 	wall movex(464,0.1);
 	wall notsolid();
 	wall hide();
-/* AUTO 	trigger waittill ("trigger" , player );
+	trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 20);
 	trigger SetHintString("^1Activated");
 	wall solid();
@@ -1450,7 +1481,7 @@ trap15()
 	object delete();
 	wait 5;
 	wall delete();
-*/}
+}
 
 jump_room_battle()
 {

@@ -120,16 +120,17 @@ MakeTriggers()
 trapN1()
 {
 	
+	level endon("trigger");
 	
 	while(1)
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 		
 		thread activacion();
 		//self delete();
 		break;
 	}
-*/}
+}
 
 activacion()
 {

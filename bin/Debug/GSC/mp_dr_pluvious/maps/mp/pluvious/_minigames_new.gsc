@@ -168,7 +168,7 @@ weaponMinigame()
 //AUTO 			user takeAllWeapons();
 			thread weaponMinigameWeaponList();
 			user freezeControls(1);
-//AUTO 			wait 2;
+			wait 2;
 			user freezeControls(0);
 		}
 	}

@@ -71,10 +71,11 @@ MakeTriggers()
 trap1()
 {
     trig = getEnt ("trap1_trig", "targetname");
+	level endon("trigger");
 	brush = getEnt ("trap1_brush", "targetname");
 	mantle = getEnt ("mantle", "targetname");
 	
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
 	trig delete();
 //AUTO 	iprintln ("^9Activated!");
 	
@@ -83,15 +84,16 @@ trap1()
 	
 	wait 5;
     
-*/}
+}
 
 trap2()
 {
     trig = getEnt( "trap2_trig", "targetname" );
+	level endon("trigger");
 	brushGroup1 = getEntArray( "trap2.1", "targetname" );
 	brushGroup2 = getEntArray( "trap2.2", "targetname" );
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 //AUTO 	iprintln ("^9Activated!");
 	
@@ -101,45 +103,48 @@ trap2()
 	brushGroup2[randomInt(brushGroup2.size)] rotateyaw(360,3);
 	wait 2;
 	}
-*/}
+}
 
 trap3()
 {
 trig = getEnt( "trap3_trig", "targetname" );
+	level endon("trigger");
 	brushGroup1 = getEntArray( "trap3_brush", "targetname" );
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 //AUTO 	iprintln ("^9Activated!");
 	
 	brushGroup1[randomInt(brushGroup1.size)] notsolid();
 	wait 1;
-*/}
+}
 
 trap4()
 {
     brush1 = getEnt("nosolid1", "targetname");
+	level endon("trigger");
     trig = getEnt( "trap4_trig", "targetname" );
 
 brush1 notsolid();
 
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 //AUTO iprintln ("^9Activated!");
 
 brush1 solid();
 wait 3;
 brush1 notsolid();
-*/}
+}
 
 trap5()
 {
     brush3 = getEnt( "move1", "targetname" );
+	level endon("trigger");
 	brush2 = getEnt( "move2", "targetname" );
 	brush1 = getEnt( "move3", "targetname" );
 	trig = getEnt( "trap5_trig", "targetname" );
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 //AUTO 	iprintln ("^9Activated!");
 	
@@ -148,21 +153,22 @@ trap5()
 	brush2 rotateyaw(360,3);
 	wait .05;
 	brush1 rotateyaw(360,3);
-*/}
+}
 
 trap6()
 {
 	brush1 = getEnt( "move5", "targetname" );
+	level endon("trigger");
 	brush2 = getEnt( "move6", "targetname" );
 	trig = getEnt( "trap6_trig", "targetname" );
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 //AUTO 	iprintln ("^9Activated!");
 	
 	brush1 rotateyaw(180,1);
 	brush2 rotateyaw(180,1);
-*/}
+}
 
 trollgun()
 {

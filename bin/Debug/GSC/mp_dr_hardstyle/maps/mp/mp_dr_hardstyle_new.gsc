@@ -255,10 +255,11 @@ k rotateyaw(-360,7);
 trap0b()
 {
 trap0b = getent("trap0b", "targetname");
+	level endon("trigger");
 trig = getent("trap0_trig", "targetname");
 trig sethintstring("Press [USE] to activate Trap 0");
 
-/* AUTO trig waittill("trigger", who);
+trig waittill("trigger", who);
 trig delete();
 while ( 1 )
 {
@@ -267,15 +268,16 @@ wait 0.1;
 
 trap0b rotateyaw(360,2);
 }
-*/}
+}
 
 trap0a()
 {
 trap0a = getent("trap0a", "targetname");
+	level endon("trigger");
 trig = getent("trap0_trig", "targetname");
 trig sethintstring("Press [USE] to activate Trap 0");
 
-/* AUTO trig waittill("trigger", who);
+trig waittill("trigger", who);
 trig delete();
 while ( 1 )
 {
@@ -284,15 +286,16 @@ wait 0.1;
 
 trap0a rotateyaw(-360,2);
 }
-*/}
+}
 
 trap1()
 {
 trap1 = getent("trap1", "targetname");
+	level endon("trigger");
 trig = getent("trap1_trig", "targetname");
 trig sethintstring("Press [USE] to activate Trap 1");
 
-/* AUTO trig waittill("trigger", who);
+trig waittill("trigger", who);
 trig delete();
 while ( 1 )
 {
@@ -301,15 +304,16 @@ wait 0.1;
 
 trap1 rotatepitch(360,3.5);
 	}
-*/}
+}
 
 trap2()
 {
 trap2 = getent("trap2", "targetname");
+	level endon("trigger");
 trig = getent("trap2_trig", "targetname");
 trig sethintstring("Press [USE] to activate Trap 2");
 
-/* AUTO trig waittill("trigger", who);
+trig waittill("trigger", who);
 trig delete();
 while ( 1 )
 {
@@ -318,15 +322,16 @@ wait 0.1;
 
 trap2 rotateroll(-360,2);
 	}
-*/}
+}
 
 trap2b()
 {
 trap2b = getent("trap2b", "targetname");
+	level endon("trigger");
 trig = getent("trap2_trig", "targetname");
 trig sethintstring("Press [USE] to activate Trap 2");
 
-/* AUTO trig waittill("trigger", who);
+trig waittill("trigger", who);
 trig delete();
 while ( 1 )
 {
@@ -335,15 +340,16 @@ wait 0.1;
 
 trap2b rotatepitch(-360,2);
 	}
-*/}
+}
 
 trap3()
 {
 trap3 = getent("trap3", "targetname");
+	level endon("trigger");
 trig = getent("trap3_trig", "targetname");
 trig sethintstring("Press [USE] to activate Trap 3");
 
-/* AUTO trig waittill("trigger", who);
+trig waittill("trigger", who);
 trig delete();
 while ( 1 )
 {
@@ -352,16 +358,17 @@ wait 0.1;
 
 trap3 rotateyaw(-360,5);
 }
-*/}
+}
 
 trap4()
 {
 trap4a = getent("trap4a", "targetname");
+	level endon("trigger");
 trap4b = getent("trap4b", "targetname");
 trap4c = getent("trap4c", "targetname");
 trig = getent("trap4_trig", "targetname");
 trig sethintstring("Press [USE] to activate Trap 4");
-/* AUTO trig waittill("trigger", who);
+trig waittill("trigger", who);
 trig delete();
 {
 trap4a movez ( -112, 2, 1, 1 ); 
@@ -377,32 +384,34 @@ trap4b waittill ("movedone");
 trap4c movez ( 112, 2, 1, 1 ); 
 trap4c waittill ("movedone");
 }
-*/}
+}
 
 trap5()
 {
 trap5 = getent("trap5", "targetname");
+	level endon("trigger");
 trig = getent("trap5_trig", "targetname");
 trig sethintstring("Press [USE] to activate Trap 5");
-/* AUTO trig waittill("trigger", who);
+trig waittill("trigger", who);
 trig delete();
 while ( 1 )
 {
 wait 0.1;
 trap5 rotateyaw(-360,2);
 }
-*/}
+}
 
 trap6()
 {
 trap6a = getent("trap6a", "targetname");
+	level endon("trigger");
 trap6b = getent("trap6b", "targetname");
 hurt1 = getent("hurt1", "targetname");
 hurt2 = getent("hurt2", "targetname");
 trig = getent("trap6_trig", "targetname");
 trig sethintstring("Press [USE] to activate Trap 6");
 
-/* AUTO trig waittill("trigger", who);
+trig waittill("trigger", who);
 trig delete();
 
 hurt1 enablelinkto();
@@ -419,7 +428,7 @@ wait 0.1;
 trap6a rotateyaw(360,3);
 trap6b rotateyaw(-360,3);
 }
-*/}
+}
 
 lift()
 {
@@ -532,7 +541,7 @@ sniper()
 //AUTO 				level.activ GiveWeapon( "m40a3_mp" );          
 //AUTO                 level.activ GiveMaxAmmo( "m40a3_mp" ); 
 //AUTO 				level.activ GiveMaxAmmo( "remington700_mp" );
-//AUTO 				wait 0.05;
+				wait 0.05;
 //AUTO                 player switchToWeapon( "remington700_mp" );
 //AUTO                 level.activ SwitchToWeapon( "remington700_mp" );
         noti = SpawnStruct();
@@ -546,10 +555,10 @@ sniper()
                 player thread countdown();
                 level.activ thread countdown();
                                      while( isAlive( player ) && isDefined( player ) )
-//AUTO                         wait 1;
+                        wait 1;
 //AUTO                         iPrintlnBold( " ^9" + player.name + "^7 has been killed by ^9"+ level.activ.name+ "^7" );
 //AUTO                         player iPrintlnBold( "^1Please do not respawn." );
-//AUTO                         wait 2;
+                        wait 2;
                         player suicide();
         }
 }
@@ -593,7 +602,7 @@ knife()
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "knife_mp" );		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ SwitchToWeapon( "knife_mp" );
         noti = SpawnStruct();      	
@@ -607,10 +616,10 @@ knife()
                 player thread countdown();
                 level.activ thread countdown();
                                      while( isAlive( player ) && isDefined( player ) )
-//AUTO                         wait 1;
+                        wait 1;
 //AUTO                         iPrintlnBold( " ^9" + player.name + "^7 has been killed by ^9"+ level.activ.name+ "^7" );
 //AUTO 						player iPrintlnBold( "^1Please do not respawn." );
-//AUTO                         wait 2;
+                        wait 2;
                         player suicide();
         }
 		}
@@ -642,7 +651,7 @@ bounce()
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "knife_mp" );		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ SwitchToWeapon( "knife_mp" );
         noti = SpawnStruct();      	
@@ -656,10 +665,10 @@ bounce()
                 player thread countdown();
                 level.activ thread countdown();
                                      while( isAlive( player ) && isDefined( player ) )
-//AUTO                         wait 1;
+                        wait 1;
 //AUTO                         iPrintlnBold( " ^9" + player.name + "^7 has been killed by ^9"+ level.activ.name+ "^7" );
 //AUTO 						player iPrintlnBold( "^1Please do not respawn." );
-//AUTO                         wait 2;
+                        wait 2;
                         player suicide();
         }
 }

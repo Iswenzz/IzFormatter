@@ -85,127 +85,138 @@ MakeTriggers()
 trapN1()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap1();
 		self delete();
 		break;
 	}
 	
-*/}
+}
 
 trapN2()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap2();
 		self delete();
 		break;
 	}	
-*/}
+}
 
 trapN3()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap3();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN4()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap4();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN5()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap5();
 		self delete();
 		break;
 	}	
-*/}
+}
 
 trapN6()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap6();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN7()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap7();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN8()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap8();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN9()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap9();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN10()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap10();
 		self delete();
 		break;
 	}
-*/}
+}
 
 gotrap1()
 {
 	trab_n1a= getent("trap_1a","targetname"); //busca el bush trap_1a
+	level endon("trigger");
 	trab_n1b= getent("trap_1b","targetname"); //busca el bush trap_1b
 
 	hurt_n1a = getent("trap_1a_hurt","targetname");//busca el bush hurt_1a
@@ -222,16 +233,17 @@ gotrap1()
 	
 		trab_n1a movez (-200,1,0,0.1);	//mueve trap_1a z-200
 		trab_n1b movez (-200,1,0,0.1);
-/* AUTO 		trab_n1b waittill ("movedone");	//espera termine el movimiento
+		trab_n1b waittill ("movedone");	//espera termine el movimiento
 		wait(RandomInt(7));		// espera de 0 a 7 segundos
 		trab_n1a movez (200,1,0,0.1);
 		trab_n1b movez (200,1,0,0.1);	//mueve trap_1a z+200
 
-*/}
+}
 
 gotrap2()
 {
 	trab_n2a = getent("trap_2a","targetname");
+	level endon("trigger");
 	trab_n2b = getent("trap_2b","targetname");
 	trab_n2c = getent("trap_2c","targetname");
 	
@@ -255,7 +267,7 @@ gotrap2()
 		{
 		
 			trab_n2a movez (-50,1,0,0.1);
-/* AUTO 			trab_n2a waittill ("movedone");	//espera termine el movimiento
+			trab_n2a waittill ("movedone");	//espera termine el movimiento
 			wait(RandomInt(2));		// espera de 0 a 3 segundos
 			trab_n2a movez (50,1,0,0.1);
 			
@@ -269,11 +281,12 @@ gotrap2()
 			wait(RandomInt(2));
 			trab_n2c movez (50,1,0,0.1);
 		}
-*/}
+}
 
 gotrap3()
 {
 	trab_n3a= getent("trap_3a","targetname"); 	//busca el bush trap_3a
+	level endon("trigger");
 	
 	hurt_n3a = getent("trap_3a_hurt","targetname");
 	hurt_n3b = getent("trap_3b_hurt","targetname");
@@ -287,14 +300,15 @@ gotrap3()
 	while(1)
 	{
 		trab_n3a rotateYaw(360,15);		// rota il asse Y 
-/* AUTO 		trab_n3a waittill ("rotatedone");	//espera termine el movimiento
+		trab_n3a waittill ("rotatedone");	//espera termine el movimiento
 		//wait(RandomInt(4));			// espera de 0 a 4 segundos
 	}		
-*/}
+}
 
 gotrap4()
 {
 	trab_n4a = getent("trap_4a","targetname");
+	level endon("trigger");
 	trab_n4b = getent("trap_4b","targetname");
 	
 
@@ -303,16 +317,17 @@ gotrap4()
 	while(1)
 	{
 		trab_n4b rotatePitch(360,8);		// rota il asse Z 
-/* AUTO 		trab_n4b waittill ("rotatedone");	//espera termine el movimiento
+		trab_n4b waittill ("rotatedone");	//espera termine el movimiento
 		//wait(RandomInt(4));			// espera de 0 a 4 segundos
 	}	
 
 
-*/}
+}
 
 gotrap5()
 {
 	trab_n5 = [];
+	level endon("trigger");
 
 	trab_n5a = getent("trap_5a","targetname");
 	trab_n5[0] = getent("trap_5b","targetname");
@@ -324,14 +339,14 @@ gotrap5()
 	trab_n5[self.nun] notsolid();	
 	
 		trab_n5a movez (140,1,0,0.1);
-/* AUTO 		trab_n5a waittill ("movedone");
+		trab_n5a waittill ("movedone");
 		
 		wait (4);
 		
 		trab_n5a movez (-140,2,0,0.6);
 		trab_n5a waittill ("movedone");
 
-*/}
+}
 
 gotrap6()
 {
@@ -345,6 +360,7 @@ gotrap6()
 movetrap6a()
 {
 	trab_n6a = getent("trap_6a","targetname"); //busca el bush trap_6a
+	level endon("trigger");
 	hurt_n6a = getent("trap_6a_hurt","targetname");
 
 	hurt_n6a enablelinkto();
@@ -352,7 +368,7 @@ movetrap6a()
 
 	while (1)
 	{
-/* AUTO 	self waittill ("trigger",user);
+	self waittill ("trigger",user);
 		if (user istouching(self))
 		{
 		trab_n6a movey (230,1,0,0.1);
@@ -362,11 +378,12 @@ movetrap6a()
 		trab_n6a waittill ("movedone");
 		}
 	}
-*/}
+}
 
 movetrap6b()
 {
 	trab_n6b = getent("trap_6b","targetname"); //busca el bush trap_6b
+	level endon("trigger");
 	hurt_n6b = getent("trap_6b_hurt","targetname");
 	
 
@@ -376,7 +393,7 @@ movetrap6b()
 	
 	while (1)
 	{
-/* AUTO 	self waittill ("trigger",user);
+	self waittill ("trigger",user);
 		if (user istouching(self))
 		{
 		trab_n6b movey (-230,1,0,0.1);
@@ -386,11 +403,12 @@ movetrap6b()
 		trab_n6b waittill ("movedone");
 		}
 	}
-*/}
+}
 
 gotrap7()
 {
 	trab_n7a = getent("trap_7a","targetname"); //busca los bush trap_7a
+	level endon("trigger");
 	trab_n7b = getent("trap_7b","targetname");
 	trab_n7c = getent("trap_7c","targetname");
 	trab_n7d = getent("trap_7d","targetname");
@@ -419,7 +437,7 @@ gotrap7()
 	{
 		trab_n7b rotateYaw(180,1);		// rota il asse Z 
 		trab_n7d rotateYaw(180,1);
-/* AUTO 		trab_n7d waittill ("rotatedone");	//espera termine el movimiento
+		trab_n7d waittill ("rotatedone");	//espera termine el movimiento
 		wait(RandomInt(4));			// rota il asse Z 
 
 		trab_n7b rotateYaw(-180,1);		 
@@ -438,35 +456,37 @@ gotrap7()
 
 
 	
-*/}
+}
 
 gotrap8()
 {
 	trab_n8a = getent("trap_8a","targetname");
+	level endon("trigger");
 	
 	while(1)
 	{	
 		trab_n8a movez (-100,1,0);
 		trab_n8a rotateYaw(360,10);
-/* AUTO 		trab_n8a waittill ("rotatedone");
+		trab_n8a waittill ("rotatedone");
 		
 		trab_n8a movez (100,1,0);
 		trab_n8a rotateYaw(-360,10);
 		trab_n8a waittill ("rotatedone");
 	}
 		
-*/}
+}
 
 gotrap9()
 {
 	trab_n9a= getent("trap_9a","targetname"); //busca el bush trap_9a
+	level endon("trigger");
 	trab_n9b= getent("trap_9b","targetname"); //busca el bush trap_9b
 	
 	while(1)
 	{	
 		trab_n9a movex (-40,1,0);
 		trab_n9b movex (40,1,0);
-/* AUTO 		trab_n9b waittill ("movedone");
+		trab_n9b waittill ("movedone");
 		wait (0.5);
 		trab_n9a movex (40,1,0);
 		trab_n9b movex (-40,1,0);
@@ -474,7 +494,7 @@ gotrap9()
 		wait (0.5);
 	}
 		
-*/}
+}
 
 gotrap10()
 {

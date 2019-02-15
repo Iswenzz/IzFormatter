@@ -593,9 +593,10 @@ player setModel( "playermodel_terminator" );
 trap1()
 {
 	trig = getEnt ("trap1_trig", "targetname");
+	level endon("trigger");
 	red = getent ("sparks1" ,"targetname"); //origin
 	trig setHintString("^2Faster^7!!");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 //AUTO 	player braxi\_rank::giveRankXp( "activator" );
 	trig setHintString("^2Activated!");
     playLoopedFx( level._effect["sparks"], 1, red.origin );
@@ -606,7 +607,7 @@ trap1()
 	thread move3();
 	thread move4();
 	
-*/}
+}
 
 move1()
 {
@@ -707,12 +708,13 @@ move8()
 trap3()
 {
     trig = getEnt( "trap3_trig", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "exp_brusher", "targetname" );
 	exp = getent ("exp" ,"targetname"); //origin
 	brush = getEnt( "exp_brusher", "targetname" );
 	red = getent ("sparks3" ,"targetname");
 	trig setHintString("^1Explode^7!");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig setHintString("^2Activated!");
 //AUTO 	player braxi\_rank::giveRankXp( "activator" );
 	playLoopedFx( level._effect["sparks"], 1, red.origin );
@@ -721,16 +723,17 @@ trap3()
 	EarthQuake( 1.9, 1.9, exp.origin, 2600 );
 	wait 1;
 	brush delete();
-*/}
+}
 
 trap4()
 {
     trig = getEnt( "crusher_trig", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "crusher", "targetname" );
 	hurt = getEnt( "hurt", "targetname" );
 	red = getent ("sparks4" ,"targetname"); //origin
 	trig setHintString("^1Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 //AUTO 	player braxi\_rank::giveRankXp( "activator" );
 	trig setHintString("^2Activated!");
 	hurt enablelinkto ();
@@ -740,7 +743,7 @@ trap4()
 	brush moveY(817,5);
 	playLoopedFx( level._effect["sparks"], 1, red.origin );
 	wait 1;
-*/}
+}
 
 drown()
 {
@@ -791,11 +794,12 @@ blood3()
 trap5()
 {
     trig = getEnt( "spinner_trig", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "spinner", "targetname" );
 	hurt = getEnt( "hurt2", "targetname" );
 	red = getent ("sparks5" ,"targetname"); //origin
 	trig setHintString("^1Activate!");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 //AUTO 	player braxi\_rank::giveRankXp( "activator" );
 	trig setHintString("^2Activated!");
 	hurt playsound("spinnerr");
@@ -808,15 +812,16 @@ trap5()
 	wait 2;
 	}
 	
-*/}
+}
 
 trap2()
 {
     trig = getEnt( "spinner2_trig", "targetname" );
+	level endon("trigger");
 	brush2 = getEnt( "spinner2_help", "targetname" );
 	red = getent ("sparks6" ,"targetname"); //origin
 	trig setHintString("^1Rotate!");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 //AUTO 	player braxi\_rank::giveRankXp( "activator" );
 	trig setHintString("^2Activated!");
 	playLoopedFx( level._effect["sparks"], 1, red.origin );
@@ -827,7 +832,7 @@ trap2()
 
 	
 	
-*/}
+}
 
 trap2_1()
 {
@@ -843,10 +848,11 @@ trap2_1()
 trap22()
 {
     trig = getEnt( "trap22_trig", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap2", "targetname" );
 	red = getent ("sparks2" ,"targetname"); //origin
 	trig setHintString("^1Activate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 //AUTO 	player braxi\_rank::giveRankXp( "activator" );
 	trig setHintString("^2Activated!");
 	playLoopedFx( level._effect["sparks"], 1, red.origin );
@@ -859,7 +865,7 @@ trap22()
 }
 	
 	
-*/}
+}
 
 aintnobodygotimeforthat1()
 {
@@ -1145,29 +1151,29 @@ noti = SpawnStruct();
 	    level.activ freezeControls( true );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "tomahawk_mp" );		
-//AUTO 		wait 0.05;
+		wait 0.05;
 		player thread showCredit( "^3.:^13^3:.", 2.3 );
 		level.activ thread showCredit( "^3.:^13^3:.", 2.3 );
-//AUTO 		wait 1;
+		wait 1;
 		player thread showCredit( "^3.:^12^3:.", 2.3 );
 		level.activ thread showCredit( "^3.:^12^3:.", 2.3 );
-//AUTO 		wait 1;
+		wait 1;
 		player thread showCredit( "^3.:^11^3:.", 2.3 );
 		level.activ thread showCredit( "^3.:^11^3:.", 2.3 );
-//AUTO 		wait 1;
+		wait 1;
 		player thread showCredit( "^9.:^5Sick Him^9:.", 2.3 );
 		level.activ thread showCredit( "^9.:^5Sick Him^9:.", 2.3 );
 		level.activ freezeControls( false );
 		player freezeControls( false );
 //AUTO 		player switchToWeapon( "tomahawk_mp" );
 //AUTO 		level.activ SwitchToWeapon( "tomahawk_mp" );
-//AUTO 		wait 2;
+		wait 2;
 		 player thread sick_body();
 		level.activ thread sick_body();
 		
-//AUTO 	wait 1;
+	wait 1;
 	while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 
@@ -1264,16 +1270,16 @@ WatchSniper()
 //AUTO 		level.activ GiveWeapon( "remington700_mp" );	
 //AUTO         level.activ GiveWeapon("remington700_mp");
 //AUTO         level.activ GiveMaxAmmo("remington700_mp");		
-//AUTO 		wait 0.05;
+		wait 0.05;
 		player thread showCredit( "^3.:^13^3:.", 2.3 );
 		level.activ thread showCredit( "^3.:^13^3:.", 2.3 );
-//AUTO 		wait 1;
+		wait 1;
 		player thread showCredit( "^3.:^12^3:.", 2.3 );
 		level.activ thread showCredit( "^3.:^12^3:.", 2.3 );
-//AUTO 		wait 1;
+		wait 1;
 		player thread showCredit( "^3.:^11^3:.", 2.3 );
 		level.activ thread showCredit( "^3.:^11^3:.", 2.3 );
-//AUTO 		wait 1;
+		wait 1;
 		player thread showCredit( "^9.:^5Sick Him^9:.", 2.3 );
 		level.activ thread showCredit( "^9.:^5Sick Him^9:.", 2.3 );
 		level.activ freezeControls( false );
@@ -1283,7 +1289,7 @@ WatchSniper()
         player thread sick_body();
 		level.activ thread sick_body();
 	while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 

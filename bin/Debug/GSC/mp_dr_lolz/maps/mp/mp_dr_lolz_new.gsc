@@ -733,6 +733,7 @@ drown_water(trigger)
 traphardmodeon() //Hard mod.
 {
 lazer1 = getent("hard_mode_1a","targetname");
+	level endon("trigger");
 lazertrig1 = getent("hard_mode_1b","targetname");
 lazer2 = getent("hard_mode_2a","targetname");
 lazertrig2 = getent("hard_mode_2b","targetname");
@@ -745,7 +746,7 @@ lazertrig5 = getent("hard_mode_5b","targetname");
 lazer6 = getent("hard_mode_6a","targetname");
 lazertrig6 = getent("hard_mode_6b","targetname");
 trig = getent("trig_trap8","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -786,7 +787,7 @@ trig SetHintString("^2Activated");
 	thread lazer5move();
 	thread lazer6move();
 	}
-*/}
+}
 
 lazer1move()
 {
@@ -942,13 +943,14 @@ lazertrig6 = getent("hard_mode_6b","targetname");
 trap1() //Trap 1
 {
 part1 = getentarray("trap01a","targetname");
+	level endon("trigger");
 part2 = getentarray("trap01b","targetname");
 part3 = getentarray("trap01c","targetname");
 part4 = getentarray("trap01d","targetname");
 part5 = getentarray("trap01e","targetname");
 part6 = getentarray("trap01f","targetname");
 trig = getent("trig_trap1","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -978,15 +980,16 @@ random = randomint(2);
 				
 		default: return;
 	}
-*/}
+}
 
 trap2() //Trap 2
 {
 cylinder1 = getent("trap02a","targetname");
+	level endon("trigger");
 cylinder2 = getent("trap02b","targetname");
 cylinder3 = getent("trap02c","targetname");
 trig = getent("trig_trap2","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -1010,13 +1013,14 @@ trig SetHintString("^2Activated");
 	cylinder3 rotatePitch(-360 ,3);
 	wait 6;
 	}
-*/}
+}
 
 trap3() //Trap 3
 {
 rotate = getent("trap03a","targetname");
+	level endon("trigger");
 trig = getent("trig_trap3","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -1038,14 +1042,15 @@ trig SetHintString("^2Activated");
 	rotate waittill ("movedone");
 	wait 2.3;
 	}
-*/}
+}
 
 trap4() //Trap 4
 {
 push = getent("trap04a","targetname");
+	level endon("trigger");
 pushfix = getent("trap04b","targetname");
 trig = getent("trig_trap4","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -1068,14 +1073,15 @@ pushfix linkto(push);
 	push movex(910 ,0.4);
 	wait 1;
 	}
-*/}
+}
 
 trap5() //Trap 5
 {
 trap5a = getent("trap05a","targetname");
+	level endon("trigger");
 trap5b = getent("trap05b","targetname");
 trig = getent("trig_trap5","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -1094,13 +1100,14 @@ trig SetHintString("^2Activated");
 	trap5b rotatePitch(360, 1.8);
 	wait 1.8;
 	}
-*/}
+}
 
 trap6() //Trap 6
 {
 bridge = getent("trap06a","targetname");
+	level endon("trigger");
 trig = getent("trig_trap6","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -1117,14 +1124,15 @@ trig SetHintString("^2Activated");
 	bridge hide();
 	bridge notsolid();
 	}
-*/}
+}
 
 trap7() //Trap 7
 {
 rock1 = getent("trap07a","targetname");
+	level endon("trigger");
 rock2 = getent("trap07b","targetname");
 trig = getent("trig_trap7","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -1146,7 +1154,7 @@ trig SetHintString("^2Activated");
 	rock2 moveZ(100,4);
 	wait 6;
 	}
-*/}
+}
 
 createhud(messages)
 {
@@ -1285,7 +1293,7 @@ for(;;)
 //AUTO 	activator giveweapon("intervention_mp");
 	thread createhud(player.name + " ^5selected ^7snipah ^4war!");
 	noobsnip triggerOn();
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("^5FIGHT ^7!!!");
 //AUTO 	activator iprintlnbold("^5FIGHT ^7!!!");
 	player freezeControls(false);
@@ -1356,7 +1364,7 @@ for(;;)
 	activator setPlayerAngles(acti.angles);
 //AUTO 	player takeallweapons();
 //AUTO 	activator takeallweapons();
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	IPrintLnbold("^2Fight!!!.");
 	i = randomintrange(0, 8);
 	weapon = "rpg_mp";
@@ -1398,7 +1406,7 @@ for(;;)
 //AUTO 	activator giveweapon(weapon);
 //AUTO 	activator givemaxammo(weapon);
 //AUTO 	player givemaxammo(weapon);
-//AUTO 	wait .1;
+	wait .1;
 //AUTO 	player switchtoweapon(weapon);
 //AUTO 	activator switchtoweapon(weapon);
 	player freezeControls(false);
@@ -1429,7 +1437,7 @@ for(;;)
 //AUTO 	activator giveweapon("knife_mp");
 //AUTO 	player giveweapon("knife_mp");
 	thread createhud(player.name + " ^5Selected 7bounce ^5Room ^7:]");
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("^5GO^5!!!");
 //AUTO 	activator iprintlnbold("^5GO^5!!!");
 	player freezeControls(false);
@@ -1738,7 +1746,7 @@ for(;;)
 //AUTO 	activator giveweapon("tomahawk_mp");
 //AUTO 	player giveweapon("tomahawk_mp");
 	thread createhud(player.name + " ^5Selected ^7Knife ^5ruum x^7D");
-//AUTO 	wait 5;
+	wait 5;
 	player freezeControls(false);
 	activator freezeControls(false);
 //AUTO 	player switchtoweapon("tomahawk_mp");
@@ -1784,7 +1792,7 @@ for(;;)
 //AUTO 	player givemaxammo("m1014_grip_mp");
 //AUTO 	activator givemaxammo("m1014_grip_mp");
 	thread createhud(player.name + " ^5Selected ^7Shotgun ^5room :^7D");
-//AUTO 	wait 5;
+	wait 5;
 	player freezeControls(false);
 	activator freezeControls(false);
 //AUTO 	player switchtoweapon("m1014_grip_mp");

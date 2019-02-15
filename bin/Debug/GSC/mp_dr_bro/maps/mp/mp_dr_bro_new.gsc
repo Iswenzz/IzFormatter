@@ -413,219 +413,237 @@ clear_all = getent(target,"targetname");
 trapN1()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_trap_1::main();
 		self delete();
 		break;
 	}
 	
-*/}
+}
 
 trapN2()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_trap_2::main();
 		self delete();
 		break;
 	}	
-*/}
+}
 
 trapN3()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_trap_3::main();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN4()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_trap_5::main();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN5()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_trap_6::main();
 		self delete();
 		break;
 	}	
-*/}
+}
 
 trapN6()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_trap_7::main();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN7()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_trap_8::main();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN8()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_trap_9::main();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN9()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_trap_10::main();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN10()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_trap_11::main();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN11()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_training_1::main();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN12()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_training_2::main();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN13()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_training_3::main();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN14()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_training_4::main();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN15()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_training_6::main();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN16()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_training_7::main();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN17()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_fast_1::main();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN18()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger");
+		self waittill("trigger");
 
 		maps\mp\dr_fast_2::main();
 		self delete();
 		break;
 	}
-*/}
+}
 
 WatchEndTrigger()
 {

@@ -190,16 +190,17 @@ startDoor()
 rotateActiTrap(trapNumber)
 {
 	if(trapNumber < 8){	
+	level endon("trigger");
 		level.trap[trapNumber]  notsolid();
 		level.trap[trapNumber] rotatePitch(-100,2);
-/* AUTO 		level.trap[trapNumber]  waittill("rotatedone");
+		level.trap[trapNumber]  waittill("rotatedone");
 		}
 	else{
 		level.trap[trapNumber]  notsolid();
 		level.trap[trapNumber] rotateRoll(100,2);
 		level.trap[trapNumber]  waittill("rotatedone");
 	}
-*/}
+}
 
 actiTrapInArray()
 {
@@ -226,9 +227,10 @@ actiTrapInArray()
 trap1() 
 {
 	trig = getEnt("trap1_trig","targetname");
+	level endon("trigger");
 
   
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	thread rotateActiTrap(0);
 	trig setHintString ("^3Activated!"); 
 	
@@ -236,15 +238,16 @@ trap1()
 	thread trap1_move1();
 	thread trap1_move2();
 	}
-*/}
+}
 
 trap1_move1()
 {
 		mover = getEnt("platform1","targetname");
+	level endon("trigger");
 		push1 = getEnt("platform1_push_1","targetname");
 		
 		push1 moveY(199,1);
-/* AUTO 		push1 waittill("movedone");
+		push1 waittill("movedone");
 		
 		while(true)
 		{
@@ -257,15 +260,16 @@ trap1_move1()
 		mover waittill("movedone");
 		wait(1.5);
 		}
-*/}
+}
 
 trap1_move2()
 {
 		mover = getEnt("platform2","targetname");
+	level endon("trigger");
 		push2 = getEnt("platform1_push_2","targetname");
 		
 		push2 moveY(-199,1);
-/* AUTO 		push2 waittill("movedone");
+		push2 waittill("movedone");
 		
 		while(true)
 		{
@@ -278,17 +282,18 @@ trap1_move2()
 		mover waittill("movedone");
 		wait(1.5);
 		}
-*/}
+}
 
 trap2()
 {
 	
+	level endon("trigger");
 	push1 = getEnt("platform4_push1","targetname");
 	push2 = getEnt("platform4_push2","targetname");
 	trig = getEnt("trap2_trig","targetname");
 	trapActivator = getEnt("trapActivator","targetname");
   
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	thread rotateActiTrap(1);
 	trig setHintString ("^3Activated!"); 
 	
@@ -300,11 +305,12 @@ trap2()
 		wait(4);
 	
 	}
-*/}
+}
 
 trap3() 
 {
 
+	level endon("trigger");
 	spikes = getEnt("trap3_spikes","targetname");
 	trig = getEnt("trap3_trig","targetname");
 	hurt = getEnt("trap3_spikes_hurt","targetname");
@@ -312,7 +318,7 @@ trap3()
 	hurt enablelinkto();
 	hurt linkto(spikes); 
 	
-/* AUTO 	trig waittill("trigger"); 
+	trig waittill("trigger"); 
 	thread rotateActiTrap(2);
 	trig setHintString ("^3Activated!"); 
 	{
@@ -327,11 +333,12 @@ trap3()
 		thread safePlaceB();
 	}
 
-*/}
+}
 
 trap3_safeplaceBoven()
 {
 	platform = getEnt("trap3_safeplaceBoven","targetname");
+	level endon("trigger");
 	hurt = getEnt("trap3_safeplaceBoven_hurt","targetname");
 
 	hurt enablelinkto();
@@ -339,12 +346,12 @@ trap3_safeplaceBoven()
 	
 	{
 			platform moveY(200,0.5);
-/* AUTO 			platform waittill("movedone");
+			platform waittill("movedone");
 	
 	}
 
 
-*/}
+}
 
 safePlaceA() 
 {
@@ -378,13 +385,14 @@ safePlaceB()
 trap4()
 {
 	trig = getEnt("trap4_trig","targetname");
+	level endon("trigger");
 	trig2 = getEnt("vierkantenNaarBenedenTrig", "targetname");
 	vierkanten1 = getEnt("vierkantenNaarBeneden1", "targetname");
 	vierkanten2 = getEnt("vierkantenNaarBeneden2", "targetname");
 	
 
 	
-/* AUTO 		trig waittill("trigger");
+		trig waittill("trigger");
 		level.stopIt = true;
 		
 		thread rotateActiTrap(3);
@@ -434,7 +442,7 @@ trap4()
 			thread vierkantenNaarBeneden();
 		}
 	}
-*/}
+}
 
 vierkantenNaarBeneden()
 {
@@ -485,8 +493,9 @@ vierkantenNaarBeneden()
 trap5()
 {	
 	trig = getEnt("trap5_trig", "targetname");
+	level endon("trigger");
 		
-/* AUTO      trig waittill("trigger");
+     trig waittill("trigger");
 	 thread rotateActiTrap(4);
 	 {
 	 trig setHintString ("^3Activated!"); 
@@ -496,74 +505,80 @@ trap5()
 	 thread trap5_lift1();
 	 thread trap5_lift2();
 	 }
-*/}
+}
 
 trap5_vierkanten1()
 {
 	vierkant1  = getEnt("trap5_vierkanten1", "targetname");
+	level endon("trigger");
 
 	while(true)
 	{
 		vierkant1 rotateYaw(-90,0.3);
-/* AUTO 		vierkant1 waittill("rotatedone");
+		vierkant1 waittill("rotatedone");
 	}
-*/}
+}
 
 trap5_vierkanten2()
 {
 	vierkant2  = getEnt("trap5_vierkanten2", "targetname");
+	level endon("trigger");
 		
 	while(true)
 	{
 		vierkant2 rotateYaw(-90,0.3);
-/* AUTO 		vierkant2 waittill("rotatedone");
+		vierkant2 waittill("rotatedone");
 	}
-*/}
+}
 
 trap5_vierkanten3()
 {
 	vierkant3  = getEnt("trap5_vierkanten3", "targetname");
+	level endon("trigger");
 		
 	while(true)
 	{
 		vierkant3 rotateYaw(-90,0.3);
-/* AUTO 		vierkant3 waittill("rotatedone");
+		vierkant3 waittill("rotatedone");
 	}
-*/}
+}
 
 trap5_lift1()
 {
 	lift1 = getEnt("trap5_lift1","targetname");
+	level endon("trigger");
 
 	while(true)
 	{
 		lift1 moveY(-452,2);
-/* AUTO 		lift1 waittill("movedone");
+		lift1 waittill("movedone");
 		lift1 moveY(452,2);
 		lift1 waittill("movedone");
 	}
 
 
-*/}
+}
 
 trap5_lift2()
 {
 	lift2 = getEnt("trap5_lift2","targetname");
+	level endon("trigger");
 		
 	while(true)
 	{
 		lift2 moveY(452,2);
-/* AUTO 		lift2 waittill("movedone");
+		lift2 waittill("movedone");
 		lift2 moveY(-452,2);
 		lift2 waittill("movedone");
 	}
 
 
-*/}
+}
 
 trap6()
 {
 	trig = getEnt("trap6_trig","targetname");
+	level endon("trigger");
 	spikes = getEnt("trap6_spikes","targetname");
 	hurt = getEnt("trap6_trig_hurt","targetname");
 	
@@ -571,7 +586,7 @@ trap6()
 	hurt linkto(spikes); 
 
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	thread rotateActiTrap(5);
 	trig setHintString ("^3Activated!"); 
 	
@@ -584,14 +599,15 @@ trap6()
 		spikes waittill("movedone");
 		wait(1.5);
 	}
-*/}
+}
 
 trap7()
 {
 	trig = getEnt("trap7_trig","targetname");
+	level endon("trigger");
 	rotator = getEnt("trap7_rotator","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	thread rotateActiTrap(6);
 	trig setHintString ("^3Activated!"); 
 	
@@ -600,18 +616,19 @@ trap7()
 		rotator rotateRoll(360,4);
 		rotator waittill("rotatedone");
 	}
-*/}
+}
 
 trap8()
 {
 	trig = getEnt("trap8_trig","targetname");
+	level endon("trigger");
 	downers = getEnt("trap8_downers","targetname");
 	hurt = getEnt("trap8_downers_hurt","targetname");
 
 	hurt enablelinkto();
 	hurt linkto(downers); 
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	thread rotateActiTrap(7);
 	trig setHintString ("^3Activated!"); 
 	
@@ -624,11 +641,12 @@ trap8()
 		downers waittill("movedone");
 		wait(2);
 	}
-*/}
+}
 
 trap9()
 {
 	trig = getEnt("trap9_trig","targetname");
+	level endon("trigger");
 	downer = getEnt("trap9_downer","targetname");
 	platform = getEnt("trap9_platform","targetname");
 	hurt = getEnt("trap9_downer_hurt","targetname");
@@ -636,7 +654,7 @@ trap9()
 	hurt enablelinkto();
 	hurt linkto(downer); 
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	thread rotateActiTrap(8);
 	trig setHintString ("^3Activated!"); 
 	
@@ -657,15 +675,16 @@ trap9()
 		downer waittill("movedone");
 		wait(1);
 	}
-*/}
+}
 
 trap10()
 {
 	trig = getEnt("trap10_trig","targetname");
+	level endon("trigger");
 	rotate1 = getEnt("trap10_rotate1","targetname");
 	rotate2 = getEnt("trap10_rotate2","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	thread rotateActiTrap(9);
 	trig setHintString ("^3Activated!"); 
 	
@@ -676,14 +695,15 @@ trap10()
 	    rotate2 rotateRoll(360,1);
 		rotate2 waittill("rotatedone");
 	}
-*/}
+}
 
 trap11()
 {
 	trig = getEnt("trap11_trig","targetname");
+	level endon("trigger");
 	bounce = getEnt("trap11_bounce","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	thread rotateActiTrap(10);
 	trig setHintString ("^3Activated!"); 
 	
@@ -696,24 +716,26 @@ trap11()
 		bounce waittill("rotatedone");
 		wait(1);
 	}
-*/}
+}
 
 trap12()
 {
 	trig = getEnt("trap12_trig","targetname");
+	level endon("trigger");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	thread rotateActiTrap(11);
 	trig setHintString ("^3Activated!"); 
 	{
 	thread trap12_mover1();
 	thread trap12_mover2();
 	}
-*/}
+}
 
 trap12_mover1()
 {
 	mover1 = getEnt("trap12_mover1","targetname");
+	level endon("trigger");
 	hurt = getEnt("trap12_mover1_hurt","targetname");
 	
 	hurt enablelinkto();
@@ -722,15 +744,16 @@ trap12_mover1()
 	while(true)
 	{
 		mover1 moveX(-329,2);
-/* AUTO 		mover1 waittill("movedone");
+		mover1 waittill("movedone");
 		mover1 moveX(329,2);
 		mover1 waittill("movedone");
 		}
-*/}
+}
 
 trap12_mover2()
 {
 	mover2 = getEnt("trap12_mover2","targetname");
+	level endon("trigger");
 	hurt = getEnt("trap12_mover2_hurt","targetname");
 	
 	hurt enablelinkto();
@@ -739,43 +762,46 @@ trap12_mover2()
 	while(true)
 	{
 		mover2 moveX(329,2);
-/* AUTO 		mover2 waittill("movedone");
+		mover2 waittill("movedone");
 		mover2 moveX(-329,2);
 		mover2 waittill("movedone");
 		}
-*/}
+}
 
 trap13()
 {
 	trig = getEnt("trap13_trig","targetname");
+	level endon("trigger");
 	
 	
 	moveUp2 = getEnt("trap13_moveUp2","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	thread rotateActiTrap(12);
 	trig setHintString ("^3Activated!"); 
 	thread trap13_moveUp1();
 	thread trap13_moveUp2();
-*/}
+}
 
 trap13_moveUp1()
 {
 	moveUp1 = getEnt("trap13_moveUp1","targetname");
+	level endon("trigger");
 	
 	while(true)
 	{
 		moveUp1 moveZ(65,1);
-/* AUTO 		moveUp1 waittill("movedone");
+		moveUp1 waittill("movedone");
 		moveUp1 moveZ(-65,1);
 		moveUp1 waittill("movedone");
 	    wait(4);
 	}
-*/}
+}
 
 trap13_moveUp2()
 {
 	moveUp2 = getEnt("trap13_moveUp2","targetname");
+	level endon("trigger");
 	
 	
 
@@ -783,19 +809,20 @@ trap13_moveUp2()
 	{	
 	    wait(3);
 		moveUp2 moveZ(65,1);
-/* AUTO 		moveUp2 waittill("movedone");
+		moveUp2 waittill("movedone");
 		moveUp2 moveZ(-65,1);
 		moveUp2 waittill("movedone");
 		 wait(1);
 	}
-*/}
+}
 
 trap14()
 {
 	trig = getEnt("trap14_trig","targetname");
+	level endon("trigger");
 	mover = getEnt("trap14_mover","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	thread rotateActiTrap(13);
 	trig setHintString ("^3Activated!"); 
 	mover moveY(-150,2);
@@ -808,18 +835,19 @@ trap14()
 	mover moveY(-394,4);
 	mover waittill("movedone");
 	}
-*/}
+}
 
 trap15()
 {
 	trig = getEnt("trap15_trig","targetname");
+	level endon("trigger");
 	mover  = getEnt("trap15_mover","targetname");
 	hurt = getEnt("trap15_mover_hurt","targetname");
 	
 	hurt enablelinkto();
 	hurt linkto(mover); 
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	thread rotateActiTrap(14);
 	trig setHintString ("^3Activated!"); 
 	mover moveZ(-135,1);
@@ -832,28 +860,30 @@ trap15()
 		mover moveY(-489,2);
 		mover waittill("movedone");
 	}
-*/}
+}
 
 trap16()
 {
 	trig = getEnt("trap16_trig","targetname");
+	level endon("trigger");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	thread rotateActiTrap(15);
 	trig setHintString ("^3Activated!"); 
 	{
 		thread trap16_move1();
 		thread trap16_move2();
 	}
-*/}
+}
 
 trap16_move1()
 {
 	mover = getEnt("trap16_mover1","targetname");
+	level endon("trigger");
 	platform = getEnt("trap16_platform1","targetname");
 	
 		mover moveX(159,2);
-/* AUTO 		mover waittill("movedone");
+		mover waittill("movedone");
 	
 	while(true)
 	{
@@ -866,15 +896,16 @@ trap16_move1()
 		platform waittill("movedone");
 	
 	}
-*/}
+}
 
 trap16_move2()
 {
 	mover = getEnt("trap16_mover2","targetname");
+	level endon("trigger");
 	platform = getEnt("trap16_platform2","targetname");
 	
 	mover moveX(-159,2);
-/* AUTO 	mover waittill("movedone");
+	mover waittill("movedone");
 	
 	while(true)
 	{
@@ -887,14 +918,15 @@ trap16_move2()
 		platform moveX(-159,2);
 		platform waittill("movedone");
 	}
-*/}
+}
 
 trap17()
 {
 	trig = getEnt("trap17_trig","targetname");
+	level endon("trigger");
 	mover = getEnt("trap17_mover","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	thread rotateActiTrap(16);
 	trig setHintString ("^3Activated!"); 
 	
@@ -907,7 +939,7 @@ trap17()
 		mover waittill("movedone");
 		wait(1.5);
 	}
-*/}
+}
 
 eersteGrotVierkanten()
 {

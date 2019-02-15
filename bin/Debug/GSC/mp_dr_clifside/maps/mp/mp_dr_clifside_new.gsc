@@ -81,12 +81,13 @@ water()
 trap1()
 {
 	trap1 = getent("trap1","targetname");
+	level endon("trigger");
 	trap1_trigger = getent("trap1_trig","targetname");
 	trap1_fx = getent("trap1_fx","targetname");
 	level._effect["water"] = loadfx ("misc/watersplash_large"); 
 
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap1_trigger waittill("trigger");
+	trap1_trigger waittill("trigger");
 	trap1_trigger delete();
 
 	trap1 moveZ(-370, 1, 0.5, 0);
@@ -95,26 +96,28 @@ trap1()
 	trap1_fx playsound("big_splash");
 	playFX(level._effect["water"], trap1_fx.origin);
 	wait 1;
-*/}
+}
 
 trap1_x2()
 {
 	trap1x2 = getent("trap1_x2","targetname");
+	level endon("trigger");
 	trap1_x2_trigger = getent("trap1_x2_trig","targetname"); 
 
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap1_x2_trigger waittill("trigger");
+	trap1_x2_trigger waittill("trigger");
 	trap1_x2_trigger delete();
 
 	trap1x2 moveZ(-370, 1, 0.5, 0);
 
 	//trap1_fxorigin playsound("explosion");
 	wait 1;
-*/}
+}
 
 trap2()
 {
 	chunk = getent("trap2_wreckage","targetname");
+	level endon("trigger");
 	dirt = getent("trap2_dirt","targetname");
 	trap2_trigger = getent("trap2_trig","targetname");
 	trap2_pole = getent("trap2_pole","targetname");
@@ -125,7 +128,7 @@ trap2()
 	dirt hide();
 
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap2_trigger waittill("trigger");
+	trap2_trigger waittill("trigger");
 	trap2_trigger delete();
 
 	
@@ -145,18 +148,19 @@ trap2()
 		trap2_fxorigin playsound("creak");
 		wait 68;
 	}
-*/}
+}
 
 trap4()
 {
 	trap4_trigger = getent("trap4_trig","targetname");
+	level endon("trigger");
 
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap4_trigger waittill("trigger");
+	trap4_trigger waittill("trigger");
 	trap4_trigger delete();
 
 	log1();
-*/}
+}
 
 log1()
 {
@@ -217,6 +221,7 @@ log1()
 trap3()
 {
 	trap3_trigger = getent("trap3_trig","targetname");
+	level endon("trigger");
 	trap3_fxorigin = getent("tank_fx","targetname");
 	
 	tank_hurt = getent("tank_hurt","targetname");
@@ -228,7 +233,7 @@ trap3()
 	tank_hurt triggerOff();
 
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap3_trigger waittill("trigger");
+	trap3_trigger waittill("trigger");
 	trap3_trigger delete();
 
 	while(1)
@@ -247,18 +252,19 @@ trap3()
 	shell show();
 	wait 0.5;
 	}
-*/}
+}
 
 trap5()
 {
 	trap5_trigger = getent("trap5_trig","targetname");
+	level endon("trigger");
 	trap5_fxorigin = getent("water_fx","targetname");
 	level._effect["water_gush"] = loadfx ("misc/speedex_watergush"); 
 	water_fx_trig = getEnt ( "water_trap_trig", "targetname" );
 	FX = undefined;
 	water_fx_trig triggerOff();
 
-/* AUTO 	trap5_trigger waittill("trigger");
+	trap5_trigger waittill("trigger");
 	trap5_trigger delete();
 	
     while(1)
@@ -274,7 +280,7 @@ trap5()
         wait 2;
     }
 	
-*/}
+}
 
 Water_Move()
 {
@@ -307,12 +313,13 @@ water_bounce()
 trap6()
 {
 	trap6 = getent("trap7","targetname");
+	level endon("trigger");
 	trap6_trigger = getent("trap6_trig","targetname");
 
 	//trap4a rotatePitch(90, 1);
 	//trap4b rotatePitch(90, 1);
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap6_trigger waittill("trigger");
+	trap6_trigger waittill("trigger");
 	trap6_trigger delete();
 
 	while(1)
@@ -326,17 +333,18 @@ trap6()
 		trap6 PlaySound ("stonemove");
 		wait 2.5;
 	}
-*/}
+}
 
 trap7()
 {
 	trap7 = getent("trap8","targetname");
+	level endon("trigger");
 	trap7_trigger = getent("trap7_trig","targetname");
 
 	//trap4a rotatePitch(90, 1);
 	//trap4b rotatePitch(90, 1);
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap7_trigger waittill("trigger");
+	trap7_trigger waittill("trigger");
 	trap7_trigger delete();
 
 	
@@ -352,7 +360,7 @@ trap7()
 	}
 		//PlayFX( level.splash_fx, trap4.origin );
 		//trap6 PlaySound ("stonemove");
-*/}
+}
 
 old()
 {

@@ -97,12 +97,12 @@ WatchSniper()
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "m40a3_mp" );
 //AUTO 		level.activ GiveMaxAmmo( "m40a3_mp" );
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "m40a3_mp" );
 //AUTO 		level.activ SwitchToWeapon( "m40a3_mp" );
 //AUTO 		iPrintlnBold( "^1>> ^2" + player.name + " has chosen sniper room!" );		//change it as you wish
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 
@@ -129,12 +129,12 @@ WatchKnife()
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "knife_mp" );
 //AUTO 		level.activ GiveMaxAmmo( "knife_mp" );
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ SwitchToWeapon( "knife_mp" );
 //AUTO 		iPrintlnBold( "^1>> ^2" + player.name + " has chosen knife room!" );		//change it as you wish no
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 
@@ -242,16 +242,17 @@ impossible()
 trap5()
 {
             trig = getEnt("trig6","targetname");
+	level endon("trigger");
             brush = getEnt("trap6","targetname");
 
-/* AUTO             trig waittill("trigger");
+            trig waittill("trigger");
             trig delete();
             {
                         brush moveY(144,1);
                         wait 5;
                         brush moveY(-144,1);
             }
-*/}                        
+}                        
 
 Tunnel()
 {
@@ -288,6 +289,7 @@ while(true)
 trap7()
 {
          
+	level endon("trigger");
           trig = GetEnt("trig7","targetname");
           brush = GetEnt("trap7","targetname");
            hurt = getEnt("hurt_7","targetname");
@@ -295,7 +297,7 @@ trap7()
           hurt enablelinkto();
           hurt linkto(brush);
 
-/* AUTO            trig waittill("trigger",player);
+           trig waittill("trigger",player);
            trig delete();
           
           while(1)
@@ -305,7 +307,7 @@ trap7()
                              brush moveX(976,3);
                              wait 3;
           }
-*/}
+}
 
 Gladiator()
 {

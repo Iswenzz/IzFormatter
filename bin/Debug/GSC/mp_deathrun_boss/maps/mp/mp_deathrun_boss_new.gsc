@@ -145,10 +145,11 @@ actidoor()
 trap1()
 {
 	trig = getent("trap1_trig", "targetname");
+	level endon("trigger");
 	brush = getent("notsolid1", "targetname");
 	brush2 = getent("notsolid2", "targetname");
 	brush3 = getent("notsolid3", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	x = randomInt(3);
 		if(x == 0)
@@ -162,14 +163,15 @@ trap1()
 		brush notsolid();
 		brush2 notsolid();
 		}
-*/}
+}
 
 trap2()
 {
 	trig = getent("trap2_trig", "targetname");
+	level endon("trigger");
 	brush = getent("spinning1", "targetname");
 	brush2 = getent("spinning2", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 		for(;;)
 		{
@@ -178,14 +180,15 @@ trap2()
 		brush2 rotatepitch(-360, 3.5);
 		wait 8;
 		}
-*/}
+}
 
 trap3()
 {
 	trig = getent("trap3_trig", "targetname");
+	level endon("trigger");
 	brush = getent("spinbounce1", "targetname");
 	brush2 = getent("spinbounce2", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 		for(;;)
 		{
@@ -194,16 +197,17 @@ trap3()
 		brush2 rotateyaw(-360, 3.5);
 		wait 3;
 		}
-*/}
+}
 
 trap4()
 {
 	trig = getent("trap4_trig", "targetname");
+	level endon("trigger");
 	brush = getent("solid1", "targetname");
 	brush2 = getent("solid2", "targetname");
 	brush3 = getent("solid3", "targetname");
 	brush4 = getent("solid4", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	x = randomInt(4);
 		if(x == 0)
@@ -218,15 +222,16 @@ trap4()
 		brush2 notsolid();
 		brush4 notsolid();
 		}
-*/}
+}
 
 trap5()
 {
 	trig = getent("trap5_trig", "targetname");
+	level endon("trigger");
 	brush = getent("spinbrush1", "targetname");
 	brush2 = getent("spinbrush2", "targetname");
 	brush3 = getent("spinbrush3", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 		for(;;)
 		{
@@ -237,7 +242,7 @@ trap5()
 		brush3 rotateroll(720, 1.5);
 		wait 4;
 		}
-*/}
+}
 
 secretenter()
 {
@@ -351,15 +356,15 @@ sniper() //WINGZOOOOR :D:D:D:D:D:D:D:D:d:DDDD:D:D:D:D:D:D
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
 					
-//AUTO 			wait 2;
+			wait 2;
 			
 			level.activ FreezeControls(0);
 			player FreezeControls(0);
 			
-//AUTO 			wait 0.1;
+			wait 0.1;
                      
 			while(isAlive(player))
-//AUTO 				wait 1;
+				wait 1;
 
 		}
 }
@@ -414,15 +419,15 @@ knife() //WINGZOOOOR :D:D:D:D:D:D:D:D:D:D:D:D:D:D:DDDD:D:
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
 					
-//AUTO 			wait 2;
+			wait 2;
 			
 			level.activ FreezeControls(0);
 			player FreezeControls(0);
 			
-//AUTO 			wait 0.1;
+			wait 0.1;
                      
 			while(isAlive(player))
-//AUTO 				wait 1;
+				wait 1;
 
 		}
 }
@@ -488,18 +493,20 @@ old()
 trap6()
 {
 	trig = getent("trap6_trig", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	level endon("trigger");
+	trig waittill("trigger", player);
 	trig delete();
 	thread trap6a();
 	thread trap6b();
 
-*/}
+}
 
 trap6a()
 {
 	brush = getent("updown1", "targetname");
+	level endon("trigger");
 	brush movez (100,2);
-/* AUTO 	brush waittill("movedone");
+	brush waittill("movedone");
 		for(;;)
 		{
 		brush movez (-100,1);
@@ -507,13 +514,14 @@ trap6a()
 		brush movez (100,1);
 		brush waittill("movedone");
 		}
-*/}
+}
 
 trap6b()
 {
 	brush2 = getent("updown2", "targetname");
+	level endon("trigger");
 	brush2 movez (-50,2);
-/* AUTO 	brush2 waittill("movedone");
+	brush2 waittill("movedone");
 		for(;;)
 		{
 		brush2 movez (100,1);
@@ -521,7 +529,7 @@ trap6b()
 		brush2 movez (-100,1);
 		brush2 waittill("movedone");
 		}
-*/}
+}
 
 secretrespawn2()
 {

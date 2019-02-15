@@ -218,9 +218,10 @@ pusher()
 trap1()
 {
 trig = getent("trig_trap1","targetname");
+	level endon("trigger");
 object1 = getent("block1","targetname");
 object2 = getent("block2","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 trig delete();
 while(1)
 {
@@ -237,13 +238,14 @@ object1 moveZ(-80, 1.5);
 object2 moveZ(80, 1.5);
 wait 3;
 }
-*/}
+}
 
 trap2()
 {
 trig = getent("trig_trap2","targetname");
+	level endon("trigger");
 object = getent("trap2","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 trig delete();
 {
 object moveY(656, 1.2);
@@ -251,15 +253,16 @@ wait 2.2;
 object moveY(-656 ,1.2);
 wait 5;
 }
-*/}
+}
 
 trap3()
 {
 	part1 = getentarray ("trap3_1" ,"targetname");
+	level endon("trigger");
 	part2 = getentarray ("trap3_2" ,"targetname");
 	trig = getent ("trig_trap3" , "targetname");
 
-/* AUTO  	trig waittill( "trigger", user ); 
+ 	trig waittill( "trigger", user ); 
 	trig delete ();
 	random = randomint(2);
 
@@ -274,16 +277,17 @@ trap3()
 				
 		default: return;
 	}
-*/}
+}
 
 trap4()
 {
 	part1 = getentarray ("trap4_1" ,"targetname");
+	level endon("trigger");
 	part2 = getentarray ("trap4_2" ,"targetname");
 	part3 = getentarray ("trap4_3" ,"targetname");
 	trig = getent ("trig_trap4" , "targetname");
 
-/* AUTO  	trig waittill( "trigger", user ); 
+ 	trig waittill( "trigger", user ); 
 	trig delete ();
 	random = randomint(3);
 
@@ -313,14 +317,15 @@ trap4()
 				
 		default: return;
 	}
-*/}
+}
 
 trap5()
 {
 trigger = getent("trig_trap5","targetname");
+	level endon("trigger");
 object = getent("trap5","targetname");
 killtrigger = getent ("killtrig_5" , "targetname");
-/* AUTO trigger waittill ("trigger" , player );
+trigger waittill ("trigger" , player );
 trigger delete();
 {
 killtrigger enablelinkto ();
@@ -332,13 +337,14 @@ object moveX(-288, 2);
 object waittill("movedone");
 wait(1);
 }
-*/}
+}
 
 trap6()
 {
 trigger = getent("trig_trap6","targetname");
+	level endon("trigger");
 object = getent("trap6","targetname");
-/* AUTO trigger waittill ("trigger" , player );
+trigger waittill ("trigger" , player );
 trigger delete();
 {
 object moveZ(256, 0.3);
@@ -348,14 +354,15 @@ object moveZ(-256, 2);
 object waittill("movedone");
 wait(1);
 }
-*/}
+}
 
 trap7()
 {
 trigger = getent("trig_trap7","targetname");
+	level endon("trigger");
 object1 = getent("trap7_1","targetname");
 object2 = getent("trap7_2","targetname");
-/* AUTO trigger waittill ("trigger" , player );
+trigger waittill ("trigger" , player );
 trigger delete();
 while(1)
 {
@@ -372,14 +379,15 @@ object1 moveZ(176, 2);
 object2 moveZ(-176, 2);
 wait(4);
 }
-*/}
+}
 
 trap8()
 {
 trigger = getent("trig_trap8","targetname");
+	level endon("trigger");
 object1 = getent("trap8_1","targetname");
 object2 = getent("trap8_2","targetname");
-/* AUTO trigger waittill ("trigger" , player );
+trigger waittill ("trigger" , player );
 trigger delete();
 while(1)
 {
@@ -387,14 +395,15 @@ object1 rotateRoll(360, 2);
 object2 rotateRoll(-360, 2);
 wait 0.1;
 }
-*/}
+}
 
 trap9()
 {
 trigger = getent("trig_trap9","targetname");
+	level endon("trigger");
 object1 = getent("trap9_1","targetname");
 object2 = getent("trap9_2","targetname");
-/* AUTO trigger waittill ("trigger" , player );
+trigger waittill ("trigger" , player );
 trigger delete();
 while(1)
 {
@@ -402,26 +411,28 @@ object1 rotateRoll(360, 2);
 object2 rotateRoll(-360, 2);
 wait 0.1;
 }
-*/}
+}
 
 trap10()
 {
 trigger = getent("trig_trap10","targetname");
+	level endon("trigger");
 object = getent("trap10","targetname");
-/* AUTO trigger waittill ("trigger" , player );
+trigger waittill ("trigger" , player );
 trigger delete();
 while(1)
 {
 object rotatePitch(-180, 2);
 wait 0.1;
 }
-*/}
+}
 
 trap11()
 {
 trigger = getent("trig_trap11","targetname");
+	level endon("trigger");
 object = getent("trap11","targetname");
-/* AUTO trigger waittill ("trigger" , player );
+trigger waittill ("trigger" , player );
 trigger delete();
 {
 object rotateRoll(180, 1);
@@ -429,42 +440,45 @@ wait 5;
 object rotateRoll(-180, 1);
 wait 1;
 }
-*/}
+}
 
 trap12()
 {
 trigger = getent("trig_trap12","targetname");
+	level endon("trigger");
 object = getent("trap12","targetname");
-/* AUTO trigger waittill ("trigger" , player );
+trigger waittill ("trigger" , player );
 trigger delete();
 while(1)
 {
 object rotateYaw(360, 2);
 wait 0.1;
 }
-*/}
+}
 
 trap13()
 {
 trigger = getent("trig_trap13","targetname");
+	level endon("trigger");
 object1 = getent("trap13_1","targetname");
 object2 = getent("trap13_2","targetname");
-/* AUTO trigger waittill ("trigger" , player );
+trigger waittill ("trigger" , player );
 trigger delete();
 {
 object1 moveY(256, 3);
 object2 moveY(-256, 3);
 wait 0.1;
 }
-*/}
+}
 
 trap14()
 {
 	part1 = getentarray ("trap14_1" ,"targetname");
+	level endon("trigger");
 	part2 = getentarray ("trap14_2" ,"targetname");
 	trig = getent ("trig_trap14" , "targetname");
 
-/* AUTO  	trig waittill( "trigger", user ); 
+ 	trig waittill( "trigger", user ); 
 	trig delete ();
 	random = randomint(2);
 
@@ -479,16 +493,17 @@ trap14()
 				
 		default: return;
 	}
-*/}
+}
 
 trap15()
 {
 trigger = getent("trig_trap15","targetname");
+	level endon("trigger");
 object = getent("trap15","targetname");
 killtrigger1 = getent ("killtrig_15_1" , "targetname");
 killtrigger2 = getent ("killtrig_15_2" , "targetname");
 killtrigger3 = getent ("killtrig_15_3" , "targetname");
-/* AUTO trigger waittill ("trigger" , player );
+trigger waittill ("trigger" , player );
 trigger delete();
 {
 killtrigger1 enablelinkto ();
@@ -504,13 +519,14 @@ object moveZ(48, 2);
 object waittill("movedone");
 wait(1);
 }
-*/}
+}
 
 trap16()
 {
         trigger = getent("trig_trap16","targetname");
+	level endon("trigger");
 	object = getent("t16_","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
         trigger delete();
 	a = getent("t16a","targetname");
 	b = getent("t16b","targetname");
@@ -539,13 +555,14 @@ trap16()
 		g moveZ(-64,0.5);
 		wait 1;
 	}
-*/}
+}
 
 trap17()
 {
         trigger = getent("trig_trap17","targetname");
+	level endon("trigger");
 	object = getent("t17_","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
         trigger delete();
 	a = getent("t17a","targetname");
 	b = getent("t17b","targetname");
@@ -571,7 +588,7 @@ trap17()
 		f rotateYaw(180,2);
 		wait 3;
 	}
-*/}
+}
 
 sniperoom()
 {
@@ -602,26 +619,26 @@ sniperoom()
 //AUTO 		level.activ TakeAllWeapons();
 	    player freezeControls(true);
 		level.activ freezeControls(true);
-//AUTO 		wait 2;
+		wait 2;
 //AUTO 		iPrintlnBold("3");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintlnBold("2");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintlnBold("1");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintlnBold("Fight!!");
-//AUTO 	    wait 0.1;
+	    wait 0.1;
 //AUTO         player GiveWeapon( "remington700_mp" );
 //AUTO 		player GiveWeapon( "m40a3_mp" );
 //AUTO 		player switchToWeapon( "remington700_mp" );
-//AUTO 	    wait 0.1;
+	    wait 0.1;
 //AUTO 		level.activ GiveWeapon( "remington700_mp" );
 //AUTO 		level.activ GiveWeapon( "m40a3_mp" );
 //AUTO         level.activ SwitchToWeapon( "remington700_mp" );
 	    player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 1;
+        wait 1;
     }
 }
 
@@ -654,22 +671,22 @@ kniferoom()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );     
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
 //AUTO         iPrintlnBold( "^7" + player.name + " ^4Chose ^3Knife^7!" );
-//AUTO 		wait 2;
+		wait 2;
 //AUTO 		iPrintlnBold("3");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintlnBold("2");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintlnBold("1");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintlnBold("Fight!!");
 		player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -698,23 +715,23 @@ jumproom()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
 //AUTO         iPrintlnBold( " ^7" + player.name + " ^4Chose ^5Bounce^7!" );
-//AUTO 		wait 2;
+		wait 2;
 //AUTO 		iPrintlnBold("3");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintlnBold("2");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintlnBold("1");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintlnBold("Fight!!");
 		player freezeControls(false);
 		level.activ freezeControls(false);
-//AUTO 		wait 0.1;
+		wait 0.1;
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

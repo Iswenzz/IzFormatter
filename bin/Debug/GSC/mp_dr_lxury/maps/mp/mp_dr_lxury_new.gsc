@@ -518,12 +518,13 @@ while(1)
 trap01()
 {
 platform1 = getent("trap01a","targetname");
+	level endon("trigger");
 platform2 = getent("trap01b","targetname");
 platform3 = getent("trap01c","targetname");
 platform4 = getent("trap01d","targetname");
 trig = getent("trig_trap01","targetname");
 trig SetHintString( "Make Them Move" );
-/* AUTO trig waittill("trigger", player );
+trig waittill("trigger", player );
 if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -548,11 +549,12 @@ wait 5;
 
 }
 }
-*/}
+}
 
 trap02()
 {
 trap2spike=getent("trap02a","targetname");
+	level endon("trigger");
 trap2spike2=getent("trap02b","targetname");
 trap2spike3=getent("trap02c","targetname");
 trap2spike4=getent("trap02d","targetname");
@@ -564,7 +566,7 @@ trig=getent("trig_trap02","targetname");
 trig SetHintString( "SPIKES!!" );
 trap2killer EnableLinkTo();
 trap2killer LinkTo(trap2spike);
-/* AUTO trig waittill ("trigger", player);
+trig waittill ("trigger", player);
 if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -595,15 +597,16 @@ trap2spike5 waittill ("movedone");
 trap2spike6 waittill ("movedone");
 trap2spike7 waittill ("movedone");
 }
-*/}
+}
 
 trap03()
 {
 platform = getent("trap03a","targetname");
+	level endon("trigger");
 platform2 = getent("trap03b","targetname");
 trig = getent("trig_trap03","targetname");
 trig SetHintString( "^1Push them off!" );
-/* AUTO trig waittill("trigger", player );
+trig waittill("trigger", player );
 if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -622,11 +625,12 @@ platform waittill ("movedone");
 platform2 waittill ("movedone");
 
 }
-*/}
+}
 
 trap04()
 {
 trap1 =getent("trap04a","targetname");
+	level endon("trigger");
 trap2 =getent("trap04b","targetname");
 trap3 =getent("trap04c","targetname");
 killer1 =getent("trap04akiller","targetname");
@@ -639,7 +643,7 @@ killer2 EnableLinkTo();
 killer2 LinkTo(trap2);
 killer3 EnableLinkTo();
 killer3 LinkTo(trap3);
-/* AUTO trig waittill("trigger", player );
+trig waittill("trigger", player );
 if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -667,15 +671,16 @@ if(r == 3)
 }
 
 }
-*/}
+}
 
 trap05()
 {
 trap1 =getent("trap05a","targetname");
+	level endon("trigger");
 trap2 =getent("trap05b","targetname");
 trig = getent("trig_trap05","targetname");
 trig SetHintString( "^1 Make them strafe" );
-/* AUTO trig waittill("trigger", player );
+trig waittill("trigger", player );
 if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -704,16 +709,17 @@ if(r == 3)
 
 
 }
-*/}
+}
 
 trapstart()
 {
 trap1 =getent("plat1","targetname");
+	level endon("trigger");
 trap2 =getent("plat2","targetname");
 trap3 =getent("plat3","targetname");
 trig = getent ("trig_trapbegin", "targetname");
 trig SetHintString( "^1 Rotations, rotations.." );
-/* AUTO trig waittill("trigger", player );
+trig waittill("trigger", player );
 if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -731,11 +737,12 @@ trig SetHintString("^4Activated");
 		 trap3 waittill("movedone");
 		}
  }
-*/ }
+ }
 
  trap07()
  {
  trap1 =getent("trap07a","targetname");
+	level endon("trigger");
  trap2 =getent("trap07b","targetname");
  killer1 =getent("killer07a","targetname");
  killer2 =getent("killer07b","targetname");
@@ -745,7 +752,7 @@ trig SetHintString("^4Activated");
  killer2 EnableLinkTo();
  killer2 LinkTo(trap2);
  trig SetHintString( "^1 Up and down - ^2Vengaboys ^1 1978" );
-/* AUTO  trig waittill("trigger", player );
+ trig waittill("trigger", player );
  if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -763,15 +770,16 @@ trap2 moveZ(-1800, 8);
 wait 1;
 }
 }
-*/}
+}
 
 trap06()
 {
 trap1 =getent("trap06a","targetname");
+	level endon("trigger");
 trap2 =getent("trap06b","targetname");
 trig = getent ("trig_trap06", "targetname");
 trig SetHintString( "^1 Move poles UP AND DOWN " );
-/* AUTO trig waittill("trigger", player );
+trig waittill("trigger", player );
  if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -790,15 +798,16 @@ trap2 moveZ(50, 5);
 wait 5;
 }
 }
-*/}
+}
 
 trap08()
 {
 trap1 =getent("trap08a","targetname");
+	level endon("trigger");
 trap2 =getent("trap08b","targetname");
 trig = getent ("trig_trap08", "targetname");
 trig SetHintString( "^1 Rotations, ^8rotations, ^3rotations^1.." );
-/* AUTO trig waittill("trigger", player );
+trig waittill("trigger", player );
 if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -814,17 +823,18 @@ else
 	}
 
  }
-*/ }
+ }
 
  trap09()
 {
 	trig = getEnt("trig_trap09","targetname");
+	level endon("trigger");
 	platform1 = getEnt("trap09a","targetname");
 	platform2 = getEnt("trap09b","targetname");
 	platform3 = getEnt("trap09c","targetname");
 	platform4 = getEnt("trap09d","targetname");
 	trig SetHintString( "^1 Wot the fok did ye just say 2 me m8?" );
-/* AUTO 	trig waittill ("trigger", player );
+	trig waittill ("trigger", player );
 	if(level.trapsdisabled)
 	{
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -844,7 +854,7 @@ else
 		
 		}
 	}	
-*/}
+}
 
 
 {
@@ -870,9 +880,10 @@ platform2 waittill ("movedone");
 rotatetrap()
 {
 trig = getent("trig_rotatetrap","targetname");
+	level endon("trigger");
 draai = getent("block8","targetname");
 trig SetHintString( " ^1Spin that " );
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 	if(level.trapsdisabled)
 	{
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -887,16 +898,17 @@ trig SetHintString( " ^1Spin that " );
 				wait 0.1;
 			}
 		}	
-*/}
+}
 
 trap10()
 {
 trap1=getent("trap10a","targetname");
+	level endon("trigger");
 trap2=getent("trap10b","targetname");
 trap3=getent("trap10c","targetname");
 trig = getent("trig_trap10","targetname");
 trig SetHintString( "^1 Move those things" );
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 	if(level.trapsdisabled)
 	{
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -917,7 +929,7 @@ trig SetHintString( "^1 Move those things" );
 
 		}
 	}
-*/}	
+}	
 
 creeperface()
 {
@@ -991,7 +1003,7 @@ if(!isDefined(level.sniper_trigger))
 		level.weapon_trigger delete();
 		level.firstenter=false;
 		}	
-//AUTO 		wait(0.05);
+		wait(0.05);
 		
 		
 		
@@ -1001,34 +1013,34 @@ player setplayerangles( telejumporigin.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon("m40a3_mp");
 //AUTO player GiveMaxAmmo("m40a3_mp");
-//AUTO wait .05;
+wait .05;
 //AUTO player SwitchToWeapon("m40a3_mp");  
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactorigin.origin);
 level.activ setplayerangles (level.teleactorigin.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "m40a3_mp" );
 //AUTO level.activ GiveMaxAmmo("m40a3_mp");
-//AUTO wait .05;
+wait .05;
 //AUTO level.activ SwitchToWeapon("m40a3_mp"); 
 //AUTO iPrintlnBold( " ^2 1 v 1 me rust!" );
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon( "m40a3_mp" );
 //AUTO level.activ SwitchToWeapon( "m40a3_mp" );
 
 
 	player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^53" );
 //AUTO 		level.activ iPrintlnBold( "^53" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^52" );
 //AUTO 		level.activ iPrintlnBold( "^52" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^51" );
 //AUTO 		level.activ iPrintlnBold( "^51" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^5Snipaah time^1!" );
 //AUTO 		level.activ iPrintlnBold(  "^5Snipaah time^1!" );
 		player freezecontrols(false); 
@@ -1063,7 +1075,7 @@ bounce()
 		level.weapon_trigger delete();
 		level.firstenter=false;
 		}	
-//AUTO 		wait(0.05);
+		wait(0.05);
 			
          	player SetPlayerAngles( jump.angles );
          	player setOrigin( jump.origin );
@@ -1074,23 +1086,23 @@ bounce()
 //AUTO          	level.activ TakeAllWeapons();
 //AUTO 		level.activ giveweapon( "knife_mp" ); 
 //AUTO 		iPrintlnBold( " ^8" + player.name + " ^4 has entered the Bounce room^8!" );         
-//AUTO          	wait 0.05;	
+         	wait 0.05;	
 //AUTO 		level.activ switchtoweapon( "knife_mp" );
 //AUTO 		player switchtoweapon( "knife_mp" );
 		
 		
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^53" );
 //AUTO 		level.activ iPrintlnBold( "^53" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^52" );
 //AUTO 		level.activ iPrintlnBold( "^52" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^51" );
 //AUTO 		level.activ iPrintlnBold( "^51" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^5Bouncaaah^1!" );
 //AUTO 		level.activ iPrintlnBold( "^5Bouncaaah^1!" );
 		player freezecontrols(false); 
@@ -1152,7 +1164,7 @@ weapon()
 		level.bounce_trigger delete();
 		level.firstenter=false;
 		}	
-//AUTO 		wait(0.05);
+		wait(0.05);
 			
          	player SetPlayerAngles( jump.angles );
          	player setOrigin( jump.origin );
@@ -1163,26 +1175,26 @@ weapon()
 //AUTO          	level.activ TakeAllWeapons();
 //AUTO 		level.activ giveweapon( "knife_mp" ); 
 //AUTO 		iPrintlnBold( " ^8" + player.name + " ^4 has entered the Weapon room^8!" );         
-//AUTO          	wait 0.05;	
+         	wait 0.05;	
 //AUTO 		level.activ switchtoweapon( "knife_mp" );
 //AUTO 		player switchtoweapon( "knife_mp" );
 		
 		
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold ( "^8Weapons are at the top!" );
 //AUTO 		level.activ iPrintlnBold ( "^8Weapons are at the top!" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^53" );
 //AUTO 		level.activ iPrintlnBold( "^53" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^52" );
 //AUTO 		level.activ iPrintlnBold( "^52" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^51" );
 //AUTO 		level.activ iPrintlnBold( "^51" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^5GO!" );
 //AUTO 		level.activ iPrintlnBold( "^5GO!" );
 		player freezecontrols(false); 

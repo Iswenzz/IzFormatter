@@ -255,12 +255,13 @@ water2()
 trap1()
 {
 	trap1  = getent( "trap1", "targetname" ); 
+	level endon("trigger");
 	trap1_2 =getent ( "trap1_2", "targetname");
 	trig   = getent( "trig_trap1", "targetname" );
 	sound  = getent( "spinn_sound", "targetname" );
 	trap1 movey ( -16,0.01);
 	trap1_2 movey ( -32,0.01);
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	trap1_2 movex (240,0.01);
 //AUTO 	sound playsound ("metal_door_kick_layer");
@@ -269,17 +270,18 @@ trap1()
 	wait 3;
 //AUTO 	sound playsound ("metal_door_kick_layer");
 	trap1 movey ( -336, 0.5);
-*/}
+}
 
 trap2()
 {
 	trap2 =getent("trap2","targetname");
+	level endon("trigger");
 	trig  =getent("trig_trap2","targetname");
 	sound  = getent( "elevator_sound", "targetname" );
 
 	while(1)
 		{
-/* AUTO 		trig waittill("trigger");
+		trig waittill("trigger");
 		trig delete();
 		sound playsound ("elevator_down");
 		trap2 movez (-500,2,0.5,0.5);
@@ -288,7 +290,7 @@ trap2()
 		trap2 movez (500,2,0.5,0.5);
 		trap2 waittill ("movedone");
 		}
-*/}
+}
 
 roller()
 {
@@ -332,44 +334,47 @@ while(1)
 trap3() 
 { 
 	trap3  =getent( "trap3", "targetname" ); 
+	level endon("trigger");
 	trig   =getent( "trig_trap3", "targetname" );
 	sound  =getent( "fan_sound", "targetname" );
  
 
 	while(true)
 		{	
-/* AUTO 		trig waittill("trigger");
+		trig waittill("trigger");
 		trig delete();
 		trap3 rotateYaw(4680,10);
 		sound playloopsound ("fan1");
 		wait 10;
 		sound delete();
 		}
-*/}
+}
 
 trap4()
 {
 	trig = getEnt( "trig_trap4", "targetname" );
+	level endon("trigger");
 	brushGroup1 = getEntArray( "trap4_1", "targetname" );
 	brushGroup2 = getEntArray( "trap4_2", "targetname" );
 
-/* AUTO 	trig waittill( "trigger");
+	trig waittill( "trigger");
 	trig delete();
 	
 	brushGroup1[randomInt(brushGroup1.size)] notSolid();
 	brushGroup2[randomInt(brushGroup2.size)] notSolid();
-*/}
+}
 
 trap5()
 {
 	trap5  =getent( "trap5", "targetname" ); 
+	level endon("trigger");
 	trig   =getent( "trig_trap5", "targetname" );
 	sound  = getent( "spin_sound", "targetname" );
  
 
 	while(true)
 		{	
-/* AUTO 		trig waittill("trigger");
+		trig waittill("trigger");
 		trig delete();
 
 		sound playloopsound ("spin_loop");		
@@ -383,7 +388,7 @@ trap5()
 		wait 1.38;
 		sound delete();
 		}
-*/}
+}
 
 trap6()
 {
@@ -405,27 +410,29 @@ trap6()
 trap7()
 {
 	brushGroup1 = getEntArray( "trap7_1", "targetname" );
+	level endon("trigger");
 	brushGroup2 = getEntArray( "trap7_2", "targetname" );
 	sound  = getent( "break_sound", "targetname" );
 	trig = getEnt( "trig_trap7", "targetname" );
 
 
-/* AUTO 	trig waittill( "trigger");
+	trig waittill( "trigger");
 	trig delete();
 
 	sound playsound ("metal_break");
 
 	brushGroup1[randomInt(brushGroup1.size)] delete();
 	brushGroup2[randomInt(brushGroup2.size)] delete();
-*/}
+}
 
 trap8()
 {
 	trap8_1  =getent( "trap8_1", "targetname" ); 
+	level endon("trigger");
 	trap8_2  =getent( "trap8_2", "targetname" ); 
 	trig   =getent( "trig_trap8", "targetname" );
 	sound  = getent( "double_sound", "targetname" );
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
  
 
@@ -441,11 +448,12 @@ trap8()
 		trap8_1 waittill ("movedone");
 		trap8_2 waittill ("movedone");
 		}
-*/}
+}
 
 trap9()
 {
 	trap9_1  =getent( "trap9_1", "targetname" ); 
+	level endon("trigger");
 	trap9_5  =getent( "trap9_5", "targetname" );
 	trap9_6  =getent( "trap9_6", "targetname" ); 
 	hurt  =getent( "trap9_hurt", "targetname" ); 
@@ -463,7 +471,7 @@ trap9()
 	fxObj4 = SpawnFx( level.fire_fx, ( -4160, 2844, 12 ));
 	fxObj5 = SpawnFx( level.fire_fx, ( -4160, 2920, 12 ));
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete ();
 
 
@@ -488,11 +496,12 @@ trap9()
 	trap9_6 movez (-80,0.1);
 	wait 0.5;
 	sound delete();
-*/}
+}
 
 trap10()
 {
 	trap10_1  =getent( "trap10_1", "targetname" ); 
+	level endon("trigger");
 	trap10_2  =getent( "trap10_2", "targetname" );
 	trap10_3  =getent( "trap10_3", "targetname" );
 	trap10_4  =getent( "trap10_4", "targetname" );
@@ -546,7 +555,7 @@ trap10()
 	trap10_door1 movez ( 125,1);
 	trap10_door2 movez ( 125,1);
 
-/* AUTO 	trig waittill ("trigger");
+	trig waittill ("trigger");
 	trig delete ();
 
 	sound playsound ("door_start");
@@ -662,7 +671,7 @@ trap10()
 	
 
 
-*/}
+}
 
 final_door()
 {
@@ -996,7 +1005,7 @@ end_knife()
 			if( !isDefined(level.acti_enemy) || !isAlive(level.acti_enemy))
 			{
 				level.acti_enemy = who;
-//AUTO 				wait 0.5;
+				wait 0.5;
 				who SetPlayerAngles( startj.angles );
 				who SetOrigin( startj.origin );
 				acti = undefined;

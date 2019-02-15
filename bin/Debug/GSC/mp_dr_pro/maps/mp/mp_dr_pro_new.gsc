@@ -241,37 +241,40 @@ wait 2;
 trap1()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap1", "targetname");
 ori=getent("trap1", "targetname");
 
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 ori delete();
 trig delete();
 wait 1;
 
-*/}
+}
 
 trap2()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap2", "targetname");
 rotatebounce=getent("trap2", "targetname");
 
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 rotatebounce notsolid();
 trig delete();
 wait 1;
-*/}
+}
 
 trap3()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap3", "targetname");
 rotatebounce2=getent("trap3", "targetname");
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 
      while(1)
           {
@@ -279,111 +282,119 @@ rotatebounce2=getent("trap3", "targetname");
 		   rotatebounce2 rotateyaw(720, 3);
 		  wait 2.5;
 		  }
-*/}
+}
 
 trap4()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap4", "targetname");
 sticks=getent("trap4", "targetname");
 
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 sticks delete();
 trig delete();
 wait 1;
 
-*/}
+}
 
 trap5()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap5", "targetname");
 ori2=getent("trap5", "targetname");
 
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 ori2 delete();
 trig delete();
 wait 1;
 
-*/}
+}
 
 trap6()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap6", "targetname");
 block=getent("trap6", "targetname");
 
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 block notsolid();
 trig delete();
 wait 1;
 
-*/}
+}
 
 trap7()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap7", "targetname");
 rotatesticksp1=getent("trap7", "targetname");
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 rotatesticksp1 notsolid();
 trig delete();
 wait 1;
-*/}
+}
 
 trap8()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap8", "targetname");
 platform=getent("trap8", "targetname");
 
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 platform notsolid();
 trig delete();
 wait 1;
 
-*/}
+}
 
 trap9()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap9", "targetname");
 platform2=getent("trap9", "targetname");
 
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 platform2 delete();
 trig delete();
 wait 1;
 
-*/}
+}
 
 trap10()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap10", "targetname");
 trap10=getent("trap10", "targetname");
 
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 trap10 notsolid();
 trig delete();
 wait 1;
-*/}
+}
 
 trap11()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap11", "targetname");
 trap11p1=getent("trap11p1", "targetname");
 trap11p2=getent("trap11p2", "targetname");
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 while(1)
           {
 		  wait (0.02);
@@ -391,67 +402,72 @@ while(1)
 		   trap11p2 rotatepitch(360,1);
 		  wait (0.02);
 		  }
-*/}
+}
 
 trap12()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap12", "targetname");
 trap12=getent("trap12", "targetname");
 
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 trap12 delete();
 trig delete();
 wait 1;
-*/}
+}
 
 trap13()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap13", "targetname");
 trap13=getent("trap13", "targetname");
 
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 trap13 notsolid();
 trig delete();
 wait 1;
-*/}
+}
 
 trap14()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap14", "targetname");
 trap14=getent("trap14", "targetname");
 
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 trap14 notsolid();
 trig delete();
 wait 1;
-*/}
+}
 
 trap15()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap15", "targetname");
 trap15=getent("trap15", "targetname");
 
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 trap15 notsolid();
 trig delete();
 wait 1;
-*/}
+}
 
 trap16()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap16", "targetname");
 trap16=getent("trap16", "targetname");
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 
      while(1)
           {
@@ -459,15 +475,16 @@ trap16=getent("trap16", "targetname");
 		   trap16 rotateroll(720, 4);
 		  wait 2.5;
 		  }
-*/}	
+}	
 
 trap17()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap17", "targetname");
 trap17=getent("trap17", "targetname");
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 
      while(1)
           {
@@ -475,15 +492,16 @@ trap17=getent("trap17", "targetname");
 		   trap17 rotateyaw(720, 4);
 		  wait 2.5;
 		  }
-*/} 
+} 
 
 trap18()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap18", "targetname");
 trap18=getent("trap18", "targetname");
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 
      while(1)
           {
@@ -491,28 +509,30 @@ trap18=getent("trap18", "targetname");
 		   trap18 rotateyaw(720, 4);
 		  wait 2.5;
 		  }
-*/}
+}
 
 trap19()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap19", "targetname");
 trap19=getent("trap19", "targetname");
 
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 trap19 notsolid();
 trig delete();
 wait 1;
-*/}
+}
 
 trap20()
 {
 
+	level endon("trigger");
 trig=getent("trigger_trap20", "targetname");
 trap20=getent("trap20", "targetname");
 
-/* AUTO trig waittill("trigger", player);
+trig waittill("trigger", player);
 
      while(1)
           {
@@ -520,7 +540,7 @@ trap20=getent("trap20", "targetname");
 		   trap20 rotateyaw(720, 4);
 		  wait 2.5;
 		  }
-*/}   	   
+}   	   
 
 givingdeagle()
 {        
@@ -581,7 +601,7 @@ if(level.firstenter==true)
 
 level.firstenter=false;
 } 
-//AUTO wait(0.05);
+wait(0.05);
 
 player SetOrigin( telejumporigin.origin );
 player setplayerangles( telejumporigin.angles );
@@ -590,9 +610,9 @@ player setplayerangles( telejumporigin.angles );
 //AUTO player GiveWeapon( "remington700_mp" ); 
 //AUTO player GiveMaxAmmo("m40a3_mp");
 //AUTO player GiveMaxAmmo( "remington700_mp" );
-//AUTO wait .05;
+wait .05;
 //AUTO player SwitchToWeapon("m40a3_mp"); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactorigin.origin);
 level.activ setplayerangles (level.teleactorigin.angles);
 //AUTO level.activ TakeAllWeapons();
@@ -600,25 +620,25 @@ level.activ setplayerangles (level.teleactorigin.angles);
 //AUTO level.activ GiveWeapon( "remington700_mp" );
 //AUTO level.activ GiveMaxAmmo("m40a3_mp");
 //AUTO level.activ GiveMaxAmmo( "remington700_mp" );
-//AUTO wait .05;
+wait .05;
 //AUTO level.activ SwitchToWeapon("m40a3_mp"); 
 //AUTO iPrintlnBold( " ^8" + player.name + " ^4 has entered the Sniper room^8!" ); 
 //AUTO player iPrintlnBold( "^13" );
             player freezecontrols(true);
 			level.activ freezecontrols(true);
 //AUTO             level.activ iPrintlnBold( "^13" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^32" );
 //AUTO             level.activ iPrintlnBold( "^32" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^51" );
 //AUTO             level.activ iPrintlnBold( "^51" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^6Fight^7!" );
 //AUTO             level.activ iPrintlnBold( "^6Fight^6!" );
             player freezecontrols(false); //Disables the freeze.
             level.activ freezecontrols(false);
-//AUTO wait(0.02);
+wait(0.02);
 //AUTO player switchToWeapon( "m40a3_mp" );
 //AUTO level.activ SwitchToWeapon( "m40a3_mp" );
 
@@ -658,38 +678,38 @@ if(level.firstenter==true)
 
 level.firstenter=false;
 } 
-//AUTO wait(0.05);
+wait(0.05);
 
 player SetOrigin( btelejumporigin.origin );
 player setplayerangles( btelejumporigin.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon("knife_mp");
-//AUTO wait .05;
+wait .05;
 //AUTO player SwitchToWeapon("knife_mp"); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.bactiorigin.origin);
 level.activ setplayerangles (level.bactiorigin.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "knife_mp" );
-//AUTO wait .05;
+wait .05;
 //AUTO level.activ SwitchToWeapon("knife_mp"); 
 //AUTO iPrintlnBold( " ^8" + player.name + " ^4 has entered the bounce room^8!" ); 
 //AUTO player iPrintlnBold( "^13" );
             player freezecontrols(true);
 			level.activ freezecontrols(true);
 //AUTO             level.activ iPrintlnBold( "^13" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^32" );
 //AUTO             level.activ iPrintlnBold( "^32" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^51" );
 //AUTO             level.activ iPrintlnBold( "^51" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^6GO^7!" );
 //AUTO             level.activ iPrintlnBold( "^6GO^6!" );
             player freezecontrols(false); //Disables the freeze.
             level.activ freezecontrols(false);
-//AUTO wait(0.02);
+wait(0.02);
 //AUTO player switchToWeapon( "knife_mp" );
 //AUTO level.activ SwitchToWeapon( "knife_mp" );
 
@@ -730,7 +750,7 @@ if(level.firstenter==true)
 
 level.firstenter=false;
 } 
-//AUTO wait(0.05);
+wait(0.05);
 
 player SetOrigin( dtelejumporigin.origin );
 player setplayerangles( dtelejumporigin.angles );
@@ -739,9 +759,9 @@ player setplayerangles( dtelejumporigin.angles );
 //AUTO player GiveWeapon( "deserteaglegold_mp" ); 
 //AUTO player GiveMaxAmmo("deserteagle_mp");
 //AUTO player GiveMaxAmmo( "deserteaglegold_mp" );
-//AUTO wait .05;
+wait .05;
 //AUTO player SwitchToWeapon("deserteagle_mp"); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.dteleactorigin.origin);
 level.activ setplayerangles (level.dteleactorigin.angles);
 //AUTO level.activ TakeAllWeapons();
@@ -749,25 +769,25 @@ level.activ setplayerangles (level.dteleactorigin.angles);
 //AUTO level.activ GiveWeapon( "deserteaglegold_mp" );
 //AUTO level.activ GiveMaxAmmo("deserteagle_mp");
 //AUTO level.activ GiveMaxAmmo( "deserteaglegold_mp" );
-//AUTO wait .05;
+wait .05;
 //AUTO level.activ SwitchToWeapon("deserteagle_mp"); 
 //AUTO iPrintlnBold( " ^8" + player.name + " ^4 has entered the Deagle room^8!" ); 
 //AUTO player iPrintlnBold( "^13" );
             player freezecontrols(true);
 			level.activ freezecontrols(true);
 //AUTO             level.activ iPrintlnBold( "^13" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^32" );
 //AUTO             level.activ iPrintlnBold( "^32" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^51" );
 //AUTO             level.activ iPrintlnBold( "^51" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^6Fight^7!" );
 //AUTO             level.activ iPrintlnBold( "^6Fight^6!" );
             player freezecontrols(false); //Disables the freeze.
             level.activ freezecontrols(false);
-//AUTO wait(0.02);
+wait(0.02);
 //AUTO player switchToWeapon( "deserteagle_mp" );
 //AUTO level.activ SwitchToWeapon( "deserteagle_mp" );
 
@@ -808,38 +828,38 @@ if(level.firstenter==true)
 
 level.firstenter=false;
 } 
-//AUTO wait(0.05);
+wait(0.05);
 
 player SetOrigin( ktelejumporigin.origin );
 player setplayerangles( ktelejumporigin.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon("knife_mp");
-//AUTO wait .05;
+wait .05;
 //AUTO player SwitchToWeapon("knife_mp"); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.kteleactorigin.origin);
 level.activ setplayerangles (level.kteleactorigin.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "knife_mp" );
-//AUTO wait .05;
+wait .05;
 //AUTO level.activ SwitchToWeapon("knife_mp"); 
 //AUTO iPrintlnBold( " ^8" + player.name + " ^4 has entered the Knife room^8!" ); 
 //AUTO player iPrintlnBold( "^13" );
             player freezecontrols(true);
 			level.activ freezecontrols(true);
 //AUTO             level.activ iPrintlnBold( "^13" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^32" );
 //AUTO             level.activ iPrintlnBold( "^32" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^51" );
 //AUTO             level.activ iPrintlnBold( "^51" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^6Fight^7!" );
 //AUTO             level.activ iPrintlnBold( "^6Fight^6!" );
             player freezecontrols(false); //Disables the freeze.
             level.activ freezecontrols(false);
-//AUTO wait(0.02);
+wait(0.02);
 //AUTO player switchToWeapon( "knife_mp" );
 //AUTO level.activ SwitchToWeapon( "knife_mp" );
 

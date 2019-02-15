@@ -223,36 +223,36 @@ endroom_jump()
 		player setPlayerangles( level.jumper_respawn.angles );
 		
 //AUTO 		player TakeAllWeapons();
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player GiveWeapon( "knife_mp" );
 		
 		level.activ setOrigin( level.acti_respawn.origin );
 		level.activ setPlayerangles( level.acti_respawn.angles );	
 		
 //AUTO 		level.activ TakeAllWeapons();
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		level.activ GiveWeapon( "knife_mp" );
 		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ switchToWeapon( "knife_mp" );
 		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player iPrintlnBold( " ^2[^73^2]" );
-//AUTO 		wait 1.5;
+		wait 1.5;
 //AUTO 		player iPrintlnBold( " ^2[^72^2]" );
-//AUTO 		wait 1.5;
+		wait 1.5;
 //AUTO 		player iPrintlnBold( " ^2[^71^2]" );
-//AUTO 		wait 2;
+		wait 2;
 //AUTO 		player iPrintlnBold( " ^2[^7GO !!!^2]" );
 		
 		player freezeControls(0);
 		level.activ freezeControls(0);
 		
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
     }
-//AUTO     wait 0.05;
+    wait 0.05;
 }
 
 jump_respawn()
@@ -296,7 +296,7 @@ endroom_snipe()
 		
 		player freezeControls(1);
 		level.activ freezeControls(1);
-//AUTO 		wait 0.5;
+		wait 0.5;
 //AUTO 		iPrintlnBold( " ^2" + player.name + " ^7 has choosen the snipe room" );
 		
 		while(1)
@@ -309,7 +309,7 @@ endroom_snipe()
 		player setPlayerangles( level.snipe_jumper_respawn.angles );
 		
 //AUTO 		player TakeAllWeapons();
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player GiveWeapon( "m40a3_mp" );
 //AUTO 		player GiveWeapon( "remington700_mp" );
 //AUTO 		player GiveMaxAmmo( "m40a3_mp" );
@@ -319,32 +319,32 @@ endroom_snipe()
 		level.activ setPlayerangles( level.snipe_acti_respawn.angles );	
 		
 //AUTO 		level.activ TakeAllWeapons();
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		level.activ GiveWeapon( "m40a3_mp" );
 //AUTO 		level.activ GiveWeapon( "remington700_mp" );
 //AUTO 		level.activ GiveMaxAmmo( "m40a3_mp" );
 //AUTO 		level.activ GiveMaxAmmo( "remington700_mp" );
 		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "m40a3_mp" );
 //AUTO 		level.activ switchToWeapon( "m40a3_mp" );
 		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player iPrintlnBold( " ^2[^73^2]" );
-//AUTO 		wait 1.5;
+		wait 1.5;
 //AUTO 		player iPrintlnBold( " ^2[^72^2]" );
-//AUTO 		wait 1.5;
+		wait 1.5;
 //AUTO 		player iPrintlnBold( " ^2[^71^2]" );
-//AUTO 		wait 2;
+		wait 2;
 //AUTO 		player iPrintlnBold( " ^2[^7GO !!!^2]" );
 		
 		player freezeControls(0);
 		level.activ freezeControls(0);
 		
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
     }
-//AUTO     wait 0.05;
+    wait 0.05;
 }
 
 endroom_knife()
@@ -378,36 +378,36 @@ endroom_knife()
 		player setPlayerangles( level.knife_jumper_respawn.angles );
 		
 //AUTO 		player TakeAllWeapons();
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player GiveWeapon( "knife_mp" );
 		
 		level.activ setOrigin( level.knife_acti_respawn.origin );
 		level.activ setPlayerangles( level.knife_acti_respawn.angles );	
 		
 //AUTO 		level.activ TakeAllWeapons();
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		level.activ GiveWeapon( "knife_mp" );
 		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ switchToWeapon( "knife_mp" );
 		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player iPrintlnBold( " ^2[^73^2]" );
-//AUTO 		wait 1.5;
+		wait 1.5;
 //AUTO 		player iPrintlnBold( " ^2[^72^2]" );
-//AUTO 		wait 1.5;
+		wait 1.5;
 //AUTO 		player iPrintlnBold( " ^2[^71^2]" );
-//AUTO 		wait 2;
+		wait 2;
 //AUTO 		player iPrintlnBold( " ^2[^7GO !!!^2]" );
 		
 		player freezeControls(0);
 		level.activ freezeControls(0);
 		
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
     }
-//AUTO     wait 0.05;
+    wait 0.05;
 }
 
 endroom_old()

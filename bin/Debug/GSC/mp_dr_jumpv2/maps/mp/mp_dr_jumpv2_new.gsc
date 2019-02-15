@@ -523,8 +523,9 @@ porteactisecret2()
 trap1()
 {
     block1 = getent("trap1-1","targetname");
+	level endon("trigger");
 	trig = getent("trig_trap1","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 
 	for(;;)
@@ -534,14 +535,15 @@ trap1()
 	wait 2;
 	}
 	
-*/}
+}
 
 trap2()
 {
     block1 = getent("trap2-1","targetname");
+	level endon("trigger");
 	block2 = getent("trap2-2","targetname");
 	trig = getent("trig_trap2","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 
 	for(;;)
@@ -552,18 +554,19 @@ trap2()
 	wait 8;
 	}
 	
-*/}
+}
 
 trap3()
 {
    block1 = getent("trap3-1","targetname");
+	level endon("trigger");
    block2 = getent("trap3-2","targetname");
    block3 = getent("trap3-3","targetname");
    block4 = getent("trap3-4","targetname");
    block5 = getent("trap3-5","targetname");
    block6 = getent("trap3-6","targetname");
    trig = getent("trig_trap3","targetname");
-/* AUTO    trig waittill("trigger",player);
+   trig waittill("trigger",player);
 
    x = randomint(1);
    
@@ -582,14 +585,15 @@ trap3()
    }
    
 
-*/}
+}
 
 trap4()
 {
     block1 = getent("trap4-1","targetname");
+	level endon("trigger");
 	block2 = getent("trap4-2","targetname");
 	trig = getent("trig_trap4","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 	
 	for(;;)
@@ -602,13 +606,14 @@ trap4()
 	wait 3;
 	}
 	
-*/}
+}
 
 trap5()
 {
     block1 = getent("trap5-1","targetname");
+	level endon("trigger");
 	trig = getent("trig_trap5","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 
 	for(;;)
@@ -618,13 +623,14 @@ trap5()
 	wait 4;
 	}
 	
-*/}
+}
 
 trap6()
 {
     block1 = getent("trap6","targetname");
+	level endon("trigger");
 	trig = getent("trig_trap6","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 
 	for(;;)
@@ -634,28 +640,30 @@ trap6()
 	wait 8;
 	}
 	
-*/}
+}
 
 trap7()
 {
     platform = getent("trap7","targetname");
+	level endon("trigger");
     trig = getent("trig_trap7","targetname");
-/* AUTO     trig waittill("trigger",player);
+    trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
    
     platform delete();
    
     trig delete();
    
-*/}
+}
 
 trap8()
 {
     block1 = getent("trap8-1","targetname");
+	level endon("trigger");
 	block2 = getent("trap8-2","targetname");
 	block3 = getent("trap8-3","targetname");
 	trig = getent("trig_trap8","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 
 	for(;;)
@@ -667,15 +675,16 @@ trap8()
 	wait 0.1;
 	}
 	
-*/}
+}
 
 trap9()
 {
     block1 = getent("trap9-1","targetname");
+	level endon("trigger");
 	block2 = getent("trap9-2","targetname");
 	block3 = getent("trap9-3","targetname");
 	trig = getent("trig_trap9","targetname");
-/* AUTO 	trig waittill("trigger",player);
+	trig waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 60);
 
 	for(;;)
@@ -687,7 +696,7 @@ trap9()
 	wait 2;
 	}
 	
-*/}
+}
 
 sniper()
 {
@@ -708,7 +717,7 @@ sniper()
    level.knife_trigger delete();
    level.firstenter=false;
    } 
-//AUTO    wait(0.05);
+   wait(0.05);
 
    player SetOrigin((5320, 10856, 488));
    player SetPlayerAngles((0,316,0));
@@ -717,9 +726,9 @@ sniper()
 //AUTO    player GiveWeapon( "remington700_mp" ); 
 //AUTO    player GiveMaxAmmo("m40a3_mp");
 //AUTO    player GiveMaxAmmo( "remington700_mp" );
-//AUTO    wait .05;
+   wait .05;
 //AUTO    player SwitchToWeapon("m40a3_mp"); 
-//AUTO    wait(0.05);
+   wait(0.05);
    level.activ SetOrigin((7848, 9064, 472));
    level.activ SetPlayerAngles((0,130,0));
 //AUTO    level.activ TakeAllWeapons();
@@ -727,10 +736,10 @@ sniper()
 //AUTO    level.activ GiveWeapon( "remington700_mp" );
 //AUTO    level.activ GiveMaxAmmo("m40a3_mp");
 //AUTO    level.activ GiveMaxAmmo( "remington700_mp" );
-//AUTO    wait .05;
+   wait .05;
 //AUTO    level.activ SwitchToWeapon("m40a3_mp"); 
 //AUTO    iPrintlnBold( " ^9" + player.name + " ^4 has entered the Sniper room^8!" ); 
-//AUTO    wait(0.05);
+   wait(0.05);
 //AUTO    player switchToWeapon( "m40a3_mp" );
 //AUTO    level.activ SwitchToWeapon( "m40a3_mp" );
    player waittill( "death" );
@@ -838,20 +847,20 @@ knife()
    level.jump_trigger delete();
    level.firstenter=false;
    } 
-//AUTO    wait(0.05);
+   wait(0.05);
 
    player SetOrigin((5288, 7144, -24));
    player SetPlayerAngles((0,360,0));
 //AUTO    player TakeAllWeapons();
-//AUTO    wait(0.05);
+   wait(0.05);
    level.activ SetOrigin((7176, 7144, -24));
    level.activ SetPlayerAngles((0,180,0));
 //AUTO    level.activ TakeAllWeapons();
-//AUTO    wait .05;
+   wait .05;
 //AUTO    level.activ giveweapon("knife_mp");
 //AUTO    player giveweapon("knife_mp");
 //AUTO    iPrintlnBold(" ^9" + player.name + " ^4 has entered the Knife room^8!"); 
-//AUTO    wait(0.05);
+   wait(0.05);
 
 
 

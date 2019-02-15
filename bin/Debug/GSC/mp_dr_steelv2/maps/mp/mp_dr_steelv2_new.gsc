@@ -643,13 +643,14 @@ new_ending_hud( align, fade_in_time, x_off, y_off )
 trap1()
 {
 	trigger = getent("trap1_trigger", "targetname");
+	level endon("trigger");
 	rechts = getent("door_rechts", "targetname");
 	links = getent ("door_links", "targetname");
 	coneR = getent ("coneR", "targetname");
 	coneL = getent ("coneL", "targetname");
 	
 	trigger setHintString ("^7Press ^3[Use] ^7to Activate!");
-/* AUTO 	trigger waittill ("trigger", Player);		
+	trigger waittill ("trigger", Player);		
 	
 	trigger setHintString ("^1Trap Activated!");
 		
@@ -671,7 +672,7 @@ trap1()
 	coneL rotateroll(-85,.9);
 	
 	}
-*/}
+}
 
 objectc()
 {
@@ -729,10 +730,11 @@ knopf()
 trap2()
 {
 		trigger = getEnt("trap2_trigger","targetname");
+	level endon("trigger");
         		
        
 		trigger setHintString ("^7Press ^3[Use] ^7to Activate!");
-/* AUTO 		trigger waittill ("trigger", Player);		
+		trigger waittill ("trigger", Player);		
 	
 		trigger setHintString ("^1Trap Activated!");  
     
@@ -742,11 +744,12 @@ trap2()
 		myVar notsolid();
 	 
             
-*/}
+}
 
 trap3()
 {
 		
+	level endon("trigger");
 		trigger = getent ("trap3_trigger", "targetname");
 		object1 = getent ("trap3_lasera", "targetname");
 		hurt1 = getent ("laser_hurt1", "targetname");
@@ -754,7 +757,7 @@ trap3()
 		hurt3 = getent ("laser_hurt3", "targetname");
 		
 		trigger setHintString ("^7Press ^3[Use] ^7to Activate!");
-/* AUTO 		trigger waittill ("trigger", Player);		
+		trigger waittill ("trigger", Player);		
 	
 		trigger setHintString ("^1Trap Activated!");  
 		
@@ -774,11 +777,12 @@ trap3()
 			object1 moveZ (420, 2);
 			object1 waittill("movedone");
 		}
-*/}
+}
 
 trap3aa()
 {
 			object2 = getent ("trap3_laserb", "targetname");
+	level endon("trigger");
 			hurt4 = getent ("laser_hurt4", "targetname");
 			hurt5 = getent ("laser_hurt5", "targetname");			
 			
@@ -792,48 +796,51 @@ trap3aa()
 			{
 			
 			object2 moveZ (-405, 2);
-/* AUTO 			object2 waittill("movedone");
+			object2 waittill("movedone");
 			object2 moveZ (405, 2);
 			object2 waittill("movedone");
 			}
-*/}
+}
 
 trap3platten()
 {
 		objecta = getent ("trap3a", "targetname");
+	level endon("trigger");
 		thread trap3b();
 		while(1)
 		{
 		
 		objecta moveX (500, 1.5);
-/* AUTO 		objecta waittill("movedone");
+		objecta waittill("movedone");
 		objecta moveX (-500,1.5);
 		objecta waittill("movedone");
 		
 		}
-*/}
+}
 
 trap3b()
 {
 		objectb = getent ("trap3b", "targetname");
+	level endon("trigger");
 		wait 1.5;
 		while(1)
 		{
 		objectb moveX (500, 1.5);
-/* AUTO 		objectb waittill("movedone");
+		objectb waittill("movedone");
 		objectb moveX (-500,1.5);
 		objectb waittill("movedone");
 			
 		}
-*/}
+}
 
 trap4()
 {
 		trigger = getent ("trap4_trigger", "targetname");
+	level endon("trigger");
 		object = getent ("spin", "targetname");
 	
 		trigger setHintString ("^7Press ^3[Use] ^7to Activate!");
-/* AUTO 		trigger waittill ("trigger", Player);		
+		trigger waittill ("trigger", Player);		
 	
 		trigger setHintString ("^1Trap Activated!");  
 			
@@ -842,15 +849,16 @@ trap4()
 		object rotatepitch (360, 3.5);
 		wait(0.5);
 		}
-*/}
+}
 
 trap5()
 {
 		trigger = getent ("trap5_trigger", "targetname");
+	level endon("trigger");
 		object = getent ("trap5a", "targetname");
 		
 		trigger setHintString ("^7Press ^3[Use] ^7to Activate!");
-/* AUTO 		trigger waittill ("trigger", Player);		
+		trigger waittill ("trigger", Player);		
 	
 		trigger setHintString ("^1Trap Activated!");  
 
@@ -863,25 +871,27 @@ trap5()
 		object waittill("movedone");
 		
 		}
-*/}
+}
 
 trap5b()
 {
 		object = getent ("trap5b", "targetname");
+	level endon("trigger");
 		wait(1.5);
 		object moveY (395, 1.3);
-/* AUTO 		object waittill("movedone");
+		object waittill("movedone");
 		object moveY (-395, 1.3);
 		object waittill("movedone");
-*/}
+}
 
 trap6()
 {
 		trigger = getent ("trap6_trigger", "targetname");
+	level endon("trigger");
 		object = getent ("trap6", "targetname");
 		
 		trigger setHintString ("^7Press ^3[Use] ^7to Activate!");
-/* AUTO 		trigger waittill ("trigger", Player);		
+		trigger waittill ("trigger", Player);		
 	
 		trigger setHintString ("^1Trap Activated!"); 
 
@@ -890,15 +900,16 @@ trap6()
 		object rotateYAW (360, 3);
 		wait(0.5);
 		}
-*/}
+}
 
 trap7()
 {
 		trigger = getent ("trap7_trigger", "targetname");
+	level endon("trigger");
 		object = getent ("trap7", "targetname");
 		
 		trigger setHintString ("^7Press ^3[Use] ^7to Activate!");
-/* AUTO 		trigger waittill ("trigger", Player);		
+		trigger waittill ("trigger", Player);		
 	
 		trigger setHintString ("^1Trap Activated!"); 
 
@@ -910,15 +921,16 @@ trap7()
 		object moveZ (-65, 1.5);
 		object waittill("movedone");
 		}
-*/}
+}
 
 trap8()
 {
 		trigger = getent ("trap8_trigger", "targetname");
+	level endon("trigger");
 		object = getent ("trap8a", "targetname");
 		
 		trigger setHintString ("^7Press ^3[Use] ^7to Activate!");
-/* AUTO 		trigger waittill ("trigger", Player);		
+		trigger waittill ("trigger", Player);		
 	
 		trigger setHintString ("^1Trap Activated!"); 
 
@@ -934,31 +946,33 @@ trap8()
 		object waittill("movedone");
 		
 		}
-*/}
+}
 
 trap8b()
 {
 		object = getent ("trap8b", "targetname");
+	level endon("trigger");
 		while(1)
 		{
 		object moveZ (50, 1.3);
-/* AUTO 		object waittill("movedone");
+		object waittill("movedone");
 		
 		object moveZ (-50, 1.3);
 		object waittill("movedone");
 		}
-*/}
+}
 
 trap9()
 {
 		trigger = getent ("trap9_trigger", "targetname");
+	level endon("trigger");
 		object = getent ("trap9", "targetname");
 		hurt1 = getent ("trap9_hurt1", "targetname");
 		hurt2 = getent ("trap9_hurt2", "targetname");
 		hurt3 = getent ("trap9_hurt3", "targetname");
 		
 		trigger setHintString ("^7Press ^3[Use] ^7to Activate!");
-/* AUTO 		trigger waittill ("trigger", Player);		
+		trigger waittill ("trigger", Player);		
 	
 		trigger setHintString ("^1Trap Activated!"); 
 		
@@ -978,15 +992,16 @@ trap9()
 		object waittill("movedone");
 		wait 1.4;
 		}
-*/}
+}
 
 trap10()
 {
 		trigger = getent ("trap10_trigger", "targetname");
+	level endon("trigger");
 		object = getent ("trap10a", "targetname");
 		
 		trigger setHintString ("^7Press ^3[Use] ^7to Activate!");
-/* AUTO 		trigger waittill ("trigger", Player);		
+		trigger waittill ("trigger", Player);		
 	
 		trigger setHintString ("^1Trap Activated!"); 
 		
@@ -1008,7 +1023,7 @@ trap10()
 		wait(2.5);
 		
 		}
-*/}
+}
 
 trap10b()
 {
@@ -1025,75 +1040,80 @@ trap10b()
 trap10c()
 {
 		object = getent ("trap10c", "targetname");
+	level endon("trigger");
 		
 		while(1)
 		{
 		object moveY (-110, 1.5);
-/* AUTO 		object waittill("movedone");
+		object waittill("movedone");
 		object moveY (110, 1.5);
 		object waittill("movedone");
 		}
 		
-*/}
+}
 
 trap10d()
 {
 		object = getent ("trap10d", "targetname");
+	level endon("trigger");
 		
 		while(1)
 		{
 		object moveZ (-180, 1.5);
-/* AUTO 		object waittill("movedone");
+		object waittill("movedone");
 		wait(0.8);
 		object moveZ (180, 1.5);
 		object waittill("movedone");
 		wait(1);
 		}
 		
-*/}
+}
 
 trap10e()
 {
 		object = getent ("trap10e", "targetname");
+	level endon("trigger");
 		
 		while(1)
 		{
 		object moveZ (-150, 1.5);
-/* AUTO 		object waittill("movedone");
+		object waittill("movedone");
 		object moveZ (150, 1.5);
 		object waittill("movedone");
 		wait 1;
 		}
 		
-*/}
+}
 
 trap10f()
 {
 		object = getent ("trap10f", "targetname");
+	level endon("trigger");
 		
 		while(1)
 		{
 		object moveY (150, 1.5);
-/* AUTO 		object waittill("movedone");
+		object waittill("movedone");
 		object moveY (-150, 1.5);
 		object waittill ("movedone");
 		}
 		
-*/}
+}
 
 trap10g()
 {
 		object = getent ("trap10g", "targetname");
+	level endon("trigger");
 		
 		while(1)
 		{
 		object moveX (150, 1.5);
-/* AUTO 		object waittill("movedone");
+		object waittill("movedone");
 		object moveX (-150, 1.5);
 		object waittill ("movedone");
 		}
 		
-*/}
+}
 
 liftdoor()
 {
@@ -1206,17 +1226,18 @@ tele()
 /*secrettrap()
 {
 		object1 = getent ("secrettrap1", "targetname");
+	level endon("trigger");
 		object2 = getent ("secrettrap2", "targetname");
 		
 		while(1)
 		{
 		object1 rotateroll(360, 2.2);
 		object2 moveZ (40, 1.3);
-/* AUTO 		object2 waittill("movedone");
+		object2 waittill("movedone");
 		object2 moveZ (-20, 2.2);
 		object2 waittill("movedone");
 		}
-*/}*/
+}*/
 
 ausgang()
 {
@@ -2263,10 +2284,10 @@ SniperFight()
 			level.knife_rotate_trigger delete();
 			level.firstenter=false;
 			}	
-//AUTO wait(0.05);
+wait(0.05);
 player setorigin (teleorigin.origin);
 player setplayerangles (teleorigin.angles);
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO iPrintlnBold( " ^7" + player.name + " ^3 HAS ENTERED THE SNIPER ROOM^7!" ); //Change the message if you want
 //AUTO player takeallweapons();
 //AUTO player GiveWeapon("m40a3_mp");
@@ -2274,14 +2295,14 @@ player setplayerangles (teleorigin.angles);
 //AUTO player SwitchToWeapon( "m40a3_mp" );
 level.activ SetOrigin( level.actiorigin.origin );
 level.activ setplayerangles( level.actiorigin.angles );
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO level.activ takeallweapons();
 //AUTO level.activ GiveWeapon("m40a3_mp");
 //AUTO level.activ GiveWeapon("remington700_mp");
 //AUTO level.activ SwitchToWeapon( "m40a3_mp" );
 level.actiorigin delete();
 while( isAlive( player ) && isDefined( player ) )
-//AUTO            wait 1;
+           wait 1;
 }
 }
 
@@ -2329,23 +2350,23 @@ if(level.firstenter==true)
 		level.knife_rotate_trigger delete();
 		level.firstenter=false;
 		}	
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( telejumporigin.origin );
 player setplayerangles( telejumporigin.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon( "knife_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactorigin.origin);
 level.activ setplayerangles (level.teleactorigin.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "knife_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon( "knife_mp" );
 //AUTO level.activ SwitchToWeapon( "knife_mp" );
 level.telejumporigin delete();
 //AUTO iPrintlnBold( " ^7" + player.name + " ^3 HAS ENTERED THE BOUNCE ROOM^7!" ); //Change the message if you want
 while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 }
 }
 
@@ -2488,23 +2509,23 @@ if( !isDefined( level.knife_trigger ) )
 		level.knife_rotate_trigger delete();
 		level.firstenter=false;
 		}
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( teleknifeorigin.origin );
 player setplayerangles( teleknifeorigin.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon( "tomahawk_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactorigin3.origin);
 level.activ setplayerangles (level.teleactorigin3.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "tomahawk_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon( "tomahawk_mp" );
 //AUTO level.activ SwitchToWeapon( "tomahawk_mp" );
 level.teleknifeorigin delete();
 //AUTO iPrintlnBold( " ^7" + player.name + " ^3 HAS ENTERED THE KNIFE ROOM^7!" ); //Change the message if you want
 while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 }
 }
 
@@ -2527,24 +2548,24 @@ if( !isDefined( level.knife_rotate_trigger ) )
 		level.bounce_trigger delete();
 		level.firstenter=false;
 		}	
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( teleorigin.origin );
 player setplayerangles( teleorigin.angles );
 thread rotation();
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO iPrintlnBold( " ^7" + player.name + " ^3 HAS ENTERED THE ROTATEKNIFE ROOM^7!" ); //Change the message if you want
 //AUTO player takeallweapons();
 //AUTO player GiveWeapon("tomahawk_mp");
 //AUTO player SwitchToWeapon( "tomahawk_mp" );
 level.activ SetOrigin( level.actorigin.origin );
 level.activ setplayerangles( level.actorigin.angles );
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO level.activ takeallweapons();
 //AUTO level.activ GiveWeapon("tomahawk_mp");
 //AUTO level.activ SwitchToWeapon( "tomahawk_mp" );
 level.actorigin delete();
 while( isAlive( player ) && isDefined( player ) )
-//AUTO            wait 1;
+           wait 1;
 }
 }
 

@@ -73,9 +73,10 @@ addTriggerToList( name )
 trap1()
 {
 	trig = getent ("trap1_trig" , "targetname");
+	level endon("trigger");
 	brush = getent ("trap1" , "targetname");
 	
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig delete();
 	
 	while(1)
@@ -84,14 +85,15 @@ trap1()
 		wait 6;
 	}
 	
-*/}
+}
 
 trap2()
 {
 	trig = getent ("trap2_trig" , "targetname");
+	level endon("trigger");
 	brush = getent ("trap2" , "targetname");
 	
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig delete();
 	
 	while(1)
@@ -100,16 +102,17 @@ trap2()
 		wait 1;
 	}
 	
-*/}
+}
 
 trap3()
 {
 	trig = getEnt("trap3_trig","targetname");
+	level endon("trigger");
 	brush1 = getEnt("trap3","targetname");
 	brush2 = getEnt("trap3a","targetname");
 	
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 
@@ -122,32 +125,34 @@ trap3()
 		brush2 moveY (-384,2);
 		wait 1;
 	}
-*/}
+}
 
 trap5()
 {
 	trig = getent ("trap5_trig" , "targetname");
+	level endon("trigger");
 	brush = getent ("trap5" , "targetname");
 	
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig delete();
 	
 	brush moveZ (256 , 1);
 	wait 5;
 	brush moveZ (-256 , 3);
 	
-*/}
+}
 
 trap6()
 {
 trig = getEnt ("trap6_trig", "targetname");	
+	level endon("trigger");
 hurt = getEnt ("trap6_spikeshurt", "targetname");	
 spikes = getEnt ("trap6", "targetname"); 
 
 hurt enablelinkto(); 
 hurt linkto (spikes); 
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete ();
 
 
@@ -157,7 +162,7 @@ wait 5;
 spikes moveZ (256,1); 
 wait 5;
 }
-*/}
+}
 
 doora()
 {
@@ -237,22 +242,22 @@ sniper()
 	
 //AUTO 	player TakeAllWeapons();
 //AUTO 	player GiveWeapon("m40a3_mp");
-//AUTO 	wait 0.01;
+	wait 0.01;
 //AUTO 	player SwitchToWeapon("m40a3_mp");
 	
-//AUTO 	wait 2;
+	wait 2;
 	player FreezeControls (0);
 	
 	player thread onDeath_sniper();
-//AUTO 	wait 0.1;
+	wait 0.1;
 	
 	
     for(;;)
     {
-//AUTO 		wait .1;		
+		wait .1;		
 		while(isAlive(player))
 		{
-//AUTO 			wait 1;
+			wait 1;
 		}
 		
     }
@@ -326,20 +331,20 @@ knife()
 	
 //AUTO 	player TakeAllWeapons();
 //AUTO 	player GiveWeapon("tomahawk_mp");
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	player SwitchToWeapon("tomahawk_mp");
 	
 	player thread onDeath_knife();
-//AUTO 	wait 0.1;
+	wait 0.1;
 	player FreezeControls (0);
 	
 	
     for(;;)
     {
-//AUTO 		wait .1;		
+		wait .1;		
 		while(isAlive(player))
 		{
-//AUTO 			wait 1;
+			wait 1;
 		}
 		
     }

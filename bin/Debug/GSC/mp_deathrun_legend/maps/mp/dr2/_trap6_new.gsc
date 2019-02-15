@@ -8,11 +8,12 @@ thread trap6();
 trap6()
 {
 trigger = getent("trigger_trap6","targetname");
+	level endon("trigger");
 object = getent("trap6","targetname");
 object1 = getent("door1","targetname");
 object2 = getent("door2","targetname");
 killtrigger = getent ("killtrig2" , "targetname");
-/* AUTO trigger waittill ("trigger" , player );
+trigger waittill ("trigger" , player );
 trigger delete();
 {
 killtrigger enablelinkto ();
@@ -31,5 +32,5 @@ object1 waittill("movedone");
 object2 waittill("movedone");
 wait(0.1);
 }
-*/}
+}
 

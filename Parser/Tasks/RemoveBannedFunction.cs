@@ -18,20 +18,14 @@ namespace Iswenzz.CoD4.Parser.Tasks
         {
             List<string> new_lines = new List<string>();
             bool skip = true;
+
             foreach (string line in instance.Lines ?? Enumerable.Empty<string>())
             {
                 if (skip) { skip = false; new_lines.Add(line); continue; }
                 bool delete = false;
 
-                foreach (string bannedfunc in BannedFunction.List ?? Enumerable.Empty<string>())
-                {
-                    if (string.IsNullOrEmpty(line) || line == " ") continue;
-                    if (line.Contains(bannedfunc, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        delete = true;
-                        break;
-                    }
-                }
+                if (BannedFunction.List.Any(l => line.Contains(l, StringComparison.InvariantCultureIgnoreCase)))
+                    delete = true;
 
                 if (delete) new_lines.Add( "//AUTO " + line);
                 else new_lines.Add(line);

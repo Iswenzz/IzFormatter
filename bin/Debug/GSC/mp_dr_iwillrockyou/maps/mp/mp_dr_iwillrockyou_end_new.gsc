@@ -104,7 +104,7 @@ LightningKnife()
 			level.brushok["multiend"] MoveX(540, 5, 2, 2);
 			
 			level notify("akti_teleport");
-//AUTO 			wait 0.1;
+			wait 0.1;
 			level.activ UnLink();
 			level.activ SetClientDVAR("cg_thirdperson", 0);
 			level.activ thread ToltenyTorlo("mindorokke");
@@ -230,7 +230,7 @@ RockingSniper()
 			Falak();
 			
 			level notify("akti_teleport");
-//AUTO 			wait 0.1;
+			wait 0.1;
 			level.activ UnLink();
 			level.activ SetClientDVAR("cg_thirdperson", 0);
 		}

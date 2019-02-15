@@ -190,10 +190,11 @@ spicy()
 trap1()
 {
      trig = getEnt("trap1_trig", "targetname");
+	level endon("trigger");
 	 move = getEnt("trap1_move", "targetname");
 	 move2 = getEnt("trap1_move2", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 while(1)
@@ -207,14 +208,15 @@ trap1()
 	     move2 movex(448,1);
 	     move2 waittill ("movedone");
 		}
-*/}
+}
 
 trap2()
 {
      trig = getEnt("trap2_trig", "targetname");
+	level endon("trigger");
 	 bounce = getEnt("trap2_bounce", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 while(1)
@@ -222,14 +224,15 @@ trap2()
 	     bounce rotatepitch (180,11);
 		 wait 11;
 		}
-*/}
+}
 
 trap3()
 {
      trig = getEnt("trap3_trig", "targetname");
+	level endon("trigger");
 	 push = getEnt("trap3_push", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 while(1)
@@ -241,17 +244,18 @@ trap3()
 		 push waittill ("movedone");
 		 wait 3;
 		}
-*/}
+}
 
 trap4()
 {
      trig = getEnt("trap4_trig", "targetname");
+	level endon("trigger");
 	 spin = getEnt("trap4_spin", "targetname");
 	 spin2 = getEnt("trap4_spin2", "targetname");
 	 spin3 = getEnt("trap4_spin3", "targetname");
 	 spin4 = getEnt("trap4_spin4", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 while(1)
@@ -263,17 +267,18 @@ trap4()
 		 wait 2;
 		}
 	 
-*/}
+}
 
 trap5()
 {
      trig = getEnt("trap5_trig","targetname");
+	level endon("trigger");
 	 pole = getEnt("trap5_pole", "targetname");
 	 pole2 = getEnt("trap5_pole2", "targetname");
 	 pole3 = getEnt("trap5_pole3", "targetname");
 	 pole4 = getEnt("trap5_pole4", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
      while(1)
@@ -289,17 +294,18 @@ trap5()
 		 pole4 movex (260, 1);
          wait 0.8;
 	}
-*/}
+}
 
 trap6()
 {
      trig = getEnt("trap6_trig", "targetname");
+	level endon("trigger");
 	 baa = getEnt("trap6_baa", "targetname");
 	 baa2 = getEnt("trap6_baa2", "targetname");
 	 baa3 = getEnt("trap6_baa3", "targetname");
 	 baa4 = getEnt("trap6_baa4", "targetname");
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 baa movex (272, 1);
@@ -320,17 +326,18 @@ trap6()
 	     baa3 movex (-544, 1);
 	     baa4 movex (-544, 1);
 		}
-*/}
+}
 
 trap7()
 {
      trig = getEnt("trap7_trig", "targetname");
+	level endon("trigger");
 	 strip = getEnt("trap7_strip", "targetname");
 	 strip2 = getEnt("trap7_strip2", "targetname");
 	 strip3 = getEnt("trap7_strip3", "targetname");
 
 	 
-/* AUTO 	 trig waittill ("trigger", player);
+	 trig waittill ("trigger", player);
 	 trig delete();
 	 
 	 while(1)
@@ -341,7 +348,7 @@ trap7()
 		 wait 0.5;
 		}
 	 
-*/}
+}
 
 ak()
 {

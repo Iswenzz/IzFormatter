@@ -29,13 +29,14 @@ AddEndMapBonus()
 MonitorTrapTriggers( i )
 {
 	if( !isdefined( level.TrapMonitorTrigger ) )
+	level endon("trigger");
 		level.TrapMonitorTrigger = [];
 		
 	level.TrapMonitorTrigger[i] = getent( "trap_c_"+i, "targetname" );
 	
 	while( true )
 	{
-/* AUTO 		level.TrapMonitorTrigger[i] waittill( "trigger", player );
+		level.TrapMonitorTrigger[i] waittill( "trigger", player );
 		
 		if( !isdefined( player.closedTraps ) )
 			player.closedTraps = [];
@@ -46,7 +47,7 @@ MonitorTrapTriggers( i )
 			player.closedTraps[i].time = GetTime();
 		}
 	}
-*/}
+}
 
 AddItem( origin, type, tag )
 {

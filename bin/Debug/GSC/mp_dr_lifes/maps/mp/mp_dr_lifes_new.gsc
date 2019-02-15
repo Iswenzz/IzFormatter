@@ -445,15 +445,15 @@ sniper()
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
 					
-//AUTO 			wait 2;
+			wait 2;
 			
 			level.activ FreezeControls(0);
 			player FreezeControls(0);
 			
-//AUTO 			wait 0.1;
+			wait 0.1;
                      
 			while(isAlive(player))
-//AUTO 				wait 1;
+				wait 1;
 
 		}
 }
@@ -461,9 +461,10 @@ sniper()
 trap1()
 {
 	trig = getent("trap1_trig", "targetname");
+	level endon("trigger");
 	brush = getent("notshow1", "targetname");
 	brush2=getent("notshow2", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	while (1)
@@ -481,15 +482,16 @@ trap1()
 	brush2 show();
 	wait 5;
 	}
-*/}
+}
 
 trap2()
 {
 	trig = getent("trap2_trig", "targetname");
+	level endon("trigger");
 	brush = getent("notsolid1", "targetname");
 	brush2 = getent("notsolid2", "targetname");
 	brush3 = getent("notsolid3", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	x = randomInt(4);
 		if(x == 0)
@@ -502,16 +504,17 @@ trap2()
 		{
 		brush notsolid();
 		}
-*/}
+}
 
 trap3()
 {
 	trig = getent("trap3_trig", "targetname");
+	level endon("trigger");
 	brush = getent("move1", "targetname");
 	brush2 = getent("move2", "targetname");
 	brush3 = getent("move3", "targetname");
 	brush4 = getent("move4", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	for(;;)
@@ -533,15 +536,16 @@ trap3()
 		brush4 movey(-95,0.3);
 		brush4 waittill ("movedone");
 	}
-*/}
+}
 
 trap4()
 {
 	trig = getent("trap4_trig", "targetname");
+	level endon("trigger");
 	brush = getent("spin1", "targetname");
 	brush2 = getent("spin2", "targetname");
 	brush3 = getent("spin3", "targetname");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	for(;;)
@@ -555,7 +559,7 @@ trap4()
 		brush2 rotateyaw(1080, 2.9);
 		wait 7;
 	}
-*/}
+}
 
 bouncewep()
 {
@@ -628,15 +632,15 @@ bouncewep()
                                             for(i=0;i<players.size;i++)
                                                     players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
                                            
-//AUTO                             wait 2;
+                            wait 2;
                            
                             level.activ FreezeControls(0);
                             player FreezeControls(0);
                            
-//AUTO                             wait 0.1;
+                            wait 0.1;
                          
                             while(isAlive(player))
-//AUTO                                     wait 1;
+                                    wait 1;
      
                     }
     }
@@ -749,15 +753,15 @@ knife()
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
 					
-//AUTO 			wait 2;
+			wait 2;
 			
 			level.activ FreezeControls(0);
 			player FreezeControls(0);
 			
-//AUTO 			wait 0.1;
+			wait 0.1;
                      
 			while(isAlive(player))
-//AUTO 				wait 1;
+				wait 1;
 
 		}
 }
@@ -878,9 +882,10 @@ oldletter()
 trap5()
 {
 	trig = getent ("trap5_trig", "targetname");
+	level endon("trigger");
 	brush = getent ("platformmove1", "targetname");
 	brush2= getent ("platformmove2", "targetname");
-/* AUTO 	trig waittill ("trigger" , player);
+	trig waittill ("trigger" , player);
 	trig delete();
 	
 	for(;;)
@@ -904,7 +909,7 @@ trap5()
 	brush2 movez(400,2);
 	wait 5;
 	}
-*/}
+}
 
 mattvoyuebal()
 {

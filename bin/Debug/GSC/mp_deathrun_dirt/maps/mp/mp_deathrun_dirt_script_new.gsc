@@ -63,12 +63,13 @@ while (1)
 trap1()
 {
 kyvadlo1 = getent( "kyvadlo1" , "targetname" );
+	level endon("trigger");
 kyvadlo2 = getent( "kyvadlo2" , "targetname" );
 kyvadlo3 = getent( "kyvadlo3" , "targetname" );
 red = getent ("red1" ,"targetname"); //origin
 t1 = getent ("t1" , "targetname");
 
-/* AUTO t1 waittill ("trigger");
+t1 waittill ("trigger");
 t1 delete ();
 fx = PlayLoopedFX(level._effect["redflash"], 1, red.origin );
 
@@ -80,11 +81,12 @@ wait 0.5;
 		kyvadlo3 rotatePitch( 360, 3 );
 		wait 3;	
 	}
-*/}
+}
 
 trap2()
 {
 kill = getent ("trap2_kill" ,"targetname");
+	level endon("trigger");
 trig = getent ("trap2_trig" ,"targetname");
 t2 = getent ("t2" , "targetname");
 red = getent ("red2" ,"targetname"); //origin
@@ -93,7 +95,7 @@ trig enableLinkTo();
 trig linkTo( kill );
 kill movez (-113, 1);
 
-/* AUTO t2 waittill ("trigger");
+t2 waittill ("trigger");
 t2 delete ();
 fx = PlayLoopedFX( level._effect["redflash"], 1, red.origin );
 
@@ -104,17 +106,18 @@ trig unLink();
 trig delete();
 wait 2;
 kill movez (-80, 1);
-*/}
+}
 
 trap3()
 {
 t3 = getent ("t3" , "targetname");
+	level endon("trigger");
 kill = getent ("trap3_kill" ,"targetname");
 red = getent ("red3" ,"targetname"); //origin
 
 kill movex (-624,0.05);
 
-/* AUTO t3 waittill ("trigger");
+t3 waittill ("trigger");
 t3 delete ();
 
 fx = PlayLoopedFX( level._effect["redflash"], 1, red.origin );
@@ -122,15 +125,16 @@ fx = PlayLoopedFX( level._effect["redflash"], 1, red.origin );
 kill movex (624,2);
 wait 3;
 kill movex (-624,2);
-*/}
+}
 
 trap4()
 {
 t4 = getent ("t4" , "targetname");
+	level endon("trigger");
 kill = getent ("trap4_kill" ,"targetname");
 red = getent ("red4" ,"targetname"); //origin
 
-/* AUTO t4 waittill ("trigger");
+t4 waittill ("trigger");
 t4 delete ();
 
 fx = PlayLoopedFX( level._effect["redflash"], 1, red.origin );
@@ -138,17 +142,18 @@ fx = PlayLoopedFX( level._effect["redflash"], 1, red.origin );
 kill movez (400,3);
 wait 6;
 kill movez (-400,3);
-*/}
+}
 
 trap5()
 {
 r1 = getent( "trap5_rotate1" , "targetname" );
+	level endon("trigger");
 r2 = getent( "trap5_rotate2" , "targetname" );
 r3 = getent( "trap5_rotate3" , "targetname" );
 t5 = getent ("t5" , "targetname");
 red = getent ("red5" ,"targetname"); //origin
 
-/* AUTO t5 waittill ("trigger");
+t5 waittill ("trigger");
 t5 delete ();
 fx = PlayLoopedFX( level._effect["redflash"], 1, red.origin );
 
@@ -162,7 +167,7 @@ o = 360;
         wait cas;
 		}
 
-*/}
+}
 
 trap6_1()
 {
@@ -235,9 +240,10 @@ wait 6;
 trap6_b()
 {
 t6 = getent ("t6" , "targetname");
+	level endon("trigger");
 red = getent ("red6" ,"targetname"); //origin
 
-/* AUTO t6 waittill ("trigger");
+t6 waittill ("trigger");
 t6 delete ();
 fx = PlayLoopedFX( level._effect["redflash"], 1, red.origin );
 
@@ -245,7 +251,7 @@ if ( randomInt(99)%2 == 0 )
 thread t6_2();
 else
 thread t6_1(); 
-*/}
+}
 
 t6_2()
 {
@@ -267,10 +273,11 @@ kill movey (384, 2);
 trap7()
 {
 t7 = getent ("t7" , "targetname");
+	level endon("trigger");
 kill = getent ("trap7_kill" ,"targetname");
 red = getent ("red7" ,"targetname"); //origin
 
-/* AUTO t7 waittill ("trigger");
+t7 waittill ("trigger");
 t7 delete ();
 
 fx = PlayLoopedFX( level._effect["redflash"], 1, red.origin );
@@ -278,18 +285,19 @@ fx = PlayLoopedFX( level._effect["redflash"], 1, red.origin );
 kill movez (288,3);
 wait 6;
 kill movez (-288,3);
-*/}
+}
 
 trap8()
 {
 part1 = getentarray ("part1" ,"targetname");
+	level endon("trigger");
 part2 = getentarray ("part2" ,"targetname");
 part3 = getentarray ("part3" ,"targetname");
 part4 = getentarray ("part4" ,"targetname");
 red = getent ("red8" ,"targetname"); //origin
 
 t8 = getent ("t8" , "targetname");
-/* AUTO t8 waittill ("trigger");
+t8 waittill ("trigger");
 t8 delete ();
 fx = PlayLoopedFX(level._effect["redflash"], 1, red.origin );
 
@@ -297,15 +305,16 @@ part1[randomInt(part1.size)] delete();
 part2[randomInt(part2.size)] delete();
 part3[randomInt(part3.size)] delete();
 part4[randomInt(part4.size)] delete();
-*/}
+}
 
 trap9()
 {
 p1 = getent ("otocka1" ,"targetname");
+	level endon("trigger");
 p2 = getent ("otocka2" ,"targetname");
 t9 = getent ("t9" , "targetname");
 red = getent ("red9" ,"targetname"); //origin
-/* AUTO t9 waittill ("trigger");
+t9 waittill ("trigger");
 t9 delete ();
 fx = PlayLoopedFX( level._effect["redflash"], 1, red.origin );
 
@@ -316,14 +325,15 @@ p2 rotatePitch( -90, cas, 0.1, 0.1  );
 wait 8;
 p1 rotatePitch( -90, cas, 0.1, 0.1  );
 p2 rotatePitch( 90, cas, 0.1, 0.1  );
-*/}
+}
 
 trap10_a()
 {
 t10 = getent ("t10" , "targetname");
+	level endon("trigger");
 red = getent ("red10" ,"targetname"); //origin
 
-/* AUTO t10 waittill ("trigger");
+t10 waittill ("trigger");
 t10 delete ();
 
 fx = PlayLoopedFX( level._effect["redflash"], 1, red.origin );
@@ -332,29 +342,31 @@ if ( randomInt(99)%2 == 0 )
 thread kill2();
 else
 thread kill1(); 
-*/}
+}
 
 trap10_b()
 {
 t10 = getent ("t10" , "targetname");
-/* AUTO t10 waittill ("trigger");
+	level endon("trigger");
+t10 waittill ("trigger");
 
 if ( randomInt(99)%2 == 0 )
 thread kill4();
 else
 thread kill3(); 
-*/}
+}
 
 trap10_c()
 {
 t10 = getent ("t10" , "targetname");
-/* AUTO t10 waittill ("trigger");
+	level endon("trigger");
+t10 waittill ("trigger");
 
 if ( randomInt(99)%2 == 0 )
 thread kill6();
 else
 thread kill5(); 
-*/}
+}
 
 kill1()
 {
@@ -443,6 +455,7 @@ trig delete();
 trap11_a()
 {
 part1 = getentarray ("cast1" ,"targetname");
+	level endon("trigger");
 part2 = getentarray ("cast2" ,"targetname");
 part3 = getentarray ("cast3" ,"targetname");
 part4 = getentarray ("cast4" ,"targetname");
@@ -450,7 +463,7 @@ part5 = getentarray ("cast5" ,"targetname");
 red = getent ("red11" ,"targetname"); //origin
 
 t11 = getent ("t11" , "targetname");
-/* AUTO t11 waittill ("trigger");
+t11 waittill ("trigger");
 t11 delete ();
 fx = PlayLoopedFX(level._effect["redflash"], 1, red.origin );
 
@@ -459,7 +472,7 @@ part2[randomInt(part2.size)] NotSolid();
 part3[randomInt(part3.size)] NotSolid();
 part4[randomInt(part4.size)] NotSolid();
 part5[randomInt(part5.size)] NotSolid();
-*/}
+}
 
 trap11_b()
 {

@@ -94,10 +94,11 @@ main()
 trap1()
 {
 	trap1 = getEnt("trap1", "targetname");
+	level endon("trigger");
 	trigger = getEnt("trigger_trap1", "targetname");
 	splash_fx = getEnt("splash_fx", "targetname");
 	trigger sethintstring("^5Awaiting ^3Authorization!");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	trigger delete();
 	
 	{
@@ -108,15 +109,16 @@ trap1()
 		
 		wait 2;
 	}
-*/}
+}
 
 trap2()
 {
 	trap2a = getEnt("trap2a", "targetname");
+	level endon("trigger");
 	trap2b = getEnt("trap2b", "targetname");
 	trigger = getEnt("trigger_trap2", "targetname");
 	trigger sethintstring("^5Awaiting ^3Authorization!");
-/* AUTO 	trigger waittill("trigger", player );
+	trigger waittill("trigger", player );
 	trigger delete();
 	{
 		h = randomint(2);
@@ -131,15 +133,16 @@ trap2()
 			trap2b notsolid();
 		}
 	}
-*/}
+}
 
 trap3()
 {
 	trap3a = getEnt("trap3a", "targetname");
+	level endon("trigger");
 	trap3b = getEnt("trap3b", "targetname");
 	trigger = getEnt("trigger_trap3", "targetname");
 	trigger sethintstring("^5Awaiting ^3Authorization!");
-/* AUTO 	trigger waittill("trigger", player );
+	trigger waittill("trigger", player );
 	trigger delete();
 	while(1)
 	{
@@ -158,15 +161,16 @@ trap3()
 		
 		wait 3;
 	}
-*/}
+}
 
 trap4()
 {
 	object = getent("trap4","targetname");
+	level endon("trigger");
 	trigger = getent("trigger_trap4","targetname");
 	trigger sethintstring("^5Awaiting ^3Authorization!");
 	killtrigger = getent("killtrig1", "targetname"); 
-/* AUTO 	trigger waittill ("trigger", player );
+	trigger waittill ("trigger", player );
 	trigger delete(); 
 	killtrigger enablelinkto ();
 	{
@@ -178,14 +182,15 @@ trap4()
 		object waittill("movedone");
 		wait 5;
     }
-*/}
+}
 
 trap5()
 {
 	trap5 = getEnt("trap5", "targetname");
+	level endon("trigger");
 	trigger = getEnt("trigger_trap5", "targetname");
 	trigger sethintstring("^5Awaiting ^3Authorization!");
-/* AUTO 	trigger waittill("trigger", player );
+	trigger waittill("trigger", player );
 	trigger delete();
 	while(1)
 	{
@@ -196,14 +201,15 @@ trap5()
 		trap5 waittill("movedone");
 		wait 2;
 	}
-*/}
+}
 
 trap6()
 {
 	trap6 = getEnt("trap6", "targetname");
+	level endon("trigger");
 	trigger = getEnt("trigger_trap6", "targetname");
 	trigger sethintstring("^5Awaiting ^3Authorization!");
-/* AUTO 	trigger waittill("trigger", player );
+	trigger waittill("trigger", player );
 	trigger delete();
 	while(1)
 	{
@@ -217,14 +223,15 @@ trap6()
 		
 		wait 2;
 	}
-*/}
+}
 
 trap7()
 {
 	trap7 = getEnt("trap7", "targetname");
+	level endon("trigger");
 	trigger = getEnt("trigger_trap7", "targetname");
 	trigger sethintstring("^5Awaiting ^3Authorization!");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	trigger delete();
 	{
 		trap7 moveZ(-80, 1.5);
@@ -234,15 +241,16 @@ trap7()
 		trap7 waittill("movedone");
 		wait 2;
 	}
-*/}
+}
 
 trap8()
 {
 	trap8a = getEnt("trap8a", "targetname");
+	level endon("trigger");
 	trap8b = getEnt("trap8b", "targetname");
 	trigger = getEnt("trigger_trap8", "targetname");
 	trigger sethintstring("^5Awaiting ^3Authorization!");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	trigger delete();
 	while(1)
 	{
@@ -251,22 +259,23 @@ trap8()
 		
 		wait 5;
 	}
-*/}
+}
 
 trap9()
 {
 	trap9 = getEnt("trap9", "targetname");
+	level endon("trigger");
 	trigger = getEnt("trigger_trap9", "targetname");
 	explosion = getEnt("explosion", "targetname");
 	trigger sethintstring("^5Awaiting ^3Authorization!");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	trigger delete();
 	{
 		trap9 hide();
 		trap9 notsolid();
 		playFx ( level._effect["explode"], explosion.origin );
 	}
-*/}
+}
 
 sniper()
 {
@@ -292,7 +301,7 @@ sniper()
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "m40a3_mp" );
 //AUTO         level.activ GiveWeapon( "remington700_mp" );
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "m40a3_mp" );
 //AUTO         level.activ SwitchToWeapon( "m40a3_mp" );
         player FreezeControls(1);
@@ -304,11 +313,11 @@ sniper()
             players = getEntArray("player", "classname");
             for(i=0;i<players.size;i++)
             players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO             wait 5;
+            wait 5;
         player FreezeControls(0);
         level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -380,7 +389,7 @@ knife()
 //AUTO         player GiveWeapon( "knife_mp" );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
         player FreezeControls(1);
@@ -392,11 +401,11 @@ knife()
             players = getEntArray("player", "classname");
             for(i=0;i<players.size;i++)
             players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO             wait 5;
+            wait 5;
 		player FreezeControls(0);
 		level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

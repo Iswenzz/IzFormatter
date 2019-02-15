@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using Iswenzz.CoD4.Parser.Configs;
 using Iswenzz.CoD4.Parser.Abstract;
 using Iswenzz.CoD4.Parser.Util;
 
@@ -15,8 +16,12 @@ namespace Iswenzz.CoD4.Parser.Tasks
         /// <param name="instance">The function.</param>
         public static List<string> RemoveTeleportsDelay(AbstractFunction instance)
         {
+            if (BannedMainFunction.List.Any(l => instance.Name.Contains(l, StringComparison.InvariantCultureIgnoreCase)))
+                return instance.Lines;
+
             List<string> new_lines = new List<string>();
             bool waittill = false;
+
             foreach (string line in instance.Lines ?? Enumerable.Empty<string>())
             {
                 if (line.Contains("waittill")) waittill = true;

@@ -33,12 +33,13 @@ addTriggerToList( name )
 trap_1()
 {
 	trigger = getEnt ( "trap_1_trigger", "targetname" );
+	level endon("trigger");
 	target_1 = getEnt ( "crate_2", "targetname" );
 	target_2 = getEnt ( "crate_1", "targetname" );
 	
 	trigger setHintString("^2[^7use^2]");
 	
-/* AUTO 	trigger waittill ( "trigger", player );
+	trigger waittill ( "trigger", player );
 	
 	trigger setHintString("^1[^7activated^1]");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
@@ -57,11 +58,12 @@ trap_1()
 			target_2 notSolid();
 		}
 	}
-*/}
+}
 
 trap_2()
 {
 	trigger = getEnt ( "trap_2_trigger", "targetname" );
+	level endon("trigger");
 	target = getEnt ( "trap_2_target", "targetname" );
 	crane_1 = getEnt ( "crane_1", "targetname" );
 	crane_2 = getEnt ( "crane_2", "targetname" );
@@ -71,7 +73,7 @@ trap_2()
 	
 	trigger setHintString("^2[^7use^2]");
 	
-/* AUTO 	trigger waittill ( "trigger", player );
+	trigger waittill ( "trigger", player );
 	
 	trigger setHintString("^1[^7activated^1]");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
@@ -99,7 +101,7 @@ trap_2()
 	wait 2;
 	target moveZ ( 7 , 1, 0.5, 0.3);
 	wait 1;
-*/}
+}
 
 water_2()
 {
@@ -127,11 +129,12 @@ crane_move()
 trap_3()
 {
 	target = getEnt ( "trap_3_target", "targetname" );
+	level endon("trigger");
 	trigger = getEnt ( "trap_3_trigger", "targetname" );
 	
 	trigger setHintString("^2[^7use^2]");
 	
-/* AUTO 	trigger waittill ( "trigger", player );
+	trigger waittill ( "trigger", player );
 	
 	trigger setHintString("^1[^7activated^1]");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
@@ -141,17 +144,18 @@ trap_3()
 	
 	target moveX ( 272, 4, 2, 1);
 	wait 7;
-*/}
+}
 
 trap_4()
 {
 	target = getEnt ( "trap_4_target", "targetname" );
+	level endon("trigger");
 	target_2 = getEnt ( "trap_4_target_2", "targetname" );
 	trigger = getEnt ( "trap_4_trigger", "targetname" );
 	
 	trigger setHintString("^2[^7use^2]");
 	
-/* AUTO 	trigger waittill ( "trigger", player );
+	trigger waittill ( "trigger", player );
 	
 	trigger setHintString("^1[^7activated^1]");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
@@ -161,17 +165,18 @@ trap_4()
 	wait 6;
 	
 	target delete();
-*/}
+}
 
 trap_5()
 {
 	target = getEnt ( "trap_5_target", "targetname" );
+	level endon("trigger");
 	target_2 = getEnt ( "trap_5_target_2", "targetname" );
 	trigger = getEnt ( "trap_5_trigger", "targetname" );
 	
 	trigger setHintString("^2[^7use^2]");
 	
-/* AUTO 	trigger waittill ( "trigger", player );
+	trigger waittill ( "trigger", player );
 	
 	trigger setHintString("^1[^7activated^1]");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
@@ -184,17 +189,18 @@ trap_5()
 		target_2 rotateRoll ( 512, 5);
 		wait 5;
 	}
-*/}
+}
 
 trap_6()
 {
 	trigger = getEnt ( "trap_6_trigger", "targetname" );
+	level endon("trigger");
 	target_1 = getEnt ( "trap_6_target_1", "targetname" );
 	target_2 = getEnt ( "trap_6_target_2", "targetname" );
 	
 	trigger setHintString("^2[^7use^2]");
 	
-/* AUTO 	trigger waittill ( "trigger", player );
+	trigger waittill ( "trigger", player );
 	
 	trigger setHintString("^1[^7activated^1]");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
@@ -215,11 +221,12 @@ trap_6()
 			wait 5;
 		}
 	}
-*/}
+}
 
 trap_7()
 {
 	trigger = getEnt ( "trap_7_trigger", "targetname" );
+	level endon("trigger");
 	target = getEnt ( "trap_7_target", "targetname" );
 	hurt_1 = getEnt ( "trap_7_hurt_1", "targetname" );
 	hurt_2 = getEnt ( "trap_7_hurt_2", "targetname" );
@@ -237,7 +244,7 @@ trap_7()
 	
 	trigger setHintString("^2[^7use^2]");
 	
-/* AUTO 	trigger waittill ( "trigger", player );
+	trigger waittill ( "trigger", player );
 	
 	trigger setHintString("^1[^7activated^1]");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
@@ -247,11 +254,12 @@ trap_7()
 		target rotateRoll ( 360, 2.5);
 		wait 2.5;
 	}
-*/}
+}
 
 trap_8()
 {
 	trigger = getEnt ( "trap_8_trigger", "targetname" );
+	level endon("trigger");
 	target_1 = getEnt ( "trap_8_target_1", "targetname" );
 	target_2 = getEnt ( "trap_8_target_2", "targetname" );
 	target_3 = getEnt ( "trap_8_target_3", "targetname" );
@@ -273,7 +281,7 @@ trap_8()
 	
 	trigger setHintString("^2[^7use^2]");
 	
-/* AUTO 	trigger waittill ( "trigger", player );
+	trigger waittill ( "trigger", player );
 	
 	trigger setHintString("^1[^7activated^1]");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
@@ -299,11 +307,12 @@ trap_8()
 		target_3 moveZ ( -60, 2, 1, 0.5);
 		wait 3.5;
 	}
-*/}
+}
 
 trap_9()
 {
 	trigger = getEnt ( "trap_9_trigger", "targetname" );
+	level endon("trigger");
 	level.posion_trigger = getEnt ( "trap_9_poison_trigger", "targetname" );
 	linker = getEnt ( "trap_9_poison_linker", "targetname" );
 	effect = getEnt ( "trap_9_poison_origin", "targetname" );
@@ -316,7 +325,7 @@ trap_9()
 	linker moveZ ( -25, 1);
 	wait 1;
 	
-/* AUTO 	trigger waittill ( "trigger", player );
+	trigger waittill ( "trigger", player );
 	
 	trigger setHintString("^1[^7activated^1]");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
@@ -328,11 +337,12 @@ trap_9()
 	wait 12;
 	
 	linker moveZ ( -25, 1);
-*/}
+}
 
 trap_9_poison()
 {
-/* AUTO 	level.posion_trigger waittill ( "trigger", player );
+	level.posion_trigger waittill ( "trigger", player );
+	level endon("trigger");
 	wait 0.05;
 		
 	player shellShock( "frag_grenade_mp", 6 );
@@ -345,5 +355,5 @@ trap_9_poison()
 	wait 0.05;
 		
 	player suicide();
-*/}
+}
 

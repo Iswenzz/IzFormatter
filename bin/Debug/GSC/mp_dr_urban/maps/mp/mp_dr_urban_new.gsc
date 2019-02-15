@@ -281,7 +281,7 @@ endroomTemplate(trigger, jumperOrigin, actiOrigin, weapon, weapon2, roomName)
 		}
 
 //AUTO 		iPrintlnBold(" ^7" + player.name + " Entered" + " ^1" + roomName + " ^7room.");
-//AUTO 		wait 0.05;
+		wait 0.05;
 
 		player freezeControls(true);
         if(isDefined(level.activv)) level.activv freezeControls(true);
@@ -303,7 +303,7 @@ endroomTemplate(trigger, jumperOrigin, actiOrigin, weapon, weapon2, roomName)
 //AUTO 				player iPrintlnBold("^1" + i);
 //AUTO 				if(isDefined(level.activ)) level.activ iPrintlnBold("^1" + i);
 			}
-//AUTO 			wait 1;
+			wait 1;
 		}
 	}
 }
@@ -311,6 +311,7 @@ endroomTemplate(trigger, jumperOrigin, actiOrigin, weapon, weapon2, roomName)
 trapDrift()
 {
 	clip = getEnt("drift_clip", "targetname");
+	level endon("trigger");
 	trigger = getEnt("trig_drift", "targetname");
 	car = getEnt("drift_model", "targetname");
 	kill = getEnt("drift_kill", "targetname");
@@ -321,7 +322,7 @@ trapDrift()
 	car linkTo(clip);
 	kill maps\mp\_utility::triggerOff();
 
-/* AUTO 	trigger waittill("trigger", player);
+	trigger waittill("trigger", player);
 	trigger SetHintString("^1Activated");
 
 //AUTO 	player braxi\_rank::giveRankXP("", 30);
@@ -334,14 +335,15 @@ trapDrift()
 		clip rotateYaw (-360,2.8);
 		clip waittill("rotatedone");		
 	}
-*/}
+}
 
 trapRotate()
 {
 	platform = getEnt("trap_rotate", "targetname");
+	level endon("trigger");
 	trigger = getEnt("trig_rotate", "targetname");
 
-/* AUTO 	trigger waittill("trigger", player);
+	trigger waittill("trigger", player);
 	trigger SetHintString("^1Activated");
 
 //AUTO 	player braxi\_rank::giveRankXP("", 30);
@@ -366,18 +368,19 @@ trapRotate()
 
 		wait 2;
 	}
-*/}
+}
 
 trapFloor()
 {
 	platform = getEnt("trap_floor1", "targetname");
+	level endon("trigger");
 	cracks = getEnt("floor1_cracks", "targetname");
 	groundefx = getEnt("floor1_efx", "targetname");
 	trigger = getEnt("trig_floor1", "targetname");
 
 	cracks hide();
 
-/* AUTO 	trigger waittill("trigger", player);
+	trigger waittill("trigger", player);
 
 	trigger SetHintString("^1Activated");
 //AUTO 	player braxi\_rank::giveRankXP("", 30);
@@ -387,11 +390,12 @@ trapFloor()
 
 	cracks show();
 	platform delete();
-*/}
+}
 
 trapFaller()
 {
 	trigger = getEnt("trig_faller", "targetname");
+	level endon("trigger");
 	kill = getEnt("faller_kill", "targetname");
 	efx = getEntArray("faller_efx", "targetname");
 	platform = getEnt("trap_faller", "targetname");
@@ -402,7 +406,7 @@ trapFaller()
 	kill enableLinkTo();
 	kill linkTo(platform);
 
-/* AUTO 	trigger waittill("trigger", player);
+	trigger waittill("trigger", player);
 
 	trigger SetHintString("^1Activated");
 //AUTO 	player braxi\_rank::giveRankXP("", 30);
@@ -417,11 +421,12 @@ trapFaller()
 
 	clip solid();
 	kill delete();
-*/}
+}
 
 trapRoller()
 {
 	platform = getEnt("trap_roller", "targetname");
+	level endon("trigger");
 	trigger = getEnt("trig_roller", "targetname");
 	kill = getEnt("roller_kill", "targetname");
 
@@ -429,7 +434,7 @@ trapRoller()
 	kill enableLinkTo();
 	kill linkTo(platform);
 
-/* AUTO 	trigger waittill("trigger", player);
+	trigger waittill("trigger", player);
 
 	trigger SetHintString("^1Activated");
 //AUTO 	player braxi\_rank::giveRankXP("", 30);
@@ -442,7 +447,7 @@ trapRoller()
 	wait 9;
 
 	kill delete();
-*/}
+}
 
 rollerDown()
 {
@@ -460,6 +465,7 @@ rollerRotate()
 trapPlatformFall()
 {
 	platform = getEnt("trap_platfall", "targetname");
+	level endon("trigger");
 	trigger = getEnt("trig_platfall", "targetname");
 	efx = getEnt("platfall_efx", "targetname");
 	kill = getEnt("platfall_kill", "targetname");
@@ -467,7 +473,7 @@ trapPlatformFall()
 	kill enableLinkTo();
 	kill linkTo(platform);
 
-/* AUTO 	trigger waittill("trigger", player);
+	trigger waittill("trigger", player);
 
 	trigger SetHintString("^1Activated");
 //AUTO 	player braxi\_rank::giveRankXP("", 30);
@@ -478,24 +484,26 @@ trapPlatformFall()
 //AUTO 	playFX(level.urbanfaller, efx.origin);
 	platform playSound("faller");
 	kill delete();
-*/}
+}
 
 trapLadders()
 {
 	ladders = getEnt("trap_ladders", "targetname");
+	level endon("trigger");
 	trigger = getEnt("trig_ladders", "targetname");
 
-/* AUTO 	trigger waittill("trigger", player);
+	trigger waittill("trigger", player);
 
 	trigger SetHintString("^1Activated");
 //AUTO 	player braxi\_rank::giveRankXP("", 30);
 
 	ladders delete();
-*/}
+}
 
 trapBarrel()
 {
 	barrel = getEnt("trap_barrel", "targetname");
+	level endon("trigger");
 	trigger = getEnt("trig_barrel", "targetname");
 	kill = getEnt("barrel_kill", "targetname");
 	clip = getEnt("barrel_clip", "targetname");
@@ -503,7 +511,7 @@ trapBarrel()
 
 	kill maps\mp\_utility::triggerOff();
 
-/* AUTO 	trigger waittill("trigger", player);
+	trigger waittill("trigger", player);
 
 	trigger SetHintString("^1Activated");
 //AUTO 	player braxi\_rank::giveRankXP("", 30);
@@ -517,14 +525,15 @@ trapBarrel()
 	clip delete();
 	wait .2;
 	kill delete();
-*/}
+}
 
 trapDropPlatform()
 {
 	platform = getEnt("trap_platdrop", "targetname");
+	level endon("trigger");
 	trigger = getEnt("trig_platdrop", "targetname");
 
-/* AUTO 	trigger waittill("trigger", player);
+	trigger waittill("trigger", player);
 
 	trigger SetHintString("^1Activated");
 //AUTO 	player braxi\_rank::giveRankXP("", 30);
@@ -535,5 +544,5 @@ trapDropPlatform()
 	wait 5;
 
 	platform rotateRoll(80, 1, 0.2, 0.8);
-*/}
+}
 

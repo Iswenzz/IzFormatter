@@ -146,22 +146,22 @@ sniper()
 	
 //AUTO 	player TakeAllWeapons();
 //AUTO 	player GiveWeapon("remington700_mp");
-//AUTO 	wait 0.01;
+	wait 0.01;
 //AUTO 	player SwitchToWeapon("remington700_mp");
 	
-//AUTO 	wait 2;
+	wait 2;
 	player FreezeControls (0);
 	
 	player thread onDeath_sniper();
-//AUTO 	wait 0.1;
+	wait 0.1;
 	
 	
     for(;;)
     {
-//AUTO 		wait .1;		
+		wait .1;		
 		while(isAlive(player))
 		{
-//AUTO 			wait 1;
+			wait 1;
 		}
 		
     }
@@ -273,7 +273,7 @@ knife()
 	
 //AUTO 	player TakeAllWeapons();
 //AUTO 	player GiveWeapon("tomahawk_mp");
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	player SwitchToWeapon("tomahawk_mp");
 	
 	
@@ -285,20 +285,20 @@ knife()
 	players = getentarray("player", "classname");
 	for(i=0;i<players.size;i++)
 		players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 	wait 1;
+	wait 1;
 	player FreezeControls (0);
 //AUTO 	iPrintlnbold ("^1Go!");
 	
 	player thread onDeath_knife();
-//AUTO 	wait 0.1;
+	wait 0.1;
 	
 	
     for(;;)
     {
-//AUTO 		wait .1;		
+		wait .1;		
 		while(isAlive(player))
 		{
-//AUTO 			wait 1;
+			wait 1;
 		}
 		
     }
@@ -556,13 +556,14 @@ lol()
 trap1()
 {
 	spike = getEnt ("trap_spike", "targetname");
+	level endon("trigger");
 	hurt = getEnt ("spike_hurt", "targetname");
 	trig = getEnt ("trap1", "targetname");
 	
     hurt enablelinkto();
     hurt linkto (spike);
 	
-/* AUTO 	trig waittill ("trigger", who);
+	trig waittill ("trigger", who);
 	trig setHintString("Trap Activated^1!");
 	
 	
@@ -571,7 +572,7 @@ trap1()
 		wait 5;
 		spike moveY (865,1.5);
 	}
-*/}
+}
 
 vanish()
 {
@@ -589,10 +590,11 @@ vanish()
 trap3()
 {
 	brush = getEnt ("trap3_1", "targetname");
+	level endon("trigger");
 	brush2 = getEnt ("trap3_2", "targetname");
 	trig = getEnt ("trap3", "targetname");
 	
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig setHintString("Trap Activated^1!");
 	
 	while(1)
@@ -601,18 +603,19 @@ trap3()
 		wait 0.01;
 		brush2 rotateroll (-360,3);
 	}
-*/}
+}
 
 trap4()
 {
 	spike = getEnt ("trap4_spikes", "targetname");
+	level endon("trigger");
 	hurt = getEnt ("trap4_hurt", "targetname");
 	trig = getEnt ("trap4", "targetname");
 	
     hurt enablelinkto();
     hurt linkto (spike);
 	
-/* AUTO 	trig waittill ("trigger", who);
+	trig waittill ("trigger", who);
 	trig setHintString("Trap Activated^1!");
 	
 	
@@ -621,15 +624,16 @@ trap4()
 		wait 5;
 		spike moveY (64,2);
 	}
-*/}
+}
 
 trap5()
 {
 	spin = getEnt ("trap6_1", "targetname");
+	level endon("trigger");
 	spin2 = getEnt ("trap6_2", "targetname");
 	trig = getEnt ("trap5", "targetname");
 	
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig setHintString("Trap Activated^1!");
 	
 	spin2 rotatepitch(-55,2);
@@ -640,7 +644,7 @@ trap5()
 	thread part2();
 	
 	
-*/}
+}
 
 part2()
 {
@@ -663,9 +667,10 @@ part2()
 trap6()
 {
 	brush = getEnt ("rotate", "targetname");
+	level endon("trigger");
 	trig = getEnt ("trap6", "targetname");
 	
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig setHintString("Trap Activated^1!");
 	
 	while(1)
@@ -675,13 +680,14 @@ trap6()
 		brush rotatepitch (360, 1);
 		wait 2;
 	}
-*/}
+}
 
 trap7()
 {
 	trig = getEnt ("trap7", "targetname"); 
+	level endon("trigger");
 	
-/* AUTO 	trig waittill ("trigger", who);
+	trig waittill ("trigger", who);
     trig setHintString("Trap Activated^1!");
 	
 	
@@ -698,7 +704,7 @@ trap7()
 			break;
 		}
 	}
-*/}
+}
 
 kill1()
 {
@@ -727,9 +733,10 @@ kill2()
 trap8()
 {
 	brush = getEnt ("last_trap", "targetname");
+	level endon("trigger");
 	trig = getEnt ("trap8", "targetname");
 	
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig setHintString("Trap Activated^1!");
 	
 	{
@@ -737,7 +744,7 @@ trap8()
 		wait 10;
 		brush moveY (-260,3);
 	}
-*/}
+}
 
 map_finish()
 {

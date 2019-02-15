@@ -157,8 +157,9 @@ rotate1()
 trap1()
 {
    trig = getEnt ("trap1_aktiv" , "targetname");
+	level endon("trigger");
    brush = getEnt ("trap1" ,"targetname" );
-/* AUTO    trig waittill ("trigger",player);  
+   trig waittill ("trigger",player);  
    trig delete ();  
   
    for( i = 0; i < 7; i++ )
@@ -166,23 +167,25 @@ trap1()
 		brush rotateYaw( 360, 1 );
 		wait 1;
 	}
-*/}
+}
 
 trap2 ()
 {
    trig = getEnt ("trap2_aktiv" , "targetname");
+	level endon("trigger");
    brush = getEnt ("trap2" ,"targetname" );
-/* AUTO    trig waittill ("trigger",player);  
+   trig waittill ("trigger",player);  
    trig delete ();  
    
    brush moveY ( 500 , 4);
    wait 5;
    brush moveY ( -500, 4 );
-*/}
+}
 
 trap3 ()
 {
    trig = getEnt ("trap3_aktiv" , "targetname");
+	level endon("trigger");
    brush1 = getEnt ("trap3_1" ,"targetname" );
    hurt1 = getEnt ("hurt1_1" , "targetname");
    hurt2 = getEnt ("hurt1_2" , "targetname");
@@ -192,7 +195,7 @@ trap3 ()
    brush3 = getEnt ("trap3_3" ,"targetname" );
    hurt5 = getEnt ("hurt3_1" , "targetname");
    hurt6 = getEnt ("hurt3_2" , "targetname");
-/* AUTO    trig waittill ("trigger",player);  
+   trig waittill ("trigger",player);  
    trig delete ();  
    
    hurt1 enablelinkto();
@@ -217,37 +220,40 @@ trap3 ()
 	}
    
    
-*/}
+}
 
 trap4 ()
 {
    trig = getEnt ("trap4_aktiv" , "targetname");
+	level endon("trigger");
    brush = getEnt ("trap4" ,"targetname" );
-/* AUTO    trig waittill ("trigger",player);  
+   trig waittill ("trigger",player);  
    trig delete ();  
    
    brush notSolid();
-*/}
+}
 
 trap5 ()
 {
    trig = getEnt ("trap5_aktiv" , "targetname");
+	level endon("trigger");
    brush = getEnt ("trap5" ,"targetname" );
-/* AUTO    trig waittill ("trigger",player);  
+   trig waittill ("trigger",player);  
    trig delete ();  
    
    brush moveZ ( -200 , 1);
    wait 5;
    brush moveZ ( 200 , 2 );
    
-*/}
+}
 
 trap6()
 {
 	trig = getEnt( "trap6_aktiv", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap6", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig delete();
 
 	while( isDefined( brush ) )
@@ -255,13 +261,14 @@ trap6()
 		brush rotateRoll( 180, 8 );
 		wait 4;
 	}
-*/}
+}
 
 trap7()
 {
    trig = getEnt ("trap7_aktiv" , "targetname");
+	level endon("trigger");
    brush = getEnt ("trap7", "targetname" );
-/* AUTO    trig waittill ("trigger",player);  
+   trig waittill ("trigger",player);  
    trig delete ();  
    
    for( i = 0; i < 10; i++ )
@@ -270,45 +277,48 @@ trap7()
 		wait 1;
 	}
    
-*/}
+}
 
 trap8()
 {
    trig = getEnt ("trap8_aktiv" , "targetname");
+	level endon("trigger");
    brushGroup1 = getEntArray ("trap8_1" ,"targetname" );
    brushGroup2 = getEntArray ("trap8_2" ,"targetname" );
    
-/* AUTO    trig waittill ("trigger",player);  
+   trig waittill ("trigger",player);  
    trig delete ();  
   
    brushGroup1[randomInt(brushGroup1.size)] delete();
 	 brushGroup2[randomInt(brushGroup2.size)] delete();
-*/}
+}
 
 trap9()
 {
 	trig = getEnt( "trap9_aktiv", "targetname" );
+	level endon("trigger");
 	brushGroup1 = getEntArray( "trap9_1", "targetname" );
 	brushGroup2 = getEntArray( "trap9_2", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	trig delete();
 	
 	brushGroup1[randomInt(brushGroup1.size)] notSolid();
 	brushGroup2[randomInt(brushGroup2.size)] notSolid();
-*/}
+}
 
 trap10 ()
 {
    trig = getEnt ("trap10_aktiv" , "targetname");
+	level endon("trigger");
    brush = getEnt ("trap10" ,"targetname" );
-/* AUTO    trig waittill ("trigger",player);  
+   trig waittill ("trigger",player);  
    trig delete ();  
    
    brush moveZ ( 600 , 1);
    wait 5;
    brush moveZ ( -600, 4 );
-*/}
+}
 
 final_door ()
 {

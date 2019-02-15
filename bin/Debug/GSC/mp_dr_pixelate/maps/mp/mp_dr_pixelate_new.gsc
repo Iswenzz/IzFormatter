@@ -53,9 +53,10 @@ main()
 trap1() // Moving blocks
 {      
   trig = getEnt( "trap1_trig", "targetname" );
+	level endon("trigger");
   brush = getEnt( "trap1_up", "targetname" );
  
-/* AUTO   trig waittill( "trigger");
+  trig waittill( "trigger");
   trig setHintstring("^5T^7rap ^5A^7ctivated.");
  
   while(1)
@@ -72,14 +73,15 @@ trap1() // Moving blocks
     brush moveX(80, 0.5);
     brush waittill("movedone");
   }
-*/}
+}
 
 trap2() // Rotate
 {
     trig = getEnt( "trap2_trig", "targetname" );
+	level endon("trigger");
     brush = getEnt( "trap2_rotate", "targetname" );
  
-/* AUTO     trig waittill( "trigger", who );
+    trig waittill( "trigger", who );
     trig delete();
  
     while( isDefined( brush ) )
@@ -87,20 +89,21 @@ trap2() // Rotate
         brush rotateRoll( 180, 2 );
         wait .1;
     }
-*/}
+}
 
 trap3() //Non Collision
 {
         trig = getEnt( "trap3_trig", "targetname" );
+	level endon("trigger");
         brushGroup1 = getEntArray( "trap3_dissapear_1", "targetname" );
         brushGroup2 = getEntArray( "trap3_dissapear_2", "targetname" );
  
-/* AUTO         trig waittill( "trigger", who );
+        trig waittill( "trigger", who );
         trig delete();
        
         brushGroup1[randomInt(brushGroup1.size)] notSolid();
         brushGroup2[randomInt(brushGroup2.size)] notSolid();
-*/}
+}
 
 teleport1()
 {
@@ -121,6 +124,7 @@ teleport1()
 trap4() //Spikes
 {
  
+	level endon("trigger");
     trig = getEnt( "trap4_trig", "targetname" );
     brush = getEnt( "trap4_spike", "targetname" );
         hurt = getEnt ("trap4_spikeshurt", "targetname");
@@ -128,7 +132,7 @@ trap4() //Spikes
         hurt enablelinkto();
         hurt linkto (brush);
        
-/* AUTO     trig waittill( "trigger");
+    trig waittill( "trigger");
         trig setHintstring("^5T^7rap ^5A^7ctivated.");
  
  
@@ -137,14 +141,15 @@ trap4() //Spikes
         wait 4;
         brush moveZ (-96,4.5);
         }
-*/}
+}
 
 trap5() //Swinging Arms
 {
         trig = getEnt( "trap5_trig", "targetname" );
+	level endon("trigger");
         brush = getEnt( "trap5_rotate2", "targetname" );
  
-/* AUTO         trig waittill( "trigger", who );
+        trig waittill( "trigger", who );
                 trig setHintstring("^5T^7rap ^5A^7ctivated.");
  
        
@@ -157,14 +162,15 @@ trap5() //Swinging Arms
         wait 2;
         }
 		}
-*/}
+}
 
 trap6() //Rotating Circles
 {
         trig = getEnt( "trap6_trig", "targetname" );
+	level endon("trigger");
         brush = getEnt( "trap6_spin", "targetname" );
  
-/* AUTO         trig waittill( "trigger", who );
+        trig waittill( "trigger", who );
         trig setHintstring("^5T^7rap ^5A^7ctivated.");
        
         {
@@ -174,7 +180,7 @@ trap6() //Rotating Circles
         wait .5;
 		}
 		}
-*/}
+}
 
 wiggle() // Wiggle Brush _ midair brushes
 {
@@ -202,10 +208,11 @@ wiggle() // Wiggle Brush _ midair brushes
 trap8() // 2 Rotating Mini Platforms
 {
         trig = getEnt( "trap8_trig", "targetname" );
+	level endon("trigger");
         brush = getEnt( "trap8_rotateagain", "targetname" );
  
  
-/* AUTO         trig waittill( "trigger", who );
+        trig waittill( "trigger", who );
         trig setHintstring("^5T^7rap ^5A^7ctivated.");
        
         while(1)
@@ -215,18 +222,19 @@ trap8() // 2 Rotating Mini Platforms
         brush rotatePitch(360,5);
         wait 2;
         }
-*/}
+}
 
 trap9() // One Block Delete
 {
         trig = getent ("trap9_trig", "targetname");
+	level endon("trigger");
 		brush = getent ("trap9_blockdel", "targetname");
 		
-/* AUTO 		trig waittill( "trigger", who );
+		trig waittill( "trigger", who );
 		trig setHintstring("^5T^7rap ^5A^7ctivated.");
 		
 		brush delete();
-*/}		
+}		
 
 teleport2()
 {
@@ -399,12 +407,12 @@ credits()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "tomahawk_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "tomahawk_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "tomahawk_mp" );
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN ^7KNIFE^1!" );     //change to what you want it to be
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -432,12 +440,12 @@ bounce()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "tomahawk_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "tomahawk_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "tomahawk_mp" );
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN BOUNCE^1!" );     //change to what you want it to be
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -465,12 +473,12 @@ sniper()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "m40a3_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "m40a3_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "m40a3_mp" );
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN SNIPAH^1!" );     //change to what you want it to be
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -531,7 +539,7 @@ bounceteleport1()
 		        trig waittill("trigger", player);
 				player SetPlayerAngles ( spawn.angles );
 				player SetOrigin ( spawn.origin );
-//AUTO 				wait (0.05);
+				wait (0.05);
 
 		}
 }
@@ -548,7 +556,7 @@ bounceteleport2()
 		        trig waittill("trigger", player);
 				player SetPlayerAngles ( spawn.angles );
 				player SetOrigin ( spawn.origin );
-//AUTO 				wait (0.05);
+				wait (0.05);
 
 		}
 }
@@ -556,13 +564,14 @@ bounceteleport2()
 bouncetrap1() // bounce acti
 {
         trig = getent("bounce_trap1", "targetname");
+	level endon("trigger");
 		brush = getent("bounce_brush2", "targetname");
 		hurt = getent("bounce_hurt2", "targetname");
 		
 		hurt enablelinkto();
 		hurt linkto (brush);
 		
-/* AUTO 		trig waittill("trigger",player);
+		trig waittill("trigger",player);
 //AUTO 		iPrintLnBold( player.name + "^6 Has Defeated The Jumper!");
 		
 		{
@@ -570,18 +579,19 @@ bouncetrap1() // bounce acti
 		wait 0.5;
 		brush moveX (-2100,2);
 		}
-*/}
+}
 
 bouncetrap2() // bounce jumper
 {
         trig = getent("bounce_trap2","targetname");
+	level endon("trigger");
 		brush = getent("bounce_brush1","targetname");
 		hurt = getent("bounce_hurt1","targetname");
 		
 		hurt enablelinkto();
 		hurt linkto (brush);
 		
-/* AUTO 		trig waittill("trigger",player);
+		trig waittill("trigger",player);
 //AUTO 		iPrintLnBold( player.name + "^6 Has Defeated The Activator!");
 		
 		{
@@ -589,5 +599,5 @@ bouncetrap2() // bounce jumper
 		wait 0.5;
 		brush moveX (2000,2);
 		}
-*/}
+}
 

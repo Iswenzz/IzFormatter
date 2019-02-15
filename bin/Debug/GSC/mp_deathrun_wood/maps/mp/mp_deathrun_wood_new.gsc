@@ -56,10 +56,11 @@ addTriggerToList( targetname )
 trap_1()
 {
 elevator=getent("elevator","targetname");
+	level endon("trigger");
 trig=getent("switch","targetname");
 while(1)
 {
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 elevator movez (316,0.5,0,0);
 elevator waittill ("movedone");
@@ -68,7 +69,7 @@ elevator movez (-316,5,3,0);
 elevator waittill ("movedone");
 
 }
-*/}
+}
 
 auto_1()
 {
@@ -91,6 +92,7 @@ while (1)
 trap_2()
 {
 	trap=getent("trap_2_1","targetname");
+	level endon("trigger");
 	trap2=getent("trap_2_2","targetname");
 	trap3=getent("trap_2_3","targetname");
 	trap4=getent("trap_2_4","targetname");
@@ -112,7 +114,7 @@ trap_2()
 	trig=getent("trigger2","targetname");
 	while(1)
 	{
-/* AUTO 		trig waittill ("trigger");
+		trig waittill ("trigger");
 		trig delete();
 		trap movex (528,0.1,0,0);
 		trap2 movex (544,0.2,0,0);
@@ -194,16 +196,17 @@ trap_2()
 		
 	}
 
-*/}
+}
 
 trap_4_1()
 {
 	trap=getent("trap_4_1","targetname");
+	level endon("trigger");
 	doors=getent("doors","targetname");
 	trig=getent("trigger4","targetname");
 	while(1)
 	{
-/* AUTO 		trig waittill ("trigger");
+		trig waittill ("trigger");
 		trig delete();
 		doors movex (-79,1,0,0);
 		wait 2;
@@ -226,15 +229,16 @@ trap_4_1()
 
 	}
 
-*/}
+}
 
 trap_4_2()
 {
 	trap2=getent("trap_4_2","targetname");
+	level endon("trigger");
 	trig=getent("trigger4","targetname");
 	while(1)
 	{
-/* AUTO 		trig waittill ("trigger");
+		trig waittill ("trigger");
 		wait 3;
 		trap2 movex (564,1,0,0);
 		trap2 waittill ("movedone");
@@ -253,7 +257,7 @@ trap_4_2()
 
 	}
 
-*/}
+}
 
 auto_2()
 {
@@ -270,12 +274,13 @@ auto_2()
 trap_3()
 {
 	trig = getEnt( "trigger3", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap_3", "targetname" );
 
 
 	while (1)
 	{
-/* AUTO 		trig waittill ("trigger");
+		trig waittill ("trigger");
 		trig delete();
 		brush movez (-200,1,0,0);
 		brush waittill ("movedone");
@@ -283,7 +288,7 @@ trap_3()
 		brush movez (200,3,0,0);
 		brush waittill ("movedone");
 	}
-*/}
+}
 
 auto_3()
 {
@@ -312,9 +317,10 @@ while (1)
 trap_5()
 {
 	trig = getEnt( "trigger5", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap_5", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	while (1)
@@ -322,7 +328,7 @@ trap_5()
 		brush rotateYaw( -360, 2 );
 		wait 1;
 	}
-*/}
+}
 
 final()
 {

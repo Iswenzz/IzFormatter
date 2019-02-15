@@ -54,12 +54,13 @@ addTriggerToList( name )
 trap1()
 {
 	gnjeci1 = getent("gnjeci1","targetname");
+	level endon("trigger");
 	gnjeci2 = getent("gnjeci2","targetname");
 	killtrig1 = getent("killtrig1","targetname");
 	killtrig2 = getent("killtrig2","targetname");
 	trig = getent("trap1trig","targetname");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger", player );
+	trig waittill("trigger", player );
 	{
 
 		trig delete();
@@ -77,11 +78,12 @@ trap1()
 		gnjeci1 moveX(528,2,1);
 		gnjeci2 moveX(-528,2,1);
 	}
-*/}
+}
 
 trap2()
 {
 	object1 = getent("object1", "targetname");
+	level endon("trigger");
 	object2 = getent("object2", "targetname");
 	object3 = getent("object3", "targetname");
 	object4 = getent("object4", "targetname");
@@ -100,7 +102,7 @@ trap2()
 
 	actitrig = getent("trap2trig","targetname");
 	actitrig sethintstring("Press [F] to Activate");
-/* AUTO 	actitrig waittill("trigger", player );
+	actitrig waittill("trigger", player );
 	{
 		actitrig delete();
 		object1 moveZ(-32,1);
@@ -153,7 +155,7 @@ trap2()
 		object15 thread moves();
 		object16 thread moves();
 	}
-*/}
+}
 
 moves()
 {
@@ -174,12 +176,13 @@ moves()
 trap3()
 {
 	trig = getent("trap3trig","targetname");
+	level endon("trigger");
 	spiner1 = getent("spiner1","targetname");
 	spiner2 = getent("spiner2","targetname");
 	spiner1kill = getent("spiner1kill","targetname");
 	spiner2kill = getent("spiner2kill","targetname");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger", player );
+	trig waittill("trigger", player );
 	{
 		spiner1kill enablelinkto();
 		spiner1kill linkto( spiner1 );
@@ -221,7 +224,7 @@ trap3()
 			counter++;
 		}
 	}
-*/}
+}
 
 trap3spin()
 {
@@ -235,10 +238,11 @@ trap3spin()
 trap4()
 {
 	flor = getent("flor","targetname");
+	level endon("trigger");
 	stairs = getent("stairs","targetname");
 	trig = getent("trap4trig","targetname");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger", player );
+	trig waittill("trigger", player );
 	{
 		trig delete();
 		x = randomint(3);
@@ -273,18 +277,19 @@ trap4()
 			break;
 		}
 	}
-*/}
+}
 
 trap5()
 {
 	rockball = getent("rockball","targetname");
+	level endon("trigger");
 	jail = getent("jail","targetname");
 	trig = getent("trap5trig","targetname");
 	killertrig = getent("killertrig","targetname");
 	mov1 = getent("mov1","targetname");
 	mov2 = getent("mov2","targetname");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger", player );
+	trig waittill("trigger", player );
 	{
 		trig delete();
 		killertrig enablelinkto();
@@ -299,7 +304,7 @@ trap5()
 		wait .1;
 		rockball thread movezor(10,mov2.origin);
 	}
-*/}
+}
 
 movezor(time1, location)
 {
@@ -309,13 +314,14 @@ movezor(time1, location)
 trap6()
 {
 	pillar1 = getent("pillar1","targetname");
+	level endon("trigger");
 	pillar2 = getent("pillar2","targetname");
 	pillar3 = getent("pillar3","targetname");
 	pillar4 = getent("pillar4","targetname");
 	bounce_t6 = getent("bounce_t6","targetname");
 	trig = getent("trap6trig","targetname");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger", player );
+	trig waittill("trigger", player );
 	{
 		trig delete();
 		x = randomint(2);
@@ -336,7 +342,7 @@ trap6()
 			pillar4 thread pillar_moves();
 
 	}
-*/}
+}
 
 pillar_moves()
 {
@@ -357,10 +363,11 @@ pillar_moves()
 trap7()
 {
 	lavaflor1 = getent("lavaflor1","targetname");
+	level endon("trigger");
 	lavaflor2 = getent("lavaflor2","targetname");
 	trig = getent("trap7trig","targetname");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger", player );
+	trig waittill("trigger", player );
 	{
 		trig delete();
 		done = 0;
@@ -384,17 +391,18 @@ trap7()
 			done++;
 		}
 	}
-*/}
+}
 
 trap8()
 {
 	way = getent("trap8way","targetname");
+	level endon("trigger");
 	pusher1 = getent("pusher1","targetname");
 	pusher2 = getent("pusher2","targetname");
 	bounce = getent("trap8bounce","targetname");
 	trig = getent("trap8trig","targetname");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger", player );
+	trig waittill("trigger", player );
 	{
 		trig delete();
 		x = randomint(3);
@@ -442,11 +450,12 @@ trap8()
 			
 	}
 
-*/}
+}
 
 trap9()
 {
 	level.trap9used = false;
+	level endon("trigger");
 
 	sword1 = getent("sword_1","targetname");
 	sword2 = getent("sword_2","targetname");
@@ -475,7 +484,7 @@ trap9()
 	sword9 thread randomrotation();
 	sword10 thread randomrotation();
 
-/* AUTO 	trig waittill("trigger", player );
+	trig waittill("trigger", player );
 	{
 		level.trap9used = true;
 		trig delete();
@@ -490,7 +499,7 @@ trap9()
 		sword9 thread killthing();
 		sword10 thread killthing();
 	}
-*/}
+}
 
 killthing()
 {
@@ -570,8 +579,9 @@ plats(index)
 trap11()
 {
 	trig = getent("trap11trig","targetname");
+	level endon("trigger");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	{
 		trig delete();
 
@@ -580,7 +590,7 @@ trap11()
 			thread ground(i);
 		}
 	}
-*/}
+}
 
 ground(index)
 {
@@ -599,12 +609,13 @@ ground(index)
 trap12()
 {
 	plats1 = getent("plats1","targetname");
+	level endon("trigger");
 	plats2 = getent("plats2","targetname");
 	trig = getent("trap12trig","targetname");
 	trig sethintstring("Press [F] To Activate!");
 	plats1 thread platmove();
 	plats2 thread platmove();
-/* AUTO 	trig waittill("trigger", player );
+	trig waittill("trigger", player );
 	{
 		trig delete();
 		x = randomint(3);
@@ -632,7 +643,7 @@ trap12()
 				break;
 		}
 	}
-*/}
+}
 
 platmove()
 {
@@ -652,10 +663,11 @@ platmove()
 trap13()
 {
 	blocks = getent("blocks","targetname");
+	level endon("trigger");
 	plats13 = getent("plats13","targetname");
 	trig = getent("trap13trig","targetname");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger", player );
+	trig waittill("trigger", player );
 	{
 		trig delete();
 		x = randomint(2);
@@ -674,15 +686,16 @@ trap13()
 			plats13 show();
 			plats13 solid();
 	}
-*/}
+}
 
 trap14()
 {
 	movingwall = getent("movingwall","targetname");
+	level endon("trigger");
 	movingwall thread movingwall_move();
 	trig = getent("trap14trig","targetname");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger", player );
+	trig waittill("trigger", player );
 	{
 		trig sethintstring("Moving wall is not solid");
 		movingwall notsolid();
@@ -690,7 +703,7 @@ trap14()
 		movingwall solid();
 		trig delete();
 	}
-*/}
+}
 
 movingwall_move()
 {
@@ -710,14 +723,15 @@ movingwall_move()
 trap15()
 {
 	trig = getent("trap15trig","targetname");
+	level endon("trigger");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger" ,player );
+	trig waittill("trigger" ,player );
 	for(i=1;i<=6;i++)
 	{
 		thread cilinders(i);
 	}
 	trig delete();
-*/}
+}
 
 cilinders(index)
 {
@@ -735,10 +749,11 @@ cilinders(index)
 trap16()
 {
 	wall = getent("trap16","targetname");
+	level endon("trigger");
 	killtrig = getent("wallkilltrig","targetname");
 	trig = getent("trap16trig","targetname");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger", player );
+	trig waittill("trigger", player );
 	{
 		trig delete();
 		killtrig enablelinkto();
@@ -747,14 +762,15 @@ trap16()
 		wait 3+randomint(2);
 		wall moveX(-256, 2, 1);
 	}
-*/}
+}
 
 trap17()
 {
 	objects = getent("airblocks","targetname");
+	level endon("trigger");
 	trig = getent("trap17trig","targetname");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger", player );
+	trig waittill("trigger", player );
 	{
 		trig delete();
 		for(;;)
@@ -764,14 +780,15 @@ trap17()
 			wait time+2;
 		}
 	}
-*/}
+}
 
 trap18()
 {
 	trap18 = getent("trap18","targetname");
+	level endon("trigger");
 	trig = getent("trap18trig","targetname");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger", player );
+	trig waittill("trigger", player );
 	{
 		trig delete();
 
@@ -780,17 +797,18 @@ trap18()
 		trap18 rotateyaw(-360, 3);
 		wait 3;
 	}
-*/}
+}
 
 trap19()
 {
 	spikes1 = getent("spikes1","targetname");
+	level endon("trigger");
 	spikes2 = getent("spikes2","targetname");
 	spikekill1 = getent("spikekill1","targetname");
 	spikekill2 = getent("spikekill2","targetname");
 	trig = getent("trap19trig","targetname");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	spikekill1 enablelinkto();
 	spikekill1 linkto(spikes1);
 	spikekill2 enablelinkto();
@@ -822,15 +840,16 @@ trap19()
 		}
 
 	}
-*/}
+}
 
 trap20()
 {
 	blocks1 = getent("trap20_1","targetname");
+	level endon("trigger");
 	block2 = getent("trap20_2","targetname");
 	trig = getent("trap20trig","targetname");
 	trig sethintstring("Press [F] To Activate!");
-/* AUTO 	trig waittill("trigger", player );
+	trig waittill("trigger", player );
 	{
 		trig delete();
 		x = randomint(3);
@@ -856,5 +875,5 @@ trap20()
 			break;
 		}
 	}
-*/}
+}
 

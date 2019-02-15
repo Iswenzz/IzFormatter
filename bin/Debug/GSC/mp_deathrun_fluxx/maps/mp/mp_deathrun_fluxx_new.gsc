@@ -374,32 +374,35 @@ fx()
 trap1()
 {
      trig = getent("trap1_trig", "targetname");
+	level endon("trigger");
 	 spinner = getent("spinner", "targetname");
-/* AUTO 	 trig waittill("trigger", player);
+	 trig waittill("trigger", player);
 	 trig delete();
 	 while(1)
 	 {
 	     spinner rotatepitch (360,6);
 		 wait 6;
 		}
-*/}
+}
 
 trap2()
 {
      trig = getent("trap2_trig", "targetname");
-/* AUTO 	 trig waittill("trigger", player);
+	level endon("trigger");
+	 trig waittill("trigger", player);
 	 trig delete();
 	 thread trap2a();
 	 thread trap2b();
-*/}
+}
 
 trap2a()
 {
      conf = getent("conf", "targetname");
+	level endon("trigger");
      while(1)
 	 {
      conf movex (64,0.4);
-/* AUTO 	 conf waittill("movedone");
+	 conf waittill("movedone");
 	 conf movex (-64,0.4);
 	 conf waittill("movedone");
 	 conf movex (-64,0.4);
@@ -407,15 +410,16 @@ trap2a()
 	 conf movex (64,0.4);
 	 conf waittill("movedone");
 	 }
-*/}
+}
 
 trap2b()
 {
      conf2 = getent("conf2", "targetname");
+	level endon("trigger");
      while(1)
 	 {
      conf2 movey (64,0.4);
-/* AUTO 	 conf2 waittill("movedone");
+	 conf2 waittill("movedone");
 	 conf2 movey (-64,0.4);
 	 conf2 waittill("movedone");
 	 conf2 movey (-64,0.4);
@@ -423,26 +427,28 @@ trap2b()
 	 conf2 movey (64,0.4);
 	 conf2 waittill("movedone");
 	 }
-*/}
+}
 
 trap3()
 {
      trig = getent("trap3_trig", "targetname");
+	level endon("trigger");
 	 bounce = getent("bounce", "targetname");
-/* AUTO 	 trig waittill("trigger", player);
+	 trig waittill("trigger", player);
 	 trig delete();
      while(1)
 	 {
 	 bounce rotateroll (180,11);
 	 wait 11;
 	 }
-*/}
+}
 
 trap4()
 {
      trig = getent("trap4_trig", "targetname");
+	level endon("trigger");
 	 brush = getent("brush1", "targetname");
-/* AUTO 	 trig waittill("trigger");
+	 trig waittill("trigger");
 	 trig delete();
 	 while(1)
 	 {
@@ -453,64 +459,70 @@ trap4()
 	 brush waittill("movedone");
 	 wait 2;
 	 }
-*/}
+}
 
 trap5()
 {
      trig = getent("trap5_trig", "targetname");
-/* AUTO  	 trig waittill("trigger", player);
+	level endon("trigger");
+ 	 trig waittill("trigger", player);
 	 trig delete();
 	 thread trap5a();
 	 thread trap5b();
-*/}
+}
 
 trap5a()
 {
      while(1)
+	level endon("trigger");
 	 {
 	 brush3 = getent("brush3", "targetname");
      brush3 rotatepitch (720, 5);
-/* AUTO 	 brush3 waittill("rotatedone");
+	 brush3 waittill("rotatedone");
 	 wait 5;
 	 }
-*/}
+}
 
 trap5b()
 {
      while(1)
+	level endon("trigger");
 	 {
 	 brush4 = getent("brush4", "targetname");
      brush4 rotatepitch (-720, 5);
-/* AUTO 	 brush4 waittill("rotatedone");
+	 brush4 waittill("rotatedone");
 	 wait 5;
 	 }
-*/}
+}
 
 trap6()
 {
      trig = getent("trap6_trig", "targetname");
+	level endon("trigger");
 	 brush5 = getent("brush5", "targetname");
-/* AUTO 	 trig waittill("trigger", player);
+	 trig waittill("trigger", player);
 	 trig delete();
 	 while(1)
 	 {
 	 brush5 rotateroll (-360, 2);
 	 wait 2;
 	 }
-*/}
+}
 
 trap7()
 {
      trig = getent("trap7_trig", "targetname");
-/* AUTO 	 trig waittill("trigger", player);
+	level endon("trigger");
+	 trig waittill("trigger", player);
 	 trig delete();
 	 thread trap7a();
 	 thread trap7b();
-*/}
+}
 
 trap7a()
 {
      brush7a = getent("brush7a", "targetname");
+	level endon("trigger");
 	 brush7 = getent("brush7", "targetname");
 	 quake = getent("quake", "targetname");
 	 smoke = getent("smoke", "targetname");
@@ -519,7 +531,7 @@ trap7a()
 	 while(1)
 	 {
 	 brush7 movex (-448,0.5);
-/* AUTO 	 brush7 waittill("movedone");
+	 brush7 waittill("movedone");
 	 Earthquake( 1, 3, quake.origin, 700 ); // (magnitude of the earthquake, length, at what origin, and the radius)
 	 PlayFX( level.orangesmoke, smoke.origin );
 	 wait 4;
@@ -527,30 +539,32 @@ trap7a()
 	 brush7 waittill("movedone");
 	 wait 2;
 	 }
-*/}
+}
 
 trap7b()
 {
      brush8a = getent("brush8a", "targetname");
+	level endon("trigger");
 	 brush8 = getent("brush8", "targetname");
 	 brush8a enablelinkto ();
      brush8a linkto (brush8);
 	 while(1)
 	 {
 	 brush8 movex (448,0.5);
-/* AUTO 	 brush8 waittill("movedone");
+	 brush8 waittill("movedone");
 	 wait 4;
 	 brush8 movex (-448,3,1,0.5);
 	 brush8 waittill("movedone");
 	 wait 2;
 	 }
-*/}
+}
 
 trap8()
 {
      trig = getent("trap8_trig", "targetname");
+	level endon("trigger");
 	 brush = getent("brush10", "targetname");
-/* AUTO 	 trig waittill("trigger", player);
+	 trig waittill("trigger", player);
 	 trig delete();
 	 while(1)
 	 {
@@ -559,40 +573,43 @@ trap8()
 	 brush movez (10,0.1);
 	 brush waittill("movedone");
 	 }
-*/}
+}
 
 trap9()
 {
      trig = getent("trap9_trig", "targetname");
-/* AUTO 	 trig waittill("trigger");
+	level endon("trigger");
+	 trig waittill("trigger");
 	 trig delete();
 	 thread trap9a();
 	 thread trap9b();
-*/}
+}
 
 trap9a()
 {
      brush = getent("brush22", "targetname");
+	level endon("trigger");
 	 brush movex(128,1);
-/* AUTO 	 brush waittill("movedone");
+	 brush waittill("movedone");
 	 while(1)
 	 {
 	 brush rotatepitch (-360,7);
 	 wait 7;
 	 }
-*/}
+}
 
 trap9b()
 {
      brush2 = getent("brush23", "targetname");
+	level endon("trigger");
 	 brush2 movex(-128,1);
-/* AUTO 	 brush2 waittill("movedone");
+	 brush2 waittill("movedone");
 	 while(1)
 	 {
 	 brush2 rotatepitch (360,7);
 	 wait 7;
 	 }
-*/}
+}
 
 sniper()
 {
@@ -625,18 +642,18 @@ sniper()
      level.activ setweaponammostock( "m40a3_mp", 50 );
 	 level.activ freezeControls(1);
 	 player FreezeControls(1);
-//AUTO 	 wait 2;
+	 wait 2;
 	 level.activ FreezeControls(0);
 	 player FreezeControls(0);
 	 player thread onDeath_sniper();
-//AUTO      wait 0.1;
+     wait 0.1;
        
      for(;;)
      {
-//AUTO      wait .1;               
+     wait .1;               
      while(isAlive(player))
      {
-//AUTO      wait 1;
+     wait 1;
      }
      }
 }
@@ -675,18 +692,18 @@ knife()
 //AUTO 	 level.activ SwitchToWeapon( "tomahawk_mp" );
 	 level.activ FreezeControls(1);
 	 player FreezeControls(1);
-//AUTO 	 wait 5;
+	 wait 5;
 	 level.activ FreezeControls(0);
 	 player FreezeControls(0);
 	 player thread onDeath_knife();
-//AUTO      wait 0.1;
+     wait 0.1;
        
      for(;;)
      {
-//AUTO      wait .1;               
+     wait .1;               
      while(isAlive(player))
      {
-//AUTO      wait 1;
+     wait 1;
      }
      }
 }

@@ -210,8 +210,9 @@ WatchFire()
 WatchTraps()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 		if( who.pers["team"] != "axis" && level.freeRun )
 		{
 			who suicide();
@@ -222,7 +223,7 @@ WatchTraps()
 		self delete();
 		break;
 	}
-*/}
+}
 
 WatchDisablingSpots()
 {

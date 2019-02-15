@@ -198,12 +198,13 @@ healthwait()
 trap1()
 {	
 trig = getEnt ("trap1_trig", "targetname");	
+	level endon("trigger");
 hurt = getEnt ("trap1_hurt", "targetname");	
 trap1 = getEnt ("trap1", "targetname");
 troll = getEnt ("troll", "targetname");
 
 	troll hide();
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
 //AUTO iprintLn ("Trigger Is Used!");
 troll show();
     trig delete();
@@ -216,17 +217,18 @@ hurt linkto (trap1);
 	trap1 rotateYaw(360,3);
 	wait 1; // to prevent loops
 	}
-*/}
+}
 
 trap2()
 {	
 trig = getEnt ("trap2_trig", "targetname");
+	level endon("trigger");
 hurt = getEnt ("trap2_hurt", "targetname"); 
 trap2 = getEnt ("trap2", "targetname");
 troll = getEnt ("trolla", "targetname");
 
 	troll hide();
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
 //AUTO iprintLn ("Trigger Is Used!");
 troll show();
 trig delete();
@@ -240,7 +242,7 @@ hurt linkto (trap2);
 	trap2 waittill("movedone");
 	trap2 delete();
 	}
-*/}
+}
 
 jumper()
 {
@@ -319,13 +321,14 @@ jumper2()
 trap3()
 {	
 trig = getEnt ("trap3_trig", "targetname");
+	level endon("trigger");
 hurt = getEnt ("trap3_hurt", "targetname"); 
 trap3 = getEnt ("trap3", "targetname");
 troll = getEnt ("trollb", "targetname");
 
 
 	troll hide();
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
 //AUTO iprintLn ("Trigger Is Used!");
 troll show();
 trig delete();
@@ -339,17 +342,18 @@ hurt linkto (trap3);
 	trap3 waittill("movedone");
 	trap3 delete();
 	}
-*/}
+}
 
 trap4()
 {
 trig = getEnt ("trap4_trig", "targetname");
+	level endon("trigger");
 trap4 = getEnt ("trap4", "targetname");
 troll = getEnt ("trollc", "targetname");
 
 
 	troll hide();
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
 //AUTO 	iprintLn ("Trigger Is Used!");
 	troll show();
 	trig delete();
@@ -363,7 +367,7 @@ troll = getEnt ("trollc", "targetname");
 	trap4 Solid();
 	wait 1;
 	}
-*/}
+}
 
 teleporthouse()
 {
@@ -496,13 +500,14 @@ secret = getEnt ("block", "targetname");
 trap5()
 {
 trig = getEnt ("trap5_trig", "targetname");
+	level endon("trigger");
 trap5 = getEnt ("trap5", "targetname");
 hurt = getEnt ("trap5_hurt", "targetname");
 troll = getEnt ("trolld", "targetname");
 
 
 	troll hide();
-/* AUTO     trig waittill("trigger", player);
+    trig waittill("trigger", player);
 //AUTO 	iprintLn ("Trigger Is Used!");
 	troll show();
 	trig delete();
@@ -518,11 +523,12 @@ troll = getEnt ("trolld", "targetname");
 	trap5 moveZ(292,5);
 	trap5 waittill("movedone");
 	}
-*/}
+}
 
 trap6()
 {
 trig = getEnt ("trap6_trig", "targetname");
+	level endon("trigger");
 trap6 = getEnt ("trap6b", "targetname");
 troll = getEnt ("trolle", "targetname");
 door = getEnt ("deur", "targetname");
@@ -531,7 +537,7 @@ doora = getEnt ("deura", "targetname");
 	troll hide();
 	door hide();
 	door notSolid();
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
 //AUTO 	iprintLn ("Trigger Is Used!");
 	troll show();
 	trig delete();
@@ -550,17 +556,18 @@ doora = getEnt ("deura", "targetname");
 	doora solid();
 	trap6 delete();
 	}
-*/}
+}
 
 trap7()
 {	
 trig = getEnt ("trap7_trigger", "targetname");
+	level endon("trigger");
 hurt = getEnt ("spikes_hurt", "targetname"); 
 trap7 = getEnt ("spike", "targetname");
 troll = getEnt ("trollf", "targetname");
 
 	troll hide();
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
 //AUTO iprintLn ("Trigger Is Used!");
 troll show();
 trig delete();
@@ -574,17 +581,18 @@ hurt linkto (trap7);
 	trap7 moveZ(-144,3);
 	wait 7;
 	}
-*/}
+}
 
 trap9() // Don't acti this together with spike, they will get into eachother :P
 {	
 trig = getEnt ("trap9_trigger", "targetname");
+	level endon("trigger");
 hurt = getEnt ("trap9_hurt", "targetname"); 
 trap9 = getEnt ("trap99", "targetname");
 troll = getEnt ("trollg", "targetname");
 
 	troll hide();
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
 //AUTO iprintLn ("Trigger Is Used!");
 troll show();
 trig delete();
@@ -616,16 +624,17 @@ hurt linkto (trap9);
 	trap9 waittill("movedone");
 	wait 2;
 	}
-*/}
+}
 
 trap10()
 {
     trig = getEnt("trap10_trig","targetname");
+	level endon("trigger");
 	troll = getEnt("trollh","targetname");
 	trap10 = getEnt("trap10","targetname");
 	
 	troll hide();
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
 //AUTO 	iprintLn ("Trigger Is Used!");
 	troll show();
 	trig delete();
@@ -633,16 +642,17 @@ trap10()
     {
     trap10 notsolid();
     }
-*/}
+}
 
 trap11a()
 {
     trig = getEnt("trap11_a_trig","targetname");
+	level endon("trigger");
 	troll = getEnt("trolli","targetname");
 	trap10 = getEnt("trap11_a","targetname");
 	
 	troll hide();
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
 //AUTO 	iprintLn ("Trigger Is Used!");
 	troll show();
 	trig delete();
@@ -654,16 +664,17 @@ trap11a()
 	trap10 moveZ(-240,0.5);
 	wait 10;
     }
-*/}
+}
 
 trap11b()
 {
     trig = getEnt("trap11_b_trig","targetname");
+	level endon("trigger");
 	troll = getEnt("trollj","targetname");
 	trap10 = getEnt("trap11_b","targetname");
 	
 	troll hide();
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
 //AUTO 	iprintLn ("Trigger Is Used!");
 	troll show();
 	trig delete();
@@ -674,16 +685,17 @@ trap11b()
 	trap10 moveZ(-240,0.5);
 	wait 10;
     }
-*/}
+}
 
 trap11c()
 {
     trig = getEnt("trap11_c_trig","targetname");
+	level endon("trigger");
 	troll = getEnt("trollk","targetname");
 	trap10 = getEnt("trap11_c","targetname");
 	
 	troll hide();
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
 //AUTO 	iprintLn ("Trigger Is Used!");
 	troll show();
 	trig delete();
@@ -694,16 +706,17 @@ trap11c()
 	trap10 moveZ(-240,0.5);
 	wait 10;
     }
-*/}
+}
 
 trap12() // -62, 27
 {
     trig = getEnt("trap12_trig","targetname");
+	level endon("trigger");
 	troll = getEnt("trolll","targetname");
 	trap12 = getEnt("trap12","targetname");
 	
 	troll hide();
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
 //AUTO 	iprintLn ("Trigger Is Used!");
 	troll show();
 	trig delete();
@@ -717,11 +730,12 @@ trap12() // -62, 27
 	trap12 solid();
 	wait 25;
     }
-*/}
+}
 
 trap13()
 {
     trig = getEnt("trap13_trig","targetname");
+	level endon("trigger");
 	troll = getEnt("trollm","targetname");
 	trap13 = getEnt("trap13_a","targetname");
 	trap13b = getEnt("trap13_b","targetname");
@@ -734,7 +748,7 @@ trap13()
 	hurt2 linkto (trap13b);
 	
 	troll hide();
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
 //AUTO 	iprintLn ("Trigger Is Used!");
 	troll show();
 	trig delete();
@@ -752,7 +766,7 @@ trap13()
 	trap13b moveZ(-94,1);
 	wait 1;
     }
-*/}
+}
 
 firee()
 { 
@@ -955,14 +969,14 @@ knife()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "tomahawk_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 		player.maxhealth = 100;
 		level.activ.maxhealth = 100;
 //AUTO         player switchToWeapon( "tomahawk_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "tomahawk_mp" );
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^5Entered Knife." );     //change to what you want it to be
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -991,14 +1005,14 @@ sniper()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "m40a3_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "m40a3_mp" ); //activator weapon
 		player.maxhealth = 100;
 		level.activ.maxhealth = 100;
 //AUTO         level.activ SwitchToWeapon( "m40a3_mp" );
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^5Entered Sniper." );     //change to what you want it to be
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -1063,14 +1077,14 @@ weapon()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "deserteagle_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "deserteagle_mp" ); //activator weapon
 		player.maxhealth = 100;
 		level.activ.maxhealth = 100;
 //AUTO         level.activ SwitchToWeapon( "deserteagle_mp" );
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^5Entered Weapon!" );     //change to what you want it to be
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

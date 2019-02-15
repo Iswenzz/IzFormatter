@@ -84,10 +84,11 @@ wait 3;
 trap1()
 {
  
+	level endon("trigger");
 trig1 = getEnt( "trig_trap1", "targetname" ); 
 trap1 = getEnt( "trap1", "targetname" );
  
-/* AUTO trig1 waittill ("trigger");
+trig1 waittill ("trigger");
 trig1 delete();
  
 while( 1 ) 
@@ -99,15 +100,16 @@ trap1 rotateyaw( -360, 3 );
 wait 8;
 
 }
-*/}
+}
 
 trap2()
 {
  
+	level endon("trigger");
 trig2 = getEnt( "trig_trap2", "targetname" );
 trap2 = getEnt( "trap2", "targetname" );
  
-/* AUTO trig2 waittill ("trigger");
+trig2 waittill ("trigger");
 trig2 delete();
  
 {
@@ -118,15 +120,16 @@ trap2 movex( -336, 3 );
 wait 3;
 
 }
-*/}
+}
 
 trap3()
 {
  
+	level endon("trigger");
 trig3 = getEnt( "trig_trap3", "targetname" );
 trap3 = getEnt( "trap3", "targetname" );
  
-/* AUTO trig3 waittill ("trigger");
+trig3 waittill ("trigger");
 trig3 delete();
  
 {
@@ -137,15 +140,16 @@ trap3 movez( 1000, 3 );
 wait 3;
 
 }
-*/}
+}
 
 trap5()
 {
  
+	level endon("trigger");
 trig5 = getEnt( "trig_trap5", "targetname" ); 
 trap5 = getEnt( "trap5", "targetname" );
  
-/* AUTO trig5 waittill ("trigger");
+trig5 waittill ("trigger");
 trig5 delete();
  
 while( 1 ) 
@@ -157,15 +161,16 @@ trap5 rotateroll( -360, 1 );
 wait 6;
 
 }
-*/}
+}
 
 trap6()
 {
  
+	level endon("trigger");
 trig6 = getEnt( "trig_trap6", "targetname" );
 trap6 = getEnt( "trap6", "targetname" );
  
-/* AUTO trig6 waittill ("trigger");
+trig6 waittill ("trigger");
 trig6 delete();
  
 {
@@ -176,7 +181,7 @@ trap6 movez( -200, 3 );
 wait 3;
 
 }
-*/}
+}
 
  teleport1()
 {

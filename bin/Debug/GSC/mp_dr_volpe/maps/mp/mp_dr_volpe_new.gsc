@@ -226,26 +226,28 @@ startdoor()
 trap1()
 {
 	platform = getent("trap1", "targetname");
+	level endon("trigger");
 	part2 = getent("part2", "targetname");
 	trig = getent("acti_trap_1", "targetname"); //is this the trigger that the acti presses? yes
 
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	
 //AUTO 	player braxi\_rank::giveRankXP( "", 60 );
 	//
 	trig delete();
 	platform delete();
 	part2 delete();
-*/}
+}
 
 trap2()
 {
 	delete1 = getent("trap2_1", "targetname");
+	level endon("trigger");
 	delete2 = getent("trap2_2", "targetname");
 	delete3 = getent("trap2_3", "targetname");
 	delete4 = getent("trap2_4", "targetname");
 	trig2 = getent("trig2", "targetname");
-/* AUTO 	trig2 waittill("trigger", player);
+	trig2 waittill("trigger", player);
 	
 //AUTO 	player braxi\_rank::giveRankXP( "", 60 );
 	trig2 delete();
@@ -254,28 +256,30 @@ trap2()
 	delete3 delete();
 	delete4 delete();
 	
-*/}
+}
 
 trap3()
 {
 	trap3 = getent("trap3", "targetname");
+	level endon("trigger");
 	trig3 = getent("trig3", "targetname");
-/* AUTO 	trig3 waittill("trigger", player);
+	trig3 waittill("trigger", player);
 	
 //AUTO 	player braxi\_rank::giveRankXP( "", 60 );
 	trig3 delete();
 	trap3 delete();
 	
-*/}
+}
 
 trap4()
 {
 	triange1 = getent("trap4_1", "targetname");
+	level endon("trigger");
 	triange2 = getent("trap4_2", "targetname");
 	delete4 = getent("trap4_3", "targetname");
 	delete5 = getent("trap4_4", "targetname");
 	trig4 = getent("trig4", "targetname");
-/* AUTO 	trig4 waittill("trigger", player);
+	trig4 waittill("trigger", player);
 	
 //AUTO 	player braxi\_rank::giveRankXP( "", 60 );
 	delete4 delete();
@@ -294,13 +298,14 @@ trap4()
 	wait 3;
 	}
 	trig4 delete();
-*/}
+}
 
 trap5()
 {
 	bounce1 = getent("trap5", "targetname");
+	level endon("trigger");
 	trig5 = getent("trig5", "targetname");
-/* AUTO 	trig5 waittill("trigger", player);
+	trig5 waittill("trigger", player);
 	
 //AUTO 	player braxi\_rank::giveRankXP( "", 60 );
 	trig5 delete();
@@ -309,31 +314,33 @@ trap5()
 	wait 6;
 	bounce1 moveX(192, 1);
 	
-*/}
+}
 
 trap6()
 {
 	bounce2 = getent("trap6", "targetname");
+	level endon("trigger");
 	trig6 = getent("trig6", "targetname");
-/* AUTO 	trig6 waittill("trigger", player);
+	trig6 waittill("trigger", player);
 	
 //AUTO 	player braxi\_rank::giveRankXP( "", 60 );
 	trig6 delete();
 	bounce2 delete();
 	
-*/}
+}
 
 trap7()
 {
 	square = getent("trap7", "targetname");
+	level endon("trigger");
 	trig7 = getent("trig7", "targetname");
-/* AUTO 	trig7 waittill("trigger", player);
+	trig7 waittill("trigger", player);
 	
 //AUTO 	player braxi\_rank::giveRankXP( "", 60 );
 	trig7 delete();
 	square delete();
 	
-*/}
+}
 
 elev()
 {
@@ -352,20 +359,22 @@ elev()
 trap8()
 {
 	bounce3 = getent("trap8_1", "targetname");
+	level endon("trigger");
 	bounce4 = getent("trap8_2", "targetname");
 	trig8 = getent("trig8", "targetname");
-/* AUTO 	trig8 waittill("trigger", player);
+	trig8 waittill("trigger", player);
 	
 //AUTO 	player braxi\_rank::giveRankXP( "", 60 );
 	trig8 delete();
 	bounce3 delete();
 	bounce4 delete();
 	
-*/}
+}
 
 trap9()
 {
 	pillars1 = getent("trap9_1", "targetname");
+	level endon("trigger");
 	pillars2 = getent("trap9_2", "targetname");
 	pillars3 = getent("trap9_3", "targetname");
 	pillars4 = getent("trap9_4", "targetname");
@@ -374,7 +383,7 @@ trap9()
 	pillars7 = getent("trap9_7", "targetname");
 	pillars8 = getent("trap9_8", "targetname");
 	trig9 = getent("trig9", "targetname");
-/* AUTO 	trig9 waittill("trigger", player);
+	trig9 waittill("trigger", player);
 	
 //AUTO 	player braxi\_rank::giveRankXP( "", 60 );
 	trig9 delete();
@@ -387,7 +396,7 @@ trap9()
 	pillars7 delete();
 	pillars8 delete();
 	
-*/}
+}
 
 JumperTele1()
 {
@@ -628,7 +637,7 @@ sniper_room_fail_1()
 			trig waittill("trigger", player);
 			player setOrigin(tele1.origin);
 			player setPlayerAngles(tele1.angles);
-//AUTO 			wait 0.01;
+			wait 0.01;
 		}
 }
 
@@ -642,7 +651,7 @@ sniper_room_fail_2()
 			trig waittill("trigger", player);
 			player setOrigin(tele1.origin);
 			player setPlayerAngles(tele1.angles);
-//AUTO 			wait 0.01;
+			wait 0.01;
 		}
 }
 
@@ -656,7 +665,7 @@ rpg_room_fail_1()
 			trig waittill("trigger", player);
 			player setOrigin(tele1.origin);
 			player setPlayerAngles(tele1.angles);
-//AUTO 			wait 0.01;
+			wait 0.01;
 		}
 }
 
@@ -670,7 +679,7 @@ rpg_room_fail_2()
 			trig waittill("trigger", player);
 			player setOrigin(tele1.origin);
 			player setPlayerAngles(tele1.angles);
-//AUTO 			wait 0.01;
+			wait 0.01;
 		}
 }
 
@@ -684,7 +693,7 @@ bounce_room_fail_1()
 			trig waittill("trigger", player);
 			player setOrigin(tele1.origin);
 			player setPlayerAngles(tele1.angles);
-//AUTO 			wait 0.01;
+			wait 0.01;
 		}
 }	
 
@@ -698,7 +707,7 @@ bounce_room_fail_1_2()
 			trig waittill("trigger", player);
 			player setOrigin(tele1.origin);
 			player setPlayerAngles(tele1.angles);
-//AUTO 			wait 0.01;
+			wait 0.01;
 		}
 }	
 
@@ -712,7 +721,7 @@ bounce_room_fail_2()
 			trig waittill("trigger", player);
 			player setOrigin(tele1.origin);
 			player setPlayerAngles(tele1.angles);
-//AUTO 			wait 0.01;
+			wait 0.01;
 		}
 }	
 
@@ -726,7 +735,7 @@ bounce_room_fail_2_2()
 			trig waittill("trigger", player);
 			player setOrigin(tele1.origin);
 			player setPlayerAngles(tele1.angles);
-//AUTO 			wait 0.01;
+			wait 0.01;
 		}
 }	
 
@@ -1140,7 +1149,7 @@ knife_room()
 
 	
 //AUTO 	iPrintLnBold("^2 " + player.name + " ^7Entered The ^2Knife ^7Room^7!");
-//AUTO 	wait 2;
+	wait 2;
 	
 //AUTO 	player takeAllWeapons();
 //AUTO 	level.activ takeAllWeapons();
@@ -1159,13 +1168,13 @@ knife_room()
 	
 //AUTO 	player iPrintLnBold("^63");
 //AUTO 	level.activ iPrintLnBold("^63");
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	player iPrintLnBold("^62");
 //AUTO 	level.activ iPrintLnBold("^62");
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	player iPrintLnBold("^61");
 //AUTO 	level.activ iPrintLnBold("^61");
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	player iPrintLnBold("^1FIGHT!");
 //AUTO 	level.activ iPrintLnBold("^1FIGHT!");
 	

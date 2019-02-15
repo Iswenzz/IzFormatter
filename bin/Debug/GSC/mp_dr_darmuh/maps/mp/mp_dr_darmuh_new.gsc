@@ -105,9 +105,10 @@ transporter()
 trap6()
 {
  object = getent("dickmove", "targetname");
+	level endon("trigger");
  trigger = getent("trigger6", "targetname");
 
-/* AUTO  trigger waittill("trigger",player);
+ trigger waittill("trigger",player);
 
   
  while (1)
@@ -119,14 +120,15 @@ trap6()
  object waittill ("movedone");
  wait (0.3);
  }
-*/}
+}
 
 trap6b()
 {
  object = getent("dickmove2", "targetname");
+	level endon("trigger");
  trigger = getent("trigger6", "targetname");
 
-/* AUTO  trigger waittill("trigger",player);
+ trigger waittill("trigger",player);
 
 
   
@@ -140,14 +142,15 @@ trap6b()
  wait (0.3);
  }
 
-*/}
+}
 
 trap5()
 {
  object = getent("target5", "targetname");
+	level endon("trigger");
  trigger = getent("trigger5", "targetname");
  
-/* AUTO  trigger waittill("trigger", player);
+ trigger waittill("trigger", player);
 
  
  while (1)
@@ -161,14 +164,15 @@ trap5()
  }
 
 
-*/}
+}
 
 trap4a()
 {
  object = getent("SNS1", "targetname");
+	level endon("trigger");
  trigger = getent("trigger4", "targetname");
 
-/* AUTO  trigger waittill("trigger", player);
+ trigger waittill("trigger", player);
 
 
 
@@ -182,14 +186,15 @@ trap4a()
   wait (0.2);
  }
 
-*/}
+}
 
 trap4b()
 {
  object = getent("SNS2", "targetname");
+	level endon("trigger");
  trigger = getent("trigger4", "targetname");
 
-/* AUTO  trigger waittill("trigger", player);
+ trigger waittill("trigger", player);
 
 
  while (1)
@@ -201,14 +206,15 @@ trap4b()
   object waittill ("movedone");
   wait (0.2);
  }
-*/}
+}
 
 trap3()
 {
  object = getent("MvingBs", "targetname");
+	level endon("trigger");
  trigger = getent("trigger3", "targetname");
  
-/* AUTO  trigger waittill("trigger", player);
+ trigger waittill("trigger", player);
  
 
  while (1)
@@ -223,14 +229,15 @@ trap3()
 
  
 
-*/}
+}
 
 trap2()
 {
  object = getent("firstblock", "targetname");
+	level endon("trigger");
  trigger = getent("trigger2", "targetname");
 
-/* AUTO  trigger waittill("trigger", player);
+ trigger waittill("trigger", player);
 
 
  object movez (300,0.25);
@@ -238,7 +245,7 @@ trap2()
  wait (1.0);
  object movez (-300,3);
  wait (0.2);
-*/}
+}
 
 teleport()
 {
@@ -314,12 +321,12 @@ kniferoom()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
 //AUTO         iPrintlnBold( " ^5" + player.name + " ^3 picked ^1knife^7!" );
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -354,12 +361,12 @@ sniperoom()
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "m40a3_acog_mp" );
 //AUTO 	level.activ GiveWeapon( "remington700_acog_mp" );         
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "m40a3_acog_mp" );
 //AUTO         level.activ SwitchToWeapon( "m40a3_acog_mp" );
 //AUTO         iPrintlnBold( " ^5" + player.name + " ^3 picked ^1SHNIPAH^7!" );
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -435,10 +442,10 @@ weaponroom()
         level.activ setPlayerangles( acti.angles );
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();       
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         iPrintlnBold( " ^5" + player.name + " ^3 picked ^1WEAPON^7!" );
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -592,16 +599,16 @@ Jumproom()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
 //AUTO         iPrintlnBold( " ^5" + player.name + " ^3 picked ^1JUMP^7!" );
-//AUTO 		wait 0.05;
+		wait 0.05;
 		AmbientStop( 2 );
 //AUTO 		AmbientPlay( "jumproom" );
-//AUTO 		wait 1;
+		wait 1;
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

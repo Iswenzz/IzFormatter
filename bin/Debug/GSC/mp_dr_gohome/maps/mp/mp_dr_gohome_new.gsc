@@ -67,9 +67,10 @@ traps()
 trap1()
 {
 	trig = getent("trap1acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap1_1","targetname");
 	obj2 = getent("trap1_2","targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	wait 0.1;
 	trig delete();
 	wait 0.1;
@@ -86,7 +87,7 @@ trap1()
 	obj2 rotateYaw(360,10);
 	obj1 waittill("movedone");
 	}
-*/}
+}
 
 door()
 {
@@ -104,8 +105,9 @@ door()
 trap2()
 {
 	trig = getent("trap2acti", "targetname");
+	level endon("trigger");
 	obj = getent("trap2","targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	wait 0.1;
 	trig delete();
 	wait 0.1;
@@ -114,7 +116,7 @@ trap2()
 	obj waittill("movedone");
 	obj movex(630, 4);
 	wait(5);
-*/}
+}
 
 nemallmeg()
 {
@@ -133,9 +135,10 @@ nemallmeg()
 trap3()
 {
 	trig = getent("trap3acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap3_1","targetname");
 	obj2 = getent("trap3_2","targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	wait 0.1;
 	trig delete();
 	wait 0.1;
@@ -146,11 +149,12 @@ trap3()
 	obj1 movex(442, 5);
 	obj2 movex(-442, 5);
 	wait(5);
-*/}
+}
 
 trap4()
 {
 	trig = getent("trap4acti", "targetname");
+	level endon("trigger");
 	obj11 = getent("trap4_11","targetname");
 	obj12 = getent("trap4_12","targetname");
 	obj13 = getent("trap4_13","targetname");
@@ -159,7 +163,7 @@ trap4()
 	obj22 = getent("trap4_22","targetname");
 	obj23 = getent("trap4_23","targetname");
 	obj24 = getent("trap4_24","targetname");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	wait 0.1;
 	trig delete();
 	wait 0.1;
@@ -175,16 +179,17 @@ trap4()
 	obj11 waittill("movedone");
 	wait(5);
 
-*/}
+}
 
 trap5()  //xfearz, first I think that didn't work LOL TY m8!
 {
 	trig = getent("trap5acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap5","targetname");
 	hurt = getent("hurt","targetname");
    	hurt enablelinkto();
     	hurt linkto (obj1);
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	wait 0.1;
@@ -193,16 +198,17 @@ trap5()  //xfearz, first I think that didn't work LOL TY m8!
 	obj1 waittill("movedone");
 	obj1 delete();
 	wait(5);
-*/}
+}
 
 trap6()
 {
 	trig = getent("trap6acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap6_1","targetname");
 	obj2 = getent("trap6_2","targetname");
 	obj3 = getent("trap6_3","targetname");
 	obj4 = getent("trap6_4","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	wait 0.1;
@@ -216,16 +222,17 @@ trap6()
 		obj1 waittill("rotatedone");
 		wait 0.1;
 	}
-*/}
+}
 
 trap7()
 {
 	trig = getent("trap7acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap7_1","targetname");
 	obj2 = getent("trap7_2","targetname");
 	obj3 = getent("trap7_3","targetname");
 	obj4 = getent("trap7_4","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	wait 0.1;
@@ -251,13 +258,14 @@ trap7()
 		obj1 waittill("rotatedone");
 		wait 5;
 	}
-*/}
+}
 
 trap8()
 {
 	trig = getent("trap8acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap8","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	wait 0.1;
@@ -268,29 +276,31 @@ trap8()
 		obj1 waittill("rotatedone");
 		wait 2;
 	}
-*/}
+}
 
 trap9()
 {
 	trig = getent("trap9acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap9","targetname");
 	hurt = getent("trap9_hurt","targetname");
     	hurt enablelinkto();
     	hurt linkto (obj1);
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	wait 0.1;
 //AUTO 	iprintln ("^1Trap 10 ^2Activated");
 	obj1 movez(-1600, 1);
-*/}
+}
 
 traphide()
 {
 	trig = getent("trap11acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap11_1","targetname");
 	obj2 = getent("trap11_2","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	wait 0.1;
@@ -300,22 +310,23 @@ traphide()
 	wait 1.5;
 	obj1 movez(200,1);
 	obj2 movez(200,1);
-*/}
+}
 
 trap10()
 {
 	trig = getent("trap10acti", "targetname");
+	level endon("trigger");
 	obj1 = getent("trap10","targetname");
 	obj2 = getent("trap10_1","targetname");
 	obj3 = getent("trap10_2","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	obj1 delete();
 	wait 0.2;
 //AUTO 	iprintln ("^1Trap 11 ^2Activated");
 	obj2 delete();
 	wait 0.2;
 	obj3 delete();
-*/}
+}
 
 kell()
 {
@@ -473,7 +484,7 @@ SniperTrigger()
 
     while(!jumperteleported && !activatorteleported)
     {
-//AUTO     wait 1;
+    wait 1;
         jumpersalive = GetTeamPlayersAlive("allies");
         activatorsalive = GetTeamPlayersAlive("axis");
 
@@ -483,7 +494,7 @@ SniperTrigger()
 		
             for(i=0;i<=players.size;i++)
             {
-//AUTO             wait 0.1;
+            wait 0.1;
                 if(players[i].pers["team"] == "allies" && isAlive(players[i]))
                 {
                     teleporter_jumpers = getent("sniper_jumpers", "targetname");
@@ -492,7 +503,7 @@ SniperTrigger()
 //AUTO 					players[i] GiveWeapon("remington700_mp");
 					players[i] setWeaponAmmoClip( "remington700_mp", 20 );
 					players[i] setweaponammostock( "remington700_mp", 20 );
-//AUTO 					wait 0.05;
+					wait 0.05;
 //AUTO 					players[i] SwitchToWeapon("remington700_mp");
                     jumperteleported = true;
                 }
@@ -504,13 +515,13 @@ SniperTrigger()
 //AUTO 					players[i] GiveWeapon("remington700_mp");
 					players[i] setWeaponAmmoClip( "remington700_mp", 20 );
 					players[i] setweaponammostock( "remington700_mp", 20 );
-//AUTO 					wait 0.05;
+					wait 0.05;
 //AUTO 					players[i] SwitchToWeapon("remington700_mp");
                     activatorteleported = true;
                 }
             }
         }
-//AUTO     wait 0.1;
+    wait 0.1;
     }
 }
 
@@ -527,7 +538,7 @@ KnifeTrigger()
 
     while(!jumperteleported && !activatorteleported)
     {
-//AUTO     wait 1;
+    wait 1;
         jumpersalive = GetTeamPlayersAlive("allies");
         activatorsalive = GetTeamPlayersAlive("axis");
 
@@ -537,7 +548,7 @@ KnifeTrigger()
 		
             for(i=0;i<=players.size;i++)
             {
-//AUTO             wait 0.1;
+            wait 0.1;
                 if(players[i].pers["team"] == "allies" && isAlive(players[i]))
                 {
                     teleporter_jumpers = getent("teleporter_jumpers", "targetname");
@@ -546,7 +557,7 @@ KnifeTrigger()
 //AUTO 					players[i] GiveWeapon("deserteagle_mp");
 					players[i] setWeaponAmmoClip( "deserteagle_mp", 0 );
 					players[i] setweaponammostock( "deserteagle_mp", 0 );
-//AUTO 					wait 0.05;
+					wait 0.05;
 //AUTO 					players[i] SwitchToWeapon("deserteagle_mp");
                     jumperteleported = true;
                 }
@@ -558,13 +569,13 @@ KnifeTrigger()
 //AUTO 					players[i] GiveWeapon("deserteagle_mp");
 					players[i] setWeaponAmmoClip( "deserteagle_mp", 0 );
 					players[i] setweaponammostock( "deserteagle_mp", 0 );
-//AUTO 					wait 0.05;
+					wait 0.05;
 //AUTO 					players[i] SwitchToWeapon("deserteagle_mp");
                     activatorteleported = true;
                 }
             }
         }
-//AUTO     wait 0.1;
+    wait 0.1;
     }
 }
 

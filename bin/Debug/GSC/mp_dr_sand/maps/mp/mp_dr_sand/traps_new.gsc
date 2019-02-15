@@ -44,6 +44,7 @@ flote(objet)
 trap1()
 {
 	pelle1=getent("trap1_brush1","targetname");
+	level endon("trigger");
 	pelle2=getent("trap1_brush2","targetname");
 	sable=getent("trap1_brush4","targetname");
 	trig=getent("trap1_trig","targetname");
@@ -71,7 +72,7 @@ trap1()
 	brush hide();
 	brush2 moveZ(-70,1);
 	
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	trig delete();
 	
 	pelle1 Rotateroll(45, 2, 0.5, 0.5);
@@ -106,11 +107,12 @@ trap1()
 		fire delete();
 		
 	
-*/}
+}
 
 trap2()
 {
 	ori1=getent("trap2_ori1","targetname");
+	level endon("trigger");
 	ori2=getent("trap2_ori2","targetname");
 	ori3=getent("trap2_ori3","targetname");
 	ori4=getent("trap2_ori4","targetname");
@@ -135,7 +137,7 @@ trap2()
 	brush moveZ(500,1);
 	
 	trig SetHintString("^3[USE]");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	brush moveZ(-500,.1);
@@ -163,11 +165,12 @@ trap2()
 	dmg2 delete();
 	dmg3 delete();
 	dmg4 delete();
-*/}
+}
 
 trap3()
 {
 	c4=getent("trap3_c4","targetname");
+	level endon("trigger");
 	c42=getent("trap3_c42","targetname");
 	c43=getent("trap3_c43","targetname");
 	c44=getent("trap3_c44","targetname");
@@ -193,7 +196,7 @@ trap3()
 	dmg2 moveZ(1000,1);
 	
 	trig SetHintString("^3[USE]");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	dmg2 moveZ(-1000,1);
@@ -227,30 +230,32 @@ trap3()
 	thread flote(brush2);
 	wait .5;
 	thread flote(brush3);
-*/}
+}
 
 trap4()
 {
 	trig=getent("trap4_trig","targetname");
+	level endon("trigger");
 	brush=getent("trap4_brush","targetname");
 	
 	trig SetHintString("^3[USE]");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	brush moveZ(-224,4,0,2);
 	wait 8;
 	brush moveZ(224,4,0,2);
-*/}
+}
 
 trap5()
 {
 	trig=getent("trap5_trig","targetname");
+	level endon("trigger");
 	brush1=getent("trap5_brush1","targetname");
 	brush2=getent("trap5_brush2","targetname");
 	
 	trig SetHintString("^3[USE]");
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	brush1 moveY(-176,1,0,.5);
@@ -264,5 +269,5 @@ trap5()
 	brush1 RotateYaw(45,1,0,.5);
 	brush2 moveY(-80,1,0,.5);
 	brush2 RotateYaw(-45,1,0,.5);
-*/}
+}
 

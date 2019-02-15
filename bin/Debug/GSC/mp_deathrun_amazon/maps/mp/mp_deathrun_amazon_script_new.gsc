@@ -86,6 +86,7 @@ messages()
 trap1()
 {
 	part1 = getent ("trap1_1" ,"targetname");
+	level endon("trigger");
 	part2 = getent ("trap1_2" ,"targetname");
 	part3 = getent ("trap1_3" ,"targetname");
 	part4 = getent ("trap1_4" ,"targetname");
@@ -103,7 +104,7 @@ trap1()
 	used = getent ("trap1_used" ,"targetname");
 	trig1 = getent( "trigger1", "targetname" );
 	trig1   setHintString("^4Press ^2[Use] ^3to activate this ^1trap");
-/* AUTO 	trig1 waittill( "trigger", player);
+	trig1 waittill( "trigger", player);
 	trig1 delete();
 	trap1_p rotateroll (25 , 0.7);
 	used movey(4 , 0.5);
@@ -140,7 +141,7 @@ while (1)
 	part1 rotateYaw(-720 , 3);
 	wait 3;
 }
-*/}
+}
 
 auto()
 {
@@ -177,20 +178,22 @@ while (1)
 trap2()
 {
 	trap2 = getent( "trap2", "targetname" );
+	level endon("trigger");
 	trig2 = getent( "trigger2", "targetname" );
 	trap2_p = getent( "trap2_p", "targetname" );
 	used = getent ("trap2_used" ,"targetname");
 	trig2   setHintString("^4Press ^2[Use] ^3to activate this ^1trap");
-/* AUTO 	trig2 waittill( "trigger", player);
+	trig2 waittill( "trigger", player);
 	trig2 delete();
 	used movey(4 , 0.5);
 	trap2_p rotateroll (25 , 0.7);
 	trap2 rotateyaw (4680 , 10);
-*/}
+}
 
 trap3()
 {
 	part1 = getent ("trap3_1" ,"targetname");
+	level endon("trigger");
 	part2 = getent ("trap3_2" ,"targetname");
 	part3 = getent ("trap3_3" ,"targetname");
 	part4 = getent ("trap3_4" ,"targetname");
@@ -202,7 +205,7 @@ trap3()
 	used = getent ("trap3_used" ,"targetname");
 	trap3_p = getent( "trap3_p", "targetname" );
 	trig3   setHintString("^4Press ^2[Use] ^3to activate this ^1trap");
-/* AUTO 	trig3 waittill ("trigger" , player);
+	trig3 waittill ("trigger" , player);
 	trig3 delete();
 	used movey(4 , 0.5);
 
@@ -228,11 +231,12 @@ trap3()
 	part3 rotateYaw (50 , 1);
 	part6 rotateYaw (50 , 1);
 	part7 rotateYaw (-50 , 1);
-*/}
+}
 
 trap4()
 {
 	trig4 = getEnt( "trigger4", "targetname" );
+	level endon("trigger");
 	brush1 = getEnt( "trap4_1", "targetname" );
 	brush2 = getEnt( "trap4_2", "targetname" );
 	brush3 = getEnt( "trap4_3", "targetname" );
@@ -244,7 +248,7 @@ trap4()
 	oldOrigin2 = brush2.origin;
 	oldOrigin3 = brush3.origin;
 
-/* AUTO 	trig4 waittill( "trigger", player);
+	trig4 waittill( "trigger", player);
 	used movey(4 , 0.5);
 	trap4_p rotateroll (25 , 0.7);
 	moveTo = getEnt( brush1.target, "targetname" );
@@ -264,11 +268,12 @@ trap4()
 	brush1 moveTo( oldOrigin1, 1.2 );
 	brush2 moveTo( oldOrigin2, 1.2 );
 	brush3 moveTo( oldOrigin3, 1.2 );
-*/}
+}
 
 trap5()
 {
 	push1 = getent ("trap5_1","targetname" );
+	level endon("trigger");
 	push2 = getent ("trap5_2","targetname" );
 	push3 = getent ("trap5_3","targetname" );
 	push4 = getent ("trap5_4","targetname" );
@@ -280,7 +285,7 @@ trap5()
 	trap5_p = getent ("trap5_p","targetname" );
 	trig5 = getent ("trigger5","targetname" );
 	trig5   setHintString("^4Press ^2[Use] ^3to activate this ^1trap");
-/* AUTO 	trig5 waittill( "trigger", player);
+	trig5 waittill( "trigger", player);
 	trig5 delete();
 	used movey(4 , 0.5);
 	trap5_p rotateroll (25 , 0.7);
@@ -301,16 +306,17 @@ trap5()
 	push4 rotateroll (-360 ,1.5);
 	wait 1.5;
 	}
-*/}
+}
 
 trap6()
 {
 	trig6 = getent ("trigger6","targetname");
+	level endon("trigger");
 	trap6 = getent ("trap6","targetname");
 	trap6_p = getent ("trap6_p","targetname" );
 	used = getent ("trap6_used" ,"targetname");
 	trig6 setHintString("^4Press ^2[Use] ^3to activate this ^1trap");
-/* AUTO 	trig6 waittill ("trigger", player);
+	trig6 waittill ("trigger", player);
 	used movex(4 , 0.5);
 	trig6 delete ();
 	trap6_p rotatepitch (-25 , 0.7);
@@ -319,18 +325,19 @@ trap6()
 		trap6 rotateroll (360 , 4 );
 		wait 1 ;
 		}
-*/}
+}
 
 trap7()
 {
 	trap7_1 = getent( "trap7_1" , "targetname" );
+	level endon("trigger");
 	trap7_2 = getent( "trap7_2" , "targetname" );
 	trap7_3 = getent( "trap7_3" , "targetname" );
 	used = getent ("trap7_used" ,"targetname");
 	trig7 = getent ("trigger7" , "targetname");
 	trap7_p = getent ("trap7_p","targetname" );
 	trig7  setHintString("^4Press ^2[Use] ^3to activate this ^1trap");
-/* AUTO 	trig7 waittill ("trigger" , player);
+	trig7 waittill ("trigger" , player);
 	used movex(4 , 0.5);
 	trig7 delete ();
 	trap7_p rotatepitch (-25 , 0.7);
@@ -342,17 +349,18 @@ trap7()
 		trap7_3 rotatepitch( -360, 3 );
 		wait 3;	
 	}
-*/}
+}
 
 trap8()
 {
 	trig8 = getent ("trigger8", "targetname");
+	level endon("trigger");
 	brush_1 = getent ("brush_1","targetname");
 	brush_2 = getent ("brush_2","targetname");
 	used = getent ("trap8_used" ,"targetname");
 	trap8_p = getent ("trap8_p","targetname" );
 	trig8   setHintString("^4Press ^2[Use] ^3to activate this ^1trap");
-/* AUTO 	trig8 waittill ("trigger",player);
+	trig8 waittill ("trigger",player);
 	used movex(4 , 0.5);
 	trig8 delete ();
 	trap8_p rotatepitch (-25 , 0.7);
@@ -362,7 +370,7 @@ trap8()
 	brush_1 rotateroll (- 90 , 1 ) ;
 	brush_2 rotateroll ( 90 , 1 ) ;
 	wait 2 ;
-*/}
+}
 
 end_message()
 {
@@ -1131,7 +1139,7 @@ while(1)
 //AUTO 	player TakeAllWeapons();
 //AUTO 	player GiveWeapon("remington700_mp");
 //AUTO 	player GiveMaxAmmo("remington700_mp");
-//AUTO 	wait 0.01;
+	wait 0.01;
 //AUTO 	player SwitchToWeapon("remington700_mp");
 	
 	thread sniper_acti();
@@ -1201,7 +1209,7 @@ while(1)
 //AUTO 	player TakeAllWeapons();
 //AUTO 	player GiveWeapon("tomahawk_mp");
 //AUTO 	player GiveMaxAmmo("tomahawk_mp");
-//AUTO 	wait 0.01;
+	wait 0.01;
 //AUTO 	player SwitchToWeapon("tomahawk_mp");
 
 	thread bounce_acti();
@@ -1264,7 +1272,7 @@ while(1)
 //AUTO 	player TakeAllWeapons();
 //AUTO 	player GiveWeapon("knife_mp");
 //AUTO 	player GiveMaxAmmo("knife_mp");
-//AUTO 	wait 0.01;
+	wait 0.01;
 //AUTO 	player SwitchToWeapon("knife_mp");
 
 	thread knife_acti();

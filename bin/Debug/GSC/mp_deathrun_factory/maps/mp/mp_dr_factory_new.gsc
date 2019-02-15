@@ -2508,22 +2508,24 @@ rotate_waw_trap()
 ra_rotate_waw_trap()
 {
   if (!isdefined(self.speed))
+	level endon("trigger");
    self.speed = 10;
   if (!isdefined(self.script_noteworthy))
    self.script_noteworthy = "z";
 //------------------------------------------------------//
   trigger = getent("actv", "targetname");
-/* AUTO   trigger waittill ("trigger",user);
+  trigger waittill ("trigger",user);
   wait 2;
   thread wow_trap_kill();
   // rotateYaw(float rot, float time, <float acceleration_time>, <float deceleration_time>);
     self rotatePitch(-3684,10,2,4);
 	self waittill("rotatedone");
-*/}
+}
 
 wow_trap_kill()
 {
 	trigger1 = getent ("r_nr1","targetname");
+	level endon("trigger");
 	trigger2 = getent ("r_nr2","targetname");
 	
   origin_spin = getent ("origin_spin_end", "targetname");
@@ -2535,8 +2537,8 @@ wow_trap_kill()
   trigger2 linkto( origin_spin );
   
   origin_spin rotatePitch(-3684,10,2,4);
-/* AUTO   self waittill("rotatedone");
-*/}
+  self waittill("rotatedone");
+}
 
 showLogo()
 {

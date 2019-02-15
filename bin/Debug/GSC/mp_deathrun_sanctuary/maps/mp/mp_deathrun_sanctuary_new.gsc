@@ -109,13 +109,14 @@ userEarthquake()
 trap1()
 {
     trig=getent("trig_trap1","targetname");
+	level endon("trigger");
     trapa=getent("trap_1a","targetname");
     trapb=getent("trap_1b","targetname");
     trapc=getent("trap_1c","targetname");
     trapd=getent("trap_1d","targetname");
 
     trig sethintstring("Press ^1[USE]^7 to activate");
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
     trig delete();
 
     while(1)
@@ -129,11 +130,12 @@ trap1()
         trapd rotateroll(360,2);
         wait 4+randomint(3);
     }
-*/}
+}
 
 trap2()
 {
     trig=getent("trig_trap2","targetname");
+	level endon("trigger");
     trapa=getent("trap_2a","targetname");
     trapb=getent("trap_2b","targetname");
 
@@ -159,7 +161,7 @@ trap2()
     level.repair_b4 notsolid();
 
     trig sethintstring("Press ^1[USE]^7 to activate");
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
     trig delete();
     trapa show();
     trapa solid();
@@ -172,15 +174,16 @@ trap2()
     trapa movez(-660,1.5);
 
     thread trap2_repair();
-*/}
+}
 
 trap2_repair()
 {
     repairs=0;
+	level endon("trigger");
     level.repair_trig sethintstring("Press ^1[USE]^7 to repair the Slap");
     for(;;)
     {
-/* AUTO         level.repair_trig waittill("trigger",p);
+        level.repair_trig waittill("trigger",p);
         if(repairs==0)
         {
             repairs++;
@@ -219,13 +222,14 @@ trap2_repair()
         }
         wait 1; 
     }
-*/}
+}
 
 trap3()
 {
     trig=getent("trig_trap3","targetname");
+	level endon("trigger");
     trig sethintstring("Press ^1[USE]^7 to activate");
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
     trig delete();  
 
     if(isdefined(level.ropetim1))
@@ -234,26 +238,28 @@ trap3()
         level.ropetim2 unlink();
     if(isdefined(level.ropetim3))
         level.ropetim3 unlink();
-*/}
+}
 
 trap4()
 {
     trig=getent("trig_trap4","targetname");
+	level endon("trigger");
     trap=getent("trap_4","targetname");
     trig sethintstring("Press ^1[USE]^7 to activate");
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
     trig delete(); 
     trap notsolid();
     wait 5+randomint(4);
     trap solid();
-*/}
+}
 
 trap5()
 {
     trig=getent("trig_trap5","targetname");
+	level endon("trigger");
     trap=getent("trap_5","targetname");
     trig sethintstring("Press ^1[USE]^7 to activate");
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
     trig delete(); 
 
     while(1)
@@ -263,17 +269,18 @@ trap5()
         trap movey(-60,1);
         wait 6+randomint(4);
     }
-*/}
+}
 
 trap6()
 {
     trig=getent("trig_trap6","targetname");
+	level endon("trigger");
     trapa=getent("trap_6a","targetname");
     trapb=getent("trap_6b","targetname");
     trapc=getent("trap_6c","targetname");
     trapd=getent("trap_6d","targetname");
     trig sethintstring("Press ^1[USE]^7 to activate");
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
     trig delete(); 
 
     while(1)
@@ -285,11 +292,12 @@ trap6()
         wait 4+randomint(2);
         trapb movey(168,2);
     }
-*/}
+}
 
 trap7()
 {
     trig=getent("trig_trap7","targetname");
+	level endon("trigger");
     fire=getentarray("trap_7fx","targetname");
     trapa=getent("trap_7","targetname");
     trapb=getent("trap_7b","targetname");
@@ -297,7 +305,7 @@ trap7()
     hfx=undefined;
     trapa maps\mp\_utility::triggerOff();
     trapb maps\mp\_utility::triggerOff();
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
     trig delete(); 
     trapa maps\mp\_utility::triggerOn();
     trapb maps\mp\_utility::triggerOn();
@@ -313,15 +321,16 @@ trap7()
         hfx[i] delete();
     trapa delete();
     trapb delete();
-*/}
+}
 
 trap8()
 {
     trig=getent("trig_trap8","targetname");
+	level endon("trigger");
     trapa=getent("trap_8a","targetname");
     trapb=getent("trap_8b","targetname");
     trig sethintstring("Press ^1[USE]^7 to activate");
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
     trig delete();
 
     while(1)
@@ -330,11 +339,12 @@ trap8()
         trapb rotateroll(-360,2.5);
         wait .1;
     }
-*/}
+}
 
 trap9()
 {
     trig=getent("trig_trap9","targetname");
+	level endon("trigger");
     fire=getentarray("trap_9fx","targetname");
     trapa=getent("trap_9a","targetname");
     trapb=getent("trap_9b","targetname");
@@ -342,7 +352,7 @@ trap9()
     trig sethintstring("Press ^1[USE]^7 to activate");
     trapa maps\mp\_utility::triggerOff();
     trapb maps\mp\_utility::triggerOff();
-/* AUTO     trig waittill("trigger");
+    trig waittill("trigger");
     trig delete(); 
     fireball1=spawn("script_model",(4136,-2464,136));
     fireball1 setmodel("tag_origin");
@@ -372,7 +382,7 @@ trap9()
         hfx[i] delete();
     trapa delete();
     trapb delete();
-*/}
+}
 
 rope1()
 {

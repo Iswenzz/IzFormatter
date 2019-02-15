@@ -31,9 +31,10 @@ main()
 trap1()
 {
 	act1 = getEnt ("trap1_acti", "targetname");
+	level endon("trigger");
 	rotate1 = getEnt ("trap1_trap", "targetname");
 	
-/* AUTO 	act1 waittill ("trigger");
+	act1 waittill ("trigger");
 	act1 delete();
 	
 	while (1) //makes it always rotate
@@ -41,14 +42,15 @@ trap1()
 			rotate1 rotatepitch (360, 5); //rotateroll rotateyaw rotatepitch
 			wait 2; //same speed brush rotates
 		}
-*/}
+}
 
 trap2()
 {
 	act1 = getEnt ("trap2_acti", "targetname");
+	level endon("trigger");
 	rotate1 = getEnt ("trap2_trap", "targetname");
 	
-/* AUTO 	act1 waittill ("trigger");
+	act1 waittill ("trigger");
 	act1 delete();
 	
 	while (1) //makes it always rotate
@@ -56,20 +58,21 @@ trap2()
 			rotate1 rotateroll (360, 2); //rotateroll rotateyaw rotatepitch
 			wait 2; //same speed brush rotates
 		}
-*/}
+}
 
 trap3()
 {
     trig = getEnt ("trap3_acti", "targetname"); 
+	level endon("trigger");
     
-/* AUTO     trig waittill ("trigger", who);
+    trig waittill ("trigger", who);
     trig delete();
     
     if (randomInt(2) == 0)
         thread kill1();
     else
         thread kill2();
-*/}
+}
 
 kill1()
 {
@@ -98,9 +101,10 @@ kill2()
 trap4()
 {
 	act1 = getEnt ("trap4_acti", "targetname");
+	level endon("trigger");
 	rotate1 = getEnt ("trap4_trap", "targetname");
 	
-/* AUTO 	act1 waittill ("trigger");
+	act1 waittill ("trigger");
 	act1 delete();
 	
 	while (1) //makes it always rotate
@@ -108,44 +112,47 @@ trap4()
 			rotate1 rotateroll (360, 2); //rotateroll rotateyaw rotatepitch
 			wait 2; //same speed brush rotates
 		}
-*/}
+}
 
 trap5()
 {	
 trig = getEnt ("trap5_trig", "targetname");	
+	level endon("trigger");
 hurt = getEnt ("trap5_spikehurt", "targetname");	
 spikes = getEnt ("trap5_spike", "targetname"); 
 
 hurt enablelinkto(); 
 hurt linkto (spikes); 
 
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 { 
 spikes moveZ (-244,2);
 wait 5;
 spikes moveZ(244,2);
 }
-*/}
+}
 
 trap6()
 {
 	trig = getEnt ("trap6_acti" , "targetname"); 
+	level endon("trigger");
 	trap = getEnt ("trap6_trap" , "targetname"); 
 	
-/* AUTO 	trig waittill ("trigger"); 
+	trig waittill ("trigger"); 
 	trig delete(); 
 	
 	trap moveY (368,0.4); 
 	wait 5; 
 	trap moveY (-368,0.4); 
-*/}
+}
 
  trap7()
 {
 	act1 = getEnt ("trap7_acti", "targetname");
+	level endon("trigger");
 	rotate1 = getEnt ("trap7_trap", "targetname");
 	
-/* AUTO 	act1 waittill ("trigger");
+	act1 waittill ("trigger");
 	act1 delete();
 	
 			rotate1 rotateroll (360, 2); //rotateroll rotateyaw rotatepitch
@@ -156,17 +163,18 @@ trap6()
 			wait 2; //same speed brush rotates
 			rotate1 rotateroll (360, 2); //rotateroll rotateyaw rotatepitch
 			wait 2; //same speed brush rotates
-*/}
+}
 
 trap8()
 {
 	act1 = getEnt ("trap8_acti", "targetname");
+	level endon("trigger");
 	rotate1 = getEnt ("trap8_trap", "targetname");
 	rotate2 = getEnt ("trap8_trap2" , "targetname");
 	rotate3 = getEnt ("trap8_trap3" , "targetname");
 	rotate4 = getEnt ("trap8_trap4" , "targetname");
 	
-/* AUTO 	act1 waittill ("trigger");
+	act1 waittill ("trigger");
 	act1 delete();
 	
 	while (1)
@@ -179,18 +187,19 @@ trap8()
 			wait 0.1;
 			rotate4 rotateyaw (180, 1);
 		}
-*/}
+}
 
  trap9()
 {
 trap1 = getent("trap9_trap1", "targetname");
+	level endon("trigger");
 trap2 = getent("trap9_trap2", "targetname");
 trap3 = getent("trap9_trap3", "targetname");
 trap4 = getent("trap9_trap4", "targetname");
 trap5 = getent("trap9_trap5", "targetname");
 trig = getEnt ("trap9_acti", "targetname"); 
     
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
     
     while(1)
@@ -208,11 +217,12 @@ trig = getEnt ("trap9_acti", "targetname");
         trap1 movez(128,2);
         trap1 waittill("movedone");
     }
-*/}
+}
 
 trap10()
 {
 	act1 = getEnt ("trap10_acti", "targetname");
+	level endon("trigger");
 	rotate1 = getEnt ("trap10_trap", "targetname");
 	spikes = getEnt ("spikes" , "targetname");
 	spikes2 = getEnt ("spikes2" , "targetname");
@@ -223,7 +233,7 @@ trap10()
 	spikes2 enablelinkto(); 
     spikes2 linkto (rotate1); 
 	
-/* AUTO 	act1 waittill ("trigger");
+	act1 waittill ("trigger");
 	act1 delete();
 	
 	while (1) //makes it always rotate
@@ -231,7 +241,7 @@ trap10()
 			rotate1 rotateyaw (-360, 2); //rotateroll rotateyaw rotatepitch
 			wait 2; //same speed brush rotates
 		}
-*/}
+}
 
 Sniper()
 {
@@ -258,23 +268,23 @@ Sniper()
        
 //AUTO         player TakeAllWeapons();
 //AUTO         player GiveWeapon("remington700_mp");
-//AUTO         wait 0.01;
+        wait 0.01;
 //AUTO         player SwitchToWeapon("remington700_mp");
        
-//AUTO         wait 2;
+        wait 2;
         player FreezeControls (0);
 //AUTO         iPrintlnbold ("Go!");
        
         player thread onDeath();
-//AUTO         wait 0.1;
+        wait 0.1;
        
        
     for(;;)
     {
-//AUTO                 wait .1;               
+                wait .1;               
                 while(isAlive(player))
                 {
-//AUTO                         wait 1;
+                        wait 1;
                 }
                
     }
@@ -337,23 +347,23 @@ Knife()
        
 //AUTO         player TakeAllWeapons();
 //AUTO         player GiveWeapon("tomahawk_mp");
-//AUTO         wait 0.01;
+        wait 0.01;
 //AUTO         player SwitchToWeapon("tomahawk_mp");
        
-//AUTO         wait 2;
+        wait 2;
         player FreezeControls (0);
 //AUTO         iPrintlnbold ("Go!");
        
         player thread onDeath2();
-//AUTO         wait 0.1;
+        wait 0.1;
        
        
     for(;;)
     {
-//AUTO                 wait .1;               
+                wait .1;               
                 while(isAlive(player))
                 {
-//AUTO                         wait 1;
+                        wait 1;
                 }
                
     }
@@ -416,23 +426,23 @@ Bounce()
        
 //AUTO         player TakeAllWeapons();
 //AUTO         player GiveWeapon("tomahawk_mp");
-//AUTO         wait 0.01;
+        wait 0.01;
 //AUTO         player SwitchToWeapon("tomahawk_mp");
        
-//AUTO         wait 2;
+        wait 2;
         player FreezeControls (0);
 //AUTO         iPrintlnbold ("Go!");
        
         player thread onDeath3();
-//AUTO         wait 0.1;
+        wait 0.1;
        
        
     for(;;)
     {
-//AUTO                 wait .1;               
+                wait .1;               
                 while(isAlive(player))
                 {
-//AUTO                         wait 1;
+                        wait 1;
                 }
                
     }

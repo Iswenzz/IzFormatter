@@ -189,20 +189,22 @@ Traps()
 trap1()
 {
 	platform = GetEntArray("trap1_platform","targetname");
+	level endon("trigger");
 	trig = GetEnt("trap1_trig","targetname");
 
 	trig SetHintString("^7Press ^3&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	trig Delete();
 
 	for(i=0;i<platform.size;i++)
 		platform[i] thread trap1_platform();
-*/}
+}
 
 trap1_platform()
 {
 	self MoveZ(304, RandomFloatRange(.5, 1.5));
-/* AUTO 	self waittill( "movedone" );
+	level endon("trigger");
+	self waittill( "movedone" );
 	self MoveZ(-304, RandomFloatRange(2.5, 5));
 
 	for(;;)
@@ -210,18 +212,19 @@ trap1_platform()
 		self RotateYaw(360, .8);
 		self waittill( "rotatedone" );
 	}
-*/}
+}
 
 trap2()
 {
 	supports = GetEnt("trap2_supports","targetname");
+	level endon("trigger");
 	platform = GetEnt("trap2_platform","targetname");
 	trig = GetEnt("trap2_trig","targetname");
 
 	supports NotSolid();
 
 	trig SetHintString("^7Press ^3&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	trig Delete();
 
 	supports MoveZ(-200, 1);
@@ -237,11 +240,12 @@ trap2()
 		platform RotatePitch(360, 2);
 		platform waittill( "rotatedone" );
 	}
-*/}
+}
 
 trap3()
 {
 	spikes = GetEnt("trap3_spikes","targetname");
+	level endon("trigger");
 	spikes_hurt = GetEnt("trap3_spikes_hurt","targetname");
 	platform = GetEnt("trap3_platform","targetname");
 	trig = GetEnt("trap3_trig","targetname");
@@ -250,7 +254,7 @@ trap3()
 	spikes_hurt LinkTo( spikes );
 
 	trig SetHintString("^7Press ^3&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	trig Delete();
 
 	trap = RandomInt( 30 );
@@ -270,11 +274,12 @@ trap3()
 	}
 	else
 		platform Delete();
-*/}
+}
 
 trap4()
 {
 	spinner = GetEnt("trap4_spinner","targetname");
+	level endon("trigger");
 	spinner_hurt = GetEnt("trap4_spinner_hurt","targetname");
 	trig = GetEnt("trap4_trig","targetname");
 
@@ -283,7 +288,7 @@ trap4()
 	spinner_hurt LinkTo( spinner );
 
 	trig SetHintString("^7Press ^3&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	trig Delete();
 
 	spinner thread trap4_spinner_rotate();
@@ -295,26 +300,28 @@ trap4()
 		spinner MoveY(592, RandomFloatRange(.75, 1.75));
 		spinner waittill( "movedone" );
 	}
-*/}
+}
 
 trap4_spinner_rotate()
 {
 	for(;;)
+	level endon("trigger");
 	{
 		self RotateRoll(360, 1);
-/* AUTO 		self waittill( "rotatedone" );
+		self waittill( "rotatedone" );
 	}
-*/}
+}
 
 trap5()
 {
 	pillars1 = GetEnt("trap5_pillars1","targetname");
+	level endon("trigger");
 	pillars2 = GetEnt("trap5_pillars2","targetname");
 	pillars_down = GetEnt("trap5_pillars_down","targetname");
 	trig = GetEnt("trap5_trig","targetname");
 
 	trig SetHintString("^7Press ^3&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	trig Delete();
 
 	pillars_down MoveZ(-200, 1);
@@ -334,11 +341,12 @@ trap5()
 		pillars2 waittill( "movedone" );
 		wait( RandomFloatRange(.5, .75) );
 	}
-*/}
+}
 
 trap6()
 {
 	sides = GetEnt("trap6_sides","targetname");
+	level endon("trigger");
 	laser = GetEnt("trap6_laser","targetname");
 	hurt = GetEnt("trap6_hurt","targetname");
 	trig = GetEnt("trap6_trig","targetname");
@@ -350,7 +358,7 @@ trap6()
 	hurt TriggerOff();
 
 	trig SetHintString("^7Press ^3&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	trig Delete();
 
 	for(;;)
@@ -372,11 +380,12 @@ trap6()
 		laser Hide();
 		wait( RandomFloatRange(3, 5) );
 	}
-*/}
+}
 
 trap7()
 {
 	select = RandomInt( 100 );
+	level endon("trigger");
 	if( select < 30 )
 	{
 		p1 = GetEnt("trap7_p1","targetname");
@@ -401,7 +410,7 @@ trap7()
 	trig = GetEnt("trap7_trig","targetname");
 
 	trig SetHintString("^7Press ^3&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	trig Delete();
 
 	p1 MoveZ(-176, 2);
@@ -413,24 +422,26 @@ trap7()
 	p1 Delete();
 	if( isDefined( p2 ) )
 		p2 Delete();
-*/}
+}
 
 trap8_bridge_troll()
 {
 	bridge = GetEnt("trap8_bridge_troll","targetname");
+	level endon("trigger");
 	trig = GetEnt("trap8_bridge_troll_trig","targetname");
 
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 
 	trig Delete();
 	bridge MoveZ(-200, .5);
 	bridge waittill( "movedone" );
 	bridge Delete();
-*/}
+}
 
 trap8()
 {
 	wall = GetEnt("trap8_wall","targetname");
+	level endon("trigger");
 	hurt = GetEnt("trap8_hurt","targetname");
 	trig = GetEnt("trap8_trig","targetname");
 
@@ -439,7 +450,7 @@ trap8()
 	wall Hide();
 
 	trig SetHintString("^7Press ^3&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	trig Delete();
 
 	hurt TriggerOn();
@@ -450,15 +461,16 @@ trap8()
 
 	hurt Delete();
 	wall Delete();
-*/}
+}
 
 trap9()
 {
 	tunnel = GetEnt("trap9_tunnel","targetname");
+	level endon("trigger");
 	trig = GetEnt("trap9_trig","targetname");
 
 	trig SetHintString("^7Press ^3&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	trig Delete();
 
 	tunnel NotSolid();
@@ -468,11 +480,12 @@ trap9()
 
 	tunnel Show();
 	tunnel Solid();
-*/}
+}
 
 trap10()
 {
 	platform = GetEnt("trap10_platform","targetname");
+	level endon("trigger");
 	spikes = GetEnt("trap10_spikes","targetname");
 	hurt = GetEnt("trap10_hurt","targetname");
 	trig = GetEnt("trap10_trig","targetname");
@@ -481,7 +494,7 @@ trap10()
 	hurt LinkTo( spikes );
 
 	trig SetHintString("^7Press ^3&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	trig Delete();
 
 	WtfWillDisTrapDo = RandomInt( 20 );
@@ -499,17 +512,18 @@ trap10()
 		wait( RandomFloatRange(3, 6) );
 		spikes MoveZ(192, 5);
 	}
-*/}
+}
 
 trap11()
 {
 	t1 = GetEnt("trap11_t1","targetname");
+	level endon("trigger");
 	trig = GetEnt("trap11_trig","targetname");
 
 	t1 MoveZ(-32, .05);
 
 	trig SetHintString("^7Press ^3&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	trig Delete();
 
 	t1 MoveZ(32, .8);
@@ -524,16 +538,17 @@ trap11()
 		t1 waittill( "movedone" );
 		wait 1.2;
 	}
-*/}
+}
 
 trap12()
 {
 	p1 = GetEnt("trap12_p1","targetname");
+	level endon("trigger");
 	p2 = GetEnt("trap12_p2","targetname");
 	trig = GetEnt("trap12_trig","targetname");
 
 	trig SetHintString("^7Press ^3&&1 ^7to Activate Trap");
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	trig Delete();
 
 	DisTrapDoes = RandomInt( 20 );
@@ -547,7 +562,7 @@ trap12()
 		p1 Hide();
 		p2 NotSolid();
 	}
-*/}
+}
 
 Rooms()
 {
@@ -601,7 +616,7 @@ room_jump()
 	        level.activ setOrigin( acti.origin );
 //AUTO 	        level.activ TakeAllWeapons();
 //AUTO 	        level.activ GiveWeapon( "knife_mp" );
-//AUTO 	        wait .05;
+	        wait .05;
 //AUTO 	        player switchToWeapon( "knife_mp" ); 
 //AUTO 	        level.activ SwitchToWeapon( "knife_mp" );
 	        player FreezeControls(1);
@@ -614,7 +629,7 @@ room_jump()
 					players = getentarray("player", "classname");
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 					wait 5;
+					wait 5;
 					player FreezeControls(0);
 					level.activ FreezeControls(0);
 			player waittill( "death" );
@@ -686,7 +701,7 @@ room_snipe()
 //AUTO 	        level.activ TakeAllWeapons();
 //AUTO 	        level.activ GiveWeapon( "slaya_dsr50" );
 //AUTO 	        level.activ GiveMaxAmmo( "slaya_dsr50" );
-//AUTO 	        wait .05;
+	        wait .05;
 //AUTO 	        player switchToWeapon( "slaya_dsr50" ); 
 //AUTO 	        level.activ SwitchToWeapon( "slaya_dsr50" );
 	        player FreezeControls(1);
@@ -699,7 +714,7 @@ room_snipe()
 					players = getentarray("player", "classname");
 					for(i=0;i<players.size;i++)
 						players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 					wait 5;
+					wait 5;
 					player FreezeControls(0);
 					level.activ FreezeControls(0);
 			player waittill( "death" );

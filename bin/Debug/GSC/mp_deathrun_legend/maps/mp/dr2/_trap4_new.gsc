@@ -8,9 +8,10 @@ thread trap4();
 trap4()
 {
 trigger = getent("trigger_trap4","targetname");
+	level endon("trigger");
 object = getent("trap4","targetname");
 killtrigger = getent ("killtrig1" , "targetname");
-/* AUTO trigger waittill ("trigger" , player );
+trigger waittill ("trigger" , player );
 trigger delete();
 {
 killtrigger enablelinkto ();
@@ -22,5 +23,5 @@ object moveY(304, 3);
 object waittill("movedone");
 wait(0.1);
 }
-*/}
+}
 

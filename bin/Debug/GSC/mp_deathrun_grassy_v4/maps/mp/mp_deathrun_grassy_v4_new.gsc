@@ -88,6 +88,7 @@ main()
 trap_1()
 {
 	trig = getEnt( "trigger1", "targetname" );
+	level endon("trigger");
 
 	brush1 = getEnt( "trap4_1", "targetname" );
 	brush2 = getEnt( "trap4_2", "targetname" );
@@ -95,7 +96,7 @@ trap_1()
 	oldOrigin1 = brush1.origin;
 	oldOrigin2 = brush2.origin;
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 
 	moveTo = getEnt( brush1.target, "targetname" );
 	brush1 moveTo( moveTo.origin, 1.2 );
@@ -109,14 +110,15 @@ trap_1()
 
 	brush1 moveTo( oldOrigin1, 1.2 );
 	brush2 moveTo( oldOrigin2, 1.2 );
-*/}
+}
 
 trap_2()
 {
 	trig = getEnt( "trigger2", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap1", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	while( isDefined( brush ) )
@@ -124,13 +126,14 @@ trap_2()
 		brush rotateRoll( 180, 16 );
 		wait 4;
 	}
-*/}
+}
 
 trap_3()
 {
 	trig = getEnt( "trigger3", "targetname" );
+	level endon("trigger");
 	
-/* AUTO 	trig waittill("trigger", who );
+	trig waittill("trigger", who );
 	trig delete();
 	
 	rolls = getEntArray("trap2", "targetname");
@@ -138,27 +141,29 @@ trap_3()
 	rolls[x] rotatePitch( 720, 8 );
 	wait 8;
 	rolls[x].angles = (0,0,0);
-*/}
+}
 
 trap_4()
 {
 	trig = getEnt( "trigger4", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap8", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	brush moveZ( 250, 2 );
 	wait 5;
 	brush moveZ( -250, 2 );
-*/}
+}
 
 trap_5()
 {
 	trig = getEnt( "trigger5", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap9", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	who PlaySound("rotatething");
 	trig delete();
 
@@ -167,37 +172,40 @@ trap_5()
 		brush rotateYaw( 360, 1 );
 		wait 1;
 	}
-*/}
+}
 
 trap_6()
 {
 	trig = getEnt( "trigger6", "targetname" );
+	level endon("trigger");
 	brushGroup1 = getEntArray( "trap11_1", "targetname" );
 	brushGroup2 = getEntArray( "trap11_2", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	
 	brushGroup1[randomInt(brushGroup1.size)] notSolid();
 	brushGroup2[randomInt(brushGroup2.size)] notSolid();
-*/}
+}
 
 trap_7()
 {
 	trig = getEnt( "trigger7", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap13", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	brush delete();
-*/}
+}
 
 trap_8()
 {
 	trig = getEnt( "trigger8", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap12", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	
 	for( i = 0; i < 2; i++ )
@@ -207,17 +215,18 @@ trap_8()
 		brush rotateYaw( -512, 3 );
 		wait 3;
 	}
-*/}
+}
 
 trap_9()
 {
 	trig = getEnt( "trigger9", "targetname" );
+	level endon("trigger");
 	brush1 = getEnt( "movinupndown1", "targetname" );
 	brush2 = getEnt( "movinupndown2", "targetname" );
 	brush3 = getEnt( "movinupndown3", "targetname" );
 	brush4 = getEnt( "movinupndown4", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	who PlaySound("grassplat");
 	trig delete();
 
@@ -233,7 +242,7 @@ trap_9()
 	brush2 moveZ( -156, 2 );
 	brush3 movey( -344, 2 );
 	brush4 movey( 156, 2 );
-*/}
+}
 
 nyancat()
 {

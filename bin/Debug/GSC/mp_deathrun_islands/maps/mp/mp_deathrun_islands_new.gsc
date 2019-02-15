@@ -129,12 +129,13 @@ wait 8;
 trap()
 {
 brush = getent("trap", "targetname");
+	level endon("trigger");
 trig = getent("trap_trig", "targetname");
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 brush rotatepitch (90,2);
 brush waittill("rotatedone");
-*/}
+}
 
 ak()
 {

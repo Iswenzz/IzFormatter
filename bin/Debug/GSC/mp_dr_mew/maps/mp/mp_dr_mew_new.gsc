@@ -707,7 +707,7 @@ for(;;)
 	if(player.hadExplanation > 1)
 //AUTO 		player iprintlnbold("^1>> ^7You've already had 2 room explanations ^1<<");
 	else if(level.actiBusy == 1)
-//AUTO //AUTO 		player iprintlnbold("^1>> ^7Activator is currently getting a room explanation, wait a few seconds ^1<<");
+//AUTO 		player iprintlnbold("^1>> ^7Activator is currently getting a room explanation, wait a few seconds ^1<<");
 	else
 	{
 	player freezeControls(1);
@@ -715,19 +715,19 @@ for(;;)
 	player setOrigin(tp.origin);
 	player setPlayerAngles(tp.angles);
 //AUTO 	player iprintlnbold("^1>> ^7A colour will appear on this board ^1<<");
-//AUTO 	wait 2;
+	wait 2;
 	red1 show();
-//AUTO 	wait 3.5;
+	wait 3.5;
 	air = spawn ("script_model",(0,0,0));
 	air.origin = player.origin;
 	air.angles = player.angles;
 	player linkto (air);
 	air moveto (tp2.origin, 1.5);
-//AUTO 	wait 2.5;
+	wait 2.5;
 	//player setPlayerAngles(tp2.angles);
 	player freezeControls(0);
 //AUTO 	player iprintlnbold("^1>> ^7You must then stand on the colour that was on the board ^1<<");
-//AUTO 	wait 2.5;
+	wait 2.5;
 	ss_black hide();
 	ss_brown hide();
 	ss_blue hide();
@@ -736,9 +736,9 @@ for(;;)
 	ss_green1 hide();
 	ss_purple hide();
 	ss_orange hide();
-//AUTO 	wait 2.5;
+	wait 2.5;
 //AUTO 	player iprintlnbold("^1>> ^7If you don't make it to the colour in time, you lose ^1<<");
-//AUTO 	wait 3;
+	wait 3;
 	player unlink();
 	player setOrigin(back.origin);
 	player setPlayerangles(back.angles);
@@ -754,7 +754,7 @@ for(;;)
 	red1 hide();
 	air delete();
 	player.hadExplanation++;
-//AUTO 	wait 5;
+	wait 5;
 	level.playerBusy = 0;
 	}
 }
@@ -823,7 +823,7 @@ for(;;)
 	if(player.hadExplanation > 1)
 //AUTO 		player iprintlnbold("^1>> ^7You've already had 2 room explanations^1 <<");
 	else if(level.actiBusy == 1)
-//AUTO //AUTO 		player iprintlnbold("^1>> ^7Activator is currently getting a room explanation, wait a few seconds^1 <<");
+//AUTO 		player iprintlnbold("^1>> ^7Activator is currently getting a room explanation, wait a few seconds^1 <<");
 	else
 	{
 	//trig waittill("trigger", player);
@@ -832,9 +832,9 @@ for(;;)
 	player setOrigin(tp2.origin);
 	player setPlayerAngles(tp2.angles);
 //AUTO 	player iprintlnbold("^1>> ^7In this endroom you'll start as the ^1Runner <<");
-//AUTO 	wait 3.5;
+	wait 3.5;
 //AUTO 	player iprintlnbold("^1>> ^7Dodge the Bulldog and run to the other side without getting hit^1 <<");
-//AUTO 	wait 4;
+	wait 4;
 
 	air = spawn ("script_model",(0,0,0));
 	air.origin = player.origin;
@@ -844,13 +844,13 @@ for(;;)
 	player setPlayerAngles(tp.angles);
 	player freezeControls(0);
 //AUTO 	player iprintlnbold("^1>> ^7If You do make it to the other side, the roles change for the next round ^1<<");
-//AUTO 	wait 3.5;
+	wait 3.5;
 	player unlink();
 	player setOrigin(back.origin);
 	player setPlayerangles(back.angles);
 	air delete();
 	player.hadExplanation++;
-//AUTO 	wait 5;
+	wait 5;
 	level.playerBusy = 0;
 	}
 }
@@ -1615,9 +1615,10 @@ actisecretend()
 e_trap1()
 {
 	trig = getent("trig_e_trap1", "targetname");
+	level endon("trigger");
 	trap = getent("easytrap1", "targetname");
 	trig setHintString("^7Press ^5[^7F^5] ^7- ^5Makes Platform Rotate");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	player playsound("heyguys");
 	trig setHintString("^1Activated.");
 //AUTO 	iprintln("^5[^71^5] ^5Actied.");
@@ -1630,14 +1631,15 @@ e_trap1()
 		wait 2;
 	}
 
-*/}
+}
 
 e_trap2()
 {
 	trig = getent("trig_e_trap2", "targetname");
+	level endon("trigger");
 	trap = getent("easytrap2", "targetname");
 	trig setHintString("^7Press ^5[^7F^5] ^7- ^5Makes Platform Disappear");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	player playsound("heyguys");
 	trig setHintString("^1Activated.");
 //AUTO 	iprintln("^5[^72^5] ^5Actied.");
@@ -1658,15 +1660,16 @@ e_trap2()
 		trap solid();
 		wait 3;
 	}
-*/}
+}
 
 e_trap3()
 {
 	trig = getent("trig_e_trap3", "targetname");
+	level endon("trigger");
 	trap = getent("easytrap3_1", "targetname");
 	trap2 = getent("easytrap3_2", "targetname");
 	trig setHintString("^7Press ^5[^7F^5] ^7- ^5Makes Platforms Roll");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	player playsound("heyguys");
 	trig setHintString("^1Activated.");
 //AUTO 	iprintln("^5[^73^5] ^5Actied.");
@@ -1687,18 +1690,19 @@ e_trap3()
 		wait 3.4;
 
 	}
-*/}
+}
 
 old_e_trap4()
 {
 	trig = getent("trig_e_trap4", "targetname");
+	level endon("trigger");
 	trap_1 = getent("easytrap4_1", "targetname");
 	trap_2 = getent("easytrap4_2", "targetname");
 	trap_3 = getent("easytrap4_3", "targetname");
 	trap_4 = getentarray("easytrap4_4", "targetname");
 	trap_5 = getent("easytrap4_5", "targetname");
 	trig setHintString("^7Press ^5[^7F^5] ^7- ^5Makes Platform Disappear");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	player playsound("heyguys");
 	trig setHintString("^1Activated.");
 //AUTO 	iprintln("^5[^74^5] ^5Actied.");
@@ -1735,15 +1739,16 @@ old_e_trap4()
 	}
 
 
-*/}
+}
 
 e_trap4()
 {
 	trig = getent("trig_e_trap4", "targetname");
+	level endon("trigger");
 	trap_1 = getent("easytrap_4", "targetname");
 	trap_2 = getent("easytrap_4_1", "targetname");
 	trig setHintString("^7Press ^5[^7F^5] ^7- ^5Makes Platforms Disappear");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	player playsound("heyguys");
 	trig setHintString("^1Activated.");
 //AUTO 	iprintln("^5[^74^5] ^5Actied.");
@@ -1761,15 +1766,16 @@ e_trap4()
 		trap_2 notsolid();
 		trap_2 hide();
 	}
-*/}
+}
 
 e_trap5()
 {
 	trig = getent("trig_easytrap5", "targetname");
+	level endon("trigger");
 	trap = getent("easytrap5", "targetname");
 	trap2 = getent("easytrap5_1", "targetname");
 	trig setHintString("^7Press ^5[^7F^5] ^7- ^5Makes Pillars Move");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	player playsound("heyguys");
 	trig setHintString("^1Activated.");
 //AUTO 	iprintln("^5[^75^5] ^5Actied.");
@@ -1784,15 +1790,16 @@ e_trap5()
 		trap2 moveY(-248,3);
 		wait 3;
 	}
-*/}
+}
 
 e_trap6()
 {
 	trig = getent("trig_e_trap6", "targetname");
+	level endon("trigger");
 	block1 = getent("trap6_1", "targetname");
 	block2 = getent("trap6_2", "targetname");
 	trig setHintString("^7Press ^5[^7F^5] ^7- ^5Makes Platforms Move");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	player playsound("heyguys");
 	trig setHintString("^1Activated.");
 //AUTO 	iprintln("^5[^76^5] ^5Actied.");
@@ -1808,15 +1815,16 @@ e_trap6()
 		wait 3.5;
 
 	}
-*/}
+}
 
 e_trap7()
 {
 	trig = getent("trig_e_trap7", "targetname");
+	level endon("trigger");
 	trap1 = getentarray("trap7_1", "targetname");
 	trap2 = getent("trap7_2", "targetname");
 	trig setHintString("^7Press ^5[^7F^5] ^7- ^5Makes Platforms Disappear");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	player playsound("heyguys");
 	trig setHintString("^1Activated.");
 //AUTO 	iprintln("^5[^77^5] ^5Actied.");
@@ -1837,16 +1845,17 @@ e_trap7()
 		trap2 solid();
 		wait 1;
 	}
-*/}
+}
 
 e_trap8()
 {
 	trig = getent("trig_e_trap8", "targetname");
+	level endon("trigger");
 	bounce = getent("trap8_1", "targetname");
 	side1 = getent("trap8_2", "targetname");
 	side2 = getent("trap8_3", "targetname");
 	trig setHintString("^7Press ^5[^7F^5] ^7- ^5Makes Platforms Roll (also removes bounce)");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	player playsound("heyguys");
 	trig setHintString("^1Activated.");
 //AUTO 	iprintln("^5[^78^5] ^5Actied.");
@@ -1863,16 +1872,17 @@ e_trap8()
 		side2 rotateRoll(40,2.5);
 		wait 2.5;
 	}
-*/}
+}
 
 e_trap9()
 {
 	trig = getent("trig_e_trap9", "targetname");
+	level endon("trigger");
 	trap1 = getentarray("trap9_1", "targetname");
 	trap2 = getentarray("trap9_2", "targetname");
 	bounce = getent("trap9_3", "targetname");
 	trig setHintString("^7Press ^5[^7F^5] ^7- ^5Removes Bounce");
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 	player playsound("heyguys");
 	trig setHintString("^1Activated.");
 //AUTO 	iprintln("^5[^79^5] ^5Actied.");
@@ -1884,7 +1894,7 @@ e_trap9()
 		trap2 rotateYaw(-360,3);
 		wait 3;
 	}
-*/}
+}
 
 easyend1()
 {
@@ -2049,7 +2059,7 @@ room_simonsays()
     	level.race setHintString("^1P^7ress ^1>^7F^1< ^1F^7or ^1S^7imonSays");
         level.race waittill( "trigger", player );
         if(level.actiBusy == 1)
-//AUTO //AUTO 			player iprintlnbold("Activator is busy, wait a few seconds");
+//AUTO 			player iprintlnbold("Activator is busy, wait a few seconds");
 		else
 		{
         if(!isDefined(level.race))
@@ -2074,26 +2084,26 @@ room_simonsays()
 		level.activ setPlayerangles( level.race_acti_tp.angles );	
 		
 //AUTO 		level.activ TakeAllWeapons();
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold(" ^7>>^13^7<<");
 //AUTO 		level.activ iPrintlnBold(" ^7>>^13^7<<");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold(" ^7>>^12^7<<");
 //AUTO 		level.activ iPrintlnBold(" ^7>>^12^7<<");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold(" ^7>>^11^7<<");
 //AUTO 		level.activ iPrintlnBold(" ^7>>^11^7<<");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iprintlnbold("^1Good Luck!");
 //AUTO 		level.activ iprintlnbold("^1Good Luck!");
-//AUTO 		wait 0.5;
+		wait 0.5;
 		
 		player freezeControls(0);
 		level.activ freezeControls(0);
 		thread ss_game(player);
 		thread ss_check(player);
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 0.1;
+			wait 0.1;
 		level.ss_on = 0;
 		}
     }
@@ -2320,7 +2330,7 @@ room_sniper()
     	level.sniper setHintString("^1P^7ress ^1>^7F^1< ^1F^7or ^1S^7niper");
         level.sniper waittill( "trigger", player );
         if(level.actiBusy == 1)
-//AUTO //AUTO 			player iprintlnbold("Activator is busy, wait a few seconds");
+//AUTO 			player iprintlnbold("Activator is busy, wait a few seconds");
 		else
 		{
         if(!isDefined(level.sniper))
@@ -2341,10 +2351,10 @@ room_sniper()
 		level.activ setOrigin( level.sniper_acti_tp.origin );
 		level.activ setPlayerangles( level.sniper_acti_tp.angles );
 
-//AUTO 		wait 1.5;
+		wait 1.5;
 		
 //AUTO 		player TakeAllWeapons();
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player GiveWeapon( "m40a3_mp" );
 //AUTO 		player GiveWeapon( "remington700_mp" );
 //AUTO 		player GiveMaxAmmo( "m40a3_mp" );
@@ -2352,30 +2362,30 @@ room_sniper()
 			
 //AUTO 		ambientPlay("song14");
 //AUTO 		level.activ TakeAllWeapons();
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		level.activ GiveWeapon( "m40a3_mp" );
 //AUTO 		level.activ GiveWeapon( "remington700_mp" );
 //AUTO 		level.activ GiveMaxAmmo( "m40a3_mp" );
 //AUTO 		level.activ GiveMaxAmmo( "remington700_mp" );
 		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "m40a3_mp" );
 //AUTO 		level.activ switchToWeapon( "m40a3_mp" );
 		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player iPrintlnBold(" ^7>>^13^7<<");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold(" ^7>>^12^7<<");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold(" ^7>>^11^7<<");
-//AUTO 		wait 1.5;
+		wait 1.5;
 //AUTO 		player iPrintlnBold(" ^7>>^1F^7ight^7<<");
 		
 		player freezeControls(0);
 		level.activ freezeControls(0);
 		
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 0.1;
+			wait 0.1;
 		}
     }
 }
@@ -2407,14 +2417,14 @@ room_knife()
     	level.knife setHintString("^1P^7ress ^1>^7F^1< ^1F^7or ^1K^7nife");
         level.knife waittill( "trigger", player );
         if(level.actiBusy == 1)
-//AUTO //AUTO 			player iprintlnbold("Activator is busy, wait a few seconds");
+//AUTO 			player iprintlnbold("Activator is busy, wait a few seconds");
 		else
 		{
         if(!isDefined(level.knife))
             return;
 
 //AUTO 		ambientPlay("song12");
-//AUTO 		wait 0.5;
+		wait 0.5;
 		player freezeControls(1);
 		level.activ freezeControls(1);
 			
@@ -2427,34 +2437,34 @@ room_knife()
 		level.activ setPlayerangles( level.race_acti_tp.angles );
 		
 //AUTO 		player TakeAllWeapons();
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player GiveWeapon( "knife_mp" );
 		
 		level.activ setOrigin( level.knife_acti_tp.origin );
 		level.activ setPlayerangles( level.knife_acti_tp.angles );	
 		
 //AUTO 		level.activ TakeAllWeapons();
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		level.activ GiveWeapon( "knife_mp" );
 		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ switchToWeapon( "knife_mp" );
 		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player iPrintlnBold(" ^7>>^13^7<<");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold(" ^7>>^12^7<<");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold(" ^7>>^11^7<<");
-//AUTO 		wait 1.5;
+		wait 1.5;
 //AUTO 		player iPrintlnBold(" ^7>>^1F^7ight!^7<<");
 		
 		player freezeControls(0);
 		level.activ freezeControls(0);
 		
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 0.1;
+			wait 0.1;
 		}
     }
 }
@@ -3143,13 +3153,13 @@ specialmenu()
 			player setclientdvar("cg_fovmin", "1");
 			player setClientDvar("cg_fovscale", "1.25");
 			player thread secret_secret();
-//AUTO 			wait 0.1;
+			wait 0.1;
 //AUTO 			player switchToWeapon("deserteagle_mp");
 					player setPerk("specialty_fastreload");
 					player setOrigin(tp.origin);
 					player playsound("heyguys");
 //AUTO 					//player iprintlnbold("^1P^7ress ^1[^2G^1] ^1T^7o ^1B^7ounce ^1Y^7ourself.");
-//AUTO 					wait 1;
+					wait 1;
 					player thread bounceme(player);
 		}
 		else

@@ -245,6 +245,7 @@ startgate()
 trap1()
 {
  trigger = getent("trap1_switch","targetname");
+	level endon("trigger");
  
  ball1 = getent("ball1","targetname");
  ball2 = getent("ball2","targetname");
@@ -259,7 +260,7 @@ trap1()
  killtrigger1 linkto (ball1);
  killtrigger2 linkto (ball2);
  
-/* AUTO  trigger waittill ("trigger", player );
+ trigger waittill ("trigger", player );
  trigger delete();
  
  while(1)
@@ -273,11 +274,12 @@ trap1()
 						 statue1 movez (-20,3);
 						 wait(0.7);
 						 }
-*/}
+}
 
 trap2()
 {
  trigger = getent("trap2_switch","targetname");
+	level endon("trigger");
  
  ball3 = getent("ball3","targetname");
  statue2 = getent("statue2","targetname");
@@ -286,7 +288,7 @@ trap2()
  killtrigger3 enablelinkto();
  killtrigger3 linkto (ball3);
  
-/* AUTO  trigger waittill ("trigger", player );
+ trigger waittill ("trigger", player );
  trigger delete();
  
  while(1)
@@ -298,11 +300,12 @@ trap2()
 						 statue2 movez (-20,3);
 						 wait(1);
 						 }
-*/}
+}
 
 trap3()
 {
  trigger = getent("trap3_switch","targetname");
+	level endon("trigger");
  
  ball4 = getent("ball4","targetname");
  statue3 = getent("statue3","targetname");
@@ -311,7 +314,7 @@ trap3()
  killtrigger4 enablelinkto();
  killtrigger4 linkto (ball4);
  
-/* AUTO  trigger waittill ("trigger", player );
+ trigger waittill ("trigger", player );
  trigger delete();
  
  while(1)
@@ -323,11 +326,12 @@ trap3()
 						 statue3 movez (-20,3);
 						 wait(1);
 						 }
-*/}
+}
 
 trap4()
 {
  
+	level endon("trigger");
  trigger = getent("trap4_switch","targetname");
  
  ball5 = getent("ball5","targetname");
@@ -354,7 +358,7 @@ trap4()
  killtrigger8 linkto (ball8);
 
  
-/* AUTO  trigger waittill ("trigger", player );
+ trigger waittill ("trigger", player );
  trigger delete();
  platform delete();
  
@@ -373,7 +377,7 @@ trap4()
 						 statue4 movez (-20,3);
 						 wait(1);
 						 }
-*/}
+}
 
 poles()
 {
@@ -558,6 +562,7 @@ teleport6()
 trap5()
 {
  trigger = getent("trap5_switch","targetname");
+	level endon("trigger");
  
  ball10 = getent("ball10","targetname");
  ball11 = getent("ball11","targetname");
@@ -582,7 +587,7 @@ trap5()
  killtrigger13 linkto (ball13);
  
  
-/* AUTO  trigger waittill ("trigger", player );
+ trigger waittill ("trigger", player );
  trigger delete();
  
  while(1)
@@ -600,11 +605,12 @@ trap5()
 						 statue5 movez (-20,3);
 						 wait(0.6);
 						 }
-*/}
+}
 
 trap6()
 {
  trigger = getent("trap6_switch","targetname");
+	level endon("trigger");
  
  ball14 = getent("ball14","targetname");
  statue6 = getent("statue6","targetname");
@@ -613,7 +619,7 @@ trap6()
  killtrigger14 enablelinkto();
  killtrigger14 linkto (ball14);
  
-/* AUTO  trigger waittill ("trigger", player );
+ trigger waittill ("trigger", player );
  trigger delete();
  
  while(1)
@@ -631,11 +637,12 @@ trap6()
 						 statue6 movez (-20,2);
 						 wait(2);
 						 }
-*/}
+}
 
 trap7()
 {
  trigger = getent("trap7_switch","targetname");
+	level endon("trigger");
  
  ball15 = getent("ball15","targetname");
  ball16 = getent("ball16","targetname");
@@ -661,7 +668,7 @@ trap7()
  killtrigger18 linkto (ball18);
  
  
-/* AUTO  trigger waittill ("trigger", player );
+ trigger waittill ("trigger", player );
  trigger delete();
  
  while(1)
@@ -691,7 +698,7 @@ trap7()
 						 statue7 movez (-20,2);
 						 wait(0.2);
 						 }
-*/}
+}
 
 sniper()
 {
@@ -733,30 +740,30 @@ sniper()
 //AUTO 						level.activ GiveWeapon( "remington700_mp" );
 //AUTO                         level.activ giveMaxAmmo( "remington700_mp" );
 //AUTO                         level.activ SwitchToWeapon( "m40a3_mp" );
-//AUTO                         wait 0.05;
+                        wait 0.05;
                        
                 }
-//AUTO                 wait 0.05;
+                wait 0.05;
                
 //AUTO                 iPrintlnBold( " ^1" + player.name + "^3 Has Chosen sniper room!" ); 
             player freezecontrols(true);
             level.activ freezecontrols(true);
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^13" );
 //AUTO             level.activ iPrintlnBold( "^13" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^12" );
 //AUTO             level.activ iPrintlnBold( "^32" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^11" );
 //AUTO             level.activ iPrintlnBold( "^51" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^1Fight^3!" );
 //AUTO             level.activ iPrintlnBold( "^1Fight^3!" );
             player freezecontrols(false); //Disables the freeze.
             level.activ freezecontrols(false);
                 while( isAlive( player ) && isDefined( player ) )
-//AUTO                         wait 1;
+                        wait 1;
    }
 }
 
@@ -790,30 +797,30 @@ bounce()
 //AUTO                         level.activ TakeAllWeapons();
 //AUTO                         level.activ GiveWeapon( "knife_mp" );
 //AUTO                         level.activ SwitchToWeapon( "knife_mp" );
-//AUTO                         wait 0.05;
+                        wait 0.05;
                        
                 }
-//AUTO                 wait 0.05;
+                wait 0.05;
                
 //AUTO                 iPrintlnBold( " ^1" + player.name + "^3 Has Chosen bounce room!" );     //change to what you want it to be
             player freezecontrols(true);
             level.activ freezecontrols(true);
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^13" );
 //AUTO             level.activ iPrintlnBold( "^13" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^12" );
 //AUTO             level.activ iPrintlnBold( "^32" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^11" );
 //AUTO             level.activ iPrintlnBold( "^51" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^1Fight^3!" );
 //AUTO             level.activ iPrintlnBold( "^1Fight^3!" );
             player freezecontrols(false); //Disables the freeze.
             level.activ freezecontrols(false);
                 while( isAlive( player ) && isDefined( player ) )
-//AUTO                         wait 1;
+                        wait 1;
    }
 }
 
@@ -848,26 +855,26 @@ knife()
 //AUTO                         level.activ TakeAllWeapons();
 //AUTO                         level.activ GiveWeapon( "knife_mp" );
 //AUTO                         level.activ SwitchToWeapon( "knife_mp" );
-//AUTO                         wait 0.05;
+                        wait 0.05;
                        
                 }
-//AUTO                 wait 0.05;
+                wait 0.05;
                
 //AUTO                 iPrintlnBold( " ^1" + player.name + "^3 Has Chosen knife room!" );     //change to what you want it to be
             
 			
 			player freezecontrols(true);
             level.activ freezecontrols(true);
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^13" );
 //AUTO             level.activ iPrintlnBold( "^13" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^12" );
 //AUTO             level.activ iPrintlnBold( "^32" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^11" );
 //AUTO             level.activ iPrintlnBold( "^51" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^1Fight^3!" );
 //AUTO             level.activ iPrintlnBold( "^1Fight^3!" );
             player freezecontrols(false); //Disables the freeze.
@@ -875,7 +882,7 @@ knife()
                 
 				while( isAlive( player ) && isDefined( player ) )
                         
-//AUTO 						wait 1;
+						wait 1;
    }
 }
 
@@ -1319,7 +1326,7 @@ bouncefall() // cheers pixel for this one +1
 
 	while(1) //Looped so it can be actviated more than once
 	{
-//AUTO 		fall waittill("trigger", player ); //Trigger on the floor wait until the player has activated it
+		fall waittill("trigger", player ); //Trigger on the floor wait until the player has activated it
 		if( player.pers["team"] == "allies" ) //If the player is on the jumper's team (allies)
 		{
 			player setOrigin( spawn_jump.origin ); //Set the player's origin to be at the jumper's side
@@ -1330,7 +1337,7 @@ bouncefall() // cheers pixel for this one +1
 			player setOrigin( spawn_acti.origin ); //Set the player's origin at the activator's side
 			player setPlayerAngles(spawn_acti.angles ); //Set the player's angles to match the origin's.
 		}
-//AUTO 		wait .05; //Wait 0.05 seconds
+		wait .05; //Wait 0.05 seconds
 	}
 }
 

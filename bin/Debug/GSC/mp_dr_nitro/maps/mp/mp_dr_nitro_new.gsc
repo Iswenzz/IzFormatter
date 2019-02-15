@@ -771,7 +771,7 @@ kniferoom()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
         player FreezeControls(1);
@@ -784,11 +784,11 @@ kniferoom()
                 players = getentarray("player", "classname");
                 for(i=0;i<players.size;i++)
                     players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO                 wait 5;
+                wait 5;
                 player FreezeControls(0);
                 level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
            
     }
  
@@ -824,7 +824,7 @@ sniperroom()
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "remington700_mp" ); 
 //AUTO         level.activ GiveWeapon("m40a3_mp");       
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "remington700_mp" );
 //AUTO         level.activ SwitchToWeapon( "remington700_mp" );
         player FreezeControls(1);
@@ -837,11 +837,11 @@ sniperroom()
                 players = getentarray("player", "classname");
                 for(i=0;i<players.size;i++)
                     players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO                 wait 5;
+                wait 5;
                 player FreezeControls(0);
                 level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
            
     }
  
@@ -875,7 +875,7 @@ jumproom()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
         player FreezeControls(1);
@@ -888,11 +888,11 @@ jumproom()
                 players = getentarray("player", "classname");
                 for(i=0;i<players.size;i++)
                     players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO                 wait 5;
+                wait 5;
                 player FreezeControls(0);
                 level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
            
     }
  

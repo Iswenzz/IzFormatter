@@ -156,6 +156,7 @@ trig3 delete();
 trap1()
 {
 block1 = getent("trap1a","targetname");
+	level endon("trigger");
 block2 = getent("trap1b","targetname");
 block3 = getent("trap1c","targetname");
 block4 = getent("trap1d","targetname");
@@ -165,7 +166,7 @@ block7 = getent("trap1g","targetname");
 block8 = getent("trap1h","targetname");
 trig = getent("trig_trap1","targetname");
 trig sethintstring ("^1Press &&1 to activate!");
-/* AUTO trig waittill("trigger",player);
+trig waittill("trigger",player);
 trig sethintstring ("^5Activated :/");
 
 x=randomint(1);
@@ -184,24 +185,26 @@ x=randomint(1);
 	}
 	
 
-*/}
+}
 
 trap2()
 {
 rotater = getent("trap2a", "targetname");
+	level endon("trigger");
 trig = getent("trig_trap2","targetname");
 trig sethintstring ("^1Press &&1 to activate!");
-/* AUTO trig waittill("trigger",player);
+trig waittill("trigger",player);
 trig sethintstring ("^5Activated :/");
 
 rotater rotateroll(90, 1);
 wait 2;
 rotater rotateroll(-90, 1);
-*/}
+}
 
 trap3()
 {
 blocky1 = getent("trap3a", "targetname");
+	level endon("trigger");
 blocky2 = getent("trap3b", "targetname");
 blocky3 = getent("trap3c", "targetname");
 bounce1trap = getent("bounce1", "targetname");
@@ -210,7 +213,7 @@ bounce3trap = getent("bounce3", "targetname");
 bounce4trap = getent("bounce4", "targetname");
 trig = getent("trig_trap3","targetname");
 trig sethintstring ("^1Press &&1 to activate!");
-/* AUTO trig waittill("trigger",player);
+trig waittill("trigger",player);
 trig sethintstring ("^5Activated :/");
 
 
@@ -240,11 +243,12 @@ blocky2 moveX (-65, 1);
 wait 1;
 }
 
-*/}
+}
 
 trap4()
 {
 pusher1 = getent("trap4a", "targetname");
+	level endon("trigger");
 pusher2 = getent("trap4b", "targetname");
 pusher3 = getent("trap4c", "targetname");
 pusher4 = getent("trap4d", "targetname");
@@ -252,7 +256,7 @@ pusher5 = getent("trap4e", "targetname");
 pusher6 = getent("trap4f", "targetname");
 trig = getent("trig_trap4","targetname");
 trig sethintstring ("^1Press &&1 to activate!");
-/* AUTO trig waittill("trigger",player);
+trig waittill("trigger",player);
 trig sethintstring ("^5Activated :/");
 
 pusher1 moveZ (-192,1);
@@ -268,15 +272,16 @@ pusher3 moveZ (192,1);
 pusher4 moveZ (192,1);
 pusher5 moveZ (192,1);
 pusher6 moveZ (192,1);
-*/}
+}
 
 trap5()
 {
 platform1 = getent("trap5a", "targetname");
+	level endon("trigger");
 platform2 = getent("trap5b", "targetname");
 trig = getent("trig_trap5","targetname");
 trig sethintstring ("^1Press &&1 to activate!");
-/* AUTO trig waittill("trigger",player);
+trig waittill("trigger",player);
 trig sethintstring ("^5Activated :/");
 
 x=randomint(1);
@@ -287,11 +292,12 @@ x=randomint(1);
 	if(x==1) {
 	platform2 delete();
 	}
-*/}
+}
 
 trap6()
 {
 moving1 = getent("trap6a", "targetname");
+	level endon("trigger");
 moving2 = getent("trap6b", "targetname");
 moving3 = getent("trap6c", "targetname");
 moving4 = getent("trap6d", "targetname");
@@ -299,7 +305,7 @@ moving5 = getent("trap6e", "targetname");
 moving6 = getent("trap6f", "targetname");
 trig = getent("trig_trap6","targetname");
 trig sethintstring ("^1Press &&1 to activate!");
-/* AUTO trig waittill("trigger",player);
+trig waittill("trigger",player);
 trig sethintstring ("^5Activated :/");
 
 while(1)
@@ -320,17 +326,18 @@ moving6 moveX (128,1);
 wait 1;
 }
 
-*/}
+}
 
 trap7()
 {
 pushy1 = getent("trap7a", "targetname");
+	level endon("trigger");
 pushy2 = getent("trap7b", "targetname");
 pushy3 = getent("trap7c", "targetname");
 pushy4 = getent("trap7d", "targetname");
 trig = getent("trig_trap7","targetname");
 trig sethintstring ("^1Press &&1 to activate!");
-/* AUTO trig waittill("trigger",player);
+trig waittill("trigger",player);
 trig sethintstring ("^5Activated :/");
 
 while(1)
@@ -347,18 +354,19 @@ pushy4 moveY (-192,3);
 wait 6;
 }
 
-*/}
+}
 
 trap8()
 {
 blockade1 = getent("trap8a", "targetname");
+	level endon("trigger");
 blockade2 = getent("trap8b", "targetname");
 thingy = getent("trap8c", "targetname");
 hurt = getent("damager", "targetname");
 explosion = getent ("fx_origin", "targetname");
 trig = getent("trig_trap8","targetname");
 trig sethintstring ("^1Press &&1 to activate!");
-/* AUTO trig waittill("trigger",player);
+trig waittill("trigger",player);
 trig sethintstring ("^5Activated :/");
 
 hurt EnableLinkTo();
@@ -378,7 +386,7 @@ wait 1;
 blockade1 delete();
 blockade2 delete();
 
-*/}
+}
 
 old()
 {
@@ -430,7 +438,7 @@ sniper()
 				//level.jump_trigger delete();
 				level.firstenter=false;
 				} 
-//AUTO 				wait(0.05);
+				wait(0.05);
 		player setOrigin( telejumporigin3.origin );
 		player setPlayerAngles( telejumporigin3.angles );
 //AUTO 		player takeAllWeapons();
@@ -438,9 +446,9 @@ sniper()
 //AUTO 		player giveWeapon( "remington700_mp" ); 
 //AUTO 		player giveMaxAmmo("m40a3_mp");
 //AUTO 		player giveMaxAmmo( "remington700_mp" );
-//AUTO 		wait (0.05);
+		wait (0.05);
 //AUTO 		player switchToWeapon("m40a3_mp"); 
-//AUTO 		wait(0.05);
+		wait(0.05);
 		level.activ setOrigin (level.teleactorigin3.origin);
 		level.activ setPlayerAngles (level.teleactorigin3.angles);
 //AUTO 		level.activ takeAllWeapons();
@@ -448,12 +456,12 @@ sniper()
 //AUTO 		level.activ giveWeapon( "remington700_mp" );
 //AUTO 		level.activ giveMaxAmmo("m40a3_mp");
 //AUTO 		level.activ giveMaxAmmo( "remington700_mp" );
-//AUTO 		wait (0.05);
+		wait (0.05);
 //AUTO 		level.activ switchToWeapon("m40a3_mp");
 		player freezeControls(true); 
 		level.activ freezeControls(true);
 //AUTO 		iPrintLnBold( " ^3" + player.name + " ^5 has chosen the Sniper room^2!" );
-//AUTO 		wait 2;
+		wait 2;
 		player freezeControls(false); 
 		level.activ freezeControls(false); 
 		
@@ -489,14 +497,14 @@ knife()
 		}
 		
 		{
-//AUTO 		wait (0.05);
+		wait (0.05);
 		
 		player setOrigin( telejumporigin2.origin );
 		player setPlayerAngles( telejumporigin2.angles );
 //AUTO 		player takeAllWeapons();
 //AUTO 		player giveWeapon("knife_mp");
 //AUTO 		player switchToWeapon("knife_mp"); 
-//AUTO 		wait(0.05);
+		wait(0.05);
 		level.activ setOrigin (level.teleactorigin2.origin);
 		level.activ setPlayerAngles (level.teleactorigin2.angles);
 //AUTO 		level.activ takeAllWeapons();
@@ -505,7 +513,7 @@ knife()
 		player freezeControls(true); 
 		level.activ freezeControls(true);
 //AUTO 		iPrintLnBold( " ^3" + player.name + " ^5 has chosen the Knife room^2!" ); 		
-//AUTO 		wait 2;
+		wait 2;
 		player freezeControls(false); 
 		level.activ freezeControls(false); 		
 		

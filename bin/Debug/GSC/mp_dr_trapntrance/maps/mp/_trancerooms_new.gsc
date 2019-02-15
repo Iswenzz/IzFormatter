@@ -35,7 +35,7 @@ trancesniper()
         level.activ setPlayerangles( acti.angles );
         level.activ setOrigin( acti.origin );
 
-//AUTO 		wait 0.5;
+		wait 0.5;
         ambientStop( 1.5 );
 //AUTO         ambientPlay("tranceroom");
 
@@ -60,12 +60,12 @@ trancesniper()
             players = getEntArray("player", "classname");
             for(i=0;i<players.size;i++)
             players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO             wait 2;
+            wait 2;
 
         playFx ( level.exploderoom, explode.origin );
         playFX ( level.orbs, (-7160, 3256, 1864));
 
-//AUTO         wait 5;
+        wait 5;
 
 //AUTO         iPrintLnBold("Fight!");
 
@@ -74,7 +74,7 @@ trancesniper()
 
 
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 
     }
 }
@@ -104,7 +104,7 @@ tranceshotgun()
         level.activ setPlayerangles( acti.angles );
         level.activ setOrigin( acti.origin );
 
-//AUTO 		wait 0.5;
+		wait 0.5;
         ambientStop( 1.5 );
 //AUTO         ambientPlay("tranceroom");
 
@@ -127,12 +127,12 @@ tranceshotgun()
             players = getEntArray("player", "classname");
             for(i=0;i<players.size;i++)
             players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO             wait 2;
+            wait 2;
 
         playFx ( level.exploderoom, explode.origin );
         playFX ( level.orbs, (-7160, 3256, 1864));
 
-//AUTO         wait 5;
+        wait 5;
 
 //AUTO         iPrintLnBold("Fight!");
 
@@ -140,7 +140,7 @@ tranceshotgun()
 		level.activ FreezeControls(0);
 
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 
     }
 }
@@ -170,7 +170,7 @@ tranceknife()
         level.activ setPlayerangles( acti.angles );
         level.activ setOrigin( acti.origin );
 
-//AUTO 		wait 0.5;
+		wait 0.5;
         ambientStop( 1.5 );
 //AUTO         ambientPlay("tranceroom");
 
@@ -193,12 +193,12 @@ tranceknife()
             players = getEntArray("player", "classname");
             for(i=0;i<players.size;i++)
             players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO             wait 2;
+            wait 2;
 
         playFx ( level.exploderoom, explode.origin );
         playFX ( level.orbs, (2048, 4576, -152));
 
-//AUTO         wait 5;
+        wait 5;
 
 //AUTO         iPrintLnBold("Fight!");
 
@@ -206,7 +206,7 @@ tranceknife()
 		level.activ FreezeControls(0);
 
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 
     }
 }
@@ -236,7 +236,7 @@ trancedeagle()
         level.activ setPlayerangles( acti.angles );
         level.activ setOrigin( acti.origin );
 
-//AUTO 		wait 0.5;
+		wait 0.5;
         ambientStop( 1.5 );
 //AUTO         ambientPlay("tranceroom");
 
@@ -261,12 +261,12 @@ trancedeagle()
             players = getEntArray("player", "classname");
             for(i=0;i<players.size;i++)
             players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO             wait 2;
+            wait 2;
 
         playFx ( level.exploderoom, explode.origin );
         playFX ( level.orbs, (2048, 4576, -152));
 
-//AUTO         wait 5;
+        wait 5;
 
 //AUTO         iPrintLnBold("Fight!");    
 
@@ -274,7 +274,7 @@ trancedeagle()
 		level.activ FreezeControls(0);
 
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 
     }
 }

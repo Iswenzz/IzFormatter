@@ -86,95 +86,103 @@ MakeTriggers()
 trapN1()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap1();
 		self delete();
 		break;
 	}
 	
-*/}
+}
 
 trapN2()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap2();
 		self delete();
 		break;
 	}	
-*/}
+}
 
 trapN3()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap3();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN4()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap4();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN5()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap5();
 		self delete();
 		break;
 	}	
-*/}
+}
 
 trapN6()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap6();
 		self delete();
 		break;
 	}
-*/}
+}
 
 trapN7()
 {
 	while(1)
+	level endon("trigger");
 	{
-/* AUTO 		self waittill("trigger", who );
+		self waittill("trigger", who );
 
 		thread gotrap7();
 		self delete();
 		break;
 	}
-*/}
+}
 
 gotrap1()
 {
 	trabn1_obj1 = getent("trap11","targetname");
+	level endon("trigger");
 	trabn1_obj2 = getent("trap12","targetname");
 	
 		trabn1_obj1 movez (-50,7,0,0.1);
-/* AUTO 		trabn1_obj1 waittill ("movedone"); 
+		trabn1_obj1 waittill ("movedone"); 
 		wait (1);
  		
 		trabn1_obj1 movez (50,5,0,0.1);
@@ -189,7 +197,7 @@ gotrap1()
 		trabn1_obj2 waittill ("movedone"); 
 		wait (5);
 
-*/}
+}
 
 gotrap2()
 {
@@ -207,35 +215,38 @@ gotrap2()
 movetrap2()
 {
 		self.nun = RandomInt(2);
+	level endon("trigger");
 		if (self.nun != 1)
 			{
 				self movez (-100,3,0,1);
-/* AUTO 				self waittill("movedone");
+				self waittill("movedone");
 			}
 
-*/}
+}
 
 gotrap3()
 {
 	trabn3_obj = getent("trap3","targetname");
+	level endon("trigger");
 	
 		trabn3_obj movez (-190,11,0,0.1);
-/* AUTO 		trabn3_obj waittill ("movedone");
+		trabn3_obj waittill ("movedone");
 		wait (1);
  		
 		trabn3_obj movez (190,11,0,0.1);
 		trabn3_obj waittill ("movedone"); 		
-*/}
+}
 
 gotrap4()
 {
 	trabn4_obj = getent("trap4","targetname");
+	level endon("trigger");
 	pos1up = getent("pos1","targetname");
 	pos2dw = getent("pos2","targetname");
 	pos3in = getent("pos3","targetname");
 
 		trabn4_obj moveto (pos3in.origin, 1); 
-/* AUTO 		trabn4_obj waittill ("movedone");
+		trabn4_obj waittill ("movedone");
 	
 		trabn4_obj moveto (pos1up.origin, 1); 
 		trabn4_obj waittill ("movedone");
@@ -245,7 +256,7 @@ gotrap4()
 
 		trabn4_obj moveto (pos3in.origin, 1);
 		trabn4_obj waittill ("movedone"); 
-*/}
+}
 
 gotrap5()
 {
@@ -263,18 +274,20 @@ gotrap5()
 movetrap5()
 {
 		
+	level endon("trigger");
 	self.nun = RandomInt(2);
 	if (self.nun != 1)
 	{
 		self rotateRoll(360,6);
-/* AUTO 		self waittill ("rotatedone");
+		self waittill ("rotatedone");
 	}
 
-*/}
+}
 
 gotrap6()
 {
 	trab_obj61 = getent("trap61","targetname");
+	level endon("trigger");
 	trab_obj62 = getent("trap62","targetname");
 	trab_obj6a = getent("trap6a","targetname");
 	trab_obj6b = getent("trap6b","targetname");
@@ -285,7 +298,7 @@ while(1)
 		trab_obj6a movez (10,1,0,0.1);
 		trab_obj61 movez (-40,1,0,0.1);
 		
-/* AUTO 		trab_obj61 waittill ("movedone");
+		trab_obj61 waittill ("movedone");
 		
 		wait (1);
 		
@@ -309,17 +322,18 @@ while(1)
 		trab_obj62 waittill ("movedone");
 		wait(RandomInt(3));	
 	} 	
-*/}
+}
 
 gotrap7()
 {
 	trabn7_obj = getent("trap7","targetname");
+	level endon("trigger");
 	pos1bup = getent("pos1b","targetname");
 	pos2bdw = getent("pos2b","targetname");
 	pos3bin = getent("pos3b","targetname");
 
 		trabn7_obj moveto (pos3bin.origin, 1); 
-/* AUTO 		trabn7_obj waittill ("movedone");
+		trabn7_obj waittill ("movedone");
 	
 		trabn7_obj moveto (pos1bup.origin, 1); 
 		trabn7_obj waittill ("movedone");
@@ -329,7 +343,7 @@ gotrap7()
 
 		trabn7_obj moveto (pos3bin.origin, 1);
 		trabn7_obj waittill ("movedone"); 
-*/}
+}
 
 WatchGame()
 {

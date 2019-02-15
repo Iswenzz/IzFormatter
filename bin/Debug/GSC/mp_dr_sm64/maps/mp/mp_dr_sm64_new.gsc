@@ -1207,7 +1207,8 @@ yegg = getEnt("yoshi_egg_acti","targetname");
 trap1()
 {
 trig = getent("trig_trap1","targetname");
-/* AUTO trig waittill("trigger" , user );
+	level endon("trigger");
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -1223,12 +1224,13 @@ trig delete();
 user playSound("coin");
 thread ballstrapsetup();
 thread activcube();
-*/}
+}
 
 trap2()
 {
 trig = getent("trig_trap2","targetname");
-/* AUTO trig waittill("trigger" , user );
+	level endon("trigger");
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -1245,12 +1247,13 @@ user playSound("coin");
 thread traprandom();
 thread trapmaskass1();
 thread activcube();
-*/}
+}
 
 trap3()
 {
 trig = getent("trig_trap3","targetname");
-/* AUTO trig waittill("trigger" , user );
+	level endon("trigger");
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -1266,12 +1269,13 @@ trig delete();
 user playSound("coin");
 thread activcube();
 thread movingballsetup();
-*/}
+}
 
 trap4()
 {
 trig = getent("trig_trap4","targetname");
-/* AUTO trig waittill("trigger" , user );
+	level endon("trigger");
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -1287,12 +1291,13 @@ trig delete();
 user playSound("coin");
 thread activcube();
 thread traprandom2();
-*/}
+}
 
 trap5()
 {
 trig = getent("trig_trap5","targetname");
-/* AUTO trig waittill("trigger" , user );
+	level endon("trigger");
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -1308,12 +1313,13 @@ trig delete();
 user playSound("coin");
 thread activcube();
 thread traphammer();
-*/}
+}
 
 trap6()
 {
 trig = getent("trig_trap6","targetname");
-/* AUTO trig waittill("trigger" , user );
+	level endon("trigger");
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -1329,12 +1335,13 @@ trig delete();
 user playSound("coin");
 thread activcube();
 thread trapmaskass2();
-*/}
+}
 
 trap7()
 {
 trig = getent("trig_trap7","targetname");
-/* AUTO trig waittill("trigger" , user );
+	level endon("trigger");
+trig waittill("trigger" , user );
 if(user.pers["team"] != "axis")
 {
 	wait 0.2;
@@ -1353,7 +1360,7 @@ thread trappusher();
 thread activcube();
 wait 7;
 thread trapmtn2();
-*/}
+}
 
 pos1e2()
 {
@@ -3319,7 +3326,7 @@ for(;;)
 //AUTO 	player giveweapon("remington700_mp");
 //AUTO 	activator giveweapon("remington700_mp");
 	thread createhud(player.name + " ^3selected ^7snipah ^2war!");
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("^5FIGHT ^7!!!");
 //AUTO 	activator iprintlnbold("^5FIGHT ^7!!!");
 	player freezeControls(false);
@@ -3365,7 +3372,7 @@ for(;;)
 	activator setPlayerAngles(acti.angles);
 //AUTO 	player takeallweapons();
 //AUTO 	activator takeallweapons();
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	IPrintLnbold("^2Fight!!!.");
 	i = randomintrange(0, 8);
 	weapon = "rpg_mp";
@@ -3407,7 +3414,7 @@ for(;;)
 //AUTO 	activator giveweapon(weapon);
 //AUTO 	activator givemaxammo(weapon);
 //AUTO 	player givemaxammo(weapon);
-//AUTO 	wait .1;
+	wait .1;
 //AUTO 	player switchtoweapon(weapon);
 //AUTO 	activator switchtoweapon(weapon);
 	player freezeControls(false);
@@ -3451,7 +3458,7 @@ for(;;)
 //AUTO 	activator giveweapon("knife_mp");
 //AUTO 	player giveweapon("knife_mp");
 	thread createhud(player.name + " ^2Selected ^7bounce ^3Room ^7:]");
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("GO^3!^7!^3!");
 //AUTO 	activator iprintlnbold("GO^3!^7!^3!");
 	player freezeControls(false);
@@ -3527,7 +3534,7 @@ for(;;)
 //AUTO 	activator giveweapon("deserteaglegold_mp");
 //AUTO 	player giveweapon("deserteaglegold_mp");
 	thread createhud(player.name + " ^2Selected ^3spe^7ed ^2Ru^7n Way !^5!^7!");
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("GO^3!^7!^3!");
 //AUTO 	activator iprintlnbold("GO^3!^7!^3!");
 	player freezeControls(false);
@@ -3760,7 +3767,7 @@ for(;;)
 //AUTO 	activator giveweapon("tomahawk_mp");
 //AUTO 	player giveweapon("tomahawk_mp");
 	thread createhud(player.name + " ^2Selected ^7Knife ^3room.");
-//AUTO 	wait 5;
+	wait 5;
 	player freezeControls(false);
 	activator freezeControls(false);
 //AUTO 	player switchtoweapon("tomahawk_mp");

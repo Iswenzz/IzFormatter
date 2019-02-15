@@ -153,6 +153,7 @@ musicStuff()
 trap1()
 {
 	trap1_trigger = getent("trap1_trigger","targetname"); //acti trigger
+	level endon("trigger");
 	trap1_1 = getent("trap1_1","targetname"); 
 	trap1_2 = getent("trap1_2","targetname"); 
 	trap1_3 = getent("trap1_3","targetname"); 
@@ -167,7 +168,7 @@ trap1()
 	trap1_4_t2 = getent("trap1_4_t2","targetname");
 
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap1_trigger waittill("trigger", who);
+	trap1_trigger waittill("trigger", who);
 	trap1_trigger delete();
 
 	trap1_1 moveTo(trap1_1_t1.origin, 2, 0 , 0.5);
@@ -189,45 +190,48 @@ trap1()
 		trap1_4 moveTo(trap1_4_t1.origin, 6, 1 , 1);
 		wait 8;
 	}
-*/}
+}
 
 trap9_tele_heen()
 {
 	trig_heen = getent("trap9_in_trig", "targetname");
+	level endon("trigger");
 	orig_heen = getent("trap9_in_orig", "targetname");
 
 	while(true)
 	{
-/* AUTO 		trig_heen waittill ("trigger", who);	
+		trig_heen waittill ("trigger", who);	
 		who SetPlayerAngles( orig_heen.angles );
 		who setOrigin( orig_heen.origin ); //teleports the jumper
 		wait 1;
 	}
-*/}
+}
 
 trap9_tele_terug()
 {
 	trig_terug = getent("trap9_out_trig", "targetname");
+	level endon("trigger");
 	orig_terug = getent("trap9_out_orig", "targetname");
 
 	while(true)
 	{
-/* AUTO 		trig_terug waittill ("trigger", who);	
+		trig_terug waittill ("trigger", who);	
 		who SetPlayerAngles( orig_terug.angles );
 		who setOrigin( orig_terug.origin ); //teleports the jumper
 		wait 1;
 	}
-*/}
+}
 
 trap2()
 {
 	trap2 = getent("trap2","targetname");
+	level endon("trigger");
 	trap2p = getent("trap2_plat","targetname");
 	trap2_trigger = getent("trap2_trigger","targetname");
 
 
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap2_trigger waittill("trigger", who);
+	trap2_trigger waittill("trigger", who);
 	trap2_trigger delete();
 
 
@@ -239,11 +243,12 @@ trap2()
 	trap2 Solid();
 	trap2p MoveZ(500, 1);
 	wait 1;
-*/}
+}
 
 trap3()
 {
 	trap3_trigger = getent("trap3_trigger","targetname"); //acti trigger
+	level endon("trigger");
 	trap3_1 = getent("trap3_1","targetname"); 
 	trap3_2 = getent("trap3_2","targetname"); 
 	trap3_3 = getent("trap3_3","targetname"); 
@@ -267,7 +272,7 @@ trap3()
 	trap3_2 moveTo(trap3_2_t2.origin, 1, 0 , 0.5);
 	trap3_3 moveTo(trap3_3_t1.origin, 1, 0 , 0.5);
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap3_trigger waittill("trigger", who);
+	trap3_trigger waittill("trigger", who);
 	trap3_trigger delete();
 
 
@@ -292,15 +297,16 @@ trap3()
 		trap3_3 moveTo(trap3_3_t1.origin, 1, 0.5 , 0.3);
 		wait 1;
 	}
-*/}
+}
 
 trap4()
 {
 	trap4a = getent("trap4a","targetname");
+	level endon("trigger");
 	trap4b = getent("trap4b","targetname");
 	trap4_trigger = getent("trap4_trigger","targetname");
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap4_trigger waittill("trigger", who);
+	trap4_trigger waittill("trigger", who);
 	trap4_trigger delete();
 
 
@@ -310,11 +316,12 @@ trap4()
 		trap4b rotatePitch(360,10);
 		wait 10;
 	}
-*/}
+}
 
 trap5()
 {
 	bounce1 = getent("bounce1","targetname");
+	level endon("trigger");
 	fan1 = getent("fan1","targetname");
 	trap5_trigger = getent("trap5_trigger","targetname");
 	level._effect["dust"] = loadfx ("treadfx/tread_dust_hunted");
@@ -322,7 +329,7 @@ trap5()
 
 	bounce1 triggeroff();
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap5_trigger waittill("trigger", who);
+	trap5_trigger waittill("trigger", who);
 	trap5_trigger delete();
 
 
@@ -339,18 +346,19 @@ trap5()
 		bounce1 triggerOff();
 		wait 4;
 	}
-*/}
+}
 
 trap6()
 {
 	bounce2 = getent("bounce2","targetname");
+	level endon("trigger");
 	fan2 = getent("fan2","targetname");
 	trap6_trigger = getent("trap6_trigger","targetname");
 	fxfan2 = getent ("fxfan2","targetname");
 
 	bounce2 triggeroff();
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap6_trigger waittill("trigger", who);
+	trap6_trigger waittill("trigger", who);
 	trap6_trigger delete();
 
 	fx2 = undefined;
@@ -366,7 +374,7 @@ trap6()
 		bounce2 triggerOff();
 		wait 4;
 	}
-*/}
+}
 
 bouncer1()
 {
@@ -401,6 +409,7 @@ bouncer2()
 trap7()
 {
 	trap7_trigger = getent("trap7_trigger","targetname"); //acti trigger
+	level endon("trigger");
 	fire1 = getent("fire1","targetname"); 
 	fire2 = getent("fire2","targetname"); 
 	fire3 = getent("fire3","targetname"); 
@@ -417,7 +426,7 @@ trap7()
 	fire3_hurt triggeroff();
 	fire4_hurt triggeroff();
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap7_trigger waittill("trigger", who);
+	trap7_trigger waittill("trigger", who);
 	trap7_trigger delete();
 
 
@@ -457,11 +466,12 @@ trap7()
 		FX delete();
 		wait 0.01;
     }
-*/}
+}
 
 trap9()
 {
 	trap9 = getent("trap9","targetname");
+	level endon("trigger");
 	trap9_trigger = getent("trap9_trigger","targetname");
 	trap9_hurt = getent("trap9_hurt","targetname");
 	trap9_hurt enableLinkTo();
@@ -471,7 +481,7 @@ trap9()
 	//trap4a rotatePitch(90, 1);
 	//trap4b rotatePitch(90, 1);
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap9_trigger waittill("trigger", who);
+	trap9_trigger waittill("trigger", who);
 	trap9_trigger delete();
 
 
@@ -479,7 +489,7 @@ trap9()
 		//PlayFX( level.splash_fx, trap4.origin );
 		trap9 PlaySound ("bigdoor");
 		wait 2;
-*/}
+}
 
 effects()
 {
@@ -875,7 +885,7 @@ actik1 = getEnt( "acti_knife", "targetname" ); //the origin the acti will telepo
 	player setOrigin( jumpk1.origin ); //teleports the jumper
 //AUTO 	player TakeAllWeapons(); //takes all weapons from jumper
 //AUTO 	player GiveWeapon( "knife_mp" ); //jumper weapon 
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	player SwitchToWeapon("knife_mp");
 //AUTO 	//player giveMaxAmmo("rpg_mp"); //Not needed in knife :p
 	//player.maxhealth = 1000;
@@ -888,7 +898,7 @@ actik1 = getEnt( "acti_knife", "targetname" ); //the origin the acti will telepo
 		level.activ setOrigin( actik1.origin ); //teleports acti
 //AUTO 		level.activ TakeAllWeapons(); //takes all weapons from acti
 //AUTO 		level.activ GiveWeapon( "knife_mp" ); //gives acti tomahawk
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		level.activ SwitchToWeapon( "knife_mp" ); //this line means they switch to the weapon
 //AUTO 		//level.activ giveMaxAmmo("rpg_mp");
 		//level.activ.maxhealth = 1000; 
@@ -896,21 +906,21 @@ actik1 = getEnt( "acti_knife", "targetname" ); //the origin the acti will telepo
   	  	//level.activ setPerk("specialty_armorvest");
 		player freezeControls(true);
 		level.activ freezeControls(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("^1Ready?");
 //AUTO 		level.activ IPrintLnBold("^1Ready?");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("^3Set!");
 //AUTO 		level.activ IPrintLnBold("^3Set!");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("^2Go!");
 //AUTO 		level.activ IPrintLnBold("^2Go!");
 		player freezeControls(false);
 		level.activ freezeControls(false);
-//AUTO 		wait 1;
+		wait 1;
 		while( isAlive( player ) && isDefined( player ) )
 	if( isDefined( level.activ ) && isAlive( level.activ ) )
-//AUTO 	wait 1;
+	wait 1;
 		}
 		
 	}
@@ -942,7 +952,7 @@ actis1 = getEnt( "sniper_acti", "targetname" ); //the origin the acti will telep
 	player setOrigin( jumps1.origin ); //teleports the jumper
 //AUTO 	player TakeAllWeapons(); //takes all weapons from jumper
 //AUTO 	player GiveWeapon( "remington700_mp" ); //jumper weapon 
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	player SwitchToWeapon("remington700_mp");
 //AUTO 	player giveMaxAmmo("remington700_mp"); 
 	//player.maxhealth = 1000;
@@ -955,7 +965,7 @@ actis1 = getEnt( "sniper_acti", "targetname" ); //the origin the acti will telep
 		level.activ setOrigin( actis1.origin ); //teleports acti
 //AUTO 		level.activ TakeAllWeapons(); //takes all weapons from acti
 //AUTO 		level.activ GiveWeapon( "remington700_mp" ); //gives acti tomahawk
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		level.activ SwitchToWeapon( "remington700_mp" ); //this line means they switch to the weapon
 //AUTO 		level.activ giveMaxAmmo("remington700_mp");
 		//level.activ.maxhealth = 1000; 
@@ -963,21 +973,21 @@ actis1 = getEnt( "sniper_acti", "targetname" ); //the origin the acti will telep
   	  	//level.activ setPerk("specialty_armorvest");
 		player freezeControls(true);
 		level.activ freezeControls(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("^1Ready?");
 //AUTO 		level.activ IPrintLnBold("^1Ready?");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("^3Set!");
 //AUTO 		level.activ IPrintLnBold("^3Set!");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("^2Go!");
 //AUTO 		level.activ IPrintLnBold("^2Go!");
 		player freezeControls(false);
 		level.activ freezeControls(false);
-//AUTO 		wait 1;
+		wait 1;
 		while( isAlive( player ) && isDefined( player ) )
 	if( isDefined( level.activ ) && isAlive( level.activ ) )
-//AUTO 	wait 1;
+	wait 1;
 		}
 		
 	}
@@ -1009,7 +1019,7 @@ actik1 = getEnt( "acti_knife", "targetname" ); //the origin the acti will telepo
 	player setOrigin( jumpk1.origin ); //teleports the jumper
 //AUTO 	player TakeAllWeapons(); //takes all weapons from jumper
 //AUTO 	player GiveWeapon( "m1014_grip_mp" ); //jumper weapon 
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	player SwitchToWeapon("m1014_grip_mp");
 //AUTO 	player giveMaxAmmo("m1014_grip_mp"); 
 	player.maxhealth = 500;
@@ -1022,7 +1032,7 @@ actik1 = getEnt( "acti_knife", "targetname" ); //the origin the acti will telepo
 		level.activ setOrigin( actik1.origin ); //teleports acti
 //AUTO 		level.activ TakeAllWeapons(); //takes all weapons from acti
 //AUTO 		level.activ GiveWeapon( "m1014_grip_mp", 2 ); //gives acti tomahawk
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		level.activ SwitchToWeapon( "m1014_grip_mp"); //this line means they switch to the weapon
 //AUTO 		level.activ giveMaxAmmo("m1014_grip_mp");
 		level.activ.maxhealth = 500; 
@@ -1030,21 +1040,21 @@ actik1 = getEnt( "acti_knife", "targetname" ); //the origin the acti will telepo
   	  	level.activ setPerk("specialty_armorvest");
 		player freezeControls(true);
 		level.activ freezeControls(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("^1Ready?");
 //AUTO 		level.activ IPrintLnBold("^1Ready?");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("^3Set!");
 //AUTO 		level.activ IPrintLnBold("^3Set!");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("^2Go!");
 //AUTO 		level.activ IPrintLnBold("^2Go!");
 		player freezeControls(false);
 		level.activ freezeControls(false);
-//AUTO 		wait 1;
+		wait 1;
 		while( isAlive( player ) && isDefined( player ) )
 	if( isDefined( level.activ ) && isAlive( level.activ ) )
-//AUTO 	wait 1;
+	wait 1;
 		}
 		
 	}
@@ -1076,7 +1086,7 @@ actis1 = getEnt( "sniper_acti", "targetname" ); //the origin the acti will telep
 	player setOrigin( jumps1.origin ); //teleports the jumper
 //AUTO 	player TakeAllWeapons(); //takes all weapons from jumper
 //AUTO 	player GiveWeapon( "ak47_silencer_mp" ); //jumper weapon 
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	player SwitchToWeapon("ak47_silencer_mp");
 //AUTO 	player giveMaxAmmo("ak47_silencer_mp"); 
 //AUTO 	iPrintlnBold( " ^6" + player.name + " ^2wants to spray the activator!" ); // announces on screen the player name and the knife room
@@ -1086,26 +1096,26 @@ actis1 = getEnt( "sniper_acti", "targetname" ); //the origin the acti will telep
 		level.activ setOrigin( actis1.origin ); //teleports acti
 //AUTO 		level.activ TakeAllWeapons(); //takes all weapons from acti
 //AUTO 		level.activ GiveWeapon( "ak47_silencer_mp", 2 ); //gives acti tomahawk
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		level.activ SwitchToWeapon( "ak47_silencer_mpp"); //this line means they switch to the weapon
 //AUTO 		level.activ giveMaxAmmo("ak47_silencer_mp");
 		player freezeControls(true);
 		level.activ freezeControls(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("^1Ready?");
 //AUTO 		level.activ IPrintLnBold("^1Ready?");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("^3Set!");
 //AUTO 		level.activ IPrintLnBold("^3Set!");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("^2Go!");
 //AUTO 		level.activ IPrintLnBold("^2Go!");
 		player freezeControls(false);
 		level.activ freezeControls(false);
-//AUTO 		wait 1;
+		wait 1;
 		while( isAlive( player ) && isDefined( player ) )
 	if( isDefined( level.activ ) && isAlive( level.activ ) )
-//AUTO 	wait 1;
+	wait 1;
 		}
 		
 	}

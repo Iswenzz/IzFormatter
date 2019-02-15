@@ -253,12 +253,13 @@ move2 movez( 150, 2 );
 trap1()
 {
  
+	level endon("trigger");
 trig = getEnt( "trap1trig", "targetname" );
 rotate1 = getEnt( "trap1", "targetname" );
 rotate2 = getEnt( "trap11", "targetname" );
 rotate3 = getEnt( "trap111", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
  
 while( 1 )
@@ -274,16 +275,17 @@ rotate3 rotateyaw( -720, 4 );
 wait 4;
 
 }
-*/}
+}
 
 trap2()
 {
  
+	level endon("trigger");
 trig = getEnt( "trap2trig", "targetname" );
 left = getEnt( "trap2", "targetname" );
 right = getEnt( "trap22", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
  
 while( 1 )
@@ -303,15 +305,16 @@ right movex( -128, 1 );
 wait 1;
 
 }
-*/}
+}
 
 trap3()
 {
  
+	level endon("trigger");
 trig = getEnt( "trap3trig", "targetname" );
 rotate = getEnt( "trap3", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
  
 while( 1 )
@@ -323,16 +326,17 @@ rotate rotatepitch( -720, 3 );
 wait 5;
 
 }
-*/}
+}
 
 trap4()
 {
  
+	level endon("trigger");
 trig = getEnt( "trap4trig", "targetname" );
 ham1 = getEnt( "trap4", "targetname" );
 ham2 = getEnt( "trap44", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
  
 while( 1 )
@@ -349,17 +353,18 @@ ham2 rotatepitch( -70, 1 );
 wait 1;
 
 }
-*/}
+}
 
 trap5()
 {
  
+	level endon("trigger");
 trig = getEnt( "trap5trig", "targetname" );
 hamm1 = getEnt( "trap5", "targetname" );
 hamm2 = getEnt( "trap55", "targetname" );
 hamm3 = getEnt( "trap555", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
  
 while( 1 )
@@ -373,15 +378,16 @@ hamm3 rotatepitch( 720, 3 );
 wait 2;
 
 }
-*/}
+}
 
 trap6()
 {
  
+	level endon("trigger");
 trig = getEnt( "trap6trig", "targetname" );
 hammm1 = getEnt( "trap6", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
  
 while( 1 )
@@ -391,15 +397,16 @@ hammm1 rotateyaw( 720, 4 );
 wait 6;
 
 }
-*/}
+}
 
 trap7()
 {
  
+	level endon("trigger");
 trig = getEnt( "trap7trig", "targetname" );
 hammmm1 = getEnt( "trap7", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
  
 {
@@ -408,7 +415,7 @@ hammmm1 rotateyaw( 360, 3 );
 wait 3;
 
 }
-*/}
+}
 
 old()
 {

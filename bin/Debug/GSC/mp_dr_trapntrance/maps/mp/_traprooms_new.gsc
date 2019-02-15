@@ -12,6 +12,7 @@ main()
 trapsniper()
 {
 
+	level endon("trigger");
 	level.sniper_trigger = getEnt( "trapsniper", "targetname");
     jump = getEnt ("rooms_vol1_j", "targetname");
     acti = getEnt ("rooms_vol1_a", "targetname");
@@ -21,7 +22,7 @@ trapsniper()
      while(1)
     {
     	level.sniper_trigger setHintString("[^1USE^7] to enter ^1Sniper");
-/* AUTO         level.sniper_trigger waittill( "trigger", player );
+        level.sniper_trigger waittill( "trigger", player );
         if( !isDefined( level.sniper_trigger ) )
             return;
 
@@ -76,11 +77,12 @@ trapsniper()
             wait 1;
 
     }
-*/}
+}
 
 trapshotgun()
 {
 
+	level endon("trigger");
 	level.shotgun_trigger = getEnt( "trapshotgun", "targetname");
     jump = getEnt ("rooms_vol1_j", "targetname");
     acti = getEnt ("rooms_vol1_a", "targetname");
@@ -90,7 +92,7 @@ trapshotgun()
      while(1)
     {
     	level.shotgun_trigger setHintString("[^1USE^7] to enter ^1Shotgun");
-/* AUTO         level.shotgun_trigger waittill( "trigger", player );
+        level.shotgun_trigger waittill( "trigger", player );
         if( !isDefined( level.shotgun_trigger ) )
             return;
 
@@ -142,11 +144,12 @@ trapshotgun()
             wait 1;
 
     }
-*/}
+}
 
 trapknife()
 {
 
+	level endon("trigger");
 	level.knife_trigger = getEnt( "trapknife", "targetname");
     jump = getEnt ("rooms_vol2_j", "targetname");
     acti = getEnt ("rooms_vol2_a", "targetname");
@@ -156,7 +159,7 @@ trapknife()
      while(1)
     {
     	level.knife_trigger setHintString("[^1USE^7] to enter ^1Knife");
-/* AUTO         level.knife_trigger waittill( "trigger", player );
+        level.knife_trigger waittill( "trigger", player );
         if( !isDefined( level.knife_trigger ) )
             return;
 
@@ -208,11 +211,12 @@ trapknife()
             wait 1;
 
     }
-*/}
+}
 
 trapdeagle()
 {
 
+	level endon("trigger");
 	level.deagle_trigger = getEnt( "trapdeagle", "targetname");
     jump = getEnt ("rooms_vol2_j", "targetname");
     acti = getEnt ("rooms_vol2_a", "targetname");
@@ -222,7 +226,7 @@ trapdeagle()
      while(1)
     {
     	level.deagle_trigger setHintString("[^1USE^7] to enter ^1Deagle");
-/* AUTO         level.deagle_trigger waittill( "trigger", player );
+        level.deagle_trigger waittill( "trigger", player );
         if( !isDefined( level.deagle_trigger ) )
             return;
 
@@ -276,5 +280,5 @@ trapdeagle()
             wait 1;
 
     }
-*/}
+}
 

@@ -117,9 +117,10 @@ fires()
 trap1()
 {
  trig = getEnt( "t1acti", "targetname" );
+	level endon("trigger");
  brush = getEnt( "t1brush", "targetname" );
 
-/* AUTO      trig waittill( "trigger", who );
+     trig waittill( "trigger", who );
      trig delete();
      who playsound ( "bttn" );
      
@@ -128,7 +129,7 @@ trap1()
 	    brush rotatepitch( 360, 6);
 		wait 6;
 	}
-*/}
+}
 
 addTriggerToList( name )
 {
@@ -140,14 +141,15 @@ addTriggerToList( name )
 trap2()
 {
  trig = getEnt( "t2acti", "targetname" );
+	level endon("trigger");
  brush = getEnt( "t1brush", "targetname" );
 
-/* AUTO      trig waittill( "trigger", who );
+     trig waittill( "trigger", who );
      trig delete();
      who playsound ( "bttn" );
 	 thread ahammers();
 	 thread bhammers();
-*/}
+}
 
 ahammers()
 {
@@ -175,13 +177,14 @@ bhammers()
 trap3()
 {
  trig = getEnt( "t3acti", "targetname" );
+	level endon("trigger");
  brush = getEnt( "t3smasher", "targetname" );
  hurt = getEnt( "smasherhurt", "targetname" );
  
 	hurt enablelinkto();
 	hurt linkto (brush);
 
-/* AUTO      trig waittill( "trigger", who );
+     trig waittill( "trigger", who );
      trig delete();
      who playsound ( "bttn" );
 	 brush movez (-312, 0.4);
@@ -191,7 +194,7 @@ trap3()
 	 wait 5;
 	 brush movez (312, 5);
 	 brush waittill ("movedone");
-*/}
+}
 
 shock()
 {
@@ -205,10 +208,11 @@ shock()
 trap4()
 {
  trig = getEnt( "t4acti", "targetname" );
+	level endon("trigger");
  brush = getEnt( "t4pusher", "targetname" );
 	
 	
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	 brush movey (760, 1);
@@ -216,13 +220,14 @@ trap4()
 	 wait 3;
 	 brush movey (-760, 5);
 	 brush waittill ("movedone");
-*/}
+}
 
 trap5()
 {
  trig = getEnt( "t5acti", "targetname" );
+	level endon("trigger");
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	 thread t5group1();
@@ -231,7 +236,7 @@ trap5()
 	 thread t5group4();
 	 thread t5group5();
 	 thread t5group6();
-*/}
+}
 
 t5group1()
 {
@@ -386,9 +391,10 @@ t5group6()
 trap6()
 {
   trig = getEnt( "t6acti", "targetname" );
+	level endon("trigger");
   brush = getEnt( "t6spinner", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 		
@@ -397,24 +403,26 @@ trap6()
 	    brush rotateyaw( 360, 1.5);
 		wait 1.5;
 	}
-*/}
+}
 
 trap7()
 {
  trig = getEnt( "t7acti", "targetname" );
+	level endon("trigger");
  brush = getEnt( "t7pit", "targetname" );
  
  
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	
 	brush movey (-1036, 8, 2, 2);
-*/}
+}
 
 trap8()
 {
  trig = getEnt( "t8acti", "targetname" );
+	level endon("trigger");
  brusha = getEnt( "t8s1", "targetname" );
  brushb = getEnt( "t8s2", "targetname" );
  hurta = getEnt( "t8hurt1", "targetname" );
@@ -426,7 +434,7 @@ trap8()
     hurtb linkto(brushb);
  
  
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	
@@ -439,11 +447,12 @@ trap8()
 	    brushb movey (-400, 2, 1, 1);
 	    wait 2;
 	}
-*/}
+}
 
 trap9()
 {
  trig = getEnt( "t9acti", "targetname" );
+	level endon("trigger");
  brusha = getEnt( "t9s1", "targetname" );
  brushb = getEnt( "t9s3", "targetname" );
  hurta = getEnt( "t9hurt1", "targetname" );
@@ -455,7 +464,7 @@ trap9()
     hurtb linkto(brushb);
  
  
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	
@@ -468,11 +477,12 @@ trap9()
 	    brushb movey (-144, 2, 1, 1);
 	    wait 2;
 	}
-*/}
+}
 
 trap10()
 {
  trig = getEnt( "t10acti", "targetname" );
+	level endon("trigger");
  brusha = getEnt( "t10s1", "targetname" );
  brushb = getEnt( "t10s2", "targetname" );
  hurta = getEnt( "t10hurt1", "targetname" );
@@ -484,7 +494,7 @@ trap10()
     hurtb linkto(brushb);
  
  
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 	who playsound ( "bttn" );
 	
@@ -497,7 +507,7 @@ trap10()
 	    brushb movey (-208, 2, 1, 1);
 	    wait 2;
 	}
-*/}
+}
 
 secret()
 {
@@ -593,13 +603,13 @@ while(1)
 //AUTO 	player switchToWeapon( "tomahawk_mp" );
 //AUTO 	level.activ SwitchToWeapon( "tomahawk_mp" );
 //AUTO 	iPrintlnBold( " ^5" + player.name + " ^3 picked ^1Bounce^7!" );
-//AUTO 	wait 3;
+	wait 3;
 //AUTO 	iPrintlnBold( "^33" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintlnBold( "^22" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintlnBold( "^11" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintlnBold( "^1FIGHT" );
 	player freezeControls(false);
 	level.activ freezeControls(false);
@@ -634,17 +644,17 @@ while(1)
 	player freezeControls(true);
 	level.activ freezeControls(true);
 //AUTO 	iPrintlnBold( " ^5" + player.name + " ^3 picked ^1DOG FIGHT^7!" );
-//AUTO 	wait 3;
+	wait 3;
 //AUTO 	iPrintlnBold( "^33" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintlnBold( "^22" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintlnBold( "^11" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintlnBold( "^1FIGHT" );
 	player freezeControls(false);
 	level.activ freezeControls(false);
-//AUTO 	wait 1;
+	wait 1;
 	}
 }
 
@@ -676,17 +686,17 @@ kniferoom()
 //AUTO 	player switchToWeapon( "deserteagle_mp" );
 //AUTO 	level.activ SwitchToWeapon( "deserteagle_mp" );
 //AUTO 	iPrintlnBold( " ^5" + player.name + " ^3 picked ^1knife^7!" );
-//AUTO 	wait 3;
+	wait 3;
 //AUTO 	iPrintlnBold( "^33" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintlnBold( "^22" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintlnBold( "^11" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintlnBold( "^1FIGHT" );
 	player freezeControls(false);
 	level.activ freezeControls(false);
-//AUTO 	wait 1;
+	wait 1;
 	}
 }
 
@@ -722,13 +732,13 @@ sniperoom()
 //AUTO 	player switchToWeapon( "m40a3_mp" );
 //AUTO         level.activ SwitchToWeapon( "m40a3_mp" );
 //AUTO 	iPrintlnBold( " ^5" + player.name + " ^3 picked ^1SHNIPAH WAR^7!" );
-//AUTO 	wait 3;
+	wait 3;
 //AUTO 	iPrintlnBold( "^33" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintlnBold( "^22" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintlnBold( "^11" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintlnBold( "^1FIGHT" );
 	player freezeControls(false);
 	level.activ freezeControls(false);

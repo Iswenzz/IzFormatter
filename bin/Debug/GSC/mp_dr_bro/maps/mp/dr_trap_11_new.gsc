@@ -6,6 +6,7 @@ thread runtrap11();
 runtrap11()
 {
 	trab_n11 = getent("dr_trap_11","targetname");
+	level endon("trigger");
 	hurt_n11 = getent("dr_trap_11_hurt","targetname");
 	
 	hurt_n11 enablelinkto();
@@ -15,11 +16,11 @@ runtrap11()
 	while(1)
 	{	
 	trab_n11 movez (-130,1,0);					//move to Z
-/* AUTO 	trab_n11 waittill ("movedone");				//expected end of the movement
+	trab_n11 waittill ("movedone");				//expected end of the movement
 	trab_n11 movez (130,1,0);					//move to Z
 	trab_n11 waittill ("movedone");				//expected end of the movement	
 	wait(RandomInt(10));			   			// wait 0 to 8 seconds
 	}
 		
-*/}
+}
 

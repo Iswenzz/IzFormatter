@@ -241,10 +241,11 @@ printcredits()
 trap1()
 {
  
+	level endon("trigger");
 trig = getEnt( "trigtrap1", "targetname" );
 ham = getEnt( "ham", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 
 while( 1 )
@@ -253,20 +254,21 @@ while( 1 )
 ham rotatepitch(360, 4);
 wait 4;
 }
-*/}
+}
 
 trap2()
 {
  
+	level endon("trigger");
 trig = getEnt( "trigtrap2", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
  
 {
 thread blockdelete2();
 }
-*/}
+}
 
 blockdelete2()
 {
@@ -297,10 +299,11 @@ comb2 delete();
 trap3()
 {
  
+	level endon("trigger");
 trig = getEnt( "trigtrap3", "targetname" );
 trapm = getEnt( "rotate", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 
 while( 1 )
@@ -309,18 +312,19 @@ while( 1 )
 trapm rotateyaw(180, 2);
 wait 4;
 }
-*/}
+}
 
 trap4()
 {
  
+	level endon("trigger");
 trig = getEnt( "trigtrap4", "targetname" );
 traprotate1 = getEnt( "rotatec1", "targetname" );
 traprotate2 = getEnt( "rotatecc2", "targetname" );
 traprotate3 = getEnt( "rotatec3", "targetname" );
 traprotate4 = getEnt( "rotatec4", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 
 while( 1 )
@@ -337,20 +341,21 @@ traprotate3 rotateyaw(720, 6);
 traprotate4 rotateyaw(720, 6);
 wait 6;
 }
-*/}
+}
 
 trap5()
 {
  
+	level endon("trigger");
 trig = getEnt( "trigtrap5", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
  
 {
 thread blocksdelete();
 }
-*/}
+}
 
 blocksdelete()
 {
@@ -433,15 +438,16 @@ teleport4()
 trap6()
 {
  
+	level endon("trigger");
 trig = getEnt( "trigtrap6", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
  
 {
 thread blockdelete();
 }
-*/}
+}
 
 blockdelete()
 {
@@ -482,10 +488,11 @@ block delete();
 trap7()
 {
  
+	level endon("trigger");
 trig = getEnt( "trigtrap7", "targetname" );
 trap = getEnt( "ttrotate", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 
 while( 1 )
@@ -494,16 +501,17 @@ while( 1 )
 trap rotateyaw(360, 3);
 wait 3;
 }
-*/}
+}
 
 trap8()
 {
  
+	level endon("trigger");
 trig = getEnt( "trigtrap8", "targetname" );
 trapr = getEnt( "right", "targetname" );
 trapl = getEnt( "left", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 
  
@@ -512,18 +520,19 @@ trapr movex(-416, 2);
 trapl movex(416, 2);
 
 }
-*/}
+}
 
 trapbridge()
 {
  
+	level endon("trigger");
 trig = getEnt( "trigtrapbridge", "targetname" );
 block = getEnt( "bridge1", "targetname" );
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
 block delete();
-*/}
+}
 
 vip()
 {	

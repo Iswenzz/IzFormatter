@@ -411,8 +411,9 @@ trap_8d()
 trap_9()
 {
 	trigger = getent("trap9trig","targetname");
+	level endon("trigger");
 	brush = getent("trap9","targetname");	
-/* AUTO 	trigger waittill("trigger",player);
+	trigger waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 150);	
 	trigger delete();		
 	
@@ -421,11 +422,12 @@ trap_9()
 	brush delete();
 			
 	
-*/}
+}
 
 trap_10()
 {
 	trigger = getent("trap10trig","targetname");
+	level endon("trigger");
 	brush1 = getent("trap10a","targetname");	
 	brush2 = getent("trap10b","targetname");	
 	brush3 = getent("trap10c","targetname");
@@ -434,7 +436,7 @@ trap_10()
 	hurt3  = getent("hurt3","targetname");
 	
 	
-/* AUTO 	trigger waittill("trigger",player);
+	trigger waittill("trigger",player);
 //AUTO 	player braxi\_rank::giveRankXP("", 150);	
 	trigger delete();		
 	
@@ -454,7 +456,7 @@ trap_10()
 	hurt3 delete();
 			
 	
-*/}
+}
 
 movePlatform1()
 {	
@@ -703,7 +705,7 @@ bounceroom()
 			for(i=0;i<players.size;i++)
 					players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
 								   
-//AUTO 			wait 2;
+			wait 2;
 				   
 			level.activ FreezeControls(0);
 			player FreezeControls(0);
@@ -778,12 +780,12 @@ sniperroom()
 		for(i=0;i<players.size;i++)
 			players[i] thread maps\mp\gametypes\_hud_message::notifyMessage(noti);
 					
-//AUTO 		wait 2;
+		wait 2;
 		
 		level.activ FreezeControls(0);
 		player FreezeControls(0);
 		
-//AUTO 		wait 0.1;
+		wait 0.1;
                      
 		self waittill("death");
 
@@ -846,12 +848,12 @@ kniferoom()
 		for(i=0;i<players.size;i++)
 			players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
 				
-//AUTO 		wait 2;
+		wait 2;
 		
 		level.activ FreezeControls(0);
 		player FreezeControls(0);
 		
-//AUTO 		wait 0.1;
+		wait 0.1;
 				 
 		self waittill("death");
 
@@ -888,7 +890,7 @@ oldroom()
 	for(i=0;i<players.size;i++)
 		players[i] thread maps\mp\gametypes\_hud_message::notifyMessage(noti);
 			
-//AUTO 	wait 2;
+	wait 2;
 	
 	
 		 

@@ -2186,15 +2186,16 @@ else
 trap1ng()
 {
 ng1 = getEnt("trap1go","targetname");
+	level endon("trigger");
 ng2 = getEnt("trap1ng","targetname");
 wait 0.2;
-/* AUTO ng1 waittill("trigger");
+ng1 waittill("trigger");
 ng1 delete();
 wait 0.2;
 ng2 waittill("trigger");
 ng2 delete();
 level.trap1 = 1;
-*/}
+}
 
 delfx1()
 {
@@ -2814,10 +2815,11 @@ fxp1 = getEntArray("fx_waterxp","targetname");
 
 trap5ng()
 {
-/* AUTO 	level.trap5ng waittill("trigger");
+	level.trap5ng waittill("trigger");
+	level endon("trigger");
 	level.trap5n = 1;
 	level.trap5ng delete();
-*/}
+}
 
 trap5phy()
 {
@@ -3079,8 +3081,9 @@ wait .1;
 trap1menu()
 {
 level endon( "move1" );
+	level endon("trigger");
 //AUTO self openMenu("actimenu");
-/* AUTO self waittill("menuresponse", menu, response);
+self waittill("menuresponse", menu, response);
 	wait 0.05;
 	while( 1 )
 	{
@@ -3113,7 +3116,7 @@ level endon( "move1" );
 	}
 	wait .1;
 	}
-*/}
+}
 
 checkactiprogress2( chopper )
 {
@@ -3143,8 +3146,9 @@ wait .1;
 trap2menu()
 {
 level endon( "move2" );
+	level endon("trigger");
 //AUTO self openMenu("actimenu");
-/* AUTO self waittill("menuresponse", menu, response);
+self waittill("menuresponse", menu, response);
 	wait 0.05;
 	while( 1 )
 	{
@@ -3177,7 +3181,7 @@ level endon( "move2" );
 	}
 	wait .1;
 	}
-*/}
+}
 
 checkactiprogress3( chopper )
 {
@@ -3207,8 +3211,9 @@ wait .1;
 trap3menu()
 {
 level endon( "move3" );
+	level endon("trigger");
 //AUTO self openMenu("actimenu");
-/* AUTO self waittill("menuresponse", menu, response);
+self waittill("menuresponse", menu, response);
 	wait 0.05;
 	while( 1 )
 	{
@@ -3241,7 +3246,7 @@ level endon( "move3" );
 	}
 	wait .1;
 	}
-*/}
+}
 
 checkactiprogress4( chopper )
 {
@@ -3271,8 +3276,9 @@ wait .1;
 trap4menu()
 {
 level endon( "move4" );
+	level endon("trigger");
 //AUTO self openMenu("actimenu");
-/* AUTO self waittill("menuresponse", menu, response);
+self waittill("menuresponse", menu, response);
 	wait 0.05;
 	while( 1 )
 	{
@@ -3305,7 +3311,7 @@ level endon( "move4" );
 	}
 	wait .1;
 	}
-*/}
+}
 
 checkactiprogress5( chopper )
 {
@@ -3335,8 +3341,9 @@ wait .1;
 trap5menu()
 {
 level endon( "move5" );
+	level endon("trigger");
 //AUTO self openMenu("actimenu");
-/* AUTO self waittill("menuresponse", menu, response);
+self waittill("menuresponse", menu, response);
 	wait 0.05;
 	while( 1 )
 	{
@@ -3369,7 +3376,7 @@ level endon( "move5" );
 	}
 	wait .1;
 	}
-*/}
+}
 
 checkactiprogress6( chopper )
 {
@@ -3399,8 +3406,9 @@ wait .1;
 trap6menu()
 {
 level endon( "move6" );
+	level endon("trigger");
 //AUTO self openMenu("actimenu");
-/* AUTO self waittill("menuresponse", menu, response);
+self waittill("menuresponse", menu, response);
 	wait 0.05;
 	while( 1 )
 	{
@@ -3433,7 +3441,7 @@ level endon( "move6" );
 	}
 	wait .1;
 	}
-*/}
+}
 
 checkactiprogress7( chopper )
 {
@@ -3463,8 +3471,9 @@ wait .1;
 trap7menu()
 {
 level endon( "move7" );
+	level endon("trigger");
 //AUTO self openMenu("actimenu");
-/* AUTO self waittill("menuresponse", menu, response);
+self waittill("menuresponse", menu, response);
 	wait 0.05;
 	while( 1 )
 	{
@@ -3497,7 +3506,7 @@ level endon( "move7" );
 	}
 	wait .1;
 	}
-*/}
+}
 
 WatchHelicopterTrigger()
 {
@@ -4439,7 +4448,7 @@ for(;;)
 	level.activ unlink();
 	level.activ.health=100;
 	player.health=100;
-//AUTO 	wait 0.5;
+	wait 0.5;
 	player freezeControls(true);
 	player setorigin(jumper.origin);
 	player setPlayerAngles(jumper.angles);
@@ -4453,7 +4462,7 @@ for(;;)
 //AUTO 	player giveweapon("remington700_mp");
 //AUTO 	level.activ giveweapon("remington700_mp");
 	thread createhud(player.name + " ^1selected ^7snipah ^1war ^7!");
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("^1FIGHT ^7!!!");
 //AUTO 	level.activ iprintlnbold("^1FIGHT ^7!!!");
 	player freezeControls(false);
@@ -4480,7 +4489,7 @@ for(;;)
 	level.activ unlink();
 	level.activ.health=100;
 	player.health=100;
-//AUTO 	wait 0.5;
+	wait 0.5;
 	player freezeControls(true);
 	player setorigin(jumper.origin);
 	player setPlayerAngles(jumper.angles);
@@ -4494,7 +4503,7 @@ for(;;)
 //AUTO 	player giveweapon("remington700_mp");
 //AUTO 	level.activ giveweapon("remington700_mp");
 	thread createhud(player.name + " ^1selected ^7snipah ^1war ^7!");
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("^1FIGHT ^7!!!");
 //AUTO 	level.activ iprintlnbold("^1FIGHT ^7!!!");
 	player freezeControls(false);
@@ -4526,7 +4535,7 @@ sniperjumperfail()
 		player setOrigin(tpsniperactifail.origin);
 		player setPlayerAngles(tpsniperactifail.angles);
 		}
-//AUTO 	wait .05;
+	wait .05;
 	}
 }
 
@@ -4545,7 +4554,7 @@ for(;;)
 	level.activ unlink();
 	level.activ.health=100;
 	player.health=100;
-//AUTO 	wait 0.5;
+	wait 0.5;
 //AUTO 	player takeallweapons();
 //AUTO 	level.activ takeallweapons();
 	player freezeControls(true);
@@ -4559,7 +4568,7 @@ for(;;)
 //AUTO 	player givemaxammo("m1014_grip_mp");
 //AUTO 	level.activ givemaxammo("m1014_grip_mp");
 	thread createhud(player.name + " ^1Selected ^7Shotgun ^1room ^7!");
-//AUTO 	wait 5;
+	wait 5;
 	player freezeControls(false);
 	level.activ freezeControls(false);
 //AUTO 	player switchtoweapon("m1014_grip_mp");
@@ -4583,7 +4592,7 @@ for(;;)
 	level.activ unlink();
 	level.activ.health=100;
 	player.health=100;
-//AUTO 	wait 0.5;
+	wait 0.5;
 	player freezeControls(true);
 	player setorigin(jumper.origin);
 	player setPlayerAngles(jumper.angles);
@@ -4592,7 +4601,7 @@ for(;;)
 	level.activ setPlayerAngles(acti.angles);
 //AUTO 	player takeallweapons();
 //AUTO 	level.activ takeallweapons();
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	IPrintLnbold("^2Fight!!!.");
 	i = randomintrange(0, 8);
 	weapon = "rpg_mp";
@@ -4634,7 +4643,7 @@ for(;;)
 //AUTO 	level.activ giveweapon(weapon);
 //AUTO 	level.activ givemaxammo(weapon);
 //AUTO 	player givemaxammo(weapon);
-//AUTO 	wait .1;
+	wait .1;
 //AUTO 	player switchtoweapon(weapon);
 //AUTO 	level.activ switchtoweapon(weapon);
 	player freezeControls(false);
@@ -4657,7 +4666,7 @@ for(;;)
 	level.activ unlink();
 	level.activ.health=100;
 	player.health=100;
-//AUTO 	wait 0.5;
+	wait 0.5;
 //AUTO 	player takeallweapons();
 //AUTO 	level.activ takeallweapons();
 	player freezeControls(true);
@@ -4669,7 +4678,7 @@ for(;;)
 //AUTO 	level.activ giveweapon("knife_mp");
 //AUTO 	player giveweapon("knife_mp");
 	thread createhud(player.name + " ^1Selected ^7bounce ^1Room ^7!");
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("GO^3!^7!^3!");
 //AUTO 	level.activ iprintlnbold("GO^3!^7!^3!");
 	player freezeControls(false);
@@ -4737,7 +4746,7 @@ for(;;)
 	level.activ unlink();
 	level.activ.health=100;
 	player.health=100;
-//AUTO 	wait 0.5;
+	wait 0.5;
 //AUTO 	player takeallweapons();
 //AUTO 	level.activ takeallweapons();
 	player freezeControls(true);
@@ -4749,7 +4758,7 @@ for(;;)
 //AUTO 	level.activ giveweapon("tomahawk_mp");
 //AUTO 	player giveweapon("tomahawk_mp");
 	thread createhud(player.name + " ^1Selected ^7Knife ^1room ^7!");
-//AUTO 	wait 5;
+	wait 5;
 	player freezeControls(false);
 	level.activ freezeControls(false);
 //AUTO 	player switchtoweapon("tomahawk_mp");

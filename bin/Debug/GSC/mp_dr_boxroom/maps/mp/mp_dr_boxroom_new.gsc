@@ -21,9 +21,10 @@ main()
 trap1()
 {
                   trig = getEnt("trig1","targetname");
+	level endon("trigger");
                   rotate = getEnt("trap1","targetname");
                   
-/* AUTO                  trig waittill("trigger");
+                 trig waittill("trigger");
                  trig delete();
                  
                  while( isdefined( rotate ) )
@@ -31,15 +32,16 @@ trap1()
                                rotate rotateroll(-360,3);
                                wait 2;
                  }
-*/}
+}
 
 trap2()
 {
       trig = getEnt("trig2","targetname");
+	level endon("trigger");
       brush = getEnt("trap2","targetname");
      
             
-/* AUTO                    trig waittill("trigger");
+                   trig waittill("trigger");
                    trig delete();
 
                   while(true)
@@ -49,46 +51,49 @@ trap2()
                                           brush rotatePitch(-360,2);
                                          wait 4;
                    }    
-*/}
+}
 
 trap3()
 {
                    trig = getEnt( "trig3", "targetname" );
+	level endon("trigger");
 	brushGroup1 = getEntArray( "trap3.1", "targetname" );
 	brushGroup2 = getEntArray( "trap3.2", "targetname" );
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	brushGroup1[randomInt(brushGroup1.size)] notSolid();
 	brushGroup2[randomInt(brushGroup2.size)] notSolid();
-*/}
+}
 
 trap4()
 {
       trig = getEnt("trig4","targetname");
+	level endon("trigger");
       brush = getEnt("trap4","targetname");
        hurt = getEnt ("trap4_hurt", "targetname");
                  
                  hurt enablelinkto();
                  hurt linkto(brush);
             
-/* AUTO                    trig waittill("trigger");
+                   trig waittill("trigger");
                    trig delete();
                   {
                                           brush moveY(-432,1);
                                           wait 2;
                                           brush moveY(432,1);
                   }
-*/}
+}
 
 trap5()
 {
       trig = getEnt("trig5","targetname");
+	level endon("trigger");
       brush = getEnt("trap5","targetname");
      
             
-/* AUTO                    trig waittill("trigger");
+                   trig waittill("trigger");
                    trig delete();
 
                   while(true)
@@ -96,58 +101,61 @@ trap5()
                                           brush rotateYaw(360,2);
                                           wait 1;
                    }    
-*/}
+}
 
 trap6()
 {
       trig = getEnt("trig6","targetname");
+	level endon("trigger");
       brush = getEnt("trap6","targetname");
        hurt = getEnt ("trap6_hurt", "targetname");
                  
                  hurt enablelinkto();
                  hurt linkto(brush);
             
-/* AUTO                    trig waittill("trigger");
+                   trig waittill("trigger");
                    trig delete();
                   {
                                           brush moveZ(-1000,5);
                                           wait 3;
                                           brush moveZ(488,5);
                   }
-*/}
+}
 
 trap7()
 {
       trig = getEnt("trig7","targetname");
+	level endon("trigger");
       brush = getEnt("trap7","targetname");
        hurt = getEnt ("trap7_hurt", "targetname");
                  
                  hurt enablelinkto();
                  hurt linkto(brush);
             
-/* AUTO                    trig waittill("trigger");
+                   trig waittill("trigger");
                    trig delete();
                   {
                                           brush moveY(2000,4);
                                           wait 3;
                                           brush moveY(-2000,4);
                   }
-*/}
+}
 
 trap8()
 {
       trig = getEnt("trig8","targetname");
+	level endon("trigger");
       brush = getEnt("trap8","targetname");
      
             
-/* AUTO                    trig waittill("trigger");
+                   trig waittill("trigger");
                    trig delete();
                   {
                                           brush moveX(-512,2);
                                           wait 2;
                                           brush moveX(512,2);
                   }    
-*/}
+}
 
 door1()
 {

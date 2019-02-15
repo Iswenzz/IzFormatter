@@ -7,3 +7,13 @@ D:\Users\Wenzz\source\repos\CoD4\GSC Parser\obj\Debug\GSC Parser.csproj.CoreComp
 D:\Users\Wenzz\source\repos\CoD4\GSC Parser\obj\Debug\GSC Parser.csproj.CopyComplete
 D:\Users\Wenzz\source\repos\CoD4\GSC Parser\obj\Debug\GSC_Parser.exe
 D:\Users\Wenzz\source\repos\CoD4\GSC Parser\obj\Debug\GSC_Parser.pdb
+D:\Users\Wenzz\source\repos\CoD4\GSC-Parser\bin\Debug\GSC_Parser.exe.config
+D:\Users\Wenzz\source\repos\CoD4\GSC-Parser\bin\Debug\GSC_Parser.exe
+D:\Users\Wenzz\source\repos\CoD4\GSC-Parser\bin\Debug\GSC_Parser.pdb
+D:\Users\Wenzz\source\repos\CoD4\GSC-Parser\bin\Debug\CommandLine.dll
+D:\Users\Wenzz\source\repos\CoD4\GSC-Parser\bin\Debug\CommandLine.xml
+D:\Users\Wenzz\source\repos\CoD4\GSC-Parser\obj\Debug\GSC Parser.csprojAssemblyReference.cache
+D:\Users\Wenzz\source\repos\CoD4\GSC-Parser\obj\Debug\GSC Parser.csproj.CoreCompileInputs.cache
+D:\Users\Wenzz\source\repos\CoD4\GSC-Parser\obj\Debug\GSC Parser.csproj.CopyComplete
+D:\Users\Wenzz\source\repos\CoD4\GSC-Parser\obj\Debug\GSC_Parser.exe
+D:\Users\Wenzz\source\repos\CoD4\GSC-Parser\obj\Debug\GSC_Parser.pdb

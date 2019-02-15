@@ -164,11 +164,12 @@ door delete();
 trap1()
 {
 	t1 = getent("trap1", "targetname");
+	level endon("trigger");
 	trig = getent("trigger_trap1", "targetname");
 	trig SetHintString("^1Rotate the brush");
 	trig2 = getent("trigger_thebigtrigger", "targetname");
 	activator = level.activ;
-/* AUTO 	trig2 waittill("trigger", player);
+	trig2 waittill("trigger", player);
 	trig waittill("trigger", activator);
 	
 	trig delete();
@@ -186,17 +187,18 @@ trap1()
 			wait 3.29;
 		}
 	}
-*/}
+}
 
 trap2()
 {
 	t21 = getent("trap2_1", "targetname");
+	level endon("trigger");
 	t22 = getent("trap2_2", "targetname");
 	trig = getent("trigger_trap2", "targetname");
 	trig SetHintString("^1Remove two platforms");
 	trig2 = getent("trigger_thebigtrigger", "targetname");
 	activator = level.activ;
-/* AUTO 	trig2 waittill("trigger", player);
+	trig2 waittill("trigger", player);
 	trig waittill("trigger", activator);
 	
 	if(level.trapsdisabled)
@@ -217,16 +219,17 @@ trap2()
 		
 		trig delete();
 	}
-*/}
+}
 
 trap3()
 {
 	t3 = getent("trap3", "targetname");
+	level endon("trigger");
 	trig = getent("trigger_trap3", "targetname");
 	trig SetHintString("^1Make them bounce");
 	trig2 = getent("trigger_thebigtrigger", "targetname");
 	activator = level.activ;
-/* AUTO 	trig2 waittill("trigger", player);
+	trig2 waittill("trigger", player);
 	trig waittill("trigger", activator);
 	
 	if(level.trapsdisabled)
@@ -239,16 +242,17 @@ trap3()
 	
 	trig delete();
 	}
-*/}
+}
 
 trap4()
 {
 	t4 = getent("trap4", "targetname");
+	level endon("trigger");
 	trig = getent("trigger_trap4", "targetname");
 	trig SetHintString("^1Make them fall");
 	trig2 = getent("trigger_thebigtrigger", "targetname");
 	activator = level.activ;
-/* AUTO 	trig2 waittill("trigger", player);
+	trig2 waittill("trigger", player);
 	trig waittill("trigger", activator);
 	
 	if(level.trapsdisabled)
@@ -267,18 +271,19 @@ trap4()
 			wait 3.9;
 		}
 	}
-*/}
+}
 
 trap5()
 {
 	t5 = getent("trap5", "targetname");
+	level endon("trigger");
 	trig = getent("trigger_trap5", "targetname");
 	origin = getent("origin_trap5", "targetname");
 	
 	trig SetHintString("^1Make them strafe");
 	trig2 = getent("trigger_thebigtrigger", "targetname");
 	activator = level.activ;
-/* AUTO 	trig2 waittill("trigger", player);
+	trig2 waittill("trigger", player);
 	trig waittill("trigger", activator);
 	
 	if(level.trapsdisabled)
@@ -294,16 +299,17 @@ trap5()
 		
 		trig delete();
 	}
-*/}
+}
 
 trap6()
 {
 	t6 = getent("trap6", "targetname");
+	level endon("trigger");
 	trig = getent("trigger_trap6", "targetname");
 	trig SetHintString("^1Rotate");
 	trig2 = getent("trigger_thebigtrigger", "targetname");
 	activator = level.activ;
-/* AUTO 	trig2 waittill("trigger", player);
+	trig2 waittill("trigger", player);
 	trig waittill("trigger", activator);
 	
 	if(level.trapsdisabled)
@@ -320,16 +326,17 @@ trap6()
 			wait 8;
 		}
 	}
-*/}
+}
 
 trap7()
 {
 	t7 = getent("trap7", "targetname");
+	level endon("trigger");
 	trig = getent("trigger_trap7", "targetname");
 	trig SetHintString("^1Do some magic");
 	trig2 = getent("trigger_thebigtrigger", "targetname");
 	activator = level.activ;
-/* AUTO 	trig2 waittill("trigger", player);
+	trig2 waittill("trigger", player);
 	trig waittill("trigger", activator);
 	
 	if(level.trapsdisabled)
@@ -342,16 +349,17 @@ trap7()
 		
 		trig delete();
 	}
-*/}
+}
 
 trap8()
 {
 	t8 = getent("trap8", "targetname");
+	level endon("trigger");
 	trig = getent("trigger_trap8", "targetname");
 	trig SetHintString("^1Rotate the bounce");
 	trig2 = getent("trigger_thebigtrigger", "targetname");
 	activator = level.activ;
-/* AUTO 	trig2 waittill("trigger", player);
+	trig2 waittill("trigger", player);
 	trig waittill("trigger", activator);
 	
 	if(level.trapsdisabled)
@@ -368,16 +376,17 @@ trap8()
 			wait 6.9;
 		}
 	}
-*/}
+}
 
 trap9()
 {
 	t9 = getent("trap9", "targetname");
+	level endon("trigger");
 	trig = getent("trigger_trap9", "targetname");
 	trig SetHintString("^1Make the floor disappear");
 	trig2 = getent("trigger_thebigtrigger", "targetname");
 	activator = level.activ;
-/* AUTO 	trig2 waittill("trigger", player);
+	trig2 waittill("trigger", player);
 	trig waittill("trigger", activator);
 	
 	if(level.trapsdisabled)
@@ -390,16 +399,17 @@ trap9()
 		
 		trig delete();
 	}
-*/}
+}
 
 trap10()
 {
 	t10 = getent("trap10", "targetname");
+	level endon("trigger");
 	trig = getent("trigger_trap10", "targetname");
 	trig SetHintString("^1Roll the bounce");
 	trig2 = getent("trigger_thebigtrigger", "targetname");
 	activator = level.activ;
-/* AUTO 	trig2 waittill("trigger", player);
+	trig2 waittill("trigger", player);
 	trig waittill("trigger", activator);
 	
 	if(level.trapsdisabled)
@@ -416,11 +426,12 @@ trap10()
 			wait 4.9;
 		}
 	}
-*/}
+}
 
 trap11()
 {
 	t11_1 = getent("trap11_1", "targetname");
+	level endon("trigger");
 	t11_2 = getent("trap11_2", "targetname");
 	t11_3 = getent("trap11_3", "targetname");
 	t11_4 = getent("trap11_4", "targetname");
@@ -428,7 +439,7 @@ trap11()
 	trig SetHintString("^1They shall not pass!");
 	trig2 = getent("trigger_thebigtrigger", "targetname");
 	activator = level.activ;
-/* AUTO 	trig2 waittill("trigger", player);
+	trig2 waittill("trigger", player);
 	trig waittill("trigger", activator);
 	
 	if(level.trapsdisabled)
@@ -448,7 +459,7 @@ trap11()
 			wait 1.9;
 		}
 	}
-*/}
+}
 
 teleport1()
 {
@@ -1200,16 +1211,16 @@ sniper()
 //AUTO 		level.activ TakeAllWeapons();
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^53");
 //AUTO 		level.activ iPrintlnBold("^53");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^52");
 //AUTO 		level.activ iPrintlnBold("^52");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^51");
 //AUTO 		level.activ iPrintlnBold("^51");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^5GO^1!");
 //AUTO 		level.activ iPrintlnBold("^5Go^1!");
 		player freezecontrols(false); 
@@ -1217,7 +1228,7 @@ sniper()
 			
 		level.firstenter=false;
 		}
-//AUTO 		wait 0.05;
+		wait 0.05;
 
 		player SetOrigin(telejumporigin.origin);
 		player setplayerangles(telejumporigin.angles);
@@ -1227,9 +1238,9 @@ sniper()
 //AUTO 		player GiveMaxAmmo("m40a3_mp");
 //AUTO 		player GiveMaxAmmo("remington700_mp");
 		player.maxhealth = 100;
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player SwitchToWeapon("m40a3_mp");
-//AUTO 		wait 0.05;
+		wait 0.05;
 		level.activ SetOrigin(level.teleactorigin.origin);
 		level.activ setplayerangles(level.teleactorigin.angles);
 //AUTO 		level.activ TakeAllWeapons();
@@ -1238,10 +1249,10 @@ sniper()
 //AUTO 		level.activ GiveMaxAmmo("m40a3_mp");
 //AUTO 		level.activ GiveMaxAmmo("remington700_mp");
 		level.activ.maxhealth = 100;
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		level.activ SwitchToWeapon("m40a3_mp");
 //AUTO 		iPrintlnBold("^5" + player.name + " ^4Has Entered The ^5Sniper Room ^4!");
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player SwitchToWeapon("m40a3_mp");
 //AUTO 		level.activ SwitchToWeapon("m40a3_mp");
 		
@@ -1317,16 +1328,16 @@ knife()
 //AUTO 		level.activ TakeAllWeapons();
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^53");
 //AUTO 		level.activ iPrintlnBold("^53");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^52");
 //AUTO 		level.activ iPrintlnBold("^52");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^51");
 //AUTO 		level.activ iPrintlnBold("^51");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^5GO^1!");
 //AUTO 		level.activ iPrintlnBold("^5Go^1!");
 		player freezecontrols(false); 
@@ -1334,20 +1345,20 @@ knife()
 		
 		level.firstenter=false;
 		}	
-//AUTO 		wait 0.05;
+		wait 0.05;
 
 		player SetOrigin(jump.origin);
 		player setplayerangles(jump.angles);
 //AUTO 		player TakeAllWeapons();
 //AUTO 		player GiveWeapon("knife_mp"); 
 		player.maxhealth = 100;
-//AUTO 		wait(0.05);
+		wait(0.05);
 		level.activ SetOrigin (acti.origin);
 		level.activ setplayerangles (acti.angles);
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon("knife_mp");
 		level.activ.maxhealth = 100;		
-//AUTO 		wait(0.05);
+		wait(0.05);
 //AUTO 		player switchToWeapon("knife_mp");
 //AUTO 		level.activ SwitchToWeapon("knife_mp");
 //AUTO 		iPrintlnBold("^5" + player.name + " ^4Has Entered The ^5Knife Room ^4!");
@@ -1395,16 +1406,16 @@ bounce()
 //AUTO 		level.activ TakeAllWeapons();
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^53");
 //AUTO 		level.activ iPrintlnBold("^53");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^52");
 //AUTO 		level.activ iPrintlnBold("^52");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^51");
 //AUTO 		level.activ iPrintlnBold("^51");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^5GO^1!");
 //AUTO 		level.activ iPrintlnBold("^5Go^1!");
 		player freezecontrols(false); 
@@ -1412,7 +1423,7 @@ bounce()
 		
 		level.firstenter=false;
 		}	
-//AUTO 		wait(0.05);
+		wait(0.05);
 			
 		player SetPlayerAngles(jump.angles);
 		player setOrigin(jump.origin);
@@ -1425,7 +1436,7 @@ bounce()
 //AUTO 		level.activ giveweapon("tomahawk_mp");
 		level.activ.maxhealth = 100;
 //AUTO 		iPrintlnBold("^5" + player.name + " ^4Has Entered The ^5Bounce Room ^4!");         
-//AUTO 		wait 0.05;	
+		wait 0.05;	
 //AUTO 		level.activ switchtoweapon("tomahawk_mp");
 //AUTO 		player switchtoweapon("tomahawk_mp");
 		
@@ -1531,16 +1542,16 @@ weapon()
 //AUTO 		level.activ TakeAllWeapons();
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^53");
 //AUTO 		level.activ iPrintlnBold("^53");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^52");
 //AUTO 		level.activ iPrintlnBold("^52");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^51");
 //AUTO 		level.activ iPrintlnBold("^51");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^5GO^1!");
 //AUTO 		level.activ iPrintlnBold("^5Go^1!");
 		player freezecontrols(false); 
@@ -1548,7 +1559,7 @@ weapon()
 		
 		level.firstenter=false;
 		}	
-//AUTO 		wait 0.05;
+		wait 0.05;
 			
 		player SetPlayerAngles(jump.angles);
 		player setOrigin(jump.origin);
@@ -1621,7 +1632,7 @@ weapon()
 		level.activ.maxhealth = 100;
 		
 //AUTO 		iPrintlnBold("^5" + player.name + " ^4Has Entered The ^5Weapon Room ^4!");         
-//AUTO 		wait 0.05;
+		wait 0.05;
 		
 		player waittill("death");
 		level.PlayerInRoom = false;

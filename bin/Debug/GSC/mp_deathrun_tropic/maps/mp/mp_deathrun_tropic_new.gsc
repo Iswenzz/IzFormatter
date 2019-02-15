@@ -356,13 +356,14 @@ Messages()
 trap1()
 {
 	trig = getent("trap1_trig", "targetname");
+	level endon("trigger");
 	heli = getent("trap1", "targetname");
 	hurt = getent("helicopter_trig", "targetname");
 	hurt enablelinkto();
 	hurt linkto(heli);
 	trig sethintstring("Press ^1F^7 To activate heli.");
 	trig SetCursorHint("HINT_ACTIVATE");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	trig delete();
 	heli movey(2600,3);
 	wait 3;
@@ -377,18 +378,19 @@ trap1()
 	heli delete();
 	wait 2;
 	hurt delete();
-*/}
+}
 
 trap2()
 {
 	trig = getent("trap2_trig", "targetname");
+	level endon("trigger");
 	trap = getent("trap2", "targetname");
 	hurt = getent("trap2_hurt", "targetname");
 	hurt enablelinkto();
 	hurt linkto(trap);
 	trig sethintstring("Press ^1F^7 To raise the spikes.");
 	trig SetCursorHint("HINT_ACTIVATE");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	while(1)
@@ -399,18 +401,19 @@ trap2()
 		wait 2;
 	}
 
-*/}
+}
 
 trap3()
 {
 	trig = getent("trap3_trig", "targetname");
+	level endon("trigger");
 	trap = getent("trap3", "targetname");
 	hurt = getent("trap3_hurt", "targetname");
 	hurt enablelinkto();
 	hurt linkto(trap);
 	trig sethintstring("Press ^1F^7 To activate the spikes.");
 	trig SetCursorHint("HINT_ACTIVATE");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	{
@@ -422,17 +425,18 @@ trap3()
 		wait 0.5;
 	}
 
-*/}
+}
 
 trap4()
 {
 	trig = getent("trap4_trig", "targetname");
+	level endon("trigger");
 	mover = getent("trap4_1", "targetname");
 	mover1 = getent("trap4_2", "targetname");
 	mover2 = getent("trap4_3", "targetname");
 	trig sethintstring("Press ^1F^7 to activate trap.");
 	trig SetCursorHint("HINT_ACTIVATE");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	wait 0.1;
 	mover rotateYaw(360, 2);
 	wait 2;
@@ -440,11 +444,12 @@ trap4()
 	wait 2;
 	mover2 rotateYaw(360, 2);
 	trig delete();
-*/}
+}
 
 trap5()
 {
 
+	level endon("trigger");
 trig = getEnt( "trap5_trig", "targetname" );
 trap5 = getEnt( "trap5", "targetname" );
 trig sethintstring("Press ^1F^7 to Activate those lasers.");
@@ -459,7 +464,7 @@ hurt1 maps\mp\_utility::triggerOff();
 hurt2 maps\mp\_utility::triggerOff();
 
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
  
 {
@@ -471,15 +476,16 @@ trig delete();
     trap5 solid();
 
     }
-*/}
+}
 
 trap6()
 {
 	trig = getent("trap6_trig", "targetname");
+	level endon("trigger");
 	trap = getent("trap6", "targetname");
 	trig sethintstring("Press ^1F^7 To activate trap.");
 	trig SetCursorHint("HINT_ACTIVATE");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	{
@@ -489,22 +495,23 @@ trap6()
 		wait 2;
 	}
 
-*/}
+}
 
 trap7()
 {
 	trig = getent("trap7_trig", "targetname");
+	level endon("trigger");
 	trap = getent("trap7", "targetname");
 	trig sethintstring("Press ^1F^7 To delete part of the bridge.");
 	trig SetCursorHint("HINT_ACTIVATE");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	{
 		trap delete(); 
 	}
 
-*/}
+}
 
 teleport1()
 {

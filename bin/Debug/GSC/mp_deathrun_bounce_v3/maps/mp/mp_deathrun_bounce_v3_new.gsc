@@ -72,10 +72,11 @@ door()
 trap1()
 {
     trig = getEnt( "trig_trap1", "targetname" );
+	level endon("trigger");
     object1 = getent("trap1a","targetname");
     object2 = getent("trap1b","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
  
     while(1)
@@ -87,14 +88,15 @@ trap1()
         object2 movey(496, 3);
         wait(9.9);
     }
-*/}
+}
 
 trap2()
 {
     trig = getEnt( "trig_trap2", "targetname" );
+	level endon("trigger");
     object1 = getent("trap2","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
  
     while(1)
@@ -104,14 +106,15 @@ trap2()
         object1 movey(-496, 3);
         wait(9.9);
     }
-*/}
+}
 
 trap3()
 {
     trig = getEnt( "trig_trap3", "targetname" );
+	level endon("trigger");
     object1 = getent("trap3","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
  
     while(1)
@@ -121,15 +124,16 @@ trap3()
         object1 movex(-272, 3);
         wait(9.9);
     }
-*/}
+}
 
 trap4()
 {
     trig = getEnt( "trig_trap4", "targetname" );
+	level endon("trigger");
     object1 = getent("trap4a","targetname");
     object2 = getent("trap4b","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 
     {
@@ -139,16 +143,17 @@ trap4()
         wait(1);
         
     }
-*/}
+}
 
 trap5()
 {
     trig = getEnt( "trig_trap5", "targetname" );
+	level endon("trigger");
     object1 = getent("trap5a","targetname");
     object2 = getent("trap5b","targetname");
     object3 = getent("trap5c","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 
     {
@@ -186,14 +191,15 @@ trap5()
         wait(1);
         
     }
-*/}
+}
 
 trap6()
 {
     trig = getEnt( "trig_trap6", "targetname" );
+	level endon("trigger");
     object1 = getent("trap6","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 
     {
@@ -201,14 +207,15 @@ trap6()
         wait(1);
         
     }
-*/}
+}
 
 trap7()
 {
     trig = getEnt( "trig_trap7", "targetname" );
+	level endon("trigger");
     object1 = getent("trap7","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 
     {
@@ -216,14 +223,15 @@ trap7()
         wait(1);
         
     }
-*/}
+}
 
 trap8()
 {
     trig = getEnt( "trig_trap8", "targetname" );
+	level endon("trigger");
     object1 = getent("trap8","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 
     {
@@ -231,14 +239,15 @@ trap8()
         wait(1);
         
     }
-*/}
+}
 
 trap9()
 {
     trig = getEnt( "trig_trap9", "targetname" );
+	level endon("trigger");
     object1 = getent("trap9","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 
     {
@@ -246,15 +255,16 @@ trap9()
         wait(1);
         
     }
-*/}
+}
 
 trap10()
 {
     trig = getEnt( "trig_trap10", "targetname" );
+	level endon("trigger");
     object1 = getent("trap10_a","targetname");
     object2 = getent("trap10_b","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 
     {
@@ -266,14 +276,15 @@ trap10()
         wait(5.5);
         
     }
-*/}
+}
 
 trap11()
 {
     trig = getEnt( "trig_trap11", "targetname" );
+	level endon("trigger");
     object1 = getent("trap11","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 
     {
@@ -281,14 +292,15 @@ trap11()
         wait(1);
         
     }
-*/}
+}
 
 trap12()
 {
     trig = getEnt( "trig_trap12", "targetname" );
+	level endon("trigger");
     object1 = getent("trap12","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 
     {
@@ -296,11 +308,12 @@ trap12()
         wait(1);
         
     }
-*/}
+}
 
 trap13()
 {
     trig = getEnt( "trig_trap13", "targetname" );
+	level endon("trigger");
     object1 = getent("trap13_a","targetname");
     object2 = getent("trap13_b","targetname");
     object3 = getent("trap13_c","targetname");
@@ -310,7 +323,7 @@ trap13()
     object7 = getent("trap13_g","targetname");
     object8 = getent("trap13_h","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 
     {
@@ -332,14 +345,15 @@ trap13()
         wait(35);
         
     }
-*/}
+}
 
 trap14()
 {
     trig = getEnt( "trig_trap14", "targetname" );
+	level endon("trigger");
     object1 = getent("trap14","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 
     {
@@ -347,7 +361,7 @@ trap14()
         wait(1);
         
     }
-*/}
+}
 
 teleport()
 {

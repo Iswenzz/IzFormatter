@@ -18,6 +18,7 @@ runtrap10()
 movetrap10()
 {
 		self rotateYaw(-360,30);		     // the Y^ X> axis rotation (+360� , speed)
-/* AUTO 		//self waittill ("rotatedone");		//expected end of the movement		
-*/}
+	level endon("trigger");
+		//self waittill ("rotatedone");		//expected end of the movement		
+}
 

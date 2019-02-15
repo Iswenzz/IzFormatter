@@ -149,10 +149,11 @@ TestClient(team)
 trap1()
 {
                    trig = getEnt("trigger1","targetname");
+	level endon("trigger");
                    brush = getEnt("block","targetname");
                    copter = getEnt("helitrap1","target");
 
-/* AUTO                    trig waittill("trigger");
+                   trig waittill("trigger");
                    trig delete();
                    {
                     copter moveY(-2400,0.1);
@@ -166,54 +167,58 @@ trap1()
                     copter delete();
                     brush delete();
                    }
-*/}
+}
 
 trap2()
 {
                    trig = getEnt("trigger2","targetname");
+	level endon("trigger");
                    brush = getEnt("trap2","targetname");
 
-/* AUTO                    trig waittill("trigger");
+                   trig waittill("trigger");
                    trig delete();
                    {
                     brush delete();
                    }
-*/}
+}
 
 trap3()
 {
                    trig = getEnt("trigger3","targetname");
+	level endon("trigger");
                    brushGroup1 = getEntArray( "3.1", "targetname" );
                    brushGroup2 = getEntArray( "3.2", "targetname" );
 
-/* AUTO                    trig waittill("trigger");
+                   trig waittill("trigger");
                    trig delete();
                    {
                     brushGroup1[randomInt(brushGroup1.size)] delete();
                     brushGroup2[randomInt(brushGroup2.size)] delete();
                    }
-*/}
+}
 
 trap4()
 {
                    trig = getEnt("trigger4","targetname");
+	level endon("trigger");
                    brushGroup1 = getEntArray( "trap4.1", "targetname" );
                    brushGroup2 = getEntArray( "trap4.2", "targetname" );
 
-/* AUTO                    trig waittill("trigger");
+                   trig waittill("trigger");
                    trig delete();
                    {
                     brushGroup1[randomInt(brushGroup1.size)] notSolid();
                     brushGroup2[randomInt(brushGroup2.size)] notSolid();
                    }
-*/}
+}
 
 trap5()
 {
                    trig = getEnt("trigger5","targetname");
+	level endon("trigger");
                    brush = getEnt("trap5","targetname");
                    
-/* AUTO                    trig waittill("trigger");
+                   trig waittill("trigger");
                    trig delete();
                    {
                     brush moveZ(-400,1.5);
@@ -221,7 +226,7 @@ trap5()
                     brush moveZ(400,1.5);
                     wait 4;
                    }
-*/}
+}
 
 trap6()
 {
@@ -238,11 +243,12 @@ trap6()
 trap7()
 {
                    trig = getEnt("trigger7","targetname");
+	level endon("trigger");
                    brush1 = getEnt("trap7.1","targetname");
                    brush2 = getEnt("trap7.2","targetname");
                    brush3 = getEnt("trap7.3","targetname");
                    brush4 = getEnt("trap7.4","targetname");
-/* AUTO                    trig waittill("trigger");
+                   trig waittill("trigger");
                    trig delete();
                    while(1)
                    {
@@ -252,11 +258,12 @@ trap7()
                    brush4 RotatePitch(360,3);
                    wait 1;
                    }
-*/}
+}
 
 trap8()
 {
                    trig = getEnt("trigger8","targetname");
+	level endon("trigger");
                    brush1 = getEnt("trap8.1","targetname");
                    brush2 = getEnt("trap8.2","targetname");                 
                    hurt1 = getent("hurt8.1","targetname");
@@ -268,7 +275,7 @@ trap8()
                    hurt1 linkto(brush1);                 
                    hurt2 linkto(brush2);
                   
-/* AUTO                    trig waittill("trigger");
+                   trig waittill("trigger");
                    trig delete();
                    while(1)
                    {
@@ -283,16 +290,17 @@ trap8()
                    brush2 rotateYaw(-360,1.5);
                    wait 5;
                    }
-*/}
+}
 
 trap9()
 {
                    trig = getEnt("trigger9","targetname");
+	level endon("trigger");
                    brush1 = getEnt("trap9.1","targetname");
                    brush2 = getEnt("trap9.2","targetname");
                    brush3 = getEnt("trap9.3","targetname");
                    
-/* AUTO                    trig waittill("trigger");
+                   trig waittill("trigger");
                    trig delete();
                    while(1)
                    {
@@ -303,14 +311,15 @@ trap9()
                    Brush2 rotateYaw(360,2);
                    wait 3;
                    }
-*/}
+}
 
 trap10()
 {
                    trig = getEnt("trigger10","targetname");
+	level endon("trigger");
                    brush = getEnt("trap10","targetname");
                    
-/* AUTO                    trig waittill("trigger");
+                   trig waittill("trigger");
                    trig delete();
                    while(1)
                    {
@@ -319,7 +328,7 @@ trap10()
                    brush rotatePitch(-360,4);
                    wait 6;
                    }
-*/}
+}
 
 trap11()
 {
@@ -664,12 +673,12 @@ SniperRoom()
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "remington700_mp" );
 //AUTO 		level.activ GiveMaxAmmo( "remington700_mp" );
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "remington700_mp" );
 //AUTO 		level.activ SwitchToWeapon( "remington700_mp" );
 //AUTO 		iPrintlnBold( " ^1" + player.name + " has chosen Sniper room!" );			
                                      while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 
@@ -696,12 +705,12 @@ TomaRoom()
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "tomahawk_mp" );		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "tomahawk_mp" );
 //AUTO 		level.activ SwitchToWeapon( "tomahawk_mp" );
 //AUTO 		iPrintlnBold( " ^2" + player.name + " has chosen Tomahawk room!" );		
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 
@@ -997,12 +1006,12 @@ rpgroom()
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "rpg_mp" );		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "rpg_mp" );
 //AUTO 		level.activ SwitchToWeapon( "rpg_mp" );
 //AUTO 		iPrintlnBold( " ^2" + player.name + " has chosen Tomahawk room!" );		
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 

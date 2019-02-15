@@ -613,10 +613,11 @@ trig delete();
 trap1()
 {
 trap1_link=getentarray("trap1_linkshit","targetname");
+	level endon("trigger");
 c4 = getentarray("trap1_c4","targetname");
 c4_org = getentarray("trap1_c4_org","targetname");
 trap1 = getent("trap1","targetname");
-/* AUTO trap1 waittill("trigger",player);
+trap1 waittill("trigger",player);
 level.trap_buttons[1] moveZ(-16,2);
 trap1 delete();
 	for(i=0;i<c4.size;i++)
@@ -632,13 +633,14 @@ trap1 delete();
 		}
 	wait 0.35;
 	}
-*/}
+}
 
 trap2()
 {
 blocks = getentarray("trap2_blocks","targetname");
+	level endon("trigger");
 trap2 = getent("trap2","targetname");
-/* AUTO trap2 waittill("trigger",player);
+trap2 waittill("trigger",player);
 level.trap_buttons[2] moveZ(-16,2);
 trap2 delete();
 dist=545;
@@ -670,13 +672,14 @@ time=3;
 	blocks[9] MoveY( dist, time );
 	wait 2.5;
 	}
-*/}
+}
 
 trap3()
 {
 blocks = getentarray("trap3_blocks_actual","targetname");
+	level endon("trigger");
 trap3 = getent("trap3","targetname");
-/* AUTO trap3 waittill("trigger",player);
+trap3 waittill("trigger",player);
 level.trap_buttons[3] moveZ(-16,2);
 trap3 delete();
 time=1.5;
@@ -696,14 +699,15 @@ dist=800;
 	blocks[3] moveZ((dist-(dist*2)),time);
 	wait 1.5;
 	}
-*/}
+}
 
 trap4()
 {
 laser = getentarray("trap4_laser","targetname");
+	level endon("trigger");
 hurt = getentarray("trap4_laser_hurt","targetname");
 trap4 = getent("trap4","targetname");
-/* AUTO trap4 waittill("trigger",player);
+trap4 waittill("trigger",player);
 level.trap_buttons[4] moveZ(-16,2);
 trap4 delete();
 time=2;
@@ -715,7 +719,7 @@ dist=136;
 	trap4FuckC( (dist-(dist*2)), dist, time );
 	wait time;
 	}
-*/}
+}
 
 trap4_links()
 {
@@ -742,8 +746,9 @@ for(i=0;i<laser.size;i=i+2)
 trap5()
 {
 bounces = getentarray("bounce","targetname");
+	level endon("trigger");
 trap5 = getent("trap5","targetname");
-/* AUTO trap5 waittill("trigger",player);
+trap5 waittill("trigger",player);
 level.trap_buttons[5] moveZ(-16,2);
 trap5 delete();
 	while(1)
@@ -767,7 +772,7 @@ trap5 delete();
 		wait randomFloatRange( 1.5, 4 );
 		}
 	}
-*/}
+}
 
 
 match_begin() {

@@ -202,11 +202,12 @@ level.floor delete();
 trap1()
 {
 trigger = getEnt("trap1act", "targetname");
-/* AUTO trigger waittill("trigger", player);
+	level endon("trigger");
+trigger waittill("trigger", player);
 trigger delete();
 thread trapa();
 thread trapb();
-*/}
+}
 
 fixvariables()
 {
@@ -223,10 +224,11 @@ wait 0.05;
 trapa()
 {
 brush1 = getEnt("trap1a", "targetname");
+	level endon("trigger");
 while(1)
 {
 brush1 movey(64,0.5);
-/* AUTO brush1 waittill("movedone");
+brush1 waittill("movedone");
 brush1 movey(-64,0.5);
 brush1 waittill("movedone");
 brush1 movey(-64,0.5);
@@ -234,15 +236,16 @@ brush1 waittill("movedone");
 brush1 movey(64,0.5);
 brush1 waittill("movedone");
 }
-*/}
+}
 
 trapb()
 {
 brush1 = getEnt("trap1b", "targetname");
+	level endon("trigger");
 while(1)
 {
 brush1 movex(64,0.5);
-/* AUTO brush1 waittill("movedone");
+brush1 waittill("movedone");
 brush1 movex(-64,0.5);
 brush1 waittill("movedone");
 brush1 movex(-64,0.5);
@@ -250,20 +253,22 @@ brush1 waittill("movedone");
 brush1 movex(64,0.5);
 brush1 waittill("movedone");
 }
-*/}
+}
 
 trap2()
 {
 trigger = getEnt("trap2act", "targetname");
-/* AUTO trigger waittill("trigger", player);
+	level endon("trigger");
+trigger waittill("trigger", player);
 trigger delete();
 thread trap2a();
 thread trap2b();
-*/}
+}
 
 trap2a()
 {
 epic = getEnt("trap2a", "targetname");
+	level endon("trigger");
 if (!isdefined(epic.speed))
  epic.speed = 12;
 if (!isdefined(epic.script_noteworthy))
@@ -278,14 +283,15 @@ while(true)
   epic rotateRoll(360,epic.speed);
  else if (epic.script_noteworthy == "y")
   epic rotatePitch(360,epic.speed);
-/* AUTO  wait ((epic.speed)-0.1); // removes the slight hesitation that waittill("rotatedone"); gives.
+ wait ((epic.speed)-0.1); // removes the slight hesitation that waittill("rotatedone"); gives.
  //epic waittill("rotatedone");
 }
-*/}
+}
 
 trap2b()
 {
 epic = getEnt("trap2b", "targetname");
+	level endon("trigger");
 if (!isdefined(epic.speed))
  epic.speed = 12;
 if (!isdefined(epic.script_noteworthy))
@@ -300,34 +306,37 @@ while(true)
   epic rotateRoll(-360,epic.speed);
  else if (epic.script_noteworthy == "y")
   epic rotatePitch(-360,epic.speed);
-/* AUTO  wait ((epic.speed)-0.1); // removes the slight hesitation that waittill("rotatedone"); gives.
+ wait ((epic.speed)-0.1); // removes the slight hesitation that waittill("rotatedone"); gives.
  //epic waittill("rotatedone");
 }
-*/}
+}
 
 trap3()
 {
 trigger = getEnt("trap3act", "targetname");
-/* AUTO trigger waittill("trigger", player);
+	level endon("trigger");
+trigger waittill("trigger", player);
 trigger delete();
 thread trap3a();
 thread trap3b();
-*/}
+}
 
 trap3a()
 {
 brush1 = getEnt("trap3a", "targetname");
+	level endon("trigger");
 brush1 movey(-1344,4);
-/* AUTO brush1 waittill("movedone");
-*/}
+brush1 waittill("movedone");
+}
 
 trap3b()
 {
 wait 4;
+	level endon("trigger");
 brush1 = getEnt("trap3b", "targetname");
 brush1 movey(-1088,3);
-/* AUTO brush1 waittill("movedone");
-*/}
+brush1 waittill("movedone");
+}
 
 short1()
 {
@@ -343,21 +352,23 @@ brush1 waittill("movedone");
 trap4()
 {
 trigger = getEnt("trap4act", "targetname");
-/* AUTO trigger waittill("trigger", player);
+	level endon("trigger");
+trigger waittill("trigger", player);
 trigger delete();
 thread trap4a();
 thread trap4b();
 thread trap4c();
 thread trap4d();
-*/}
+}
 
 trap4a()
 {
 brush1 = getEnt("trap4a", "targetname");
+	level endon("trigger");
 while(1)
 {
 brush1 movey(64,0.6);
-/* AUTO brush1 waittill("movedone");
+brush1 waittill("movedone");
 brush1 movey(-64,0.6);
 brush1 waittill("movedone");
 brush1 movez(-64,0.6);
@@ -365,15 +376,16 @@ brush1 waittill("movedone");
 brush1 movez(64,0.6);
 brush1 waittill("movedone");
 }
-*/}
+}
 
 trap4b()
 {
 brush1 = getEnt("trap4b", "targetname");
+	level endon("trigger");
 while(1)
 {
 brush1 movey(-64,0.6);
-/* AUTO brush1 waittill("movedone");
+brush1 waittill("movedone");
 brush1 movey(64,0.6);
 brush1 waittill("movedone");
 brush1 movex(64,0.6);
@@ -381,15 +393,16 @@ brush1 waittill("movedone");
 brush1 movex(-64,0.6);
 brush1 waittill("movedone");
 }
-*/}
+}
 
 trap4c()
 {
 brush1 = getEnt("trap4c", "targetname");
+	level endon("trigger");
 while(1)
 {
 brush1 movex(64,0.6);
-/* AUTO brush1 waittill("movedone");
+brush1 waittill("movedone");
 brush1 movex(-64,0.6);
 brush1 waittill("movedone");
 brush1 movey(-64,0.6);
@@ -397,15 +410,16 @@ brush1 waittill("movedone");
 brush1 movey(64,0.6);
 brush1 waittill("movedone");
 }
-*/}
+}
 
 trap4d()
 {
 brush1 = getEnt("trap4d", "targetname");
+	level endon("trigger");
 while(1)
 {
 brush1 movez(-32,0.6);
-/* AUTO brush1 waittill("movedone");
+brush1 waittill("movedone");
 brush1 movez(32,0.6);
 brush1 waittill("movedone");
 brush1 movex(-64,0.6);
@@ -413,65 +427,71 @@ brush1 waittill("movedone");
 brush1 movex(64,0.6);
 brush1 waittill("movedone");
 }
-*/}
+}
 
 trap5()
 {
 trigger = getEnt("trap5act", "targetname");
-/* AUTO trigger waittill("trigger", player);
+	level endon("trigger");
+trigger waittill("trigger", player);
 trigger delete();
 thread trap5a();
 thread trap5b();
 thread trap5c();
-*/}
+}
 
 trap5a()
 {
 brush1 = getEnt("trap5a", "targetname");
+	level endon("trigger");
 while(1)
 {
 brush1 movex(832,2.5);
-/* AUTO brush1 waittill("movedone");
+brush1 waittill("movedone");
 brush1 movex(-832,2.5);
 brush1 waittill("movedone");
 }
-*/}
+}
 
 trap5b()
 {
 brush1 = getEnt("trap5b", "targetname");
+	level endon("trigger");
 while(1)
 {
 brush1 movex(-832,2.5);
-/* AUTO brush1 waittill("movedone");
+brush1 waittill("movedone");
 brush1 movex(832,2.5);
 brush1 waittill("movedone");
 }
-*/}
+}
 
 trap5c()
 {
 brush1 = getEnt("trap5c", "targetname");
+	level endon("trigger");
 wait 0.5;
 brush1 movez(-488,2.5);
-/* AUTO brush1 waittill("movedone");
-*/}
+brush1 waittill("movedone");
+}
 
 trap6()
 {
 trigger = getEnt("trap6act", "targetname");
-/* AUTO trigger waittill("trigger", player);
+	level endon("trigger");
+trigger waittill("trigger", player);
 trigger delete();
 thread trap6a();
-*/}
+}
 
 trap6a()
 {
 brush1 = getEnt("trap6a", "targetname");
+	level endon("trigger");
 while(1)
 {
 brush1 movey(-96,0.5);
-/* AUTO brush1 waittill("movedone");
+brush1 waittill("movedone");
 brush1 movez(64,0.5);
 brush1 waittill("movedone");
 brush1 movey(-4032,4);
@@ -488,7 +508,7 @@ brush1 show();
 brush1 solid();
 wait(1);
 }
-*/}
+}
 
 twister1a()
 {
@@ -537,14 +557,16 @@ while(true)
 trap7()
 {
 trigger = getEnt("trap7act", "targetname");
-/* AUTO trigger waittill("trigger", player);
+	level endon("trigger");
+trigger waittill("trigger", player);
 trigger delete();
 thread trap7a();
-*/}
+}
 
 trap7a()
 {
 epic = getEnt("trap7a", "targetname");
+	level endon("trigger");
 if (!isdefined(epic.speed))
  epic.speed = 15;
 if (!isdefined(epic.script_noteworthy))
@@ -559,22 +581,24 @@ while(true)
   epic rotateRoll(-360,epic.speed);
  else if (epic.script_noteworthy == "y")
   epic rotatePitch(-360,epic.speed);
-/* AUTO  wait ((epic.speed)-0.1); // removes the slight hesitation that waittill("rotatedone"); gives.
+ wait ((epic.speed)-0.1); // removes the slight hesitation that waittill("rotatedone"); gives.
  //epic waittill("rotatedone");
 }
-*/}
+}
 
 trap8()
 {
 trigger = getEnt("trap8act", "targetname");
-/* AUTO trigger waittill("trigger", player);
+	level endon("trigger");
+trigger waittill("trigger", player);
 trigger delete();
 thread trap8a();
-*/}
+}
 
 trap8a()
 {
 epic = getEnt("trap8a", "targetname");
+	level endon("trigger");
 if (!isdefined(epic.speed))
  epic.speed = 2;
 if (!isdefined(epic.script_noteworthy))
@@ -589,7 +613,7 @@ while(true)
   epic rotateRoll(-360,epic.speed);
  else if (epic.script_noteworthy == "y")
   epic rotatePitch(-360,epic.speed);
-/* AUTO  wait ((epic.speed)-0.1); // removes the slight hesitation that waittill("rotatedone"); gives.
+ wait ((epic.speed)-0.1); // removes the slight hesitation that waittill("rotatedone"); gives.
  //epic waittill("rotatedone");
  wait 2;
   // rotateYaw(float rot, float time, <float acceleration_time>, <float deceleration_time>);
@@ -603,7 +627,7 @@ while(true)
  //epic waittill("rotatedone");
  wait 5;
 }
-*/}
+}
 
 rotate7sense()
 {

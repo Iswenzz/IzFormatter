@@ -16,23 +16,25 @@ main()
 entrancetrap1()//Spins Poles.
 {
  poles = getEnt("poles","targetname");
+	level endon("trigger");
  trig = getEnt("poles_trig","targetname");
  trig sethintstring("Press ^5[USE] ^7to Rotate the Poles!");
-/* AUTO  trig waittill("trigger", player );
+ trig waittill("trigger", player );
  while(1)
  {
 	poles rotateRoll(720, 3 );
 	wait 0.0125;
  }
-*/}
+}
 
 entrancetrap2() //Brings Spikes out of the Ground.
 {
 spikes = getEnt("spikes","targetname");
+	level endon("trigger");
  trig = getEnt("spikes_trig","targetname");
  killtrig = getEnt("kill_trig","targetname");
  trig sethintstring("Press ^5[USE] ^7to Raise the Spikes!");
-/* AUTO  trig waittill("trigger", player );
+ trig waittill("trigger", player );
  trig delete();
   killtrig enablelinkto ();
   killtrig linkto (spikes);
@@ -41,31 +43,33 @@ spikes = getEnt("spikes","targetname");
   wait(2);
   spikes movez(-45,3,1,2);
   spikes waittill("movedone");
-*/	}
+	}
 
 trap1() //Removes the First Easy Platforms.
 {
  platform = getEnt("trap1","targetname");
+	level endon("trigger");
  trig = getEnt("trap1_trig","targetname");
  trig sethintstring("Press ^5[USE] ^7to Remove the Platforms!");
-/* AUTO  trig waittill("trigger", player );
+ trig waittill("trigger", player );
  trig delete();
  platform delete();
-*/}
+}
 
 trap2() //Spins the Platform.
 {
  platform = getEnt("trap2","targetname");
+	level endon("trigger");
  trig = getEnt("trap2_trig","targetname");
  trig sethintstring("Press ^5[USE] ^7to Spin the Platform!");
-/* AUTO  trig waittill("trigger", player );
+ trig waittill("trigger", player );
  trig delete();
  while(1)
  {
    platform rotateYaw (720, 3 );
    wait 8;
  }
-*/}
+}
 
 moveplatform() //Moves the Platform from One to the Other.
 {
@@ -87,11 +91,12 @@ while(1)
 trap3() //Crushes the Runners
 {
   object = getEnt("smash", "targetname");
+	level endon("trigger");
    trig = getEnt("trap3_trig","targetname");
   killtrig = getEnt("smashkill_trig","targetname");
   
   trig setHintString("Press ^5[USE] ^7to Crush the Runners!");
-/* AUTO   trig waittill("trigger", player );
+  trig waittill("trigger", player );
   trig delete();
   
   while(1)
@@ -104,7 +109,7 @@ trap3() //Crushes the Runners
     object moveZ (421, 5);
 	 object waittill ("movedone");
   }
-*/}
+}
 
 addTriggerToList( name )
 {

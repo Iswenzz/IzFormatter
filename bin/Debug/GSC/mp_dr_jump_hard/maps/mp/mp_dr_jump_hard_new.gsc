@@ -495,7 +495,7 @@ sniperoom()
 //AUTO                 level.activ GiveMaxAmmo( "m40a3_mp" );
 //AUTO                     level.activ GiveWeapon( "intervention_mp" );
 //AUTO                 level.activ GiveMaxAmmo( "intervention_mp" );
-//AUTO                 wait .05;
+                wait .05;
 //AUTO                 player switchToWeapon( "intervention_mp" );
 //AUTO                 level.activ SwitchToWeapon( "intervention_mp" );
                 player FreezeControls(1);
@@ -508,7 +508,7 @@ sniperoom()
                                         players = getentarray("player", "classname");
                                         for(i=0;i<players.size;i++)
                                                 players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO                                         wait 5;
+                                        wait 5;
                                         player FreezeControls(0);
                                         level.activ FreezeControls(0);
                         player waittill( "death" );
@@ -550,7 +550,7 @@ akroom()
 //AUTO                 level.activ TakeAllWeapons();
 //AUTO                 level.activ GiveWeapon( "ak74u_mp" );
 //AUTO                 level.activ GiveMaxAmmo( "ak74u_mp" );
-//AUTO                 wait .05;
+                wait .05;
 //AUTO                 player switchToWeapon( "ak74u_mp" );
 //AUTO                 level.activ SwitchToWeapon( "ak74u_mp" );
                 player FreezeControls(1);
@@ -563,7 +563,7 @@ akroom()
                                         players = getentarray("player", "classname");
                                         for(i=0;i<players.size;i++)
                                                 players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO                                         wait 5;
+                                        wait 5;
                                         player FreezeControls(0);
                                         level.activ FreezeControls(0);
                         player waittill( "death" );
@@ -606,7 +606,7 @@ raygunroom()
 //AUTO                 level.activ TakeAllWeapons();
 //AUTO                 level.activ GiveWeapon( "raygun_mp" );
 //AUTO                 level.activ GiveMaxAmmo( "raygun_mp" );
-//AUTO                 wait .05;
+                wait .05;
 //AUTO                 player switchToWeapon( "raygun_mp" );
 //AUTO                 level.activ SwitchToWeapon( "raygun_mp" );
                 player FreezeControls(1);
@@ -619,7 +619,7 @@ raygunroom()
                                         players = getentarray("player", "classname");
                                         for(i=0;i<players.size;i++)
                                                 players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO                                         wait 5;
+                                        wait 5;
                                         player FreezeControls(0);
                                         level.activ FreezeControls(0);
                         player waittill( "death" );
@@ -662,7 +662,7 @@ kniferoom()
 //AUTO                 level.activ TakeAllWeapons();
 //AUTO                 level.activ GiveWeapon( "knife_mp" );
 //AUTO                 level.activ GiveMaxAmmo( "knife_mp" );
-//AUTO                 wait .05;
+                wait .05;
 //AUTO                 player switchToWeapon( "knife_mp" );
 //AUTO                 level.activ SwitchToWeapon( "knife_mp" );
                 player FreezeControls(1);
@@ -675,7 +675,7 @@ kniferoom()
                                         players = getentarray("player", "classname");
                                         for(i=0;i<players.size;i++)
                                                 players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO                                         wait 5;
+                                        wait 5;
                                         player FreezeControls(0);
                                         level.activ FreezeControls(0);
                         player waittill( "death" );
@@ -714,13 +714,13 @@ player SetPlayerAngles( jump.angles );
 player setOrigin( jump.origin );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon( "knife_mp" );
-//AUTO wait .05;
+wait .05;
 //AUTO player SwitchToWeapon( "knife_mp" );
 level.activ setPlayerangles( activat.angles );
 level.activ setOrigin( activat.origin );
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "knife_mp" );
-//AUTO wait .05;
+wait .05;
 //AUTO player switchToWeapon( "knife_mp" );
 //AUTO level.activ SwitchToWeapon( "knife_mp" );
 player FreezeControls(1);
@@ -733,7 +733,7 @@ noti.duration = 5;
 players = getentarray("player", "classname");
 for(i=0;i<players.size;i++)
 players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO wait 5;
+wait 5;
 player FreezeControls(0);
 level.activ FreezeControls(0);
 player waittill( "death" );
@@ -962,14 +962,15 @@ thread trap2a();
 trap2a()
 {
 script = getent("trap2_script","targetname");
+	level endon("trigger");
  
 for(;;)
 {
 script rotateyaw(360,2);
-/* AUTO script waittill("rotatedone");
+script waittill("rotatedone");
 wait 2;
 }
-*/}
+}
 
 trap3()
 {
@@ -983,12 +984,13 @@ thread trap3a();
 trap3a()
 {
  
+	level endon("trigger");
 s = getent("trap3_script","targetname");
 
 while (1)
 {
 s movex (96,1);
-/* AUTO s waittill("movedone");
+s waittill("movedone");
 s movez (192,0.5);
 s waittill("movedone");
 s movez (-432,0.5);
@@ -1000,7 +1002,7 @@ s waittill("movedone");
 wait 5;
 }
  
-*/}
+}
 
 trap4()
 {
@@ -1095,16 +1097,17 @@ thread trap7a();
 trap7a()
 {
  
+	level endon("trigger");
 script = getent("trap7_script","targetname");
 hurt = getent("trap7_hurt","targetname");
  
 hurt enablelinkto();
 hurt linkto(script);
 script movez (128,0.5);
-/* AUTO script waittill("movedone");
+script waittill("movedone");
 script movez(-128,1);
  
-*/}
+}
 
 trap8()
 {
@@ -1143,14 +1146,15 @@ thread trap9a();
 trap9a()
 {
  
+	level endon("trigger");
 s = getent ("trap9_script","targetname");
  
 for(;;)
 {
 s rotatepitch(-360,4);
-/* AUTO s waittill("rotatedone");
+s waittill("rotatedone");
 }
-*/}
+}
 
 trap10()
 {
@@ -1182,17 +1186,18 @@ thread trap11a();
 trap11a()
 {
  
+	level endon("trigger");
 s = getent("trap11_script","targetname");
  
 for(;;)
 {
  
 s rotateyaw (720,4,1,1);
-/* AUTO s waittill ("rotatedone");
+s waittill ("rotatedone");
 wait randomint(6);
  
 }
-*/}
+}
 
 trap12()
 {

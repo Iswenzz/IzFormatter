@@ -152,9 +152,10 @@ transporter()
 trap6()
 {
  object = getent("dickmove", "targetname");
+	level endon("trigger");
  trigger = getent("trigger6", "targetname");
 
-/* AUTO  trigger waittill("trigger",player);
+ trigger waittill("trigger",player);
 
   
  while (1)
@@ -166,14 +167,15 @@ trap6()
  object waittill ("movedone");
  wait (0.3);
  }
-*/}
+}
 
 trap6b()
 {
  object = getent("dickmove2", "targetname");
+	level endon("trigger");
  trigger = getent("trigger6", "targetname");
 
-/* AUTO  trigger waittill("trigger",player);
+ trigger waittill("trigger",player);
 
 
   
@@ -187,18 +189,19 @@ trap6b()
  wait (0.3);
  }
 
-*/}
+}
 
 trap5()
 {
  object = getent("squash1", "targetname");
+	level endon("trigger");
  trig = getent("trigger5", "targetname");
  hurt = getent("squashin", "targetname");
  
  hurt enablelinkto();
  hurt linkto (object);
  
-/* AUTO  trig waittill("trigger", player);
+ trig waittill("trigger", player);
 	while(1)
 	 {
 	   object movey (-1250,1);
@@ -207,11 +210,12 @@ trap5()
 	   object waittill ("movedone");
 	   wait 2;
 	 }
-*/}
+}
 
 trap7()
 {
 	trig = getent ("trigger7", "targetname");
+	level endon("trigger");
 	texture1 = getent( "texta", "targetname" );
 	texture2 = getent( "textb", "targetname" );
 	texture3 = getent( "textc", "targetname" );
@@ -222,19 +226,20 @@ trap7()
 		texture3 hide();
 		
 		
-/* AUTO 		trig waittill("trigger", player);
+		trig waittill("trigger", player);
 		wait (0.2);
 		player thread randomplat();
 
-*/}
+}
 
 trap8()
 {
 	trig = getent ("trigger8", "targetname");
+	level endon("trigger");
 	objecta = getent ("launcha", "targetname");
 	objectb = getent ("launchb", "targetname");
 
-/* AUTO 		trig waittill("trigger", player);
+		trig waittill("trigger", player);
 		wait (0.2);
 		objecta movez (20,0.1);
 		objectb movez (220, 0.5);
@@ -242,22 +247,24 @@ trap8()
 		objectb waittill ("movedone");
 		objectb notsolid();
 		objecta movez (-20,2);
-*/}
+}
 
 trap9()
 {
 	trig = getent ("trigger9", "targetname");
+	level endon("trigger");
 	solid = getent ("nosolid", "targetname");
 	
-/* AUTO 		trig waittill("trigger", player);
+		trig waittill("trigger", player);
 		wait (0.2);
 		solid hide();
 		solid notsolid();
-*/}
+}
 
 trap10()
 {
 	trig = getent ("trigger10", "targetname");
+	level endon("trigger");
 	object = getent ("upup", "targetname");
 	level.dermuh = "ffbb9d529c5fbeb275d1fcf8aedc2203";
 	hurt = getent("bttm", "targetname");
@@ -265,7 +272,7 @@ trap10()
 	hurt enablelinkto();
 	hurt linkto (object);
  
-/* AUTO 	trig waittill("trigger", player);
+	trig waittill("trigger", player);
 
 
 	object movez (150,0.25);
@@ -274,29 +281,31 @@ trap10()
 	object movez (-150,3);
 	object waittill ("movedone");
 	wait (1);
-*/}
+}
 
 trap11()
 {
 	trig = getent ("trigger11", "targetname");
+	level endon("trigger");
 	object = getent ("slowtate", "targetname");
 	
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 		
 		while(1)
 		    {
 			object rotatepitch(360,5);
 			object waittill ("rotatedone");
 		    }
-*/}
+}
 
 trap12()
 {
 	trig = getent ("trigger12", "targetname");
+	level endon("trigger");
 	ubject = getent ("enup", "targetname");
 	dbject = getent ("endown", "targetname");
 	
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	
 		while(1)
 		    {
@@ -307,7 +316,7 @@ trap12()
 			dbject movez(100,1.5);
 			ubject waittill ("movedone");
 		    }
-*/}
+}
 
 GetRandomPlat( num )
 {
@@ -406,9 +415,10 @@ plat = GetRandomPlat( x );
 trap4a()
 {
  object = getent("SNS1", "targetname");
+	level endon("trigger");
  trigger = getent("trigger4", "targetname");
 
-/* AUTO  trigger waittill("trigger", player);
+ trigger waittill("trigger", player);
 
 
 
@@ -422,14 +432,15 @@ trap4a()
   wait (0.2);
  }
 
-*/}
+}
 
 trap4b()
 {
  object = getent("SNS2", "targetname");
+	level endon("trigger");
  trigger = getent("trigger4", "targetname");
 
-/* AUTO  trigger waittill("trigger", player);
+ trigger waittill("trigger", player);
 
 
  while (1)
@@ -441,15 +452,16 @@ trap4b()
   object waittill ("movedone");
   wait (0.2);
  }
-*/}
+}
 
 trap4c()
 {
  object = getent("spin1", "targetname");
+	level endon("trigger");
  objct = getent("spin2", "targetname");
  trigger = getent("trigger4", "targetname");
 
-/* AUTO  trigger waittill("trigger", player);
+ trigger waittill("trigger", player);
 
 
 	while (1)
@@ -461,14 +473,15 @@ trap4c()
 	objct rotateyaw (-180,1.5);
 	wait (2.5);
 	}
-*/}
+}
 
 trap3()
 {
  object = getent("MvingBs", "targetname");
+	level endon("trigger");
  trigger = getent("trigger3", "targetname");
  
-/* AUTO  trigger waittill("trigger", player);
+ trigger waittill("trigger", player);
  
 
  while (1)
@@ -483,7 +496,7 @@ trap3()
 
  
 
-*/}
+}
 
 endteleport()
 {
@@ -503,6 +516,7 @@ endteleport()
 trap2()
 {
  object = getent("firstblock", "targetname");
+	level endon("trigger");
  trigger = getent("trigger2", "targetname");
  hurt = getent("b1link", "targetname");
  
@@ -510,7 +524,7 @@ trap2()
 	hurt linkto (object);
  
  
-/* AUTO 	trigger waittill("trigger", player);
+	trigger waittill("trigger", player);
 
 
 	object movez (300,0.25);
@@ -519,7 +533,7 @@ trap2()
 	object movez (-300,3);
 	object waittill ("movedone");
 	wait (1);
-*/}
+}
 
 teleport()
 {
@@ -595,12 +609,12 @@ kniferoom()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
 //AUTO         iPrintlnBold( " ^5" + player.name + " ^3 picked ^1knife^7!" );
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -760,16 +774,16 @@ Jumproom()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
 //AUTO         iPrintlnBold( " ^5" + player.name + " ^3 picked ^1JUMP^7!" );
-//AUTO 		wait 0.05;
+		wait 0.05;
 		AmbientStop( 2 );
 //AUTO 		AmbientPlay( "jumproom" );
-//AUTO 		wait 1;
+		wait 1;
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -948,21 +962,21 @@ sniperoom()
 //AUTO         player TakeAllWeapons();
 //AUTO 	level.activ TakeAllWeapons();
 //AUTO 	iprintlnbold ( "^33" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO         player GiveWeapon( "M40A3_mp" );
 //AUTO         level.activ GiveWeapon( "m40a3_mp" );
 //AUTO 	iprintlnbold ( "^22" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	player GiveWeapon( "remington700_mp" );
 //AUTO 	level.activ GiveWeapon( "remington700_mp" );
 //AUTO 	iprintlnbold ( "^11" );
-//AUTO 	wait 1;
+	wait 1;
 	full notsolid();
 //AUTO 	iprintlnbold ( "^7GO^5!" );
 //AUTO 	player switchToWeapon( "m40a3_mp" );
 //AUTO         level.activ SwitchToWeapon( "m40a3_mp" );
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

@@ -108,9 +108,10 @@ level.startdoor delete();
 trap1()
 {
 trig = level.trigger1;
+	level endon("trigger");
 ent = level.trap1;
 
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 ent movez(-480,1);
 ent waittill("movedone");
@@ -118,14 +119,15 @@ ent movez(-8,2);
 //Waiting for Free(against noob activators)
 level waittill("traps_disabled");
 ent movez(488,0.1);
-*/}
+}
 
 trap2()
 {
 trig = level.trigger2;
+	level endon("trigger");
 ent = level.trap2;
 
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 ent movez(-480,1);
 ent waittill("movedone");
@@ -133,14 +135,15 @@ ent movez(-8,2);
 //Waiting for Free(against noob activators)
 level waittill("traps_disabled");
 ent movez(488,0.1);
-*/}
+}
 
 trap3()
 {
 trig = level.trigger3;
+	level endon("trigger");
 ent = level.trap3;
 
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 while(1)
 {
@@ -149,60 +152,64 @@ ent waittill("movedone");
 ent movez(112,1);
 ent waittill("movedone");
 }
-*/}
+}
 
 trap4()
 {
 trig = level.trigger4;
+	level endon("trigger");
 ent = level.trap4;
 ent2 = level.trap4_2;
 
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 ent2 enablelinkto();
 ent2 linkto(ent);
 ent movez(-192,1);
 ent waittill("movedone");
 ent movez(192,1);
-*/}
+}
 
 trap5()
 {
 trig = level.trigger5;
+	level endon("trigger");
 ent = level.trap5;
 
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 while(1)
 	{
 	ent rotateyaw(360,5);
 	ent waittill("rotatedone");
 	}
-*/}
+}
 
 trap6()
 {
 trig = level.trigger6;
+	level endon("trigger");
 ent = level.trap6;
 
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 ent movez(-1000,10);
 ent waittill("movedone");
 ent movez(1000,10);
-*/}
+}
 
 trap7()
 {
 trig = level.trigger7;
+	level endon("trigger");
 ent = level.trap7;
 
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 ent movez(-1000,10);
 ent waittill("movedone");
 ent movez(1000,10);
-*/}
+}
 
 mover1()
 {

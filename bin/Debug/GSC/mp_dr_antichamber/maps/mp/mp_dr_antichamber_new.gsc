@@ -555,12 +555,13 @@ player SetPlayerAngles( target.angles );
 trap1()
 {
      trig = getent("trap1_trig", "targetname");
+	level endon("trigger");
 	 sho1 = getent("sho1", "targetname");
 	 sho2 = getent("sho2", "targetname");
      sho3 = getent("sho3", "targetname");  
      sho4 = getent("sho4", "targetname");
 	 
-/* AUTO 	 trig waittill("trigger", player);
+	 trig waittill("trigger", player);
 //AUTO 	 iPrintLn("^1Activators are meant to activate!!!");
 	 trig delete();
 	 
@@ -593,15 +594,16 @@ trap1()
 	     sho1 delete();
 		 sho3 delete();
 	 }
-*/}
+}
 
 trap2()
 {
      kill = getent("killtrigger", "targetname");
+	level endon("trigger");
 	 spike = getent("spike", "targetname");
 	 trig = getent("trap2_trig", "targetname");
 	 
-/* AUTO 	 trig waittill("trigger", player);
+	 trig waittill("trigger", player);
 	 trig delete();
 	 
 	 kill enablelinkto ();
@@ -615,7 +617,7 @@ trap2()
 		 wait 1;
 		}
 	
-*/}
+}
 
 move()
 {
@@ -630,9 +632,10 @@ move()
 trap6()
 {
      trig = getent("trap6_trig", "targetname");
+	level endon("trigger");
 	 bounce = getent("bounce", "targetname");
 	 
-/* AUTO 	 trig waittill("trigger", player);
+	 trig waittill("trigger", player);
 	 trig delete();
 	 thread meow();
 	 
@@ -641,7 +644,7 @@ trap6()
 	     bounce rotatepitch (180,11);
 		 wait 11;
 		}
-*/}
+}
 
 meow()
 {
@@ -659,11 +662,12 @@ meow()
 trap3()
 {
      trig = getent("trap3_trig", "targetname");
+	level endon("trigger");
      chamber = getent("chamber", "targetname");
      killtrig = getent("damage", "targetname");
 	 carry = getent("carry", "targetname");
      
-/* AUTO      trig waittill("trigger", player);
+     trig waittill("trigger", player);
 	 trig delete();
 	 killtrig enablelinkto ();
      killtrig linkto (carry);
@@ -681,14 +685,15 @@ trap3()
 	 wait 9;
 	 carry movez(176,0.1);
 	 chamber movez(176,6);
-*/}
+}
 
 trap4()
 {
      trig = getent("trap4_trig", "targetname");
+	level endon("trigger");
      bounce1 = getent("bounce1", "targetname");
 	 
-/* AUTO 	 trig waittill("trigger", player);
+	 trig waittill("trigger", player);
 	 trig delete();
 	 bounce1 movex(47,0.6);
 	 bounce1 waittill("movedone");
@@ -699,33 +704,35 @@ trap4()
      bounce1 movex(94,0.6);
 	 bounce1 waittill("movedone");
 	 }
-*/}
+}
 
 trap5()
 {
 	 spin2 = getent("spin2", "targetname");
+	level endon("trigger");
 	 trig = getent("trap5_trig", "targetname");
 	 
-/* AUTO 	 trig waittill("trigger", player);
+	 trig waittill("trigger", player);
 	 trig delete();
 	 while(1)
 	 {
 	 spin2 rotateyaw(90,0.5);
 	 wait 1;
 	 }
-*/}
+}
 
 trap7()
 {
      trig = getent("trap7_trig", "targetname");
+	level endon("trigger");
 	 quake = getent("quake", "targetname");
 	 lop = getent("lop", "targetname");
 	 
-/* AUTO 	 trig waittill("trigger", player);
+	 trig waittill("trigger", player);
 	 trig delete();
 	 lop delete();
 	 Earthquake( 1, 5, quake.origin, 20000 );
-*/}
+}
 
 sniper()
 {
@@ -756,18 +763,18 @@ sniper()
 	 level.activ freezeControls(1);
 	 player FreezeControls(1);
 	 thread distraction();
-//AUTO 	 wait 3;
+	 wait 3;
 	 level.activ FreezeControls(0);
 	 player FreezeControls(0);
 	 player thread onDeath_sniper();
-//AUTO      wait 0.1;
+     wait 0.1;
        
      for(;;)
      {
-//AUTO          wait .1;               
+         wait .1;               
          while(isAlive(player))
          {
-//AUTO              wait 1;
+             wait 1;
             }
                
      }
@@ -810,18 +817,18 @@ knife()
 	 level.activ FreezeControls(1);
 	 player FreezeControls(1);
 //AUTO 	 iPrintLn("^2"+ player.name + " picked ^1Knife");
-//AUTO 	 wait 3;
+	 wait 3;
 	 level.activ FreezeControls(0);
 	 player FreezeControls(0);
 	 player thread onDeath_knife();
-//AUTO      wait 0.1;
+     wait 0.1;
        
      for(;;)
      {
-//AUTO          wait .1;               
+         wait .1;               
          while(isAlive(player))
          {
-//AUTO              wait 1;
+             wait 1;
             }
                
      }
@@ -864,18 +871,18 @@ shotgun()
 	 player thread slow();
 	 level.activ thread slow();
 //AUTO 	 iPrintLn("^2"+ player.name + " picked ^1Winchester");
-//AUTO 	 wait 3;
+	 wait 3;
 	 level.activ FreezeControls(0);
 	 player FreezeControls(0);
 	 player thread onDeath_shotgun();
-//AUTO      wait 0.1;
+     wait 0.1;
        
      for(;;)
      {
-//AUTO          wait .1;               
+         wait .1;               
          while(isAlive(player))
          {
-//AUTO              wait 1;
+             wait 1;
             }
                
      }

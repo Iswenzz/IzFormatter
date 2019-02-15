@@ -240,12 +240,13 @@ gate()
 trap1()
 {
 
+	level endon("trigger");
     trap = getent( "trap1", "targetname" ); 
     trigger = getent( "trap1_trig", "targetname" ); 
 
 	while(1) 
 	{ 
-/* AUTO 		trigger waittill ("trigger",player);
+		trigger waittill ("trigger",player);
 		trigger delete();
         trap moveZ(240, 0.5, 0.1, 0.1); 
         trap waittill("movedone");
@@ -253,17 +254,18 @@ trap1()
         trap moveZ(-240, 2, 0.3, 0.3); 
         trap waittill("movedone");  
     }
-*/}
+}
 
 trap2()
 {
 
+	level endon("trigger");
     trap = getent( "trap2", "targetname" ); 
     trigger = getent( "trap2_trig", "targetname" ); 
 
 	while(1) 
 	{ 
-/* AUTO 		trigger waittill ("trigger",player);
+		trigger waittill ("trigger",player);
 		trigger delete();
 		trap moveY(240, 1.5, 0.3, 0.3); 
 		trap waittill("movedone");
@@ -271,17 +273,18 @@ trap2()
 		trap moveY(-240, 2, 0.3, 0.3); 
 		trap waittill("movedone");
     }
-*/}
+}
 
 trap3()
 {
 
+	level endon("trigger");
 	trap = getent("trap3","targetname");
 	trigger = getent("trap3_trig","targetname");
 
 	while(1)
 	{
-/* AUTO 		trigger waittill ("trigger");
+		trigger waittill ("trigger");
 		trigger delete();
 		for(;;)
 		{
@@ -291,11 +294,12 @@ trap3()
 			trap waittill("movedone");
 		}
 	}
-*/} 
+} 
 
 trap4()
 {
 
+	level endon("trigger");
 	trap = getent("trap4_sx","targetname");
 	trap2 = getent("trap4_dx","targetname");
 	trap3 = getent("trap4_sx2","targetname");
@@ -332,7 +336,7 @@ trap4()
 
 	while(1)
 	{
-/* AUTO 		trigger waittill ("trigger");
+		trigger waittill ("trigger");
 		trigger delete();
 		trap show();
 		trap2 show();
@@ -355,11 +359,12 @@ trap4()
 			trap waittill("movedone");
         }
     }
-*/} 
+} 
 
 trap5()
 {
     trap = getent( "trap5", "targetname" ); 
+	level endon("trigger");
     trigger = getent( "trap5_trig", "targetname" ); 
     trig = getent( "trap5_trig_hurt", "targetname" ); 
     trig enableLinkTo();
@@ -367,7 +372,7 @@ trap5()
 
 	while(1) 
 	{ 
-/* AUTO 		trigger waittill ("trigger",player);
+		trigger waittill ("trigger",player);
 		trigger delete();
 		trap moveZ(370, 5.5, 0.3, 0.3); 
         trap waittill("movedone");
@@ -375,16 +380,17 @@ trap5()
         trap moveZ(-370, 3, 0.3, 0.3); 
         trap waittill("movedone");
     }
-*/}
+}
 
 trap6()
 {
     trap = getent( "trap6", "targetname" ); 
+	level endon("trigger");
     trigger = getent( "trap6_trig", "targetname" ); 
  
 	while(1) 
 	{ 
-/* AUTO 		trigger waittill ("trigger",player);
+		trigger waittill ("trigger",player);
 		trigger delete();
 		trap moveY(-300, .75, 0.3, 0.3); 
 		trap waittill("movedone");
@@ -392,11 +398,12 @@ trap6()
         trap moveY(300, 1.5, 0.3, 0.3); 
 		trap waittill("movedone");
     }
-*/}
+}
 
 trap7()
 {
 	pilastro308 = getent( "pilastro308", "targetname" ); 
+	level endon("trigger");
 	pilastro388 = getent( "pilastro388", "targetname" );
 	pilastro356 = getent( "pilastro356", "targetname" );
 	pilastro324 = getent( "pilastro324", "targetname" );
@@ -414,7 +421,7 @@ trap7()
 
 	while(1) 
 	{ 
-/* AUTO 		trigger waittill ("trigger",player);
+		trigger waittill ("trigger",player);
 		trigger delete();
 		pilastro308 moveZ(308, 2, 0.3, 0.3);  
 		pilastro388 moveZ(388, 2, 0.3, 0.3); 
@@ -448,17 +455,18 @@ trap7()
 		pilastro196 moveZ(-196, 2, 0.3, 0.3);  
 		pilastro308 waittill("movedone");  
     }
-*/}
+}
 
 trap8()
 {
     porta_sx = getent( "porta_sx", "targetname" ); 
+	level endon("trigger");
     porta_dx = getent( "porta_dx", "targetname" ); 
     trigger = getent( "trap8_trig", "targetname" ); 
  
 	while(1) 
 	{ 
-/* AUTO 		trigger waittill ("trigger",player);
+		trigger waittill ("trigger",player);
 		trigger delete();
 		porta_sx moveX(144, 1, 0.3, 0.3);
 		porta_dx moveX(-144, 1, 0.3, 0.3);
@@ -468,16 +476,17 @@ trap8()
 		porta_dx moveX(144, 1, 0.3, 0.3);
         porta_sx waittill("movedone");
     }
-*/}
+}
 
 trap9()
 {
     trap = getent( "trap9", "targetname" ); 
+	level endon("trigger");
 	trigger = getent( "trap9_trig", "targetname" ); 
  
 	while(1) 
 	{ 
-/* AUTO 		trigger waittill ("trigger",player);
+		trigger waittill ("trigger",player);
 		trigger delete();
 		trap hide(); 
 		trap notsolid();
@@ -485,18 +494,19 @@ trap9()
 		trap show();
 		trap solid();        
     }
-*/}
+}
 
 trap10()
 {
     sx = getent( "trap10_sx", "targetname" ); 
+	level endon("trigger");
     dx = getent( "trap10_dx", "targetname" ); 
     trigger = getent( "trap10_trig", "targetname" ); 
     cicciaalculo = getent( "cicciaalculo", "targetname" );  
  
 	while(1) 
 	{ 
-/* AUTO 		trigger waittill ("trigger",player);
+		trigger waittill ("trigger",player);
 		trigger delete();
 		sx moveY(-88, 5);
 		dx moveY(88, 5);  
@@ -509,17 +519,18 @@ trap10()
 		sx moveY(104,5);
 		dx moveY(-104,5);  
     }
-*/}
+}
 
 trap12()
 {
     trap1 = getent( "trap12_sx", "targetname" );
+	level endon("trigger");
     trap2 = getent( "trap12_dx", "targetname" );  
     trigger = getent( "trap12_trig", "targetname" ); 
  
 	while(1) 
 	{ 
-/* AUTO 		trigger waittill ("trigger",player);
+		trigger waittill ("trigger",player);
 		trigger delete();
 		trap1 moveY(-100, 0.5, 0.2, 0.2); 
 		trap2 moveY(100, 0.5, 0.2, 0.2);
@@ -529,17 +540,18 @@ trap12()
 		trap2 moveY(-100, 0.5, 0.2, 0.2); 
 		trap1 waittill("movedone");
     }
-*/}
+}
 
 trap13()
 {
     trapsx = getent( "trap13_sx", "targetname" ); 
+	level endon("trigger");
     trapdx = getent( "trap13_dx", "targetname" );
     trigger = getent( "trap13_trig", "targetname" ); 
 
 	while(1) 
 	{ 
-/* AUTO 		trigger waittill ("trigger",player);
+		trigger waittill ("trigger",player);
 		trigger delete();
 		for(;;)
 		{
@@ -551,23 +563,24 @@ trap13()
 			trapdx waittill("movedone");
         }
     }
-*/}
+}
 
 trap14()
 {
     trap = getent( "trap14", "targetname" );     
+	level endon("trigger");
     trigger = getent( "trap14_trig", "targetname" ); 
 
 	while(1) 
 	{ 
-/* AUTO 		trigger waittill ("trigger",player);
+		trigger waittill ("trigger",player);
 		trigger delete();
 		trap movey(676, 2.5,0,0); 
 		trap waittill("movedone"); 
 		trap movey(-676, 2.5,0,0); 
 		trap waittill("movedone");
     }
-*/}
+}
 
 credits()
 {
@@ -702,12 +715,12 @@ WatchSniper()
 //AUTO 		level.activ GiveMaxAmmo( "remington700_mp" );
 //AUTO         level.activ GiveWeapon( "m40a3_mp" );
 //AUTO 		level.activ GiveMaxAmmo( "m40a3_mp" );
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "remington700_mp" );
 //AUTO 		level.activ SwitchToWeapon( "remington700_mp" );
 //AUTO 		iPrintlnBold( " ^2" + player.name + " ^7has chosen ^2SNIPER^7 room^2!" );				
         while( isAlive( player ) && isDefined( player ) )
-//AUTO 		wait 1;
+		wait 1;
 	}
 }
 
@@ -736,12 +749,12 @@ WatchKnife()
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "knife_mp" );		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ SwitchToWeapon( "knife_mp" );
 //AUTO 		iPrintlnBold( " ^4" + player.name + " ^7has chosen ^4KNIFE^7 room^4!" );		 
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 		wait 1;
+		wait 1;
 	}
 }
 
@@ -850,12 +863,12 @@ Watchbounce()
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "knife_mp");
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ switchToWeapon( "knife_mp" );
 //AUTO 		iPrintlnBold( " ^6" + player.name + " ^7has chosen ^6BOUNCE^7 room^6!" );		
 	    while( isAlive( player ) && isDefined( player ) )
-//AUTO 		wait 1;
+		wait 1;
 	}
 }
 

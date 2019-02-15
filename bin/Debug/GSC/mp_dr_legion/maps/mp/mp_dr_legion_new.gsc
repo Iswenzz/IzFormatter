@@ -102,12 +102,12 @@ kniferoom()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
 //AUTO         iPrintlnBold( " ^3" + player.name + " picked ^1KNIFE^7!" );
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -134,13 +134,13 @@ bounceroom()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
 //AUTO         iPrintlnBold( " ^1" + player.name + " picked ^2BOUNCE Room^1!" );
-//AUTO   wait 0.1;
+  wait 0.1;
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -171,17 +171,17 @@ sniperoom()
         level.activ setOrigin( acti.origin );
 //AUTO         player TakeAllWeapons();
 //AUTO  level.activ TakeAllWeapons();
-//AUTO  wait 0.1;
+ wait 0.1;
 //AUTO         player GiveWeapon( "remington700_mp" );
 //AUTO         level.activ GiveWeapon( "remington700_mp" );
-//AUTO  wait 0.1;
+ wait 0.1;
 //AUTO  player GiveWeapon( "M40A3_mp" );
 //AUTO  level.activ GiveWeapon( "M40A3_mp" );
-//AUTO  wait 0.1;;
+ wait 0.1;;
 //AUTO  player switchToWeapon( "remington700_mp" );
 //AUTO         level.activ SwitchToWeapon( "remington700_mp" );
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -255,54 +255,59 @@ oldactivate(){
 trap_1()
 {
 	trigger = getent("trap_1", "targetname"); //trigger
+	level endon("trigger");
 	blocker = getent("elevator", "targetname"); //brush
         blocker solid(); 
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
         trigger delete();
         blocker notsolid(); 
 	wait(1);	
-*/}
+}
 
 trap_2()
 {
 	trigger = getent("trap_2", "targetname"); //trigger
+	level endon("trigger");
 	object = getent("plat_trap_2", "targetname"); //brush
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
         trigger delete();
         object movex(400,1,1,0);
 		wait(3);
 		object movex(-400,1,1,0);
 		wait(3);
-*/}
+}
 
 trap_3()
 {
 	trigger = getent("trap_3", "targetname"); //trigger
+	level endon("trigger");
 	object = getent("plat_trap_3", "targetname"); //brush
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
         trigger delete();
         object delete();
 	wait(1);	
-*/}
+}
 
 trap_4()
 {
 	trigger = getent("trap_4", "targetname"); //trigger
+	level endon("trigger");
 	object = getent("brush_trap_4", "targetname"); //brush
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
         trigger delete();
         object movex(-960,1,1,0);
         wait(5);
         object movex(960,1,1,0);
         wait(5);	
-*/}
+}
 
 trap_5()
 {
 	trigger = getent("trap_5", "targetname"); //trigger
+	level endon("trigger");
 	objecta = getent("b1_trap_5", "targetname"); //brush
         objectb = getent("b2_trap_5", "targetname"); //brush
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
         trigger delete();
         objectb movez(-192,3,3,0);
 	objecta movez(192,3,3,0);
@@ -315,14 +320,15 @@ trap_5()
 	objecta movez(2*192,3,3,0);
         wait(3.5);
 	}	
-*/}
+}
 
 trap_6()
 {
 	trigger = getent("trap_6", "targetname"); //trigger
+	level endon("trigger");
 	object = getent("spikes_trap_6", "targetname"); //brush
 	killtrigger = getent("killtrig", "targetname");
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete();
         killtrigger enablelinkto ();
 	killtrigger linkto (object);
@@ -330,7 +336,7 @@ trap_6()
         wait(2.5);
         object movez(-100,0.5,0.5,0);
         wait(2.5);
-*/}
+}
 
 snipeplat()
 {

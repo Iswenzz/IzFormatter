@@ -8,8 +8,9 @@ thread trap5();
 trap5()
 {
         trigger = getent("trigger_t1_","targetname");
+	level endon("trigger");
 	object = getent("t1_","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
         trigger delete();
 	a = getent("t1a","targetname");
 	b = getent("t1b","targetname");
@@ -35,5 +36,5 @@ trap5()
 		f moveX(-64,0.5);
 		wait 1.5;
 	}
-*/}
+}
 

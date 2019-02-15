@@ -119,23 +119,25 @@ fx4()
 trap1()
 {
 	brush = getent ("trap1_brush", "targetname");
+	level endon("trigger");
 	trig = getent ("trap1_trigger", "targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	while(1)
 {
 	trig SetHintString("^9Activated");
 	brush rotatepitch (720,4);
 	wait 5;
 }
-*/}
+}
 
 trap2()
 {
 	trig = getEnt( "trap2_trigger", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap2_brush", "targetname" );
 
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	
 	while(1)
 {
@@ -145,11 +147,12 @@ trap2()
 	brush rotateyaw (720,3);
 	wait 4;
 }
-*/}
+}
 
 trap3()
 {
 	trig = getEnt( "trap3_trigger", "targetname" );
+	level endon("trigger");
 	brush1 = getEnt( "trap3_brush1", "targetname" );
 	brush2 = getEnt( "trap3_brush2", "targetname" );
 	brush3 = getEnt( "trap3_brush3", "targetname" );
@@ -157,7 +160,7 @@ trap3()
 	brush5 = getEnt( "trap3_brush5", "targetname" );
 	brush6 = getEnt( "trap3_brush6", "targetname" );
 
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	
 	while(1)
 {
@@ -177,15 +180,16 @@ trap3()
 	brush6 rotateyaw (1080,6);
 	wait 6;
 }
-*/}
+}
 
 trap4()
 {
 	trig = getEnt( "trap4_trigger", "targetname" );
+	level endon("trigger");
 	brush1 = getEnt( "trap4_brush1", "targetname" );
 	brush2 = getEnt( "trap4_brush2", "targetname" );
 
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	
 	while(1)
 {
@@ -197,15 +201,16 @@ trap4()
 	brush2 rotateyaw (-360,2);
 	wait 3.5;
 }
-*/}
+}
 
 trap5()
 {
 	trig = getEnt( "trap5_trigger", "targetname" );
+	level endon("trigger");
 	brush1 = getEnt( "trap5_brush1", "targetname" );
 	brush2 = getEnt( "trap5_brush2", "targetname" );
 
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	
 	while(1)
 	{
@@ -224,14 +229,15 @@ trap5()
 	brush2 moveZ(50,1);
 	brush1 waittill("movedone");
 }
-*/}
+}
 
 trap6()
 {
 	trig = getEnt( "trap6_trigger", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap6_brush", "targetname" );
 
-/* AUTO 	trig waittill( "trigger" );
+	trig waittill( "trigger" );
 	
 	while(1)
 {
@@ -241,7 +247,7 @@ trap6()
 	brush rotateyaw (720,4);
 	wait 4;
 }
-*/}
+}
 
 end()
 {

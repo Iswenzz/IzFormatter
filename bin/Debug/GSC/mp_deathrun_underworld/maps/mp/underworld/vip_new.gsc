@@ -38,13 +38,13 @@ vip_room()
             }
             else
             {
-//AUTO                 wait 0.5;
+                wait 0.5;
 //AUTO 				player iprintlnbold("^1<< No entry >>");
             }
         }
         else
         {
-//AUTO             wait 0.5;
+            wait 0.5;
         }
     }
 }
@@ -194,7 +194,7 @@ vip_teleport_2()
 		
 		player FreezeControls(1);
 //AUTO 		player iprintlnbold("^1<< HAX >>");
-//AUTO 		wait 5;
+		wait 5;
 		player FreezeControls(0);
 	}
 }

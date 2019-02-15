@@ -376,11 +376,12 @@ teleport(tp)
 strafetraps_1()
 {
 	ts = getent("strafe_trig", "targetname");
+	level endon("trigger");
 	
-/* AUTO 	ts waittill ("trigger",player);
+	ts waittill ("trigger",player);
 	ts delete();
 	strafe_bottom();
-*/}
+}
 
 strafe_bottom()
 {
@@ -416,27 +417,29 @@ strafe_bottom()
 strafetraps_easy()
 {
 	trig = getent("strafe_trig_easy", "targetname");
+	level endon("trigger");
 	door1 = getent("strafe_easy_door1", "targetname");
 	door2 = getent("strafe_easy_door2", "targetname");
 	
-/* AUTO 	trig waittill ("trigger",player);
+	trig waittill ("trigger",player);
 	trig delete();
 	
 	door1 movez (-90,4);
 	door1 waittill ("movedone");
 	door2 movez (-90,4);
 	door2 waittill ("movedone");
-*/}
+}
 
 bouncetraps()
 {
 	left1 = getent("bounce_left1", "targetname");
+	level endon("trigger");
 	left2 = getent("bounce_left2", "targetname");
 	right1 = getent("bounce_right1", "targetname");
 	right2 = getent("bounce_right2", "targetname");
 	trig = getent("bounce_trig", "targetname");
 	
-/* AUTO 	trig waittill ("trigger",player);
+	trig waittill ("trigger",player);
 	trig delete();
 	
 	left1 movex (-56,3);
@@ -447,7 +450,7 @@ bouncetraps()
 	left2 waittill ("movedone");
 	right1 waittill ("movedone");
 	right2 waittill ("movedone");
-*/}
+}
 
 end()
 {

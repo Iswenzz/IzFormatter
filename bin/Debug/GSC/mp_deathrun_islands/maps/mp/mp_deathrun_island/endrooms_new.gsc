@@ -66,15 +66,15 @@ sniper()
                     for(i=0;i<players.size;i++)
                         players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
                     
-//AUTO             wait 2;
+            wait 2;
             
             level.activ FreezeControls(0);
             player FreezeControls(0);
             
-//AUTO             wait 0.1;
+            wait 0.1;
                      
             while(isAlive(player))
-//AUTO                 wait 1;
+                wait 1;
 
         }
 }
@@ -132,15 +132,15 @@ knife()
                     for(i=0;i<players.size;i++)
                         players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
                     
-//AUTO             wait 2;
+            wait 2;
             
             level.activ FreezeControls(0);
             player FreezeControls(0);
             
-//AUTO             wait 0.1;
+            wait 0.1;
                      
             while(isAlive(player))
-//AUTO                 wait 1;
+                wait 1;
 
         }
 }
@@ -190,10 +190,10 @@ bounce()
              players = getEntArray("player", "classname");
              for(i=0;i<players.size;i++)              
              players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );              
-//AUTO             wait 2;
-//AUTO             wait 0.1;
+            wait 2;
+            wait 0.1;
             while(isAlive(player))
-//AUTO              wait 1;
+             wait 1;
         }
 }
 

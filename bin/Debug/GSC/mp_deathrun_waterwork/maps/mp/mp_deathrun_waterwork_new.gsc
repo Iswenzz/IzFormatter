@@ -55,10 +55,11 @@ addTriggerToList( name )
 trap1()
 {
         act1 = getEnt ("trap1_acti", "targetname");
+	level endon("trigger");
         rotate1 = getEnt ("trap1_trap" , "targetname");
         rotate2 = getEnt ("trap2_trap" , "targetname");
                
-/* AUTO         act1 waittill ("trigger");
+        act1 waittill ("trigger");
         act1 delete();
        
         while (1)
@@ -67,15 +68,16 @@ trap1()
                         rotate2 rotatepitch (-360 , 3 );
                         wait 5;
                 }
-*/}
+}
 
 trap2()
 {
         trig = getEnt("trap2_acti","targetname");
+	level endon("trigger");
         brush1 = getEnt("trap2_ran1","targetname");
         brush2 = getEnt("trap2_ran2","targetname");
  
-/* AUTO         trig waittill("trigger");
+        trig waittill("trigger");
         trig delete();
         random = randomInt(2);
         switch(random)
@@ -88,14 +90,15 @@ trap2()
                                
                 default: return;
         }
-*/}
+}
 
 trap3()
 {
         act1 = getEnt ("trap3_acti", "targetname");
+	level endon("trigger");
         rotate1 = getEnt ("trap3_trap", "targetname");
        
-/* AUTO         act1 waittill ("trigger");
+        act1 waittill ("trigger");
         act1 delete();
  
         while(1)
@@ -105,17 +108,18 @@ trap3()
                 rotate1 rotateyaw (-90,1);
                 wait 2;
         }
-*/}
+}
 
 trap4()
 {
         trig = getEnt ("trap4_acti" , "targetname");
+	level endon("trigger");
         trap1 = getEnt ("trap4_trap1" , "targetname");
         trap2 = getEnt ("trap4_trap2" , "targetname");
         trap3 = getEnt ("trap4_trap3" , "targetname");
         trap4 = getEnt ("trap4_trap4" , "targetname");
        
-/* AUTO         trig waittill ("trigger");
+        trig waittill ("trigger");
         trig delete();
        
         trap1 moveX (1168,0.4);
@@ -133,17 +137,18 @@ trap4()
         trap4 moveX (-1216,0.4);
         wait 3;
         trap4 moveX (1216,0.4);
-*/}
+}
 
 trap5()
 {
         act1 = getEnt ("trap5_acti", "targetname");
+	level endon("trigger");
         rotate1 = getEnt ("trap5_trap1" , "targetname");
         rotate2 = getEnt ("trap5_trap2" , "targetname");
         rotate3 = getEnt ("trap5_trap3" , "targetname");
         rotate4 = getEnt ("trap5_trap4" , "targetname");
        
-/* AUTO         act1 waittill ("trigger");
+        act1 waittill ("trigger");
         act1 delete();
  
         while(1)
@@ -156,18 +161,19 @@ trap5()
                 wait 2;
                 rotate4 rotateyaw (-360 , 4);
         }
-*/}
+}
 
 trap6()
 {
                 act1 = getEnt ("trap6_acti", "targetname");
+	level endon("trigger");
                 rotate1 = getEnt ("trap6_trap1" , "targetname");
                 rotate2 = getEnt ("trap6_trap2" , "targetname");
                 rotate3 = getEnt ("trap6_trap3" , "targetname");
                 rotate4 = getEnt ("trap6_trap4" , "targetname");
                 rotate5 = getEnt ("trap6_trap5" , "targetname");
                
-/* AUTO                 act1 waittill ("trigger");
+                act1 waittill ("trigger");
                 act1 delete();
                
                 while(1)
@@ -183,16 +189,17 @@ trap6()
                         rotate5 rotatepitch (-360 , 4);
                         wait 0.1;
                 }
-*/}
+}
 
 trap7()
 {
         act1 = getEnt ("trap7_acti", "targetname");
+	level endon("trigger");
         rotate1 = getEnt ("trap7_trap1", "targetname");
         rotate2 = getEnt ("trap7_trap2", "targetname");
         rotate3 = getEnt ("trap7_trap3", "targetname");
        
-/* AUTO         act1 waittill ("trigger");
+        act1 waittill ("trigger");
         act1 delete();
        
         while (1)
@@ -204,14 +211,15 @@ trap7()
                         rotate3 rotateroll (360, 5);
                         wait 2;
                 }
-*/}
+}
 
 trap8()
 {
         act1 = getEnt ("trap8_acti", "targetname");
+	level endon("trigger");
         rotate1 = getEnt ("trap8_trap", "targetname");
        
-/* AUTO         act1 waittill ("trigger");
+        act1 waittill ("trigger");
         act1 delete();
  
         while(1)
@@ -219,7 +227,7 @@ trap8()
                 rotate1 rotateyaw (360, 3);
                 wait 1;
         }
-*/}
+}
 
 Sniper()
 {
@@ -252,21 +260,21 @@ Sniper()
 //AUTO                 level.activ GiveWeapon( "remington700_mp" );
 //AUTO                 level.activ givemaxammo( "remington700_mp" );
 //AUTO                 iPrintlnBold( " " + player.name + " ^4 has entered Sniper room!" );  
-//AUTO                 wait 0.05;
+                wait 0.05;
 //AUTO                 player switchToWeapon( "m40a3_mp" );
 //AUTO                 level.activ SwitchToWeapon( "m40a3_mp" );
                 player freezecontrols(true);
                 level.activ freezecontrols(true);
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^53" );
 //AUTO                 level.activ iPrintlnBold( "^53" );
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^52" );
 //AUTO                 level.activ iPrintlnBold( "^52" );
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^51" );
 //AUTO                 level.activ iPrintlnBold( "^51" );
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^5Fight^1!" );
 //AUTO                 level.activ iPrintlnBold( "^5Fight^1!" );
                 player freezecontrols(false);
@@ -336,21 +344,21 @@ Knife()
 //AUTO                 level.activ TakeAllWeapons();
 //AUTO                 level.activ GiveWeapon( "tomahawk_mp" );
 //AUTO                 iPrintlnBold( " ^2" + player.name + " ^5 has entered the Knife room^1!" );      
-//AUTO                 wait 0.05;
+                wait 0.05;
 //AUTO                 player switchToWeapon( "tomahawk_mp" );
 //AUTO                 level.activ SwitchToWeapon( "tomahawk_mp" );
                 player freezecontrols(true);
                 level.activ freezecontrols(true);
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^53" );
 //AUTO                 level.activ iPrintlnBold( "^53" );
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^52" );
 //AUTO                 level.activ iPrintlnBold( "^52" );
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^51" );
 //AUTO                 level.activ iPrintlnBold( "^51" );
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^5Fight^1!" );
 //AUTO                 level.activ iPrintlnBold( "^5Fight^1!" );
                 player freezecontrols(false);

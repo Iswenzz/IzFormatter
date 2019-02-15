@@ -163,12 +163,13 @@ finaldoor()
 trap1()
 {
 trap1blok1=getent("trap1blok1","targetname");
+	level endon("trigger");
 trap1blok2=getent("trap1blok2","targetname");
 trap1blok3=getent("trap1blok3","targetname");
 trap1blok4=getent("trap1blok4","targetname");
 trap1blok5=getent("trap1blok5","targetname");
 act1=getent("trigger_trap1","targetname");
-/* AUTO act1 waittill ("trigger", player);
+act1 waittill ("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled && player == level.activ )
 {
 //AUTO iPrintLnBold(player.name + "^6 is a pussy trying to activate on free !"); //Change the message if you want
@@ -194,11 +195,12 @@ wait(1);
 trap1blok3 movez (-50,1,0.1,0.9);
 }
 }
-*/}
+}
 
 trap2()
 {
 trap2spike=getent("trap2spike","targetname");
+	level endon("trigger");
 trap2spike2=getent("trap2spike2","targetname");
 trap2spike3=getent("trap2spike3","targetname");
 trap2spike4=getent("trap2spike4","targetname");
@@ -211,7 +213,7 @@ trap2killer=getent("trap2killer","targetname");
 act2=getent("trigger_trap2","targetname");
 trap2killer EnableLinkTo();
 trap2killer LinkTo(trap2spike);
-/* AUTO act2 waittill ("trigger", player);
+act2 waittill ("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled && player == level.activ )
 {
 //AUTO iPrintLnBold(player.name + "^6 is a pussy trying to activate on free !"); //Change the message if you want
@@ -250,13 +252,14 @@ trap2spike8 waittill ("movedone");
 trap2spike9 waittill ("movedone");
 act2 delete();
 }
-*/}
+}
 
 trap3()
 {
 trap3pusher=getent("trap3pusher","targetname");
+	level endon("trigger");
 act3=getent("trigger_trap3","targetname");
-/* AUTO act3 waittill ("trigger", player);
+act3 waittill ("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled && player == level.activ )
 {
 //AUTO iPrintLnBold(player.name + "^6 is a pussy trying to activate on free !"); //Change the message if you want
@@ -273,7 +276,7 @@ trap3pusher movez (-1200,20,0.1,19.9);
 trap3pusher waittill ("movedone");
 act3 delete();
 }
-*/}
+}
 
 ra_rotate()
 {
@@ -307,11 +310,12 @@ while(true)
 trap_4rotate()
 {
 if (!isdefined(self.speed))
+	level endon("trigger");
  self.speed = 1;
 if (!isdefined(self.script_noteworthy))
  self.script_noteworthy = "z";
 trigger_trap4=getent("trigger_trap4","targetname");
-/* AUTO trigger_trap4 waittill ("trigger", player);
+trigger_trap4 waittill ("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled && player == level.activ )
 {
 //AUTO iPrintLnBold(player.name + "^6 is a pussy trying to activate on free !"); //Change the message if you want
@@ -331,14 +335,15 @@ while(true)
  // self waittill("rotatedone");
 }
 }
-*/}
+}
 
 trap7()
 {
 plank1=getent("trap7_plank1","targetname");
+	level endon("trigger");
 plank2=getent("trap7_plank2","targetname");
 act7=getent("trigger_trap7","targetname");
-/* AUTO act7 waittill ("trigger", player);
+act7 waittill ("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled && player == level.activ )
 {
 //AUTO iPrintLnBold(player.name + "^6 is a pussy trying to activate on free !"); //Change the message if you want
@@ -349,7 +354,7 @@ plank1 movez(-1000,1);
 plank2 movez(-1000,1);
 plank1 waittill ("movedone");
 }
-*/}
+}
 
 secretshaft()
 	{
@@ -382,12 +387,13 @@ weaponroom()
 trap_twisterrotate()
 {
 if (!isdefined(self.speed))
+	level endon("trigger");
  self.speed = 1;
 if (!isdefined(self.script_noteworthy))
  self.script_noteworthy = "z";
 trigger_twister=getent("trigger_twister","targetname");
 twister=getent("twister","targetname");
-/* AUTO trigger_twister waittill ("trigger", player);
+trigger_twister waittill ("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled && player == level.activ )
 {
 //AUTO iPrintLnBold(player.name + "^6 is a pussy trying to activate on free !"); //Change the message if you want
@@ -411,14 +417,15 @@ twister waittill ("movedone");
 twister waittill ("movedone");
 }
 }
-*/}
+}
 
 trap_spinner()
 {
 trigger_spinner=getent("trigger_spinner","targetname");
+	level endon("trigger");
 spinner=getent("spinner","targetname");
 spinner1=getent("spinner1","targetname");
-/* AUTO trigger_spinner waittill ("trigger", player);
+trigger_spinner waittill ("trigger", player);
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled && player == level.activ )
 {
 //AUTO iPrintLnBold(player.name + "^6 is a pussy trying to activate on free !"); //Change the message if you want
@@ -429,5 +436,5 @@ spinner movez(245,1,0.1,0.9);
 wait(1);
 spinner1 movez(245,0.5,0.1,0.4);
 }
-*/}
+}
 

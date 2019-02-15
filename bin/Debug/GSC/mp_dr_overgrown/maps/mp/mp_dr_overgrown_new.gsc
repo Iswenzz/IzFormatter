@@ -74,12 +74,13 @@ addTriggerToList( name )
 trap1()
 {
 	chunk = getent("trap1_chunk","targetname");
+	level endon("trigger");
 	trap1_trigger = getent("trap1_trigger","targetname");
 	trap1_fxorigin = getent("trap1_blast_origin","targetname");
 	level._effect["explosion"] = loadfx ("explosions/speedex_biggerexplosion"); 
 
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap1_trigger waittill("trigger");
+	trap1_trigger waittill("trigger");
 	trap1_trigger delete();
 
 	
@@ -91,11 +92,12 @@ trap1()
 	chunk hide();
 	chunk notsolid();
 	wait 4;
-*/}
+}
 
 trap2()
 {
 	link = getent("link","targetname"); //link for hurt brush
+	level endon("trigger");
 	trap2_trigger = getent("trap2_trigger","targetname"); //acti trigger
 	trap2_hurt = getent("trap2_hurt","targetname"); //Kill trigger
 	trap2_sound = getent("trap2_sound","targetname"); //Kill trigger
@@ -105,7 +107,7 @@ trap2()
 	trap2_hurt enableLinkTo();
 	trap2_hurt linkTo(link);
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap2_trigger waittill("trigger");
+	trap2_trigger waittill("trigger");
 	trap2_trigger delete();
 
 	FX = undefined;
@@ -129,17 +131,18 @@ trap2()
 
         wait 1;
     }
-*/}
+}
 
 trap3()
 {
 	trap3_blockage = getent("trap3_blockage","targetname");
+	level endon("trigger");
 	trap3_trigger = getent("trap3_trigger","targetname");
 	trap3_fx_origin = getent("trap3_fx_origin","targetname");
 
 	trap3_blockage moveZ(-228, 1);
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap3_trigger waittill("trigger");
+	trap3_trigger waittill("trigger");
 	trap3_trigger delete();
 	while(1)
 	{
@@ -150,18 +153,19 @@ trap3()
 		trap3_fx_origin playsound("bigdoor"); //test
 		wait 3;
 	}
-*/}
+}
 
 trap4()
 {
 	trap4 = getent("trap4","targetname");
+	level endon("trigger");
 	trap4_trigger = getent("trap4_trigger","targetname");
 
 	trap4 moveX(80, 1);
 	//trap4a rotatePitch(90, 1);
 	//trap4b rotatePitch(90, 1);
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap4_trigger waittill("trigger");
+	trap4_trigger waittill("trigger");
 	trap4_trigger delete();
 
 	while(1)
@@ -175,15 +179,16 @@ trap4()
 		trap4 PlaySound ("stonemove");
 		wait 1;
 	}
-*/}
+}
 
 trap5()
 {
 	trap5 = getent("trap5","targetname");
+	level endon("trigger");
 	trap5_trigger = getent("trap5_trigger","targetname");
 	trap5_fx = getent("trap5_fx","targetname");
 	// Wachten tot op de knop wordt gedrukt
-/* AUTO 	trap5_trigger waittill("trigger");
+	trap5_trigger waittill("trigger");
 	trap5_trigger delete();
 
 	trap5_fx linkTo(trap5);
@@ -200,7 +205,7 @@ trap5()
 		//thread fx();
 		wait 1;
 	}
-*/}
+}
 
 announce()
 {

@@ -150,30 +150,33 @@ entTransporter = getentarray( "secret_fail", "targetname" );
         trap_01()
 {
         trigger = getent("trigger_trap_01","targetname");
+	level endon("trigger");
         object = getent("trap_01","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
         trigger SetHintString("^1Activated");
         object delete();
-*/}
+}
 
        trap_02_mover()
 {
 	mover = getent ("trap_02_mover","targetname");
+	level endon("trigger");
 	while(1)
 	{
 		mover movex(1168,6);
-/* AUTO 		mover waittill("movedone");
+		mover waittill("movedone");
 		wait (2);
 		mover movex(-1168,6);
 		mover waittill("movedone");
 		wait (2);
 	}
-*/}
+}
 
 	trap_02()
 {
 	trigger = getent("trigger_trap_02","targetname");
+	level endon("trigger");
         object = getent("trap_02","targetname");
         killtrigger1 = getent ("kill_trig_2_1" , "targetname");
 	killtrigger2 = getent ("kill_trig_2_2" , "targetname");
@@ -181,7 +184,7 @@ entTransporter = getentarray( "secret_fail", "targetname" );
 	killtrigger4 = getent ("kill_trig_2_4" , "targetname");
 	killtrigger5 = getent ("kill_trig_2_5" , "targetname");
 	killtrigger6 = getent ("kill_trig_2_6" , "targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
         trigger SetHintString("^1Activated");
         killtrigger1 enablelinkto ();
@@ -198,13 +201,14 @@ entTransporter = getentarray( "secret_fail", "targetname" );
         killtrigger6 linkto (object);
 	object movez(255,1);
         object waittill("movedone");
-*/}
+}
 
         trap_03_1()
 {
         trigger = getent("trigger_trap_03","targetname");
+	level endon("trigger");
         object = getent("trap_03_1","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
         object movex(-93, 0.1);
         object waittill("movedone");
@@ -215,13 +219,14 @@ entTransporter = getentarray( "secret_fail", "targetname" );
                 object movex(-93, 4);
                 object waittill("movedone");
         }
-*/}
+}
 
         trap_03_2()
 {
         trigger = getent("trigger_trap_03","targetname");
+	level endon("trigger");
         object = getent("trap_03_2","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
         trigger SetHintString("^1Activated");
         object movex(105, 0.1);
         object waittill("movedone");
@@ -232,23 +237,25 @@ entTransporter = getentarray( "secret_fail", "targetname" );
                 object movex(105, 4);
                 object waittill("movedone");
         }
-*/}
+}
 
         trap_04()
 {
         trigger = getent("trigger_trap_04","targetname");
+	level endon("trigger");
         object = getent("trap_04","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
         trigger SetHintString("^1Activated");
         object delete();
-*/}
+}
 
         trap_05_1()
 {
         trigger = getent("trigger_trap_05_1","targetname");
+	level endon("trigger");
         object = getent("trap_05_1","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
 	trigger SetHintString("^1Activated");
         for(;;)
@@ -257,13 +264,14 @@ entTransporter = getentarray( "secret_fail", "targetname" );
                 object waittill("rotatedone");
                 wait(3);
         }
-*/}
+}
 
         trap_05_2_1()
 {
         trigger = getent("trigger_trap_05_2","targetname");
+	level endon("trigger");
         object = getent("trap_05_2_1","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
         trigger SetHintString("^1Activated");
         for(;;)
@@ -275,13 +283,14 @@ entTransporter = getentarray( "secret_fail", "targetname" );
 		object waittill("movedone");
                 wait (2);
         }
-*/}
+}
 
 	trap_05_2_2()
 {
 	trigger = getent("trigger_trap_05_2","targetname");
+	level endon("trigger");
         object = getent("trap_05_2_2","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 	for(;;)
 	{
 		wait (2);
@@ -291,13 +300,14 @@ entTransporter = getentarray( "secret_fail", "targetname" );
 		object movex(-271, 2);
 		object waittill("movedone");
 	}
-*/}
+}
 
 	trap_05_2_4()
 {
 	trigger = getent("trigger_trap_05_2","targetname");
+	level endon("trigger");
         object = getent("trap_05_2_4","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 	for(;;)
 	{
 		wait (2);
@@ -307,13 +317,14 @@ entTransporter = getentarray( "secret_fail", "targetname" );
 		object movey(-271, 1);
 		object waittill("movedone");
 	}
-*/}
+}
 
         trap_06()
 {
         trigger = getent("trigger_trap_06","targetname");
+	level endon("trigger");
         object = getent("trap_06_bounce","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
         trigger SetHintString("^1Activated");
         for(;;)
@@ -322,13 +333,14 @@ entTransporter = getentarray( "secret_fail", "targetname" );
                 object waittill ("rotatedone");
                 wait (3);
         }
-*/}
+}
 
         trap_07()
 {
         trigger = getent("trigger_trap_07","targetname");
+	level endon("trigger");
         object = getent("trap_07","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
         trigger SetHintString("^1Activated");
         object movez(1131, 0.5);
@@ -340,13 +352,14 @@ entTransporter = getentarray( "secret_fail", "targetname" );
                 object movex(-1141, 2);
                 object waittill("movedone");
         }
-*/}
+}
 
         trap_08()
 {
         trigger = getent("trigger_trap_08","targetname");
+	level endon("trigger");
         object = getent("trap_08","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
         trigger SetHintString("^1Activated");
         for(;;)
@@ -355,34 +368,37 @@ entTransporter = getentarray( "secret_fail", "targetname" );
                 object waittill("rotatedone");
                 wait (3);
         }
-*/}
+}
 
         trap_09()
 {
         trigger = getent("trigger_trap_09","targetname");
+	level endon("trigger");
         object = getent("trap_09","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
         trigger SetHintString("^1Activated");
         object delete();
-*/}
+}
 
         trap_10()
 {
         trigger = getent("trigger_trap_10","targetname");
+	level endon("trigger");
         object = getent("trap_10","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
         trigger SetHintString("^1Activated");
         object delete();
-*/}
+}
 
                 trap_11()
 {
         trigger = getent("trigger_trap_11","targetname");
+	level endon("trigger");
         object = getent("trap_11","targetname");
         killtrigger = getent ("killtrig" , "targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
         trigger SetHintString("^1Activated");
         killtrigger enablelinkto ();
@@ -393,13 +409,14 @@ entTransporter = getentarray( "secret_fail", "targetname" );
         object movez(-64, 1);
         object waittill("movedone");
         wait(1);
-*/}
+}
 
         trap_12()
 {
         trigger = getent("trigger_trap_12","targetname");
+	level endon("trigger");
         object = getent("trap_12","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
         trigger SetHintString("^1Activated");
         for(;;)
@@ -408,15 +425,16 @@ entTransporter = getentarray( "secret_fail", "targetname" );
                 object waittill("rotatedone");
                 object rotateYaw(360,4);
         }
-*/}
+}
 
         trap_13()
 {
         trigger = getent("trigger_trap_13","targetname");
+	level endon("trigger");
         object1 = getent("trap_13_1","targetname");
         object2 = getent("trap_13_2","targetname");
         object3 = getent("trap_13_3","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
         trigger SetHintString("^1Activated");
         for(;;)
@@ -428,13 +446,14 @@ entTransporter = getentarray( "secret_fail", "targetname" );
                 object3 rotateRoll(720,2);
                 object3 waittill("rotatedone");
         }
-*/}
+}
 
         trap_14_1()
 {
         trigger = getent("trigger_trap_14","targetname");
+	level endon("trigger");
         object = getent("trap_14_1","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
 //AUTO 	player braxi\_rank::giveRankXP("", 50);
         for(;;)
         {
@@ -443,13 +462,14 @@ entTransporter = getentarray( "secret_fail", "targetname" );
                 object rotateYaw(10,2);
                 object waittill("rotatedone");
         }
-*/}
+}
 
                 trap_14_2()
 {
         trigger = getent("trigger_trap_14","targetname");
+	level endon("trigger");
         object = getent("trap_14_2","targetname");
-/* AUTO         trigger waittill ("trigger" , player );
+        trigger waittill ("trigger" , player );
         trigger SetHintString("^1Activated");
         for(;;)
         {
@@ -458,7 +478,7 @@ entTransporter = getentarray( "secret_fail", "targetname" );
                 object rotateYaw(-10,2);
                 object waittill("rotatedone");
         }
-*/}
+}
 
         knife_jt()
 {
@@ -466,10 +486,10 @@ entTransporter = getentarray( "secret_fail", "targetname" );
         {
                 self waittill( "trigger", player );
                 entTarget = getEnt( self.target, "targetname" );
-//AUTO                 wait 0.1;
+                wait 0.1;
                 player setOrigin( entTarget.origin );
                 player setplayerangles( entTarget.angles );
-//AUTO                 wait 0.1;
+                wait 0.1;
         }
 }
 
@@ -479,10 +499,10 @@ entTransporter = getentarray( "secret_fail", "targetname" );
         {
                 self waittill( "trigger", player );
                 entTarget = getEnt( self.target, "targetname" );
-//AUTO                 wait 0.1;
+                wait 0.1;
                 player setOrigin( entTarget.origin );
                 player setplayerangles( entTarget.angles );
-//AUTO                 wait 0.1;
+                wait 0.1;
         }
 }
 
@@ -538,7 +558,7 @@ entTransporter = getentarray( "secret_fail", "targetname" );
                 return;
  
                 ambientStop("0");
-//AUTO                 wait 0.05 ;
+                wait 0.05 ;
 //AUTO                 ambientPlay("fukyou");
  
                 level.canPlaySound = false;
@@ -561,23 +581,23 @@ entTransporter = getentarray( "secret_fail", "targetname" );
 //AUTO                 level.activ TakeAllWeapons();
 //AUTO                 level.activ GiveWeapon( "knife_mp" );
 //AUTO                 iPrintlnBold( " ^6" + player.name + " ^5Entered Knife room." );
-//AUTO                 wait 0.05;
+                wait 0.05;
 //AUTO                 player switchToWeapon( "knife_mp" );
 //AUTO                 level.activ SwitchToWeapon( "knife_mp" );
                 player freezecontrols(true);
                 level.activ freezecontrols(true);
 		player.health=100;
 		level.activ.health=100;
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^53" );
 //AUTO                 level.activ iPrintlnBold( "^53" );
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^52" );
 //AUTO                 level.activ iPrintlnBold( "^52" );
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^51" );
 //AUTO                 level.activ iPrintlnBold( "^51" );
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^1FIGHT^9!" );
 //AUTO                 level.activ iPrintlnBold( "^1Finish his throat^9!" );
                 player freezecontrols(false);
@@ -599,7 +619,7 @@ entTransporter = getentarray( "secret_fail", "targetname" );
                 return;
  
                 ambientStop("0");
-//AUTO                 wait 0.05 ;
+                wait 0.05 ;
 //AUTO                 ambientPlay("trololo");
  
                 level.canPlaySound = false;
@@ -625,7 +645,7 @@ entTransporter = getentarray( "secret_fail", "targetname" );
 //AUTO                 level.activ GiveWeapon( "ak47_mp" );
 //AUTO 		level.activ givemaxammo( "ak47_mp" );
 //AUTO                 iPrintlnBold( " ^6" + player.name + " ^5OLD ROOM IS FOR ^1PUSSIES^2!" );
-//AUTO                 wait 0.05;
+                wait 0.05;
 //AUTO                 player switchToWeapon( "knife_mp" );
 //AUTO                 level.activ SwitchToWeapon( "ak47_mp" );
 //AUTO                 player iPrintlnBold( "^1T^2R^3O^4L^5O^6L^7O^8L^9O^9!" );
@@ -648,7 +668,7 @@ entTransporter = getentarray( "secret_fail", "targetname" );
                 return;
  
                 ambientStop("0");
-//AUTO                 wait 0.05;
+                wait 0.05;
 //AUTO                 ambientPlay("oldwar");
  
                 level.canPlaySound = false;
@@ -674,23 +694,23 @@ entTransporter = getentarray( "secret_fail", "targetname" );
 //AUTO                 level.activ givemaxammo( "remington700_mp" );
  
 //AUTO                 iPrintlnBold( " ^6" + player.name + " ^5Entered Sniper room." );
-//AUTO                 wait 0.05;
+                wait 0.05;
 //AUTO                 player switchToWeapon( "remington700_mp" );
 //AUTO                 level.activ SwitchToWeapon( "remington700_mp" );
                 player freezecontrols(true);
                 level.activ freezecontrols(true);
 		player.health=100;
 		level.activ.health=100;
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^53" );
 //AUTO                 level.activ iPrintlnBold( "^53" );
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^52" );
 //AUTO                 level.activ iPrintlnBold( "^52" );
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^51" );
 //AUTO                 level.activ iPrintlnBold( "^51" );
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^1FIGHT^9!" );
 //AUTO                 level.activ iPrintlnBold( "^1FIGHT^9!" );
                 player freezecontrols(false);
@@ -733,7 +753,7 @@ entTransporter = getentarray( "secret_fail", "targetname" );
                 return;
  
                 ambientStop("0");
-//AUTO                 wait 0.05 ;
+                wait 0.05 ;
 //AUTO                 ambientPlay("dubbie");
  
                 level.canPlaySound = false;
@@ -756,23 +776,23 @@ entTransporter = getentarray( "secret_fail", "targetname" );
 //AUTO                 level.activ TakeAllWeapons();
 //AUTO                 level.activ GiveWeapon( "knife_mp" );
 //AUTO                 iPrintlnBold( " ^6" + player.name + " ^5Entered Jump room." );
-//AUTO                 wait 0.05;
+                wait 0.05;
 //AUTO                 player switchToWeapon( "knife_mp" );
 //AUTO                 level.activ SwitchToWeapon( "knife_mp" );
                 player freezecontrols(true);
                 level.activ freezecontrols(true);
 		player.health=100;
 		level.activ.health=100;
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^53" );
 //AUTO                 level.activ iPrintlnBold( "^53" );
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^52" );
 //AUTO                 level.activ iPrintlnBold( "^52" );
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^51" );
 //AUTO                 level.activ iPrintlnBold( "^51" );
-//AUTO                 wait 1;
+                wait 1;
 //AUTO                 player iPrintlnBold( "^1FIGHT^9!" );
 //AUTO                 level.activ iPrintlnBold( "^1FIGHT^9!" );
                 player freezecontrols(false);

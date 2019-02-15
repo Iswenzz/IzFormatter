@@ -30,6 +30,7 @@ traps()
 trap1()
 {
 	trigacti = getent("trap1", "targetname");
+	level endon("trigger");
 	trigacti sethintstring("^3[^7Haszn�l^2-^7Use^3]^7 to Activate the trap 2X");
 	trigacti SetCursorHint("HINT_ACTIVATE");
 	gold = getent("trap1gold","targetname");
@@ -48,7 +49,7 @@ trap1()
 	car3_clip = getent ("car3_clip", "targetname");
 	car4_clip = getent ("car4_clip", "targetname");
 	car5_clip = getent ("car5_clip", "targetname");
-/* AUTO 	trigacti waittill( "trigger", who ); 
+	trigacti waittill( "trigger", who ); 
 	wait 0.1;
 
 	x = RandomInt(100);
@@ -104,31 +105,33 @@ trap1()
 		gold PlaySound("sound1");
 	trigacti delete();
 	gold delete();
-*/}
+}
 
 trap1pont5()
 {
 	trig = getent("trap1.5", "targetname");
+	level endon("trigger");
 	tank = getent("tank", "targetname");
 	tanktrig = getent("tanktrig", "targetname");
 	tanktrig enablelinkto();
 	tanktrig linkto(tank);
 	trig sethintstring("^3[^7Haszn�l^2-^7Use^3]^7 to Activate the trap");
 	trig SetCursorHint("HINT_ACTIVATE");
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	wait 0.1;
 	tank movey(1390, 4);
 	trig delete();
-*/}
+}
 
 trap2()
 {
 	trig = getent("trap2", "targetname");
+	level endon("trigger");
 	trap2 = getent("trap2down", "targetname");
 	trig sethintstring("^3[^7Haszn�l^2-^7Use^3]^7 to Activate the trap");
 	trig SetCursorHint("HINT_ACTIVATE");
 	gold = getent("trap2gold","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	gold delete();
@@ -136,11 +139,12 @@ trap2()
 	wait 1.5;
 	trap2 movez(250, 1);
 	
-*/}
+}
 
 trap3()
 {
 	part1 = getentarray ("trap3_1" ,"targetname");
+	level endon("trigger");
 	part2 = getentarray ("trap3_2" ,"targetname");
 	part3 = getentarray ("trap3_3" ,"targetname");
 	part4 = getentarray ("trap3_4" ,"targetname");
@@ -149,7 +153,7 @@ trap3()
 	trig sethintstring("^3[^7Haszn�l^2-^7Use^3]^7 to Activate the trap");
 	trig SetCursorHint("HINT_ACTIVATE");
 
-/* AUTO  	trig waittill( "trigger", who ); 
+ 	trig waittill( "trigger", who ); 
 	trig delete ();
 	gold delete();
 	random = randomint(2);
@@ -167,16 +171,17 @@ trap3()
 				
 		default: return;
 	}
-*/}
+}
 
 trap4()
 {
 	trig = getent("trap4", "targetname");
+	level endon("trigger");
 	trap = getent("trap4brush", "targetname");
 	trig sethintstring("^3[^7Haszn�l^2-^7Use^3]^7 to Activate the trap");
 	trig SetCursorHint("HINT_ACTIVATE");
 	gold = getent("trap4gold","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	gold delete();
@@ -187,18 +192,19 @@ trap4()
 		wait 0.5;
 	}
 
-*/}
+}
 
 trap5()
 {
 	trig = getent("trap5", "targetname");
+	level endon("trigger");
 	trap = getent("trap5_1", "targetname");
 	trap1 = getent("trap5_2", "targetname");
 	trig sethintstring("^3[^7Haszn�l^2-^7Use^3]^7 to Activate the trap");
 	trig SetCursorHint("HINT_ACTIVATE");
 	gold = getent("trap5gold","targetname");
 	trap linkto(trap1);
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	gold delete();
@@ -212,11 +218,12 @@ trap5()
 		trap1 waittill("movedone");
 		wait 1;
 	}
-*/}
+}
 
 trap6()
 {
 	trig = getent("trap6", "targetname");
+	level endon("trigger");
 	trap = getent("trap6tolo", "targetname");
 	tolotrig = getent("tolotrig", "targetname");
 	tolotrig enablelinkto();
@@ -224,7 +231,7 @@ trap6()
 	trig sethintstring("^3[^7Haszn�l^2-^7Use^3]^7 to Activate the trap");
 	trig SetCursorHint("HINT_ACTIVATE");
 	gold = getent("trap6gold","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	gold delete();
@@ -232,27 +239,29 @@ trap6()
 	wait 3;
 	trap movey(-410, 1);
 
-*/}
+}
 
 trap7()
 {
 	trig = getent("trap7", "targetname");
+	level endon("trigger");
 	trap = getent("trap7bounce", "targetname");
 	trig sethintstring("^3[^7Haszn�l^2-^7Use^3]^7 to Activate the trap");
 	trig SetCursorHint("HINT_ACTIVATE");
 	gold = getent("trap7gold","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	gold delete();
 	trap hide();
 	wait 1;
 	trap show();
-*/}
+}
 
 trap8()
 {
 	trig = getent("trap8", "targetname");
+	level endon("trigger");
 	door1 = getent("door4", "targetname");
 	door2 = getent("door5", "targetname");
 	killtrig = getent("killtrig", "targetname");
@@ -264,7 +273,7 @@ trap8()
 	trig sethintstring("^3[^7Haszn�l^2-^7Use^3]^7 to Activate the trap");
 	trig SetCursorHint("HINT_ACTIVATE");
 	gold = getent("trap8gold","targetname");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	gold delete();
@@ -298,11 +307,12 @@ trap8()
 	wait 5;
 	door1 delete();
 	door2 delete();
-*/}
+}
 
 trap9()
 {
 	trig = getent("trap9", "targetname");
+	level endon("trigger");
 	heli = getent("helicopter", "targetname");
 	lap = getent("helilap", "targetname");
 	hurt = getent("helicopter_trig", "targetname");
@@ -310,7 +320,7 @@ trap9()
 	hurt linkto(heli);
 	trig sethintstring("^3[^7Haszn�l^2-^7Use^3]^7 to Activate the trap");
 	trig SetCursorHint("HINT_ACTIVATE");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	trig delete();
 	lap movez(420,1);
 	heli movex(-650,3);
@@ -327,11 +337,12 @@ trap9()
 	wait 2;
 	hurt delete();
 	lap delete();
-*/}
+}
 
 trap10()
 {
 	trig = getent("trap10", "targetname");
+	level endon("trigger");
 	pipe1 = getent("pipe1", "targetname");
 	pipe2 = getent("pipe2", "targetname");
 	pipe3 = getent("pipe3", "targetname");
@@ -343,7 +354,7 @@ trap10()
 	pipe3 notsolid();
 	trig sethintstring("^3[^7Haszn�l^2-^7Use^3]^7 to Activate the trap");
 	trig SetCursorHint("HINT_ACTIVATE");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	trig delete();
 	x = RandomInt(3);
 	switch( int(x) )
@@ -364,11 +375,12 @@ trap10()
 		default:
 			break;
 	}
-*/}
+}
 
 trappuzser()
 {
 	trig = getent("trappuzser", "targetname");
+	level endon("trigger");
 	trap = getent("trappuzser_1", "targetname");
 	waterup = getent("waterup", "targetname");
 	killwater = getent("puzserkill", "targetname");
@@ -376,7 +388,7 @@ trappuzser()
 	killwater linkto(waterup);
 	trig sethintstring("^3[^7Haszn�l^2-^7Use^3]^7 to Activate ^3P�zs�r ^7trap");
 	trig SetCursorHint("HINT_ACTIVATE");
-/* AUTO 	trig waittill( "trigger", who ); 
+	trig waittill( "trigger", who ); 
 	wait 0.1;
 	trig delete();
 	trap movez(105, 1);
@@ -386,7 +398,7 @@ trappuzser()
 	waterup delete();
 	killwater delete();
 
-*/}
+}
 
 killer(threadelni)
 {
@@ -503,7 +515,7 @@ bouncetp()
 	{
 	wait .1;
 	trig waittill("trigger", player);
-//AUTO 	wait 0.2;
+	wait 0.2;
 	if(player.pers["team"] == "allies")
 	{
 	player setOrigin(tp_jumper.origin);

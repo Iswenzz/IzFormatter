@@ -771,19 +771,21 @@ trigger delete();
 suxtrap()
 {
 trigger=getent("trigger_sux","targetname");
+	level endon("trigger");
 while(1)
 {
-/* AUTO trigger waittill("trigger", player);
+trigger waittill("trigger", player);
 player bounce( vectorNormalize( player.origin + ( player.origin + (150,0,50) ) ), 50 );
 }
-*/}
+}
 
 triggersux_trap()
 {
 level.sux=false;
+	level endon("trigger");
 trigger=getent("sux1","targetname");
 trigger_trap=getent("acti_suxtrap","targetname");
-/* AUTO trigger_trap waittill("trigger", player);
+trigger_trap waittill("trigger", player);
 thread suxtimer();
 level.sux=true;
 while(level.sux==true)
@@ -791,7 +793,7 @@ while(level.sux==true)
 trigger waittill("trigger", player);
 player bounce( vectorNormalize( player.origin + ( player.origin + (150,0,150) ) ), 150 );
 }
-*/}
+}
 
 suxtimer()
 {
@@ -819,36 +821,39 @@ bounce2()
 rotatefloortrap_1()
 {
 //floor=getent("trap_rotatefloor1","targetname");
+	level endon("trigger");
 //trigger=getent("trigger_rotatefloor1","targetname");
-/* AUTO //trigger waittill("trigger", player);
+//trigger waittill("trigger", player);
 while(1)
 {
 //floor rotateRoll (360,1);
 wait(4);
 }
-*/}
+}
 
 hardtrap()
 {
 spot=getent("tele_hardtrap","targetname");
+	level endon("trigger");
 trigger=getent("teleport_hard","targetname");
 while(1)
 {
-/* AUTO trigger waittill("trigger", player);
+trigger waittill("trigger", player);
 player SetOrigin( spot.origin );
 player setplayerangles( spot.angles );
 }
-*/}
+}
 
 trap1_removeblocks()
 {
 blocks=getent("blocks_trap1","targetname");
+	level endon("trigger");
 trigger=getent("blocks_trap1_trigger","targetname");
-/* AUTO trigger waittill("trigger",player);
+trigger waittill("trigger",player);
 blocks notsolid();
 blocks hide();
 thread trap1_moveblocks();
-*/}
+}
 
 trap1_moveblocks()
 {
@@ -868,11 +873,12 @@ wait(2);
 trap2_electro_rings()
 {
 death_trigger=getent("deathtrigger_bouncerings","targetname");
+	level endon("trigger");
 trigger=getent("bouncerings_trigger","targetname");
 death_trigger.dmg = 0;
 electrotimer=15;
 
-/* AUTO trigger waittill("trigger",player);
+trigger waittill("trigger",player);
 while(electrotimer>1)
 {
 death_trigger.dmg = 999;
@@ -885,14 +891,15 @@ playFx(level._effect["lightning"], (-2464,256,3840));
 	}
 	wait(1.1);
 }
-*/}
+}
 
 trap3()
 {
 	trig3 = getent("trap3_trig", "targetname");
+	level endon("trigger");
 	rotate = getent( "rotate_trap3", "targetname" );
 
-/* AUTO 	trig3 waittill ("trigger");
+	trig3 waittill ("trigger");
 	trig3 delete();
 	
 	while(1)
@@ -908,17 +915,18 @@ trap3()
 		rotate waittill ("movedone");
 		wait(2);
 	}
-*/}
+}
 
  trap_pusher()
 {
 	spikepush_brush =getent("spikepush_brush","targetname");
+	level endon("trigger");
 	spikepush_brush hide();
 	
 	trigger =getent("trigger_spiketrap","targetname");
 
 		
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	trigger delete();
 		
 		spikepush_brush show();
@@ -930,15 +938,16 @@ trap3()
 		wait 4.5 ;
 		spikepush_brush hide();
 	
-*/}
+}
 
 trap_catapult()
 {
 catchplayer = getent("catapulttrap_multiple", "targetname");
+	level endon("trigger");
 trigger = getent("trigger_catapult", "targetname");
 spot=getent("tele_hardtrap","targetname");
 level.catchable=false;
-/* AUTO 	trigger waittill("trigger", who);
+	trigger waittill("trigger", who);
 	thread catchcounter();
 	level.catchable=true;
 	
@@ -959,7 +968,7 @@ level.catchable=false;
 			catchplayer delete();
 			}
 		}
-*/}
+}
 
 catchcounter()
 {
@@ -976,9 +985,10 @@ catchcounter()
  trap_rotatefloor()
 {
 	rotatefloor_brush = getEnt ("rotatefloor_brush", "targetname");
+	level endon("trigger");
 	trigger = getEnt ("trigger_rotatefloor", "targetname");
 
-/* AUTO 	trigger waittill ("trigger");
+	trigger waittill ("trigger");
 	trigger delete();
 
 	while (1)
@@ -987,7 +997,7 @@ catchcounter()
 		rotatefloor_brush waittill("rotatedone");
 		wait(1);
 	}
-*/}
+}
 
 secretdone()
 {

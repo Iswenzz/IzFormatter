@@ -169,9 +169,10 @@ object waittill("movedone");
 trap1()
 {
 cannonfire1 = getent("cannon1","targetname");
+	level endon("trigger");
 //effect1 = getent("fire1","targetname");
 trig = getent("trig_trap1","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 way1 = getent("way1","targetname");
 way2 = getent("way2","targetname");
 way3 = getent("way3","targetname");
@@ -190,14 +191,15 @@ Earthquake( 3, 1, way3.origin, 1000);
 wait 2;
 cannonfire1 delete();
 }
-*/}
+}
 
 trap2()
 {
 cannonfire2 = getent("cannon2","targetname");
+	level endon("trigger");
 //effect2 = getent("fire2","targetname");
 trig = getent("trig_trap2","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 way11 = getent("way11","targetname");
 way22 = getent("way22","targetname");
 way33 = getent("way33","targetname");
@@ -216,14 +218,15 @@ Earthquake( 3, 1, way33.origin, 1000);
 wait 2;
 cannonfire2 delete();
 }
-*/}
+}
 
 trap3()
 {
 cannonfire3 = getent("cannon3","targetname");
+	level endon("trigger");
 //effect3 = getent("fire3","targetname");
 trig = getent("trig_trap3","targetname");
-/* AUTO trig waittill("trigger" , user );
+trig waittill("trigger" , user );
 way13 = getent("way13","targetname");
 way23 = getent("way23","targetname");
 way333 = getent("way333","targetname");
@@ -242,15 +245,16 @@ Earthquake( 3, 1, way333.origin, 1000);
 wait 2;
 cannonfire3 delete();
 }
-*/}
+}
 
 trap4()
 {
 trigger = getent("trig_trap4","targetname");
+	level endon("trigger");
 object = getent("trap4","targetname");
 trap4quake = getent("trap4quake","targetname");
 killtrigger = getent ("kill4" , "targetname");
-/* AUTO trigger waittill ("trigger" , player );
+trigger waittill ("trigger" , player );
 trigger delete();
 {
 killtrigger enablelinkto ();
@@ -263,24 +267,26 @@ object movez(432, 1.5, 0.5);
 object waittill("movedone");
 wait 1;
 }
-*/}
+}
 
 trap5()
 {
 trig = getent("trig_trap5","targetname");
+	level endon("trigger");
 plats = getent("trap5","targetname");
-/* AUTO trig waittill("trigger", user );
+trig waittill("trigger", user );
 trig delete();
 {
 plats delete();
 }
-*/}
+}
 
 trap6()
 {
 trig = getent("trig_trap6","targetname");
+	level endon("trigger");
 rotator = getent("trap6","targetname");
-/* AUTO trig waittill("trigger", user );
+trig waittill("trigger", user );
 trig delete();
 i=0;
 while(i<3)
@@ -288,17 +294,18 @@ while(i<3)
 rotator rotateyaw(180, 1);
 wait 0.1;
 }
-*/}
+}
 
 trap7()
 {
 	part1 = getentarray ("trap7_1" ,"targetname");
+	level endon("trigger");
 	part2 = getentarray ("trap7_2" ,"targetname");
 	part3 = getentarray ("trap7_3" ,"targetname");
 	part4 = getentarray ("trap7_4" ,"targetname");
 	trig = getent ("trig_trap7" , "targetname");
 
-/* AUTO  	trig waittill( "trigger", user ); 
+ 	trig waittill( "trigger", user ); 
 	trig delete ();
 	random = randomint(4);
 
@@ -324,13 +331,14 @@ trap7()
 				
 		default: return;
 	}
-*/}
+}
 
 trap8()
 {
 trig = getent("trig_trap8","targetname");
+	level endon("trigger");
 object = getent("trap8","targetname");
-/* AUTO trig waittill("trigger", user );
+trig waittill("trigger", user );
 trig delete();
 {
 object moveZ(-240, 0.5);
@@ -338,17 +346,18 @@ wait 3;
 object moveZ(240, 3);
 wait 1;
 }
-*/}
+}
 
 trap9()
 {
 trig = getent("trig_trap9","targetname");
+	level endon("trigger");
 pillar1 = getent("pillar1","targetname");
 pillar2 = getent("pillar2","targetname");
 pillar3 = getent("pillar3","targetname");
 pillar4 = getent("pillar4","targetname");
 pillar5 = getent("pillar5","targetname");
-/* AUTO trig waittill("trigger", user );
+trig waittill("trigger", user );
 trig delete();
 kill1 = getent("kill_1" , "targetname");
 kill2 = getent("kill_2" , "targetname");
@@ -384,27 +393,29 @@ pillar4 moveZ(128, 1);
 pillar5 moveZ(128, 1);
 }
 }
-*/}
+}
 
 trap10()
 {
 trig = getent("trig_trap10","targetname");
+	level endon("trigger");
 object = getent("trap10","targetname");
-/* AUTO trig waittill("trigger", user );
+trig waittill("trigger", user );
 trig delete();
 while(1)
 {
 object rotatepitch(180,2.5);
 wait 0.1;
 }
-*/}
+}
 
 trap11()
 {
 	trig = getent("trig_trap11","targetname");
+	level endon("trigger");
 	//object1 = getent("trap11_1","targetname");
 	object2 = getent("trap11_2","targetname");
-/* AUTO 	trig waittill("trigger", user );
+	trig waittill("trigger", user );
 	trig delete();
 	while(1)
 	{
@@ -414,13 +425,14 @@ trap11()
 	object2 rotateYaw(360, 2, 1);
 	wait 4;
 	}
-*/}
+}
 
 trap12()
 {
 	trig = getent("trig_trap12","targetname");
+	level endon("trigger");
 	object = getent("trap12","targetname");
-/* AUTO 	trig waittill("trigger", user );
+	trig waittill("trigger", user );
 	trig delete();
 	while(1)
 	{
@@ -428,29 +440,31 @@ trap12()
 	object waittill("rotatedone");
 	wait 0.1;
 	}
-*/}
+}
 
 trap13()
 {
 	level.fan = getEnt("trap13","targetname");
+	level endon("trigger");
 	trig = getent("trig_trap13","targetname");
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 	trig delete();
 	thread trap13_pusher();
 	{
 		level.fan rotateyaw(3600, 10);
 		wait 0.1;
 	}
-*/}
+}
 
 trap13_pusher()
 {
 	level.pusher = getEnt ( "pusher", "targetname" );
+	level endon("trigger");
 	thread stop();
 	
 	while(1)
 	{
-/* AUTO     	level.pusher waittill ( "trigger", who );
+    	level.pusher waittill ( "trigger", who );
 	
 	    oldpos = who.origin;
 	    strenght = 10;
@@ -460,7 +474,7 @@ trap13_pusher()
             who finishplayerdamage(who, level.jumpattacker, 160, 0, "MOD_FALLING", "jump_mp", who.origin, AnglesToForward((-90,0,0)), "none", 0);
 	    }
 	}
-*/}
+}
 
 stop()
 {
@@ -618,19 +632,19 @@ sniperoom()
 //AUTO 		level.activ TakeAllWeapons();
 	    player freezeControls(true);
 		level.activ freezeControls(true);
-//AUTO 	    wait 0.1;
+	    wait 0.1;
 //AUTO         player GiveWeapon( "remington700_mp" );
 //AUTO 		player switchToWeapon( "remington700_mp" );
 //AUTO 		player giveMaxammo("remington700_mp");
-//AUTO 	    wait 0.1;
+	    wait 0.1;
 //AUTO 		level.activ GiveWeapon( "remington700_mp" );
 //AUTO         level.activ SwitchToWeapon( "remington700_mp" );
 //AUTO         level.activ giveMaxammo("remington700_mp");
-//AUTO         wait 6;
+        wait 6;
 	    player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 1;
+        wait 1;
     }
 }
 
@@ -675,21 +689,21 @@ jumproom()
 //AUTO 		level.activ TakeAllWeapons();
 	    player freezeControls(true);
 		level.activ freezeControls(true);
-//AUTO 	    wait 0.1;
+	    wait 0.1;
 //AUTO         player GiveWeapon( "deserteagle_mp" );  
 //AUTO         player switchToWeapon( " deserteagle_mp" );
 		player setWeaponAmmoClip("deserteagle_mp", 0 );
 		player setWeaponAmmoStock( "deserteagle_mp", 0 );
-//AUTO 	    wait 0.1;
+	    wait 0.1;
 //AUTO         level.activ GiveWeapon( "deserteagle_mp" );  
 //AUTO         level.activ switchToWeapon ( "deserteagle_mp" );
 		level.activ setWeaponAmmoClip("deserteagle_mp", 0 );
 		level.activ setWeaponAmmoStock( "deserteagle_mp", 0 );
-//AUTO         wait 6;
+        wait 6;
 	    player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 1;
+        wait 1;
     }
 }
 
@@ -748,7 +762,7 @@ virusroom()
 //AUTO 		level.activ TakeAllWeapons();
 	 	player freezeControls(true);
 		level.activ freezeControls(true);
-//AUTO 	    wait 0.1;
+	    wait 0.1;
 //AUTO         player GiveWeapon( "deserteagle_mp" ); 
         player setWeaponAmmoClip("deserteagle_mp", 0 );
 		player setWeaponAmmoStock( "deserteagle_mp", 0 ); 
@@ -756,7 +770,7 @@ virusroom()
 		player.maxhealth = 300;
 		player.health = player.maxhealth;
 //AUTO 		iprintln ("" + player.name + " ^2H^7ave ^2E^7xtra ^2H^7ealth");
-//AUTO 	    wait 0.1;
+	    wait 0.1;
 //AUTO 	    level.activ iprintlnbold("^1Y^7ou ^1H^7ave ^1A^7ll ^1S^7nipers");
 //AUTO         level.activ giveWeapon("remington700_mp" );
 //AUTO         level.activ giveWeapon("m40a3_mp ");
@@ -767,11 +781,11 @@ virusroom()
 //AUTO         level.activ giveMaxammo("dragunov_mp");
 //AUTO         level.activ giveMaxammo("barrett_mp");
 //AUTO         level.activ switchToWeapon("remington700_mp");
-//AUTO         wait 4;
+        wait 4;
         player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 1;
+        wait 1;
     }
 }
 
@@ -832,15 +846,15 @@ weaponroom()
 //AUTO 		level.activ TakeAllWeapons();
 	 	player freezeControls(true);
 		level.activ freezeControls(true);
-//AUTO 	    wait 0.1;
+	    wait 0.1;
 	    level.player = player;
         thread player_wep(); 
         thread acti_wep();
-//AUTO         wait 6;
+        wait 6;
         player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 1;
+        wait 1;
     }
 }
 

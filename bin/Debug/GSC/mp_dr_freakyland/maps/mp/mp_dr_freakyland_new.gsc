@@ -101,10 +101,11 @@ main()
 trap1()
 {
 
+	level endon("trigger");
 trig1 = getEnt ("trap1_trig", "targetname");
 obj = getEnt ("trap1_trap", "targetname");
 
-/* AUTO trig1 waittill ("trigger");
+trig1 waittill ("trigger");
 trig1 delete();
 
 while (1)
@@ -116,15 +117,16 @@ obj rotateroll (-360,7);
 obj waittill ("rotatedone");
   }
 
-*/}
+}
 
 trap2()
 {
 
+	level endon("trigger");
 trig2 = getEnt ("trap2_trig", "targetname");
 obj2 = getEnt ("trap2_trap", "targetname");
 
-/* AUTO trig2 waittill ("trigger");
+trig2 waittill ("trigger");
 trig2 delete();
 
 while (1)
@@ -136,44 +138,47 @@ obj2 rotateYaw(-360,5);
 obj2 waittill ("rotatedone");
   }
 
-*/}
+}
 
 trap3()
 {
 movedown = getEnt ("trap3_getdown", "targetname");
+	level endon("trigger");
 hurt = getEnt ("trap3_hurt", "targetname");
 trig3 = getEnt ("trap3_trig", "targetname");
 
 hurt enablelinkto();
 hurt linkto (movedown); 
 
-/* AUTO trig3 waittill ("trigger");
+trig3 waittill ("trigger");
 trig3 delete();
 
 movedown moveZ( -200, 1.9); 
 movedown waittill ("movedone");
 wait 3;
 movedown moveZ( 200, 3);
-*/}
+}
 
 trap4()
 {
     trig4 = getEnt("trap4_trig","targetname");
+	level endon("trigger");
     {
-/* AUTO         trig4 waittill ("trigger");
+        trig4 waittill ("trigger");
 		trig4 delete();
         getEntArray("trap4_rem1","targetname")[RandomInt(2)] notsolid();
         getEntArray("trap4_rem2","targetname")[RandomInt(2)] notsolid();
     }
-*/}
+}
 
 trap5()
 {
 a = getEnt ("trap5_a", "targetname");
+	level endon("trigger");
 b = getEnt ("trap5_b", "targetname");
 trig5 = getEnt ("trap5_trig", "targetname");
 
-/* AUTO trig5 waittill ("trigger");
+trig5 waittill ("trigger");
 trig5 delete();
 
 a rotatePitch(360,1); 
@@ -184,31 +189,33 @@ b rotatePitch(360,1);
 wait 5;
 a rotatePitch(360,1); 
 b rotatePitch(-360,1);
-*/}
+}
 
 trap6()
 {
 a = getEnt ("trap6_a", "targetname");
+	level endon("trigger");
 b = getEnt ("trap6_b", "targetname");
 trig6 = getEnt ("trap6_trig", "targetname");
 
-/* AUTO trig6 waittill ("trigger");
+trig6 waittill ("trigger");
 trig6 delete();
 
 a rotateroll(360,1);
 b rotateroll(360,1);
 a waittill ("rotatedone"); 
 b waittill ("rotatedone");
-*/}
+}
 
 trap7()
 {
 a = getEnt ("trap7_a", "targetname");
+	level endon("trigger");
 b = getEnt ("trap7_b", "targetname");
 c = getEnt ("trap7_c", "targetname");
 trig7 = getEnt ("trap7_trig", "targetname");
 
-/* AUTO trig7 waittill ("trigger");
+trig7 waittill ("trigger");
 trig7 delete();
 while (1)
 {
@@ -220,14 +227,15 @@ wait 1;
 c rotateYaw(360,1);
 wait 1;
    }
-*/}
+}
 
 trap8()
 {
 a = getEnt ("trap8_a", "targetname");
+	level endon("trigger");
 trig8 = getEnt ("trap8_trig", "targetname");
 
-/* AUTO trig8 waittill ("trigger");
+trig8 waittill ("trigger");
 trig8 delete();
 thread trap8b();
 while (1)
@@ -237,7 +245,7 @@ wait 1;
 a MoveX(200,2);
 wait 1;
    }
-*/}
+}
 
 trap8b()
 {
@@ -280,23 +288,25 @@ wait 1;
 trap9()
 {
 a = getEnt ("trap9_a", "targetname");
+	level endon("trigger");
 trig9 = getEnt ("trap9_trig", "targetname");
 
-/* AUTO trig9 waittill ("trigger");
+trig9 waittill ("trigger");
 trig9 delete();
 while (1)
 {
 a rotateyaw(360,3.3);
 a waittill ("rotatedone");
    }
-*/}
+}
 
 trap10()
 {
 a = getEnt ("trap10_a", "targetname");
+	level endon("trigger");
 trig10 = getEnt ("trap10_trig", "targetname");
 
-/* AUTO trig10 waittill ("trigger");
+trig10 waittill ("trigger");
 trig10 delete();
 thread trap10b();
 while (1)
@@ -306,7 +316,7 @@ wait 1;
 a MoveZ(270,3);
 wait 1;
    }
-*/}
+}
 
 trap10b()
 {
@@ -582,12 +592,12 @@ knifeend()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "tomahawk_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "tomahawk_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "tomahawk_mp" );
 //AUTO         iprintlnbold("" + " " + "^2"+ player.name + " "+ "^7has chosen KNIFE!");
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -619,12 +629,12 @@ sniperend()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "m40a3_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "m40a3_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "m40a3_mp" );
 //AUTO         iprintlnbold("" + " " + "^2"+ player.name + " "+ "^7has chosen SNIPER!");
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

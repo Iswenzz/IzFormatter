@@ -52,6 +52,7 @@ creator()
 trap1()
 {
 	trig = getent("trap1_trig" ,"targetname");
+	level endon("trigger");
 	trap1_a = getent("trap1_a" ,"targetname");
 	trap1_b = getent("trap1_b" ,"targetname");
 	trap1_a_dmg = getent("trap1_a_dmg" ,"targetname");
@@ -63,7 +64,7 @@ trap1()
 	trap1_b_dmg linkto(trap1_b);
 
 	trig sethintstring("Press ^3&&1 ^7for activate.");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig sethintstring("^1Activated^2!");
 
 	while(1)
@@ -86,39 +87,42 @@ trap1()
 	trap1_b rotateYaw ( 180, 1);
 	wait 2;
 }
-*/}
+}
 
 trap2()
 {
 	trap2 = getent("trap2", "targetname");
+	level endon("trigger");
 	trig = getent("trap2_trig", "targetname");
 
 	trig sethintstring("Press ^3&&1 ^7for activate.");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig sethintstring("^1Activated^2!");
 	
 	trap2 moveZ ( 55, 1);
 	wait 5;
 	trap2 moveZ (-55, 1);
-*/}
+}
 
 trap3()
 {
 	trap3_a = getent("trap3_a", "targetname");
+	level endon("trigger");
 	trap3_b = getent("trap3_b", "targetname");
 	trig = getent("trap3_trig", "targetname");
 
 	trig sethintstring("Press ^3&&1 ^7for activate.");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig sethintstring("^1Activated^2!");
 
 	trap3_a delete();
 	trap3_b notsolid();
-*/}
+}
 
 trap4()
 {
 	trap4_a = getent("trap4_a", "targetname");
+	level endon("trigger");
 	trap4_b = getent("trap4_b", "targetname");
 	trap4_dmg = getent("trap4_dmg", "targetname");
 	trig = getent("trap4_trig", "targetname");
@@ -133,7 +137,7 @@ trap4()
 	trap4_b Hide();
 
 	trig sethintstring("Press ^3&&1 ^7for activate.");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig sethintstring("^1Activated^2!");
 
 	trap4_a Show();
@@ -167,23 +171,24 @@ trap4()
 	trap4_dmg Triggeroff();
 	trap4_b NotSolid();
 	trap4_b Hide();
-*/}
+}
 
 trap5()
 {
 	trap5 = getent("trap5", "targetname");
+	level endon("trigger");
 	trig = getent("trap5_trig", "targetname");
 
 	trap5 Notsolid();
 	trap5 Hide();
 
 	trig sethintstring("Press ^3&&1 ^7for activate.");
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig sethintstring("^1Activated^2!");
 
 	trap5 Solid();
 	trap5 Show();	
-*/}
+}
 
 finish()
 {
@@ -243,26 +248,26 @@ knife()
 //AUTO 		level.activ GiveMaxAmmo( "knife_mp" );
 		player freezeControls(1);
 		level.activ freezeControls(1);
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ switchToWeapon( "knife_mp" );
 		level.activ setclientDvar("cg_fovscale", 1.3);
 		player setclientDvar("cg_fovscale", 1.3);
 //AUTO   		iPrintLnBold("^1" + player.name + " ^3has choosen ^5Knife^7!");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^3[3]");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^2[2]");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^1[1]");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^5[FIGHT!]");
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
 	
             while( isAlive( player ) && isDefined( player ) )
-//AUTO 		wait 1;
+		wait 1;
 	}
 }
 
@@ -358,7 +363,7 @@ sniper()
 //AUTO 		level.activ GiveMaxAmmo( "m40a3_mp" );
 		player freezeControls(1);
 		level.activ freezeControls(1);
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "remington700_mp" );
 //AUTO 		player switchToWeapon( "m40a3_mp" );
 //AUTO 		level.activ SwitchToWeapon( "remington700_mp" );
@@ -366,20 +371,20 @@ sniper()
 		level.activ setclientDvar("cg_fovscale", 1.3);
 		player setclientDvar("cg_fovscale", 1.3);
 //AUTO   		iPrintLnBold("^1" + player.name + " ^3has choosen ^5Sniper^7!");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^33");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^22");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^11");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^5FIGHT!");
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
 	
             while( isAlive( player ) && isDefined( player ) )
-//AUTO 		wait 1;
+		wait 1;
 	}
 }
 

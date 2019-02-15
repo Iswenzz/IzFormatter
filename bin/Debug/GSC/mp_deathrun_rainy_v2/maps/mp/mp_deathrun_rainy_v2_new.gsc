@@ -162,8 +162,9 @@ door_slider()
 trap_1()
 {
 	trig = getEnt( "trigger1", "targetname" );
+	level endon("trigger");
 	
-/* AUTO 	trig waittill("trigger", who );
+	trig waittill("trigger", who );
 	trig delete();
 	
 	rolls = getEntArray("trap_1", "targetname");
@@ -171,14 +172,15 @@ trap_1()
 	rolls[x] rotatePitch( 720, 8 );
 	wait 8;
 	rolls[x].angles = (0,0,0);
-*/}
+}
 
 trap_2()
 {
 	trig = getEnt( "trigger2", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap2", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	while( isDefined( brush ) )
@@ -186,13 +188,14 @@ trap_2()
 		brush rotateRoll( 180, 16 );
 		wait 4;
 	}
-*/}
+}
 
 trap_3()
 {
 	trig = getEnt("trigger3", "targetname");
+	level endon("trigger");
 	
-/* AUTO 	trig waittill("trigger", who );
+	trig waittill("trigger", who );
 	trig delete();
 	
 	x = (0,RandomInt(361),0);		//361 = 0-360
@@ -201,7 +204,7 @@ trap_3()
 		thread StartAirstrike( x );
 		wait 2+RandomFloat(3);		//2+3 = max 5 xP
 	}
-*/}
+}
 
 StartAirstrike( direction )
 {
@@ -261,12 +264,13 @@ ThrowBomb()
 trap_5()
 {
 	trig = getEnt("trigger5", "targetname");	
+	level endon("trigger");
 	
-/* AUTO 	trig waittill("trigger", who );
+	trig waittill("trigger", who );
 	trig delete();
 	
 	thread StartFiringLightnings();
-*/}
+}
 
 StartFiringLightnings()
 {

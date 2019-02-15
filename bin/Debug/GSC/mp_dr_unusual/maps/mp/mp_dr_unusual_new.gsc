@@ -109,24 +109,26 @@ unusual()
 trap1()
 {
     trig = getEnt( "trig_trap1", "targetname" );
+	level endon("trigger");
     object1 = getent("trap1","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
 	
     while(1) 
     {
         object1 rotateYaw(360, 5);
 		wait 5;
     }
-*/}
+}
 
 trap2()
 {
     trig = getEnt( "trig_trap2", "targetname" );
+	level endon("trigger");
     object1 = getEnt( "trap2a", "targetname" );
 	object2 = getEnt( "trap2b", "targetname" );
 
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
  
     while(1)
@@ -138,27 +140,29 @@ trap2()
 		object2 movez(215, 2);
         wait 2;
     }
-*/}
+}
 
 trap3()
 {
     trig = getEnt( "trig_trap3", "targetname" );
+	level endon("trigger");
     object1 = getent("trap3","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
  
     {
         object1 delete();
     }
-*/}
+}
 
 trap4()
 {
     trig = getEnt( "trig_trap4", "targetname" );
+	level endon("trigger");
     object1 = getent("trap4","targetname");
 
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 	
      while(1)
@@ -172,58 +176,62 @@ trap4()
         object1 show();
 		wait 5;
     }
-*/}
+}
 
 trap5()
 {
 object1 = getent("trap5","targetname");
+	level endon("trigger");
 while(1)
 {
 object1 movey(-1134, 2);
-/* AUTO object1 waittill("movedone");
+object1 waittill("movedone");
 wait(2);
 object1 movey(1134, 2);
 object1 waittill("movedone");
 wait(2);
 }
-*/}
+}
 
 trap6()
 {
 object1 = getent("trap6","targetname");
+	level endon("trigger");
 while(1)
 {
 object1 movey(-1134, 2);
-/* AUTO object1 waittill("movedone");
+object1 waittill("movedone");
 wait(2);
 object1 movey(1134, 2);
 object1 waittill("movedone");
 wait(2);
 }
-*/}
+}
 
 trap7()
 {
     trig = getEnt( "trig_trap7", "targetname" );
+	level endon("trigger");
     object1 = getent("trap7","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
 	
     while(1) 
     {
         object1 rotateYaw(360, 5);
 		wait 5;
     }
-*/}
+}
 
 trap8()
 {
     trig = getEnt( "trig_trap8", "targetname" );
+	level endon("trigger");
     object1 = getent("trap8a","targetname");
     object2 = getent("trap8c","targetname");
  
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
        
      while(1)
     {
@@ -240,15 +248,16 @@ trap8()
         object2 rotateYaw(360, 5);
 		trig delete();
     }
-*/}
+}
 
 trap9()
 {
     trig = getEnt( "trig_trap9", "targetname" );
+	level endon("trigger");
     object1 = getEnt( "trap9", "targetname" );
     killtrigger = getent ("trap9b" , "targetname");
 
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 
     killtrigger enablelinkto ();
@@ -261,31 +270,33 @@ trap9()
 		object1 movez(-270, 2);
 		wait 5;
     }
-*/}
+}
 
 trap10()
 {
 object1 = getent("trap10","targetname");
+	level endon("trigger");
 while(1)
 {
 object1 movey(-2000, 2);
-/* AUTO object1 waittill("movedone");
+object1 waittill("movedone");
 wait(2);
 object1 movey(2000, 2);
 object1 waittill("movedone");
 wait(2);
 }
-*/}
+}
 
 trap11()
 {
     trig = getEnt( "trig_trap11", "targetname" );
+	level endon("trigger");
     object1 = getent("trap11a","targetname");
     object2 = getent("trap11b","targetname");
 	object3 = getent("trap11c","targetname");
  
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
        
      while(1)
     {
@@ -296,16 +307,17 @@ trap11()
 		object3 rotateroll(-360, 2);
 		wait 2;
     }
-*/}
+}
 
 trap12()
 {
     trig = getEnt( "trig_trap12", "targetname" );
+	level endon("trigger");
     object1 = getent("trap12a","targetname");
     object2 = getent("trap12b","targetname");
  
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
        
      while(1)
     {
@@ -317,14 +329,15 @@ trap12()
         wait 10;
 		trig delete();
     }
-*/}
+}
 
 trap13()
 {
     trig = getEnt( "trig_trap13", "targetname" );
+	level endon("trigger");
     object1 = getEnt( "trap13a", "targetname" );
 
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
  
     while(1)
@@ -334,57 +347,61 @@ trap13()
 		object1 movey(584, 1);
         wait 1;		
 	}
-*/}
+}
 
 trap14()
 {
 object1 = getent("trap14","targetname");
+	level endon("trigger");
 while(1)
 {
 object1 movex(1154, 2);
-/* AUTO object1 waittill("movedone");
+object1 waittill("movedone");
 wait(2);
 object1 movex(-1154, 2);
 object1 waittill("movedone");
 wait(2);
 }
-*/}
+}
 
 trap15()
 {
     trig = getEnt( "trig_trap15", "targetname" );
+	level endon("trigger");
     object1 = getent("trap15","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
 	
     while(1) 
     {
         object1 rotateYaw(360, 5);
 		wait 5;
     }
-*/}
+}
 
 trap16()
 {
     trig = getEnt( "trig_trap16", "targetname" );
+	level endon("trigger");
     object1 = getent("trap16","targetname");
  
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
 	
     while(1) 
     {
         object1 rotateYaw(360, 2);
 		wait 2;
     }
-*/}
+}
 
 trap17()
 {
     trig = getEnt( "trig_trap17", "targetname" );
+	level endon("trigger");
     object1 = getEnt( "trap17", "targetname" );
     killtrigger = getent ("trap17b" , "targetname");
 
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 
     killtrigger enablelinkto ();
@@ -397,14 +414,15 @@ trap17()
         object1 movez(-130, 1);
         wait 1;
     }
-*/}
+}
 
 trap18()
 {
     trig = getEnt( "trig_trap18", "targetname" );
+	level endon("trigger");
     object1 = getent("trap18","targetname");
 
-/* AUTO     trig waittill ("trigger");
+    trig waittill ("trigger");
     trig delete();
 	
      while(1)
@@ -418,7 +436,7 @@ trap18()
         object1 show();
 		wait 5;
     }
-*/}
+}
 
 printcredits()
     {

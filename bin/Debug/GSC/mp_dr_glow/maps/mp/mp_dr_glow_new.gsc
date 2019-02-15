@@ -267,9 +267,10 @@ room3()
 trap1()
 {
    	brush = getEnt ("trap1", "targetname"); 
+	level endon("trigger");
     	trig = getEnt ("trap1_trig", "targetname"); 
     
-/* AUTO 	trig waittill("trigger", who);
+	trig waittill("trigger", who);
     	trig delete();
 	
 	while(1)
@@ -278,15 +279,16 @@ trap1()
 	wait 2; 
 }
 
-*/}
+}
 
 trap2()
 {
 	brush1 = getEnt ("trap2", "targetname");
+	level endon("trigger");
 	brush2 = getEnt ("trap2b", "targetname");
     	trig = getEnt ("trap2_trig", "targetname");
  
-/* AUTO     	trig waittill("trigger", user);
+    	trig waittill("trigger", user);
     	trig delete();
 	brush1 moveZ(448, 0.5);
 	wait 10; 
@@ -303,14 +305,15 @@ trap2()
 }
 
  
-*/}
+}
 
 trap3()
 {
 	brush = getEnt ("trap3", "targetname"); 
+	level endon("trigger");
     	trig = getEnt ("trap3_trig", "targetname"); 
     
-/* AUTO 	trig waittill("trigger", who);
+	trig waittill("trigger", who);
     	trig delete();
 	
 	while(1)
@@ -320,24 +323,26 @@ trap3()
 	wait 1.5;
 }
 	
-*/}
+}
 
 trap4()
 {
  brush = getEnt ("trap4", "targetname");
+	level endon("trigger");
  trig = getEnt ("trap4_trig", "targetname");
 
-/* AUTO  trig waittill("trigger", who);
+ trig waittill("trigger", who);
      trig delete();
      brush delete();
-*/}
+}
 
 trap5()
 {
    	brush = getEnt ("trap50", "targetname"); 
+	level endon("trigger");
     	trig = getEnt ("trap50_trig", "targetname"); 
     
-/* AUTO 	trig waittill("trigger", who);
+	trig waittill("trigger", who);
     	trig delete();
 	
 	while(1)
@@ -346,17 +351,18 @@ trap5()
 	wait 3; 
 }
 
-*/}
+}
 
 trap6()
 {
  brush = getEnt ("trap6", "targetname");
+	level endon("trigger");
  trig = getEnt ("trap6_trig", "targetname");
 
-/* AUTO  trig waittill("trigger", who);
+ trig waittill("trigger", who);
      trig delete();
      brush delete();
-*/}
+}
 
 sniper()
 {
@@ -387,12 +393,12 @@ sniper()
 //AUTO         level.activ takeAllWeapons(); //takes all weapon
 //AUTO         level.activ giveWeapon( "m40a3_mp" ); //gives m40a3
 //AUTO         level.activ giveMaxAmmo( "m40a3_mp" ); //max m40a3 ammo for acti
-//AUTO         wait 0.05; //waits a time limit
+        wait 0.05; //waits a time limit
 //AUTO         player switchToWeapon( "m40a3_mp" ); //switches jumper to m40a3
 //AUTO         level.activ switchToWeapon( "m40a3_mp" ); //switches acti to m40a3
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^7has chosen ^6SNIPER^7 room^6!" ); //lets players know who entered the room (player.name is the person who triggered it.) (EXAMPLE: Zack entered the Sniper Room!        
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 1;
+        wait 1;
     }
 }
 
@@ -457,12 +463,12 @@ knife()
 //AUTO         level.activ setMoveSpeedScale( 1 ); //sets normal speed
 //AUTO         level.activ takeAllWeapons(); //takes all weapon
 //AUTO         level.activ giveWeapon( "knife_mp" ); //gives m40a3
-//AUTO         wait 0.05; //waits a time limit
+        wait 0.05; //waits a time limit
 //AUTO         player switchToWeapon( "knife_mp" ); //switches jumper to m40a3
 //AUTO         level.activ switchToWeapon( "knife_mp" ); //switches acti to m40a3
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^7has chosen ^6KNIFE^7 room^6!" ); //lets players know who entered the room (player.name is the person who triggered it.) (EXAMPLE: Zack entered the Sniper Room!        
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 1;
+        wait 1;
     }
 }
 

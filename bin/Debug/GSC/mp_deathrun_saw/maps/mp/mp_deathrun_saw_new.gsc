@@ -186,36 +186,39 @@ door waittill ("movedone");
 trap1()
 {
 door = getent("trap","targetname");
+	level endon("trigger");
 trig = getEnt( "doors_trig", "targetname" );
 
-/* AUTO trig waittill("trigger");
+trig waittill("trigger");
 trig delete();
 {	
 door movez(320,2,0.5,1);
 door waittill ("movedone");
 }
-*/}
+}
 
  trap2()
 {
 door2=getent("trap2","targetname");
+	level endon("trigger");
 trig2 = getEnt( "doors_trig2", "targetname" );
 
-/* AUTO trig2 waittill("trigger");
+trig2 waittill("trigger");
 trig2 delete();
 	
 door2 movez(320,2,0.5,1);
 door2 waittill ("movedone");
-*/}
+}
 
 trap_spikes_left()
 {
 spikes = getEntarray("trap_spikes_left", "targetname");
+	level endon("trigger");
 hurt = getEnt("spikes_hurt", "targetname");	
 level.spiketrig = getEnt("trigger_spikes", "targetname");
 distance = 220; //change this to change the distance the spikes will travel
 time = 2; //change this to make the spikes faster or slower
-/* AUTO level.spiketrig waittill("trigger", player);
+level.spiketrig waittill("trigger", player);
 level.spiketrig delete();
 if( isDefined( level.trapsDisabled ) && level.trapsDisabled)
 {
@@ -234,7 +237,7 @@ spikes[i] waittill("movedone");
 hurt delete();
 }
 }
-*/}
+}
 
 elevator()
 {
@@ -307,9 +310,10 @@ wait(0.5);
 trap3()
 {
 	trig = getEnt( "trigger3", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap3", "targetname" );
 
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig delete();
 
 	for( i = 0; i < 4; i++ )
@@ -318,7 +322,7 @@ trap3()
 		wait 2;
 	}
 	brush.angles = (0,0,0);
-*/}
+}
 
 platform()
 {
@@ -514,17 +518,17 @@ for(;;)
 level.snipertrigger waittill("trigger", player);
 level.classictrigger delete();
 level.jumpertrigger delete();
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( teleorigin.origin );
 player setplayerangles( teleorigin.angles );
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO iPrintLnBold(player.name+ "^1 has entered the sniper room"); //Change the message if you want
 //AUTO player takeallweapons();
 //AUTO player GiveWeapon("m40a3_mp");
 //AUTO player SwitchToWeapon( "m40a3_mp" );
 level.activ SetOrigin( level.actorigin.origin );
 level.activ setplayerangles( level.actorigin.angles );
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO level.activ takeallweapons();
 //AUTO level.activ GiveWeapon("m40a3_mp");
 //AUTO level.activ GiveWeapon("remington700_mp");

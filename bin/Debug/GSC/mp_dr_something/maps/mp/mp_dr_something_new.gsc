@@ -591,6 +591,7 @@ move_2()
 trap1()
 {
 a = getent("trap1a","targetname");
+	level endon("trigger");
 b = getent("trap1b","targetname");
 c = getent("trap1c","targetname");
 d = getent("trap1d","targetname");
@@ -602,7 +603,7 @@ i = getent("trap1i","targetname");
 j = getent("trap1j","targetname");
 trig = getent("trig_trap1","targetname");
 trig SetHintString( "^1Magic Tiles" );
-/* AUTO trig waittill("trigger", player );
+trig waittill("trigger", player );
 if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -645,14 +646,15 @@ for(;;)
 	}
 }
 }
-*/}
+}
 
 trap2()
 {
 gvddraaien = getent("trap2","targetname");
+	level endon("trigger");
 trig = getent("trig_trap2","targetname");
 trig SetHintString( "^1Spin the bounce" );
-/* AUTO trig waittill("trigger", player );
+trig waittill("trigger", player );
 if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -668,11 +670,12 @@ for(;;)
 	}
 }
 }
-*/}
+}
 
 trap3()
 {
 wall = getent("trap3wall","targetname");
+	level endon("trigger");
 aspike = getent("trap3a","targetname");
 b = getent("trap3b","targetname");
 c = getent("trap3c","targetname");
@@ -694,7 +697,7 @@ trig = getent("trig_trap3","targetname");
 killer EnableLinkTo();
 killer LinkTo(up);
 trig SetHintString( "^1Kill them with spikes" );
-/* AUTO trig waittill("trigger", player );
+trig waittill("trigger", player );
 if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -759,11 +762,12 @@ trig SetHintString("^4Activated");
 	wall waittill ("movedone");
 }
 }
-*/}
+}
 
 trap3start()
 {
 aspike = getent("trap3a","targetname");
+	level endon("trigger");
 b = getent("trap3b","targetname");
 c = getent("trap3c","targetname");
 d = getent("trap3d","targetname");
@@ -796,7 +800,7 @@ o = getent("trap3o","targetname");
 	n moveZ(-96,2);
 	o moveZ(-96,2);
 	wait 2;
-/* AUTO 	aspike waittill ("movedone");
+	aspike waittill ("movedone");
 	b waittill ("movedone");
 	c waittill ("movedone");
 	d waittill ("movedone");
@@ -812,15 +816,16 @@ o = getent("trap3o","targetname");
 	n waittill ("movedone");
 	o waittill ("movedone");
 }	
-*/}	
+}	
 
 trap4()
 {
 a = getent("trap4","targetname");
+	level endon("trigger");
 b = getent("trap4b","targetname");
 trig = getent("trig_trap4","targetname");
 trig SetHintString( "^1Rotate" );
-/* AUTO trig waittill("trigger", player );
+trig waittill("trigger", player );
 if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -838,16 +843,17 @@ trig SetHintString("^4Activated");
 	}
 }
 }
-*/}
+}
 
 trap_rotate()
 {
 pusher1 = getent("trap_rotate1","targetname");
+	level endon("trigger");
 pusher2 = getent("trap_rotate2","targetname");
 pusher3 = getent("trap_rotate3","targetname");
 trig = getent("trig_traprotate","targetname");
 trig SetHintString( "^1Activate pushers" );
-/* AUTO trig waittill("trigger", player );
+trig waittill("trigger", player );
 if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -869,14 +875,15 @@ trig SetHintString("^4Activated");
 	}
 }
 }
-*/}
+}
 
 trap5()
 {
 a = getent("trap5","targetname");
+	level endon("trigger");
 trig = getent("trig_trap5","targetname");
 trig SetHintString( "^1Move the brush" );
-/* AUTO trig waittill("trigger", player );
+trig waittill("trigger", player );
 if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -892,14 +899,15 @@ trig SetHintString("^4Activated");
 	a waittill ("movedone");
 	}
 }
-*/}
+}
 
 trap6()
 {
 a = getent("trap6","targetname");
+	level endon("trigger");
 trig = getent("trig_trap6","targetname");
 trig SetHintString( "^1Rotate the floor" );
-/* AUTO trig waittill("trigger", player );
+trig waittill("trigger", player );
 if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -915,14 +923,15 @@ trig SetHintString("^4Activated");
 	}
 }
 }
-*/}
+}
 
 trap7()
 {
 a = getent("trap7","targetname");
+	level endon("trigger");
 trig = getent("trig_trap7","targetname");
 trig SetHintString( "^1Spin that" );
-/* AUTO trig waittill("trigger", player );
+trig waittill("trigger", player );
 if(level.trapsdisabled)
 {
 //AUTO 	iprintln(" ^6 user.name + ^3 pls dont acti on free !"); 
@@ -938,7 +947,7 @@ trig SetHintString("^4Activated");
 	}
 }
 }
-*/}
+}
 
 old()
 {
@@ -997,7 +1006,7 @@ sniper()
 				//level.weapon_trigger delete();
 				level.firstenter=false;
 				}	
-//AUTO 				wait(0.05);	
+				wait(0.05);	
 				
 		player SetOrigin( telejumporigin.origin );
 		player setplayerangles( telejumporigin.angles );
@@ -1006,9 +1015,9 @@ sniper()
 //AUTO 		player GiveWeapon( "remington700_mp" ); 
 //AUTO 		player GiveMaxAmmo("m40a3_mp");
 //AUTO 		player GiveMaxAmmo( "remington700_mp" );
-//AUTO 		wait .05;
+		wait .05;
 //AUTO 		player SwitchToWeapon("m40a3_mp");  
-//AUTO 		wait(0.05);
+		wait(0.05);
 		level.activ SetOrigin (level.teleactorigin.origin);
 		level.activ setplayerangles (level.teleactorigin.angles);
 //AUTO 		level.activ TakeAllWeapons();
@@ -1016,26 +1025,26 @@ sniper()
 //AUTO 		level.activ GiveWeapon( "remington700_mp" );
 //AUTO 		level.activ GiveMaxAmmo("m40a3_mp");
 //AUTO 		level.activ GiveMaxAmmo( "remington700_mp" );
-//AUTO 		wait .05;
+		wait .05;
 //AUTO 		level.activ SwitchToWeapon("m40a3_mp"); 
 //AUTO 		iPrintlnBold( " ^8" + player.name + " ^4 has entered the Sniper room^8!" );   
-//AUTO 		wait(0.05);
+		wait(0.05);
 //AUTO 		player switchToWeapon( "m40a3_mp" );
 //AUTO 		level.activ SwitchToWeapon( "m40a3_mp" );
 		
 		
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^53" );
 //AUTO 		level.activ iPrintlnBold( "^53" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^52" );
 //AUTO 		level.activ iPrintlnBold( "^52" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^51" );
 //AUTO 		level.activ iPrintlnBold( "^51" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^5Snipaah time^1!" );
 //AUTO 		level.activ iPrintlnBold(  "^5Snipaah time^1!" );
 		player freezecontrols(false); 
@@ -1074,7 +1083,7 @@ bounce()
 		level.knife_trigger delete();
 		level.firstenter=false;
 		}	
-//AUTO 		wait(0.05);
+		wait(0.05);
 			
          	player SetPlayerAngles( jump.angles );
          	player setOrigin( jump.origin );
@@ -1085,23 +1094,23 @@ bounce()
 //AUTO          	level.activ TakeAllWeapons();
 //AUTO 		level.activ giveweapon( "knife_mp" ); 
 //AUTO 		iPrintlnBold( " ^8" + player.name + " ^4 has entered the Bounce room^8!" );         
-//AUTO          	wait 0.05;	
+         	wait 0.05;	
 //AUTO 		level.activ switchtoweapon( "knife_mp" );
 //AUTO 		player switchtoweapon( "knife_mp" );
 		
 		
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^53" );
 //AUTO 		level.activ iPrintlnBold( "^53" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^52" );
 //AUTO 		level.activ iPrintlnBold( "^52" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^51" );
 //AUTO 		level.activ iPrintlnBold( "^51" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^5Bouncaaah^1!" );
 //AUTO 		level.activ iPrintlnBold( "^5Bouncaaah^1!" );
 		player freezecontrols(false); 
@@ -1155,18 +1164,18 @@ knife()
 		level.bounce_trigger delete();
 		level.firstenter=false;
 		}	
-//AUTO 		wait(0.05);
+		wait(0.05);
 
 		player SetOrigin( jump.origin );
 		player setplayerangles( jump.angles );
 //AUTO 		player TakeAllWeapons();
 //AUTO 		player GiveWeapon( "tomahawk_mp" ); 
-//AUTO 		wait(0.05);
+		wait(0.05);
 		level.activ SetOrigin (acti.origin);
 		level.activ setplayerangles (acti.angles);
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "tomahawk_mp" ); 
-//AUTO 		wait(0.05);
+		wait(0.05);
 //AUTO 		player switchToWeapon( "tomahawk_mp" );
 //AUTO 		level.activ SwitchToWeapon( "tomahawk_mp" );
 //AUTO 		iPrintlnBold( " ^8" + player.name + " ^4 has entered the Knife room^8!" );  

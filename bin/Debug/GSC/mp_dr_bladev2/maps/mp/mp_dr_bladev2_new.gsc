@@ -158,34 +158,37 @@ startdoor()
 trap1()
 { 
   trigger = getent("trap1_trig", "targetname");
+	level endon("trigger");
   brush = getent("trap_1", "targetname");
-/* AUTO   trigger waittill ("trigger", player);
+  trigger waittill ("trigger", player);
   
   trigger delete();
   wait 0.1;
   brush delete();
   
-*/  }
+  }
 
 trap2()
 {
   trigger = getent("trap2_trig", "targetname");
+	level endon("trigger");
   bounce = getent("trap_2", "targetname");
-/* AUTO   trigger waittill("trigger");
+  trigger waittill("trigger");
   trigger delete();
   wait 0.1;
  
   bounce notsolid();
   wait 5;
   bounce solid();
-*/}
+}
 
 trap3()
 {
   trigger = getent("trap3_trig", "targetname");
+	level endon("trigger");
   brush = getent("trap_3", "targetname");
   trigger setHintString("^1Press ^0[^3USE^0] ^1to activate ^3Trap 3");
-/* AUTO   trigger waittill ("trigger");
+  trigger waittill ("trigger");
   trigger delete();
   
   wait 0.1;
@@ -193,13 +196,14 @@ trap3()
   wait 10;
   brush moveZ (145, 0.2);
   
-*/  }
+  }
 
 trap4()
 {
   trigger = getent("trap4_trig", "targetname");
+	level endon("trigger");
   brush = getent("trap_4", "targetname");
-/* AUTO   trigger waittill ("trigger");
+  trigger waittill ("trigger");
   trigger delete();
   
   wait 0.1;
@@ -209,23 +213,25 @@ trap4()
   wait 3;
   brush rotateRoll(360,2.5);
   
-*/  }
+  }
 
 trap5()
 {
   trigger = getent("trap5_trig", "targetname");
+	level endon("trigger");
   block = getent("trap_5", "targetname");
-/* AUTO   trigger waittill("trigger");
+  trigger waittill("trigger");
   trigger delete();
   block notsolid();
   
-*/}
+}
 
 trap6()
 { 
   trigger = getent("trap6_trig", "targetname");
+	level endon("trigger");
   brush = getent("trap_6", "targetname");
-/* AUTO   trigger waittill("trigger");
+  trigger waittill("trigger");
   trigger delete();
   
   wait 0.1;
@@ -233,13 +239,14 @@ trap6()
   wait 10;
   brush solid();
   
-*/  }
+  }
 
 trap7()
 {
   trigger = getent("trap7_trig", "targetname");
+	level endon("trigger");
   object = getent("trap_7", "targetname");
-/* AUTO   trigger waittill("trigger");
+  trigger waittill("trigger");
   trigger delete();
   
   wait 0.1;
@@ -247,25 +254,27 @@ trap7()
   wait 5;
   object moveX (-230, 1);
   
-*/  }
+  }
 
 trap8()
 {
    trig = getent("trap8_trig", "targetname");
+	level endon("trigger");
    brush = getent("trap_8", "targetname");
-/* AUTO    trig waittill("trigger");
+   trig waittill("trigger");
    trig delete();
   
    wait 0.1;
    brush notsolid();
   
-*/ }
+ }
 
 trap9()
 {
    trigger = getent("trap9_trig", "targetname");
+	level endon("trigger");
    floor = getent("trap_9", "targetname");
-/* AUTO    trigger waittill("trigger");
+   trigger waittill("trigger");
    trigger delete();
    
    wait 0.1;
@@ -275,13 +284,14 @@ trap9()
 	  wait 1;
 	  
     }
-*/}
+}
 
 trap10()
 {
   trig = getent("trap10_trig", "targetname");
+	level endon("trigger");
   brush = getent("trap_10", "targetname");
-/* AUTO   trig waittill("trigger");
+  trig waittill("trigger");
   trig delete();
   
   wait 0.1;
@@ -290,20 +300,21 @@ trap10()
     brush rotateYaw(360, 2.5);
 	wait 1;
 	}
-*/}
+}
 
 trap11()
 {
   trigger = getent("trap11_trig", "targetname");
+	level endon("trigger");
   brush = getent("trap_11", "targetname");
-/* AUTO   trigger waittill("trigger");
+  trigger waittill("trigger");
   trigger delete();
   
   brush movez (280, 0.5);
   wait 10;
   brush delete();
   
-*/  }
+  }
 
 labyrint()
 {
@@ -663,7 +674,7 @@ sniperroom()
 		player FreezeControls(1);
 		level.activ FreezeControls(1);
 
-//AUTO 		wait 0.5;
+		wait 0.5;
 
 //AUTO 		player takeallweapons();
 //AUTO 		player GiveWeapon( "remington700_mp" );
@@ -681,7 +692,7 @@ sniperroom()
 //AUTO 		iprintlnbold("^1Sniper Fight ^3Snitches");
 		while(isAlive(player) && isDefined(player))
 		{
-//AUTO 			wait 0.1;
+			wait 0.1;
 		}
 		level.sniper_trigger waittill("trigger", player );
 	}
@@ -793,7 +804,7 @@ jumproom()
 		player FreezeControls(1);
 		level.activ FreezeControls(1);
 
-//AUTO 		wait 0.5;
+		wait 0.5;
 
 //AUTO 		player takeallweapons();
 //AUTO 		player GiveWeapon( "deserteaglegold_mp" );
@@ -815,7 +826,7 @@ jumproom()
 //AUTO 		iprintlnbold("^9Good Luck ^3c:");
 		while(isAlive(player) && isDefined(player))
 		{
-//AUTO 			wait 0.1;
+			wait 0.1;
 		}
 		level.jump_trigger waittill("trigger", player );
 	}

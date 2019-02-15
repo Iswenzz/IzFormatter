@@ -565,10 +565,11 @@ jumper7()
 trap1()
 {
     trig = getEnt( "t1t", "targetname" );
+	level endon("trigger");
      brush1 = getEnt( "t1b1", "targetname" );
 	 brush2 = getEnt( "t1b2", "targetname" );
 	trig setHintString("^5Remove!");
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 	setDvar("bg_falldamagemaxheight", 20000 );
 	setDvar("bg_falldamageminheight", 15000 );
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
@@ -592,14 +593,15 @@ trap1()
 		 wait 1;
 		}
 	
-*/}
+}
 
 trap2()
 {
     trig = getEnt( "t2t", "targetname" );
+	level endon("trigger");
      b = getEnt( "t2b", "targetname" );
 	trig setHintString("^5Rotate");
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	trig setHintString("^5Done");
     while(1)
@@ -607,29 +609,31 @@ trap2()
 	b rotateYaw(360,5);
 	wait 5;
 	}
-*/}	
+}	
 
 trap3()
 {
     trig = getEnt( "t3t", "targetname" );
+	level endon("trigger");
      b = getEnt( "t3b", "targetname" );
 	trig setHintString("^5Lower");
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	trig setHintString("^5Done");
 
 	b moveZ(-100,1.5);
 	wait 3;
 	b moveZ(100,1.5);
-*/}	
+}	
 
 	trap4()
 {
     trig = getEnt( "t4t", "targetname" );
+	level endon("trigger");
      brush1 = getEnt( "t4b1", "targetname" );
 	 brush2 = getEnt( "t4b2", "targetname" );
 	trig setHintString("^5Remove Random Parts");
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	trig setHintString("^5Done");
 	
@@ -651,14 +655,15 @@ trap3()
 		 wait 1;
 		}
 	
-*/}
+}
 
 trap5()
 {
     trig = getEnt( "t5t", "targetname" );
+	level endon("trigger");
      b = getEnt( "t5b", "targetname" );
 	trig setHintString("^5Rotate");
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	trig setHintString("^5Done");
     while(1)
@@ -666,24 +671,26 @@ trap5()
 	b rotateYaw(360,5);
 	wait 2;
 	}
-*/}
+}
 
 trap6()
 {
     trig = getEnt( "t6t", "targetname" );
+	level endon("trigger");
     bru = getEnt( "t6b", "targetname" );
 	trig setHintString("^5Activate Floor Trap");
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	trig setHintString("^5Done");
     
 	bru moveZ(-110,5);
 	wait 5;
-*/}		
+}		
 
 trap7()
 {
     trig = getEnt( "t7t", "targetname" );
+	level endon("trigger");
      b1 = getEnt( "t7g1_1", "targetname" );
 	 b2 = getEnt( "t7g1_2", "targetname" );
 	 b3 = getEnt( "t7g1_3", "targetname" );
@@ -695,7 +702,7 @@ trap7()
 	 b9 = getEnt( "t7g2_4", "targetname" );
 	 b10 = getEnt( "t7g2_5", "targetname" );
 	trig setHintString("^5Rotate");
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	trig setHintString("^5Done");
  	x = RandomInt(2);
@@ -733,11 +740,12 @@ trap7()
 		 wait 2;
 		 }
 		}
-*/		}
+		}
 
 trap8()
 {
     trig = getEnt( "t8t", "targetname" );
+	level endon("trigger");
      b1 = getEnt( "t8b1", "targetname" );
 	 b2 = getEnt( "t8b2", "targetname" );
 	 b3 = getEnt( "t8b3", "targetname" );
@@ -747,7 +755,7 @@ trap8()
 b2 rotatePitch( 30, 0.05 );
 b3 rotatePitch( -30, 0.05 );
 b4 rotatePitch( 30, 0.05 );
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	trig setHintString("^5Done");
 
@@ -766,15 +774,16 @@ wait .05;
                 wait 0.5;
 	}
 
-*/}
+}
 
 trap9()
 {	
 trig = getEnt ("t9t", "targetname");
+	level endon("trigger");
 h = getEnt ("t9_hurt", "targetname"); 
 b = getEnt ("t9b", "targetname");
 	trig setHintString("^5Lower Tool");
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	trig setHintString("^5Done");
 	
@@ -790,61 +799,65 @@ h linkto (b);
 	wait 5;
 	}
 }
-*/}
+}
 
 trap10()
 {
     trig = getEnt( "t10t", "targetname" );
+	level endon("trigger");
      b = getEnt( "t10b", "targetname" );
 	trig setHintString("^5Open Trap Hole");
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	trig setHintString("^5Done");
 
 	b delete();
 	wait 1;
-*/}	
+}	
 
 trap11()
 {
     trig = getEnt( "t11t", "targetname" );
+	level endon("trigger");
      b = getEnt( "t11b", "targetname" );
 	trig setHintString("^5Fail and Die");
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	trig setHintString("^5Done");
 
 	b delete();
 	wait 1;
-*/}
+}
 
 trap12()
 {
     trig = getEnt( "t_newt", "targetname" );
+	level endon("trigger");
      b = getEnt( "t_newb", "targetname" );
 	trig setHintString("^5Open Spaces");
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	trig setHintString("^5Done");
 
 	b moveZ(-200,5);
 	wait 2;
 	b delete();
-*/}
+}
 
 trap13()
 {
     trig = getEnt( "t_new2t", "targetname" );
+	level endon("trigger");
      b = getEnt( "t_new2b", "targetname" );
 	trig setHintString("^5Trap Floor");
-/* AUTO 	trig waittill( "trigger", player );
+	trig waittill( "trigger", player );
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	trig setHintString("^5Done");
 
 	b moveZ(-200,5);
 	wait 2;
 	b delete();
-*/}
+}
 
 end()
 {
@@ -987,7 +1000,7 @@ WatchSniper()
 		level.activ setPlayerangles( acti.angles );
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
-//AUTO 		wait 0.05;
+		wait 0.05;
 		noti = SpawnStruct();
 		noti.titleText = "^2--^9SNIPER WAHHRR^2--";
 	noti.notifyText ="^2"+player.name + " ^1VS ^2"+level.activ.name+" ^7";
@@ -1000,7 +1013,7 @@ WatchSniper()
 		player thread countdown_snip();
 		level.activ thread countdown_snip();
                                      while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			iPrintlnBold( " ^9" + player.name + "^7 got Owned by ^9"+ level.activ.name+ "^7" );
 			
 	}
@@ -1051,7 +1064,7 @@ WatchKnife()
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "tomahawk_mp" );		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "tomahawk_mp" );
 //AUTO 		level.activ SwitchToWeapon( "tomahawk_mp" );
 	noti = SpawnStruct();
@@ -1066,7 +1079,7 @@ WatchKnife()
 		player thread countdown_knife();
 		level.activ thread countdown_knife();
                                      while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			iPrintlnBold( " ^9" + player.name + "^7 got Owned by ^9"+ level.activ.name+ "^7" );
 			
 	}

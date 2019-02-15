@@ -703,9 +703,10 @@ clepto_bike()
 trap1()
 {
 	rocks = getEntArray("trap1_rock","targetname");
+	level endon("trigger");
 	trig = getEnt("trap1_trig","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	while(true)
@@ -726,14 +727,15 @@ trap1()
 		}
 		wait 4;
 	}
-*/}
+}
 
 trap2()
 {
 	trig = getEnt("trap2_trig","targetname");
+	level endon("trigger");
 	bridge = getEnt("trap2_bridge","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	while(1)
@@ -748,11 +750,12 @@ trap2()
 		
 		wait 5;
 	}
-*/}
+}
 
 trap3()
 {
 	rock1 = getEnt("trap3_rock1","targetname");
+	level endon("trigger");
 	hurt1 = getEnt("trap3_hurt1","targetname");
 	rock2 = getEnt("trap3_rock2","targetname");
 	hurt2 = getEnt("trap3_hurt2","targetname");
@@ -763,21 +766,22 @@ trap3()
 	hurt1 linkTo(rock1);
 	hurt2 linkTo(rock2);
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	rock1 movez(-434,1,0.5,0.25);
 	rock2 movez(-434,1,0.5,0.25);
-*/}
+}
 
 trap4()
 {
 	fall = 3;
+	level endon("trigger");
 	rock = getEnt("trap4_rocks","targetname");
 	rock2 = getEnt("trap4_rocks2","targetname");
 	trig = getEnt("trap4_trig","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	rock movez(-3040*fall,5,5,0);
@@ -786,26 +790,28 @@ trap4()
 	wait 5;
 	rock delete();
 	rock2 delete();
-*/}
+}
 
 trap5()
 {
 	rock = getEnt("trap5_rock","targetname");
+	level endon("trigger");
 	trig = getEnt("trap5_trig","targetname");
 	quake = getEnt("trap5_quake","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	earthquake(1,5,quake.origin,400);
 	rock rotateroll(90,5,5,0);
 	wait 10;
 	rock rotateroll(-90,5,5,0);
-*/}
+}
 
 trap6()
 {
 	log = getEnt("trap6_log","targetname");
+	level endon("trigger");
 	hurt = getEnt("trap6_hurt","targetname");
 	brush = getEnt("trap6_brush","targetname");
 	dest1 = getEnt("trap6_orig1","targetname");
@@ -815,7 +821,7 @@ trap6()
 	hurt LinkTo(log);
 	hurt.dmg = 0;
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	hurt.dmg = 2000;
@@ -828,11 +834,12 @@ trap6()
 	wait 2;	
 	//earthquake(0.1,log.origin,50);
 	hurt delete();
-*/}
+}
 
 trap7()
 {
 	spike1 = getEnt("trap7_spikes1","targetname");
+	level endon("trigger");
 	hurt1 = getEnt("trap7_hurt1","targetname");
 	spike2 = getEnt("trap7_spikes2","targetname");
 	hurt2 = getEnt("trap7_hurt2","targetname");
@@ -852,7 +859,7 @@ trap7()
 	
 	trig = getEnt("trap7_trig","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	while(true)
@@ -871,26 +878,28 @@ trap7()
 		
 		wait 5;
 	}
-*/}
+}
 
 trap8()
 {
 	bridge = getEnt("trap8_bridge","targetname");
+	level endon("trigger");
 	fx = getEnt("trap8_fx","targetname");
 	trig = getEnt("trap8_trig","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	//playSound();
 	bridge movez(-9000,5,5,0);
 	wait 5;
 	bridge delete();
-*/}
+}
 
 trap9()
 {
 	rock = getEnt("trap9_rock","targetname");
+	level endon("trigger");
 	hurt = getEnt("trap9_hurt","targetname");
 	sound = getEnt("trap9_fx_top","targetname");
 	fx = getEnt("trap9_fx_bottom","targetname");
@@ -900,7 +909,7 @@ trap9()
 	hurt linkTo(rock);
 	hurt.dmg = 0;
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	//playSound();
@@ -914,16 +923,17 @@ trap9()
 	earthquake(0.3,0.5,fx.origin,100);
 	//playFx(level._effect["dust2"],fx.origin);
 	hurt delete();
-*/}
+}
 
 trap10()
 {
 	rock1 = getEnt("trap10_rock1","targetname");
+	level endon("trigger");
 	rock2 = getEnt("trap10_rock2","targetname");
 	rock3 = getEnt("trap10_rock3","targetname");
 	trig = getEnt("trap10_trig","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	
 	rock1 movey(144,1);
 	rock2 movey(-144,1);
@@ -936,11 +946,12 @@ trap10()
 	rock1 movey(-144,1);
 	rock2 movey(144,1);
 	rock3 movey(-144,1);
-*/}
+}
 
 trap11()
 {
 	rock1 = getEnt("trap11_rock1","targetname");
+	level endon("trigger");
 	rock2 = getEnt("trap11_rock2","targetname");
 	rock3 = getEnt("trap11_rock3","targetname");
 	rock4 = getEnt("trap11_rock4","targetname");
@@ -948,7 +959,7 @@ trap11()
 	rock6 = getEnt("trap11_rock6","targetname");
 	trig = getEnt("trap11_trig","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 	
 	while(true)
@@ -969,7 +980,7 @@ trap11()
 		rock6 movex(336,2,0.8,0.8);
 		wait 2;
 	}
-*/}
+}
 
 end()
 {

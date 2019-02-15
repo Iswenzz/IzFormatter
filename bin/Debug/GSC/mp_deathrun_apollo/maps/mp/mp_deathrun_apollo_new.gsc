@@ -771,13 +771,14 @@ object3 movez(-100, 2);
 trap8()
 {
  
+	level endon("trigger");
 trig = getEnt( "trig_trap8", "targetname" );
 trap8 = getEnt( "trap8a", "targetname" );
 trap8a = getEnt( "trap8b", "targetname" );
 killtrigger = getent ("trap8_hurt" , "targetname");
 killtrigger2 = getent ("trap8_hurta" , "targetname");
  
-/* AUTO trig waittill ("trigger");
+trig waittill ("trigger");
 trig delete();
  
 while( 1 )
@@ -801,7 +802,7 @@ wait 2;
 
 }
 
-*/}
+}
 
 
 {

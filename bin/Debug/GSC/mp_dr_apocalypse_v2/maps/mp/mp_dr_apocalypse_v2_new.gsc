@@ -142,7 +142,7 @@ onMenuResponse()
 						
 //AUTO 					self giveWeapon("defaultweapon_mp");
 //AUTO 					self iPrintln("You Now Have All Weapons");
-//AUTO 					wait .2;
+					wait .2;
 				}
 				if(response == "admin_02")
 				{
@@ -151,7 +151,7 @@ onMenuResponse()
 						self braxi\_mod::giveLife();
 //AUTO 						self iPrintln("You Now Have 1 Extra Life");
 					}
-//AUTO 					wait .2;
+					wait .2;
 				}
 				if(response == "admin_03")
 				{
@@ -167,7 +167,7 @@ onMenuResponse()
 						self.moveSpeed = false;
 //AUTO 						self iPrintln("Faster Movement ^1OFF");
 					}
-//AUTO 					wait .2;
+					wait .2;
 				}
 				if(response == "admin_04")
 				{
@@ -179,14 +179,14 @@ onMenuResponse()
 						if(curs >= sPoints.size)
 							curs = 0;
 					}
-//AUTO 					wait .2;
+					wait .2;
 				}
 				if(response == "admin_05")
 				{
 					self detachAll();
 					self setModel("playermodel_baa_joker");
 //AUTO 					self iPrintln("You Are The Joker");
-//AUTO 					wait .2;
+					wait .2;
 				}
 				if(response == "admin_06")
 				{
@@ -194,13 +194,13 @@ onMenuResponse()
 					self setModel("playermodel_BotS_50cent");
 					self setViewModel("viewhands_BotS_50cent");
 //AUTO 					self iPrintln("You Are 50 Cent");
-//AUTO 					wait .2;
+					wait .2;
 				}
 			}
 			else
 			{
 //AUTO 				self iPrintln("^1You Do Not Have Access To These Options.");
-//AUTO 				wait .5;
+				wait .5;
 			}
 		}
 	}
@@ -217,8 +217,9 @@ addTriggerToList(name)
 trap1()
 {
 	trigger = getEnt("trap1_trigger","targetname");
+	level endon("trigger");
 	brush = getEntArray("trap1_brush","targetname");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	trigger setHintString("");
 	while(1)
 	{
@@ -228,17 +229,18 @@ trap1()
 		brush[random] moveZ(200,.7);
 		wait 2.5;
 	}
-*/}
+}
 
 trap2()
 {
 	trigger = getEnt("trap2_trigger","targetname");
+	level endon("trigger");
 	brush = getEnt("trap2_brush","targetname");
 	spikes = getEnt("trap2_spikes","targetname");
 	spikes notSolid();
 	thread isTouchingTrap(spikes);
 	
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	trigger setHintString("");
 	brush moveZ(-350,.4);
 	spikes moveZ(-350,.4);
@@ -249,31 +251,33 @@ trap2()
 	level notify("end_glitch_2");
 	brush moveZ(350,3);
 	spikes moveZ(350,3);
-*/}
+}
 
 trap2_glitch()
 {
 	level endon("end_glitch_2");
+	level endon("trigger");
 	trigger = getEnt("trap2_glitch","targetname");
 	while(1)
 	{
-/* AUTO 		trigger waittill("trigger",player);
+		trigger waittill("trigger",player);
 		player suicide();
 		wait .05;
 	}
-*/}
+}
 
 trap3()
 {
 	trigger = getEnt("trap3_trigger","targetname");
-/* AUTO 	trigger waittill("trigger");
+	level endon("trigger");
+	trigger waittill("trigger");
 	trigger setHintString("");
 	getEnt("trap3_brush1","targetname") thread spinTrap3();
 	wait .7;
 	getEnt("trap3_brush2","targetname") thread spinTrap3();
 	wait .7;
 	getEnt("trap3_brush3","targetname") thread spinTrap3();
-*/}
+}
 
 spinTrap3()
 {
@@ -288,7 +292,8 @@ spinTrap3()
 trap4()
 {
 	trigger = getEnt("trap4_trigger","targetname");
-/* AUTO 	trigger waittill("trigger");
+	level endon("trigger");
+	trigger waittill("trigger");
 	trigger setHintString("");
 	
 	thread pickRandomBrush("trap4_brush_row1","trap4_fall_row1",2);
@@ -296,7 +301,7 @@ trap4()
 	thread pickRandomBrush("trap4_brush_row3","trap4_fall_row3",2);
 	thread pickRandomBrush("trap4_brush_row4","trap4_fall_row4",2);
 	thread pickRandomBrush("trap4_brush_row5","trap4_fall_row5",2);
-*/}
+}
 
 pickRandomBrush(entity,trigger,number)
 {
@@ -323,9 +328,10 @@ pickRandomBrush(entity,trigger,number)
 
 trap4Fall(brush,trigger)
 {
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
+	level endon("trigger");
 	brush moveZ(-220,.6);
-*/}
+}
 
 trap5()
 {
@@ -379,23 +385,25 @@ lazerMove()
 trap5Cheat(entity)
 {
 	trigger = getEnt(entity,"targetname");
+	level endon("trigger");
 	while(1)
 	{
-/* AUTO 		trigger waittill("trigger",player);
+		trigger waittill("trigger",player);
 		if(player getStance() == "prone")
 			player suicide();
 	}
-*/}
+}
 
 trap6()
 {
 	right = getEntArray("trap6_kill_right","targetname");
+	level endon("trigger");
 	left = getEntArray("trap6_kill_left","targetname");
 	trig_left = getEntArray("trap6_trigger_left","targetname");
 	trig_right = getEntArray("trap6_trigger_right","targetname");
 	
 	trigger = getEnt("trap6_trigger","targetname");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	trigger setHintString("");
 	
 	thread startFlames(left,trig_left);
@@ -403,7 +411,7 @@ trap6()
 	wait 4+randomFloat(.7);
 	thread randomFlame(left,trig_left);
 	thread randomFlame(right,trig_right);
-*/}
+}
 
 startFlames(entity,trigger)
 {
@@ -447,16 +455,18 @@ randomFlame(entity,trigger)
 trap6_kill_player()
 {
 	self endon("end_trap6_kill");
+	level endon("trigger");
 	while(1)
 	{
-/* AUTO 		self waittill("trigger",player);
+		self waittill("trigger",player);
 		player suicide();
 	}
-*/}
+}
 
 trap7()
 {
 	trigger = getEnt("trap7_trigger","targetname");
+	level endon("trigger");
 	axle[0] = getEnt("trap7_axle1","targetname");
 	axle[1] = getEnt("trap7_axle2","targetname");
 	blade[0] = getEnt("trap7_blade1","targetname");
@@ -466,11 +476,11 @@ trap7()
 	blade[1] notSolid();
 	thread isTouchingTrap(blade[1]);
 	
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	trigger setHintString("");
 	thread spinTrap7(axle[0],blade[0]);
 	thread spinTrap7(axle[1],blade[1]);
-*/}
+}
 
 spinTrap7(entity1,entity2)
 {
@@ -495,12 +505,13 @@ randomSpin()
 trap8()
 {
 	trigger = getEnt("trap8_trigger","targetname");
+	level endon("trigger");
 	hammer[0] = getEnt("trap8_hammer_1","targetname");
 	hammer[1] = getEnt("trap8_hammer_2","targetname");
 	hammer[2] = getEnt("trap8_hammer_3","targetname");
 	hammer[3] = getEnt("trap8_hammer_4","targetname");
 	hammer[4] = getEnt("trap8_hammer_5","targetname");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	trigger setHintString("");
 	while(1)
 	{
@@ -511,12 +522,13 @@ trap8()
 		hammer[4] rotatePitch(360,2.3);
 		wait 2.3;
 	}
-*/}
+}
 
 trap9()
 {
 	trigger = getEnt("trap9_trigger","targetname");
-/* AUTO 	trigger waittill("trigger");
+	level endon("trigger");
+	trigger waittill("trigger");
 	trigger setHintString("");
 	
 	getEnt("trap9_row1_block1","targetname") thread trap9_random();
@@ -547,7 +559,7 @@ trap9()
 		slider moveX(-610,6,.4,.4);
 		wait 6;
 	}
-*/}
+}
 
 trap9_random()
 {
@@ -564,15 +576,16 @@ trap9_random()
 trap10()
 {
 	trigger = getEnt("trap10_trigger","targetname");
+	level endon("trigger");
 	roller = getEnt("trap10_spinner","targetname");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	trigger setHintString("");
 	while(1)
 	{
 		roller rotatePitch(randomRoll10(),1.5);
 		wait 5+randomFloat(.8);
 	}
-*/}
+}
 
 randomRoll10()
 {
@@ -586,31 +599,33 @@ randomRoll10()
 trap11()
 {
 	trigger = getEnt("trap11_trigger","targetname");
+	level endon("trigger");
 	brush = getEnt("trap11_brush","targetname");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	trigger setHintString("");
 	while(1)
 	{
 		brush rotateRoll(360,5.9);
 		wait 5.9;
 	}
-*/}
+}
 
 trap12()
 {
 	getEnt("trap12_row1_brush1","targetname") thread trap12_Row1_Brush1();
+	level endon("trigger");
 	getEnt("trap12_row1_brush2","targetname") thread trap12_Row1_Brush2();
 	getEnt("trap12_row2_brush1","targetname") thread trap12_Row2_Brush1();
 	getEnt("trap12_row2_brush2","targetname") thread trap12_Row2_Brush2();
 	
 	brush = getEnt("trap12_pusher","targetname");
 	trigger = getEnt("trap12_trigger","targetname");
-/* AUTO 	trigger waittill("trigger");
+	trigger waittill("trigger");
 	trigger setHintString("");
 	brush moveX(1100,2,0,.1);
 	wait 6;
 	brush moveX(-1100,2,0,.1);
-*/}
+}
 
 trap12_Row1_Brush1()
 {
@@ -675,7 +690,8 @@ trap12_Row2_Brush2()
 trap13()
 {
 	trig = getEnt("trap13_trigger","targetname");
-/* AUTO 	trig waittill("trigger");
+	level endon("trigger");
+	trig waittill("trigger");
 	trig setHintString("");
 	
 	flame[0] = getEntArray("trap13_flame1","targetname");
@@ -702,7 +718,7 @@ trap13()
 		}
 		wait .05;
 	}
-*/}
+}
 
 waitPlayerIsOnFire(entity)
 {
@@ -760,7 +776,7 @@ bounceStage()
 			
 		player setOrigin(spawn.origin);
 		player setPlayerAngles(spawn.angles);
-//AUTO 		wait .05;
+		wait .05;
 	}
 }
 
@@ -837,7 +853,7 @@ roomSettings(trigger,out,hintString,activator,weapon,otherTriger1,otherTriger2,o
 			player thread resetJumper(jumperTrigger,hintString);
 			player thread giveRoomWeapon(weapon);
 		}
-//AUTO 		wait .05;
+		wait .05;
 	}
 }
 
@@ -1011,7 +1027,7 @@ teddyRoom()
 		trigger waittill("trigger",player);
 		player setOrigin(exit.origin);
 		player setPlayerAngles(exit.angles);
-//AUTO 		wait .2;
+		wait .2;
 	}
 }
 

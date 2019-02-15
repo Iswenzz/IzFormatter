@@ -258,7 +258,7 @@ for(;;)
 //AUTO 	activator giveweapon("intervention_mp");
 	thread createhud(player.name + " ^5selected ^7snipah ^4war!");
 	noobsnip triggerOn();
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("^5FIGHT ^7!!!");
 //AUTO 	activator iprintlnbold("^5FIGHT ^7!!!");
 	player freezeControls(false);
@@ -306,14 +306,14 @@ for(;;)
 	activator setPlayerAngles(acti.angles);
 //AUTO 	player takeallweapons();
 //AUTO 	activator takeallweapons();
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	IPrintLnbold("^2Fight!!!.");
 	i = randomintrange(0, 8);
 //AUTO 	player giveweapon("deserteaglegold_mp");
 //AUTO 	player givemaxammo("deserteaglegold_mp");
 //AUTO 	activator giveweapon("deserteaglegold_mp");
 //AUTO 	activator givemaxammo("deserteaglegold_mp");
-//AUTO 	wait .1;
+	wait .1;
 	player freezeControls(false);
 	activator freezeControls(false);
 //AUTO 	player switchtoweapon("deserteaglegold_mp");
@@ -342,7 +342,7 @@ for(;;)
 //AUTO 	activator giveweapon("knife_mp");
 //AUTO 	player giveweapon("knife_mp");
 	thread createhud(player.name + " ^5Selected ^7bounce ^5Room ^7:]");
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("^5GO^5!!!");
 //AUTO 	activator iprintlnbold("^5GO^5!!!");
 	player freezeControls(false);
@@ -508,7 +508,7 @@ for(;;)
 //AUTO 	activator giveweapon("tomahawk_mp");
 //AUTO 	player giveweapon("tomahawk_mp");
 	thread createhud(player.name + " ^5Selected ^7Knife ^5room^7!!");
-//AUTO 	wait 5;
+	wait 5;
 	player freezeControls(false);
 	activator freezeControls(false);
 //AUTO 	player switchtoweapon("tomahawk_mp");
@@ -539,7 +539,7 @@ for(;;)
 //AUTO 	player givemaxammo("m1014_grip_mp");
 //AUTO 	activator givemaxammo("m1014_grip_mp");
 	thread createhud(player.name + " ^5Selected ^7Shotgun ^5room :^7D");
-//AUTO 	wait 5;
+	wait 5;
 	player freezeControls(false);
 	activator freezeControls(false);
 //AUTO 	player switchtoweapon("m1014_grip_mp");
@@ -848,12 +848,13 @@ mapper()
 trap1()
 {
     trig = getEnt( "trig_trap1", "targetname" );
+	level endon("trigger");
     object1 = getent("trap1a","targetname");
 	object2 = getent("trap1b","targetname");
 	object3 = getent("trap1c","targetname");
 	object4 = getent("trap1d","targetname");
  
-/* AUTO     trig waittill ("trigger",user);
+    trig waittill ("trigger",user);
     trig delete();
 	trig SetHintString("^2Activated");
 //AUTO 	user braxi\_rank::giveRankXP("", 60);
@@ -877,16 +878,17 @@ trap1()
 		object4 rotateroll(360, 2);
 		wait 5;
     }
-*/}
+}
 
 trap2()
 {
     trig = getEnt( "trig_trap2", "targetname" );
+	level endon("trigger");
     part1 = getEntArray("trap2_a","targetname");
 	part2 = getEntArray("trap2_b","targetname");
 	part3 = getEntArray("trap2_c","targetname");
  
-/* AUTO     trig waittill ("trigger",user);
+    trig waittill ("trigger",user);
     trig delete();
 	trig SetHintString("^2Activated");
 //AUTO 	user braxi\_rank::giveRankXP("", 60);
@@ -908,15 +910,16 @@ trap2()
 				
 		default: return;
 	}
-*/}
+}
 
 trap3()
 {
     trig = getEnt( "trig_trap3", "targetname" );
+	level endon("trigger");
     object1 = getent("trap3","targetname");
 	object2 = getent("trap3a","targetname");
  
-/* AUTO     trig waittill ("trigger",user);
+    trig waittill ("trigger",user);
     trig delete();
 	trig SetHintString("^2Activated");
 //AUTO 	user braxi\_rank::giveRankXP("", 60);
@@ -927,14 +930,15 @@ trap3()
 		object2 rotateroll(360, 2);
 		wait 2;
 	}
-*/}
+}
 
 trap4()
 {
     trig = getEnt( "trig_trap4", "targetname" );
+	level endon("trigger");
 	object1 = getent("trap4","targetname");
  
-/* AUTO     trig waittill ("trigger",user);
+    trig waittill ("trigger",user);
     trig delete();
 	trig SetHintString("^2Activated");
 //AUTO 	user braxi\_rank::giveRankXP("", 60);
@@ -953,15 +957,16 @@ trap4()
 		wait 10;
 		object1 rotateroll(360, 5);
 	}
-*/}
+}
 
 trap5()
 {
     trig = getEnt( "trig_trap5", "targetname" );
+	level endon("trigger");
     object1 = getent("trap5","targetname");
 	object2 = getent("trap5a","targetname");
  
-/* AUTO     trig waittill ("trigger",user);
+    trig waittill ("trigger",user);
     trig delete();
 	trig SetHintString("^2Activated");
 //AUTO 	user braxi\_rank::giveRankXP("", 60);
@@ -981,14 +986,15 @@ trap5()
 		object1 rotateYaw(360, 5);
 		wait 10;
 	}
-*/}
+}
 
 trap6()
 {
     trig = getEnt( "trig_trap6", "targetname" );
+	level endon("trigger");
     object1 = getent("trap6","targetname");
  
-/* AUTO     trig waittill ("trigger",user);
+    trig waittill ("trigger",user);
     trig delete();
 	trig SetHintString("^2Activated");
 //AUTO 	user braxi\_rank::giveRankXP("", 60);
@@ -1002,15 +1008,16 @@ trap6()
 		object1 rotateYaw(360, 2);
 		wait 5;
 	}
-*/}
+}
 
 trap7()
 {
     trig = getEnt( "trig_trap7", "targetname" );
+	level endon("trigger");
     object1 = getent("trap7","targetname");
 	object2 = getent("trap7a","targetname");
  
-/* AUTO     trig waittill ("trigger",user);
+    trig waittill ("trigger",user);
     trig delete();
 	trig SetHintString("^2Activated");
 //AUTO 	user braxi\_rank::giveRankXP("", 60);
@@ -1030,15 +1037,16 @@ trap7()
 		object2 rotateroll(360, 5);
 		wait 10;
 	}
-*/}
+}
 
 trap8()
 {
     trig = getEnt( "trig_trap8", "targetname" );
+	level endon("trigger");
     object1 = getEnt( "trap8a", "targetname" );
 	object2 = getEnt( "trap8b", "targetname" );
 
-/* AUTO     trig waittill ("trigger",user);
+    trig waittill ("trigger",user);
     trig delete();
 	trig SetHintString("^2Activated");
 //AUTO 	user braxi\_rank::giveRankXP("", 60);
@@ -1049,16 +1057,17 @@ trap8()
 	object2 rotatePitch(360, 2);
 	wait 2;
     }
-*/}
+}
 
 trap9()
 {
     trig = getEnt( "trig_trap9", "targetname" );
+	level endon("trigger");
     object1 = getEnt( "trap9a", "targetname" );
 	object2 = getEnt( "trap9b", "targetname" );
 	object3 = getEnt( "trap9c", "targetname" );
 
-/* AUTO     trig waittill ("trigger",user);
+    trig waittill ("trigger",user);
     trig delete();
 	trig SetHintString("^2Activated");
 //AUTO 	user braxi\_rank::giveRankXP("", 60);
@@ -1078,15 +1087,16 @@ trap9()
 		object3 rotateroll(-360, 2);
 		wait 2;
     }
-*/}
+}
 
 trap10()
 {
     trig = getEnt( "trig_trap10", "targetname" );
+	level endon("trigger");
     object1 = getent("trap10","targetname");
 	object2 = getent("trap10a","targetname");
  
-/* AUTO     trig waittill ("trigger",user);
+    trig waittill ("trigger",user);
     trig delete();
 	trig SetHintString("^2Activated");
 //AUTO 	user braxi\_rank::giveRankXP("", 60);
@@ -1106,15 +1116,16 @@ trap10()
 		object2 rotateroll(360, 5);
 		wait 10;
 	}
-*/}
+}
 
 trap11()
 {
     trig = getEnt( "trig_trap11", "targetname" );
+	level endon("trigger");
     object1 = getEnt( "trap11a", "targetname" );
 	object2 = getEnt( "trap11b", "targetname" );
 
-/* AUTO     trig waittill ("trigger",user);
+    trig waittill ("trigger",user);
     trig delete();
 	trig SetHintString("^2Activated");
 //AUTO 	user braxi\_rank::giveRankXP("", 60);
@@ -1134,5 +1145,5 @@ trap11()
 		object2 movez(170, 0.5);
         wait 1;
     }
-*/}
+}
 

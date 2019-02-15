@@ -640,7 +640,7 @@ while(1)
 		level.activ setOrigin( acti.origin );
 		level.activ shellshock( "teleporter", 2 );
 //AUTO 		level.activ TakeAllWeapons();
-//AUTO 		wait 0.05;
+		wait 0.05;
 		noti = SpawnStruct();
 		noti.titleText = "^2--^9SNIPER BATTLE^2--";
 	noti.notifyText ="^2"+player.name + " ^1VS ^2"+level.activ.name+" ^7";
@@ -653,7 +653,7 @@ while(1)
 		player thread countdown_snip();
 		level.activ thread countdown_snip();
                                      while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			iPrintlnBold( " ^9" + player.name + "^7 got Raped by ^9"+ level.activ.name+ "^7" );
 			
 	}
@@ -749,7 +749,7 @@ WatchWeapon()
 		level.activ setPlayerangles( acti.angles );
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
-//AUTO 		wait 0.05;
+		wait 0.05;
 		noti = SpawnStruct();
 		noti.titleText = "^2-^3WEAPON Battle^2-";
 	noti.notifyText ="^2"+player.name + " ^1VS ^2"+level.activ.name+" ^7";
@@ -767,7 +767,7 @@ WatchWeapon()
 //AUTO 		player GiveWeapon( "rpg_mp" );
 //AUTO 		player GiveMaxAmmo( "rpg_mp" );
 //AUTO 		level.activ GiveMaxAmmo( "rpg_mp" );
-//AUTO 		wait 0.01;
+		wait 0.01;
 //AUTO 		acti SwitchToWeapon( "rpg_mp" );
 //AUTO 		player SwitchToWeapon( "rpg_mp" );
 		}
@@ -777,7 +777,7 @@ WatchWeapon()
 //AUTO 		level.activ GiveMaxAmmo( "winchester1200_mp" );
 //AUTO 		player GiveWeapon( "winchester1200_mp" );
 //AUTO 		player GiveMaxAmmo( "winchester1200_mp" );
-//AUTO 		wait 0.01;
+		wait 0.01;
 //AUTO 		level.activ SwitchToWeapon( "winchester1200_mp" );
 //AUTO 		player SwitchToWeapon( "winchester1200_mp" );
 		}
@@ -787,7 +787,7 @@ WatchWeapon()
 //AUTO 		level.activ GiveMaxAmmo( "ak47_mp" );
 //AUTO 		player GiveWeapon( "ak47_mp" );
 //AUTO 		player GiveMaxAmmo( "ak47_mp" );
-//AUTO 		wait 0.01;
+		wait 0.01;
 //AUTO 		level.activ SwitchToWeapon( "ak47_mp" );
 //AUTO 		player SwitchToWeapon( "ak47_mp" );
 		}
@@ -797,7 +797,7 @@ WatchWeapon()
 //AUTO 		 level.activ GiveMaxAmmo( "ak74u_mp" );
 //AUTO 		player GiveWeapon( "ak74u_mp" );
 //AUTO 		player GiveMaxAmmo( "ak74u_mp" );
-//AUTO 		wait 0.01;
+		wait 0.01;
 //AUTO 		level.activ SwitchToWeapon( "ak74u_mp" );
 //AUTO 		player SwitchToWeapon( "ak74u_mp" );
 		}
@@ -807,7 +807,7 @@ WatchWeapon()
 //AUTO 		level.activ GiveMaxAmmo( "deserteagle_mp" );
 //AUTO 		player GiveWeapon( "deserteaglegold_mp" );
 //AUTO 		player GiveMaxAmmo( "deserteagle_mp" );
-//AUTO 		wait 0.01;
+		wait 0.01;
 //AUTO 		level.activ SwitchToWeapon( "deserteaglegold_mp" );
 //AUTO 		player SwitchToWeapon( "deserteaglegold_mp" );
 		}
@@ -817,14 +817,14 @@ WatchWeapon()
 //AUTO 		level.activ GiveMaxAmmo( "saw_mp" );
 //AUTO 		player GiveWeapon( "saw_grip_mp" );
 //AUTO 		player GiveMaxAmmo( "saw_mp" );
-//AUTO 		wait 0.01;
+		wait 0.01;
 //AUTO 		level.activ SwitchToWeapon( "saw_grip_mp" );
 //AUTO 		player SwitchToWeapon( "saw_grip_mp" );
 	
 
 		}
                                      while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			iPrintlnBold( " ^9" + player.name + "^7 got Raped by ^9"+ level.activ.name+ "^7" );
 			
 	}
@@ -856,7 +856,7 @@ WatchKnife()
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "knife_mp" );		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ SwitchToWeapon( "knife_mp" );
 	noti = SpawnStruct();
@@ -870,7 +870,7 @@ WatchKnife()
 		player thread countdown_knife();
 		level.activ thread countdown_knife();
                                      while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			iPrintlnBold( " ^9" + player.name + "^7 got Raped by ^9"+ level.activ.name+ "^7" );
 			
 	}

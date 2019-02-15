@@ -50,6 +50,7 @@
 trap_3()
 {
 	trig = getEnt( "trigger3", "targetname" );
+	level endon("trigger");
 	brush1 = getEnt( "block1", "targetname" );
 	brush2 = getEnt( "block2", "targetname" );
 	brush3 = getEnt( "block3", "targetname" );
@@ -57,7 +58,7 @@ trap_3()
 	brush5 = getEnt( "block5", "targetname" );
 	brush6 = getEnt( "block6", "targetname" );
 						
-/* AUTO 	trig waittill( "trigger", who );
+	trig waittill( "trigger", who );
 	trig waittill( "trigger", player );
 	trig delete();
 //AUTO 	player iprintlnbold ("^1Camera detects your movements");
@@ -79,7 +80,7 @@ trap_3()
 		brush6 moveX( -200, 1 );
 		wait 1;
 	}
-*/}
+}
 
 pickaxe()
 {
@@ -216,8 +217,9 @@ bold()
 trap8()
 {
 	trig = getEnt( "trap8trigger", "targetname" );
+	level endon("trigger");
 	brush = getEnt( "trap8", "targetname" );
-/* AUTO 	trig waittill( "trigger", player);
+	trig waittill( "trigger", player);
 
 	trig waittill( "trigger", who );
 	trig delete();
@@ -225,7 +227,7 @@ trap8()
 	brush moveX( -8000, 20 );
 //AUTO 	player iprintlnbold ("^1Death machine detects your movements");
 
-*/}
+}
 
 pickaxe1()
 {

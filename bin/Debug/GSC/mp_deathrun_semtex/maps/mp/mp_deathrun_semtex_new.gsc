@@ -236,7 +236,7 @@ for(;;)
 		player suicide();
 //AUTO 		iprintlnbold("^1Bad Player In Bounce Room");
 	}
-//AUTO 	wait .1;
+	wait .1;
 }
 }
 
@@ -284,7 +284,7 @@ for(;;)
 //AUTO 	activator giveweapon("tomahawk_mp");
 //AUTO 	player giveweapon("tomahawk_mp");
 	thread createhud(player.name + " ^2Selected Bounce Room^1!..");
-//AUTO 	wait 5;
+	wait 5;
 	thread bouncehud(player);
 //AUTO 	player iprintlnbold("^2Jump");
 //AUTO 	activator iprintlnbold("^2Jump");
@@ -494,7 +494,7 @@ for(;;)
 	activator setPlayerAngles(acti.angles);
 //AUTO 	player takeallweapons();
 //AUTO 	activator takeallweapons();
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	IPrintLnbold("^2Fight!!!.");
 	i = randomintrange(0, 11);
 	weapon = "rpg_mp";
@@ -546,7 +546,7 @@ for(;;)
 //AUTO 	activator giveweapon(weapon);
 //AUTO 	activator givemaxammo(weapon);
 //AUTO 	player givemaxammo(weapon);
-//AUTO 	wait .1;
+	wait .1;
 //AUTO 	player switchtoweapon(weapon);
 //AUTO 	activator switchtoweapon(weapon);
 	player thread ammo();
@@ -633,7 +633,7 @@ for(;;)
 //AUTO 	player giveweapon("remington700_mp");
 //AUTO 	activator giveweapon("remington700_mp");
 	thread createhud(player.name + " ^5select sniper fight!");
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("^5FIGHT");
 //AUTO 	activator iprintlnbold("^5FIGHT");
 	player freezeControls(false);
@@ -681,7 +681,7 @@ for(;;)
 //AUTO 	activator giveweapon("tomahawk_mp");
 //AUTO 	player giveweapon("tomahawk_mp");
 	thread createhud(player.name + " ^2Selected Knife Fight^1!..");
-//AUTO 	wait 5;
+	wait 5;
 //AUTO 	player iprintlnbold("^1FIGHT");
 //AUTO 	activator iprintlnbold("^1FIGHT");
 	player freezeControls(false);
@@ -1169,11 +1169,12 @@ new_hud( align, fade_in_time, x_off, y_off )
 trap01()
 {
 level endon("traps_disabled");
+	level endon("trigger");
 trap1 = getentarray("trap01a","targetname");
 trap2 = getentarray("trap01b","targetname");
 trap3 = getentarray("trap01c","targetname");
 but = getent("trap01trig","targetname");
-/* AUTO but waittill ("trigger", who);
+but waittill ("trigger", who);
 but SetHintString("^1Activated");
 r = RandomIntRange(0, 3);
 if(r == 0)
@@ -1197,31 +1198,33 @@ if(r == 1)
 	trap3[0] notsolid();
 	trap3[1] notsolid();
 	}
-*/}
+}
 
 trap02()
 {
 level endon("traps_disabled");
+	level endon("trigger");
 trap = getentarray("trap02","targetname");
 trap[0] movey(16, 1);
 trap[1] movey(16, 1);
 but = getent("trap02trig","targetname");
-/* AUTO but waittill ("trigger", who);
+but waittill ("trigger", who);
 but SetHintString("^1Activated");
 i = RandomIntRange(0, trap.size);
 trap[i] movey(-688, 1.5);
 trap[i] waittill ("movedone");
 wait RandomIntRange(2, 5);
 trap[i] movey(688, 1.5);
-*/}
+}
 
 trap03()
 {
 level endon("traps_disabled");
+	level endon("trigger");
 but = getent("trap03trig","targetname");
 trap = getent("trap03","targetname");
 trap_d = getent("dmg01","targetname");
-/* AUTO but waittill ("trigger", who);
+but waittill ("trigger", who);
 but SetHintString("^1Activated");
 trap movez(-160, 1);
 wait .7;
@@ -1229,7 +1232,7 @@ trap_d thread suicide_setup();
 trap waittill ("movedone");
 wait 2;
 trap movez(160, 1);
-*/}
+}
 
 suicide_setup()
 {
@@ -1244,11 +1247,12 @@ for(k = 0; k < players.size; k++)
 trap04()
 {
 level endon("traps_disabled");
+	level endon("trigger");
 trap1 = getent("trap04a","targetname");
 trap2 = getent("trap04b","targetname");
 trap3 = getent("trap04c","targetname");
 but = getent("trap04trig","targetname");
-/* AUTO but waittill ("trigger", who);
+but waittill ("trigger", who);
 but SetHintString("^1Activated");
 r = RandomIntRange(0, 2);
 if(r == 0)
@@ -1264,26 +1268,28 @@ if(r == 1)
 {
 	trap3 movez(-217, 1);
 	}
-*/}
+}
 
 trap05()
 {
 level endon("traps_disabled");
+	level endon("trigger");
 trap = getent("trap05","targetname");
 but = getent("trap05trig","targetname");
-/* AUTO but waittill ("trigger", who);
+but waittill ("trigger", who);
 but SetHintString("^1Activated");
 trap rotateyaw(1440, 4);
 wait 5;
 trap rotateyaw(-1440, 4);
-*/}
+}
 
 trap06()
 {
 level endon("traps_disabled");
+	level endon("trigger");
 trap = getent("trap06","targetname");
 but = getent("trap06trig","targetname");
-/* AUTO but waittill ("trigger", who);
+but waittill ("trigger", who);
 level notify("aktivalva");
 but SetHintString("^1Activated");
 trap PlaySound("grenade_explode_metal");
@@ -1306,38 +1312,41 @@ for(k=0;k<players.size;k++)
 		RadiusDamage( players[k].origin, 10, 30, 10);
 		}
 	}
-*/}
+}
 
 trap07()
 {
 level endon("traps_disabled");
+	level endon("trigger");
 trap = getent("trap07","targetname");
 but = getent("trap07trig","targetname");
-/* AUTO but waittill ("trigger");
+but waittill ("trigger");
 but SetHintString("^1Activated");
 trap RotatePitch(360, 3);
 wait 7;
 trap RotatePitch(-360, 3);
-*/}
+}
 
 trap08()
 {
 level endon("traps_disabled");
+	level endon("trigger");
 trap = getent("trap08","targetname");
 but = getent("trap08trig","targetname");
-/* AUTO but waittill ("trigger");
+but waittill ("trigger");
 but SetHintString("^1Activated");
 trap movex(256, 1);
 wait 5;
 trap movex(-256, 1);
-*/}
+}
 
 trap09()
 {
 level endon("traps_disabled");
+	level endon("trigger");
 trap = getentarray("felle","targetname");
 but = getent("trap09trig","targetname");
-/* AUTO but waittill ("trigger", who);
+but waittill ("trigger", who);
 if(who.pers["team"] == "allies")
 {
 	who suicide();
@@ -1351,7 +1360,7 @@ for(k=0;k<trap.size;k++)
 	trap[k] thread felle();
 }
 }
-*/}
+}
 
 felle()
 {
@@ -1370,9 +1379,10 @@ for(;;)
 trap10()
 {
 level endon("traps_disabled");
+	level endon("trigger");
 trap = getentarray("trap10","targetname");
 but = getent("trap10trig","targetname");
-/* AUTO but waittill ("trigger", who);
+but waittill ("trigger", who);
 if(who.pers["team"] == "allies")
 {
 	who suicide();
@@ -1387,7 +1397,7 @@ for(k=0;k<trap.size;k++)
 	wait .5;
 }
 }
-*/}
+}
 
 fellenormal()
 {

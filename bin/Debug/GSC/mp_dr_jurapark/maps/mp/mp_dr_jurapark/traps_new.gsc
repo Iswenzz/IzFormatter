@@ -31,9 +31,10 @@ onplayerconnected()
 
 onactivetrap()
 {
-/* AUTO 	self waittill("trigger");
+	self waittill("trigger");
+	level endon("trigger");
 	self delete();
-*/}
+}
 
 trap1()
 {
@@ -50,10 +51,11 @@ trap1()
 trap1_kill()
 {
 	self endon("kill");
+	level endon("trigger");
 
 	while(1)
 	{
-/* AUTO 		self waittill("trigger", player);
+		self waittill("trigger", player);
 		
 		if(!player.electric)
 		{
@@ -61,7 +63,7 @@ trap1_kill()
 			self thread trap1_player_init(player);
 		}	
 	}
-*/}
+}
 
 trap1_player_init(player)
 {
@@ -212,6 +214,7 @@ trap7()
 trap8()
 {
 	active = getent("t9_","targetname");
+	level endon("trigger");
 	model = getent("t9","targetname");	
 	trig = getent("t9k","targetname");
 	target_point = getEnt( model.target, "targetname" );
@@ -227,13 +230,13 @@ trap8()
 	Earthquake( 1, 3, trig.origin, 300 ); //<scale>, <duration>, <source>, <radius>-
 	
 	model movey(int(dist),2);
-/* AUTO 	model waittill("movedone");
+	model waittill("movedone");
 
 	trig notify("kill");
 	trig unlink();
 	trig delete();
 	model delete();
-*/}
+}
 
 on_touch()
 {
@@ -286,6 +289,7 @@ move_raptor(target_point,trig)
 trap10()
 {
 	active = getent("t11_","targetname");
+	level endon("trigger");
 	trig = getentarray("t11k","targetname");
 	model = getentarray("t11","targetname");
 	
@@ -311,7 +315,7 @@ trap10()
 		
 		model[i] moveto(endorig[i], 1);
 		
-/* AUTO 		model[i] waittill("movedone");
+		model[i] waittill("movedone");
 		wait 1;
 		
 		model[i] moveto(startorig[i], 2);
@@ -320,7 +324,7 @@ trap10()
 		trig[i] unlink();
 		trig[i] delete();
 	}
-*/}
+}
 
 trap11()
 {
@@ -394,6 +398,7 @@ trap14()
 trap15()
 {
 	active = getent("t16_","targetname");
+	level endon("trigger");
 	/*brush_a = getent("t16a","targetname");
 	brush_b = getent("t16b","targetname");
 	trig_a = getent("t16a1","targetname");
@@ -412,9 +417,9 @@ trap15()
 	brush = getent("t16"+p,"targetname");	
 	trig = getent("t16"+p+"1","targetname");
 	
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	brush notsolid();
-*/}
+}
 
 debugonspawn(text)
 {	

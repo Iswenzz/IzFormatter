@@ -359,12 +359,13 @@ take_gun()
 trap1()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger1","targetname");
 	left = getEnt("trap1_left","targetname");
 	center = getEnt("trap1_center","targetname");
 	right = getEnt("trap1_right","targetname");
 
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 	trig delete();
 
 	left moveZ(100,1);
@@ -375,17 +376,18 @@ trap1()
 	center moveZ(-100,1);
 	right moveZ(-100,1);
 	
-*/}
+}
 
 trap2()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger2","targetname");
 	left = getEnt("trap2_1","targetname");
 	center = getEnt("trap2_2","targetname");
 	right = getEnt("trap2_3","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	randomend = randomint(2);
@@ -398,26 +400,28 @@ trap2()
 		case 1:	center delete();
 				break;
 	}
-*/}
+}
 
 trap3()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger3","targetname");
 	trap = getEnt("trap3","targetname");
 	lift = getEnt("trap3_2","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	trap moveX(416,1);
 	lift moveX(-310,1);
 	
-*/}
+}
 
 trap4()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger4","targetname");
 	main = getEnt("trap4_main","targetname");
 	sec = getEnt("trap4_sec","targetname");
@@ -439,7 +443,7 @@ trap4()
 	hurt3 enablelinkto();
 	hurt3 linkto(spikes3);
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	main moveZ(304,1);
@@ -457,18 +461,19 @@ trap4()
 	trap moveZ(256,1);
 	part moveZ(304,1);
 
-*/}
+}
 
 trap5()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger5","targetname");
 	spikes1 = getEnt("trap5_1","targetname");
 	spikes2 = getEnt("trap5_2","targetname");
 	spikes3 = getEnt("trap5_3","targetname");
 	trap = getEnt("trap5_4","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	spikes1 RotatePitch(180,2);
@@ -483,15 +488,16 @@ trap5()
 	wait 2;
 	trap moveX(-192,2);
 	
-*/}
+}
 
 trap6()
 {
 	trig = getEnt("trigger6","targetname");
+	level endon("trigger");
 	trap = getEnt("trap6","targetname");
 	blocks = getEnt("trap6_blocks","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	while(1)
@@ -499,11 +505,12 @@ trap6()
 		trap RotatePitch(360,2);
 		wait 5;
 	}
-*/}
+}
 
 trap7()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger7","targetname");
 	trap = getEnt("trap7","targetname");
 	hurt = getEnt("trap7_hurt","targetname");
@@ -511,7 +518,7 @@ trap7()
 	hurt enablelinkto();
 	hurt linkto(trap);
 
-/* AUTO 	trig waittill("trigger", user);
+	trig waittill("trigger", user);
 	trig delete();
 
 	while(1)
@@ -519,7 +526,7 @@ trap7()
 		trap RotatePitch(180,5);
 		wait 5;
 	}
-*/}
+}
 
 movers()
 {
@@ -541,6 +548,7 @@ movers()
 trap8()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger8","targetname");
 	spikes = getEnt("trap8_spikes","targetname");
 	hurt = getEnt("trap8_hurt","targetname");
@@ -548,7 +556,7 @@ trap8()
 	hurt enablelinkto();
 	hurt linkto(spikes);
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	spikes moveZ(228,2);
@@ -557,16 +565,17 @@ trap8()
 	spikes waittill("movedone");
 	spikes delete();
 	
-*/}
+}
 
 trap9()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger9","targetname");
 	trap_1 = getEnt("trap9_1","targetname");
 	trap_2 = getEnt("trap9_2","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	trap_1 moveX(-448,1);
@@ -575,26 +584,28 @@ trap9()
 	wait 2;
 	trap_2 moveX(-384,1);
 
-*/}
+}
 
 trap10()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger10","targetname");
 	brush = getEnt("trap10","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	brush moveX(256,1);
 	wait 2;
 	brush moveX(-256,1);
 
-*/}
+}
 
 trap11()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger11","targetname");
 	spikes1 = getEnt("trap11_1","targetname");
 	spikes2 = getEnt("trap11_2","targetname");
@@ -617,7 +628,7 @@ trap11()
 	hurt4 enablelinkto();
 	hurt4 linkto(spikes4);
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	randomend = randomint(2);
@@ -631,16 +642,17 @@ trap11()
 				spikes3 moveZ(32,1);
 				break;
 	}
-*/}
+}
 
 trap12()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger12","targetname");
 	gone = getEnt("gone","targetname");
 	gone2 = getEnt("gone2","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	randomend = randomint(2);
@@ -652,15 +664,16 @@ trap12()
 		case 1:	gone2 notsolid();
 				break;
 	}
-*/}
+}
 
 trap13()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger13","targetname");
 	trap = getEnt("trap13","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	while(1)
@@ -668,17 +681,18 @@ trap13()
 		trap RotatePitch(360,6);
 		wait 10;
 	}
-*/}
+}
 
 trap14()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger14","targetname");
 	brush = getEnt("trap14_1","targetname");
 	brush2 = getEnt("trap14_2","targetname");
 	brush3 = getEnt("trap14_3","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	randomend = randomint(2);
@@ -691,11 +705,12 @@ trap14()
 				brush3 delete();
 				break;
 	}
-*/}
+}
 
 trap15()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger15","targetname");
 	brush = getEnt("rotate_this_bitch","targetname");
 	hurt = getEnt("trap15_hurt","targetname");
@@ -703,7 +718,7 @@ trap15()
 	hurt enablelinkto();
 	hurt linkto(brush);
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	while(1)
@@ -711,11 +726,12 @@ trap15()
 		brush RotatePitch(180,3);
 		wait 3;
 	}
-*/}
+}
 
 trap16()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger16","targetname");
 	brush = getEnt("circle_spikes1","targetname");
 	brush2 = getEnt("circle_spikes2","targetname");
@@ -733,7 +749,7 @@ trap16()
 	hurt3 enablelinkto();
 	hurt3 linkto(brush3);
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	randomend = randomint(2);
@@ -746,16 +762,17 @@ trap16()
 				brush3 moveZ(88,1);
 				break;
 	}
-*/}
+}
 
 trap17()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger17","targetname");
 	brush = getEnt("trap17_1","targetname");
 	brush2 = getEnt("trap17_2","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	randomend = randomint(2);
@@ -767,37 +784,39 @@ trap17()
 		case 1:	brush delete();
 				break;
 	}
-*/}
+}
 
 trap18()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger18","targetname");
 	trap = getEnt("trap18","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	trap moveX(880,1);
 	trap waittill("movedone");
 	trap delete();
 	
-*/}
+}
 
 trap19()
 {
 
+	level endon("trigger");
 	trig = getEnt("trigger19","targetname");
 	brush = getEnt("trap19","targetname");
 
-/* AUTO 	trig waittill("trigger");
+	trig waittill("trigger");
 	trig delete();
 
 	brush moveZ(368,0.5);
 	wait 3;
 	brush moveZ(-368,3);
 	
-*/}
+}
 
 final()
 {
@@ -862,7 +881,7 @@ sniper()
 		player SetPlayerAngles((0, 90, 0));
 //AUTO 		player GiveWeapon("remington700_mp");
 //AUTO 		player GiveMaxAmmo("remington700_mp");
-//AUTO 		wait 0.01;
+		wait 0.01;
 //AUTO 		player SwitchToWeapon("remington700_mp");
 //AUTO 		player AllowSprint(true);
 		
@@ -878,7 +897,7 @@ sniper()
 //AUTO 					players[i] TakeAllWeapons();
 //AUTO 					players[i] GiveWeapon("remington700_mp");
 //AUTO 					players[i] GiveMaxAmmo("remington700_mp");
-//AUTO 					wait 0.01;
+					wait 0.01;
 //AUTO 					players[i] SwitchToWeapon("remington700_mp");
 				}
 			}
@@ -897,7 +916,7 @@ knife()
 		player SetOrigin((-760, -3704, -2016));
 		player SetPlayerAngles((0, 90, 0));
 //AUTO 		player GiveWeapon("knife_mp");
-//AUTO 		wait 0.01;
+		wait 0.01;
 //AUTO 		player SwitchToWeapon("knife_mp");
 //AUTO 		player AllowSprint(true);
 		
@@ -912,7 +931,7 @@ knife()
 					players[i] SetOrigin((-760, -2824, -2016));
 //AUTO 					players[i] TakeAllWeapons();
 //AUTO 					players[i] GiveWeapon("knife_mp");
-//AUTO 					wait 0.01;
+					wait 0.01;
 //AUTO 					players[i] SwitchToWeapon("knife_mp");
 				}
 			}
@@ -932,7 +951,7 @@ shotgun()
 		player SetPlayerAngles((0, 90, 0));
 //AUTO 		player GiveWeapon("winchester1200_grip_mp");
 //AUTO 		player GiveMaxAmmo("winchester1200_grip_mp");
-//AUTO 		wait 0.01;
+		wait 0.01;
 //AUTO 		player SwitchToWeapon("winchester1200_grip_mp");
 //AUTO 		player AllowSprint(true);
 		
@@ -948,7 +967,7 @@ shotgun()
 //AUTO 					players[i] TakeAllWeapons();
 //AUTO 					players[i] GiveWeapon("winchester1200_grip_mp");
 //AUTO 					players[i] GiveMaxAmmo("winchester1200_grip_mp");
-//AUTO 					wait 0.01;
+					wait 0.01;
 //AUTO 					players[i] SwitchToWeapon("winchester1200_grip_mp");
 				}
 			}

@@ -137,6 +137,7 @@ main_fall()
 trap1()
 {
 	trap1_trig = getEnt("trap1_trig", "targetname");
+	level endon("trigger");
 	trap1_ori = getEnt("trap1_ori", "targetname");
 	//
 	trap1_abomb1 = getEnt("trap1_abomb1", "targetname");
@@ -165,7 +166,7 @@ trap1()
 	trap1_b4 = getEnt("trap1_b4", "targetname");
 	trap1_b5 = getEnt("trap1_b5", "targetname");
 
-/* AUTO 	trap1_trig waittill("trigger");
+	trap1_trig waittill("trigger");
 	trap1_trig delete();
 	playFx(level.actifire, trap1_ori.origin);
 
@@ -236,15 +237,16 @@ trap1()
 		trap1_b5 hide();
 		trap1_b5 notSolid();
 	}
-*/}
+}
 
 trap2()
 {
 	trap2_rotate = getent("trap2_rotate","targetname");
+	level endon("trigger");
 	trap2_trig = getent("trap2_trig","targetname");
 	trap2_ori = getent("trap2_ori","targetname");
 	
-/* AUTO 	trap2_trig waittill("trigger");
+	trap2_trig waittill("trigger");
 	trap2_trig delete();
 	playFx(level.actifire, trap2_ori.origin);
 	
@@ -253,7 +255,7 @@ trap2()
 		trap2_rotate rotatepitch (-720,3.5);
 		wait 1 ;
 	}
-*/}
+}
 
 move()
 {
@@ -275,6 +277,7 @@ move()
 trap3()
 {
 	trap3_a = getent("trap3_a","targetname");
+	level endon("trigger");
 	trap3_b = getent("trap3_b","targetname");
 	trap3_ahurt = getent("trap3_ahurt","targetname");
 	trap3_bhurt = getent("trap3_bhurt","targetname");
@@ -288,7 +291,7 @@ trap3()
 	trap3_bhurt enablelinkto();
 	trap3_bhurt linkto (trap3_b);
 	
-/* AUTO 	trap3_trig waittill("trigger");
+	trap3_trig waittill("trigger");
 	trap3_trig delete();
 	playFx(level.actifire, trap3_ori.origin);
 	
@@ -300,11 +303,12 @@ trap3()
 	trap3_a movey(264,2);
 	trap3_b movey(-264,2);
 	wait 3;
-*/}
+}
 
 trap4()
 {
 	trap4_trig = getEnt("trap4_trig", "targetname");
+	level endon("trigger");
 	trap4_ori = getEnt("trap4_ori", "targetname");
 	trap4_boom1 = getEnt("trap4_boom1", "targetname");
 	trap4_broken = getEnt("trap4_broken", "targetname");
@@ -313,7 +317,7 @@ trap4()
 	trap4_broken hide();
 	trap4_broken notsolid();
 	
-/* AUTO 	trap4_trig waittill("trigger");
+	trap4_trig waittill("trigger");
 	trap4_trig delete();
 	playFx(level.actifire, trap4_ori.origin);
 
@@ -324,15 +328,16 @@ trap4()
 	trap4_broken show();
 	trap4_broken solid();
 	wait 1;
-*/}
+}
 
 trap5()
 {
 	trap5_trig = getent("trap5_trig","targetname");
+	level endon("trigger");
 	trap5 = getent("trap5","targetname");
 	trap5_ori = getEnt("trap5_ori", "targetname");
 	
-/* AUTO 	trap5_trig waittill("trigger");
+	trap5_trig waittill("trigger");
 	trap5_trig delete();
 	playFx(level.actifire, trap5_ori.origin);
 	
@@ -340,11 +345,12 @@ trap5()
 	wait 5 ;
 	trap5 movez(244,2);
 	wait 3;
-*/}
+}
 
 trap6()
 {
 	trap6_trig = getent("trap6_trig","targetname");
+	level endon("trigger");
 	trap6_1 = getent("trap6_1","targetname");
 	trap6_2 = getent("trap6_2","targetname");
 	trap6_3 = getent("trap6_3","targetname");
@@ -353,7 +359,7 @@ trap6()
 	trap6_6 = getent("trap6_6","targetname");
 	trap6_ori = getEnt("trap6_ori", "targetname");
 	
-/* AUTO 	trap6_trig waittill("trigger");
+	trap6_trig waittill("trigger");
 	trap6_trig delete();
 	playFx(level.actifire, trap6_ori.origin);
 	
@@ -366,18 +372,19 @@ trap6()
 	trap6_5 movey(-300,4);
 	trap6_6 movey(300,4);
 	wait 5;
-*/}
+}
 
 trap7()
 {
 	trig = getEnt ("trap7_trig", "targetname");
+	level endon("trigger");
 	trap7_ori = getEnt("trap7_ori", "targetname");
 
-/* AUTO 	trig waittill ("trigger", player);
+	trig waittill ("trigger", player);
 	trig delete();
 	playFx(level.actifire, trap7_ori.origin);
 	thread part1();
-*/}
+}
 
 part1()
 {
@@ -548,17 +555,17 @@ mazeroom()
 		level.activ setOrigin( maze_acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "tomahawk_mp" );
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "tomahawk_mp" );
 //AUTO 		level.activ SwitchToWeapon( "tomahawk_mp" );
 //AUTO 		iPrintlnBold( " ^7" + player.name + " has entered ^5M^7aze ^5R^7oom^5!!" );
-//AUTO 		wait 5;
+		wait 5;
 		player FreezeControls(0);
 		level.activ FreezeControls(0);
 //AUTO 		player iprintlnbold("^5F^7IGHT^5!!");
 //AUTO 		level.activ iprintlnbold("^5F^7IGHT^5!!");
         while( isAlive( player ) && isDefined( player ) )
-//AUTO 		wait 1;
+		wait 1;
 	}
 }
 
@@ -634,17 +641,17 @@ Sniperroom()
 //AUTO 		level.activ GiveMaxAmmo( "remington700_mp" );
 //AUTO 		level.activ GiveWeapon( "m40a3_mp" );
 //AUTO 		level.activ giveMaxAmmo( "m40a3_mp" );
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "remington700_mp" );
 //AUTO 		level.activ SwitchToWeapon( "remington700_mp" );
 //AUTO 		iPrintlnBold( " ^7" + player.name + " has entered ^5S^7niper ^5R^7oom^5!!" );
-//AUTO 		wait 5;
+		wait 5;
 		player FreezeControls(0);
 		level.activ FreezeControls(0);
 //AUTO 		player iprintlnbold("^5F^7IGHT^5!!");
 //AUTO 		level.activ iprintlnbold("^5F^7IGHT^5!!");
         while( isAlive( player ) && isDefined( player ) )
-//AUTO 		wait 1;
+		wait 1;
 	}
 }
 

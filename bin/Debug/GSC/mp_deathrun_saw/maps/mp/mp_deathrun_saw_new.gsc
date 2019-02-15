@@ -547,10 +547,10 @@ for(;;)
 level.jumpertrigger waittill("trigger", player);
 level.classictrigger delete();
 level.snipertrigger delete();
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( telejumporigin.origin );
 player setplayerangles( telejumporigin.angles );
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactorigin.origin);
 level.activ setplayerangles (level.teleactorigin.angles);
 level.teleactorigin delete();

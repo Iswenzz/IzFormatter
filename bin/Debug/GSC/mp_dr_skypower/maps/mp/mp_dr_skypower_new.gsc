@@ -454,7 +454,7 @@ jump()
 			oldblock moveY (40, 3, 0.5, 0.5);
     	}
 //AUTO     	level.acti GiveMaxAmmo( "knife_mp" );       
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" ); //activator weapon      remington700_mp
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
 //AUTO         iPrintlnBold( " ^3" + player.name + " ^7 has chosen the ^3Jump Room^7!" );     //change to what you want it to be

@@ -409,7 +409,7 @@ MetalRacing()
 	thread MetalRacing_Leeses();
 	
 	level notify("akti_teleport");
-//AUTO 	wait 0.1;
+	wait 0.1;
 	level.activ UnLink();
 	jatekosok = GetEntArray("player", "classname");
 	for (i = 0; i < jatekosok.size; i++)

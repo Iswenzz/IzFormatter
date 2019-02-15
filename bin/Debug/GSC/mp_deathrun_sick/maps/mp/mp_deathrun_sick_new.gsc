@@ -1326,16 +1326,16 @@ WatchCross()
 //AUTO 		level.activ GiveWeapon( "c4_mp" );	
 //AUTO         level.activ GiveWeapon("c4_mp");
 //AUTO         level.activ GiveMaxAmmo("c4_mp");		
-//AUTO 		wait 0.05;
+		wait 0.05;
 		player thread showCredit( "^5.:^13^5:.", 2.3 );
 		level.activ thread showCredit( "^5.:^13^5:.", 2.3 );
-//AUTO 		wait 1;
+		wait 1;
 		player thread showCredit( "^5.:^12^5:.", 2.3 );
 		level.activ thread showCredit( "^5.:^12^5:.", 2.3 );
-//AUTO 		wait 1;
+		wait 1;
 		player thread showCredit( "^5.:^11^5:.", 2.3 );
 		level.activ thread showCredit( "^5.:^11^5:.", 2.3 );
-//AUTO 		wait 1;
+		wait 1;
 		player thread showCredit( "^9.:^5Sick Him^9:.", 2.3 );
 		level.activ thread showCredit( "^9.:^5Sick Him^9:.", 2.3 );
 		level.activ freezeControls( false );
@@ -1345,7 +1345,7 @@ WatchCross()
         player thread sick_body();
 		level.activ thread sick_body();
 	while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 

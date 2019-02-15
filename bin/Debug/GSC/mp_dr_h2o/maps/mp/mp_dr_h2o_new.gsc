@@ -1132,12 +1132,12 @@ final_jump()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
 //AUTO         iPrintlnBold( " ^2" + player.name + " HAS CHOSEN ^1BOUNCE!" );     //change to what you want it to be
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -1226,22 +1226,22 @@ final_wep()
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "deserteagle_mp" );        
 //AUTO 		level.activ GiveWeapon( "ak74u_mp" );   
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "ak74u_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "ak74u_mp" );
 		
 		player FreezeControls(1);
 		level.activ FreezeControls(1);
 		
-//AUTO 		wait 4;
+		wait 4;
 		
 //AUTO         iPrintlnBold( " ^2" + player.name + " HAS CHOSEN ^1WEAPON!" );
 		
-//AUTO 		wait 2;
+		wait 2;
 		
 //AUTO 		iPrintlnBold( "^1GET READY" );
 		
-//AUTO 		wait 2;
+		wait 2;
 
 //AUTO 		player iPrintlnBold( "^1GO!" );
 //AUTO 		level.activ iPrintlnBold( "^1GO!" );
@@ -1251,7 +1251,7 @@ final_wep()
 		
 		
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait 1;
+        wait 1;
     }
 }
 

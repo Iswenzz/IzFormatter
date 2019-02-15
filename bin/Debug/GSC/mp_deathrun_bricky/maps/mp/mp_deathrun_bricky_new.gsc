@@ -639,7 +639,7 @@ rpg()
 //AUTO         level.activ GiveWeapon( "rpg_mp" ); 
 //AUTO 		level.activ giveMaxammo("rpg_mp");
 //AUTO 		level.activ giveMaxammo("rpg_mp");        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "rpg_mp" ); 
 //AUTO         level.activ SwitchToWeapon( "rpg_mp" );
         player FreezeControls(1);
@@ -652,11 +652,11 @@ rpg()
 				players = getentarray("player", "classname");
 				for(i=0;i<players.size;i++)
 					players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 				wait 5;
+				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 			
     }
 
@@ -747,7 +747,7 @@ nade()
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "frag_grenade_mp" );
 //AUTO         level.activ GiveWeapon( "frag_grenade_mp" );         
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "frag_grenade_mp" ); 
 //AUTO         level.activ SwitchToWeapon( "frag_grenade_mp" );
         player FreezeControls(1);
@@ -760,11 +760,11 @@ nade()
 				players = getentarray("player", "classname");
 				for(i=0;i<players.size;i++)
 					players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 				wait 5;
+				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;		
+            wait 1;		
     }
 }
 

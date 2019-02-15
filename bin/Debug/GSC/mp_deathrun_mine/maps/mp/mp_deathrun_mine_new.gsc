@@ -910,37 +910,37 @@ level.bouncetrigger delete();
 level.knifetrigger delete();
 level.snipertrigger delete();
 level.oldtrigger delete();
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( telejumporigin.origin );
 player setplayerangles( telejumporigin.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon( "knife_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactorigin.origin);
 level.activ setplayerangles (level.teleactorigin.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "knife_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon( "knife_mp" );
 //AUTO level.activ SwitchToWeapon( "knife_mp" );
 level.telejumporigin delete();
 //AUTO iPrintLnBold(player.name+ "^4 has entered the ^1LavaRun "); //Change the message if you want
 AmbientStop( 2 );
 //AUTO 		ambientplay( "lava" );	
-//AUTO wait 0.5 ;
+wait 0.5 ;
 //AUTO iPrintLnBold("^1Lava Is Rising ....");
-//AUTO wait 0.5 ; 
+wait 0.5 ; 
 killtrigger3 enablelinkto ();
 killtrigger3 linkto (object);
 object movez ( 940 , 19 );
 object waittill("movedone");
-//AUTO wait 4 ;
+wait 4 ;
 //AUTO iPrintLnBold("^1Lava Is Lowering ....");
 object movez ( -940 , 10 );
 object waittill("movedone");
-//AUTO wait 0.5 ;
+wait 0.5 ;
 while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 }
 }
 

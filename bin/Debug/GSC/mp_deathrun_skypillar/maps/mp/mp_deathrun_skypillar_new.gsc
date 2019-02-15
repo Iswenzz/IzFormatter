@@ -456,7 +456,7 @@ level.finishtrigger waittill("trigger", player);
 level.snipertrigger delete();
 level.jumptele delete();
 //AUTO iPrintLnBold(player.name+ " has entered ^1StationFight !"); //Change the message if you want
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin( level.actorigin.origin );
 level.activ setplayerangles( level.actorigin.angles );
 level.actorigin delete();
@@ -691,13 +691,13 @@ for(;;)
 level.jumptele waittill("trigger", player);
 level.finishtrigger delete();
 level.snipertrigger delete();
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( level.jumperorigin.origin );
 player setplayerangles( level.jumperorigin.angles );
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player iPrintLnBold("Welcome to the JumpGame !"); //Change the message if you want
 level.activ freezeControls( true );
-//AUTO wait(0.5);
+wait(0.5);
 level.activ SetOrigin( level.actjumperorigin.origin );
 level.activ setplayerangles( level.actjumperorigin.angles );
 //AUTO level.activ iPrintLnBold("Welcome to the JumpGame !"); //Change the message if you want

@@ -341,21 +341,21 @@ old()
 	
 	door_1 moveY (-30, 0.5);
 	door_2 moveY (-30, 0.5);
-//AUTO 	wait 0.2;
+	wait 0.2;
 	playFx ( level.explosion, effect.origin );
 	door_1 moveX (60, 3);
 	door_2 moveX (-60, 3);
 	door moveZ (-260, 6);
-//AUTO 	wait 6;
+	wait 6;
 	door_1 delete();
 	door_2 delete();
 	door delete();
-//AUTO 	wait 0.1;
+	wait 0.1;
         
 	level.activ SetPlayerAngles( actiorigin.angles );
 	level.activ  SetOrigin( actiorigin.origin );
 
-//AUTO 	wait 0.1;
+	wait 0.1;
 
     noti = SpawnStruct();
 		noti.titleText = "^2<< ^3Old ^2>>";
@@ -364,7 +364,7 @@ old()
 		players = getentarray("player", "classname");
 		for(i=0;i<players.size;i++)
 			players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 	wait 3;
+	wait 3;
 
 
 //AUTO 	iPrintLn("^1>> ^7" + player.name + " choose old");

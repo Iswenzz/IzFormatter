@@ -900,38 +900,38 @@ if(level.firstenter==true)
 
 level.firstenter=false;
 } 
-//AUTO wait(0.05);
+wait(0.05);
 
 player SetOrigin( rtelejumporigin.origin );
 player setplayerangles( rtelejumporigin.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon("knife_mp");
-//AUTO wait .05;
+wait .05;
 //AUTO player SwitchToWeapon("knife_mp"); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.rteleactorigin.origin);
 level.activ setplayerangles (level.rteleactorigin.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "knife_mp" );
-//AUTO wait .05;
+wait .05;
 //AUTO level.activ SwitchToWeapon("knife_mp"); 
 //AUTO iPrintlnBold( " ^8" + player.name + " ^4 has entered the run room^8!" ); 
 //AUTO player iPrintlnBold( "^13" );
             player freezecontrols(true);
 			level.activ freezecontrols(true);
 //AUTO             level.activ iPrintlnBold( "^13" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^32" );
 //AUTO             level.activ iPrintlnBold( "^32" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^51" );
 //AUTO             level.activ iPrintlnBold( "^51" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^6Fight^7!" );
 //AUTO             level.activ iPrintlnBold( "^6Fight^6!" );
             player freezecontrols(false); //Disables the freeze.
             level.activ freezecontrols(false);
-//AUTO wait(0.02);
+wait(0.02);
 //AUTO player switchToWeapon( "knife_mp" );
 //AUTO level.activ SwitchToWeapon( "knife_mp" );
 
@@ -968,7 +968,7 @@ for(;;)
                 player setorigin (otelejumporigin.origin);
 				level.activ setplayerangles (otelejumporigin.angles);
 			    player freezecontrols(true);
-//AUTO 				wait 2;
+				wait 2;
 				player freezecontrols(false);
 				
 //AUTO                 iprintlnbold("^8" + player.name + " ^4 has entered the Old room^8!");
@@ -976,9 +976,9 @@ for(;;)
                 level.activ setorigin (old_acti.origin);
 				level.activ setplayerangles (old_acti.angles);
 			    level.activ freezecontrols(true);
-//AUTO 				wait 2;
+				wait 2;
 				level.activ freezecontrols(false);
-//AUTO 				wait 2;
+				wait 2;
 				old_acti delete();
 				
 				
@@ -1204,14 +1204,14 @@ trig=getent("runtele2player","targetname");
 				level.activ setplayerangles( runtele2acti.angles );
                 player freezecontrols(true);
 			    level.activ freezecontrols(true);
-//AUTO 				wait 2;
+				wait 2;
 				player freezecontrols(false);
 //AUTO 				player TakeAllWeapons();
 //AUTO                 player GiveWeapon("m40a3_mp");
 //AUTO                 player GiveWeapon( "deserteagle_mp" ); 
 //AUTO                 player GiveMaxAmmo("m40a3_mp");
 //AUTO                 player GiveMaxAmmo( "deserteagle_mp" );
-//AUTO                 wait .05;
+                wait .05;
 //AUTO                 player SwitchToWeapon("m40a3_mp");
                
 		
@@ -1242,14 +1242,14 @@ trig=getent("runtele2acti","targetname");
 				level.activ setplayerangles( runtele2acti.angles );
                 player freezecontrols(true);
 			    level.activ freezecontrols(true);
-//AUTO 				wait 2;
+				wait 2;
 				level.activ freezecontrols(false);
 //AUTO 				level.activ TakeAllWeapons();
 //AUTO                 level.activ GiveWeapon("m40a3_mp");
 //AUTO                 level.activ GiveWeapon( "deserteagle_mp" ); 
 //AUTO                 level.activ GiveMaxAmmo("m40a3_mp");
 //AUTO                 level.activ GiveMaxAmmo( "deserteagle_mp" );
-//AUTO                 wait .05;
+                wait .05;
 //AUTO                 level.activ SwitchToWeapon("m40a3_mp");
                
 		

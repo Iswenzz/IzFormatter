@@ -900,7 +900,7 @@ Watchdog()
 		level.activ setPlayerangles( acti.angles );
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();	
-//AUTO 		wait 0.05;
+		wait 0.05;
 	noti = SpawnStruct();
 	noti.titleText = "^2--^9Dawg Fight^2--";
 	noti.notifyText ="^2"+player.name + " ^1VS ^2"+level.activ.name+"";
@@ -912,7 +912,7 @@ Watchdog()
 		player thread countdown_dog();
 		level.activ thread countdown_dog();
                                      while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			iPrintlnBold( " ^9" + player.name + "^7 got Raped by ^9"+ level.activ.name+ "^7" );
 			
 	}

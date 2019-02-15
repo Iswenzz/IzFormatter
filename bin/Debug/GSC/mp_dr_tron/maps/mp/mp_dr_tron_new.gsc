@@ -176,7 +176,7 @@ games()
 	             
          	while( isAlive( player ) && isDefined( player ) )
 		if( isDefined( level.activ ) && isAlive( level.activ ) )
-//AUTO              	wait 1;
+             	wait 1;
      	}
 }
 
@@ -331,21 +331,21 @@ snip()
 //AUTO          	level.activ GiveWeapon( "remington700_mp" );
 //AUTO 	 	level.activ givemaxammo( "remington700_mp" );
 //AUTO 		iPrintlnBold( " ^2" + player.name + " ^5 has entered the Sniper room^1!" );         		
-//AUTO 		wait .5;
+		wait .5;
 //AUTO          	player switchToWeapon( "m40a3_mp" );
 //AUTO          	level.activ SwitchToWeapon( "m40a3_mp" );
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^53" );
 //AUTO 		level.activ iPrintlnBold( "^53" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^52" );
 //AUTO 		level.activ iPrintlnBold( "^52" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^51" );
 //AUTO 		level.activ iPrintlnBold( "^51" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^5Fight^1!" );
 //AUTO 		level.activ iPrintlnBold( "^5Fight^1!" );
 		player freezecontrols(false); 
@@ -421,21 +421,21 @@ run()
 //AUTO          	level.activ GiveWeapon( "rpg_mp" );
 //AUTO 	 	level.activ givemaxammo( "rpg_mp" );
 //AUTO 		iPrintlnBold( " ^2" + player.name + " ^5 has entered run^1!" );         		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO          	player switchToWeapon( "tomahawk_mp" );
 //AUTO          	level.activ SwitchToWeapon( "rpg_mp" );
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^53" );
 //AUTO 		level.activ iPrintlnBold( "^53" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^52" );
 //AUTO 		level.activ iPrintlnBold( "^52" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^51" );
 //AUTO 		level.activ iPrintlnBold( "^51" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^5Run^1!" );
 //AUTO 		level.activ iPrintlnBold( "^5Fight^1!" );
 		player freezecontrols(false); 
@@ -517,11 +517,11 @@ run_door1()
 //AUTO 		level.activ takeallweapons();
 //AUTO 		player giveweapon("deserteagle_mp");
 //AUTO 		player givemaxammo("deserteagle_mp");
-//AUTO 		wait .2;
+		wait .2;
 //AUTO 		player switchtoweapon("deserteagle_mp");
 
 		door movez ( -500 , 2);
-//AUTO    		wait 5;
+   		wait 5;
   		door movez ( 500, 2 );
      	}
 }
@@ -545,11 +545,11 @@ run_door2()
 //AUTO 		level.activ takeallweapons();
 //AUTO 		player giveweapon("deserteagle_mp");
 //AUTO 		player givemaxammo("deserteagle_mp");
-//AUTO 		wait .2;
+		wait .2;
 //AUTO 		player switchtoweapon("deserteagle_mp");
 
 		door movez ( -500 , 2);
-//AUTO    		wait 5;
+   		wait 5;
   		door movez ( 500, 2 );
      	}
 }

@@ -315,7 +315,7 @@ rpg()
 //AUTO 		level.activ giveMaxammo("rpg_mp");
 //AUTO 		level.activ giveMaxammo("rpg_mp");   
 		level.activ thread infinite_ammo();
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "rpg_mp" ); 
 //AUTO         level.activ SwitchToWeapon( "rpg_mp" );
         player FreezeControls(1);
@@ -328,11 +328,11 @@ rpg()
 				players = getentarray("player", "classname");
 				for(i=0;i<players.size;i++)
 					players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 				wait 5;
+				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 			
     }
 
@@ -378,7 +378,7 @@ pistol()
 //AUTO         level.activ GiveWeapon( "colt45_mp" ); 
 //AUTO 		level.activ giveMaxammo("colt45_mp");
 //AUTO 		level.activ giveMaxammo("colt45_mp");        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "colt45_mp" ); 
 //AUTO         level.activ SwitchToWeapon( "colt45_mp" );
         player FreezeControls(1);
@@ -391,11 +391,11 @@ pistol()
 				players = getentarray("player", "classname");
 				for(i=0;i<players.size;i++)
 					players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 				wait 5;
+				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 			
     }
 
@@ -441,11 +441,11 @@ old()
 				players = getentarray("player", "classname");
 				for(i=0;i<players.size;i++)
 					players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 				wait 5;
+				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 			
     }
 
@@ -491,11 +491,11 @@ jump()
 				players = getentarray("player", "classname");
 				for(i=0;i<players.size;i++)
 					players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 				wait 5;
+				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 			
     }
 
@@ -758,11 +758,11 @@ crazy()
 				players = getentarray("player", "classname");
 				for(i=0;i<players.size;i++)
 					players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO 				wait 5;
+				wait 5;
 				player FreezeControls(0);
 				level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 			
     }
 

@@ -752,7 +752,7 @@ minigames()
 	             
          	while( isAlive( player ) && isDefined( player ) )
 		if( isDefined( level.activ ) && isAlive( level.activ ) )
-//AUTO              	wait 1;
+             	wait 1;
      	}
 }
 

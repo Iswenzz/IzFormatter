@@ -940,30 +940,30 @@ race()
 //AUTO                         level.activ TakeAllWeapons();
 //AUTO                         level.activ GiveWeapon( "knife_mp" );
 //AUTO                         level.activ SwitchToWeapon( "knife_mp" );
-//AUTO                         wait 0.05;
+                        wait 0.05;
                        
                 }
-//AUTO                 wait 0.05;
+                wait 0.05;
                
 //AUTO                 iPrintlnBold( " ^1" + player.name + "^3 Has Chosen Lets Race room!" );
             player freezecontrols(true);
             level.activ freezecontrols(true);
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^13" );
 //AUTO             level.activ iPrintlnBold( "^13" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^12" );
 //AUTO             level.activ iPrintlnBold( "^32" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^11" );
 //AUTO             level.activ iPrintlnBold( "^51" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^1Lets race^3!" );
 //AUTO             level.activ iPrintlnBold( "^1Lets race^3!" );
             player freezecontrols(false); //Disables the freeze.
             level.activ freezecontrols(false);
                 while( isAlive( player ) && isDefined( player ) )
-//AUTO                         wait 1;
+                        wait 1;
     }
 }
 
@@ -997,30 +997,30 @@ tiptoe()
 //AUTO                         level.activ TakeAllWeapons();
 //AUTO                         level.activ GiveWeapon( "knife_mp" );
 //AUTO                         level.activ SwitchToWeapon( "knife_mp" );
-//AUTO                         wait 0.05;
+                        wait 0.05;
                        
                 }
-//AUTO                 wait 0.05;
+                wait 0.05;
                
 //AUTO                 iPrintlnBold( " ^1" + player.name + "^3 Has Chosen Tiptoe room!" );     //change to what you want it to be
             player freezecontrols(true); //Freeze the players when someone enters the room for three seconds.
             level.activ freezecontrols(true);
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^13" );
 //AUTO             level.activ iPrintlnBold( "^13" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^12" );
 //AUTO             level.activ iPrintlnBold( "^32" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^11" );
 //AUTO             level.activ iPrintlnBold( "^51" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^1Fight^3!" );
 //AUTO             level.activ iPrintlnBold( "^6Fight^6!" );
             player freezecontrols(false); //Disables the freeze.
             level.activ freezecontrols(false);
                 while( isAlive( player ) && isDefined( player ) )
-//AUTO                         wait 1;
+                        wait 1;
    }
 }
 

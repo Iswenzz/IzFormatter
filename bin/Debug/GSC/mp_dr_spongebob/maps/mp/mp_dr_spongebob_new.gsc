@@ -1370,7 +1370,7 @@ rpg()
                     
 }
                  
-//AUTO                 wait 0.05;
+                wait 0.05;
                
 //AUTO                 iPrintLnBold( " ^4" + player.name + " ^3has chosen the ^4RPG Room!" ); 
 player waittill( "death" );					
@@ -1491,21 +1491,21 @@ race()
                     
 }
                  
-//AUTO                 wait 0.05;
+                wait 0.05;
                
 //AUTO                 iPrintLnBold( " ^4" + player.name + " ^3has chosen the ^4Race Room!" ); 
 		    player freezecontrols(true); //Freeze the players when someone enters the room for three seconds.
             level.activ freezecontrols(true);
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^13" );
 //AUTO             level.activ iPrintlnBold( "^13" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^32" );
 //AUTO             level.activ iPrintlnBold( "^32" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^51" );
 //AUTO             level.activ iPrintlnBold( "^51" );
-//AUTO             wait 1;
+            wait 1;
 //AUTO             player iPrintlnBold( "^6Run towards the end to get a gun^7!" );
 //AUTO             level.activ iPrintlnBold( "^6Run towards the end to get a gun^6!" );
             player freezecontrols(false); //Disables the freeze.
@@ -1696,7 +1696,7 @@ chocochase()
                     
 }
                  
-//AUTO                 wait 0.05;
+                wait 0.05;
                
 //AUTO                 iPrintLnBold( " ^4" + player.name + " ^3has chosen the ^4Chocolate Chase Room!" ); 
 player waittill( "death" );					
@@ -1936,7 +1936,7 @@ old()
                     
 }
                  
-//AUTO                 wait 0.05;
+                wait 0.05;
                
 //AUTO                 iPrintLnBold( " ^4" + player.name + " ^3has chosen the ^4Old/Classic Room!" ); 
 player waittill( "death" );					

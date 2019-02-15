@@ -713,7 +713,7 @@ scopegame()
 			level.activ.chopperlink=false;
 			level.activ.hardpoint_jugg_goggles destroy();
 			level.activ.health=100; //just in case
-//AUTO 			wait 0.5;
+			wait 0.5;
 			level.activ SetPlayerAngles((0,180,0));
 			level.activ SetOrigin((-3562,-2348,-4158));
 //AUTO 			level.activ takeallweapons();

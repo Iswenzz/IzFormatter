@@ -1280,7 +1280,7 @@ jumpfailtrig()
 			level.activ setOrigin(acti.origin);
 			level.activ setPlayerangles(acti.angles);
 		}
-//AUTO 		wait .1;
+		wait .1;
 	}
 }
 

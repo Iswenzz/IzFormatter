@@ -442,11 +442,11 @@ respawn2()
       if( !isDefined( level.respawn2_trigger ) )
       return;
       if(level.firstenter==true)
-//AUTO    wait(0.05);
+   wait(0.05);
 
    level.activ SetOrigin (level.teleactorigin.origin);
    level.activ setplayerangles (level.teleactorigin.angles);
-//AUTO    wait(0.05);
+   wait(0.05);
    
 }
 }

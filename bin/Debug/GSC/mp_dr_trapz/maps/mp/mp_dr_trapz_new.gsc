@@ -325,21 +325,21 @@ jump()
    level.bounce_trigger delete();
    level.firstenter=false;
    } 
-//AUTO    wait(0.05);
+   wait(0.05);
 
    player SetOrigin((-5948, -2652, 648));
    player SetPlayerAngles((0,360,0));
 //AUTO    player TakeAllWeapons();
-//AUTO    wait(0.05);
+   wait(0.05);
    level.activ SetOrigin((-5940, -936, 656));
    level.activ SetPlayerAngles((0,180,0));
 //AUTO    level.activ TakeAllWeapons();
-//AUTO    wait .05;
+   wait .05;
 //AUTO    level.activ giveweapon("tomahawk_mp");
 //AUTO    player giveweapon("tomahawk_mp");
 //AUTO    level.activ SwitchToWeapon("tomahawk_mp"); 
 //AUTO    iPrintlnBold(" ^9" + player.name + " ^4 has entered the Knife room^8!"); 
-//AUTO    wait(0.05);
+   wait(0.05);
 
 
 

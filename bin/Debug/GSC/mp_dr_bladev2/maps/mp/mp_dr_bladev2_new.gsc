@@ -740,7 +740,7 @@ oldv2()
 		player FreezeControls(1);
 		level.activ FreezeControls(1);
 
-//AUTO 		wait 0.5;
+		wait 0.5;
 
 //AUTO 		player takeallweapons();
 //AUTO 		player GiveWeapon( "knife_mp" );
@@ -756,7 +756,7 @@ oldv2()
 //AUTO 		iprintlnbold("^1Old ^5v2 ^3Something New");
 		while(isAlive(player) && isDefined(player))
 		{
-//AUTO 			wait 0.1;
+			wait 0.1;
 		}
 		level.oldv2_trigger waittill("trigger", player );
 	}

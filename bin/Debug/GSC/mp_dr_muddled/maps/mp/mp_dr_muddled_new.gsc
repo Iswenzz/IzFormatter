@@ -464,18 +464,18 @@ uzi()// name of the thread
 //AUTO 	 level.activ SwitchToWeapon( "deserteagle_mp" );
 	 level.activ freezeControls(1);
 	 player FreezeControls(1);
-//AUTO 	 wait 2;
+	 wait 2;
 	 level.activ FreezeControls(0);
 	 player FreezeControls(0);
 	 player thread onDeath_uzi();  //player thread onDeath_knife();
-//AUTO      wait 0.1;
+     wait 0.1;
        
      for(;;)
      {
-//AUTO      wait .1;               
+     wait .1;               
      while(isAlive(player))
      {
-//AUTO      wait 1;
+     wait 1;
      }
      }
 }

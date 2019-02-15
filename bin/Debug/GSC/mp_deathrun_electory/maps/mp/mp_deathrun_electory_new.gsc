@@ -1297,9 +1297,9 @@ actirun()
 //AUTO 						level.activ TakeAllWeapons();
 //AUTO 						level.activ GiveWeapon( "knife_mp" );
 //AUTO 						level.activ SwitchToWeapon( "knife_mp" );
-//AUTO 						wait 0.05;
+						wait 0.05;
 				}
-//AUTO 				wait 0.05;
+				wait 0.05;
 				
 				player freezeControls(false);
    }
@@ -1668,10 +1668,10 @@ generator()
 //AUTO 						level.activ GiveWeapon( "ak47_mp" );
 //AUTO 						level.activ SwitchToWeapon( "ak47_mp" );
 //AUTO 						level.activ GiveMaxAmmo( "ak47_mp" );
-//AUTO                         wait 0.05;
+                        wait 0.05;
                        
                 }
-//AUTO                 wait 0.05;
+                wait 0.05;
                
 			   player freezeControls(false);
    }

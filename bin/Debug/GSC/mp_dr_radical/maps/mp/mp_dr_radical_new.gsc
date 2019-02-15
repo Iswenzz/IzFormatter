@@ -346,7 +346,7 @@ hunter()
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "colt45_mp" );
 //AUTO         level.activ GiveWeapon( "deserteagle_mp" );
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "remington700_mp" );
 //AUTO         level.activ SwitchToWeapon( "deserteagle_mp" );
         player FreezeControls(1);
@@ -358,11 +358,11 @@ hunter()
             players = getEntArray("player", "classname");
             for(i=0;i<players.size;i++)
             players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO             wait 5;
+            wait 5;
         player FreezeControls(0);
         level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

@@ -789,12 +789,12 @@ Watchak()
 //AUTO 		level.activ GiveMaxAmmo( "ak47_mp" );
 //AUTO         level.activ GiveWeapon( "deserteagle_mp" );
 //AUTO 		level.activ GiveMaxAmmo( "deserteagle_mp" );
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "ak47_mp" );
 //AUTO 		level.activ SwitchToWeapon( "ak47_mp" );
 //AUTO 		iPrintlnBold( " ^1" + player.name + " ^7has chosen ^1Ak47 ^7room^1!" );
         while( isAlive( player ) && isDefined( player ) )
-//AUTO 		wait 1;
+		wait 1;
 	}
 }
 
@@ -829,12 +829,12 @@ Watchaku()
 //AUTO 		level.activ GiveMaxAmmo( "ak74u_mp" );
 //AUTO         level.activ GiveWeapon( "deserteagle_mp" );
 //AUTO 		level.activ GiveMaxAmmo( "deserteagle_mp" );
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "ak74u_mp" );
 //AUTO 		level.activ SwitchToWeapon( "ak74u_mp" );
 //AUTO 		iPrintlnBold( " ^5" + player.name + " ^7has chosen ^5Ak74-u ^7room^5!" );		
 	    while( isAlive( player ) && isDefined( player ) )
-//AUTO 		wait 1;
+		wait 1;
 	}
 }
 

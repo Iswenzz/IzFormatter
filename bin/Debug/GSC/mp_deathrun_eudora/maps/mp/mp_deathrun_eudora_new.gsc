@@ -737,12 +737,12 @@ games()
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "knife_mp" );		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ SwitchToWeapon( "knife_mp" );
 //AUTO 		iPrintlnBold( " ^2" + player.name + " has chosen Games room!" );		 
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 
@@ -769,12 +769,12 @@ game1()
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "brick_blaster_mp" );		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "brick_blaster_mp" );
 //AUTO 		level.activ SwitchToWeapon( "brick_blaster_mp" );                                                		                                            
 //AUTO 		iPrintlnBold( " ^4" + player.name + " has chosen Game1!" );		
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 
@@ -826,12 +826,12 @@ game2()
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "m1014_reflex_mp" );		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "m1014_reflex_mp" );
 //AUTO 		level.activ SwitchToWeapon( "m1014_reflex_mp" );                                                		                                            
 //AUTO 		iPrintlnBold( " ^4" + player.name + " has chosen Game2!" );		
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 
@@ -875,12 +875,12 @@ game3()
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "frag_grenade_mp" );		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "frag_grenade_mp" );
 //AUTO 		level.activ SwitchToWeapon( "frag_grenade_mp" );                                                		                                            
 //AUTO 		iPrintlnBold( " ^5" + player.name + " has chosen Game3!" );		
 		while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 

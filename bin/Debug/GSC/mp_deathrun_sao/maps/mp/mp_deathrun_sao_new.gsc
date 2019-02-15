@@ -1337,7 +1337,7 @@ sword_dance()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "sao_sword_mp" ); 		
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "sao_sword_mp" );
 //AUTO         level.activ SwitchToWeapon( "sao_sword_mp" );
 
@@ -1347,11 +1347,11 @@ sword_dance()
         thread roomhud(""+level.activ.name+"", 130, 80);
         thread roomshader();
 
-//AUTO 		wait 5;
+		wait 5;
 		player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait .01;
+        wait .01;
     }
 }
 
@@ -1437,7 +1437,7 @@ one_shot_victim()
 //AUTO         level.activ GiveWeapon( "remington700_mp" ); 
         level.activ SetWeaponAmmoClip( "remington700_mp", 1 );
 		level.activ SetWeaponAmmoStock( "remington700_mp", 0 );		
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "remington700_mp" );
 //AUTO         level.activ SwitchToWeapon( "remington700_mp" );
 
@@ -1448,11 +1448,11 @@ one_shot_victim()
         thread roomshader();
         player thread suicide_jumper();
 
-//AUTO 		wait 5;
+		wait 5;
 		player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait .01;
+        wait .01;
     }
 }
 
@@ -1495,7 +1495,7 @@ jump()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" ); 	
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
 
@@ -1505,11 +1505,11 @@ jump()
         thread roomhud(""+level.activ.name+"", 130, 80);
         thread roomshader();
 
-//AUTO 		wait 5;
+		wait 5;
 		player freezeControls(false);
 		level.activ freezeControls(false);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO         wait .01;
+        wait .01;
     }
 }
 
@@ -1529,7 +1529,7 @@ failtele()
 		{
 			player setOrigin(failjumper.origin);
 		}
-//AUTO 		wait .05;
+		wait .05;
 	}
 }
 

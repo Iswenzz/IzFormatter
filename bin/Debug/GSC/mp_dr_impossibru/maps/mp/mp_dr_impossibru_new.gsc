@@ -260,7 +260,7 @@ gun()
 		}
 //AUTO 		iPrintlnBold( "^6" + player.name + " ^5 HAS CHOSEN Weapon^1!" );
 		while( isDefined( player ) && isAlive( player ) )
-//AUTO 			wait 0.05;
+			wait 0.05;
 
 		if( isDefined( player ) )
 //AUTO 			player setgravity( 800 );

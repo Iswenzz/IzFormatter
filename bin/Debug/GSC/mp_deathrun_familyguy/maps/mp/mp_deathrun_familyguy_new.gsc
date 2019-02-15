@@ -2159,7 +2159,7 @@ bunny(){
 //AUTO 	level.activ TakeAllWeapons();
 //AUTO 	player GiveWeapon("knife_mp");
 //AUTO 	level.activ GiveWeapon("knife_mp");
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	Player SwitchToWeapon("knife_mp");
 //AUTO 	level.activ SwitchToWeapon("knife_mp");
 //AUTO 	level.activ setgravity(800);
@@ -2176,7 +2176,7 @@ bunny(){
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		player GiveWeapon("knife_mp");
 //AUTO 		level.activ GiveWeapon("knife_mp");
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		Player SwitchToWeapon("knife_mp");
 //AUTO 		level.activ SwitchToWeapon("knife_mp");
 		level notify("fam_endroom");
@@ -2198,7 +2198,7 @@ knife(){
 //AUTO 	player GiveWeapon("knife_mp");
 //AUTO 	level.activ GiveWeapon("knife_mp");
 //AUTO 	level.activ setgravity(800);
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	Player SwitchToWeapon("knife_mp");
 //AUTO 	level.activ SwitchToWeapon("knife_mp");
 	level notify("fam_endroom");
@@ -2210,7 +2210,7 @@ knife(){
 	level.activ SetPlayerAngles( two.angles );
 //AUTO 	level.activ setmovespeed(190);
 //AUTO 	AmbientPlay( "bagofweed", 1 );
-//AUTO 	wait 2;
+	wait 2;
 	level.activ freezecontrols(0);
 	player freezecontrols(0);
 	for(;;){
@@ -2219,7 +2219,7 @@ knife(){
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		player GiveWeapon("knife_mp");
 //AUTO 		level.activ GiveWeapon("knife_mp");
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		Player SwitchToWeapon("knife_mp");
 //AUTO 		level.activ SwitchToWeapon("knife_mp");
 		level notify("fam_endroom");
@@ -2239,7 +2239,7 @@ old(){
 //AUTO 	player TakeAllWeapons();
 //AUTO 	level.activ setgravity(800);
 //AUTO 	player GiveWeapon("m60e4_grip_mp");
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	Player SwitchToWeapon("m60e4_grip_mp");
 	player setOrigin( one.origin );
 	player SetPlayerAngles( one.angles );
@@ -2248,7 +2248,7 @@ old(){
 //AUTO 	level.activ setmovespeed(300);
 //AUTO 	level.activ TakeAllWeapons();
 //AUTO 	level.activ GiveWeapon("knife_mp");
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	level.activ SwitchToWeapon("knife_mp");
 //AUTO 	AmbientPlay( "girlslikegirls", 1 );
 //AUTO 	player setmovespeed(300);
@@ -2256,7 +2256,7 @@ old(){
 		familyguyend waittill("trigger", player);
 //AUTO 		player TakeAllWeapons();
 //AUTO 		player GiveWeapon("m60e4_grip_mp");
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		Player SwitchToWeapon("m60e4_grip_mp");
 		level notify("fam_endroom");
 		player setOrigin( one.origin );

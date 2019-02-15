@@ -97,15 +97,15 @@ Ninja()
 			
 //AUTO 			level.activ TakeAllWeapons();
 //AUTO 			level.activ GiveWeapon("colt45_mp");
-//AUTO 			wait 0.1;
+			wait 0.1;
 //AUTO 			level.activ SwitchToWeapon("colt45_mp");
-//AUTO 			wait 0.2;
+			wait 0.2;
 			level.activ SetWeaponAmmoStock(level.activ GetCurrentWeapon(), 0);
 			level.activ SetWeaponAmmoClip(level.activ GetCurrentWeapon(), 0);
 			level.activ thread ToltenyTorlo();
 			
 			level notify("akti_teleport");
-//AUTO 			wait 0.1;
+			wait 0.1;
 			level.activ SetOrigin((3824, -8640, -632));
 		}
 		kivalto thread Ninja_HalalFigyelo();
@@ -115,9 +115,9 @@ Ninja()
 		
 //AUTO 		kivalto TakeAllWeapons();
 //AUTO 		kivalto GiveWeapon("colt45_mp");
-//AUTO 		wait 0.1;
+		wait 0.1;
 //AUTO 		kivalto SwitchToWeapon("colt45_mp");
-//AUTO 		wait 0.2;
+		wait 0.2;
 		kivalto SetWeaponAmmoStock(kivalto GetCurrentWeapon(), 0);
 		kivalto SetWeaponAmmoClip(kivalto GetCurrentWeapon(), 0);
 		kivalto thread ToltenyTorlo();
@@ -132,7 +132,7 @@ Ninja_Teleportalo()
 	while (true)
 	{
 		level.triggerek["ninja_teleport"] waittill("trigger", kivalto);
-//AUTO 		wait 1.5;
+		wait 1.5;
 		if (kivalto != level.activ) kivalto SetOrigin((3152, -8640, -632));
 		else kivalto SetOrigin((3824, -8640, -632));
 	}
@@ -175,7 +175,7 @@ Aim()
 			thread KillingSpreeHang();
 			
 			level notify("akti_teleport");
-//AUTO 			wait 0.1;
+			wait 0.1;
 			level.activ SetOrigin((2336, -7388, -600));
 			
 			thread Aim_JumperReset();
@@ -187,17 +187,17 @@ Aim()
 		
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon("colt45_mp");
-//AUTO 		wait 0.1;
+		wait 0.1;
 //AUTO 		level.activ SwitchToWeapon("colt45_mp");
-//AUTO 		wait 0.2;
+		wait 0.2;
 		level.activ SetWeaponAmmoStock(level.activ GetCurrentWeapon(), 80);
 		level.activ SetWeaponAmmoClip(level.activ GetCurrentWeapon(), 80);
 		
 //AUTO 		kivalto TakeAllWeapons();
 //AUTO 		kivalto GiveWeapon("colt45_mp");
-//AUTO 		wait 0.1;
+		wait 0.1;
 //AUTO 		kivalto SwitchToWeapon("colt45_mp");
-//AUTO 		wait 0.2;
+		wait 0.2;
 		kivalto SetWeaponAmmoStock(kivalto GetCurrentWeapon(), 80);
 		kivalto SetWeaponAmmoClip(kivalto GetCurrentWeapon(), 80);
 		
@@ -459,7 +459,7 @@ Heavy()
 //AUTO 		jatekosok[i] TakeAllWeapons();
 //AUTO 		jatekosok[i] GiveWeapon("knife_mp");
 		vel = RandomIntRange(0, 5);
-//AUTO 		wait 0.2;
+		wait 0.2;
 //AUTO 		jatekosok[i] SwitchToWeapon("knife_mp");
 		jatekosok[i] thread ToltenyTorlo("heavy_ended");
 //AUTO 		jatekosok[i] SetMoveSpeedScale(GetDVARFloat("dr_jumpers_speed"));
@@ -477,7 +477,7 @@ Heavy()
 	level.modelek["heavy"] Delete();
 //AUTO 	kivalto2 GiveWeapon("rpd_acog_mp");
 	kivalto2 GiveStartAmmo("rpd_acog_mp");
-//AUTO 	wait 0.1;
+	wait 0.1;
 //AUTO 	kivalto2 SwitchToWeapon("rpd_acog_mp");
 }
 

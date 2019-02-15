@@ -403,7 +403,7 @@ acti = getEnt( "actijug", "targetname" ); //the origin the acti will teleport
 	player setOrigin( jump.origin ); //teleports the jumper
 //AUTO 	player TakeAllWeapons(); //takes all weapons from jumper
 //AUTO 	player GiveWeapon( "saw_mp" ); //jumper weapon 
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	player SwitchToWeapon("saw_mp");
 //AUTO 	player giveMaxAmmo(player.pers["weapon"]);
 //AUTO 	player setMoveSpeedScale(0.4);
@@ -418,31 +418,31 @@ acti = getEnt( "actijug", "targetname" ); //the origin the acti will teleport
 		level.activ setOrigin( acti.origin ); //teleports acti
 //AUTO 		level.activ TakeAllWeapons(); //takes all weapons from acti
 //AUTO 		level.activ GiveWeapon( "saw_mp" ); //gives acti tomahawk
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		level.activ SwitchToWeapon( "saw_mp" ); //this line means they switch to the weapon
 //AUTO 		level.activ giveMaxAmmo(level.activ.pers["weapon"]);
 //AUTO 		level.activ setMoveSpeedScale(0.4);
 		level.activ setModel("body_juggernaut");
-//AUTO 		wait 0.05;
+		wait 0.05;
   	  	level.activ.maxhealth = 1000; 
   	  	level.activ.health = level.activ.maxhealth;
 		player freezeControls(true);
 		level.activ freezeControls(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("Ready?");
 //AUTO 		level.activ IPrintLnBold("Ready?");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("Set!");
 //AUTO 		level.activ IPrintLnBold("Set!");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("Go!");
 //AUTO 		level.activ IPrintLnBold("Go!");
 		player freezeControls(false);
 		level.activ freezeControls(false);
-//AUTO 		wait 1;
+		wait 1;
 		}
 	while( isAlive( player ) && isDefined( player ) ) //if the player is alive the room will stay closed so no one can enter.
-//AUTO 		wait 1;	
+		wait 1;	
 	}
 	
 }
@@ -470,7 +470,7 @@ acti1 = getEnt( "tomaacti", "targetname" ); //the origin the acti will teleport
 	player setOrigin( jump1.origin ); //teleports the jumper
 //AUTO 	player TakeAllWeapons(); //takes all weapons from jumper
 //AUTO 	player GiveWeapon( "rpg_mp" ); //jumper weapon 
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	player SwitchToWeapon("rpg_mp");
 //AUTO 	player giveMaxAmmo("rpg_mp");
 	player.maxhealth = 1000;
@@ -483,7 +483,7 @@ acti1 = getEnt( "tomaacti", "targetname" ); //the origin the acti will teleport
 		level.activ setOrigin( acti1.origin ); //teleports acti
 //AUTO 		level.activ TakeAllWeapons(); //takes all weapons from acti
 //AUTO 		level.activ GiveWeapon( "rpg_mp" ); //gives acti tomahawk
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		level.activ SwitchToWeapon( "rpg_mp" ); //this line means they switch to the weapon
 //AUTO 		level.activ giveMaxAmmo("rpg_mp");
 		level.activ.maxhealth = 1000; 
@@ -491,22 +491,22 @@ acti1 = getEnt( "tomaacti", "targetname" ); //the origin the acti will teleport
   	  	level.activ setPerk("specialty_armorvest");
 		player freezeControls(true);
 		level.activ freezeControls(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("Ready?");
 //AUTO 		level.activ IPrintLnBold("Ready?");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("Set!");
 //AUTO 		level.activ IPrintLnBold("Set!");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player IPrintLnBold("Go!");
 //AUTO 		level.activ IPrintLnBold("Go!");
 		player freezeControls(false);
 		level.activ freezeControls(false);
-//AUTO 		wait 1;
+		wait 1;
 		
 		}
 		while( isAlive( player ) && isDefined( player ) ) //if the player is alive the room will stay closed so no one can enter.
-//AUTO 		wait 1;
+		wait 1;
 	}
 	
 }

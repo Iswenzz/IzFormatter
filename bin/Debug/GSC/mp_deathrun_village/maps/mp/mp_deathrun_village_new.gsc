@@ -469,7 +469,7 @@ rpgtele()
 //AUTO                             level.activ takeAllWeapons();
 //AUTO                             level.activ giveWeapon( "rpg_mp");
 //AUTO 							level.activ giveMaxAmmo( "rpg_mp");
-//AUTO                             wait 0.05;
+                            wait 0.05;
 //AUTO                             player switchToWeapon( "rpg_mp" );
 //AUTO                             level.activ switchToWeapon( "rpg_mp" );
      
@@ -492,13 +492,13 @@ rpgtele()
                             level.jump_hud setPulseFX( 40, 2000, 99999999 );               
                            
            
-//AUTO                             wait 5;
+                            wait 5;
                             player freezeControls( false );
                             level.activ freezeControls( false );
                            
                     }
                     while( isAlive( player ) && isDefined( player ) )
-//AUTO                     wait 1;
+                    wait 1;
             }
      
     }

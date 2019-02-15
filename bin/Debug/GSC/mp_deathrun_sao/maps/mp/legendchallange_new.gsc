@@ -347,7 +347,7 @@ legendsrandomsuprise()
 {
 	level waittill("round_started");
 	players = getentarray("player", "classname");
-//AUTO 	wait 2;
+	wait 2;
 	x = randomint(11);
 	{
 		if (x == 1)
@@ -362,7 +362,7 @@ legendsrandomsuprise()
 			{
 //AUTO 				players[i] GiveWeapon("deserteagle_mp");
 //AUTO 				players[i] givemaxammo("deserteagle_mp");
-//AUTO 				wait .0001;
+				wait .0001;
 //AUTO 				players[i] SwitchToWeapon("deserteagle_mp");
 			}
 		}
@@ -376,7 +376,7 @@ legendsrandomsuprise()
 		{
 //AUTO 			iprintlnBold("Random Suprise: This round will be skiped!");
 //AUTO 			iprintlnBold("All players will die!");
-//AUTO 			wait 1;
+			wait 1;
 			for(i=0;i<players.size;i++)
 			{
 				players[i] suicide();
@@ -385,9 +385,9 @@ legendsrandomsuprise()
 
 		if (x == 5)
 		{
-//AUTO 			wait 5;
+			wait 5;
 //AUTO 			iprintlnBold("Random Suprise: All players will be flashed!");
-//AUTO 			wait 1;
+			wait 1;
 			for(i=0;i<players.size;i++)
 			{
 //AUTO 				players[i] ShellShock("flashbang", randomint(5));
@@ -400,11 +400,11 @@ legendsrandomsuprise()
 			for(i=0;i<players.size;i++)
 			{
 				players[i] thread Bouncer();
-//AUTO 				wait .1;
+				wait .1;
 				players[i] thread Bouncer();
-//AUTO 				wait .1;
+				wait .1;
 				players[i] thread Bouncer();
-//AUTO 				wait .1;
+				wait .1;
 				players[i] thread Bouncer();
 			}
 		}
@@ -415,7 +415,7 @@ legendsrandomsuprise()
 			for(i=0;i<players.size;i++)
 			{
 				players[i] setOrigin( level.secretspot.origin );
-//AUTO 				wait .00001;
+				wait .00001;
 				level.activ setOrigin( level.rubytele.origin );
 			}
 		}

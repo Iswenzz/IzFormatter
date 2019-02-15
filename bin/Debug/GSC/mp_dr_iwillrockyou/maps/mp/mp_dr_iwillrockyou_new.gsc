@@ -684,10 +684,10 @@ AktivatorPotlo()
 		while (eredeti == level.activ)
 		{
 			orig = level.activ GetOrigin();
-//AUTO 			wait 1;
+			wait 1;
 		}
 		
-//AUTO 		wait 1;
+		wait 1;
 		level.activ SetOrigin(orig);
 	}
 }

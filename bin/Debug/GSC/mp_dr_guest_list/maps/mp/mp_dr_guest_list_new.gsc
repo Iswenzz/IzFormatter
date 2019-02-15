@@ -551,25 +551,25 @@ jump()
 				level.old_trigger delete();
 				level.firstenter=false;
 				} 
-//AUTO 				wait(0.05);
+				wait(0.05);
 		
 		player setOrigin( telejumporigin.origin );
 		player setPlayerAngles( telejumporigin.angles );
 //AUTO 		player takeAllWeapons();
 //AUTO 		player giveWeapon("knife_mp");
-//AUTO 		wait (0.05);
+		wait (0.05);
 //AUTO 		player switchToWeapon("knife_mp"); 
-//AUTO 		wait (0.05);
+		wait (0.05);
 		level.activ setOrigin (level.teleactorigin.origin);
 		level.activ setPlayerAngles (level.teleactorigin.angles);
 //AUTO 		level.activ takeAllWeapons();
 //AUTO 		level.activ giveWeapon( "knife_mp" );
-//AUTO 		wait (0.05);
+		wait (0.05);
 //AUTO 		level.activ switchToWeapon("knife_mp");
 		player freezeControls(true); 
 		level.activ freezeControls(true);
 //AUTO 		iPrintLnBold( " ^3" + player.name + " ^5 has chosen the Jump room^2!" );
-//AUTO 		wait 2;
+		wait 2;
 		player freezeControls(false); 
 		level.activ freezeControls(false); 
 		

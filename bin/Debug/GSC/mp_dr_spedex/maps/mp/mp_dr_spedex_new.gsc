@@ -987,7 +987,7 @@ fail_acti()
 	trig waittill( "trigger", player );
 	if(player == level.activ)
 	{
-//AUTO 	wait (0.05);
+	wait (0.05);
 	level.activ setPlayerangles( acti.angles );
     level.activ setOrigin( acti.origin );
 	}	

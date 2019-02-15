@@ -1684,16 +1684,16 @@ run()
 //AUTO 		level.activ TakeAllWeapons();
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^53");
 //AUTO 		level.activ iPrintlnBold("^53");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^52");
 //AUTO 		level.activ iPrintlnBold("^52");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^51");
 //AUTO 		level.activ iPrintlnBold("^51");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold("^5GO^1!");
 //AUTO 		level.activ iPrintlnBold("^5Go^1!");
 		player freezecontrols(false); 
@@ -1701,7 +1701,7 @@ run()
 		
 		level.firstenter=false;
 		}	
-//AUTO 		wait(0.05);
+		wait(0.05);
 			
 		player SetPlayerAngles(jump.angles);
 		player setOrigin(jump.origin);
@@ -1714,7 +1714,7 @@ run()
 //AUTO 		level.activ giveweapon("tomahawk_mp");
 		level.activ.maxhealth = 100;
 //AUTO 		iPrintlnBold("^5" + player.name + " ^4Has Entered The ^5Speedrun Room ^4!");         
-//AUTO 		wait 0.05;	
+		wait 0.05;	
 //AUTO 		level.activ switchtoweapon("tomahawk_mp");
 //AUTO 		player switchtoweapon("tomahawk_mp");
 		

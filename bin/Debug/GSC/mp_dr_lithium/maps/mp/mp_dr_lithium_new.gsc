@@ -139,7 +139,7 @@ player died();
 
 while( isAlive( player ) && isDefined( player ) ) 
 if( isDefined( level.activ ) && isAlive( level.activ ) ) 
-//AUTO wait 1; 
+wait 1; 
 } 
 } 
 
@@ -917,21 +917,21 @@ snip()
 //AUTO          	level.activ GiveWeapon( "remington700_mp" );
 //AUTO 	 	level.activ givemaxammo( "remington700_mp" );
 //AUTO 		iPrintlnBold( " ^2" + player.name + " ^5 has entered the Sniper  room^1!" );         		
-//AUTO 		wait .5;
+		wait .5;
 //AUTO          	player switchToWeapon( "remington700_mp" );
 //AUTO          	level.activ SwitchToWeapon( "remington700_mp" );
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^53" );
 //AUTO 		level.activ iPrintlnBold( "^53" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^52" );
 //AUTO 		level.activ iPrintlnBold( "^52" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^51" );
 //AUTO 		level.activ iPrintlnBold( "^51" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^5Fight^1!" );
 //AUTO 		level.activ iPrintlnBold( "^5Fight^1!" );
 		player freezecontrols(false); 
@@ -1003,21 +1003,21 @@ jump()
 //AUTO          	level.activ TakeAllWeapons();
 //AUTO 		level.activ giveweapon( "tomahawk_mp" ); 
 //AUTO 		iPrintlnBold( " ^2" + player.name + " ^5 has entered the Jump room^1!" );         
-//AUTO          	wait 0.05;
+         	wait 0.05;
 //AUTO 		level.activ switchtoweapon( "tomahawk_mp" );
 //AUTO 		player switchtoweapon( "tomahawk_mp" );
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^53" );
 //AUTO 		level.activ iPrintlnBold( "^53" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^52" );
 //AUTO 		level.activ iPrintlnBold( "^52" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^51" );
 //AUTO 		level.activ iPrintlnBold( "^51" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^5jump^1!" );
 //AUTO 		level.activ iPrintlnBold( "^5jump^1!" );
 		player freezecontrols(false); 

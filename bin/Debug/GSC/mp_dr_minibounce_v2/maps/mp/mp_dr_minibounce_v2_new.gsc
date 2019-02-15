@@ -433,13 +433,13 @@ WatchPistol()
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "colt45_mp" );
 //AUTO 		level.activ GiveMaxAmmo( "colt45_mp" );
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "colt45_mp" );
 //AUTO 		level.activ SwitchToWeapon( "colt45_mp" );
 //AUTO   		iprintlnbold ("" + "^3." + "^2"+ player.name + "^3."+" ^3Has ^5Choosen ^2PISTOL ^6Room!");
 	
             while( isAlive( player ) && isDefined( player ) )
-//AUTO 		wait 1;
+		wait 1;
 	}
 }
 

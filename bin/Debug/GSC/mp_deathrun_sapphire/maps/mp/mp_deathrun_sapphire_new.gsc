@@ -437,13 +437,13 @@ jumper()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "remington700_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "remington700_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "remington700_mp" );
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN Sniper^1!" );     //change to what you want it to be
 		ShowNotifyMessage("^11 ^7VS ^11","^1"+level.activ.name+"^7 against ^1"+player.name);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 			
     }
 
@@ -473,13 +473,13 @@ jumper1()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "tomahawk_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "tomahawk_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "tomahawk_mp" );
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN Knife^1!" );     //change to what you want it to be
 		ShowNotifyMessage("^11 ^7VS ^11","^1"+level.activ.name+"^7 against ^1"+player.name);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -798,7 +798,7 @@ old_mini()
 //AUTO 		  iprintlnbold("^1" + player.name + " ^7Has Chosen ^1OLD!");
 		  //ShowNotifyMessage("^11 ^7VS ^11","^1"+level.activ.name+"^7 against ^1"+player.name);
       //  while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 	}
 	
 		  

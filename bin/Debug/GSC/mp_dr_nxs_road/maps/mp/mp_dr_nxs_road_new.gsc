@@ -305,7 +305,7 @@ pistol()
 //AUTO 		level.activ GiveMaxAmmo( "knife_mp" );
 		player freezeControls(1);
 		level.activ freezeControls(1);
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "deserteagle_mp" );
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ SwitchToWeapon( "deserteagle_mp" );
@@ -313,20 +313,20 @@ pistol()
 		level.activ setclientDvar("cg_fovscale", 1.3);
 		player setclientDvar("cg_fovscale", 1.3);
 //AUTO   		iPrintLnBold("^1" + player.name + " ^3has choosen ^5Pistol War^7!");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^33");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^22");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^11");
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		iPrintLnBold("^5FIGHT!");
 		player freezeControls(0);
 		level.activ freezeControls(0);
 	
 	
             while( isAlive( player ) && isDefined( player ) )
-//AUTO 		wait 1;
+		wait 1;
 	}
 }
 

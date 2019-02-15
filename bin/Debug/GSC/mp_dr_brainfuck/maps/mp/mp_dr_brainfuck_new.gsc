@@ -2053,7 +2053,7 @@ SniperFight(){
 	teleorigin = getent ("sniper_jumper_teleport", "targetname");
 	
 				
-//AUTO 	wait(0.05);
+	wait(0.05);
 	
 	self freezeControls(true);
 	self setorigin (teleorigin.origin);
@@ -2061,7 +2061,7 @@ SniperFight(){
 	wait 0.5;
 	self freezeControls(false);
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	
 	thread createSelectedRoom(self.name + " ^3 HAS ENTERED THE SNIPER ROOM^7!"); // change the massage if you want
 //AUTO 	self takeallweapons();
@@ -2077,7 +2077,7 @@ SniperFight(){
 		level.activ freezeControls(false);
 	}
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	if( isDefined( level.activ ) ){
 //AUTO 		level.activ takeallweapons();	
 //AUTO 		level.activ GiveWeapon("m40a3_mp");
@@ -2103,7 +2103,7 @@ knifeFight(){
 	teleorigin = getent ("knife_jumper_teleport", "targetname");
 	
 				
-//AUTO 	wait(0.05);
+	wait(0.05);
 	
 	self freezeControls(true);
 	self setorigin (teleorigin.origin);
@@ -2111,7 +2111,7 @@ knifeFight(){
 	wait 0.5;
 	self freezeControls(false);
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	
 	thread createSelectedRoom(self.name + " ^3 HAS ENTERED THE KNIFE ROOM^7!"); // change the massage if you want
 //AUTO 	self takeallweapons();
@@ -2126,7 +2126,7 @@ knifeFight(){
 		level.activ freezeControls(false);
 	}
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	if( isDefined( level.activ ) ){
 //AUTO 		level.activ takeallweapons();	
 //AUTO 		level.activ GiveWeapon("knife_mp");
@@ -2152,7 +2152,7 @@ BounceFight(){
 	teleorigin = getent ("bounce_jumper_teleport", "targetname");
 	
 				
-//AUTO 	wait(0.05);
+	wait(0.05);
 	
 	self freezeControls(true);
 	self setorigin (teleorigin.origin);
@@ -2160,7 +2160,7 @@ BounceFight(){
 	wait 0.5;
 	self freezeControls(false);
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	
 	thread createSelectedRoom(self.name + " ^3 HAS ENTERED THE BOUNCE ROOM^7!"); // change the massage if you want
 //AUTO 	self takeallweapons();
@@ -2172,7 +2172,7 @@ BounceFight(){
 		level.activ setplayerangles( level.actiorigin.angles );
 	}
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	if( isDefined( level.activ ) ){
 		level.activ freezeControls(true);
 //AUTO 		level.activ takeallweapons();	
@@ -2204,7 +2204,7 @@ RandomWeapFight(){
 	teleorigin3 = getent ("randomweap_jumper_teleport_3", "targetname");
 	
 				
-//AUTO 	wait(0.05);
+	wait(0.05);
 
 	random = randomInt(3);	
 	switch(random){
@@ -2230,7 +2230,7 @@ RandomWeapFight(){
 	self thread jumperweap();
 
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	
 	thread createSelectedRoom(self.name + " ^3 HAS ENTERED THE RANDOM WEAPON ROOM^7!"); // change the massage if you want
 	
@@ -2263,7 +2263,7 @@ RandomWeapFight(){
 				break;
 	}
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	if( isDefined( level.activ ) ){
 		level.activ thread actiweap();
 	}
@@ -2416,13 +2416,13 @@ RunFight(){
 	teleorigin = getent ("run_jumper_teleport", "targetname");
 	
 				
-//AUTO 	wait(0.05);
+	wait(0.05);
 	
 	self setorigin (teleorigin.origin);
 	self setplayerangles (teleorigin.angles);
 
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	
 	thread createSelectedRoom(self.name + " ^3HAS ENTERED THE WALLRUN ROOM^7!"); // change the massage if you want
 //AUTO 	self takeallweapons();
@@ -2437,7 +2437,7 @@ RunFight(){
 		
 	}
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	if( isDefined( level.activ ) ){
 //AUTO 		level.activ takeallweapons();	
 //AUTO 		level.activ GiveWeapon("knife_mp");
@@ -2627,7 +2627,7 @@ TeampolinFight(){
 	teleorigin = getent ("trampolin_jumper_teleport", "targetname");
 	
 				
-//AUTO 	wait(0.05);
+	wait(0.05);
 	
 	self freezeControls(true);
 	self setorigin (teleorigin.origin);
@@ -2635,7 +2635,7 @@ TeampolinFight(){
 	wait 0.5;
 	self freezeControls(false);
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	
 	thread createSelectedRoom(self.name + " ^3 HAS ENTERED THE TRAMPOLIN ROOM^7!"); // change the massage if you want
 //AUTO 	self takeallweapons();
@@ -2651,7 +2651,7 @@ TeampolinFight(){
 		
 	}
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	if( isDefined( level.activ ) ){
 //AUTO 		level.activ takeallweapons();	
 //AUTO 		level.activ GiveWeapon("knife_mp");

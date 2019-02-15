@@ -392,13 +392,13 @@ noobtube()
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "frag_grenade_mp" );
 //AUTO                 level.activ GiveMaxAmmo( "frag_grenade_mp" );		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "frag_grenade_mp" );
 //AUTO 		level.activ SwitchToWeapon( "frag_grenade_mp" );
 //AUTO 		iPrintlnBold( " ^4" + player.name + " has chosen Nade Area!" );
 		
                                      while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 	}
 }
 

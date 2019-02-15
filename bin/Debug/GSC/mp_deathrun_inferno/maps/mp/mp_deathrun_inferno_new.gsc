@@ -1387,7 +1387,7 @@ Inferno()
         if(isDefined(player))
 //AUTO             iPrintlnBold( " ^1" + player.name + " ^7has chosen Inferno Room" );
         while( isDefined( player ) && isAlive( player ) )
-//AUTO             wait 1;
+            wait 1;
         if(isDefined(player))
 //AUTO             iPrintlnBold(player.name + " has Died.");
     }

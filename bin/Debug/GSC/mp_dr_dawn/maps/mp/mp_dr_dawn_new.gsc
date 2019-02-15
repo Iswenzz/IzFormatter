@@ -1007,7 +1007,7 @@ while(1)
                         level.jump_hud setPulseFX( 40, 2000, 99999999 );
        
                         thread jumpstarthud();
-//AUTO                         wait 5;
+                        wait 5;
                         player freezeControls( false );
                         level.activ freezeControls( false );
                         level.jump_hud destroy();
@@ -1015,7 +1015,7 @@ while(1)
                        
                 }
                 while( isAlive( player ) && isDefined( player ) )
-//AUTO                 wait 0.1;
+                wait 0.1;
         }
  
 }
@@ -1079,7 +1079,7 @@ while(1)
                         level.jump_hud setPulseFX( 40, 2000, 99999999 );
        
                         thread jumpstarthud();
-//AUTO                         wait 5;
+                        wait 5;
                         player freezeControls( false );
                         level.activ freezeControls( false );
                         level.jump_hud destroy();
@@ -1087,7 +1087,7 @@ while(1)
                        
                 }
                 while( isAlive( player ) && isDefined( player ) )
-//AUTO                 wait 0.1;
+                wait 0.1;
         }
  
 }
@@ -1150,7 +1150,7 @@ while(1)
 			level.jump_hud setPulseFX( 40, 2000, 99999999 );
 	
 			thread jumpstarthud();
-//AUTO 			wait 5;
+			wait 5;
 			player freezeControls( false );
 			level.activ freezeControls( false );
 			level.jump_hud destroy();
@@ -1158,7 +1158,7 @@ while(1)
 			
 		} 
 		while( isAlive( player ) && isDefined( player ) ) 
-//AUTO 		wait 0.1; 
+		wait 0.1; 
 	} 
 
 }

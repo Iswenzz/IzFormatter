@@ -917,17 +917,17 @@ final3()
 //AUTO 			level.activ TakeAllWeapons();
 //AUTO 			level.activ GiveWeapon( "s1ck_crossbow_mp" ); 
 //AUTO 			level.activ GiveMaxAmmo("s1ck_crossbow_mp");
-//AUTO 			wait 0.05;
+			wait 0.05;
 //AUTO 			level.activ SwitchToWeapon( "s1ck_crossbow_mp" );
 		}
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "s1ck_m14_mp" );
 //AUTO 		iPrintlnBold( " ^6" + player.name + " ^8 HAS ENTERED LIGHTHOUSE RUSH^1!" );
 ambientstop ( 1 );
 //AUTO ambientPlay("blue");
-//AUTO             wait 2;
+            wait 2;
 
-//AUTO 			wait 1;
+			wait 1;
 	 }
  }
 
@@ -989,19 +989,19 @@ finalrace()
 		level.activ setWeaponAmmoClip( "deserteagle_mp", 0 );
 		level.activ setweaponammostock( "deserteagle_mp", 0 );	
 		level.activ thread superpowers1();
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^5 HAS ENTERED RACE^1!" );     //change to what you want it to be
 
 						player freezeControls(true);
 						level.activ freezeControls(true);
 //AUTO 							iPrintLnBold( "^1>> 3 ^1<<" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintLnBold( "^1>> ^32 ^1<<" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintLnBold( "^1>> ^21 ^1<<" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintLnBold( "^1>> ^2Start ^1<<" );
-//AUTO 	wait 1;
+	wait 1;
 //AUTO 	iPrintLnBold( "^1>> ^2Run ASAP to the end ^1<<" );
 					player freezeControls(false);
 											level.activ freezeControls(false);
@@ -1016,7 +1016,7 @@ finalrace()
 
 
 while( isAlive( player ) && isDefined( player ) )
-//AUTO wait 1;
+wait 1;
 
 
 }

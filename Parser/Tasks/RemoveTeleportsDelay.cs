@@ -16,7 +16,8 @@ namespace Iswenzz.CoD4.Parser.Tasks
         /// <param name="instance">The function.</param>
         public static List<string> RemoveTeleportsDelay(AbstractFunction instance)
         {
-            if (BannedMainFunction.List.Any(l => instance.Name.Contains(l, StringComparison.InvariantCultureIgnoreCase)))
+            if (BannedMainFunction.List.Any(l => instance.Name.Contains(l, StringComparison.InvariantCultureIgnoreCase)) ||
+                instance.Lines.Any(l => l.Contains("level.activ", StringComparison.InvariantCultureIgnoreCase)))
                 return instance.Lines;
 
             List<string> new_lines = new List<string>();

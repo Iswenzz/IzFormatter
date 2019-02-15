@@ -912,19 +912,19 @@ r_trig = getEnt("r_trig", "targetname");
 //AUTO 			level.activ SwitchToWeapon( "knife_mp" );
 			runner freezeControls(1);
 			level.activ freezeControls(1);
-//AUTO 			wait 0.3;			
+			wait 0.3;			
 //AUTO 			runner iprintlnbold("^5Get ready!");
 //AUTO 			level.activ iprintlnbold("^5Get ready!");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			runner iprintlnbold("^33");
 //AUTO 			level.activ iprintlnbold("^33");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			runner iprintlnbold("^22");
 //AUTO 			level.activ iprintlnbold("^22");
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			runner iprintlnbold("^11");
 //AUTO 			level.activ iprintlnbold("^11");
-//AUTO 			wait 1;
+			wait 1;
 			runner freezeControls(0);
 			level.activ freezeControls(0);
 			runner death();
@@ -1082,13 +1082,13 @@ tp2 = getEnt("a_to_run3", "targetname");
 //AUTO 			player SwitchToWeapon( "m40a3_mp" );
 			runner.FinishedRunRoom = true;
 //AUTO 			if(level.activ.finishedRunRoom == false){level.activ iPrintlnbold("^3The jumper finished and you have ^23 to the ^1LOSS");}
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			if(level.activ.finishedRunRoom == false){level.activ iPrintlnbold("^23");}
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			if(level.activ.finishedRunRoom == false){level.activ iPrintlnbold("^32");}
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			if(level.activ.finishedRunRoom == false){level.activ iPrintlnbold("^11");}
-//AUTO 			wait 1;
+			wait 1;
 			if(level.activ.finishedRunRoom == false)
 			{
 //AUTO 			level.activ iPrintlnbold("^1YOU LOST :<");
@@ -1118,13 +1118,13 @@ tp2 = getEnt("a_to_run3", "targetname");
 //AUTO 			level.activ SwitchToWeapon( "m40a3_mp" );
 			level.activ.FinishedRunRoom = true;
 //AUTO 			if(runner.finishedRunRoom == false){runner iPrintlnbold("^3The activator finished and you have ^23 to the ^1LOSS");}
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			if(runner.finishedRunRoom == false){runner iPrintlnbold("^23");}
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			if(runner.finishedRunRoom == false){runner iPrintlnbold("^32");}
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			if(runner.finishedRunRoom == false){runner iPrintlnbold("^11");}
-//AUTO 			wait 1;
+			wait 1;
 			if(runner.finishedRunRoom == false)
 			{
 //AUTO 			runner iPrintlnbold("^1YOU LOST :<");

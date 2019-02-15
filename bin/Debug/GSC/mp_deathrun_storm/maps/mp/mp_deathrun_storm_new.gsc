@@ -552,7 +552,7 @@ jump()
                 level.final_knife_trig delete();
                 //level.final_jump_trig delete();
                     AmbientStop( 4 );
-//AUTO                         wait 1;
+                        wait 1;
 //AUTO                         AmbientPlay ("song2" );
  
      
@@ -568,7 +568,7 @@ jump()
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "knife_mp" );
 //AUTO         level.activ GiveWeapon( "knife_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "knife_mp" );
 //AUTO         level.activ SwitchToWeapon( "knife_mp" );
         player FreezeControls(1);
@@ -581,11 +581,11 @@ jump()
                                 players = getentarray("player", "classname");
                                 for(i=0;i<players.size;i++)
                                         players[i] thread maps\mp\gametypes\_hud_message::notifyMessage( noti );
-//AUTO                                 wait 5;
+                                wait 5;
                                 player FreezeControls(0);
                                 level.activ FreezeControls(0);
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

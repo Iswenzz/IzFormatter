@@ -623,13 +623,13 @@ Jumpfail()
 		trig waittill( "trigger", player );
 		if(player == level.activ)
 		{
-//AUTO 		wait (0.05);
+		wait (0.05);
 		level.activ setPlayerangles( acti.angles );
         level.activ setOrigin( acti.origin );
 		}
 		else
 		{
-//AUTO 		wait (0.05);
+		wait (0.05);
 		player SetPlayerAngles ( jump.angles );
 		player SetOrigin ( jump.origin );
 		}
@@ -648,13 +648,13 @@ Jumpfail2()
 		trig waittill( "trigger", player );
 		if(player == level.activ)
 		{
-//AUTO 		wait (0.05);
+		wait (0.05);
 		level.activ setPlayerangles( acti.angles );
         level.activ setOrigin( acti.origin );
 		}
 		else
 		{
-//AUTO 		wait (0.05);
+		wait (0.05);
 		player SetPlayerAngles ( jump.angles );
 		player SetOrigin ( jump.origin );
 		}

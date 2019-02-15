@@ -874,17 +874,17 @@ level.knifetrigger delete();
 level.snipertrigger delete();
 level.oldtrigger delete();
 level.oldtrigger2 delete();
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin( telejumporigin.origin );
 player setplayerangles( telejumporigin.angles );
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon( "knife_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (level.teleactorigin.origin);
 level.activ setplayerangles (level.teleactorigin.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon( "knife_mp" ); 
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon( "knife_mp" );
 //AUTO level.activ SwitchToWeapon( "knife_mp" );
 level.telejumporigin delete();
@@ -892,7 +892,7 @@ level.telejumporigin delete();
 AmbientStop( 2 );
 //AUTO 		ambientplay( "knife" );
 while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
 }
 }
 

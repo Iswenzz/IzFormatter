@@ -1127,7 +1127,7 @@ WatchPistol()
 		level.activ setPlayerangles( acti.angles );
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();	
-//AUTO 		wait 0.05;
+		wait 0.05;
 	noti = SpawnStruct();
 		noti.titleText = "^2--^9Pistols^2--";
 	noti.notifyText ="^2"+player.name + " ^1VS ^2"+level.activ.name+" ^7";
@@ -1140,7 +1140,7 @@ WatchPistol()
 		player thread countdown_pistol();
 		level.activ thread countdown_pistol();
                                      while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			iPrintlnBold( " ^9" + player.name + "^7 got Owned by ^9"+ level.activ.name+ "^7" );
 			
 	}
@@ -1193,7 +1193,7 @@ WatchSpec()
 		level.activ setPlayerangles( acti.angles );
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();	
-//AUTO 		wait 0.05;
+		wait 0.05;
 	noti = SpawnStruct();
 		noti.titleText = "^2--^9Spec Ops^2--";
 	noti.notifyText ="^2"+player.name + " ^1VS ^2"+level.activ.name+" ^7";
@@ -1206,7 +1206,7 @@ WatchSpec()
 		player thread countdown_spec();
 		level.activ thread countdown_spec();
                                      while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			iPrintlnBold( " ^9" + player.name + "^7 got Owned by ^9"+ level.activ.name+ "^7" );
 			
 	}
@@ -1318,7 +1318,7 @@ WatchSlick()
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "tomahawk_mp" );		
-//AUTO 		wait 0.05;
+		wait 0.05;
 //AUTO 		player switchToWeapon( "tomahawk_mp" );
 //AUTO 		level.activ SwitchToWeapon( "tomahawk_mp" );
 	noti = SpawnStruct();
@@ -1333,7 +1333,7 @@ WatchSlick()
 		player thread countdown_slick();
 		level.activ thread countdown_slick();
                                      while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			iPrintlnBold( " ^9" + player.name + "^7 got Owned by ^9"+ level.activ.name+ "^7" );
 			
 	}
@@ -1381,7 +1381,7 @@ WatchMaze()
 		level.activ setPlayerangles( acti.angles );
 		level.activ setOrigin( acti.origin );
 //AUTO 		level.activ TakeAllWeapons();		
-//AUTO 		wait 0.05;
+		wait 0.05;
 	noti = SpawnStruct();
 		noti.titleText = "^2--^9Maze^2--";
 	noti.notifyText ="^2"+player.name + " ^1VS ^2"+level.activ.name+" ^7";
@@ -1394,7 +1394,7 @@ WatchMaze()
 		player thread countdown_maze();
 		level.activ thread countdown_maze();
                                      while( isAlive( player ) && isDefined( player ) )
-//AUTO 			wait 1;
+			wait 1;
 //AUTO 			iPrintlnBold( " ^9" + player.name + "^7 got Owned by ^9"+ level.activ.name+ "^7" );
 			
 	}

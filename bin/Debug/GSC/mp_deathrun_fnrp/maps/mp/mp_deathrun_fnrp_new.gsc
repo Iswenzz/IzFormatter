@@ -472,10 +472,10 @@ old()
         player setOrigin( jump.origin );   
         level.activ setPlayerangles( acti.angles );
         level.activ setOrigin( acti.origin );
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN THE OLD WAY^1!" );     //change to what you want it to be
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 
@@ -536,12 +536,12 @@ jump()
         level.activ setOrigin( acti.origin );
 //AUTO         level.activ TakeAllWeapons();
 //AUTO         level.activ GiveWeapon( "tomahawk_mp" );        
-//AUTO         wait 0.05;
+        wait 0.05;
 //AUTO         player switchToWeapon( "tomahawk_mp" ); //activator weapon
 //AUTO         level.activ SwitchToWeapon( "tomahawk_mp" );
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^5 HAS CHOSEN JUMPZOR^1!" );     //change to what you want it to be
         while( isAlive( player ) && isDefined( player ) )
-//AUTO             wait 1;
+            wait 1;
     }
 }
 

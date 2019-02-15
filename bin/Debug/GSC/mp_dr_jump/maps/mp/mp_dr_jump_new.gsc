@@ -723,20 +723,20 @@ jump()
    level.bounce_trigger delete();
    level.firstenter=false;
    } 
-//AUTO    wait(0.05);
+   wait(0.05);
 
    player SetOrigin((8968, 6664, -584));
    player SetPlayerAngles((0,360,0));
 //AUTO    player TakeAllWeapons();
-//AUTO    wait(0.05);
+   wait(0.05);
    level.activ SetOrigin((9544, 6664, -584));
    level.activ SetPlayerAngles((0,180,0));
 //AUTO    level.activ TakeAllWeapons();
-//AUTO    wait .05;
+   wait .05;
 //AUTO    level.activ giveweapon("knife_mp");
 //AUTO    player giveweapon("knife_mp");
 //AUTO    iPrintlnBold(" ^9" + player.name + " ^4 has entered the Knife room^8!"); 
-//AUTO    wait(0.05);
+   wait(0.05);
 
 
 

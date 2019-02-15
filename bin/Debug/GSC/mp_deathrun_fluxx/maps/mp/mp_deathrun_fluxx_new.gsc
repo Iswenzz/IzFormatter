@@ -749,18 +749,18 @@ hitman()
      level.activ setweaponammostock( "colt45_silencer_mp", 100 );
 	 level.activ FreezeControls(1);
 	 player FreezeControls(1);
-//AUTO 	 wait 1;
+	 wait 1;
 	 level.activ FreezeControls(0);
 	 player FreezeControls(0);
 	 player thread onDeath_hitman();
-//AUTO      wait 0.1;
+     wait 0.1;
        
      for(;;)
      {
-//AUTO      wait .1;               
+     wait .1;               
      while(isAlive(player))
      {
-//AUTO      wait 1;
+     wait 1;
      }
      }
 }

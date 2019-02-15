@@ -428,12 +428,12 @@ level.activ setOrigin( acti.origin );
 //AUTO level.activ setMoveSpeedScale( 1 );
 //AUTO level.activ takeAllWeapons();
 //AUTO level.activ giveWeapon( "knife_mp");
-//AUTO wait 0.05;
+wait 0.05;
 //AUTO player switchToWeapon( "knife_mp" );
 //AUTO level.activ switchToWeapon( "knife_mp" );
 //AUTO iPrintlnBold( " ^6" + player.name + " ^7has chosen ^6JUMP^7 room^6!" );	
 while( isAlive( player ) && isDefined( player ) )
-//AUTO wait 1;
+wait 1;
 }
 }
 
@@ -496,9 +496,9 @@ old()
         level.activ setPlayerAngles( acti.angles ); //sets the angles of the origin
         level.activ setOrigin( acti.origin ); //sets the origin
 //AUTO         level.activ setMoveSpeedScale( 1 ); //sets normal speed
-//AUTO         wait 0.05; //waits a time limit
+        wait 0.05; //waits a time limit
 //AUTO         iPrintlnBold( " ^6" + player.name + " ^7has chosen the ^6OLD^7 way^6!" ); //lets players know who entered the room (player.name is the person who triggered it.) (EXAMPLE: Zack entered the Sniper Room!        
-//AUTO         wait 1;
+        wait 1;
     }
 }
 

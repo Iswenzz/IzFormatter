@@ -1024,7 +1024,7 @@ actifail()
 		level.activ = player;
 		level.activ setOrigin( spot.origin );
 		level.activ setplayerangles( spot.angles );
-//AUTO 		wait .1;
+		wait .1;
 	}
 }
 

@@ -1340,11 +1340,11 @@ endj()
 	level.activ setOrigin( level.aj.origin );
 	level.activ setPlayerangles( level.aj.angles );	
 //AUTO 	level.activ GiveWeapon( "knife_mp" );
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	player switchToWeapon( "knife_mp" );
 //AUTO 	level.activ switchToWeapon( "knife_mp" );
 	ambientStop(1.5);
-//AUTO 	wait 1.5;
+	wait 1.5;
 //AUTO 	ambientPlay("silence");
 	for(;;)
 	{
@@ -1355,7 +1355,7 @@ endj()
 //AUTO 	iprintln(player.name + " ^3Entered Jump!");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 //AUTO 	player GiveWeapon( "knife_mp" );	
-//AUTO 	wait 0.05;
+	wait 0.05;
 //AUTO 	player switchToWeapon( "knife_mp" );
 	}
 	
@@ -1453,11 +1453,11 @@ endk()
 	level.activ setOrigin( ori2.origin );
 	level.activ setPlayerangles( ori2.angles );	
 //AUTO 	level.activ GiveWeapon( "knife_mp" );
-//AUTO 	wait 0.5;
+	wait 0.5;
 //AUTO 	player switchToWeapon( "knife_mp" );
 //AUTO 	level.activ switchToWeapon( "knife_mp" );
 ambientStop(1.5);
-//AUTO 	wait 1.5;
+	wait 1.5;
 //AUTO 	ambientPlay("silence");
 	for(;;)
 	{
@@ -1468,7 +1468,7 @@ ambientStop(1.5);
 //AUTO 	iprintln(player.name + " ^3Entered Knife!");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 //AUTO 	player GiveWeapon( "knife_mp" );
-//AUTO 	wait 0.05;	
+	wait 0.05;	
 //AUTO 	player switchToWeapon( "knife_mp" );
 	}
 	
@@ -1496,7 +1496,7 @@ endsn()
 	level.activ setPlayerangles( level.asn.angles );	
 	level.activ thread weps();
 ambientStop(1.5);
-//AUTO 	wait 1.5;
+	wait 1.5;
 //AUTO 	ambientPlay("silence");
 	for(;;)
 	{
@@ -1507,7 +1507,7 @@ ambientStop(1.5);
 //AUTO 	iprintln(player.name + " ^3Entered Sniper!");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	player thread weps();
-//AUTO 	wait 0.05;
+	wait 0.05;
 	}
 	
 }
@@ -1567,7 +1567,7 @@ endc()
 	level.activ setOrigin( ori2.origin );
 	level.activ setPlayerangles( ori2.angles );	
 ambientStop(1.5);
-//AUTO 	wait 1.5;
+	wait 1.5;
 //AUTO 	ambientPlay("silence");
 	for(;;)
 	{
@@ -1576,7 +1576,7 @@ ambientStop(1.5);
 	player setPlayerangles( ori.angles );
 //AUTO     iprintln(player.name + " ^3Entered Old!");	
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
-//AUTO 	wait 0.05;
+	wait 0.05;
 	}
 	
 }		
@@ -1714,7 +1714,7 @@ endslide()
 	level.activ setPlayerangles( level.asl.angles );	
 	level.activ thread weps3();
 ambientStop(1.5);
-//AUTO 	wait 1.5;
+	wait 1.5;
 //AUTO 	ambientPlay("silence");
 	for(;;)
 	{
@@ -1725,7 +1725,7 @@ ambientStop(1.5);
 //AUTO 	iprintln(player.name + " ^3Entered Slide!");
 //AUTO 	player braxi\_rank::giveRankXp( "trap_activation" );
 	player thread weps3();
-//AUTO 	wait 0.05;
+	wait 0.05;
 	}
 	
 }

@@ -3560,7 +3560,7 @@ SniperFight(){
 	self setorigin (teleorigin.origin);
 	self setplayerangles (teleorigin.angles);
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	
 	thread createSelectedRoom(self.name + " ^3 HAS ENTERED THE SNIPER ROOM^7!"); // change the message if you want
 //AUTO 	self takeallweapons();
@@ -3573,7 +3573,7 @@ SniperFight(){
 		level.activ setplayerangles( level.actiorigin.angles );
 	}
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	if( isDefined( level.activ ) ){
 //AUTO 		level.activ takeallweapons();	
 //AUTO 		level.activ GiveWeapon("m40a3_mp");
@@ -3601,7 +3601,7 @@ knifeFight(){
 	self setorigin (teleorigin.origin);
 	self setplayerangles (teleorigin.angles);
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	
 	thread createSelectedRoom(self.name + " ^3 HAS ENTERED THE KNIFE ROOM^7!"); // change the message if you want
 //AUTO 	self takeallweapons();
@@ -3613,7 +3613,7 @@ knifeFight(){
 		level.activ setplayerangles( level.actiorigin.angles );
 	}
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	if( isDefined( level.activ ) ){
 //AUTO 		level.activ takeallweapons();	
 //AUTO 		level.activ GiveWeapon("knife_mp");
@@ -3641,7 +3641,7 @@ BounceFight(){
 	self setorigin (teleorigin.origin);
 	self setplayerangles (teleorigin.angles);
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	
 	thread createSelectedRoom(self.name + " ^3 HAS ENTERED THE BOUNCE ROOM^7!"); // change the message if you want
 //AUTO 	self takeallweapons();
@@ -3653,7 +3653,7 @@ BounceFight(){
 		level.activ setplayerangles( level.actiorigin.angles );
 	}
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	if( isDefined( level.activ ) ){
 //AUTO 		level.activ takeallweapons();	
 //AUTO 		level.activ GiveWeapon("tomahawk_mp");
@@ -3680,7 +3680,7 @@ RandomWeapFight(){
 	self setorigin (teleorigin.origin);
 	self setplayerangles (teleorigin.angles);
 	
-//AUTO 	wait(0.05);
+	wait(0.05);
 	self thread jumperweap();	
 	
 	thread createSelectedRoom(self.name + " ^3 HAS ENTERED THE RANDOM WEAPON ROOM^7!"); // change the message if you want
@@ -3690,7 +3690,7 @@ RandomWeapFight(){
 	level.activ setplayerangles (level.actiorigin.angles);
 	}
 
-//AUTO 	wait(0.05);
+	wait(0.05);
 	if( isDefined( level.activ ) ){
 		level.activ thread actiweap();
 	}

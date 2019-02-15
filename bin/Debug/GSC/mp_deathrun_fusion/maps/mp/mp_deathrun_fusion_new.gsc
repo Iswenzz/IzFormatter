@@ -146,10 +146,10 @@ level.snipertrigger = getEnt("trigger_gamedoor_sniper", "targetname");
 	for(;;)
 	{
 	level.snipertrigger waittill("trigger", player);
-//AUTO 	wait(0.05);
+	wait(0.05);
 	player SetOrigin( jumpspot.origin );
 	player setplayerangles( jumpspot.angles );
-//AUTO 	wait(0.05);
+	wait(0.05);
 //AUTO 	iPrintLnBold(player.name+ "^1 has entered the sniper room");
 //AUTO 	player iPrintLnBold("Use ^2NightVision^7 if it is too dark.");//Change the message if you want
 //AUTO 	player takeallweapons();
@@ -161,10 +161,10 @@ level.snipertrigger = getEnt("trigger_gamedoor_sniper", "targetname");
 		if(firsttele==true)
 		{
 			level.oldtrigger delete();
-//AUTO 			wait(0.05);
+			wait(0.05);
 			level.activ SetOrigin( level.actispot.origin );
 			level.activ setplayerangles( level.actispot.angles );
-//AUTO 			wait(0.05);
+			wait(0.05);
 //AUTO 			level.activ takeallweapons();
 //AUTO 			level.activ GiveWeapon("m40a3_mp");
 //AUTO 			level.activ GiveWeapon("remington700_mp");

@@ -500,30 +500,30 @@ self endon( "joined_spectators" );
 jumptrig waittill("trigger", player);
 snipertrig delete();
 weapontrig delete();
-//AUTO wait(0.05);
+wait(0.05);
 player SetOrigin (jumpjumpertele.origin);
 player setplayerangles (jumpjumpertele.angles);
 //AUTO player TakeAllWeapons();
 //AUTO player GiveWeapon ("knife_mp"); 
-//AUTO wait(0.05);
+wait(0.05);
 level.activ SetOrigin (jumpactitele.origin);
 level.activ setplayerangles (jumpactitele.angles);
 //AUTO level.activ TakeAllWeapons();
 //AUTO level.activ GiveWeapon ("knife_mp");
-//AUTO wait(0.05);
+wait(0.05);
 //AUTO player switchToWeapon ("knife_mp");
 //AUTO level.activ SwitchToWeapon ("knife_mp");
 //AUTO iPrintLnBold(player.name+ "^4 has entered the ^1Jump Room");
-//AUTO wait 0.4;
+wait 0.4;
 player thread onDeath_jump();
-//AUTO wait 0.1;
+wait 0.1;
 
     for(;;)
     {
-//AUTO 		wait .1;		
+		wait .1;		
 		while(isAlive(player))
 		{
-//AUTO 			wait 1;
+			wait 1;
 		}
 		
     }

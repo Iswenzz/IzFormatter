@@ -1212,34 +1212,34 @@ ladder()
 		level.bounce_trigger delete();
 		level.firstenter=false;
 		}	
-//AUTO 		wait(0.05);
+		wait(0.05);
 		
 		player SetOrigin( jump.origin );
 		player setplayerangles( jump.angles );
 //AUTO 		player TakeAllWeapons();
 //AUTO 		player GiveWeapon( "knife_mp" ); 
-//AUTO 		wait(0.05);
+		wait(0.05);
 		level.activ SetOrigin (acti.origin);
 		level.activ setplayerangles (acti.angles);
 //AUTO 		level.activ TakeAllWeapons();
 //AUTO 		level.activ GiveWeapon( "knife_mp" ); 
-//AUTO 		wait(0.05);
+		wait(0.05);
 //AUTO 		player switchToWeapon( "knife_mp" );
 //AUTO 		level.activ SwitchToWeapon( "knife_mp" );
 //AUTO 		iPrintlnBold( " ^8" + player.name + " ^4 has entered the LadderSlide room^8!" );  
 		
 		player freezecontrols(true); 
 		level.activ freezecontrols(true);
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		level.activ iPrintlnBold( "^53" );
 //AUTO 		player iPrintlnBold( "^53" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^52" );
 //AUTO 		level.activ iPrintlnBold( "^52" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^51" );
 //AUTO 		level.activ iPrintlnBold( "^51" );
-//AUTO 		wait 1;
+		wait 1;
 //AUTO 		player iPrintlnBold( "^5Laddaah Slideee^1!" );
 //AUTO 		level.activ iPrintlnBold( "^5Laddaah Slideee^1!" );
 		player freezecontrols(false); 

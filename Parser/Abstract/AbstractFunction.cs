@@ -31,7 +31,7 @@ namespace Iswenzz.CoD4.Parser.Abstract
         public virtual bool HasDelay { get; set; }
         public virtual bool HasTeleport { get; set; }
 
-        public AbstractFunction(List<string> lines, string GSCname)
+        protected AbstractFunction(List<string> lines, string GSCname)
         {
             GSCName = GSCname;
             Lines = lines;

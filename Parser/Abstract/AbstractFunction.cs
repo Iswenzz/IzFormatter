@@ -11,18 +11,18 @@ namespace Iswenzz.CoD4.Parser.Abstract
     /// </summary>
     public abstract class AbstractFunction
     {
-        private List<string> lines;
+        private string text;
         /// <summary>
         /// Contains function lines, updates function properties on changes.
         /// </summary>
-        public virtual List<string> Lines
+        public virtual string FunctionText
         {
-            get => lines;
-            set { lines = value; UpdateProperties(); }
+            get => text;
+            set { text = value; UpdateProperties(); }
         }
 
-        public virtual string GSCName { get; set; }
         public virtual string Name { get; set; }
+        public virtual string NameWithParams { get; set; }
         public virtual List<string> Params { get; set; }
         public virtual bool IsMain { get; set; }
         public virtual bool IsVoid { get; set; }
@@ -31,21 +31,16 @@ namespace Iswenzz.CoD4.Parser.Abstract
         public virtual bool HasDelay { get; set; }
         public virtual bool HasTeleport { get; set; }
 
-        protected AbstractFunction(List<string> lines, string GSCname)
+        public virtual int BodyIndex { get; set; }
+
+        protected AbstractFunction(string functionText)
         {
-            GSCName = GSCname;
-            Lines = lines;
-            Name = "";
-            if (lines[0].Contains("("))
-                Name = lines[0].SubAt(0, "(");
+            FunctionText = functionText;
+            NameWithParams = FunctionText.SubAt(0, "{");
+            Name = NameWithParams.SubAt(0, "(");
             Params = GetParams();
 
-            IsMain = Name.Equals("main", StringComparison.InvariantCultureIgnoreCase) && GSCName.Contains("mp_");
-            IsTrap = Name.Contains("trap", StringComparison.InvariantCultureIgnoreCase);
             IsVoid = true;
-            HasLoop = false;
-            HasDelay = false;
-            HasTeleport = false;
 
             UpdateProperties();
         }
@@ -55,8 +50,9 @@ namespace Iswenzz.CoD4.Parser.Abstract
         /// </summary>
         protected virtual void PrintFunction()
         {
-            foreach (string l in Lines ?? Enumerable.Empty<string>())
-                Console.WriteLine(l);
+            Console.WriteLine("\nNEW FUNCTION\n");
+            foreach (char c in FunctionText)
+                Console.Write(c);
             Console.WriteLine();
         }
 
@@ -65,30 +61,27 @@ namespace Iswenzz.CoD4.Parser.Abstract
         /// </summary>
         protected virtual void UpdateProperties()
         {
-            foreach (string line in Lines ?? Enumerable.Empty<string>())
+            if (string.IsNullOrEmpty(FunctionText) || FunctionText == " ") return;
+            switch (true)
             {
-                if (string.IsNullOrEmpty(line) || line == " ") continue;
-                switch (true)
-                {
-                    case true when line.Replace(" ", "").Contains("for(", StringComparison.InvariantCultureIgnoreCase):
-                        HasLoop = true;
-                        break;
-                    case true when line.Replace(" ", "").Contains("while(", StringComparison.InvariantCultureIgnoreCase):
-                        HasLoop = true;
-                        break;
-                    case true when line.Replace(" ", "").Contains("wait(", StringComparison.InvariantCultureIgnoreCase):
-                        HasDelay = true;
-                        break;
-                    case true when line.Contains("setorigin", StringComparison.InvariantCultureIgnoreCase):
-                        HasTeleport = true;
-                        break;
-                    case true when line.Contains("wait ", StringComparison.InvariantCultureIgnoreCase):
-                        HasDelay = true;
-                        break;
-                    case true when line.Contains("return ", StringComparison.InvariantCultureIgnoreCase):
-                        IsVoid = false;
-                        break;
-                }
+                case true when FunctionText.Replace(" ", "").Contains("for(", StringComparison.InvariantCultureIgnoreCase):
+                    HasLoop = true;
+                    break;
+                case true when FunctionText.Replace(" ", "").Contains("while(", StringComparison.InvariantCultureIgnoreCase):
+                    HasLoop = true;
+                    break;
+                case true when FunctionText.Replace(" ", "").Contains("wait(", StringComparison.InvariantCultureIgnoreCase):
+                    HasDelay = true;
+                    break;
+                case true when FunctionText.Contains("setorigin", StringComparison.InvariantCultureIgnoreCase):
+                    HasTeleport = true;
+                    break;
+                case true when FunctionText.Contains("wait ", StringComparison.InvariantCultureIgnoreCase):
+                    HasDelay = true;
+                    break;
+                case true when FunctionText.Contains("return ", StringComparison.InvariantCultureIgnoreCase):
+                    IsVoid = false;
+                    break;
             }
         }
 
@@ -99,8 +92,9 @@ namespace Iswenzz.CoD4.Parser.Abstract
         protected virtual List<string> GetParams()
         {
             List<string> param = new List<string>();
-            if (!Lines[0].Contains("(") || !Lines[0].Contains(")")) return param;
-            foreach (string tok in Lines[0].SubAt("(", ")").Replace(" ", "").Split(',') ?? Enumerable.Empty<string>())
+            if (!NameWithParams.Contains("(") || !NameWithParams.Contains(")")) return param;
+            foreach (string tok in NameWithParams.SubAt("(", ")").Replace(" ", "").Split(',') 
+                ?? Enumerable.Empty<string>())
             {
                 if (string.IsNullOrEmpty(tok) || tok == " ") continue;
                 else param.Add(tok.Replace(" ", ""));

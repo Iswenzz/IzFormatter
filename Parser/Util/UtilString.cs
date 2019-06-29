@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Iswenzz.CoD4.Parser.Util
 {
@@ -56,6 +58,18 @@ namespace Iswenzz.CoD4.Parser.Util
                 else return -1;
             }
             return -1;
+        }
+
+        /// <summary>
+        /// Returns all start index of matching words in a string.
+        /// </summary>
+        /// <param name="value">Value to find.</param>
+        /// <returns></returns>
+        public static IEnumerable<int> OccurrencesIndex(this string line, string value)
+        {
+            Regex rx = new Regex("(?i)" + value);
+            foreach (Match match in rx.Matches(line))
+                yield return match.Index;
         }
     }
 }

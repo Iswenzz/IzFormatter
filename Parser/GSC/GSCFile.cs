@@ -20,7 +20,7 @@ namespace Iswenzz.CoD4.Parser.GSC
         public string FS { get; set; }
         public string Name { get; set; }
         public List<T> Functions { get; set; }
-        public List<string> Lines { get; set; }
+        public string FileText { get; set; }
 
         /// <summary>
         /// Load a GSC File.
@@ -33,7 +33,7 @@ namespace Iswenzz.CoD4.Parser.GSC
 
             FS = path;
             Name = Path.GetFileNameWithoutExtension(path);
-            Lines = new List<string>(File.ReadAllLines(path));
+            FileText = File.ReadAllText(path);
             Functions = GetFunctions();
         }
 
@@ -47,11 +47,7 @@ namespace Iswenzz.CoD4.Parser.GSC
 
             string file = "";
             foreach (T func in Functions ?? Enumerable.Empty<T>())
-            {
-                foreach (string l in func.Lines ?? Enumerable.Empty<string>())
-                    file += l + "\n";
-                file += "\n";
-            }
+                file += func.FunctionText + "\n";
 
             string dir = path.Substring(0, path.IndexOf(Path.GetFileName(path)));
             if (!Directory.Exists(dir) && !string.IsNullOrEmpty(dir)) Directory.CreateDirectory(dir);
@@ -65,65 +61,34 @@ namespace Iswenzz.CoD4.Parser.GSC
         public List<T> GetFunctions()
         {
             List<T> functions = new List<T>();
-            List<int> opened = new List<int>();
-            List<int> openedatline = new List<int>();
-            int line_index = 0;
-
             try
             {
-                for (int i = 0; i < Lines.Count; i++)
+                int opened = 0;
+                bool started = false;
+                string currFuncText = "";
+
+                foreach (char c in FileText)
                 {
-                    line_index++;
-                    if (string.IsNullOrEmpty(Lines[i]) || Lines[i] == " ") continue;
-                    Regex rgx = new Regex("[^{}]");
-                    string line_rgx = rgx.Replace(Lines[i], "");
-                    if (string.IsNullOrEmpty(line_rgx)) continue;
-
-                    switch (true)
+                    if (c == '{' && opened == 0 && !started)
                     {
-                        case true when line_rgx.Length == 2 && line_rgx[0] == '}' && line_rgx[1] == '{':
-                            opened.Add(opened[opened.Count - 1] - 1);
-                            openedatline.Add(i);
-                            opened.Add(opened[opened.Count - 1] + 1);
-                            openedatline.Add(i);
-                            break;
-                        case true when line_rgx.Length == 2 && line_rgx[0] == '{' && line_rgx[1] == '}':
-                            opened.Add(opened[opened.Count - 1] + 1);
-                            openedatline.Add(i);
-                            opened.Add(opened[opened.Count - 1] - 1);
-                            openedatline.Add(i);
-                            break;
-                        case true when line_rgx[0] == '{' && opened.Count == 0:
-                            opened.Add(1);
-                            openedatline.Add(i);
-                            break;
-                        case true when line_rgx[0] == '{':
-                            opened.Add(opened[opened.Count - 1] + 1);
-                            openedatline.Add(i);
-                            break;
-                        case true when line_rgx[0] == '}':
-                            opened.Add(opened[opened.Count - 1] - 1);
-                            openedatline.Add(i);
-                            break;
+                        started = true;
+                        opened++;
                     }
-
-                    if (opened.Count > 0 && opened[opened.Count - 1] == 0)
+                    else if (c == '{' && opened > 0) opened++;
+                    else if (c == '}' && opened > 1) opened--;
+                    else if (c == '}' && opened == 1 && started)
                     {
-                        functions.Add((T)Activator.CreateInstance(typeof(T), (Lines.ListBetween(openedatline[0] - 1,
-                            openedatline[opened.Count - 1] + 1)), Name));
-
-                        opened = new List<int>();
-                        openedatline = new List<int>();
+                        started = false;
+                        opened--;
+                        currFuncText += c;
+                        functions.Add((T)Activator.CreateInstance(typeof(T), currFuncText));
+                        currFuncText = "";
+                        continue;
                     }
+                    currFuncText += c;
                 }
             }
-            catch // There is too many way to write GSC so there might be some GSC that needs manual edit.
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"{Name} crashed near line {line_index}\n");
-                Console.ForegroundColor = ConsoleColor.Gray;
-                throw new Exception("Parser crashed, see error log in the console.");
-            }
+            catch (Exception e) {/* Console.WriteLine(e);*/ }
             return functions;
         }
     }

@@ -49,7 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Parser\Abstract\AbstractFunction.cs" />
-    <Compile Include="Parser\Configs\BannedMainFunctioncs.cs" />
+    <Compile Include="Parser\Configs\BannedMainFunctions.cs" />
     <Compile Include="Parser\GSC\SRFunction.cs" />
     <Compile Include="Parser\GSC\GSCFile.cs" />
     <Compile Include="Parser\Configs\BannedFunction.cs" />

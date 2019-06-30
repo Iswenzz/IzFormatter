@@ -101,7 +101,7 @@ namespace Iswenzz.CoD4.Parser
             }
 
             timer.Stop();
-            Console.WriteLine($"\nParsed {index} file(s) in {timer.Elapsed.ToString("hh\\:mm\\.ss")}.");
+            Console.WriteLine($"\nParsed {--index} file(s) in {timer.Elapsed.ToString("hh\\:mm\\.ss")}.");
         }
 
         /// <summary>

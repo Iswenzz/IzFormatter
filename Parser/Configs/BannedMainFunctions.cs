@@ -10,13 +10,12 @@ namespace Iswenzz.CoD4.Parser.Configs
         public static List<string> List = new List<string>
         {
             "music",
-            "room",
             "addtestclient",
             "sniper",
             "bounce",
             "weapon",
             "knife",
-            "thread old()",
+            "thread old",
             "oldway",
             "old_way",
             "shotgun",

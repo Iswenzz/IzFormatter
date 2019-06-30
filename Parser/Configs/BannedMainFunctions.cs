@@ -11,6 +11,7 @@ namespace Iswenzz.CoD4.Parser.Configs
         {
             "music",
             "addtestclient",
+            "secret",
             "sniper",
             "bounce",
             "weapon",

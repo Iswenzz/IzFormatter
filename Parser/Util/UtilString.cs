@@ -86,12 +86,15 @@ namespace Iswenzz.CoD4.Parser.Util
         public static int IsCallStruct(this string line, int funcIndex)
         {
             char[] arr_stop = new char[] { ';', '{', '}', '(', ')', '*', '\"' };
-            bool started = false;
             funcIndex--;
             funcIndex--;
 
+            bool started = false;
+            bool hasNamespace = false;
+
             while (!arr_stop.Any(c => line[funcIndex] == c))
             {
+                if (line[funcIndex] == ':') hasNamespace = true;
                 if (char.IsWhiteSpace(line[funcIndex]) && !started)
                 {
                     funcIndex--;
@@ -99,6 +102,12 @@ namespace Iswenzz.CoD4.Parser.Util
                 }
                 else if (char.IsWhiteSpace(line[funcIndex]) && started)
                 {
+                    if (hasNamespace)
+                    {
+                        started = false;
+                        hasNamespace = false;
+                        continue;
+                    }
                     started = false;
                     return ++funcIndex;
                 }

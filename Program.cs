@@ -2,6 +2,9 @@
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Collections.Concurrent;
 using CommandLine;
 
 using Iswenzz.CoD4.Parser.Util;
@@ -41,6 +44,7 @@ namespace Iswenzz.CoD4.Parser
             ParserResult<Options> result = CommandLine.Parser.Default.ParseArguments<Options>(args);
             Console.WriteLine("Iswenzz (c) 2019\n");
             Console.WriteLine($"\tConverting GSC with type {Options.FunctionType}:\n");
+
             if (string.IsNullOrEmpty(Options.GSC_Folder) && string.IsNullOrEmpty(Options.GSC_Path))
             {
                 Console.WriteLine("ArgumentException: Use --help to see the command list.");
@@ -77,8 +81,12 @@ namespace Iswenzz.CoD4.Parser
         {
             int index = 1;
             List<string> dirs = Directory.GetFiles(Options.GSC_Folder, "*.gs*",
-                    Options.AllowSubDir ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly).ToList();
-            dirs.RemoveAll(item => item.Contains("_new.gsc"));
+                Options.AllowSubDir ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly)
+                .Where(dir => !dir.Contains("_new.gsc"))
+                .ToList();
+
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
 
             foreach (string path in dirs ?? Enumerable.Empty<string>())
             {
@@ -91,6 +99,9 @@ namespace Iswenzz.CoD4.Parser
                 new GSCFile<T>(path).Save(opath);
                 index++;
             }
+
+            timer.Stop();
+            Console.WriteLine($"\nParsed {index} file(s) in {timer.Elapsed.ToString("hh\\:mm\\.ss")}.");
         }
 
         /// <summary>
@@ -102,8 +113,14 @@ namespace Iswenzz.CoD4.Parser
             string dir = Options.GSC_Path.Substring(0, Options.GSC_Path.IndexOf(file + ".gs"));
             string opath = dir + file + "_new.gsc";
 
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+
             UtilLog.LogFile(Options.GSC_Path);
             new GSCFile<T>(Options.GSC_Path).Save(opath);
+
+            timer.Stop();
+            Console.WriteLine($"\nParsed 1 file in {timer.Elapsed.ToString("hh\\:mm\\.ss")}.");
         }
     }
 }

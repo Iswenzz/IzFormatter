@@ -89,12 +89,16 @@ namespace Iswenzz.CoD4.Parser.Abstract
         {
             List<string> param = new List<string>();
             if (!NameWithParams.Contains("(") || !NameWithParams.Contains(")")) return param;
-            foreach (string tok in NameWithParams.SubAt("(", ")").Replace(" ", "").Split(',') 
-                ?? Enumerable.Empty<string>())
+            try
             {
-                if (string.IsNullOrEmpty(tok) || tok == " ") continue;
-                else param.Add(tok.Replace(" ", ""));
+                foreach (string tok in NameWithParams.SubAt("(", ")").Replace(" ", "").Split(',')
+                ?? Enumerable.Empty<string>())
+                {
+                    if (string.IsNullOrEmpty(tok) || tok == " ") continue;
+                    else param.Add(tok.Replace(" ", ""));
+                }
             }
+            catch { }
             return param;
         }
     }

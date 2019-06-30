@@ -78,7 +78,7 @@ namespace Iswenzz.CoD4.Parser.GSC
                     opened--;
                     currFuncText += c;
                     try { functions.Add((T)Activator.CreateInstance(typeof(T), currFuncText)); }
-                    catch (Exception e) { Console.WriteLine(e); }
+                    catch /*(Exception e)*/ { /*Console.WriteLine($"\n{e}\n");*/ }
                     currFuncText = "";
                     continue;
                 }

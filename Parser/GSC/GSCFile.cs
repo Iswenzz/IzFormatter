@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 using Iswenzz.CoD4.Parser.Abstract;
-using Iswenzz.CoD4.Parser.Util;
 
 namespace Iswenzz.CoD4.Parser.GSC
 {
@@ -61,34 +59,31 @@ namespace Iswenzz.CoD4.Parser.GSC
         public List<T> GetFunctions()
         {
             List<T> functions = new List<T>();
-            try
-            {
-                int opened = 0;
-                bool started = false;
-                string currFuncText = "";
+            int opened = 0;
+            bool started = false;
+            string currFuncText = "";
 
-                foreach (char c in FileText)
+            foreach (char c in FileText)
+            {
+                if (c == '{' && opened == 0 && !started)
                 {
-                    if (c == '{' && opened == 0 && !started)
-                    {
-                        started = true;
-                        opened++;
-                    }
-                    else if (c == '{' && opened > 0) opened++;
-                    else if (c == '}' && opened > 1) opened--;
-                    else if (c == '}' && opened == 1 && started)
-                    {
-                        started = false;
-                        opened--;
-                        currFuncText += c;
-                        functions.Add((T)Activator.CreateInstance(typeof(T), currFuncText));
-                        currFuncText = "";
-                        continue;
-                    }
-                    currFuncText += c;
+                    started = true;
+                    opened++;
                 }
+                else if (c == '{' && opened > 0) opened++;
+                else if (c == '}' && opened > 1) opened--;
+                else if (c == '}' && opened == 1 && started)
+                {
+                    started = false;
+                    opened--;
+                    currFuncText += c;
+                    try { functions.Add((T)Activator.CreateInstance(typeof(T), currFuncText)); }
+                    catch (Exception e) { Console.WriteLine(e); }
+                    currFuncText = "";
+                    continue;
+                }
+                currFuncText += c;
             }
-            catch (Exception e) {/* Console.WriteLine(e);*/ }
             return functions;
         }
     }

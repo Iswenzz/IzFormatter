@@ -44,7 +44,7 @@ namespace Iswenzz.CoD4.Parser.Util
         /// </summary>
         /// <param name="funcIndex">Start index of the function call</param>
         /// <returns>The start index of the "thread" keyword</returns>
-        public static int IsLineThreaded(this string line, int funcIndex)
+        public static int IsCallThreaded(this string line, int funcIndex)
         {
             while (line[funcIndex--] != ';')
             {
@@ -56,6 +56,58 @@ namespace Iswenzz.CoD4.Parser.Util
                         return funcIndex - 5;
                 }
                 else return -1;
+            }
+            return -1;
+        }
+
+        /// <summary>
+        /// Returns a value indicating whether the index is inside a string.
+        /// </summary>
+        /// <param name="funcIndex">Start index of the function call</param>
+        /// <returns></returns>
+        public static bool IsInsideString(this string line, int funcIndex)
+        {
+            bool started = false;
+            while (line[funcIndex--] != ';')
+            {
+                if (line[funcIndex] == '\"')
+                    started = true;
+                else if ((line[funcIndex] == '(' || line[funcIndex] == '(') && started)
+                    return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Returns a value indicating whether a function call is using a struct.
+        /// </summary>
+        /// <param name="funcIndex">Start index of the function call</param>
+        /// <returns></returns>
+        public static int IsCallStruct(this string line, int funcIndex)
+        {
+            char[] arr_stop = new char[] { ';', '{', '}', '(', ')', '/', '*', '\"' };
+            bool started = false;
+            funcIndex--;
+            funcIndex--;
+
+            while (!arr_stop.Any(c => line[funcIndex] == c))
+            {
+                if (char.IsWhiteSpace(line[funcIndex]) && !started)
+                {
+                    funcIndex--;
+                    continue;
+                }
+                else if (char.IsWhiteSpace(line[funcIndex]) && started)
+                {
+                    started = false;
+                    return ++funcIndex;
+                }
+                else if (char.IsLetter(line[funcIndex]) || char.IsDigit(line[funcIndex])
+                    || char.IsPunctuation(line[funcIndex]) && !arr_stop.Any(c => line[funcIndex] == c))
+                    started = true;
+                else
+                    return -1;
+                funcIndex--;
             }
             return -1;
         }

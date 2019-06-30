@@ -13,18 +13,18 @@ namespace Iswenzz.CoD4.Parser.Tasks
         /// Remove all deathrun traps.
         /// </summary>
         /// <param name="instance">The function.</param>
-        public static List<string> RemoveTraps(AbstractFunction instance)
+        public static string RemoveTraps(AbstractFunction instance)
         {
-            List<string> new_lines = instance.Lines;
+            string new_lines = instance.FunctionText;
             bool AsTrigger = false;
 
-            if (new_lines.Any(l => l.Contains("waittill", StringComparison.InvariantCultureIgnoreCase)))
+            if (new_lines.Contains("waittill", StringComparison.InvariantCultureIgnoreCase))
                 AsTrigger = true;
 
             if (!AsTrigger)
                 return new_lines;
 
-            new_lines.Insert(3, "\tlevel endon(\"trigger\");");
+            new_lines = new_lines.Insert(instance.BodyIndex, "\n\tlevel endon(\"trigger\");");
             return new_lines;
         }
     }

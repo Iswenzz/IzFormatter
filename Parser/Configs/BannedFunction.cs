@@ -32,7 +32,7 @@ namespace Iswenzz.CoD4.Parser.Configs
             "getdvar (",
             "switchtoweapon",
             "giveweapon",
-            "takeallweapon",
+            "takeallweapons",
             "givemaxammo",
             "time_limit",
             "g_speed",

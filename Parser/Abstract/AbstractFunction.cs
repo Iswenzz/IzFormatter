@@ -39,8 +39,11 @@ namespace Iswenzz.CoD4.Parser.Abstract
             NameWithParams = FunctionText.SubAt(0, "{");
             Name = NameWithParams.SubAt(0, "(");
             Params = GetParams();
+            BodyIndex = FunctionText.IndexOf("{") + 1;
 
             IsVoid = true;
+            IsMain = Name.Contains("main", StringComparison.InvariantCultureIgnoreCase) && Params.Count == 0;
+            IsTrap = Name.Contains("trap", StringComparison.InvariantCultureIgnoreCase);
 
             UpdateProperties();
         }
@@ -62,27 +65,20 @@ namespace Iswenzz.CoD4.Parser.Abstract
         protected virtual void UpdateProperties()
         {
             if (string.IsNullOrEmpty(FunctionText) || FunctionText == " ") return;
-            switch (true)
-            {
-                case true when FunctionText.Replace(" ", "").Contains("for(", StringComparison.InvariantCultureIgnoreCase):
-                    HasLoop = true;
-                    break;
-                case true when FunctionText.Replace(" ", "").Contains("while(", StringComparison.InvariantCultureIgnoreCase):
-                    HasLoop = true;
-                    break;
-                case true when FunctionText.Replace(" ", "").Contains("wait(", StringComparison.InvariantCultureIgnoreCase):
-                    HasDelay = true;
-                    break;
-                case true when FunctionText.Contains("setorigin", StringComparison.InvariantCultureIgnoreCase):
-                    HasTeleport = true;
-                    break;
-                case true when FunctionText.Contains("wait ", StringComparison.InvariantCultureIgnoreCase):
-                    HasDelay = true;
-                    break;
-                case true when FunctionText.Contains("return ", StringComparison.InvariantCultureIgnoreCase):
-                    IsVoid = false;
-                    break;
-            }
+
+            if (FunctionText.Replace(" ", "").Contains("for(", StringComparison.InvariantCultureIgnoreCase)
+                || FunctionText.Replace(" ", "").Contains("while(", StringComparison.InvariantCultureIgnoreCase))
+                HasLoop = true;
+
+            if (FunctionText.Replace(" ", "").Contains("wait(", StringComparison.InvariantCultureIgnoreCase)
+                || FunctionText.Contains("wait ", StringComparison.InvariantCultureIgnoreCase))
+                HasDelay = true;
+
+            if (FunctionText.Contains("setorigin", StringComparison.InvariantCultureIgnoreCase))
+                HasTeleport = true;
+
+            if (FunctionText.Contains("return ", StringComparison.InvariantCultureIgnoreCase))
+                IsVoid = false;
         }
 
         /// <summary>

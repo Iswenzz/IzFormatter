@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("https://iswenzz.com/")]
 [assembly: AssemblyProduct("GSC Parser")]
-[assembly: AssemblyCopyright("Copyright © Iswenzz  2019")]
+[assembly: AssemblyCopyright("© Iswenzz 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

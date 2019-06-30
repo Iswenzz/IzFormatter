@@ -43,14 +43,14 @@ namespace Iswenzz.CoD4.Parser
         {
             ParserResult<Options> result = CommandLine.Parser.Default.ParseArguments<Options>(args);
             Console.WriteLine("Iswenzz (c) 2019\n");
-            Console.WriteLine($"\tConverting GSC with type {Options.FunctionType}:\n");
 
             if (string.IsNullOrEmpty(Options.GSC_Folder) && string.IsNullOrEmpty(Options.GSC_Path))
             {
                 Console.WriteLine("ArgumentException: Use --help to see the command list.");
                 return;
             }
-            
+
+            Console.WriteLine($"\tConverting GSC with type {Options.FunctionType}:\n");
             switch (Options.FunctionType)
             {
                 case "SRFunction":  CheckParam<SRFunction>();   break;

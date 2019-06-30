@@ -26,21 +26,21 @@ namespace Iswenzz.CoD4.Parser
             [Option('d', "directory", HelpText = "The path of the directory containing GSCs.", Required = false)]
             public static string GSC_Folder { get; set; }
 
+            [Option('o', "out", HelpText = "The path of the output directory", Required = false)]
+            public static string GSC_OutFolder { get; set; }
+
             [Option('s', "subdir", HelpText = "Allow searching GSCs through sub directories. (default: true)", Required = false)]
-            public static bool AllowSubDir { get; set; }
+            public static bool AllowSubDir { get; set; } = true;
 
             [Option('p', "pause", HelpText = "Pause console at the end. (default: false)", Required = false)]
-            public static bool PauseConsole { get; set; }
+            public static bool PauseConsole { get; set; } = false;
 
             [Option('t', "type", HelpText = "Type of function conversion. (default: SRFunction)", Required = false)]
-            public static string FunctionType { get; set; }
+            public static string FunctionType { get; set; } = "SRFunction";
         }
 
         public static void Main(string[] args)
         {
-            Options.FunctionType = "SRFunction";
-            Options.AllowSubDir = true;
-            Options.PauseConsole = false;
             ParserResult<Options> result = CommandLine.Parser.Default.ParseArguments<Options>(args);
             Console.WriteLine("Iswenzz (c) 2019\n");
             Console.WriteLine($"\tConverting GSC with type {Options.FunctionType}:\n");
@@ -92,8 +92,18 @@ namespace Iswenzz.CoD4.Parser
             {
                 if (Path.GetFileName(path).Contains("_new.gsc")) continue;
                 string file = Path.GetFileNameWithoutExtension(path);
-                string dir = path.Substring(0, path.IndexOf(file + ".gs"));
-                string opath = dir + file + "_new.gsc";
+                string dir = Path.GetDirectoryName(path) + "\\";
+
+                if (!string.IsNullOrEmpty(Options.GSC_OutFolder))
+                {
+                    if (dir.Contains("/"))
+                        dir = dir.Replace($"{Options.GSC_Folder}/",
+                            Path.GetDirectoryName(Options.GSC_OutFolder) + "/");
+                    else if (dir.Contains("\\"))
+                        dir = dir.Replace($"{Options.GSC_Folder}\\",
+                            Path.GetFileName(Options.GSC_OutFolder) + "\\");
+                }
+                string opath = dir + file + (string.IsNullOrEmpty(Options.GSC_OutFolder) ? "_new.gsc" : ".gsc");
 
                 UtilLog.LogFile(path, index, dirs.Count);
                 new GSCFile<T>(path).Save(opath);

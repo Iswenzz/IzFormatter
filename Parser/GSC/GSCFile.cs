@@ -47,7 +47,7 @@ namespace Iswenzz.CoD4.Parser.GSC
             foreach (T func in Functions ?? Enumerable.Empty<T>())
                 file += func.FunctionText + "\n";
 
-            string dir = path.Substring(0, path.IndexOf(Path.GetFileName(path)));
+            string dir = Path.GetDirectoryName(path);
             if (!Directory.Exists(dir) && !string.IsNullOrEmpty(dir)) Directory.CreateDirectory(dir);
             File.WriteAllText(path, file);
         }

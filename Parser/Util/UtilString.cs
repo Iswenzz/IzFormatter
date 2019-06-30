@@ -85,7 +85,7 @@ namespace Iswenzz.CoD4.Parser.Util
         /// <returns></returns>
         public static int IsCallStruct(this string line, int funcIndex)
         {
-            char[] arr_stop = new char[] { ';', '{', '}', '(', ')', '/', '*', '\"' };
+            char[] arr_stop = new char[] { ';', '{', '}', '(', ')', '*', '\"' };
             bool started = false;
             funcIndex--;
             funcIndex--;

@@ -8,3 +8,7 @@ bin/Release/
 obj/Release/Costura/
 
 obj/Release/
+
+opencoverCoverage.xml
+
+COVERAGE.sh

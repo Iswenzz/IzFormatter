@@ -12,7 +12,7 @@ namespace Iswenzz.CoD4.Parser.Tasks
         /// <param name="ways"><see cref="string"/> array</param>
         public static string AddNormalWays(AbstractFunction instance, params string[] ways)
         {
-            string new_lines = instance.FunctionText; ;
+            string new_lines = instance.FunctionText;
             string array = "";
             foreach (string s in ways)
                 array += s + ";";

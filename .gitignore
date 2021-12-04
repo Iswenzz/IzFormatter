@@ -1,6 +1,7 @@
-bin/*
-obj/*
-old/*
-properties/*
+bin/
+obj/
+old/
+properties/
+.antlr/
 opencoverCoverage.xml
 COVERAGE.sh

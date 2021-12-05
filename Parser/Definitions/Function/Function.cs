@@ -16,6 +16,12 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
         public Function(FunctionDeclarationContext context)
         {
             Context = context;
+            Process();
         }
+
+        /// <summary>
+        /// Process the definition.
+        /// </summary>
+        public virtual void Process() { }
     }
 }

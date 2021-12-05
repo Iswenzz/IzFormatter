@@ -5,7 +5,7 @@ namespace Iswenzz.CoD4.Parser.Definitions.Preprocessor
     /// <summary>
     /// Include preprocessor.
     /// </summary>
-    public class Include
+    public class Include : IDefinition
     {
         public DirectiveContext Context { get; set; }
 
@@ -16,6 +16,12 @@ namespace Iswenzz.CoD4.Parser.Definitions.Preprocessor
         public Include(DirectiveContext context)
         {
             Context = context;
+            Process();
         }
+
+        /// <summary>
+        /// Process the definition.
+        /// </summary>
+        public virtual void Process() { }
     }
 }

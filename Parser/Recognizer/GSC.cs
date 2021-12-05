@@ -31,7 +31,7 @@ namespace Iswenzz.CoD4.Parser.Recognizer
         protected GSCErrorListener ErrorListener { get; set; }
 
         public List<Include> Includes { get; protected set; }
-        public List<Function> Functions { get; protected set; }
+        public virtual List<Function> Functions { get; protected set; }
 
         /// <summary>
         /// Initialize a new <see cref="GSC"/> file.
@@ -47,29 +47,37 @@ namespace Iswenzz.CoD4.Parser.Recognizer
             Includes = new List<Include>();
             Functions = new List<Function>();
 
-            // Parser & Lexer
+            // Parser & Lexer & Walker
             Stream = CharStreams.fromString(File.ReadAllText(filepath));
             Lexer = new GSCLexer(Stream);
             TokenStream = new CommonTokenStream(Lexer);
             Parser = new GSCParser(TokenStream);
-            Listener = new GSCListener(this);
+            Walker = new ParseTreeWalker();
 
             // Error listener
             ErrorListener = new GSCErrorListener();
             Parser.RemoveErrorListeners();
             Parser.AddErrorListener(ErrorListener);
 
-            // Walker
-            Walker = new ParseTreeWalker();
+            // Start
+            Parse();
+        }
+
+        /// <summary>
+        /// Parse the GSC.
+        /// </summary>
+        public virtual void Parse()
+        {
+            Listener = new GSCListener(this);
             CompilationUnitContext code = Parser.compilationUnit();
             Walker.Walk(Listener, code);
         }
 
         /// <summary>
-        /// Save the GSC file.
+        /// Save the GSC.
         /// </summary>
         /// <param name="outputPath">The output path.</param>
-        public void Save(string outputPath)
+        public virtual void Save(string outputPath)
         {
             string content = "";
             Includes.ForEach(def => content += ParserUtils.SourceTextForContext(def.Context) + "\n");

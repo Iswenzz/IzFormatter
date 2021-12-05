@@ -5,196 +5,92 @@ compilationUnit
     ;
 
 translationUnit
-    :   externalDeclaration+
-    ;
-
-externalDeclaration
-    :   functionDeclaration
-    |   directive
-    |   ';'
-    ;
-
-functionDeclaration
-    :   declarator compoundStatement
-    ;
-
-declaration
-    :   primaryExpression
-    |   threadExpression primaryExpression?
-    ;
-
-primaryExpression
-    :   entityExpression
-    |   extraExpression
-    |   Identifier
-    |   Constant
-    ;
-
-extraExpression
-    :   Wait
-    ;
-
-entityExpression
-    :   Self
-    |   Level
-    ;
-
-threadExpression
-    :   Thread
-    ;
-
-postfixExpression
-    :   declaration
-    (   ']]'
-    )*
-    (   '[' expression ']'
-    |   '(' argumentExpressionList? ')'
-    |   '.' Identifier
-    |   ('++' | '--')
-    )*
-    ;
-
-argumentExpressionList
-    :   assignmentExpression (',' assignmentExpression)*
-    ;
-
-unaryExpression
-    :
-    (   '++' | '--' | '[[' | Sizeof
-    )*
-    (   PathIdentifier '::'
-    )*
-    (   postfixExpression
-    |   unaryOperator castExpression
-    )
-    ;
-
-unaryOperator
-    :   '&' | '*' | '+' | '-' | '~' | '!'
-    ;
-
-castExpression
-    :   unaryExpression
-    |   DigitSequence
-    ;
-
-multiplicativeExpression
-    :   castExpression (('*'|'/'|'%') castExpression)*
-    ;
-
-additiveExpression
-    :   multiplicativeExpression (('+'|'-') multiplicativeExpression)*
-    ;
-
-shiftExpression
-    :   additiveExpression (('<<'|'>>') additiveExpression)*
-    ;
-
-relationalExpression
-    :   shiftExpression (('<'|'>'|'<='|'>=') shiftExpression)*
-    ;
-
-equalityExpression
-    :   relationalExpression (('=='| '!=') relationalExpression)*
-    ;
-
-andExpression
-    :   equalityExpression ( '&' equalityExpression)*
-    ;
-
-exclusiveOrExpression
-    :   andExpression ('^' andExpression)*
-    ;
-
-inclusiveOrExpression
-    :   exclusiveOrExpression ('|' exclusiveOrExpression)*
-    ;
-
-logicalAndExpression
-    :   inclusiveOrExpression ('&&' inclusiveOrExpression)*
-    ;
-
-logicalOrExpression
-    :   logicalAndExpression ( '||' logicalAndExpression)*
-    ;
-
-conditionalExpression
-    :   logicalOrExpression ('?' expression ':' conditionalExpression)?
-    ;
-
-assignmentExpression
-    :   conditionalExpression
-    |   unaryExpression assignmentOperator assignmentExpression
-    |   DigitSequence
-    ;
-
-assignmentOperator
-    :   '=' | '*=' | '/=' | '%=' | '+=' | '-=' | '<<=' | '>>=' | '&=' | '^=' | '|='
-    ;
-
-expression
-    :   assignmentExpression (',' assignmentExpression)*
-    ;
-
-constantExpression
-    :   conditionalExpression
-    ;
-
-initDeclaratorList
-    :   initDeclarator (',' initDeclarator)*
-    ;
-
-initDeclarator
-    :   declarator ('=' initializer)?
-    ;
-
-declarator
-    :   Identifier
-    |   declarator '(' identifierList? ')'
-    ;
-
-directive
-    :   IncludeDirective
-    ;
-
-identifierList
-    :   Identifier (',' Identifier)*
-    ;
-
-initializer
-    :   assignmentExpression
+    :   statement+
     ;
 
 statement
-    :   labeledStatement
+    :   variableStatement
+    |   entityStatement
+    |   labeledStatement
     |   compoundStatement
     |   expressionStatement
     |   selectionStatement
     |   iterationStatement
     |   jumpStatement
+    |   waitStatement
+    |   threadStatement
+    |   functionDeclaration
     ;
 
-labeledStatement
-    :   Identifier ':' statement
-    |   Case constantExpression ':' statement
-    |   Default ':' statement
+literal
+    :   UndefinedLiteral
+    |   BooleanLiteral
+    |   StringLiteral
+    |   ArrayLiteral
+    |   DecimalLiteral
     ;
 
-compoundStatement
-    :   '{' blockItemList? '}'
+expressionSequence
+    : expression (',' expression)*
     ;
 
-blockItemList
-    :   blockItem+
+expression
+    :   expression '(' expressionSequence? ')' expression?                # FunctionExpression
+    |   expression '[' expression ']' expression?                         # MemberIndexExpression
+    |   expression '.' expression                                         # MemberDotExpression
+    |   expression '++'                                                   # PostIncrementExpression
+    |   expression '--'                                                   # PostDecreaseExpression
+    |   PathIdentifier '::' expression                                    # FileExpression
+    |   '[[' expression ']]' '(' expressionSequence? ')' expression?      # CallFunctionPointerExpression
+    |   '::' expression                                                   # FunctionPointerExpression
+    |   '++' expression                                                   # PreIncrementExpression
+    |   '--' expression                                                   # PreDecreaseExpression
+    |   '+' expression                                                    # UnaryPlusExpression
+    |   '-' expression                                                    # UnaryMinusExpression
+    |   '~' expression                                                    # BitNotExpression
+    |   '!' expression                                                    # NotExpression
+    |   Sizeof expression                                                 # SizeofExpression
+    |   expression ('*' | '/' | '%') expression                           # MultiplicativeExpression
+    |   expression ('+' | '-') expression                                 # AdditiveExpression
+    |   expression ('<<' | '>>' | '>>') expression                        # BitShiftExpression
+    |   expression ('<' | '>' | '<=' | '>=') expression                   # RelationalExpression
+    |   expression ('==' | '!=') expression                               # EqualityExpression
+    |   expression '&' expression                                         # BitAndExpression
+    |   expression '^' expression                                         # BitXOrExpression
+    |   expression '|' expression                                         # BitOrExpression
+    |   expression '&&' expression                                        # LogicalAndExpression
+    |   expression '||' expression                                        # LogicalOrExpression
+    |   <assoc=right> expression '=' expression                           # AssignmentExpression
+    |   <assoc=right> expression assignmentOperator expression            # AssignmentOperatorExpression
+    |   entityStatement                                                   # EntityStatementExpression
+    |   threadStatement                                                   # ThreadStatementExpression
+    |   directive                                                         # DirectiveExpression
+    |   identifier                                                        # IdentifierExpression
+    |   entity                                                            # EntityExpression
+    |   literal                                                           # LiteralExpression
+    |   '(' expressionSequence ')'                                        # ParenthesizedExpression
     ;
 
-blockItem
-    :   declaration
-    |   statement
+functionDeclaration
+    :   identifier '(' identifierList? ')' compoundStatement
+    ;
+
+variableDeclaration
+    :   assignable ('=' expression)? ';'
     ;
 
 expressionStatement
     :   expression? ';'
+    ;
+
+variableStatement
+    :   variableDeclarationList ';'
+    ;
+
+labeledStatement
+    :   Identifier ':' statement
+    |   Case expression ':' statement
+    |   Default ':' statement
     ;
 
 selectionStatement
@@ -202,22 +98,24 @@ selectionStatement
     |   Switch '(' expression ')' statement
     ;
 
+waitStatement
+    :   Wait ('(')? DecimalLiteral (')')?
+    ;
+
+threadStatement
+    :   Thread expression
+    ;
+
+entityStatement
+    :   entity
+    (   threadStatement
+    |   expression
+    )
+    ;
+
 iterationStatement
     :   While '(' expression ')' statement
-    |   Do statement While '(' expression ')' ';'
-    |   For '(' forCondition ')' statement
-    ;
-
-forCondition
-	:   (forDeclaration | expression?) ';' forExpression? ';' forExpression?
-	;
-
-forDeclaration
-    :   initDeclaratorList
-    ;
-
-forExpression
-    :   assignmentExpression (',' assignmentExpression)*
+    |   For '(' (expressionSequence | variableDeclarationList)? ';' expressionSequence? ';' expressionSequence? ')' statement
     ;
 
 jumpStatement
@@ -228,81 +126,152 @@ jumpStatement
     )   ';'
     ;
 
-Break : 'break';
-Case : 'case';
-Default: 'default';
-Continue : 'continue';
-Do : 'do';
-Else : 'else';
-For : 'for';
-Goto : 'goto';
-If : 'if';
-Return : 'return';
-Sizeof : 'sizeof';
-Switch : 'switch';
-While : 'while';
+compoundStatement
+    :   '{' blockItemList? '}'
+    ;
 
-Thread : 'thread';
-Self : 'self';
-Level : 'level';
-Wait : 'wait';
-Undefined : 'undefined';
-EmptyArray : '[]';
+assignmentOperator
+    :   '=' | '*=' | '/=' | '%=' | '+=' | '-=' | '<<=' | '>>=' | '&=' | '^=' | '|='
+    ;
 
-LeftParen : '(';
-RightParen : ')';
-LeftBracket : '[';
-RightBracket : ']';
-LeftBrace : '{';
-RightBrace : '}';
+identifierList
+    :   Identifier (',' Identifier)*
+    ;
 
-Less : '<';
-LessEqual : '<=';
-Greater : '>';
-GreaterEqual : '>=';
-LeftShift : '<<';
-RightShift : '>>';
+blockItemList
+    :   statement+
+    ;
 
-Plus : '+';
-PlusPlus : '++';
-Minus : '-';
-MinusMinus : '--';
-Star : '*';
-Div : '/';
-Mod : '%';
+variableDeclarationList
+    :   variableDeclaration (',' variableDeclaration)*
+    ;
 
-And : '&';
-Or : '|';
-AndAnd : '&&';
-OrOr : '||';
-Caret : '^';
-Not : '!';
-Tilde : '~';
+identifier
+    :   Identifier
+    ;
 
-Question : '?';
-Colon : ':';
-Semi : ';';
-Comma : ',';
+entity
+    :   Self
+    |   Level
+    |   Identifier
+    ;
 
-Assign : '=';
-StarAssign : '*=';
-DivAssign : '/=';
-ModAssign : '%=';
-PlusAssign : '+=';
-MinusAssign : '-=';
-LeftShiftAssign : '<<=';
-RightShiftAssign : '>>=';
-AndAssign : '&=';
-XorAssign : '^=';
-OrAssign : '|=';
+assignable
+    :   identifier
+    ;
 
-Equal : '==';
-NotEqual : '!=';
+directive
+    :   IncludeDirective
+    ;
 
-Dot : '.';
-PathCall : '::';
-LeftFunctionPointer : '[[';
-RightFunctionPointer : ']]';
+Break:                              'break';
+Case:                               'case';
+Default:                            'default';
+Continue:                           'continue';
+Else:                               'else';
+For:                                'for';
+Goto:                               'goto';
+If:                                 'if';
+Return:                             'return';
+Sizeof:                             'sizeof';
+Switch:                             'switch';
+While:                              'while';
+
+Thread:                             'thread';
+Self:                               'self';
+Level:                              'level';
+Wait:                               'wait';
+
+LeftParen:                          '(';
+RightParen:                         ')';
+LeftBracket:                        '[';
+RightBracket:                       ']';
+LeftBrace:                          '{';
+RightBrace:                         '}';
+
+Less:                               '<';
+LessEqual:                          '<=';
+Greater:                            '>';
+GreaterEqual:                       '>=';
+LeftShift:                          '<<';
+RightShift:                         '>>';
+
+Plus:                               '+';
+PlusPlus:                           '++';
+Minus:                              '-';
+MinusMinus:                         '--';
+Star:                               '*';
+Div:                                '/';
+Mod:                                '%';
+And:                                '&';
+Or:                                 '|';
+AndAnd:                             '&&';
+OrOr:                               '||';
+Caret:                              '^';
+Not:                                '!';
+Tilde:                              '~';
+
+Question:                           '?';
+Colon:                              ':';
+Semi:                               ';';
+Comma:                              ',';
+
+Assign:                             '=';
+StarAssign:                         '*=';
+DivAssign:                          '/=';
+ModAssign:                          '%=';
+PlusAssign:                         '+=';
+MinusAssign:                        '-=';
+LeftShiftAssign:                    '<<=';
+RightShiftAssign:                   '>>=';
+AndAssign:                          '&=';
+XorAssign:                          '^=';
+OrAssign:                           '|=';
+Equal:                              '==';
+NotEqual:                           '!=';
+
+Dot:                                '.';
+PathCall:                           '::';
+LeftFunctionPointer:                '[[';
+RightFunctionPointer:               ']]';
+
+ArrayLiteral:                       '[]';
+BooleanLiteral:                     'true' | 'false';
+UndefinedLiteral:                   'undefined';
+DecimalLiteral:                     DecimalIntegerLiteral | DecimalFractionalLiteral;
+StringLiteral:                      '"' SCharSequence? '"';
+
+DeveloperSection:                   '/#' .*? '#/' -> channel(HIDDEN);
+BlockComment:                       '/*' .*? '*/' -> channel(HIDDEN);
+LineComment:                        '//' ~[\r\n]* -> channel(HIDDEN);
+Whitespace:                         [ \t]+ -> channel(HIDDEN);
+Newline:                            ('\r' '\n'? | '\n') -> channel(HIDDEN);
+
+IncludeDirective:                   '#' Whitespace? 'include' Whitespace PathIdentifier Whitespace?;
+
+fragment IdentifierNondigit:        Nondigit;
+fragment IdentifierNondigitPath:    NondigitPath;
+fragment Nondigit:                  [a-zA-Z_];
+fragment NondigitPath:              [a-zA-Z_\\];
+fragment Digit:                     [0-9];
+fragment NonzeroDigit:              [1-9];
+fragment Sign:                      [+-];
+
+fragment SimpleEscapeSequence:      '\\' ['"?abfnrtv\\];
+fragment SChar:                     ~["\\\r\n] | EscapeSequence | '\\\n' | '\\\r\n';
+fragment EscapeSequence:            SimpleEscapeSequence;
+fragment SCharSequence:             SChar+;
+fragment DigitSequence:             Digit+;
+
+fragment IntegerConstant:           DecimalIntegerLiteral;
+fragment FloatingConstant:          DecimalFractionalLiteral;
+fragment StringConstant:            StringLiteral;
+fragment UndefinedConstant:         UndefinedLiteral;
+fragment BooleanConstant:           BooleanLiteral;
+fragment ArrayConstant:             ArrayLiteral;
+
+fragment DecimalIntegerLiteral:     '0' | [1-9] [0-9]*;
+fragment DecimalFractionalLiteral:  DecimalIntegerLiteral? '.' [0-9]*;
 
 Identifier
     :   IdentifierNondigit
@@ -316,138 +285,4 @@ PathIdentifier
     (   IdentifierNondigitPath
     |   Digit
     )*
-    ;
-
-fragment IdentifierNondigit
-    :   Nondigit
-    ;
-
-fragment IdentifierNondigitPath
-    :   NondigitPath
-    ;
-
-fragment Nondigit
-    :   [a-zA-Z_]
-    ;
-
-fragment NondigitPath
-    :   [a-zA-Z_\\]
-    ;
-
-fragment Digit
-    :   [0-9]
-    ;
-
-fragment NonzeroDigit
-    :   [1-9]
-    ;
-
-fragment Sign
-    :   [+-]
-    ;
-
-fragment EscapeSequence
-    :   SimpleEscapeSequence
-    ;
-
-fragment SimpleEscapeSequence
-    :   '\\' ['"?abfnrtv\\]
-    ;
-
-fragment SCharSequence
-    :   SChar+
-    ;
-
-fragment SChar
-    :   ~["\\\r\n]
-    |   EscapeSequence
-    |   '\\\n'
-    |   '\\\r\n'
-    ;
-
-fragment DecimalConstant
-    :   NonzeroDigit Digit*
-    ;
-
-fragment IntegerConstant
-    :   DecimalConstant
-    ;
-
-fragment FloatingConstant
-    :   DecimalFloatingConstant
-    ;
-
-fragment DecimalFloatingConstant
-    :   FractionalConstant
-    |   DigitSequence
-    ;
-
-fragment FractionalConstant
-    :   DigitSequence? '.' DigitSequence
-    |   DigitSequence '.'
-    ;
-
-fragment StringConstant
-    :   StringLiteral+
-    ;
-
-fragment UndefinedConstant
-    :   Undefined
-    ;
-
-fragment ArrayConstant
-    :   EmptyArray
-    ;
-
-fragment Whitespace
-    :   [ \t]+
-    ;
-
-fragment Newline
-    :   
-    (   '\r' '\n'?
-    |   '\n'
-    )
-    ;
-
-fragment DeveloperSection
-    :   '/#' .*? '#/'
-    ;
-
-fragment BlockComment
-    :   '/*' .*? '*/'
-    ;
-
-fragment LineComment
-    :   '//' ~[\r\n]*
-    ;
-
-Constant
-    :   IntegerConstant
-    |   FloatingConstant
-    |   StringConstant
-    |   UndefinedConstant
-    |   ArrayConstant
-    ;
-
-StringLiteral
-    :   '"' SCharSequence? '"'
-    ;
-
-DigitSequence
-    :   Digit+
-    ;
-
-IncludeDirective
-    :   '#' Whitespace? 'include' Whitespace PathIdentifier Whitespace? ';'
-    ;
-
-Skip
-    :
-    (   Whitespace
-    |   BlockComment
-    |   LineComment
-    |   Newline
-    )
-    ->  channel(HIDDEN)
     ;

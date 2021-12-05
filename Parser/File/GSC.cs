@@ -48,7 +48,9 @@ namespace Iswenzz.CoD4.Parser.File
             Listener = new GSCListener();
 
             Walker = new ParseTreeWalker();
-            Walker.Walk(Listener, Parser.compilationUnit());
+            CompilationUnitContext code = Parser.compilationUnit();
+            Walker.Walk(Listener, code);
+            Console.WriteLine($"\nDEBUG:\n\n{code.GetText()}");
         }
     }
 }

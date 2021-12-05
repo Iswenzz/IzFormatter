@@ -12,7 +12,7 @@ namespace Iswenzz.CoD4.Parser.Listeners
     {
         public override void EnterFunctionDeclaration([NotNull] GSCParser.FunctionDeclarationContext context)
         {
-            Console.WriteLine(ParserUtils.SourceTextForContext(context));
+            //Console.WriteLine(ParserUtils.SourceTextForContext(context));
         }
 
         public override void EnterDirective([NotNull] GSCParser.DirectiveContext context)

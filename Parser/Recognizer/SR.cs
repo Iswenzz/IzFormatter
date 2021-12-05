@@ -1,4 +1,4 @@
-﻿namespace Iswenzz.CoD4.Parser.File
+﻿namespace Iswenzz.CoD4.Parser.Recognizer
 {
     /// <summary>
     /// SR Speedrun <see cref="GSC"/> file.

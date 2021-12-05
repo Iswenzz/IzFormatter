@@ -241,11 +241,11 @@ UndefinedLiteral:                   'undefined';
 DecimalLiteral:                     DecimalIntegerLiteral | DecimalFractionalLiteral;
 StringLiteral:                      '"' SCharSequence? '"';
 
-DeveloperSection:                   '/#' .*? '#/' -> channel(HIDDEN);
-BlockComment:                       '/*' .*? '*/' -> channel(HIDDEN);
-LineComment:                        '//' ~[\r\n]* -> channel(HIDDEN);
-Whitespace:                         [ \t]+ -> channel(HIDDEN);
-Newline:                            ('\r' '\n'? | '\n') -> channel(HIDDEN);
+DeveloperSection:                   '/#' .*? '#/'           -> channel(HIDDEN);
+BlockComment:                       '/*' .*? '*/'           -> channel(HIDDEN);
+LineComment:                        '//' ~[\r\n]*           -> channel(HIDDEN);
+Whitespace:                         [ \t]+                  -> channel(HIDDEN);
+Newline:                            ('\r' '\n'? | '\n')     -> channel(HIDDEN);
 
 IncludeDirective:                   '#' Whitespace? 'include' Whitespace PathIdentifier Whitespace?;
 

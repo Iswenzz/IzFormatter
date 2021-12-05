@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using Antlr4.Runtime;
-using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
 
 using Iswenzz.CoD4.Parser.Definitions.Function;
@@ -28,6 +26,7 @@ namespace Iswenzz.CoD4.Parser.File
         public GSCLexer Lexer { get; set; }
         public GSCParser Parser { get; set; }
         public GSCListener Listener { get; set; }
+        public GSCErrorListener ErrorListener { get; set; }
 
         public List<Include> Includes { get; set; }
         public List<Function> Functions { get; set; }
@@ -41,16 +40,22 @@ namespace Iswenzz.CoD4.Parser.File
             FilePath = filepath;
             FileName = Path.GetFileName(filepath);
 
+            // Parser & Lexer
             Stream = CharStreams.fromString(System.IO.File.ReadAllText(filepath));
             Lexer = new GSCLexer(Stream);
             TokenStream = new CommonTokenStream(Lexer);
             Parser = new GSCParser(TokenStream);
             Listener = new GSCListener();
 
+            // Error listener
+            ErrorListener = new GSCErrorListener();
+            Parser.RemoveErrorListeners();
+            Parser.AddErrorListener(ErrorListener);
+
+            // Walker
             Walker = new ParseTreeWalker();
             CompilationUnitContext code = Parser.compilationUnit();
             Walker.Walk(Listener, code);
-            Console.WriteLine($"\nDEBUG:\n\n{code.GetText()}");
         }
     }
 }

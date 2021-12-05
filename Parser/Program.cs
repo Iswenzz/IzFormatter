@@ -43,19 +43,18 @@ namespace Iswenzz.CoD4.Parser
         private static void OpenDirectory(Type parserType)
         {
             int index = 1;
-            List<string> dirs = Directory.GetFiles(CLIParser.Options.GSCFolder, "*.gs*",
+            List<string> files = Directory.GetFiles(CLIParser.Options.GSCFolder, "*.gs*",
                 CLIParser.Options.AllowSubDir ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly)
                 .Where(dir => !dir.Contains("_new.gsc"))
+                .Select(path => Path.GetFullPath(path))
                 .ToList();
 
             Stopwatch timer = new();
             timer.Start();
 
-            foreach (string file in dirs ?? Enumerable.Empty<string>())
+            foreach (string file in files ?? Enumerable.Empty<string>())
             {
-                if (Path.GetFileName(file).Contains("_new.gsc")) continue;
-
-                Log.File(file, index, dirs.Count);
+                Log.File(file, index, files.Count);
                 GSCs.Add((GSC)Activator.CreateInstance(parserType, file));
                 index++;
             }

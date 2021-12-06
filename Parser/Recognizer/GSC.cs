@@ -3,6 +3,7 @@ using System.IO;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 
+using Iswenzz.CoD4.Parser.Definitions;
 using Iswenzz.CoD4.Parser.Definitions.Function;
 using Iswenzz.CoD4.Parser.Definitions.Preprocessor;
 using Iswenzz.CoD4.Parser.Listeners;
@@ -24,14 +25,14 @@ namespace Iswenzz.CoD4.Parser.Recognizer
         public ICharStream Stream { get; protected set; }
         protected CommonTokenStream TokenStream { get; set; }
         protected ParseTreeWalker Walker { get; set; }
+        protected CompilationUnit CompilationUnit { get; set; }
 
         protected GSCLexer Lexer { get; set; }
         protected GSCParser Parser { get; set; }
-        protected GSCListener Listener { get; set; }
         protected GSCErrorListener ErrorListener { get; set; }
 
         public List<Include> Includes { get; protected set; }
-        public virtual List<Function> Functions { get; protected set; }
+        public List<Function> Functions { get; protected set; }
 
         /// <summary>
         /// Initialize a new <see cref="GSC"/> file.
@@ -66,12 +67,22 @@ namespace Iswenzz.CoD4.Parser.Recognizer
         /// <summary>
         /// Parse the GSC.
         /// </summary>
-        public virtual void Parse()
-        {
-            Listener = new GSCListener(this);
-            CompilationUnitContext code = Parser.compilationUnit();
-            Walker.Walk(Listener, code);
-        }
+        public virtual void Parse() =>
+            CompilationUnit = new CompilationUnit(this, Parser.compilationUnit());
+
+        /// <summary>
+        /// Create a function.
+        /// </summary>
+        /// <param name="context">The definition context.</param>
+        public virtual void CreateFunction(FunctionDeclarationContext context) =>
+            Functions.Add(new Function(this, context));
+
+        /// <summary>
+        /// Create an include directive.
+        /// </summary>
+        /// <param name="context">The definition context.</param>
+        public virtual void CreateInclude(DirectiveContext context) =>
+            Includes.Add(new Include(this, context));
 
         /// <summary>
         /// Save the GSC.

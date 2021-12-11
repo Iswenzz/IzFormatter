@@ -22,7 +22,7 @@ namespace Iswenzz.CoD4.Parser.Recognizer
         public string FileName { get; protected set; }
         public string FileExtension { get; protected set; }
 
-        public ICharStream Stream { get; protected set; }
+        public AntlrInputStream Stream { get; protected set; }
         protected CommonTokenStream TokenStream { get; set; }
         protected ParseTreeWalker Walker { get; set; }
         protected CompilationUnit CompilationUnit { get; set; }
@@ -49,7 +49,7 @@ namespace Iswenzz.CoD4.Parser.Recognizer
             Functions = new List<Function>();
 
             // Parser & Lexer & Walker
-            Stream = CharStreams.fromString(File.ReadAllText(filepath));
+            Stream = new AntlrInputStream(File.ReadAllText(filepath));
             Lexer = new GSCLexer(Stream);
             TokenStream = new CommonTokenStream(Lexer);
             Parser = new GSCParser(TokenStream);
@@ -91,8 +91,8 @@ namespace Iswenzz.CoD4.Parser.Recognizer
         public virtual void Save(string outputPath)
         {
             string content = "";
-            Includes.ForEach(def => content += ParserUtils.SourceTextForContext(def.Context) + "\n");
-            Functions.ForEach(def => content += ParserUtils.SourceTextForContext(def.Context) + "\n");
+            Includes.ForEach(def => content += def.Stream + "\n");
+            Functions.ForEach(def => content += def.Stream + "\n");
 
             if (!File.Exists(outputPath))
                 Directory.CreateDirectory(Path.GetDirectoryName(outputPath));

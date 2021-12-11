@@ -24,7 +24,6 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
         /// <returns></returns>
         public override int VisitIterationStatement([NotNull] GSCParser.IterationStatementContext context)
         {
-            System.Console.WriteLine("Iteration");
             return base.VisitIterationStatement(context);
         }
     }

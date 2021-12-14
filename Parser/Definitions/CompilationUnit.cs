@@ -22,10 +22,10 @@ namespace Iswenzz.CoD4.Parser.Definitions
         /// </summary>
         /// <param name="context">The definition context.</param>
         /// <returns></returns>
-        public override int VisitFunctionDeclaration([NotNull] GSCParser.FunctionDeclarationContext context)
+        public override string VisitFunctionDeclaration([NotNull] GSCParser.FunctionDeclarationContext context)
         {
             GSC.CreateFunction(context);
-            return base.VisitFunctionDeclaration(context);
+            return null;
         }
 
         /// <summary>
@@ -33,10 +33,10 @@ namespace Iswenzz.CoD4.Parser.Definitions
         /// </summary>
         /// <param name="context">The definition context.</param>
         /// <returns></returns>
-        public override int VisitDirective([NotNull] GSCParser.DirectiveContext context)
+        public override string VisitDirective([NotNull] GSCParser.DirectiveContext context)
         {
             GSC.CreateInclude(context);
-            return base.VisitDirective(context);
+            return null;
         }
     }
 }

@@ -49,7 +49,6 @@ expression
     |   '-' expression                                                    # UnaryMinusExpression
     |   '~' expression                                                    # BitNotExpression
     |   '!' expression                                                    # NotExpression
-    |   Sizeof expression                                                 # SizeofExpression
     |   expression ('*' | '/' | '%') expression                           # MultiplicativeExpression
     |   expression ('+' | '-') expression                                 # AdditiveExpression
     |   expression ('<<' | '>>' | '>>') expression                        # BitShiftExpression
@@ -99,7 +98,7 @@ selectionStatement
     ;
 
 waitStatement
-    :   Wait ('(')? DecimalLiteral (')')?
+    :   Wait ('(')? expression (')')?
     ;
 
 threadStatement
@@ -173,7 +172,6 @@ For:                                'for';
 Goto:                               'goto';
 If:                                 'if';
 Return:                             'return';
-Sizeof:                             'sizeof';
 Switch:                             'switch';
 While:                              'while';
 

@@ -16,15 +16,5 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
         /// <param name="gsc">The GSC instance.</param>
         /// <param name="context">The definition context.</param>
         public SRFunction(GSC gsc, ParserRuleContext context) : base(gsc, context) { }
-
-        /// <summary>
-        /// Iteration statement.
-        /// </summary>
-        /// <param name="context">The definition context.</param>
-        /// <returns></returns>
-        public override int VisitIterationStatement([NotNull] GSCParser.IterationStatementContext context)
-        {
-            return base.VisitIterationStatement(context);
-        }
     }
 }

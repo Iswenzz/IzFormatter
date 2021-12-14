@@ -7,13 +7,14 @@ using Antlr4.Runtime.Tree;
 
 using Iswenzz.CoD4.Parser.Recognizer;
 using Iswenzz.CoD4.Parser.Utils;
+using static GSCParser;
 
 namespace Iswenzz.CoD4.Parser.Definitions
 {
     /// <summary>
     /// Definition base class.
     /// </summary>
-    public class Definition : GSCBaseVisitor<int>
+    public class Definition : GSCBaseVisitor<string>
     {
         protected GSC GSC { get; set; }
         public ParserRuleContext Context { get; set; }
@@ -31,67 +32,83 @@ namespace Iswenzz.CoD4.Parser.Definitions
             GSC = gsc;
             Context = context;
             Stream = new StringBuilder();
-
-            Visit(context);
+            Stream.Append(Visit(context));
         }
 
-        /// <summary>
-        /// On visit a <see cref="ITerminalNode"/>.
-        /// </summary>
-        /// <param name="node">The node to visit.</param>
-        /// <returns></returns>
-        public override int VisitTerminal(ITerminalNode node)
+        public override string VisitFunctionDeclaration([NotNull] FunctionDeclarationContext context)
         {
-            string result = node.GetText();
-            switch (node.Symbol.Type)
-            {
-                case GSCParser.LeftBrace:
-                    Stream.Append(Environment.NewLine);
-                    IndentLine(Stream);
-                    result += IndentNewLine();
-                    break;
-                case GSCParser.RightBrace:
-                    DedentLine(Stream);
-                    result += IndentNewLine();
-                    break;
-                case GSCParser.Semi:
-                    result += IndentNewLine();
-                    break;
-            }
-            switch (node.Parent.RuleContext.RuleIndex)
-            {
-                case GSCParser.RULE_iterationStatement:
-                    result = node.GetText();
-                    break;
-                case GSCParser.RULE_selectionStatement:
-                    result += IndentSingleLineStatement(node.Parent.RuleContext, node);
-                    break;
-            }
+            base.VisitFunctionDeclaration(context);
+            string result = context.identifier().GetText()
+                + context.LeftParen()
+                + context.identifierList()?.GetText()
+                + context.RightParen();
 
-            Stream.Append(result);
-            return base.VisitTerminal(node);
+            var compoundStatement = context.compoundStatement();
+            if (compoundStatement != null)
+                result += VisitCompoundStatement(compoundStatement);
+            return result;
+        }
+
+        public override string VisitCompoundStatement([NotNull] CompoundStatementContext context)
+        {
+            base.VisitCompoundStatement(context);
+            string result = string.Empty;
+
+            result += Environment.NewLine + context.LeftBrace();
+            IndentLine(ref result);
+            result += IndentNewLine();
+
+            foreach (var statement in context.blockItemList()?.statement() 
+                ?? Enumerable.Empty<StatementContext>())
+                result += VisitStatement(statement);
+
+            result += context.RightBrace();
+            DedentLine(ref result);
+            result += IndentNewLine();
+            return result;
+        }
+
+        public override string VisitSelectionStatement([NotNull] SelectionStatementContext context)
+        {
+            // TODO
+            return base.VisitSelectionStatement(context) + IndentNewLine();
+        }
+
+        public override string VisitStatement([NotNull] StatementContext context)
+        {
+            string result = base.VisitStatement(context) + IndentNewLine();
+
+            var compoundStatement = context.compoundStatement();
+            var selectionStatement = context.selectionStatement();
+
+            if (compoundStatement != null)
+                result = VisitCompoundStatement(compoundStatement);
+            else if (selectionStatement != null)
+                result = VisitSelectionStatement(selectionStatement);
+            return result;
+        }
+
+        public override string VisitChildren(IRuleNode node)
+        {
+            base.VisitChildren(node);
+            return node.GetText();
         }
 
         /// <summary>
         /// Indent a single line statement.
         /// TODO: make a rule for all single line statement.
         /// </summary>
-        /// <param name="context">The definition context.</param>
+        /// <param name="context">The statement context.</param>
         /// <param name="node">The node to visit.</param>
         /// <returns></returns>
-        protected virtual string IndentSingleLineStatement(RuleContext context, ITerminalNode node)
+        protected virtual string IndentSingleLineStatement(StatementContext context, ITerminalNode node)
         {
             string result = string.Empty;
-            var parentContext = context as GSCParser.SelectionStatementContext;
-
-            if (parentContext.statement(0).compoundStatement() == null)
+            if (node.Symbol.Type == RightParen && context.compoundStatement() == null)
             {
-                if (node.Symbol.Type == GSCParser.RightParen)
-                {
-                    IndentLevel++;
-                    result += IndentNewLine();
-                    IndentLevel--;
-                }
+                IndentLevel++;
+                result += IndentNewLine();
+                IndentLevel--;
             }
             return result;
         }
@@ -110,12 +127,12 @@ namespace Iswenzz.CoD4.Parser.Definitions
         /// Indent the last line.
         /// </summary>
         /// <param name="source">The source.</param>
-        protected virtual void IndentLine(StringBuilder source)
+        protected virtual void IndentLine(ref string source)
         {
             int lastIndex = source.LastIndexOf('\n') + 1;
 
             if (IndentLevel > 0)
-                source.Insert(lastIndex, string.Concat(Enumerable.Repeat('\t', IndentLevel)));
+                source = source.Insert(lastIndex, string.Concat(Enumerable.Repeat('\t', IndentLevel)));
             IndentLevel++;
         }
 
@@ -123,7 +140,7 @@ namespace Iswenzz.CoD4.Parser.Definitions
         /// Dedent the last line.
         /// </summary>
         /// <param name="source">The source.</param>
-        protected virtual void DedentLine(StringBuilder source)
+        protected virtual void DedentLine(ref string source)
         {
             int lastIndex = source.LastIndexOf('\n') + 1;
             --IndentLevel;
@@ -132,7 +149,7 @@ namespace Iswenzz.CoD4.Parser.Definitions
             int lengthToRemove = IndentLevel == 0 ? 1 : IndentLevel;
 
             if (lastIndex >= 0 && lastIndex + lengthToRemove <= source.Length)
-                source.Remove(lastIndex, lengthToRemove);
+                source = source.Remove(lastIndex, lengthToRemove);
         }
     }
 }

@@ -38,15 +38,7 @@ namespace Iswenzz.CoD4.Parser.Definitions
         public override string VisitFunctionDeclaration([NotNull] FunctionDeclarationContext context)
         {
             base.VisitFunctionDeclaration(context);
-            string result = context.identifier().GetText()
-                + context.LeftParen()
-                + context.identifierList()?.GetText()
-                + context.RightParen();
-
-            var compoundStatement = context.compoundStatement();
-            if (compoundStatement != null)
-                result += VisitCompoundStatement(compoundStatement);
-            return result;
+            return ComputeCompoundStatement(context, context.compoundStatement());
         }
 
         public override string VisitCompoundStatement([NotNull] CompoundStatementContext context)
@@ -54,7 +46,7 @@ namespace Iswenzz.CoD4.Parser.Definitions
             base.VisitCompoundStatement(context);
             string result = string.Empty;
 
-            result += Environment.NewLine + context.LeftBrace();
+            result += context.LeftBrace();
             IndentLine(ref result);
             result += IndentNewLine();
 
@@ -70,8 +62,12 @@ namespace Iswenzz.CoD4.Parser.Definitions
 
         public override string VisitSelectionStatement([NotNull] SelectionStatementContext context)
         {
-            // TODO
-            return base.VisitSelectionStatement(context) + IndentNewLine();
+            base.VisitSelectionStatement(context);
+            string result = string.Empty;
+
+            result += ComputeCompoundStatement(context, context.statement(0).compoundStatement());
+            //result += ComputeCompoundStatement(context, context.statement(1)?.compoundStatement());
+            return result;
         }
 
         public override string VisitStatement([NotNull] StatementContext context)
@@ -81,9 +77,7 @@ namespace Iswenzz.CoD4.Parser.Definitions
             var compoundStatement = context.compoundStatement();
             var selectionStatement = context.selectionStatement();
 
-            if (compoundStatement != null)
-                result = VisitCompoundStatement(compoundStatement);
-            else if (selectionStatement != null)
+            if (selectionStatement != null)
                 result = VisitSelectionStatement(selectionStatement);
             return result;
         }
@@ -92,6 +86,23 @@ namespace Iswenzz.CoD4.Parser.Definitions
         {
             base.VisitChildren(node);
             return node.GetText();
+        }
+
+        protected virtual string ComputeCompoundStatement(ParserRuleContext context, 
+            CompoundStatementContext compoundStatement)
+        {
+            ICharStream cs = context.Start.InputStream;
+            string result = string.Empty;
+
+            if (compoundStatement != null)
+            {
+                result = cs.GetText(new Interval(context.Start.StartIndex,
+                    compoundStatement.Start.StartIndex - 1));
+                result += VisitCompoundStatement(compoundStatement);
+                result += cs.GetText(new Interval(compoundStatement.Stop.StopIndex + 1,
+                    context.Stop.StopIndex));
+            }
+            return result;
         }
 
         /// <summary>

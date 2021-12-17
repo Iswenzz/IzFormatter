@@ -1,6 +1,7 @@
-﻿using System;
-using System.Globalization;
-using System.Text;
+﻿using System.Text.RegularExpressions;
+using Antlr4.Runtime;
+using Antlr4.Runtime.Misc;
+using static GSCParser;
 
 namespace Iswenzz.CoD4.Parser.Utils
 {
@@ -9,66 +10,33 @@ namespace Iswenzz.CoD4.Parser.Utils
     /// </summary>
     public static class Extensions
     {
-        /// <summary>
-        /// Find the last index of a character.
-        /// </summary>
-        /// <param name="sb">The string builder.</param>
-        /// <param name="find">The character to find.</param>
-        /// <param name="ignoreCase">Should ignore case.</param>
-        /// <param name="startIndex">The start index.</param>
-        /// <param name="culture">The culture info.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
-        public static int LastIndexOf(this StringBuilder sb, char find, 
-            bool ignoreCase = false, int startIndex = -1, CultureInfo culture = null)
-        {
-            int lastIndex = -1;
-            if (startIndex == -1)
-                startIndex = sb.Length - 1;
-            if (startIndex < 0 || startIndex >= sb.Length) 
-                throw new ArgumentException("startIndex must be between 0 and sb.Lengh - 1", nameof(sb));
-            if (culture == null) 
-                culture = CultureInfo.InvariantCulture;
-
-            if (ignoreCase)
-                find = char.ToUpper(find, culture);
-            for (int i = startIndex; i >= 0; i--)
-            {
-                char c = ignoreCase ? char.ToUpper(sb[i], culture) : sb[i];
-                if (find == c)
-                    return i;
-            }
-            return lastIndex;
-        }
+        public delegate string VisitMethod<T>(T context);
 
         /// <summary>
-        /// Find the first index of a character.
+        /// Compute the context in between.
         /// </summary>
-        /// <param name="sb">The string builder.</param>
-        /// <param name="find">The character to find.</param>
-        /// <param name="ignoreCase">Should ignore case.</param>
-        /// <param name="startIndex">The start index.</param>
-        /// <param name="culture">The culture info.</param>
+        /// <param name="parentContext">The parent context.</param>
+        /// <param name="betweenContext">The context to read in between.</param>
+        /// <param name="indentBetween">Add an optional indentation before the between context.</param>
+        /// <typeparam name="T">The context type to read in between.</typeparam>
         /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
-        public static int IndexOf(this StringBuilder sb, char find,
-            bool ignoreCase = false, int startIndex = 0, CultureInfo culture = null)
+        public static string VisitBetweenRule<T>(this ParserRuleContext parentContext,
+            T betweenContext, VisitMethod<T> visit, string indentBetween = null)
+            where T : ParserRuleContext
         {
-            int index = -1;
-            if (startIndex < 0 || startIndex >= sb.Length)
-                throw new ArgumentException("startIndex must be between 0 and sb.Lengh - 1", nameof(sb));
-            if (culture == null)
-                culture = CultureInfo.InvariantCulture;
+            string result = string.Empty;
+            if (betweenContext == null)
+                return result;
 
-            if (ignoreCase)
-                find = char.ToUpper(find, culture);
-            for (int i = startIndex; i < sb.Length; i++)
+            for (int i = 0; i < parentContext.ChildCount; i++)
             {
-                char c = ignoreCase ? char.ToUpper(sb[i], culture) : sb[i];
-                if (find == c)
-                    return i;
+                var child = parentContext.GetChild(i);
+                if (betweenContext.SourceInterval.Equals(child.SourceInterval))
+                    result += indentBetween + visit(betweenContext);
+                else
+                    result += child.GetText();
             }
-            return index;
+            return result;
         }
     }
 }

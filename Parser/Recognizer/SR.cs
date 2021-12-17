@@ -18,7 +18,7 @@ namespace Iswenzz.CoD4.Parser.Recognizer
         /// Create a function.
         /// </summary>
         /// <param name="context">The definition context.</param>
-        public override void CreateFunction(FunctionDeclarationContext context) =>
+        public override void CreateFunction(FunctionStatementContext context) =>
             Functions.Add(new SRFunction(this, context));
     }
 }

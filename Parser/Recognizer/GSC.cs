@@ -74,14 +74,14 @@ namespace Iswenzz.CoD4.Parser.Recognizer
         /// Create a function.
         /// </summary>
         /// <param name="context">The definition context.</param>
-        public virtual void CreateFunction(FunctionDeclarationContext context) =>
+        public virtual void CreateFunction(FunctionStatementContext context) =>
             Functions.Add(new Function(this, context));
 
         /// <summary>
         /// Create an include directive.
         /// </summary>
         /// <param name="context">The definition context.</param>
-        public virtual void CreateInclude(DirectiveContext context) =>
+        public virtual void CreateInclude(DirectiveStatementContext context) =>
             Includes.Add(new Include(this, context));
 
         /// <summary>

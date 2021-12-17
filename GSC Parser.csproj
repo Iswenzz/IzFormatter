@@ -21,6 +21,7 @@
     <PackageReference Include="CommandLineParser" Version="2.9.0-preview1" />
   </ItemGroup>
   <ItemGroup>
-    <Antlr4 Include="Parser/Grammar/GSC.g4" />
+	  <Antlr4 Include="Parser/Grammar/GSCParser.g4" />
+	  <Antlr4 Include="Parser/Grammar/GSCLexer.g4" />
   </ItemGroup>
 </Project>

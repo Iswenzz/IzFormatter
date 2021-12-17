@@ -2,6 +2,7 @@
 using Antlr4.Runtime.Misc;
 
 using Iswenzz.CoD4.Parser.Recognizer;
+using static GSCParser;
 
 namespace Iswenzz.CoD4.Parser.Definitions
 {
@@ -18,22 +19,22 @@ namespace Iswenzz.CoD4.Parser.Definitions
         public CompilationUnit(GSC gsc, ParserRuleContext context) : base(gsc, context) { }
 
         /// <summary>
-        /// Function declaration.
+        /// Function statement.
         /// </summary>
         /// <param name="context">The definition context.</param>
         /// <returns></returns>
-        public override string VisitFunctionDeclaration([NotNull] GSCParser.FunctionDeclarationContext context)
+        public override string VisitFunctionStatement([NotNull] FunctionStatementContext context)
         {
             GSC.CreateFunction(context);
             return null;
         }
 
         /// <summary>
-        /// Directive.
+        /// Directive statement.
         /// </summary>
         /// <param name="context">The definition context.</param>
         /// <returns></returns>
-        public override string VisitDirective([NotNull] GSCParser.DirectiveContext context)
+        public override string VisitDirectiveStatement([NotNull] DirectiveStatementContext context)
         {
             GSC.CreateInclude(context);
             return null;

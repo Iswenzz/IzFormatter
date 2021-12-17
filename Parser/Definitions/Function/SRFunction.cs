@@ -1,5 +1,4 @@
 ﻿using Antlr4.Runtime;
-using Antlr4.Runtime.Misc;
 
 using Iswenzz.CoD4.Parser.Recognizer;
 

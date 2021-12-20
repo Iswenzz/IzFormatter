@@ -3,6 +3,12 @@ parser grammar GSCParser;
 options 
 {
     tokenVocab = GSCLexer;
+    superClass = GSCParserBase;
+}
+
+@parser::header 
+{
+    using Iswenzz.CoD4.Parser.Grammar;
 }
 
 compilationUnit
@@ -14,25 +20,21 @@ translationUnit
     ;
 
 statement
-    :   simpleStatement
-    |   Newline? Indent? (simpleStatement | compoundStatement)+ Dedent?
+    :   Newline? (simpleStatement | compoundStatement)+ Newline?
     ;
 
 simpleStatement
-    :   
-    (   variableStatement
+    :   expressionStatement
     |   entityStatement
     |   labeledStatement
-    |   expressionStatement
     |   jumpStatement
     |   waitStatement
     |   threadStatement
-    |   directiveStatement
-    )   ';'
+    |   directiveStatement 
     ;
 
 compoundStatement
-    :   '{' (Newline | statement)* '}'
+    :   Newline? '{' statement* '}' Newline?
     |   selectionStatement
     |   iterationStatement
     |   functionStatement
@@ -76,7 +78,7 @@ expression
     |   expression '&&' expression                                        # LogicalAndExpression
     |   expression '||' expression                                        # LogicalOrExpression
     |   <assoc=right> expression '=' expression                           # AssignmentExpression
-    |   <assoc=right> expression assignmentOperator expression            # AssignmentOperatorExpression
+    |   <assoc=right> expression ws=assignmentOperator expression         # AssignmentOperatorExpression
     |   entityStatement                                                   # EntityStatementExpression
     |   threadStatement                                                   # ThreadStatementExpression
     |   identifier                                                        # IdentifierExpression
@@ -89,16 +91,8 @@ functionStatement
     :   identifier '(' identifierList? ')' statement
     ;
 
-variableDeclaration
-    :   assignable ('=' expression)?
-    ;
-
 expressionStatement
-    :   expression?
-    ;
-
-variableStatement
-    :   variableDeclarationList
+    :   expression? ';'
     ;
 
 labeledStatement
@@ -113,33 +107,35 @@ selectionStatement
     ;
 
 waitStatement
-    :   Wait ('(')? expression (')')?
+    :   Wait ('(')? expression (')')? ';'
     ;
 
 threadStatement
-    :   Thread expression
+    :   Thread expression ';'
     ;
 
 entityStatement
     :   entity
     (   threadStatement
     |   expression
-    )
+    )   ';'
     ;
 
 iterationStatement
     :   While '(' expression ')' statement
-    |   For '(' (expressionSequence | variableDeclarationList)? ';' expressionSequence? ';' expressionSequence? ')' statement
+    |   For '(' expressionSequence? ';' expressionSequence? ';' expressionSequence? ')' statement
     ;
 
 jumpStatement
-    :   Goto Identifier
+    :   
+    (   Goto Identifier
     |   (Continue | Break)
-    |   Return expression?  
+    |   Return expression?
+    )   ';' 
     ;
 
 directiveStatement
-    :   IncludeDirective
+    :   IncludeDirective ';'
     ;
 
 assignmentOperator
@@ -150,10 +146,6 @@ identifierList
     :   Identifier (',' Identifier)*
     ;
 
-variableDeclarationList
-    :   variableDeclaration (',' variableDeclaration)*
-    ;
-
 identifier
     :   Identifier
     ;
@@ -162,8 +154,4 @@ entity
     :   Self
     |   Level
     |   Identifier
-    ;
-
-assignable
-    :   identifier
     ;

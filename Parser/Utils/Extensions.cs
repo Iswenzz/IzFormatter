@@ -1,9 +1,6 @@
-﻿using System.Text.RegularExpressions;
-using Antlr4.Runtime;
-using Antlr4.Runtime.Misc;
-using static GSCParser;
+﻿using Antlr4.Runtime;
 
-namespace Iswenzz.CoD4.Parser.Utils
+namespace Iswenzz.CoD4.Parser.Utils 
 {
     /// <summary>
     /// Extension methods class.

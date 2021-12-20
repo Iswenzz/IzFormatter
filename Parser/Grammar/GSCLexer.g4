@@ -1,10 +1,13 @@
 lexer grammar GSCLexer;
 
-tokens { Indent, Dedent }
-
 options 
 {
     superClass = GSCLexerBase;
+}
+
+@lexer::header 
+{
+    using Iswenzz.CoD4.Parser.Grammar;
 }
 
 Break:                              'break';
@@ -89,13 +92,7 @@ DeveloperSection:                   '/#' .*? '#/'           -> channel(HIDDEN);
 BlockComment:                       '/*' .*? '*/'           -> channel(HIDDEN);
 LineComment:                        '//' ~[\r\n]*           -> channel(HIDDEN);
 Whitespace:                         [ \t]+                  -> channel(HIDDEN);
-
-Newline
-    :
-    (   {AtStartOfLine()}? Whitespace
-    |   ('\r'? '\n' | '\r' | '\f') Whitespace?
-    )   {OnNewLine();}
-    ;
+Newline:                            ('\r'? '\n' | '\r');
 
 fragment IdentifierNondigit:        Nondigit;
 fragment IdentifierNondigitPath:    NondigitPath;

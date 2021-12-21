@@ -57,5 +57,14 @@ namespace Iswenzz.CoD4.Parser.Utils
             }
             return -1;
         }
+
+        /// <summary>
+        /// Checks if a child collection contains a specific token.
+        /// </summary>
+        /// <param name="childs">The child collection.</param>
+        /// <param name="tokenType">The token type to find.</param>
+        /// <returns></returns>
+        public static bool ContainsToken(this IEnumerable<IParseTree> childs, int tokenType) =>
+            childs.Any(c => c is ITerminalNode token && token.Symbol.Type == tokenType);
     }
 }

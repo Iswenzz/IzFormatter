@@ -53,13 +53,13 @@ expressionSequence
     ;
 
 expression
-    :   expression '(' expressionSequence? ')' ws=expression?             # FunctionExpression
-    |   expression '[' expression ']' ws=expression?                      # MemberIndexExpression
+    :   expression '(' expressionSequence? ')' wsl=expression?            # FunctionExpression
+    |   expression '[' expression ']' wsl=expression?                     # MemberIndexExpression
     |   expression '.' expression                                         # MemberDotExpression
     |   expression '++'                                                   # PostIncrementExpression
     |   expression '--'                                                   # PostDecreaseExpression
     |   PathIdentifier '::' expression                                    # FileExpression
-    |   '[[' expression ']]' '(' expressionSequence? ')' ws=expression?   # CallFunctionPointerExpression
+    |   '[[' expression ']]' '(' expressionSequence? ')' wsl=expression?  # CallFunctionPointerExpression
     |   '::' expression                                                   # FunctionPointerExpression
     |   '++' expression                                                   # PreIncrementExpression
     |   '--' expression                                                   # PreDecreaseExpression
@@ -97,40 +97,40 @@ expressionStatement
 
 labeledStatement
     :   Identifier ':' statement
-    |   ws=Case expression ':' statement
+    |   wsr=Case expression ':' statement
     |   Default ':' statement
     ;
 
 selectionStatement
-    :   ws=If '(' expression ')' statement (ws=Else statement)?
-    |   ws=Switch '(' expression ')' statement
+    :   wsr=If '(' expression ')' statement (wsr=Else statement)?
+    |   wsr=Switch '(' expression ')' statement
     ;
 
 waitStatement
-    :   ws=Wait '('? expression ')'? ';'
+    :   wsr=Wait '('? expression ')'? ';'
     ;
 
 threadStatement
-    :   ws=Thread expression ';'
+    :   wsr=Thread expression ';'
     ;
 
 entityStatement
-    :   ws=entity
+    :   wsr=entity
     (   threadStatement
     |   expression
     )   ';'
     ;
 
 iterationStatement
-    :   ws=While '(' expression ')' statement
-    |   ws=For '(' expressionSequence? ws=';' expressionSequence? ws=';' expressionSequence? ')' statement
+    :   wsr=While '(' expression ')' statement
+    |   wsr=For '(' expressionSequence? wsr=';' expressionSequence? wsr=';' expressionSequence? ')' statement
     ;
 
 jumpStatement
     :   
     (   Goto Identifier
     |   (Continue | Break)
-    |   ws=Return expression?
+    |   wsr=Return expression?
     )   ';' 
     ;
 

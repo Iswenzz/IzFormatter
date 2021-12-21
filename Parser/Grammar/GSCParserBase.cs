@@ -1,13 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
-
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
-using Antlr4.Runtime.Misc;
-using static GSCParser;
+
 using Iswenzz.CoD4.Parser.Utils;
+using static GSCParser;
 
 namespace Iswenzz.CoD4.Parser.Grammar
 {
@@ -32,41 +32,54 @@ namespace Iswenzz.CoD4.Parser.Grammar
         }
 
         /// <summary>
-        /// Build rule with formatting.
+        /// Build rule and its childrens with formatting.
         /// </summary>
         /// <param name="context">The rule context.</param>
         protected virtual void BuildRule(IParseTree context)
         {
             if (context is ParserRuleContext rule)
             {
-                dynamic ws = context.GetType().GetField("ws")?.GetValue(context);
-                if (ws != null)
-                    BuildWhitespace(rule, ws);
+                dynamic whitespace = context.GetType().GetField("ws")?.GetValue(context);
+                dynamic whitespaceLeft = context.GetType().GetField("wsl")?.GetValue(context);
+                dynamic whitespaceRight = context.GetType().GetField("wsr")?.GetValue(context);
+
+                ExtraNode.Build(BuildWhitespace(rule, whitespace, Whitespace));
+                ExtraNode.Build(BuildWhitespaceLeft(rule, whitespaceLeft, Whitespace));
+                ExtraNode.Build(BuildWhitespaceRight(rule, whitespaceRight, Whitespace));
             }
             for (int i = 0; i < context.ChildCount; i++)
                 BuildRule(context.GetChild(i));
         }
 
-        protected virtual void BuildWhitespace(ParserRuleContext context, dynamic ws)
+        protected virtual ExtraNode BuildWhitespace(ParserRuleContext context, dynamic node, int nodeType) => new(context)
         {
-            List<IParseTree> childs = context.GetChilds().ToList();
-            int needWhitespaceIndex = ParserUtils.IndexOfChild(childs, ws);
+            Node = node,
+            CancelToken = nodeType,
+            RebuildTree = new ArrayList {
+                TokenFactory.Create(Whitespace, " "),
+                node,
+                TokenFactory.Create(Whitespace, " ")
+            },
+        };
 
-            if (childs.Any(c => c is ITerminalNode token && token.Symbol.Type == Whitespace))
-                return;
+        protected virtual ExtraNode BuildWhitespaceLeft(ParserRuleContext context, dynamic node, int nodeType) => new(context)
+        {
+            Node = node,
+            CancelToken = nodeType,
+            RebuildTree = new ArrayList {
+                TokenFactory.Create(Whitespace, " "),
+                node,
+            },
+        };
 
-            context.RemoveChilds();
-            for (int i = 0; i < childs.Count; i++)
-            {
-                if (i == needWhitespaceIndex)
-                {
-                    context.AddChild(TokenFactory.Create(Whitespace, " "));
-                    context.AddChild((dynamic)ws);
-                    context.AddChild(TokenFactory.Create(Whitespace, " "));
-                }
-                else
-                    context.AddChild((dynamic)childs.ElementAt(i));
-            }
-        }
+        protected virtual ExtraNode BuildWhitespaceRight(ParserRuleContext context, dynamic node, int nodeType) => new(context)
+        {
+            Node = node,
+            CancelToken = nodeType,
+            RebuildTree = new ArrayList {
+                node,
+                TokenFactory.Create(Whitespace, " ")
+            },
+        };
     }
 }

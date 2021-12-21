@@ -53,13 +53,13 @@ expressionSequence
     ;
 
 expression
-    :   expression '(' expressionSequence? ')' expression?                # FunctionExpression
-    |   expression '[' expression ']' expression?                         # MemberIndexExpression
+    :   expression '(' expressionSequence? ')' ws=expression?             # FunctionExpression
+    |   expression '[' expression ']' ws=expression?                      # MemberIndexExpression
     |   expression '.' expression                                         # MemberDotExpression
     |   expression '++'                                                   # PostIncrementExpression
     |   expression '--'                                                   # PostDecreaseExpression
     |   PathIdentifier '::' expression                                    # FileExpression
-    |   '[[' expression ']]' '(' expressionSequence? ')' expression?      # CallFunctionPointerExpression
+    |   '[[' expression ']]' '(' expressionSequence? ')' ws=expression?   # CallFunctionPointerExpression
     |   '::' expression                                                   # FunctionPointerExpression
     |   '++' expression                                                   # PreIncrementExpression
     |   '--' expression                                                   # PreDecreaseExpression
@@ -67,17 +67,17 @@ expression
     |   '-' expression                                                    # UnaryMinusExpression
     |   '~' expression                                                    # BitNotExpression
     |   '!' expression                                                    # NotExpression
-    |   expression ('*' | '/' | '%') expression                           # MultiplicativeExpression
-    |   expression ('+' | '-') expression                                 # AdditiveExpression
-    |   expression ('<<' | '>>' | '>>') expression                        # BitShiftExpression
-    |   expression ('<' | '>' | '<=' | '>=') expression                   # RelationalExpression
-    |   expression ('==' | '!=') expression                               # EqualityExpression
-    |   expression '&' expression                                         # BitAndExpression
-    |   expression '^' expression                                         # BitXOrExpression
-    |   expression '|' expression                                         # BitOrExpression
-    |   expression '&&' expression                                        # LogicalAndExpression
-    |   expression '||' expression                                        # LogicalOrExpression
-    |   <assoc=right> expression '=' expression                           # AssignmentExpression
+    |   expression ws=('*' | '/' | '%') expression                        # MultiplicativeExpression
+    |   expression ws=('+' | '-') expression                              # AdditiveExpression
+    |   expression ws=('<<' | '>>' | '>>') expression                     # BitShiftExpression
+    |   expression ws=('<' | '>' | '<=' | '>=') expression                # RelationalExpression
+    |   expression ws=('==' | '!=') expression                            # EqualityExpression
+    |   expression ws='&' expression                                      # BitAndExpression
+    |   expression ws='^' expression                                      # BitXOrExpression
+    |   expression ws='|' expression                                      # BitOrExpression
+    |   expression ws='&&' expression                                     # LogicalAndExpression
+    |   expression ws='||' expression                                     # LogicalOrExpression
+    |   <assoc=right> expression ws='=' expression                        # AssignmentExpression
     |   <assoc=right> expression ws=assignmentOperator expression         # AssignmentOperatorExpression
     |   entityStatement                                                   # EntityStatementExpression
     |   threadStatement                                                   # ThreadStatementExpression
@@ -97,40 +97,40 @@ expressionStatement
 
 labeledStatement
     :   Identifier ':' statement
-    |   Case expression ':' statement
+    |   ws=Case expression ':' statement
     |   Default ':' statement
     ;
 
 selectionStatement
-    :   If '(' expression ')' statement (Else statement)?
-    |   Switch '(' expression ')' statement
+    :   ws=If '(' expression ')' statement (ws=Else statement)?
+    |   ws=Switch '(' expression ')' statement
     ;
 
 waitStatement
-    :   Wait ('(')? expression (')')? ';'
+    :   ws=Wait '('? expression ')'? ';'
     ;
 
 threadStatement
-    :   Thread expression ';'
+    :   ws=Thread expression ';'
     ;
 
 entityStatement
-    :   entity
+    :   ws=entity
     (   threadStatement
     |   expression
     )   ';'
     ;
 
 iterationStatement
-    :   While '(' expression ')' statement
-    |   For '(' expressionSequence? ';' expressionSequence? ';' expressionSequence? ')' statement
+    :   ws=While '(' expression ')' statement
+    |   ws=For '(' expressionSequence? ws=';' expressionSequence? ws=';' expressionSequence? ')' statement
     ;
 
 jumpStatement
     :   
     (   Goto Identifier
     |   (Continue | Break)
-    |   Return expression?
+    |   ws=Return expression?
     )   ';' 
     ;
 

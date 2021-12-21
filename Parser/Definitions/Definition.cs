@@ -1,11 +1,8 @@
 ﻿using System.Text;
 using Antlr4.Runtime;
-using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
 
 using Iswenzz.CoD4.Parser.Recognizer;
-using Iswenzz.CoD4.Parser.Utils;
-using static GSCParser;
 
 namespace Iswenzz.CoD4.Parser.Definitions
 {
@@ -31,12 +28,6 @@ namespace Iswenzz.CoD4.Parser.Definitions
             Context = context;
             Stream = new StringBuilder();
             Stream.Append(Visit(context));
-        }
-
-        public override string VisitAssignmentOperatorExpression([NotNull] AssignmentOperatorExpressionContext context)
-        {
-            var x = context.ws;
-            return base.VisitAssignmentOperatorExpression(context);
         }
 
         /// <summary>

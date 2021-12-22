@@ -1,5 +1,7 @@
 lexer grammar GSCLexer;
 
+tokens { Indent, Detend }
+
 options 
 {
     superClass = GSCLexerBase;
@@ -92,7 +94,7 @@ DeveloperSection:                   '/#' .*? '#/'           -> channel(HIDDEN);
 BlockComment:                       '/*' .*? '*/'           -> channel(HIDDEN);
 LineComment:                        '//' ~[\r\n]*           -> channel(HIDDEN);
 Whitespace:                         [ \t]+                  -> channel(HIDDEN);
-Newline:                            ('\r'? '\n' | '\r');
+Newline:                            ('\r'? '\n' | '\r')     -> channel(HIDDEN);
 
 fragment IdentifierNondigit:        Nondigit;
 fragment IdentifierNondigitPath:    NondigitPath;

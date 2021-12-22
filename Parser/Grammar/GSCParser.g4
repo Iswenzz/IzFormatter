@@ -20,7 +20,7 @@ translationUnit
     ;
 
 statement
-    :   Newline? (simpleStatement | compoundStatement)+ Newline?
+    :   (simpleStatement | compoundStatement)+
     ;
 
 simpleStatement
@@ -34,10 +34,10 @@ simpleStatement
     ;
 
 compoundStatement
-    :   Newline? '{' statement* '}' Newline?
+    :   indent='{' statement* dedent='}'
     |   selectionStatement
     |   iterationStatement
-    |   functionStatement
+    |   newline=functionStatement
     ;
 
 literal
@@ -92,13 +92,13 @@ functionStatement
     ;
 
 expressionStatement
-    :   expression? ';'
+    :   expression newline=';'
     ;
 
 labeledStatement
-    :   Identifier ':' statement
-    |   wsr=Case expression ':' statement
-    |   Default ':' statement
+    :   Identifier ':' newline=statement
+    |   wsr=Case expression ':' indent=statement
+    |   Default ':' indent=statement
     ;
 
 selectionStatement
@@ -107,18 +107,18 @@ selectionStatement
     ;
 
 waitStatement
-    :   wsr=Wait '('? expression ')'? ';'
+    :   wsr=Wait '('? expression ')'? newline=';'
     ;
 
 threadStatement
-    :   wsr=Thread expression ';'
+    :   wsr=Thread newline=expressionStatement
     ;
 
 entityStatement
     :   wsr=entity
     (   threadStatement
-    |   expression
-    )   ';'
+    |   newline=expressionStatement
+    )
     ;
 
 iterationStatement
@@ -131,11 +131,11 @@ jumpStatement
     (   Goto Identifier
     |   (Continue | Break)
     |   wsr=Return expression?
-    )   ';' 
+    )   newline=';' 
     ;
 
 directiveStatement
-    :   IncludeDirective ';'
+    :   IncludeDirective newline=';'
     ;
 
 assignmentOperator

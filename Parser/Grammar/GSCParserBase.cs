@@ -126,12 +126,13 @@ namespace Iswenzz.CoD4.Parser.Grammar
             {
                 // TODO
                 //IndentLevel--;
-                //string newLine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
+                string newLine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
 
                 return new ArrayList
                 {
                     TokenFactory.Create(Dedent, ""),
-                    node
+                    node,
+                    TokenFactory.Create(Newline, newLine)
                 };
             }
         };

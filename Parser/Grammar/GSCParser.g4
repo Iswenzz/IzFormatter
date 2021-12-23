@@ -49,7 +49,7 @@ literal
     ;
 
 expressionSequence
-    :   expression (',' expression)*
+    :   expression (wsr=',' expression)*
     ;
 
 expression
@@ -111,7 +111,7 @@ waitStatement
     ;
 
 threadStatement
-    :   wsr=Thread newline=expressionStatement
+    :   wsr=Thread expressionStatement
     ;
 
 entityStatement
@@ -143,7 +143,7 @@ assignmentOperator
     ;
 
 identifierList
-    :   Identifier (',' Identifier)*
+    :   Identifier (wsr=',' Identifier)*
     ;
 
 identifier

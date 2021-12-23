@@ -20,7 +20,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
         public int CancelToken { get; set; }
 
         public delegate ArrayList RebuildNodes();
-        public RebuildNodes RebuildCallback { get; set; }
+        public RebuildNodes BuildParseTree { get; set; }
 
         /// <summary>
         /// Initialize a new <see cref="ExtraNode"/>.
@@ -37,7 +37,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
         /// </summary>
         public virtual void RebuildNode()
         {
-            if (RebuildCallback == null || Childs.ContainsToken(CancelToken))
+            if (BuildParseTree == null || Childs.ContainsToken(CancelToken))
                 return;
             int needChangeIndex = ParserUtils.IndexOfChild(Childs, Node);
 
@@ -46,7 +46,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
             {
                 if (i == needChangeIndex)
                 {
-                    foreach (dynamic child in RebuildCallback())
+                    foreach (dynamic child in BuildParseTree())
                         Context.AddChild(child);
                 }
                 else

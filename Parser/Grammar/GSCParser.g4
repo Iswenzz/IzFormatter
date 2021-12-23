@@ -12,7 +12,7 @@ options
 }
 
 compilationUnit
-    :   translationUnit? EOF
+    :   translationUnit? EOF {BuildFormatting();}
     ;
 
 translationUnit

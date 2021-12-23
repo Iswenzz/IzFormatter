@@ -1,6 +1,6 @@
 lexer grammar GSCLexer;
 
-tokens { Indent, Detend }
+tokens { Indent, Dedent }
 
 options 
 {

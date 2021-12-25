@@ -1,12 +1,13 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 
+using Iswenzz.CoD4.Parser.Utils;
 using static GSCParser;
-using System.Linq;
-using System.Collections.Generic;
 
 namespace Iswenzz.CoD4.Parser.Grammar
 {
@@ -58,11 +59,10 @@ namespace Iswenzz.CoD4.Parser.Grammar
                 dynamic whitespaceRight = context.GetType().GetField("wsr")?.GetValue(context);
 
                 ExtraNode.Build(BuildIndent(rule, indent));
-                ExtraNode.Build(BuildDedent(rule, dedent));
                 ExtraNode.Build(BuildNewline(rule, newline));
-                ExtraNode.Build(BuildWhitespace(rule, whitespace));
-                ExtraNode.Build(BuildWhitespaceLeft(rule, whitespaceLeft));
-                ExtraNode.Build(BuildWhitespaceRight(rule, whitespaceRight));
+                ExtraNode.Build(BuildWhitespace(rule, whitespace, true, true));
+                ExtraNode.Build(BuildWhitespace(rule, whitespaceLeft, true, false));
+                ExtraNode.Build(BuildWhitespace(rule, whitespaceRight, false, true));
             }
             for (int i = 0; i < context.ChildCount; i++)
                 BuildRule(context.GetChild(i));
@@ -78,15 +78,11 @@ namespace Iswenzz.CoD4.Parser.Grammar
         {
             Node = node,
             CancelToken = Newline,
-            BuildParseTree = () =>
+            BuildParseTree = () => new ArrayList
             {
-                string newLine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
-
-                return new ArrayList
-                {
-                    node,
-                    TokenFactory.Create(Newline, newLine)
-                };
+                node,
+                TokenFactory.Create(Newline, Environment.NewLine + 
+                    string.Concat(Enumerable.Repeat('\t', IndentLevel)))
             }
         };
 
@@ -124,15 +120,18 @@ namespace Iswenzz.CoD4.Parser.Grammar
             CancelToken = Dedent,
             BuildParseTree = () =>
             {
-                // TODO
-                //IndentLevel--;
+                IndentLevel--;
                 string newLine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
+
+                // var last = (ParserRuleContext)context.GetLastChildRecursion().Parent;
+                // last.RemoveLastChild();
+                // System.Console.WriteLine($"{last.ChildCount}[{last.GetText()}]");
 
                 return new ArrayList
                 {
                     TokenFactory.Create(Dedent, ""),
                     node,
-                    TokenFactory.Create(Newline, newLine)
+                    TokenFactory.Create(Newline, newLine),
                 };
             }
         };
@@ -143,50 +142,19 @@ namespace Iswenzz.CoD4.Parser.Grammar
         /// <param name="context">The context rule.</param>
         /// <param name="node">The node to apply.</param>
         /// <returns></returns>
-        protected virtual ExtraNode BuildWhitespace(ParserRuleContext context, dynamic node) => new(context)
+        protected virtual ExtraNode BuildWhitespace(ParserRuleContext context, dynamic node,
+            bool left, bool right) => new(context)
         {
             Node = node,
             CancelToken = Whitespace,
-            BuildParseTree = () => new ArrayList
+            BuildParseTree = () => 
             {
-                TokenFactory.Create(Whitespace, " "),
-                node,
-                TokenFactory.Create(Whitespace, " ")
+                ArrayList tree = new();
+                if (left) tree.Add(TokenFactory.Create(Whitespace, " "));
+                tree.Add(node);
+                if (right) tree.Add(TokenFactory.Create(Whitespace, " "));
+                return tree;
             }
-        };
-
-        /// <summary>
-        /// Build whitespace to the left.
-        /// </summary>
-        /// <param name="context">The context rule.</param>
-        /// <param name="node">The node to apply.</param>
-        /// <returns></returns>
-        protected virtual ExtraNode BuildWhitespaceLeft(ParserRuleContext context, dynamic node) => new(context)
-        {
-            Node = node,
-            CancelToken = Whitespace,
-            BuildParseTree = () => new ArrayList 
-            {
-                TokenFactory.Create(Whitespace, " "),
-                node,
-            },
-        };
-
-        /// <summary>
-        /// Build whitespace to the right.
-        /// </summary>
-        /// <param name="context">The context rule.</param>
-        /// <param name="node">The node to apply.</param>
-        /// <returns></returns>
-        protected virtual ExtraNode BuildWhitespaceRight(ParserRuleContext context, dynamic node) => new(context)
-        {
-            Node = node,
-            CancelToken = Whitespace,
-            BuildParseTree = () => new ArrayList 
-            {
-                node,
-                TokenFactory.Create(Whitespace, " ")
-            },
         };
     }
 }

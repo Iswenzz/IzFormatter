@@ -59,6 +59,48 @@ namespace Iswenzz.CoD4.Parser.Utils
         }
 
         /// <summary>
+        /// Get the last child of a rule.
+        /// </summary>
+        /// <param name="context">The rule context.</param>
+        /// <returns></returns>
+        public static IParseTree GetLastChild(this IParseTree context)
+        {
+            if (context is IToken || context.ChildCount <= 0) return context;
+            return context.GetChild(context.ChildCount - 1);
+        }
+
+        /// <summary>
+        /// Get the last child of a specific type.
+        /// </summary>
+        /// <param name="context">The rule context.</param>
+        /// <param name="type">The child token type.</param>
+        /// <returns></returns>
+        public static IParseTree GetLastChildOfType(this IParseTree context, int type)
+        {
+            IParseTree result = default;
+            for (int i = 0; i < context.ChildCount; i++)
+            {
+                IParseTree child = context.GetChild(i);
+                if (child is IToken token && token.Type == type)
+                    result = child;
+                else if (child is ITerminalNode node && node.Symbol.Type == type)
+                    result = child;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Recurse to get the last child of a rule.
+        /// </summary>
+        /// <param name="context">The rule context.</param>
+        /// <returns></returns>
+        public static IParseTree GetLastChildRecursion(this IParseTree context)
+        {
+            IParseTree child = GetLastChild(context);
+            return child.Equals(context) ? context : GetLastChildRecursion(child);
+        }
+
+        /// <summary>
         /// Checks if a child collection contains a specific token.
         /// </summary>
         /// <param name="childs">The child collection.</param>

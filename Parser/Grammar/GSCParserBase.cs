@@ -57,13 +57,15 @@ namespace Iswenzz.CoD4.Parser.Grammar
 
             dynamic indent = context.GetType().GetField("indent")?.GetValue(context);
             dynamic dedent = context.GetType().GetField("dedent")?.GetValue(context);
+            dynamic indentShort = context.GetType().GetField("indentShort")?.GetValue(context);
             dynamic newline = context.GetType().GetField("newline")?.GetValue(context);
             dynamic whitespace = context.GetType().GetField("ws")?.GetValue(context);
             dynamic whitespaceLeft = context.GetType().GetField("wsl")?.GetValue(context);
             dynamic whitespaceRight = context.GetType().GetField("wsr")?.GetValue(context);
 
-            ExtraNode.Build(BuildIndent(rule, indent));
             ExtraNode.Build(BuildNewline(rule, newline));
+            ExtraNode.Build(BuildIndent(rule, indent));
+            ExtraNode.Build(BuildIndentShort(rule, indentShort));
             ExtraNode.Build(BuildWhitespace(rule, whitespace, true, true));
             ExtraNode.Build(BuildWhitespace(rule, whitespaceLeft, true, false));
             ExtraNode.Build(BuildWhitespace(rule, whitespaceRight, false, true));
@@ -114,6 +116,33 @@ namespace Iswenzz.CoD4.Parser.Grammar
         };
 
         /// <summary>
+        /// Build indentation for a short statement.
+        /// </summary>
+        /// <param name="context">The context rule.</param>
+        /// <param name="node">The node to apply.</param>
+        /// <returns></returns>
+        protected virtual ExtraNode BuildIndentShort(ParserRuleContext context, dynamic node) => new(context)
+        {
+            Node = node,
+            BuildParseTree = () =>
+            {
+                ArrayList tree = new();
+                if ((node as ParserRuleContext).GetLastChildOfType(RULE_compoundStatement) == null)
+                {
+                    IndentLevel++;
+                    string newine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
+                    IndentLevel--;
+
+                    tree.Add(TokenFactory.Create(Indent, ""));
+                    tree.Add(TokenFactory.Create(Newline, newine));
+                    tree.Add(TokenFactory.Create(Dedent, ""));
+                }
+                tree.Add(node);
+                return tree;
+            }
+        };
+
+        /// <summary>
         /// Build dedentation.
         /// </summary>
         /// <param name="context">The context rule.</param>
@@ -127,11 +156,9 @@ namespace Iswenzz.CoD4.Parser.Grammar
                 IndentLevel--;
                 string newLine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
 
-                var last = (ParserRuleContext)context.GetLastChildRecursion().Parent;
+                ParserRuleContext last = (ParserRuleContext)context.GetLastChildRecursion().Parent;
                 last.RemoveLastChild();
-                // TODO rebuild newline
-                last.AddChild(BuildNewline(last, node).BuildParseTree());
-                System.Console.WriteLine($"{last.ChildCount}[{last.GetText()}]");
+                last.AddChild(TokenFactory.Create(Newline, newLine));
 
                 return new ArrayList
                 {

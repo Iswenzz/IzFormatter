@@ -16,30 +16,33 @@ compilationUnit
     ;
 
 translationUnit
-    :   statement+
+    :   (directiveStatement | functionStatement)+
     ;
 
 statement
-    :   (simpleStatement | compoundStatement)+
+    :   (simpleStatement | compoundStatement | shortStatement)+
     ;
 
 simpleStatement
-    :   expressionStatement
+    :
+    (   expressionStatement
     |   entityStatement
     |   labeledStatement
     |   jumpStatement
     |   waitStatement
     |   threadStatement
-    |   directiveStatement 
+    )   newline=';'
     ;
 
 compoundStatement
     :   indent='{' statement* dedent='}'
-    |   selectionStatement
-    |   iterationStatement
-    |   functionStatement
     ;
 
+shortStatement
+    :   selectionStatement
+    |   iterationStatement
+    ;
+    
 literal
     :   UndefinedLiteral
     |   BooleanLiteral
@@ -82,17 +85,16 @@ expression
     |   entityStatement                                                   # EntityStatementExpression
     |   threadStatement                                                   # ThreadStatementExpression
     |   identifier                                                        # IdentifierExpression
-    |   entity                                                            # EntityExpression
     |   literal                                                           # LiteralExpression
     |   '(' expressionSequence ')'                                        # ParenthesizedExpression
     ;
 
 functionStatement
-    :   identifier '(' identifierList? ')' statement
+    :   identifier '(' identifierList? ')' compoundStatement
     ;
 
 expressionStatement
-    :   expression newline=';'
+    :   expression
     ;
 
 labeledStatement
@@ -102,12 +104,12 @@ labeledStatement
     ;
 
 selectionStatement
-    :   wsr=If '(' expression ')' statement (wsr=Else statement)?
+    :   wsr=If '(' expression ')' indentShort=statement (wsr=Else indentShort=statement)?
     |   wsr=Switch '(' expression ')' statement
     ;
 
 waitStatement
-    :   wsr=Wait '('? expression ')'? newline=';'
+    :   wsr=Wait '('? expression ')'?
     ;
 
 threadStatement
@@ -117,13 +119,13 @@ threadStatement
 entityStatement
     :   wsr=entity
     (   threadStatement
-    |   newline=expressionStatement
+    |   expressionStatement
     )
     ;
 
 iterationStatement
-    :   wsr=While '(' expression ')' statement
-    |   wsr=For '(' expressionSequence? wsr=';' expressionSequence? wsr=';' expressionSequence? ')' statement
+    :   wsr=While '(' expression ')' indentShort=statement
+    |   wsr=For '(' expressionSequence? wsr=';' expressionSequence? wsr=';' expressionSequence? ')' indentShort=statement
     ;
 
 jumpStatement
@@ -131,7 +133,7 @@ jumpStatement
     (   Goto Identifier
     |   (Continue | Break)
     |   wsr=Return expression?
-    )   newline=';' 
+    )
     ;
 
 directiveStatement

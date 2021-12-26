@@ -77,7 +77,7 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <returns></returns>
         public static IParseTree GetLastChildOfType(this IParseTree context, int type)
         {
-            IParseTree result = default;
+            IParseTree result = null;
             for (int i = 0; i < context.ChildCount; i++)
             {
                 IParseTree child = context.GetChild(i);
@@ -85,6 +85,8 @@ namespace Iswenzz.CoD4.Parser.Utils
                     result = child;
                 else if (child is ITerminalNode node && node.Symbol.Type == type)
                     result = child;
+                else if (child is ParserRuleContext rule && rule.RuleIndex == type)
+                    result = rule;
             }
             return result;
         }

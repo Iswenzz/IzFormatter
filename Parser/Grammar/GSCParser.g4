@@ -37,7 +37,7 @@ compoundStatement
     :   indent='{' statement* dedent='}'
     |   selectionStatement
     |   iterationStatement
-    |   newline=functionStatement
+    |   functionStatement
     ;
 
 literal

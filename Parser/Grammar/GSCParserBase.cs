@@ -127,7 +127,8 @@ namespace Iswenzz.CoD4.Parser.Grammar
             BuildParseTree = () =>
             {
                 ArrayList tree = new();
-                if ((node as ParserRuleContext).GetLastChildOfType(RULE_compoundStatement) == null)
+                if (node is ParserRuleContext nodeContext && 
+                    nodeContext.GetLastChildOfType(RULE_compoundStatement) == null)
                 {
                     IndentLevel++;
                     string newine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));

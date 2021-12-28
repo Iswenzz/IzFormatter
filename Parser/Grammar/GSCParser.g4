@@ -12,7 +12,7 @@ options
 }
 
 compilationUnit
-    :   translationUnit? EOF {BuildFormatting();}
+    :   translationUnit? EOF { BuildFormatting(); }
     ;
 
 translationUnit
@@ -24,136 +24,139 @@ statement
     ;
 
 simpleStatement
-    :
-    (   expressionStatement
-    |   entityStatement
+    :   expressionStatement
     |   labeledStatement
     |   jumpStatement
     |   waitStatement
-    |   threadStatement
-    )   newline=';'
     ;
 
 compoundStatement
-    :   indent='{' statement* dedent='}'
+    :   indent=LeftBrace statement* dedent=RightBrace
     ;
 
 shortStatement
     :   selectionStatement
     |   iterationStatement
     ;
-    
-literal
-    :   UndefinedLiteral
-    |   BooleanLiteral
-    |   StringLiteral
-    |   ArrayLiteral
-    |   DecimalLiteral
+
+primaryExpression
+    :   identifier
+    |   qualifiedIdentifier
+    |   memberExpression
+    |   threadExpression
+    |   LeftParen expression RightParen
+    |   literal
     ;
 
-expressionSequence
-    :   expression (wsr=',' expression)*
+postfixExpression
+    :   primaryExpression
+	|   postfixExpression LeftBracket expression RightBracket wsl=postfixExpression?
+	|   postfixExpression LeftParen expressionSequence? RightParen
+	|   postfixExpression Dot postfixExpression
+	|   postfixExpression (PlusPlus | MinusMinus)
+    |   qualifiedIdentifier Qualified postfixExpression
+    |   LeftFunctionPointer postfixExpression RightFunctionPointer
     ;
 
-expression
-    :   expression '(' expressionSequence? ')' wsl=expression?            # FunctionExpression
-    |   expression '[' expression ']' wsl=expression?                     # MemberIndexExpression
-    |   expression '.' expression                                         # MemberDotExpression
-    |   expression '++'                                                   # PostIncrementExpression
-    |   expression '--'                                                   # PostDecreaseExpression
-    |   PathIdentifier '::' expression                                    # FileExpression
-    |   '[[' expression ']]' '(' expressionSequence? ')' wsl=expression?  # CallFunctionPointerExpression
-    |   '::' expression                                                   # FunctionPointerExpression
-    |   '++' expression                                                   # PreIncrementExpression
-    |   '--' expression                                                   # PreDecreaseExpression
-    |   '+' expression                                                    # UnaryPlusExpression
-    |   '-' expression                                                    # UnaryMinusExpression
-    |   '~' expression                                                    # BitNotExpression
-    |   '!' expression                                                    # NotExpression
-    |   expression ws=('*' | '/' | '%') expression                        # MultiplicativeExpression
-    |   expression ws=('+' | '-') expression                              # AdditiveExpression
-    |   expression ws=('<<' | '>>' | '>>') expression                     # BitShiftExpression
-    |   expression ws=('<' | '>' | '<=' | '>=') expression                # RelationalExpression
-    |   expression ws=('==' | '!=') expression                            # EqualityExpression
-    |   expression ws='&' expression                                      # BitAndExpression
-    |   expression ws='^' expression                                      # BitXOrExpression
-    |   expression ws='|' expression                                      # BitOrExpression
-    |   expression ws='&&' expression                                     # LogicalAndExpression
-    |   expression ws='||' expression                                     # LogicalOrExpression
-    |   <assoc=right> expression ws='=' expression                        # AssignmentExpression
-    |   <assoc=right> expression ws=assignmentOperator expression         # AssignmentOperatorExpression
-    |   entityStatement                                                   # EntityStatementExpression
-    |   threadStatement                                                   # ThreadStatementExpression
-    |   identifier                                                        # IdentifierExpression
-    |   literal                                                           # LiteralExpression
-    |   '(' expressionSequence ')'                                        # ParenthesizedExpression
+unaryExpression
+    :   postfixExpression
+	|   (PlusPlus | MinusMinus | Qualified | unaryOperator) unaryExpression
     ;
 
-functionStatement
-    :   identifier '(' identifierList? ')' compoundStatement
-    ;
-
-expressionStatement
-    :   expression
-    ;
-
-labeledStatement
-    :   Identifier ':' newline=statement
-    |   wsr=Case expression ':' indent=statement
-    |   Default ':' indent=statement
-    ;
-
-selectionStatement
-    :   wsr=If '(' expression ')' indentShort=statement (wsr=Else indentShort=statement)?
-    |   wsr=Switch '(' expression ')' statement
-    ;
-
-waitStatement
-    :   wsr=Wait '('? expression ')'?
-    ;
-
-threadStatement
-    :   wsr=Thread expressionStatement
-    ;
-
-entityStatement
-    :   wsr=entity
-    (   threadStatement
-    |   expressionStatement
+memberExpression
+    :   wsr=identifier
+    (   threadExpression
+    |   expression
     )
     ;
 
+threadExpression
+    :   wsr=Thread expression
+    ;
+
+expressionSequence
+    :   expression (wsr=Comma expression)*
+    ;
+
+expression
+    :   unaryExpression                                                         # UnaryExpressionExpression
+    |   expression ws=(Mul | Div | Mod) expression                              # MultiplicativeExpression
+    |   expression ws=(Plus | Minus) expression                                 # AdditiveExpression
+    |   expression ws=(LeftShift | RightShift) expression                       # BitShiftExpression
+    |   expression ws=(Less | Greater | LessEqual | GreaterEqual) expression    # RelationalExpression
+    |   expression ws=(Equal | NotEqual) expression                             # EqualityExpression
+    |   expression ws=And expression                                            # BitAndExpression
+    |   expression ws=Xor expression                                            # BitXorExpression
+    |   expression ws=Or expression                                             # BitOrExpression
+    |   expression ws=AndAnd expression                                         # LogicalAndExpression
+    |   expression ws=OrOr expression                                           # LogicalOrExpression
+    |   expression ws=assignmentOperator expression                             # AssignmentExpression
+    ;
+
+functionStatement
+    :   identifier LeftParen identifierList? RightParen compoundStatement
+    ;
+
+expressionStatement
+    :   expression newline=Semi
+    ;
+
+labeledStatement
+    :   wsr=Case literal Colon indentShort=statement
+    |   Default Colon indentShort=statement
+    ;
+
+selectionStatement
+    :   selectionStatement wsr=Else indentShort=statement
+    |   wsr=If LeftParen expression RightParen indentShort=statement
+    |   wsr=Switch LeftParen expression RightParen statement
+    ;
+
+waitStatement
+    :   wsr=Wait LeftParen? expression RightParen? newline=Semi
+    ;
+
 iterationStatement
-    :   wsr=While '(' expression ')' indentShort=statement
-    |   wsr=For '(' expressionSequence? wsr=';' expressionSequence? wsr=';' expressionSequence? ')' indentShort=statement
+    :   wsr=While LeftParen expression RightParen indentShort=statement
+    |   wsr=For LeftParen expressionSequence? wsr=Semi expressionSequence? wsr=Semi expressionSequence? RightParen indentShort=statement
     ;
 
 jumpStatement
     :   
-    (   Goto Identifier
-    |   (Continue | Break)
-    |   wsr=Return expression?
-    )
+    (   (Continue | Break)
+    |   Return wsl=expression?
+    )   newline=Semi
     ;
 
 directiveStatement
-    :   IncludeDirective newline=';'
+    :   IncludeDirective newline=Semi
     ;
 
 assignmentOperator
-    :   '=' | '*=' | '/=' | '%=' | '+=' | '-=' | '<<=' | '>>=' | '&=' | '^=' | '|='
+    :   Assign | MulAssign | DivAssign | ModAssign | PlusAssign | MinusAssign 
+    |   LeftShiftAssign | RightShiftAssign | AndAssign | XorAssign | OrAssign
+    ;
+
+unaryOperator
+    :   Or | Mul | And | Plus | Tilde | Minus | Not
     ;
 
 identifierList
-    :   Identifier (wsr=',' Identifier)*
+    :   identifier (wsr=Comma identifier)*
+    ;
+
+qualifiedIdentifier
+    :   QualifiedIdentifier
     ;
 
 identifier
     :   Identifier
     ;
 
-entity
-    :   Self
-    |   Level
-    |   Identifier
+literal
+    :   UndefinedLiteral
+    |   BooleanLiteral
+    |   StringLiteral
+    |   ArrayLiteral
+    |   DecimalLiteral
     ;

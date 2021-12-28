@@ -4,6 +4,13 @@ main()
     else if (true) { }  
     else { }
 
+    if (true)
+        a = 0;
+    else if (true)
+        b = 0;
+    else
+        c = 0;
+
     if (isDefined(test)) 
         test();
     else 

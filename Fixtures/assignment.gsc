@@ -24,4 +24,6 @@ main()
     arrayA[1] = 10;
     arrayA[1][2] = 10;
     arrayA["test"] = "test";
+
+    vectorA = (0, 0, 0);
 }

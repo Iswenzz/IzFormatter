@@ -2,16 +2,6 @@ lexer grammar GSCLexer;
 
 tokens { Indent, Dedent }
 
-options 
-{
-    superClass = GSCLexerBase;
-}
-
-@lexer::header 
-{
-    using Iswenzz.CoD4.Parser.Grammar;
-}
-
 Break:                              'break';
 Case:                               'case';
 Default:                            'default';
@@ -25,8 +15,6 @@ Switch:                             'switch';
 While:                              'while';
 
 Thread:                             'thread';
-Self:                               'self';
-Level:                              'level';
 Wait:                               'wait';
 
 LeftParen:                          '(';
@@ -47,14 +35,14 @@ Plus:                               '+';
 PlusPlus:                           '++';
 Minus:                              '-';
 MinusMinus:                         '--';
-Star:                               '*';
+Mul:                                '*';
 Div:                                '/';
 Mod:                                '%';
 And:                                '&';
 Or:                                 '|';
 AndAnd:                             '&&';
 OrOr:                               '||';
-Caret:                              '^';
+Xor:                                '^';
 Not:                                '!';
 Tilde:                              '~';
 
@@ -64,7 +52,7 @@ Semi:                               ';';
 Comma:                              ',';
 
 Assign:                             '=';
-StarAssign:                         '*=';
+MulAssign:                          '*=';
 DivAssign:                          '/=';
 ModAssign:                          '%=';
 PlusAssign:                         '+=';
@@ -78,7 +66,7 @@ Equal:                              '==';
 NotEqual:                           '!=';
 
 Dot:                                '.';
-PathCall:                           '::';
+Qualified:                           '::';
 LeftFunctionPointer:                '[[';
 RightFunctionPointer:               ']]';
 
@@ -88,7 +76,7 @@ UndefinedLiteral:                   'undefined';
 DecimalLiteral:                     DecimalIntegerLiteral | DecimalFractionalLiteral;
 StringLiteral:                      '"' CharSequence? '"';
 
-IncludeDirective:                   '#' 'include' Whitespace PathIdentifier;
+IncludeDirective:                   '#' 'include' Whitespace QualifiedIdentifier;
 
 DeveloperSection:                   '/#' .*? '#/'           -> channel(HIDDEN);
 BlockComment:                       '/*' .*? '*/'           -> channel(HIDDEN);
@@ -97,9 +85,9 @@ Whitespace:                         [ \t]+                  -> channel(HIDDEN);
 Newline:                            ('\r'? '\n' | '\r')     -> channel(HIDDEN);
 
 fragment IdentifierNondigit:        Nondigit;
-fragment IdentifierNondigitPath:    NondigitPath;
+fragment IdentifierQualified:       NondigitQualified;
 fragment Nondigit:                  [a-zA-Z_];
-fragment NondigitPath:              [a-zA-Z_\\];
+fragment NondigitQualified:         [a-zA-Z_\\];
 fragment Digit:                     [0-9];
 fragment NonzeroDigit:              [1-9];
 fragment Sign:                      [+-];
@@ -127,9 +115,9 @@ Identifier
     )*
     ;
 
-PathIdentifier
-    :   IdentifierNondigitPath
-    (   IdentifierNondigitPath
+QualifiedIdentifier
+    :   IdentifierQualified
+    (   IdentifierQualified
     |   Digit
     )*
     ;

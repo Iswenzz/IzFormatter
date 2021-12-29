@@ -108,7 +108,8 @@ labeledStatement
     ;
 
 selectionStatement
-    :   selectionStatement wsr=Else indentShort=statement
+    :   selectionStatement wsr=Else If LeftParen expression RightParen indentShort=statement
+    |   selectionStatement wsr=Else indentShort=statement
     |   wsr=If LeftParen expression RightParen indentShort=statement
     |   wsr=Switch LeftParen expression RightParen statement
     ;

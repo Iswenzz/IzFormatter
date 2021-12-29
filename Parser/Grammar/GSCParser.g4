@@ -40,27 +40,28 @@ shortStatement
     ;
 
 primaryExpression
-    :   identifier
-    |   qualifiedIdentifier
-    |   memberExpression
-    |   threadExpression
-    |   LeftParen expression RightParen
-    |   literal
+    :   identifier                                                                      # IdentifierExpression
+    |   qualifiedIdentifier                                                             # QualifiedExpression
+    |   memberExpression                                                                # MemberStatementExpression
+    |   threadExpression                                                                # ThreadStatementExpression
+    |   LeftParen expression RightParen                                                 # ParenthesizedExpression
+    |   literal                                                                         # LiteralExpression
     ;
 
 postfixExpression
-    :   primaryExpression
-	|   postfixExpression LeftBracket expression RightBracket wsl=postfixExpression?
-	|   postfixExpression LeftParen expressionSequence? RightParen
-	|   postfixExpression Dot postfixExpression
-	|   postfixExpression (PlusPlus | MinusMinus)
-    |   qualifiedIdentifier Qualified postfixExpression
-    |   LeftFunctionPointer postfixExpression RightFunctionPointer
+    :   primaryExpression                                                               # PrimaryStatementExpression
+	|   postfixExpression LeftBracket expression RightBracket wsl=postfixExpression?    # MemberIndexExpression
+	|   postfixExpression LeftParen expressionSequence? RightParen                      # FunctionExpression
+	|   postfixExpression Dot postfixExpression                                         # MemberDotExpression
+	|   postfixExpression (PlusPlus | MinusMinus)                                       # PostExpression
+    |   qualifiedIdentifier Qualified postfixExpression                                 # QualifiedCallExpression
+    |   LeftFunctionPointer postfixExpression RightFunctionPointer                      # FunctionPointerCallExpression
+    |   LeftParen expression wsr=Comma expression wsr=Comma expression RightParen       # VectorExpression
     ;
 
 unaryExpression
-    :   postfixExpression
-	|   (PlusPlus | MinusMinus | Qualified | unaryOperator) unaryExpression
+    :   postfixExpression                                                               # PostFixStatementExpression
+	|   (PlusPlus | MinusMinus | Qualified | unaryOperator) unaryExpression             # PreExpression
     ;
 
 memberExpression
@@ -79,7 +80,7 @@ expressionSequence
     ;
 
 expression
-    :   unaryExpression                                                         # UnaryExpressionExpression
+    :   unaryExpression                                                         # UnaryStatementExpression
     |   expression ws=(Mul | Div | Mod) expression                              # MultiplicativeExpression
     |   expression ws=(Plus | Minus) expression                                 # AdditiveExpression
     |   expression ws=(LeftShift | RightShift) expression                       # BitShiftExpression

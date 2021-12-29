@@ -8,8 +8,10 @@ main()
         a = 0;
     else if (true)
         b = 0;
-    else
+    else if (false)
         c = 0;
+    else
+        d = 0;
 
     if (isDefined(test)) 
         test();
@@ -19,7 +21,8 @@ main()
     switch (true)
     {
         case 1:
-        case 2: 
+        case 2:
+        case 3: 
             break;
 
         case "block":

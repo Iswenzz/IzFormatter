@@ -1,6 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 
@@ -15,11 +16,9 @@ namespace Iswenzz.CoD4.Parser.Grammar
     {
         public ParserRuleContext Context { get; set; }
         public List<IParseTree> Childs { get; set; }
-
         public dynamic Node { get; set; }
 
-        public delegate ArrayList RebuildNodes();
-        public RebuildNodes BuildParseTree { get; set; }
+        public Func<ArrayList> BuildParseTree { get; set; }
 
         /// <summary>
         /// Initialize a new <see cref="ExtraNode"/>.
@@ -63,5 +62,13 @@ namespace Iswenzz.CoD4.Parser.Grammar
                 return;
             extraNode.RebuildNode();
         }
+
+        /// <summary>
+        /// Build many nodes.
+        /// </summary>
+        /// <param name="vars">The nodes to build.</param>
+        /// <param name="buildNodeCallback">The build node callback.</param>
+        public static void BuildMany(List<dynamic> vars, Func<dynamic, ExtraNode> buildNodeCallback) =>
+            vars.ForEach(var => Build(buildNodeCallback(var)));
     }
 }

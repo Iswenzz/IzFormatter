@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 using Antlr4.Runtime;
@@ -18,7 +19,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
             : base(input, output, errorOutput) { }
 
         public virtual List<ParserRuleContext> Rules { get; set; } = new();
-        public virtual List<ParserRuleContext> RulesProcessed { get; set; } = new();
+        public virtual List<int> RulesProcessed { get; set; } = new();
         public virtual int IndentLevel { get; set; }
 
         public override string[] RuleNames => throw new NotImplementedException();
@@ -44,36 +45,46 @@ namespace Iswenzz.CoD4.Parser.Grammar
                 BuildRule(rule);
         }
 
+        protected virtual List<dynamic> ReflectRuleVariables(ParserRuleContext rule, string name)
+        {
+            List<dynamic> vars = new();
+            foreach (FieldInfo var in rule.GetType().GetFields())
+            {
+                if (var.Name == name || var.Name.Split('_').First() == name)
+                    vars.Add(var.GetValue(rule));
+            }
+            return vars;
+        }
+
         /// <summary>
         /// Build rule and its childrens with formatting.
         /// </summary>
         /// <param name="context">The rule context.</param>
         protected virtual void BuildRule(IParseTree context)
         {
-            ParserRuleContext rule = context as ParserRuleContext;
-            if (rule == null || RulesProcessed.Contains(rule))
+            if (context is not ParserRuleContext rule || RulesProcessed.Contains(rule.GetHashCode()))
                 return;
-            RulesProcessed.Add(rule);
+            RulesProcessed.Add(rule.GetHashCode());
 
-            dynamic indent = context.GetType().GetField("indent")?.GetValue(context);
-            dynamic dedent = context.GetType().GetField("dedent")?.GetValue(context);
-            dynamic indentShort = context.GetType().GetField("indentShort")?.GetValue(context);
-            dynamic newline = context.GetType().GetField("newline")?.GetValue(context);
-            dynamic whitespace = context.GetType().GetField("ws")?.GetValue(context);
-            dynamic whitespaceLeft = context.GetType().GetField("wsl")?.GetValue(context);
-            dynamic whitespaceRight = context.GetType().GetField("wsr")?.GetValue(context);
+            List<dynamic> varsNewline = ReflectRuleVariables(rule, "newline");
+            List<dynamic> varsDedent = ReflectRuleVariables(rule, "dedent");
+            List<dynamic> varsIndent = ReflectRuleVariables(rule, "indent");
+            List<dynamic> varsIndentShort = ReflectRuleVariables(rule, "indentShort");
+            List<dynamic> varsWhitespace = ReflectRuleVariables(rule, "ws");
+            List<dynamic> varsWhitespaceLeft = ReflectRuleVariables(rule, "wsl");
+            List<dynamic> varsWhitespaceRight = ReflectRuleVariables(rule, "wsr");
 
-            ExtraNode.Build(BuildNewline(rule, newline));
-            ExtraNode.Build(BuildIndent(rule, indent));
-            ExtraNode.Build(BuildIndentShort(rule, indentShort));
-            ExtraNode.Build(BuildWhitespace(rule, whitespace, true, true));
-            ExtraNode.Build(BuildWhitespace(rule, whitespaceLeft, true, false));
-            ExtraNode.Build(BuildWhitespace(rule, whitespaceRight, false, true));
+            ExtraNode.BuildMany(varsNewline, newline => BuildNewline(rule, newline));
+            ExtraNode.BuildMany(varsIndent, indent => BuildIndent(rule, indent));
+            ExtraNode.BuildMany(varsIndentShort, indentShort => BuildIndentShort(rule, indentShort));
+            ExtraNode.BuildMany(varsWhitespace, ws => BuildWhitespace(rule, ws, true, true));
+            ExtraNode.BuildMany(varsWhitespaceLeft, wsl => BuildWhitespace(rule, wsl, true, false));
+            ExtraNode.BuildMany(varsWhitespaceRight, wsr => BuildWhitespace(rule, wsr, false, true));
 
             for (int i = 0; i < context.ChildCount; i++)
                 BuildRule(context.GetChild(i));
 
-            ExtraNode.Build(BuildDedent(rule, dedent));
+            ExtraNode.BuildMany(varsDedent, dedent => BuildDedent(rule, dedent));
         }
 
         /// <summary>

@@ -2,6 +2,7 @@ main()
 {
     test();
     test(1, 2);
+    test(1, 2, 3);
     test(1 + 5, 2);
     test("Is", "wenzz");
 

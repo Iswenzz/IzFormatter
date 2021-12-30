@@ -51,12 +51,12 @@ primaryExpression
 postfixExpression
     :   primaryExpression                                                               # PrimaryStatementExpression
 	|   postfixExpression LeftBracket expression RightBracket wsl=postfixExpression?    # MemberIndexExpression
-	|   postfixExpression LeftParen expressionSequence? RightParen                      # FunctionExpression
+	|   postfixExpression LeftParen expressionList? RightParen                      # FunctionExpression
 	|   postfixExpression Dot postfixExpression                                         # MemberDotExpression
 	|   postfixExpression (PlusPlus | MinusMinus)                                       # PostExpression
     |   qualifiedIdentifier Qualified postfixExpression                                 # QualifiedCallExpression
     |   LeftFunctionPointer postfixExpression RightFunctionPointer                      # FunctionPointerCallExpression
-    |   LeftParen expression wsr=Comma expression wsr=Comma expression RightParen       # VectorExpression
+    |   LeftParen expression wsr_1=Comma expression wsr_2=Comma expression RightParen   # VectorExpression
     ;
 
 unaryExpression
@@ -76,7 +76,11 @@ threadExpression
     ;
 
 expressionSequence
-    :   expression (wsr=Comma expression)*
+    :   wsr=Comma expression
+    ;
+
+expressionList
+    :   expression expressionSequence*
     ;
 
 expression
@@ -95,7 +99,7 @@ expression
     ;
 
 functionStatement
-    :   identifier LeftParen identifierList? RightParen compoundStatement
+    :   identifier LeftParen identifierList? RightParen newline=compoundStatement
     ;
 
 expressionStatement
@@ -108,7 +112,7 @@ labeledStatement
     ;
 
 selectionStatement
-    :   selectionStatement wsr=Else If LeftParen expression RightParen indentShort=statement
+    :   selectionStatement wsr_1=Else wsr_2=If LeftParen expression RightParen indentShort=statement
     |   selectionStatement wsr=Else indentShort=statement
     |   wsr=If LeftParen expression RightParen indentShort=statement
     |   wsr=Switch LeftParen expression RightParen statement
@@ -120,7 +124,7 @@ waitStatement
 
 iterationStatement
     :   wsr=While LeftParen expression RightParen indentShort=statement
-    |   wsr=For LeftParen expressionSequence? wsr=Semi expressionSequence? wsr=Semi expressionSequence? RightParen indentShort=statement
+    |   wsr_1=For LeftParen expressionList? wsr_2=Semi expressionList? wsr_3=Semi expressionList? RightParen indentShort=statement
     ;
 
 jumpStatement
@@ -143,8 +147,12 @@ unaryOperator
     :   Or | Mul | And | Plus | Tilde | Minus | Not
     ;
 
+identifierSequence
+    :   wsr=Comma identifier
+    ;
+
 identifierList
-    :   identifier (wsr=Comma identifier)*
+    :   identifier identifierSequence*
     ;
 
 qualifiedIdentifier

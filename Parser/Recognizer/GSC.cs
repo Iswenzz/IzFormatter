@@ -1,14 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.IO;
+using System.Collections.Generic;
 using Antlr4.Runtime;
+using Antlr4.Runtime.Atn;
 using Antlr4.Runtime.Tree;
 
 using Iswenzz.CoD4.Parser.Definitions;
 using Iswenzz.CoD4.Parser.Definitions.Function;
 using Iswenzz.CoD4.Parser.Definitions.Preprocessor;
 using Iswenzz.CoD4.Parser.Listeners;
-using Iswenzz.CoD4.Parser.Utils;
 using static GSCParser;
+using System.Text;
 
 namespace Iswenzz.CoD4.Parser.Recognizer
 {
@@ -61,6 +63,7 @@ namespace Iswenzz.CoD4.Parser.Recognizer
             Parser.AddErrorListener(ErrorListener);
 
             // Start
+            Parser.Interpreter.PredictionMode = PredictionMode.SLL;
             Parse();
         }
 
@@ -90,13 +93,17 @@ namespace Iswenzz.CoD4.Parser.Recognizer
         /// <param name="outputPath">The output path.</param>
         public virtual void Save(string outputPath)
         {
-            string content = "";
-            Includes.ForEach(def => content += def.Stream + "\n");
-            Functions.ForEach(def => content += def.Stream + "\n");
+            StringBuilder content = new();
+            Includes.ForEach(definition => content.Append(definition.Stream));
+            if (Includes.Count > 0) 
+                content.AppendLine();
+            Functions.ForEach(definition => content.Append(definition.Stream));
+            if (Functions.Count > 0) 
+                content.Remove(content.Length - Environment.NewLine.Length, Environment.NewLine.Length);
 
             if (!File.Exists(outputPath))
                 Directory.CreateDirectory(Path.GetDirectoryName(outputPath));
-            File.WriteAllText(outputPath, content);
+            File.WriteAllText(outputPath, content.ToString());
         }
     }
 }

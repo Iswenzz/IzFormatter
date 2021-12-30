@@ -45,6 +45,12 @@ namespace Iswenzz.CoD4.Parser.Grammar
                 BuildRule(rule);
         }
 
+        /// <summary>
+        /// Reflect rule variables.
+        /// </summary>
+        /// <param name="rule">The rule definition.</param>
+        /// <param name="name">The variable defined name.</param>
+        /// <returns></returns>
         protected virtual List<dynamic> ReflectRuleVariables(ParserRuleContext rule, string name)
         {
             List<dynamic> vars = new();
@@ -138,7 +144,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
             BuildParseTree = () =>
             {
                 ArrayList tree = new();
-                if (node is ParserRuleContext rule && rule.GetLastChildOfType(RULE_compoundStatement) == null)
+                if (node is ParserRuleContext rule && rule.LastChildOfType(RULE_compoundStatement) == null)
                 {
                     IndentLevel++;
                     string newine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
@@ -168,7 +174,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
                 string newLine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
 
                 // Dedent the previous newline
-                ParserRuleContext last = (ParserRuleContext)context.GetLastChildRecursion().Parent;
+                ParserRuleContext last = (ParserRuleContext)context.LastChildRecursion().Parent;
                 last.RemoveLastChild();
                 last.AddChild(TokenFactory.Create(Newline, newLine));
 

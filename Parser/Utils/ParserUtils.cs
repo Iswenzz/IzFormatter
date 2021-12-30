@@ -63,7 +63,7 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// </summary>
         /// <param name="context">The rule context.</param>
         /// <returns></returns>
-        public static IParseTree GetLastChild(this IParseTree context)
+        public static IParseTree LastChild(this IParseTree context)
         {
             if (context is IToken || context.ChildCount <= 0) return context;
             return context.GetChild(context.ChildCount - 1);
@@ -75,7 +75,7 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <param name="context">The rule context.</param>
         /// <param name="type">The child token type.</param>
         /// <returns></returns>
-        public static IParseTree GetLastChildOfType(this IParseTree context, int type)
+        public static IParseTree LastChildOfType(this IParseTree context, int type)
         {
             IParseTree result = null;
             for (int i = 0; i < context.ChildCount; i++)
@@ -96,10 +96,10 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// </summary>
         /// <param name="context">The rule context.</param>
         /// <returns></returns>
-        public static IParseTree GetLastChildRecursion(this IParseTree context)
+        public static IParseTree LastChildRecursion(this IParseTree context)
         {
-            IParseTree child = GetLastChild(context);
-            return child.Equals(context) ? context : GetLastChildRecursion(child);
+            IParseTree child = LastChild(context);
+            return child.Equals(context) ? context : LastChildRecursion(child);
         }
 
         /// <summary>

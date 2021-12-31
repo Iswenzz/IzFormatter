@@ -51,7 +51,7 @@ primaryExpression
 postfixExpression
     :   primaryExpression                                                               # PrimaryStatementExpression
 	|   postfixExpression LeftBracket expression RightBracket wsl=postfixExpression?    # MemberIndexExpression
-	|   postfixExpression LeftParen expressionList? RightParen                      # FunctionExpression
+	|   postfixExpression LeftParen expressionList? RightParen                          # FunctionExpression
 	|   postfixExpression Dot postfixExpression                                         # MemberDotExpression
 	|   postfixExpression (PlusPlus | MinusMinus)                                       # PostExpression
     |   qualifiedIdentifier Qualified postfixExpression                                 # QualifiedCallExpression
@@ -84,18 +84,18 @@ expressionList
     ;
 
 expression
-    :   unaryExpression                                                         # UnaryStatementExpression
-    |   expression ws=(Mul | Div | Mod) expression                              # MultiplicativeExpression
-    |   expression ws=(Plus | Minus) expression                                 # AdditiveExpression
-    |   expression ws=(LeftShift | RightShift) expression                       # BitShiftExpression
-    |   expression ws=(Less | Greater | LessEqual | GreaterEqual) expression    # RelationalExpression
-    |   expression ws=(Equal | NotEqual) expression                             # EqualityExpression
-    |   expression ws=And expression                                            # BitAndExpression
-    |   expression ws=Xor expression                                            # BitXorExpression
-    |   expression ws=Or expression                                             # BitOrExpression
-    |   expression ws=AndAnd expression                                         # LogicalAndExpression
-    |   expression ws=OrOr expression                                           # LogicalOrExpression
-    |   expression ws=assignmentOperator expression                             # AssignmentExpression
+    :   unaryExpression                                                                 # UnaryStatementExpression
+    |   expression ws=(Mul | Div | Mod) expression                                      # MultiplicativeExpression
+    |   expression ws=(Plus | Minus) expression                                         # AdditiveExpression
+    |   expression ws=(LeftShift | RightShift) expression                               # BitShiftExpression
+    |   expression ws=(Less | Greater | LessEqual | GreaterEqual) expression            # RelationalExpression
+    |   expression ws=(Equal | NotEqual) expression                                     # EqualityExpression
+    |   expression ws=And expression                                                    # BitAndExpression
+    |   expression ws=Xor expression                                                    # BitXorExpression
+    |   expression ws=Or expression                                                     # BitOrExpression
+    |   expression ws=AndAnd expression                                                 # LogicalAndExpression
+    |   expression ws=OrOr expression                                                   # LogicalOrExpression
+    |   expression ws=assignmentOperator expression                                     # AssignmentExpression
     ;
 
 functionStatement
@@ -124,7 +124,8 @@ waitStatement
 
 iterationStatement
     :   wsr=While LeftParen expression RightParen indentShort=statement
-    |   wsr_1=For LeftParen expressionList? wsr_2=Semi expressionList? wsr_3=Semi expressionList? RightParen indentShort=statement
+    |   wsr_1=For LeftParen expressionList? Semi Semi expressionList? RightParen indentShort=statement
+    |   wsr_1=For LeftParen expressionList wsr_2=Semi expressionList wsr_3=Semi expressionList? RightParen indentShort=statement
     ;
 
 jumpStatement

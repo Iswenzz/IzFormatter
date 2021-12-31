@@ -31,7 +31,7 @@ namespace Iswenzz.CoD4.Parser.Definitions
         }
 
         /// <summary>
-        /// Visit children node.
+        /// Visit children node and get its text.
         /// </summary>
         /// <param name="node">The node to visit.</param>
         /// <returns></returns>

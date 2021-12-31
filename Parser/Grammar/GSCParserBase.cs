@@ -64,6 +64,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
 
         /// <summary>
         /// Build rule and its childrens with formatting.
+        /// @TODO unique ID for rules to check for rules processed.
         /// </summary>
         /// <param name="context">The rule context.</param>
         protected virtual void BuildRule(IParseTree context)

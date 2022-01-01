@@ -145,7 +145,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
             BuildParseTree = () =>
             {
                 ArrayList tree = new();
-                if (node is ParserRuleContext rule && rule.LastChildOfType(RULE_compoundStatement) == null)
+                if (node is ParserRuleContext rule && rule.LastChildOfType<CompoundStatementContext>() == null)
                 {
                     IndentLevel++;
                     string newine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
@@ -175,7 +175,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
                 string newLine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
 
                 // Dedent the previous newline
-                ParserRuleContext last = (ParserRuleContext)context.LastChildRecursion().Parent;
+                ParserRuleContext last = (ParserRuleContext)context.RecurseLastChild().Parent;
                 last.RemoveLastChild();
                 last.AddChild(TokenFactory.Create(Newline, newLine));
 

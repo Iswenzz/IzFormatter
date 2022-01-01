@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Collections.Generic;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Atn;
@@ -10,7 +11,6 @@ using Iswenzz.CoD4.Parser.Definitions.Function;
 using Iswenzz.CoD4.Parser.Definitions.Preprocessor;
 using Iswenzz.CoD4.Parser.Listeners;
 using static GSCParser;
-using System.Text;
 
 namespace Iswenzz.CoD4.Parser.Recognizer
 {
@@ -25,12 +25,12 @@ namespace Iswenzz.CoD4.Parser.Recognizer
         public string FileExtension { get; protected set; }
 
         public AntlrInputStream Stream { get; protected set; }
-        protected CommonTokenStream TokenStream { get; set; }
-        protected ParseTreeWalker Walker { get; set; }
+        public CommonTokenStream TokenStream { get; set; }
+        public ParseTreeWalker Walker { get; set; }
         protected CompilationUnit CompilationUnit { get; set; }
 
-        protected GSCLexer Lexer { get; set; }
-        protected GSCParser Parser { get; set; }
+        public GSCLexer Lexer { get; set; }
+        public GSCParser Parser { get; set; }
         protected GSCErrorListener ErrorListener { get; set; }
 
         public List<Include> Includes { get; protected set; }

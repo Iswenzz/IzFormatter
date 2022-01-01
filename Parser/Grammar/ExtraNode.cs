@@ -27,7 +27,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
         public ExtraNode(ParserRuleContext context)
         {
             Context = context;
-            Childs = context.GetChilds().ToList();
+            Childs = context.Childs().ToList();
         }
 
         /// <summary>

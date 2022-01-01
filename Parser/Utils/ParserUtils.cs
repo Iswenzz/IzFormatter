@@ -12,12 +12,14 @@ namespace Iswenzz.CoD4.Parser.Utils
     /// </summary>
     public static class ParserUtils
     {
+        const int OPTIONAL = -1;
+
         /// <summary>
         /// Get childs in rule context.
         /// </summary>
         /// <param name="context">The rule context.</param>
         /// <returns></returns>
-        public static IEnumerable<IParseTree> GetChilds(this ParserRuleContext context)
+        public static IEnumerable<IParseTree> Childs(this ParserRuleContext context)
         {
             for (int i = 0; i < context.ChildCount; i++)
                 yield return context.GetChild(i);
@@ -59,6 +61,41 @@ namespace Iswenzz.CoD4.Parser.Utils
         }
 
         /// <summary>
+        /// Get the first child of a specific type.
+        /// </summary>
+        /// <typeparam name="T">The context type class.</typeparam>
+        /// <param name="context">The context definition.</param>
+        /// <param name="type">The context type.</param>
+        /// <returns></returns>
+        public static T ChildOfType<T>(this ParserRuleContext context, int type = OPTIONAL) where T : class
+        {
+            for (int i = 0; i < context.ChildCount; i++)
+            {
+                IParseTree child = context.GetChild(i);
+                if (child.IsType<T>(type))
+                    return (T)child;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Get all childs of a specific type.
+        /// </summary>
+        /// <typeparam name="T">The context type class.</typeparam>
+        /// <param name="context">The context definition.</param>
+        /// <param name="type">The context type.</param>
+        /// <returns></returns>
+        public static IEnumerable<T> ChildsOfType<T>(this ParserRuleContext context, int type = OPTIONAL)
+        {
+            for (int i = 0; i < context.ChildCount; i++)
+            {
+                IParseTree child = context.GetChild(i);
+                if (child.IsType<T>(type))
+                    yield return (T)child;
+            }
+        }
+
+        /// <summary>
         /// Get the last child of a rule.
         /// </summary>
         /// <param name="context">The rule context.</param>
@@ -72,23 +109,39 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <summary>
         /// Get the last child of a specific type.
         /// </summary>
+        /// <typeparam name="T">The context type class.</typeparam>
         /// <param name="context">The rule context.</param>
-        /// <param name="type">The child token type.</param>
+        /// <param name="type">The node type.</param>
         /// <returns></returns>
-        public static IParseTree LastChildOfType(this IParseTree context, int type)
+        public static T LastChildOfType<T>(this IParseTree context, int type = OPTIONAL) where T : class
         {
-            IParseTree result = null;
+            T result = null;
             for (int i = 0; i < context.ChildCount; i++)
             {
                 IParseTree child = context.GetChild(i);
-                if (child is IToken token && token.Type == type)
-                    result = child;
-                else if (child is ITerminalNode node && node.Symbol.Type == type)
-                    result = child;
-                else if (child is ParserRuleContext rule && rule.RuleIndex == type)
-                    result = rule;
+                if (child.IsType<T>(type))
+                    result = (T)child;
             }
             return result;
+        }
+
+        /// <summary>
+        /// Recurse to a parent of a specific type.
+        /// </summary>
+        /// <typeparam name="T">The context type class.</typeparam>
+        /// <param name="context">The rule context.</param>
+        /// <param name="type">The node type.</param>
+        /// <returns></returns>
+        public static T RecurseParentOfType<T>(this IParseTree context, int type = OPTIONAL) where T : class
+        {
+            if (context.Parent != null)
+            {
+                if (context.Parent.IsType<T>(type))
+                    return (T)context.Parent;
+                else
+                    return RecurseParentOfType<T>(context.Parent, type);
+            }
+            return null;
         }
 
         /// <summary>
@@ -96,19 +149,67 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// </summary>
         /// <param name="context">The rule context.</param>
         /// <returns></returns>
-        public static IParseTree LastChildRecursion(this IParseTree context)
+        public static IParseTree RecurseLastChild(this IParseTree context)
         {
             IParseTree child = LastChild(context);
-            return child.Equals(context) ? context : LastChildRecursion(child);
+            return child.Equals(context) ? context : RecurseLastChild(child);
+        }
+
+        /// <summary>
+        /// Recurse all childs of a specific type.
+        /// </summary>
+        /// <typeparam name="T">The context type class.</typeparam>
+        /// <param name="context">The context definition.</param>
+        /// <param name="type">The context type.</param>
+        /// <returns></returns>
+        public static IEnumerable<T> RecurseChildsOfType<T>(this ParserRuleContext context, int type = OPTIONAL)
+        {
+            List<T> result = new();
+            for (int i = 0; i < context.ChildCount; i++)
+            {
+                IParseTree child = context.GetChild(i);
+                if (child.IsType<T>(type))
+                    result.Add((T)child);
+                if (child is ParserRuleContext childContext)
+                    result.AddRange(RecurseChildsOfType<T>(childContext, type));
+            }
+            return result;
         }
 
         /// <summary>
         /// Checks if a child collection contains a specific token.
         /// </summary>
         /// <param name="childs">The child collection.</param>
-        /// <param name="tokenType">The token type to find.</param>
+        /// <param name="tokenType">The type to find.</param>
         /// <returns></returns>
         public static bool ContainsToken(this IEnumerable<IParseTree> childs, int tokenType) =>
             childs.Any(c => c is ITerminalNode token && token.Symbol.Type == tokenType);
+
+        /// <summary>
+        /// Check if a context is of a specific type.
+        /// </summary>
+        /// <typeparam name="T">The context type class.</typeparam>
+        /// <param name="context">The context definition.</param>
+        /// <param name="type">The context type.</param>
+        /// <returns></returns>
+        public static bool IsType<T>(this IParseTree context, int type = OPTIONAL) =>
+            type == OPTIONAL ? context is T : IsType(context, type);
+
+        /// <summary>
+        /// Check if a context is of a specific type.
+        /// </summary>
+        /// <param name="context">The context definition.</param>
+        /// <param name="type">The context type.</param>
+        /// <returns></returns>
+        public static bool IsType(this IParseTree context, int type)
+        {
+            if (context is IToken token && token.Type == type)
+                return true;
+            else if (context is ITerminalNode node && node.Symbol.Type == type)
+                return true;
+            else if (context is ParserRuleContext rule && rule.RuleIndex == type)
+                return true;
+            return false;
+        }
     }
 }

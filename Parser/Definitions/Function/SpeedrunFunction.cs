@@ -4,6 +4,8 @@ using Iswenzz.CoD4.Parser.Recognizer;
 using Iswenzz.CoD4.Parser.Tasks;
 using Iswenzz.CoD4.Parser.Tasks.Function;
 using Iswenzz.CoD4.Parser.Utils;
+using System.Collections.Generic;
+using System.Linq;
 using static GSCParser;
 
 namespace Iswenzz.CoD4.Parser.Definitions.Function
@@ -14,6 +16,7 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
     public class SpeedrunFunction : Function
     {
         public bool IsTrap { get; set; }
+        public IEnumerable<IdentifierContext> FunctionCallIdentifiers { get; set; }
 
         /// <summary>
         /// Initialize a new <see cref="SpeedrunFunction"/>.
@@ -30,11 +33,20 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
             base.Construct();
 
             IsTrap = IsTrapFunction();
+            FunctionCallIdentifiers = GetAllFunctionCallIdentifiers();
 
-            Remove.DangerousExpressions(Context);
-            Remove.SpeedrunUnnecessaryExpressions(Context);
+            Remove.DangerousExpressions(FunctionCallIdentifiers);
+            Remove.SpeedrunUnnecessaryExpressions(FunctionCallIdentifiers);
             if (IsTrap) Trap.DisableTrigger(Context);
         }
+
+        /// <summary>
+        /// Get all function call identifiers.
+        /// </summary>
+        /// <returns></returns>
+        public virtual IEnumerable<IdentifierContext> GetAllFunctionCallIdentifiers() => Context
+            .RecurseChildsOfType<FunctionExpressionContext>()
+            .Select(call => call.RecurseChildsOfType<IdentifierContext>().FirstOrDefault());
 
         /// <summary>
         /// Check if the function is a trap.

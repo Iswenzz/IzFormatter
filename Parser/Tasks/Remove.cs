@@ -30,29 +30,17 @@ namespace Iswenzz.CoD4.Parser.Tasks.Function
         /// <summary>
         /// Remove dangerous expressions.
         /// </summary>
-        /// <param name="context">The context to remove dangerous expressions.</param>
-        public static void DangerousExpressions(FunctionStatementContext context)
-        {
-            foreach (var call in context.RecurseChildsOfType<FunctionExpressionContext>())
-            {
-                var identifier = call.RecurseChildsOfType<IdentifierContext>().FirstOrDefault();
-                if (ForbiddenExpressionsList.ContainsIgnoreCase(identifier?.GetText()))
-                    Comment.Line(identifier.RecurseParentOfType<SimpleStatementContext>());
-            }
-        }
+        /// <param name="identifiers">The function call identifiers.</param>
+        public static void DangerousExpressions(IEnumerable<IdentifierContext> identifiers) => identifiers
+            .Where(identifier => ForbiddenExpressionsList.ContainsIgnoreCase(identifier?.GetText()))
+            .ForEach(identifier => Comment.Line(identifier.RecurseParentOfType<SimpleStatementContext>()));
 
         /// <summary>
         /// Remove unnecessary expressions for SR Speedrun.
         /// </summary>
-        /// <param name="context">The context to remove unnecessary expressions.</param>
-        public static void SpeedrunUnnecessaryExpressions(FunctionStatementContext context)
-        {
-            foreach (var call in context.RecurseChildsOfType<FunctionExpressionContext>())
-            {
-                var identifier = call.RecurseChildsOfType<IdentifierContext>().FirstOrDefault();
-                if (SpeedrunUnnecessaryExpressionsList.ContainsIgnoreCase(identifier?.GetText()))
-                    Comment.Line(identifier.RecurseParentOfType<SimpleStatementContext>());
-            }
-        }
+        /// <param name="identifiers">The function call identifiers.</param>
+        public static void SpeedrunUnnecessaryExpressions(IEnumerable<IdentifierContext> identifiers) => identifiers
+            .Where(identifier => SpeedrunUnnecessaryExpressionsList.ContainsIgnoreCase(identifier?.GetText()))
+            .ForEach(identifier => Comment.Line(identifier.RecurseParentOfType<SimpleStatementContext>()));
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 
@@ -15,7 +15,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
     public class ExtraNode
     {
         public ParserRuleContext Context { get; set; }
-        public List<IParseTree> Childs { get; set; }
+        public IEnumerable<IParseTree> Childs { get; set; }
         public dynamic Node { get; set; }
 
         public Func<ArrayList> BuildParseTree { get; set; }
@@ -27,7 +27,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
         public ExtraNode(ParserRuleContext context)
         {
             Context = context;
-            Childs = context.Childs().ToList();
+            Childs = context.Childs();
         }
 
         /// <summary>
@@ -38,18 +38,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
             if (BuildParseTree == null)
                 return;
             int needChangeIndex = ParserUtils.IndexOfChild(Childs, Node);
-
-            Context.RemoveChilds();
-            for (int i = 0; i < Childs.Count; i++)
-            {
-                if (i == needChangeIndex)
-                {
-                    foreach (dynamic child in BuildParseTree())
-                        Context.AddChild(child);
-                }
-                else
-                    Context.AddChild((dynamic)Childs[i]);
-            }
+            Context.ReplaceChilds(BuildParseTree(), needChangeIndex);
         }
 
         /// <summary>
@@ -70,5 +59,14 @@ namespace Iswenzz.CoD4.Parser.Grammar
         /// <param name="buildNodeCallback">The build node callback.</param>
         public static void BuildMany(List<dynamic> vars, Func<dynamic, ExtraNode> buildNodeCallback) =>
             vars.ForEach(var => Build(buildNodeCallback(var)));
+
+        /// <summary>
+        /// Add child to a specific index.
+        /// </summary>
+        /// <param name="context">The rule context.</param>
+        /// <param name="child">The child to add.</param>
+        /// <param name="index">The index to add the child to.</param>
+        public static void AddChildAt(ParserRuleContext context, dynamic child, int index) =>
+            context.AddChilds(new ArrayList { child }, index);
     }
 }

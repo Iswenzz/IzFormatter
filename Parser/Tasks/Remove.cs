@@ -32,7 +32,7 @@ namespace Iswenzz.CoD4.Parser.Tasks.Function
         /// </summary>
         /// <param name="identifiers">The function call identifiers.</param>
         public static void DangerousExpressions(IEnumerable<IdentifierContext> identifiers) => identifiers
-            .Where(identifier => ForbiddenExpressionsList.ContainsIgnoreCase(identifier?.GetText()))
+            .Where(identifier => ForbiddenExpressionsList.ContainsIgnoreCase(identifier.GetText()))
             .ForEach(identifier => Comment.Line(identifier.RecurseParentOfType<SimpleStatementContext>()));
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Iswenzz.CoD4.Parser.Tasks.Function
         /// </summary>
         /// <param name="identifiers">The function call identifiers.</param>
         public static void SpeedrunUnnecessaryExpressions(IEnumerable<IdentifierContext> identifiers) => identifiers
-            .Where(identifier => SpeedrunUnnecessaryExpressionsList.ContainsIgnoreCase(identifier?.GetText()))
+            .Where(identifier => SpeedrunUnnecessaryExpressionsList.ContainsIgnoreCase(identifier.GetText()))
             .ForEach(identifier => Comment.Line(identifier.RecurseParentOfType<SimpleStatementContext>()));
     }
 }

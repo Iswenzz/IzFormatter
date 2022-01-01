@@ -1,11 +1,10 @@
-﻿using Antlr4.Runtime.Misc;
+﻿using System.Linq;
+using System.Collections.Generic;
 
 using Iswenzz.CoD4.Parser.Recognizer;
 using Iswenzz.CoD4.Parser.Tasks;
 using Iswenzz.CoD4.Parser.Tasks.Function;
 using Iswenzz.CoD4.Parser.Utils;
-using System.Collections.Generic;
-using System.Linq;
 using static GSCParser;
 
 namespace Iswenzz.CoD4.Parser.Definitions.Function
@@ -15,8 +14,8 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
     /// </summary>
     public class SpeedrunFunction : Function
     {
-        public bool IsTrap { get; set; }
         public IEnumerable<IdentifierContext> FunctionCallIdentifiers { get; set; }
+        public bool IsTrap { get; set; }
 
         /// <summary>
         /// Initialize a new <see cref="SpeedrunFunction"/>.
@@ -32,8 +31,8 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
         {
             base.Construct();
 
-            IsTrap = IsTrapFunction();
             FunctionCallIdentifiers = GetAllFunctionCallIdentifiers();
+            IsTrap = IsTrapFunction();
 
             Remove.DangerousExpressions(FunctionCallIdentifiers);
             Remove.SpeedrunUnnecessaryExpressions(FunctionCallIdentifiers);
@@ -56,7 +55,9 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
         {
             if (!Context.identifier().GetText().ContainsIgnoreCase("trap"))
                 return false;
-            return false;
+            if (!FunctionCallIdentifiers.Any(c => c.Identifier().GetText().EqualsIgnoreCase("waittill")))
+                return false;
+            return true;
         }
     }
 }

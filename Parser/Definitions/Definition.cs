@@ -9,11 +9,11 @@ namespace Iswenzz.CoD4.Parser.Definitions
     /// <summary>
     /// Definition base class.
     /// </summary>
-    public class Definition : GSCParserBaseVisitor<string>
+    public class Definition<T> : GSCParserBaseVisitor<string> where T : ParserRuleContext
     {
         protected GSC GSC { get; set; }
-        public ParserRuleContext Context { get; set; }
         public StringBuilder Stream { get; set; }
+        public T Context { get; set; }
 
         protected int IndentLevel { get; set; }
 
@@ -22,13 +22,20 @@ namespace Iswenzz.CoD4.Parser.Definitions
         /// </summary>
         /// <param name="gsc">The GSC instance.</param>
         /// <param name="context">The definition context.</param>
-        public Definition(GSC gsc, ParserRuleContext context)
+        public Definition(GSC gsc, T context)
         {
             GSC = gsc;
             Context = context;
             Stream = new StringBuilder();
+
+            Construct();
             Stream.Append(Visit(context));
         }
+
+        /// <summary>
+        /// Construct additional data before visiting the context.
+        /// </summary>
+        public virtual void Construct() { }
 
         /// <summary>
         /// Visit children node and get its text.

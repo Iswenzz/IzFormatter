@@ -37,7 +37,7 @@ namespace Iswenzz.CoD4.Parser.Tasks.Function
             {
                 var identifier = call.RecurseChildsOfType<IdentifierContext>().FirstOrDefault();
                 if (ForbiddenExpressionsList.ContainsIgnoreCase(identifier?.GetText()))
-                    Comment.Line(call.RecurseParentOfType<SimpleStatementContext>());
+                    Comment.Line(identifier.RecurseParentOfType<SimpleStatementContext>());
             }
         }
 
@@ -51,7 +51,7 @@ namespace Iswenzz.CoD4.Parser.Tasks.Function
             {
                 var identifier = call.RecurseChildsOfType<IdentifierContext>().FirstOrDefault();
                 if (SpeedrunUnnecessaryExpressionsList.ContainsIgnoreCase(identifier?.GetText()))
-                    Comment.Line(call.RecurseParentOfType<SimpleStatementContext>());
+                    Comment.Line(identifier.RecurseParentOfType<SimpleStatementContext>());
             }
         }
     }

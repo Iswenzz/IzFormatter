@@ -1,7 +1,7 @@
-﻿using Antlr4.Runtime;
-using Antlr4.Runtime.Misc;
+﻿using Antlr4.Runtime.Misc;
 
 using Iswenzz.CoD4.Parser.Recognizer;
+using Iswenzz.CoD4.Parser.Tasks;
 using Iswenzz.CoD4.Parser.Tasks.Function;
 using Iswenzz.CoD4.Parser.Utils;
 using static GSCParser;
@@ -9,26 +9,42 @@ using static GSCParser;
 namespace Iswenzz.CoD4.Parser.Definitions.Function
 {
     /// <summary>
-    /// Function declaration.
+    /// SR Speedrun function statement.
     /// </summary>
     public class SpeedrunFunction : Function
     {
-        public bool IsMain { get; set; }
+        public bool IsTrap { get; set; }
 
         /// <summary>
         /// Initialize a new <see cref="SpeedrunFunction"/>.
         /// </summary>
         /// <param name="gsc">The GSC instance.</param>
         /// <param name="context">The definition context.</param>
-        public SpeedrunFunction(GSC gsc, ParserRuleContext context) : base(gsc, context) { }
+        public SpeedrunFunction(GSC gsc, FunctionStatementContext context) : base(gsc, context) { }
 
-        public override string VisitFunctionStatement([NotNull] FunctionStatementContext context)
+        /// <summary>
+        /// Construct additional data before visiting the context.
+        /// </summary>
+        public override void Construct()
         {
-            IsMain = context.identifier().GetText().EqualsIgnoreCase("main");
+            base.Construct();
 
-            Remove.DangerousExpressions(context);
-            Remove.SpeedrunUnnecessaryExpressions(context);
-            return base.VisitFunctionStatement(context);
+            IsTrap = IsTrapFunction();
+
+            Remove.DangerousExpressions(Context);
+            Remove.SpeedrunUnnecessaryExpressions(Context);
+            if (IsTrap) Trap.DisableTrigger(Context);
+        }
+
+        /// <summary>
+        /// Check if the function is a trap.
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool IsTrapFunction()
+        {
+            if (!Context.identifier().GetText().ContainsIgnoreCase("trap"))
+                return false;
+            return false;
         }
     }
 }

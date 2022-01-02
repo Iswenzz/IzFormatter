@@ -53,6 +53,15 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <param name="context">The rule context.</param>
         /// <param name="child">The child to add.</param>
         /// <param name="index">The index to add the child to.</param>
+        public static void AddChildAt(this ParserRuleContext context, IToken child, int index) =>
+            context.AddChilds(() => new ArrayList { child }, index);
+
+        /// <summary>
+        /// Add child to a specific index.
+        /// </summary>
+        /// <param name="context">The rule context.</param>
+        /// <param name="child">The child to add.</param>
+        /// <param name="index">The index to add the child to.</param>
         public static void AddChildAt(this ParserRuleContext context, ParserRuleContext child, int index) =>
             context.AddChilds(() => new ArrayList { child }, index);
 

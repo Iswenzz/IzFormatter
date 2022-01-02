@@ -57,14 +57,5 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <param name="buildNodeCallback">The build node callback.</param>
         public static void BuildMany(List<dynamic> vars, Func<dynamic, ExtraNode> buildNodeCallback) =>
             vars.ForEach(var => Build(buildNodeCallback(var)));
-
-        /// <summary>
-        /// Add child to a specific index.
-        /// </summary>
-        /// <param name="context">The rule context.</param>
-        /// <param name="child">The child to add.</param>
-        /// <param name="index">The index to add the child to.</param>
-        public static void AddChildAt(ParserRuleContext context, dynamic child, int index) =>
-            context.AddChilds(() => new ArrayList { child }, index);
     }
 }

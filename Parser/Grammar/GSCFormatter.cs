@@ -46,8 +46,8 @@ namespace Iswenzz.CoD4.Parser.Grammar
             for (int i = 0; i < context.ChildCount; i++)
                 BuildRule(context.GetChild(i));
 
-            ExtraNode.BuildMany(varsDedent, dedent => BuildDedent(rule, dedent));
             if (IsComment(rule)) ExtraNode.Build(BuildComment((ParserRuleContext)rule.Parent, rule));
+            ExtraNode.BuildMany(varsDedent, dedent => BuildDedent(rule, dedent));
         }
 
         /// <summary>
@@ -65,16 +65,21 @@ namespace Iswenzz.CoD4.Parser.Grammar
                 if (node is ParserRuleContext nodeContext)
                 {
                     int type = nodeContext.ChildOfType<IParseTree>(LineComment) != null ? LineComment : BlockComment;
+                    ITerminalNode newLineToken = (ITerminalNode)nodeContext.RecurseLastChild();
+                    if (newLineToken.Parent is ParserRuleContext newLineContext)
+                        newLineContext.RemoveLastChild();
+
                     string newLine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
                     string content = type switch
                     {
                         LineComment => $"// {nodeContext.GetText()}",
-                        BlockComment => $"/* {nodeContext.GetText().Trim()} */{newLine}",
+                        BlockComment => $"/* {nodeContext.GetText().Trim()} */",
                         _ => throw new NotImplementedException()
                     };
 
                     nodeContext.RemoveChilds();
                     nodeContext.AddChild(new CommonToken(type, content));
+                    nodeContext.AddChild(new CommonToken(Newline, newLine));
                     tree.Add(node);
                 }
                 return tree;

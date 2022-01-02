@@ -18,6 +18,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
 
         public GSCLexer Lexer { get; set; }
         public GSCParser Parser { get; set; }
+        public GSCFormatter Formatter { get; set; }
         protected GSCErrorListener ErrorListener { get; set; }
 
         /// <summary>
@@ -32,6 +33,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
             TokenStream = new CommonTokenStream(Lexer);
             Parser = new GSCParser(TokenStream);
             Parser.Interpreter.PredictionMode = PredictionMode.SLL;
+            Formatter = new GSCFormatter();
             Walker = new ParseTreeWalker();
 
             // Error listener

@@ -23,8 +23,10 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
         /// </summary>
         public override void Construct()
         {
-            base.Construct();
             IsMain = Context.identifier().GetText().EqualsIgnoreCase("main");
+            GSC.Recognizer.Formatter.BuildRule(Context);
+
+            base.Construct();
         }
     }
 }

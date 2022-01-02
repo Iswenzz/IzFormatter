@@ -15,10 +15,8 @@ namespace Iswenzz.CoD4.Parser.Definitions
         public StringBuilder Stream { get; set; }
         public T Context { get; set; }
 
-        protected int IndentLevel { get; set; }
-
         /// <summary>
-        /// Initialize a new <see cref="CompilationUnit"/>.
+        /// Initialize a new <see cref="Definition"/>.
         /// </summary>
         /// <param name="gsc">The GSC instance.</param>
         /// <param name="context">The definition context.</param>

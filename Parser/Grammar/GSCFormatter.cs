@@ -16,35 +16,14 @@ namespace Iswenzz.CoD4.Parser.Grammar
     /// </summary>
     public class GSCFormatter
     {
-        public virtual List<ParserRuleContext> Rules { get; set; } = new();
         public virtual int IndentLevel { get; set; }
-
-        /// <summary>
-        /// Build the code formatting.
-        /// </summary>
-        public virtual void Build()
-        {
-            Rules.Reverse();
-            foreach (ParserRuleContext rule in Rules)
-                BuildRule(rule);
-        }
-
-        /// <summary>
-        /// Rebuild the code formatting from a rule.
-        /// </summary>
-        /// <param name="rule">The rule to format.</param>
-        public static void Rebuild(ParserRuleContext rule)
-        {
-            ExternalDeclarationContext root = rule.RecurseParentOfType<ExternalDeclarationContext>();
-            new GSCFormatter().BuildRule(root);
-        }
 
         /// <summary>
         /// Build rule and its childrens with formatting.
         /// @TODO unique ID for rules to check for rules processed.
         /// </summary>
         /// <param name="context">The rule context.</param>
-        protected virtual void BuildRule(IParseTree context)
+        public virtual void BuildRule(IParseTree context)
         {
             if (context is not ParserRuleContext rule)
                 return;
@@ -183,5 +162,14 @@ namespace Iswenzz.CoD4.Parser.Grammar
                 return tree;
             }
         };
+
+        /// <summary>
+        /// Check if a rule is a comment.
+        /// </summary>
+        /// <param name="context">The context definition.</param>
+        /// <returns></returns>
+        public virtual bool IsComment(ParserRuleContext context) =>
+             context.ChildOfType<IParseTree>(LineComment) != null ||
+             context.ChildOfType<IParseTree>(BlockComment) != null;
     }
 }

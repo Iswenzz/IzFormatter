@@ -3,20 +3,14 @@ parser grammar GSCParser;
 options 
 {
     tokenVocab = GSCLexer;
-    superClass = GSCParserBase;
-}
-
-@parser::header 
-{
-    using Iswenzz.CoD4.Parser.Grammar;
 }
 
 compilationUnit
-    :   translationUnit? EOF { Build(); }
+    :   translationUnit? EOF
     ;
 
 simpleInput
-    :   statement { Build(); }
+    :   statement
     ;
 
 translationUnit

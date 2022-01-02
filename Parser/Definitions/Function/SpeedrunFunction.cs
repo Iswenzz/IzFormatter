@@ -29,14 +29,16 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
         /// </summary>
         public override void Construct()
         {
-            base.Construct();
-
             FunctionCallIdentifiers = GetAllFunctionCallIdentifiers();
+
+            IsMain = Context.identifier().GetText().EqualsIgnoreCase("main");
             IsTrap = IsTrapFunction();
 
             Remove.DangerousExpressions(FunctionCallIdentifiers);
             Remove.SpeedrunUnnecessaryExpressions(FunctionCallIdentifiers);
             if (IsTrap) Trap.DisableTrigger(Context);
+
+            base.Construct();
         }
 
         /// <summary>

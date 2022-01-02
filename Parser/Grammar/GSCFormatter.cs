@@ -47,7 +47,39 @@ namespace Iswenzz.CoD4.Parser.Grammar
                 BuildRule(context.GetChild(i));
 
             ExtraNode.BuildMany(varsDedent, dedent => BuildDedent(rule, dedent));
+            if (IsComment(rule)) ExtraNode.Build(BuildComment((ParserRuleContext)rule.Parent, rule));
         }
+
+        /// <summary>
+        /// Build a comment.
+        /// </summary>
+        /// <param name="context">The context rule.</param>
+        /// <param name="node">The node to apply.</param>
+        /// <returns></returns>
+        protected virtual ExtraNode BuildComment(ParserRuleContext context, dynamic node) => new(context)
+        {
+            Node = node,
+            BuildParseTree = () =>
+            {
+                ArrayList tree = new();
+                if (node is ParserRuleContext nodeContext)
+                {
+                    int type = nodeContext.ChildOfType<IParseTree>(LineComment) != null ? LineComment : BlockComment;
+                    string newLine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
+                    string content = type switch
+                    {
+                        LineComment => $"// {nodeContext.GetText()}",
+                        BlockComment => $"/* {nodeContext.GetText().Trim()} */{newLine}",
+                        _ => throw new NotImplementedException()
+                    };
+
+                    nodeContext.RemoveChilds();
+                    nodeContext.AddChild(new CommonToken(type, content));
+                    tree.Add(node);
+                }
+                return tree;
+            }
+        };
 
         /// <summary>
         /// Build a new line with indentation.
@@ -81,7 +113,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
                 IndentLevel++;
 
                 ArrayList tree = new();
-                tree.Add(new CommonToken(Indent, null));
+                tree.Add(new CommonToken(Indent));
                 tree.Add(new CommonToken(Newline, newine));
                 tree.AddRange(BuildNewline(context, node).BuildParseTree());
                 return tree;
@@ -106,9 +138,9 @@ namespace Iswenzz.CoD4.Parser.Grammar
                     string newine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
                     IndentLevel--;
 
-                    tree.Add(new CommonToken(Indent, null));
+                    tree.Add(new CommonToken(Indent));
                     tree.Add(new CommonToken(Newline, newine));
-                    tree.Add(new CommonToken(Dedent, null));
+                    tree.Add(new CommonToken(Dedent));
                 }
                 tree.Add(node);
                 return tree;
@@ -136,7 +168,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
 
                 return new ArrayList
                 {
-                    new CommonToken(Dedent, null),
+                    new CommonToken(Dedent),
                     node,
                     new CommonToken(Newline, newLine),
                 };

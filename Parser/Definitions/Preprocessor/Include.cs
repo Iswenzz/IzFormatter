@@ -15,10 +15,13 @@ namespace Iswenzz.CoD4.Parser.Definitions.Preprocessor
         /// <param name="context">The definition context.</param>
         public Include(GSC gsc, DirectiveStatementContext context) : base(gsc, context) { }
 
+        /// <summary>
+        /// Construct additional data before visiting the context.
+        /// </summary>
         public override void Construct()
         {
-            base.Construct();
             GSC.Recognizer.Formatter.BuildRule(Context);
+            base.Construct();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Antlr4.Runtime;
 
+using Iswenzz.CoD4.Parser.Recognizers;
 using Iswenzz.CoD4.Parser.Utils;
 using static GSCParser;
 
@@ -14,22 +15,14 @@ namespace Iswenzz.CoD4.Parser.Tasks
         /// Line comment the context.
         /// </summary>
         /// <param name="context">The context definition.</param>
-        public static void Line(ParserRuleContext context)
-        {
-            string content = $"// {context.GetText()}";
-            context.RemoveChilds();
-            context.AddChild(new CommonToken(LineComment, content));
-        }
+        public static void Line(ParserRuleContext context) =>
+            ExtraNode.AddChildAt(context, new CommonToken(LineComment), 0);
 
         /// <summary>
         /// Block comment the context.
         /// </summary>
         /// <param name="context">The context definition.</param>
-        public static void Block(ParserRuleContext context)
-        {
-            string content = $"/* {context.GetText()} */";
-            context.RemoveChilds();
-            context.AddChild(new CommonToken(LineComment, content));
-        }
+        public static void Block(ParserRuleContext context) =>
+            ExtraNode.AddChildAt(context, new CommonToken(BlockComment), 0);
     }
 }

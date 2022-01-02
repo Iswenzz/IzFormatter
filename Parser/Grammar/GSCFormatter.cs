@@ -17,7 +17,6 @@ namespace Iswenzz.CoD4.Parser.Grammar
     public class GSCFormatter
     {
         public virtual List<ParserRuleContext> Rules { get; set; } = new();
-        public virtual List<int> RulesProcessed { get; set; } = new();
         public virtual int IndentLevel { get; set; }
 
         /// <summary>
@@ -31,15 +30,24 @@ namespace Iswenzz.CoD4.Parser.Grammar
         }
 
         /// <summary>
+        /// Rebuild the code formatting from a rule.
+        /// </summary>
+        /// <param name="rule">The rule to format.</param>
+        public static void Rebuild(ParserRuleContext rule)
+        {
+            var root = rule.RecurseParentOfType<ExternalDeclarationContext>();
+            new GSCFormatter().BuildRule(root);
+        }
+
+        /// <summary>
         /// Build rule and its childrens with formatting.
         /// @TODO unique ID for rules to check for rules processed.
         /// </summary>
         /// <param name="context">The rule context.</param>
         protected virtual void BuildRule(IParseTree context)
         {
-            if (context is not ParserRuleContext rule || RulesProcessed.Contains(rule.GetHashCode()))
+            if (context is not ParserRuleContext rule)
                 return;
-            RulesProcessed.Add(rule.GetHashCode());
 
             List<dynamic> varsNewline = rule.ReflectRuleVariables("newline");
             List<dynamic> varsDedent = rule.ReflectRuleVariables("dedent");
@@ -119,9 +127,9 @@ namespace Iswenzz.CoD4.Parser.Grammar
                     string newine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
                     IndentLevel--;
 
-                    tree.Add(new CommonToken(Indent, ""));
+                    tree.Add(new CommonToken(Indent, null));
                     tree.Add(new CommonToken(Newline, newine));
-                    tree.Add(new CommonToken(Dedent, ""));
+                    tree.Add(new CommonToken(Dedent, null));
                 }
                 tree.Add(node);
                 return tree;

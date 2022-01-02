@@ -20,7 +20,12 @@ simpleInput
     ;
 
 translationUnit
-    :   (directiveStatement | functionStatement)+
+    :   externalDeclaration+
+    ;
+
+externalDeclaration
+    :   directiveStatement 
+    |   functionStatement
     ;
 
 statement

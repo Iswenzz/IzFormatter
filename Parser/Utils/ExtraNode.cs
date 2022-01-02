@@ -5,9 +5,7 @@ using System.Collections.Generic;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 
-using Iswenzz.CoD4.Parser.Utils;
-
-namespace Iswenzz.CoD4.Parser.Grammar
+namespace Iswenzz.CoD4.Parser.Utils
 {
     /// <summary>
     /// Build extra node in a parse tree.
@@ -38,7 +36,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
             if (BuildParseTree == null)
                 return;
             int needChangeIndex = ParserUtils.IndexOfChild(Childs, Node);
-            Context.ReplaceChilds(BuildParseTree(), needChangeIndex);
+            Context.ReplaceChilds(BuildParseTree, needChangeIndex);
         }
 
         /// <summary>
@@ -67,6 +65,6 @@ namespace Iswenzz.CoD4.Parser.Grammar
         /// <param name="child">The child to add.</param>
         /// <param name="index">The index to add the child to.</param>
         public static void AddChildAt(ParserRuleContext context, dynamic child, int index) =>
-            context.AddChilds(new ArrayList { child }, index);
+            context.AddChilds(() => new ArrayList { child }, index);
     }
 }

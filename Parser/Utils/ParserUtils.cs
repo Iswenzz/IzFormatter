@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
+using System;
 
 namespace Iswenzz.CoD4.Parser.Utils
 {
@@ -53,7 +54,7 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <param name="child">The child to add.</param>
         /// <param name="index">The index to add the child to.</param>
         public static void AddChildAt(this ParserRuleContext context, ParserRuleContext child, int index) =>
-            context.AddChilds(new ArrayList { child }, index);
+            context.AddChilds(() => new ArrayList { child }, index);
 
         /// <summary>
         /// Add childs to a specific index.
@@ -61,7 +62,7 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <param name="context">The rule context.</param>
         /// <param name="childsToAdd">The childs to add.</param>
         /// <param name="index">The index to add childs to.</param>
-        public static void AddChilds(this ParserRuleContext context, ArrayList childsToAdd, int index)
+        public static void AddChilds(this ParserRuleContext context, Func<ArrayList> childsToAdd, int index)
         {
             List<IParseTree> childs = Childs(context).ToList();
             context.RemoveChilds();
@@ -70,13 +71,13 @@ namespace Iswenzz.CoD4.Parser.Utils
             {
                 if (i == index)
                 {
-                    foreach (dynamic child in childsToAdd)
+                    foreach (dynamic child in childsToAdd())
                     {
                         if (child != null)
                             context.AddChild(child);
                     }
                 }
-                context.AddChild((dynamic)childs.ElementAt(i));
+                context.AddChild((dynamic)childs[i]);
             }
         }
 
@@ -86,23 +87,23 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <param name="context">The rule context.</param>
         /// <param name="childsToAdd">The childs to add.</param>
         /// <param name="index">The index to add childs to.</param>
-        public static void ReplaceChilds(this ParserRuleContext context, ArrayList childsToAdd, int index)
+        public static void ReplaceChilds(this ParserRuleContext context, Func<ArrayList> childsToAdd, int index)
         {
-            List<IParseTree> childs = Childs(context).ToList();
+            List<IParseTree> childs = context.Childs().ToList();
             context.RemoveChilds();
 
             for (int i = 0; i < childs.Count; i++)
             {
                 if (i == index)
                 {
-                    foreach (dynamic child in childsToAdd)
+                    foreach (dynamic child in childsToAdd())
                     {
                         if (child != null)
                             context.AddChild(child);
                     }
                 }
                 else
-                    context.AddChild((dynamic)childs.ElementAt(i));
+                    context.AddChild((dynamic)childs[i]);
             }
         }
 

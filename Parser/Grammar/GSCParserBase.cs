@@ -2,6 +2,7 @@
 using System.IO;
 
 using Antlr4.Runtime;
+using static GSCParser;
 
 namespace Iswenzz.CoD4.Parser.Grammar
 {
@@ -36,7 +37,8 @@ namespace Iswenzz.CoD4.Parser.Grammar
         /// </summary>
         public override void ExitRule()
         {
-            Formatter.Rules.Add(Context);
+            if (Context is ExternalDeclarationContext)
+                Formatter.Rules.Add(Context);
             base.ExitRule();
         }
 

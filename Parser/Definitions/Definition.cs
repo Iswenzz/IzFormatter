@@ -2,7 +2,7 @@
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 
-using Iswenzz.CoD4.Parser.Recognizer;
+using Iswenzz.CoD4.Parser.Recognizers;
 
 namespace Iswenzz.CoD4.Parser.Definitions
 {

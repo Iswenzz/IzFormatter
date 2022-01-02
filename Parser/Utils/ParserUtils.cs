@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -243,6 +244,23 @@ namespace Iswenzz.CoD4.Parser.Utils
                     result.AddRange(RecurseChildsOfType<T>(childContext, type));
             }
             return result;
+        }
+
+        /// <summary>
+        /// Reflect rule variables.
+        /// </summary>
+        /// <param name="rule">The rule definition.</param>
+        /// <param name="name">The variable defined name.</param>
+        /// <returns></returns>
+        public static List<dynamic> ReflectRuleVariables(this ParserRuleContext rule, string name)
+        {
+            List<dynamic> vars = new();
+            foreach (FieldInfo var in rule.GetType().GetFields())
+            {
+                if (var.Name == name || var.Name.Split('_').First() == name)
+                    vars.Add(var.GetValue(rule));
+            }
+            return vars;
         }
 
         /// <summary>

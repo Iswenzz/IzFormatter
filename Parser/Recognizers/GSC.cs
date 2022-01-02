@@ -3,17 +3,13 @@ using System.IO;
 using System.Text;
 using System.Collections.Generic;
 
-using Antlr4.Runtime;
-using Antlr4.Runtime.Atn;
-using Antlr4.Runtime.Tree;
-
+using Iswenzz.CoD4.Parser.Grammar;
 using Iswenzz.CoD4.Parser.Definitions;
 using Iswenzz.CoD4.Parser.Definitions.Function;
 using Iswenzz.CoD4.Parser.Definitions.Preprocessor;
-using Iswenzz.CoD4.Parser.Listeners;
 using static GSCParser;
 
-namespace Iswenzz.CoD4.Parser.Recognizer
+namespace Iswenzz.CoD4.Parser.Recognizers
 {
     /// <summary>
     /// GSC file.
@@ -25,14 +21,8 @@ namespace Iswenzz.CoD4.Parser.Recognizer
         public string FileName { get; protected set; }
         public string FileExtension { get; protected set; }
 
-        public AntlrInputStream Stream { get; protected set; }
-        public CommonTokenStream TokenStream { get; set; }
-        public ParseTreeWalker Walker { get; set; }
+        public GSCRecognizer Recognizer { get; set; }
         protected CompilationUnit CompilationUnit { get; set; }
-
-        public GSCLexer Lexer { get; set; }
-        public GSCParser Parser { get; set; }
-        protected GSCErrorListener ErrorListener { get; set; }
 
         public List<Include> Includes { get; protected set; }
         public List<Function> Functions { get; protected set; }
@@ -51,20 +41,7 @@ namespace Iswenzz.CoD4.Parser.Recognizer
             Includes = new List<Include>();
             Functions = new List<Function>();
 
-            // Parser & Lexer & Walker
-            Stream = new AntlrInputStream(File.ReadAllText(filepath));
-            Lexer = new GSCLexer(Stream);
-            TokenStream = new CommonTokenStream(Lexer);
-            Parser = new GSCParser(TokenStream);
-            Walker = new ParseTreeWalker();
-
-            // Error listener
-            ErrorListener = new GSCErrorListener();
-            Parser.RemoveErrorListeners();
-            Parser.AddErrorListener(ErrorListener);
-
-            // Start
-            Parser.Interpreter.PredictionMode = PredictionMode.SLL;
+            Recognizer = new(File.ReadAllText(filepath));
             Parse();
         }
 
@@ -72,7 +49,7 @@ namespace Iswenzz.CoD4.Parser.Recognizer
         /// Parse the GSC.
         /// </summary>
         public virtual void Parse() =>
-            CompilationUnit = new CompilationUnit(this, Parser.compilationUnit());
+            CompilationUnit = new CompilationUnit(this, Recognizer.Parser.compilationUnit());
 
         /// <summary>
         /// Create a function.

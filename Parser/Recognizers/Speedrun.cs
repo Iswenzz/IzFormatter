@@ -1,7 +1,7 @@
 ﻿using Iswenzz.CoD4.Parser.Definitions.Function;
 using static GSCParser;
 
-namespace Iswenzz.CoD4.Parser.Recognizer
+namespace Iswenzz.CoD4.Parser.Recognizers
 {
     /// <summary>
     /// SR Speedrun <see cref="GSC"/> file.

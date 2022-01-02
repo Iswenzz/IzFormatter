@@ -1,4 +1,4 @@
-﻿using Iswenzz.CoD4.Parser.Recognizer;
+﻿using Iswenzz.CoD4.Parser.Recognizers;
 using static GSCParser;
 
 namespace Iswenzz.CoD4.Parser.Definitions.Preprocessor

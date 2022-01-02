@@ -12,7 +12,11 @@ options
 }
 
 compilationUnit
-    :   translationUnit? EOF { BuildFormatting(); }
+    :   translationUnit? EOF { Build(); }
+    ;
+
+simpleInput
+    :   statement { Build(); }
     ;
 
 translationUnit

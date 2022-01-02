@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 
 using Iswenzz.CoD4.Parser.CLI;
-using Iswenzz.CoD4.Parser.Recognizer;
+using Iswenzz.CoD4.Parser.Recognizers;
 using Iswenzz.CoD4.Parser.Utils;
 
 namespace Iswenzz.CoD4.Parser
@@ -29,7 +29,7 @@ namespace Iswenzz.CoD4.Parser
         /// </summary>
         public static void OpenWithParser()
         {
-            Type parserType = Type.GetType($"Iswenzz.CoD4.Parser.Recognizer.{CLIParser.Options.Parser}");
+            Type parserType = Type.GetType($"Iswenzz.CoD4.Parser.Recognizers.{CLIParser.Options.Parser}");
             if (!string.IsNullOrEmpty(CLIParser.Options.GSCFolder))
                 OpenDirectory(parserType);
             else

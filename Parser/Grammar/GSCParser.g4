@@ -29,7 +29,9 @@ externalDeclaration
     ;
 
 statement
-    :   (simpleStatement | compoundStatement | shortStatement)+
+    :   simpleStatement 
+    |   compoundStatement 
+    |   shortStatement
     ;
 
 simpleStatement

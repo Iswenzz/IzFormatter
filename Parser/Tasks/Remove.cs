@@ -24,7 +24,7 @@ namespace Iswenzz.CoD4.Parser.Tasks.Function
             "oldway", "old", "shotgun", "ak74u", "ak47", "deagle", "menu", "vip", "mapper", "modder",
             "ambientplay", "iprintlnbold", "iprintln", "sayall", "sayteam", "setmovespeed", "setmovespeedscale",
             "setgravity", "setjumpheight", "setrank", "print3D", "print", "println", "openmenu", "giverank",
-            "switchtoweapon", "giveweapon", "takeallweapons", "givemaxammo", "give", "guid"
+            "switchtoweapon", "giveweapon", "takeallweapons", "givemaxammo", "give"
         };
 
         /// <summary>

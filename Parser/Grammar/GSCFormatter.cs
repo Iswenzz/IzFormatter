@@ -35,7 +35,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
         /// <param name="rule">The rule to format.</param>
         public static void Rebuild(ParserRuleContext rule)
         {
-            var root = rule.RecurseParentOfType<ExternalDeclarationContext>();
+            ExternalDeclarationContext root = rule.RecurseParentOfType<ExternalDeclarationContext>();
             new GSCFormatter().BuildRule(root);
         }
 

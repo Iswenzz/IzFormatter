@@ -61,14 +61,13 @@ namespace Iswenzz.CoD4.Parser.Grammar
             Node = node,
             BuildParseTree = () =>
             {
-                ArrayList tree = new();
                 if (node is ParserRuleContext nodeContext)
                 {
-                    int type = nodeContext.ChildOfType<IParseTree>(LineComment) != null ? LineComment : BlockComment;
-                    ITerminalNode newLineToken = (ITerminalNode)nodeContext.RecurseLastChild();
-                    if (newLineToken.Parent is ParserRuleContext newLineContext)
-                        newLineContext.RemoveLastChild();
+                    // Remove new line from comment
+                    ParserRuleContext last = (ParserRuleContext)nodeContext.RecurseLastChild().Parent;
+                    last.RemoveLastChild();
 
+                    int type = nodeContext.ChildOfType<IParseTree>(LineComment) != null ? LineComment : BlockComment;
                     string newLine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
                     string content = type switch
                     {
@@ -80,9 +79,8 @@ namespace Iswenzz.CoD4.Parser.Grammar
                     nodeContext.RemoveChilds();
                     nodeContext.AddChild(new CommonToken(type, content));
                     nodeContext.AddChild(new CommonToken(Newline, newLine));
-                    tree.Add(node);
                 }
-                return tree;
+                return new ArrayList { node };
             }
         };
 

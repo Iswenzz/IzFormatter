@@ -1,4 +1,7 @@
-﻿using static GSCParser;
+﻿using System.Linq;
+
+using Iswenzz.CoD4.Parser.Utils;
+using static GSCParser;
 
 namespace Iswenzz.CoD4.Parser.Tasks
 {
@@ -13,7 +16,12 @@ namespace Iswenzz.CoD4.Parser.Tasks
         /// <param name="context">The teleporter function context.</param>
         public static void RemoveDelays(FunctionStatementContext context)
         {
-            
+            var loop = context.RecurseChildsOfType<IterationStatementContext>().LastOrDefault();
+            if (loop != null)
+            {
+                foreach (var wait in loop.RecurseChildsOfType<WaitStatementContext>())
+                    Comment.Line(wait);
+            }
         }
     }
 }

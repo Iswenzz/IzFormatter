@@ -9,6 +9,7 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
     /// </summary>
     public class Function : Definition<FunctionStatementContext>
     {
+        public string Identifier { get; set; }
         public bool IsMain { get; set; }
 
         /// <summary>
@@ -23,9 +24,10 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
         /// </summary>
         public override void Construct()
         {
-            IsMain = Context.identifier().GetText().EqualsIgnoreCase("main");
-            GSC.Recognizer.Formatter.BuildRule(Context);
+            Identifier = Context.identifier().GetText();
+            IsMain = Identifier.EqualsIgnoreCase("main");
 
+            GSC.Recognizer.Formatter.BuildRule(Context);
             base.Construct();
         }
     }

@@ -15,7 +15,9 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
     public class SpeedrunFunction : Function
     {
         public IEnumerable<IdentifierContext> FunctionCallIdentifiers { get; set; }
+
         public bool IsTrap { get; set; }
+        public bool IsTeleporter { get; set; }
 
         /// <summary>
         /// Initialize a new <see cref="SpeedrunFunction"/>.
@@ -29,14 +31,22 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
         /// </summary>
         public override void Construct()
         {
+            Identifier = Context.identifier().GetText();
             FunctionCallIdentifiers = GetAllFunctionCallIdentifiers();
 
-            IsMain = Context.identifier().GetText().EqualsIgnoreCase("main");
+            IsMain = Identifier.EqualsIgnoreCase("main");
             IsTrap = IsTrapFunction();
+            IsTeleporter = IsTeleporterFunction();
 
             Remove.DangerousExpressions(FunctionCallIdentifiers);
             Remove.SpeedrunUnnecessaryExpressions(FunctionCallIdentifiers);
+            if (IsMain)
+            {
+                Main.AddSpeedrunWays(Context);
+                Main.AddSpeedrunSpawn(Context);
+            }
             if (IsTrap) Trap.DisableTrigger(Context);
+            if (IsTeleporter) Teleporter.RemoveDelays(Context);
 
             base.Construct();
         }
@@ -55,9 +65,24 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
         /// <returns></returns>
         public virtual bool IsTrapFunction()
         {
-            if (!Context.identifier().GetText().ContainsIgnoreCase("trap"))
+            if (!Identifier.ContainsIgnoreCase("trap"))
                 return false;
             if (!FunctionCallIdentifiers.Any(c => c.Identifier().GetText().EqualsIgnoreCase("waittill")))
+                return false;
+            return true;
+        }
+
+        /// <summary>
+        /// Check if the function is a teleporter.
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool IsTeleporterFunction()
+        {
+            if (Context.RecurseChildsOfType<IterationStatementContext>() == null)
+                return false;
+            if (Context.RecurseChildsOfType<WaitStatementContext>() == null)
+                return false;
+            if (!FunctionCallIdentifiers.Any(c => c.Identifier().GetText().EqualsIgnoreCase("setorigin")))
                 return false;
             return true;
         }

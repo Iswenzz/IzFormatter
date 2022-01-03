@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Iswenzz.CoD4.Parser.Utils;
 using static GSCParser;
+using Antlr4.Runtime;
 
 namespace Iswenzz.CoD4.Parser.Tasks.Function
 {
@@ -26,19 +27,38 @@ namespace Iswenzz.CoD4.Parser.Tasks.Function
         };
 
         /// <summary>
+        /// Remove expression of specific type.
+        /// </summary>
+        /// <typeparam name="T">The rule type.</typeparam>
+        /// <param name="expressions">The expressions list.</param>
+        public static void Expressions<T>(IEnumerable<T> expressions) where T : ParserRuleContext
+        {
+            foreach (T expression in expressions)
+            {
+                SimpleStatementContext simpleStatement = expression.RecurseLastParentOfType<SimpleStatementContext>();
+                ExpressionContext expr = expression.RecurseLastParentOfType<ExpressionContext>();
+
+                if (simpleStatement != null)
+                    Comment.Line(simpleStatement);
+                else
+                    Comment.Block(expr);
+            }
+        }
+
+        /// <summary>
         /// Remove dangerous expressions.
         /// </summary>
         /// <param name="identifiers">The function call identifiers.</param>
-        public static void DangerousExpressions(IEnumerable<IdentifierContext> identifiers) => identifiers
-            .Where(identifier => ForbiddenExpressionsList.ContainsIgnoreCase(identifier.GetText()))
-            .ForEach(identifier => Comment.Line(identifier.RecurseParentOfType<SimpleStatementContext>()));
+        public static void DangerousExpressions(IEnumerable<IdentifierContext> identifiers) => 
+            Expressions(identifiers.Where(identifier => 
+            ForbiddenExpressionsList.ContainsIgnoreCase(identifier.GetText())));
 
         /// <summary>
         /// Remove unnecessary expressions for SR Speedrun.
         /// </summary>
         /// <param name="identifiers">The function call identifiers.</param>
-        public static void SpeedrunUnnecessaryExpressions(IEnumerable<IdentifierContext> identifiers) => identifiers
-            .Where(identifier => SpeedrunUnnecessaryExpressionsList.ContainsIgnoreCase(identifier.GetText()))
-            .ForEach(identifier => Comment.Line(identifier.RecurseParentOfType<SimpleStatementContext>()));
+        public static void SpeedrunUnnecessaryExpressions(IEnumerable<IdentifierContext> identifiers) => 
+            Expressions(identifiers.Where(identifier => 
+            SpeedrunUnnecessaryExpressionsList.ContainsIgnoreCase(identifier.GetText())));
     }
 }

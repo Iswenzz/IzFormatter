@@ -147,7 +147,8 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <param name="context">The context definition.</param>
         /// <param name="type">The context type.</param>
         /// <returns></returns>
-        public static T ChildOfType<T>(this ParserRuleContext context, int type = OPTIONAL) where T : class
+        public static T ChildOfType<T>(this ParserRuleContext context, int type = OPTIONAL) 
+            where T : class, IParseTree
         {
             for (int i = 0; i < context.ChildCount; i++)
             {
@@ -193,7 +194,8 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <param name="context">The rule context.</param>
         /// <param name="type">The node type.</param>
         /// <returns></returns>
-        public static T LastChildOfType<T>(this IParseTree context, int type = OPTIONAL) where T : class
+        public static T LastChildOfType<T>(this IParseTree context, int type = OPTIONAL) 
+            where T : class, IParseTree
         {
             T result = null;
             for (int i = 0; i < context.ChildCount; i++)
@@ -212,16 +214,38 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <param name="context">The rule context.</param>
         /// <param name="type">The node type.</param>
         /// <returns></returns>
-        public static T RecurseParentOfType<T>(this IParseTree context, int type = OPTIONAL) where T : class
+        public static T RecurseParentOfType<T>(this IParseTree context, int type = OPTIONAL) 
+            where T : class, IParseTree
         {
             if (context.Parent != null)
             {
                 if (context.Parent.IsType<T>(type))
                     return (T)context.Parent;
                 else
-                    return RecurseParentOfType<T>(context.Parent, type);
+                    return context.Parent.RecurseParentOfType<T>(type);
             }
             return null;
+        }
+
+        /// <summary>
+        /// Recurse to the last parent of a specific type.
+        /// </summary>
+        /// <typeparam name="T">The context type class.</typeparam>
+        /// <param name="context">The rule context.</param>
+        /// <param name="type">The node type.</param>
+        /// <returns></returns>
+        public static T RecurseLastParentOfType<T>(this IParseTree context, int type = OPTIONAL)
+            where T : class, IParseTree
+        {
+            IParseTree current = context;
+            T result = null;
+
+            while ((current = current.Parent) != null)
+            {
+                if (current.IsType<T>(type))
+                    result = (T)current;
+            }
+            return result;
         }
 
         /// <summary>
@@ -231,8 +255,8 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <returns></returns>
         public static IParseTree RecurseLastChild(this IParseTree context)
         {
-            IParseTree child = LastChild(context);
-            return child.Equals(context) ? context : RecurseLastChild(child);
+            IParseTree child = context.LastChild();
+            return child.Equals(context) ? context : child.RecurseLastChild();
         }
 
         /// <summary>
@@ -251,7 +275,7 @@ namespace Iswenzz.CoD4.Parser.Utils
                 if (child.IsType<T>(type))
                     result.Add((T)child);
                 if (child is ParserRuleContext childContext)
-                    result.AddRange(RecurseChildsOfType<T>(childContext, type));
+                    result.AddRange(childContext.RecurseChildsOfType<T>(type));
             }
             return result;
         }
@@ -290,7 +314,7 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <param name="type">The context type.</param>
         /// <returns></returns>
         public static bool IsType<T>(this IParseTree context, int type = OPTIONAL) =>
-            type == OPTIONAL ? context is T : IsType(context, type);
+            type == OPTIONAL ? context is T : context.IsType(type);
 
         /// <summary>
         /// Check if a context is of a specific type.

@@ -36,7 +36,12 @@ simpleStatement
     ;
 
 compoundStatement
-    :   indent=LeftBrace statement* dedent=RightBrace
+    :   indent=LeftBrace statement+ dedent=RightBrace
+    |   newline=emptyCompoundStatement
+    ;
+
+emptyCompoundStatement
+    :   wsl_1=LeftBrace wsl_2=RightBrace
     ;
 
 shortStatement
@@ -49,6 +54,7 @@ primaryExpression
     |   qualifiedIdentifier                                                             # QualifiedExpression
     |   memberExpression                                                                # MemberStatementExpression
     |   threadExpression                                                                # ThreadStatementExpression
+    |   waitExpression                                                                  # WaitStatementExpression
     |   LeftParen expression RightParen                                                 # ParenthesizedExpression
     |   literal                                                                         # LiteralExpression
     ;
@@ -56,11 +62,11 @@ primaryExpression
 postfixExpression
     :   primaryExpression                                                               # PrimaryStatementExpression
 	|   postfixExpression LeftBracket expression RightBracket wsl=postfixExpression?    # MemberIndexExpression
-	|   postfixExpression LeftParen expressionList? RightParen                          # FunctionExpression
+	|   postfixExpression LeftParen expressionList? RightParen wsl=postfixExpression?   # FunctionExpression
 	|   postfixExpression Dot postfixExpression                                         # MemberDotExpression
 	|   postfixExpression (PlusPlus | MinusMinus)                                       # PostExpression
     |   qualifiedIdentifier Qualified postfixExpression                                 # QualifiedCallExpression
-    |   LeftFunctionPointer postfixExpression RightFunctionPointer                      # FunctionPointerCallExpression
+    |   LeftBracket LeftBracket postfixExpression RightBracket RightBracket             # FunctionPointerCallExpression
     |   LeftParen expression wsr_1=Comma expression wsr_2=Comma expression RightParen   # VectorExpression
     ;
 
@@ -78,6 +84,10 @@ memberExpression
 
 threadExpression
     :   wsr=Thread expression
+    ;
+
+waitExpression
+    :   wsr=Wait expression
     ;
 
 expressionSequence
@@ -108,7 +118,7 @@ functionStatement
     ;
 
 expressionStatement
-    :   expression newline=Semi
+    :   expression? newline=Semi
     ;
 
 labeledStatement
@@ -129,8 +139,7 @@ waitStatement
 
 iterationStatement
     :   wsr=While LeftParen expression RightParen indentShort=statement
-    |   wsr_1=For LeftParen expressionList? Semi Semi expressionList? RightParen indentShort=statement
-    |   wsr_1=For LeftParen expressionList wsr_2=Semi expressionList wsr_3=Semi expressionList? RightParen indentShort=statement
+    |   wsr_1=For LeftParen expressionList? Semi wsl_2=expressionList? Semi wsl_3=expressionList? RightParen indentShort=statement
     ;
 
 jumpStatement
@@ -155,10 +164,12 @@ unaryOperator
 
 identifierSequence
     :   wsr=Comma identifier
+    |   wsr=Comma identifier Dot identifierSequence
     ;
 
 identifierList
     :   identifier identifierSequence*
+    |   identifier Dot identifierList
     ;
 
 qualifiedIdentifier

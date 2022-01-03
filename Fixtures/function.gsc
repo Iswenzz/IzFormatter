@@ -13,6 +13,9 @@ main()
     [[functionA]]();
     [[functionA]](1, 2);
 
+    a = functions[arrayA[0]];
+    b = functions[arrayA[0]](1, 2);
+
     thread test();
     self thread test(1, 2);
     self.function thread test();

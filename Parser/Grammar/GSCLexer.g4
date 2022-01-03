@@ -8,7 +8,6 @@ Default:                            'default';
 Continue:                           'continue';
 Else:                               'else';
 For:                                'for';
-Goto:                               'goto';
 If:                                 'if';
 Return:                             'return';
 Switch:                             'switch';
@@ -67,8 +66,6 @@ NotEqual:                           '!=';
 
 Dot:                                '.';
 Qualified:                           '::';
-LeftFunctionPointer:                '[[';
-RightFunctionPointer:               ']]';
 
 ArrayLiteral:                       '[]';
 BooleanLiteral:                     'true' | 'false';
@@ -105,7 +102,7 @@ fragment UndefinedConstant:         UndefinedLiteral;
 fragment BooleanConstant:           BooleanLiteral;
 fragment ArrayConstant:             ArrayLiteral;
 
-fragment DecimalIntegerLiteral:     '0' | [1-9] [0-9]*;
+fragment DecimalIntegerLiteral:     '0' | [0-9]+;
 fragment DecimalFractionalLiteral:  DecimalIntegerLiteral? '.' [0-9]*;
 
 Identifier

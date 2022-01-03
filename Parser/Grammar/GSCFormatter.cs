@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
 
 using Antlr4.Runtime;
@@ -80,7 +79,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
                     nodeContext.AddChild(new CommonToken(type, content));
                     nodeContext.AddChild(new CommonToken(Newline, newLine));
                 }
-                return new ArrayList { node };
+                return new List<dynamic> { node };
             }
         };
 
@@ -93,7 +92,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
         protected virtual ExtraNode BuildNewline(ParserRuleContext context, dynamic node) => new(context)
         {
             Node = node,
-            BuildParseTree = () => new ArrayList
+            BuildParseTree = () => new List<dynamic>
             {
                 node,
                 new CommonToken(Newline, Environment.NewLine +
@@ -115,7 +114,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
                 string newine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
                 IndentLevel++;
 
-                ArrayList tree = new();
+                List<dynamic> tree = new();
                 tree.Add(new CommonToken(Indent));
                 tree.Add(new CommonToken(Newline, newine));
                 tree.AddRange(BuildNewline(context, node).BuildParseTree());
@@ -134,7 +133,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
             Node = node,
             BuildParseTree = () =>
             {
-                ArrayList tree = new();
+                List<dynamic> tree = new();
                 if (node is ParserRuleContext rule && rule.LastChildOfType<CompoundStatementContext>() == null)
                 {
                     IndentLevel++;
@@ -169,7 +168,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
                 last.RemoveLastChild();
                 last.AddChild(new CommonToken(Newline, newLine));
 
-                return new ArrayList
+                return new List<dynamic>
                 {
                     new CommonToken(Dedent),
                     node,
@@ -190,7 +189,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
             Node = node,
             BuildParseTree = () =>
             {
-                ArrayList tree = new();
+                List<dynamic> tree = new();
                 if (left) tree.Add(new CommonToken(Whitespace, " "));
                 tree.Add(node);
                 if (right) tree.Add(new CommonToken(Whitespace, " "));

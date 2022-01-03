@@ -1,12 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Reflection;
-using System.Collections;
 using System.Collections.Generic;
 
 using Antlr4.Runtime;
 using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
-using System;
 
 namespace Iswenzz.CoD4.Parser.Utils
 {
@@ -53,8 +52,8 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <param name="context">The rule context.</param>
         /// <param name="child">The child to add.</param>
         /// <param name="index">The index to add the child to.</param>
-        public static void AddChildAt(this ParserRuleContext context, IToken child, int index) =>
-            context.AddChilds(() => new ArrayList { child }, index);
+        public static void AddChildAt(this ParserRuleContext context, object child, int index) =>
+            context.AddChilds(() => new List<dynamic> { child }, index);
 
         /// <summary>
         /// Add child to a specific index.
@@ -62,8 +61,17 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <param name="context">The rule context.</param>
         /// <param name="child">The child to add.</param>
         /// <param name="index">The index to add the child to.</param>
-        public static void AddChildAt(this ParserRuleContext context, ParserRuleContext child, int index) =>
-            context.AddChilds(() => new ArrayList { child }, index);
+        public static void AddChildAt(this ParserRuleContext context, IToken child, int index) =>
+            context.AddChilds(() => new List<dynamic> { child }, index);
+
+        /// <summary>
+        /// Add child to a specific index.
+        /// </summary>
+        /// <param name="context">The rule context.</param>
+        /// <param name="child">The child to add.</param>
+        /// <param name="index">The index to add the child to.</param>
+        public static void AddChildAt(this ParserRuleContext context, IParseTree child, int index) =>
+            context.AddChilds(() => new List<dynamic> { child }, index);
 
         /// <summary>
         /// Add childs to a specific index.
@@ -71,9 +79,9 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <param name="context">The rule context.</param>
         /// <param name="childsToAdd">The childs to add.</param>
         /// <param name="index">The index to add childs to.</param>
-        public static void AddChilds(this ParserRuleContext context, Func<ArrayList> childsToAdd, int index)
+        public static void AddChilds(this ParserRuleContext context, Func<List<dynamic>> childsToAdd, int index)
         {
-            List<IParseTree> childs = Childs(context).ToList();
+            List<IParseTree> childs = context.Childs().ToList();
             context.RemoveChilds();
 
             for (int i = 0; i < childs.Count; i++)
@@ -96,7 +104,7 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <param name="context">The rule context.</param>
         /// <param name="childsToAdd">The childs to add.</param>
         /// <param name="index">The index to add childs to.</param>
-        public static void ReplaceChilds(this ParserRuleContext context, Func<ArrayList> childsToAdd, int index)
+        public static void ReplaceChilds(this ParserRuleContext context, Func<List<dynamic>> childsToAdd, int index)
         {
             List<IParseTree> childs = context.Childs().ToList();
             context.RemoveChilds();
@@ -122,7 +130,25 @@ namespace Iswenzz.CoD4.Parser.Utils
         /// <param name="childs">The child collection.</param>
         /// <param name="child">The child to find the index.</param>
         /// <returns></returns>
-        public static int IndexOfChild(IEnumerable<IParseTree> childs, dynamic child)
+        public static int IndexOfChild(this IEnumerable<IParseTree> childs, IToken child) =>
+            childs.IndexOfChild((object)child);
+
+        /// <summary>
+        /// Retrieve the child index from a child object in the collection.
+        /// </summary>
+        /// <param name="childs">The child collection.</param>
+        /// <param name="child">The child to find the index.</param>
+        /// <returns></returns>
+        public static int IndexOfChild(this IEnumerable<IParseTree> childs, IParseTree child) =>
+            childs.IndexOfChild((object)child);
+
+        /// <summary>
+        /// Retrieve the child index from a child object in the collection.
+        /// </summary>
+        /// <param name="childs">The child collection.</param>
+        /// <param name="child">The child to find the index.</param>
+        /// <returns></returns>
+        public static int IndexOfChild(this IEnumerable<IParseTree> childs, object child)
         {
             for (int i = 0; i < childs.Count(); i++)
             {

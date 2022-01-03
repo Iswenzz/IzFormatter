@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 using Antlr4.Runtime;
@@ -16,7 +15,7 @@ namespace Iswenzz.CoD4.Parser.Utils
         public IEnumerable<IParseTree> Childs { get; set; }
         public dynamic Node { get; set; }
 
-        public Func<ArrayList> BuildParseTree { get; set; }
+        public Func<List<dynamic>> BuildParseTree { get; set; }
 
         /// <summary>
         /// Initialize a new <see cref="ExtraNode"/>.
@@ -35,7 +34,7 @@ namespace Iswenzz.CoD4.Parser.Utils
         {
             if (BuildParseTree == null)
                 return;
-            int needChangeIndex = ParserUtils.IndexOfChild(Childs, Node);
+            int needChangeIndex = Childs.IndexOfChild((object)Node);
             Context.ReplaceChilds(BuildParseTree, needChangeIndex);
         }
 

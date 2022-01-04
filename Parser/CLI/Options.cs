@@ -52,7 +52,7 @@ namespace Iswenzz.CoD4.Parser.CLI
             if (string.IsNullOrEmpty(GSCOutFolder))
                 GSCOutFolder = GSCFolder;
 
-            Console.WriteLine($"Reading with {Parser} parser:\n");
+            Console.WriteLine($"Executing {Parser} parser:\n");
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -12,8 +12,6 @@ namespace Iswenzz.CoD4.Parser
 {
     public static class Program
     {
-        public static List<GSC> GSCs { get; private set; } = new List<GSC>();
-
         /// <summary>
         /// Entry point of the program.
         /// </summary>
@@ -34,7 +32,6 @@ namespace Iswenzz.CoD4.Parser
                 OpenDirectory(parserType);
             else
                 OpenFile(parserType);
-            Save();
         }
 
         /// <summary>
@@ -56,7 +53,7 @@ namespace Iswenzz.CoD4.Parser
             foreach (string file in files ?? Enumerable.Empty<string>())
             {
                 Log.File(file, index, files.Count);
-                GSCs.Add((GSC)Activator.CreateInstance(parserType, file));
+                Save((GSC)Activator.CreateInstance(parserType, file));
                 index++;
             }
 
@@ -76,7 +73,7 @@ namespace Iswenzz.CoD4.Parser
             timer.Start();
 
             Log.File(file);
-            GSCs.Add((GSC)Activator.CreateInstance(parserType, file));
+            Save((GSC)Activator.CreateInstance(parserType, file));
 
             timer.Stop();
             Console.WriteLine($"\nParsed 1 file in {timer.Elapsed:hh\\:mm\\.ss}.");
@@ -85,16 +82,13 @@ namespace Iswenzz.CoD4.Parser
         /// <summary>
         /// Save all GSCs.
         /// </summary>
-        private static void Save()
+        private static void Save(GSC gsc)
         {
-            foreach (GSC gsc in GSCs)
-            {
-                string path = Path.GetRelativePath(CLIParser.Options.GSCFolder, gsc.FilePathWithoutExtension);
-                path = Path.Combine(CLIParser.Options.GSCOutFolder, path);
-                path += CLIParser.Options.GSCFolder == CLIParser.Options.GSCOutFolder
-                    ? "_new.gsc" : ".gsc";
-                gsc.Save(path);
-            }
+            string path = Path.GetRelativePath(CLIParser.Options.GSCFolder, gsc.FilePathWithoutExtension);
+            path = Path.Combine(CLIParser.Options.GSCOutFolder, path);
+            path += CLIParser.Options.GSCFolder == CLIParser.Options.GSCOutFolder
+                ? "_new.gsc" : ".gsc";
+            gsc.Save(path);
         }
     }
 }

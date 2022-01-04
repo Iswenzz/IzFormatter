@@ -52,6 +52,7 @@ namespace Iswenzz.CoD4.Parser.CLI
             if (string.IsNullOrEmpty(GSCOutFolder))
                 GSCOutFolder = GSCFolder;
 
+            Console.WriteLine($"Iswenzz (c) 2019-2022\n");
             Console.WriteLine($"Executing {Parser} parser:\n");
         }
     }

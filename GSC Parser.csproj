@@ -7,8 +7,12 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <Authors>Iswenzz</Authors>
     <Company>Iswenzz.com</Company>
-    <Copyright>Iswenzz (c) 2019-2021</Copyright>
-    <FileVersion>1.0.1</FileVersion>
+    <Copyright>Iswenzz (c) 2019-2022</Copyright>
+    <FileVersion>2.0</FileVersion>
+    <PackageProjectUrl>https://github.com/Iswenzz/GSC-Parser</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Iswenzz/GSC-Parser</RepositoryUrl>
+    <AssemblyVersion>2.0</AssemblyVersion>
+    <Version>2.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="OLD\**" />

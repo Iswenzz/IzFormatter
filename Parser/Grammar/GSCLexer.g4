@@ -22,6 +22,8 @@ LeftBracket:                        '[';
 RightBracket:                       ']';
 LeftBrace:                          '{';
 RightBrace:                         '}';
+LeftDevSection:                     '/#';
+RightDevSection:                    '#/';
 
 Less:                               '<';
 LessEqual:                          '<=';
@@ -65,7 +67,7 @@ Equal:                              '==';
 NotEqual:                           '!=';
 
 Dot:                                '.';
-Qualified:                           '::';
+Qualified:                          '::';
 
 ArrayLiteral:                       '[]';
 BooleanLiteral:                     'true' | 'false';

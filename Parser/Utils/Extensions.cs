@@ -5,9 +5,9 @@ using System.Linq;
 namespace Iswenzz.CoD4.Parser.Utils
 {
     /// <summary>
-    /// Utility class.
+    /// Extension utility class.
     /// </summary>
-    public static class Utils
+    public static class Extensions
     {
         /// <summary>
         /// Checks if a string is equal to another, ignoring case.

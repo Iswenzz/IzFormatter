@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Collections.Generic;
+
 using Antlr4.Runtime;
 
 namespace Iswenzz.CoD4.Parser.Listeners

@@ -5,21 +5,19 @@ using System.Collections.Generic;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 
-using Iswenzz.CoD4.Parser.Utils;
 using static GSCParser;
 
-namespace Iswenzz.CoD4.Parser.Grammar
+namespace Iswenzz.CoD4.Parser.Runtime
 {
     /// <summary>
-    /// GSC Formatter.
+    /// Formatter.
     /// </summary>
-    public class GSCFormatter
+    public class Formatter
     {
         public virtual int IndentLevel { get; set; }
 
         /// <summary>
         /// Build rule and its childrens with formatting.
-        /// @TODO unique ID for rules to check for rules processed.
         /// </summary>
         /// <param name="context">The rule context.</param>
         public virtual void BuildRule(IParseTree context)
@@ -27,6 +25,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
             if (context is not ParserRuleContext rule)
                 return;
 
+            List<dynamic> varsStartline = rule.ReflectRuleVariables("startline");
             List<dynamic> varsNewline = rule.ReflectRuleVariables("newline");
             List<dynamic> varsDedent = rule.ReflectRuleVariables("dedent");
             List<dynamic> varsIndent = rule.ReflectRuleVariables("indent");
@@ -35,6 +34,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
             List<dynamic> varsWhitespaceLeft = rule.ReflectRuleVariables( "wsl");
             List<dynamic> varsWhitespaceRight = rule.ReflectRuleVariables("wsr");
 
+            ExtraNode.BuildMany(varsStartline, startline => BuildStartline(rule, startline));
             ExtraNode.BuildMany(varsNewline, newline => BuildNewline(rule, newline));
             ExtraNode.BuildMany(varsIndent, indent => BuildIndent(rule, indent));
             ExtraNode.BuildMany(varsIndentShort, indentShort => BuildIndentShort(rule, indentShort));
@@ -60,31 +60,30 @@ namespace Iswenzz.CoD4.Parser.Grammar
             Node = node,
             BuildParseTree = () =>
             {
-                if (node is ParserRuleContext nodeContext)
-                {
-                    // Remove new line from comment
-                    ParserRuleContext last = (ParserRuleContext)nodeContext.RecurseLastChild().Parent;
-                    last.RemoveLastChild();
-
-                    int type = nodeContext.ChildOfType<IParseTree>(LineComment) != null ? LineComment : BlockComment;
-                    string newLine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
-                    string content = type switch
-                    {
-                        LineComment => $"// {nodeContext.GetText()}",
-                        BlockComment => $"/* {nodeContext.GetText().Trim()} */",
-                        _ => throw new NotImplementedException()
-                    };
-
-                    nodeContext.RemoveChilds();
-                    nodeContext.AddChild(new CommonToken(type, content));
-                    nodeContext.AddChild(new CommonToken(Newline, newLine));
-                }
+                if (node is DisabledTokensContext hiddenContext)
+                    hiddenContext.AddChild(new CommonToken(Newline, Environment.NewLine));
                 return new List<dynamic> { node };
             }
         };
 
         /// <summary>
-        /// Build a new line with indentation.
+        /// Build a start line with indentation whitespaces.
+        /// </summary>
+        /// <param name="context">The context rule.</param>
+        /// <param name="node">The node to apply.</param>
+        /// <returns></returns>
+        protected virtual ExtraNode BuildStartline(ParserRuleContext context, dynamic node) => new(context)
+        {
+            Node = node,
+            BuildParseTree = () => new List<dynamic>
+            {
+                new CommonToken(Whitespace, string.Concat(Enumerable.Repeat('\t', IndentLevel))),
+                node,
+            }
+        };
+
+        /// <summary>
+        /// Build a new line.
         /// </summary>
         /// <param name="context">The context rule.</param>
         /// <param name="node">The node to apply.</param>
@@ -95,8 +94,7 @@ namespace Iswenzz.CoD4.Parser.Grammar
             BuildParseTree = () => new List<dynamic>
             {
                 node,
-                new CommonToken(Newline, Environment.NewLine +
-                    string.Concat(Enumerable.Repeat('\t', IndentLevel)))
+                new CommonToken(Newline, Environment.NewLine)
             }
         };
 
@@ -164,7 +162,10 @@ namespace Iswenzz.CoD4.Parser.Grammar
                 string newLine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
 
                 // Dedent the previous newline
-                ParserRuleContext last = (ParserRuleContext)context.RecurseLastChild().Parent;
+                ParserRuleContext last = (ParserRuleContext)context
+                    .RecurseChildsOfType<IParseTree>(Newline)
+                    .Where(c => c.Parent is not DisabledTokensContext)
+                    .Last().Parent;
                 last.RemoveLastChild();
                 last.AddChild(new CommonToken(Newline, newLine));
 

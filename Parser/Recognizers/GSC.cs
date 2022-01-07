@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using System.Collections.Generic;
 
-using Iswenzz.CoD4.Parser.Grammar;
+using Iswenzz.CoD4.Parser.Runtime;
 using Iswenzz.CoD4.Parser.Definitions;
 using Iswenzz.CoD4.Parser.Definitions.Function;
 using Iswenzz.CoD4.Parser.Definitions.Preprocessor;
@@ -21,7 +21,7 @@ namespace Iswenzz.CoD4.Parser.Recognizers
         public string FileName { get; protected set; }
         public string FileExtension { get; protected set; }
 
-        public GSCRecognizer Recognizer { get; set; }
+        public Recognizer Recognizer { get; set; }
         protected CompilationUnit CompilationUnit { get; set; }
 
         public List<Include> Includes { get; protected set; }

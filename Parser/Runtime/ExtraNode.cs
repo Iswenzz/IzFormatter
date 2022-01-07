@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 
-namespace Iswenzz.CoD4.Parser.Utils
+namespace Iswenzz.CoD4.Parser.Runtime
 {
     /// <summary>
     /// Build extra node in a parse tree.

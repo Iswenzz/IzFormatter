@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-using Iswenzz.CoD4.Parser.Utils;
+using Iswenzz.CoD4.Parser.Runtime;
 using static GSCParser;
 
 namespace Iswenzz.CoD4.Parser.Tasks

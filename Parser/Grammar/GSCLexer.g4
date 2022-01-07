@@ -2,6 +2,16 @@ lexer grammar GSCLexer;
 
 tokens { Indent, Dedent }
 
+options 
+{
+    superClass = LexerBase;
+}
+
+@lexer::header 
+{
+    using Iswenzz.CoD4.Parser.Runtime;
+}
+
 Break:                              'break';
 Case:                               'case';
 Default:                            'default';
@@ -77,11 +87,10 @@ StringLiteral:                      '"' CharSequence? '"';
 
 IncludeDirective:                   '#' 'include' Whitespace QualifiedIdentifier;
 
-DeveloperSection:                   '/#' .*? '#/'           -> channel(HIDDEN);
-BlockComment:                       '/*' .*? '*/'           -> channel(HIDDEN);
-LineComment:                        '//' ~[\r\n]*           -> channel(HIDDEN);
-Whitespace:                         [ \t]+                  -> channel(HIDDEN);
-Newline:                            ('\r'? '\n' | '\r')     -> channel(HIDDEN);
+BlockComment:                       Whitespace? '/*' .*? '*/';
+LineComment:                        Whitespace? '//' ~[\r\n]*;
+Whitespace:                         [ \t]+                              -> channel(HIDDEN);
+Newline:                            Whitespace? ('\r'? '\n' | '\r')     -> channel(HIDDEN);
 
 fragment IdentifierNondigit:        Nondigit;
 fragment IdentifierQualified:       NondigitQualified;

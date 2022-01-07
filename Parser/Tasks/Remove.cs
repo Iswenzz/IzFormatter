@@ -1,9 +1,10 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+using Antlr4.Runtime;
 
+using Iswenzz.CoD4.Parser.Runtime;
 using Iswenzz.CoD4.Parser.Utils;
 using static GSCParser;
-using Antlr4.Runtime;
 
 namespace Iswenzz.CoD4.Parser.Tasks.Function
 {

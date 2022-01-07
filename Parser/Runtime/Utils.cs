@@ -7,12 +7,12 @@ using Antlr4.Runtime;
 using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
 
-namespace Iswenzz.CoD4.Parser.Utils
+namespace Iswenzz.CoD4.Parser.Runtime
 {
     /// <summary>
     /// Parser utility class.
     /// </summary>
-    public static class ParserUtils
+    public static class Utils
     {
         const int OPTIONAL = -1;
 

@@ -1,5 +1,5 @@
-﻿using Iswenzz.CoD4.Parser.Utils;
-using Iswenzz.CoD4.Parser.Grammar;
+﻿
+using Iswenzz.CoD4.Parser.Runtime;
 using static GSCParser;
 
 namespace Iswenzz.CoD4.Parser.Tasks
@@ -16,7 +16,7 @@ namespace Iswenzz.CoD4.Parser.Tasks
         public static void DisableTrigger(FunctionStatementContext context)
         {
             string code = @"level endon(""trigger"");";
-            SimpleInputContext input = GSCRecognizer.ParseSimpleInput(code);
+            SimpleInputContext input = Recognizer.ParseSimpleInput(code);
 
             CompoundStatementContext compound = context.compoundStatement();
             compound.AddChildAt(input.statement(), 1);

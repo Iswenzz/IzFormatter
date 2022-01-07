@@ -1,7 +1,6 @@
 ﻿using Antlr4.Runtime;
 
-using Iswenzz.CoD4.Parser.Recognizers;
-using Iswenzz.CoD4.Parser.Utils;
+using Iswenzz.CoD4.Parser.Runtime;
 using static GSCParser;
 
 namespace Iswenzz.CoD4.Parser.Tasks

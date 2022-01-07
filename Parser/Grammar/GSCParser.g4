@@ -3,6 +3,17 @@ parser grammar GSCParser;
 options 
 {
     tokenVocab = GSCLexer;
+    superClass = ParserBase;
+}
+
+@parser::header 
+{
+    using Iswenzz.CoD4.Parser.Runtime;
+}
+
+@parser::members 
+{
+    const int Hidden = 1;
 }
 
 compilationUnit
@@ -10,7 +21,7 @@ compilationUnit
     ;
 
 simpleInput
-    :   statement
+    :   statement EOF
     ;
 
 translationUnit
@@ -20,11 +31,19 @@ translationUnit
 externalDeclaration
     :   directiveStatement 
     |   functionStatement
+    |   disabledTokens
     ;
 
 statement
-    :   simpleStatement 
-    |   compoundStatement 
+    :   disabledTokens
+    |   { DisableChannel(Hidden); }
+    (   startline=codeStatement
+    |   compoundStatement
+    )   { EnableChannel(Hidden); }
+    ;
+
+codeStatement
+    :   simpleStatement
     |   shortStatement
     ;
 
@@ -36,7 +55,7 @@ simpleStatement
     ;
 
 compoundStatement
-    :   indent=LeftBrace statement+ dedent=RightBrace
+    :   indent=LeftBrace { EnableChannel(Hidden); } statement+ { DisableChannel(Hidden); } dedent=RightBrace
     |   newline=emptyCompoundStatement
     ;
 
@@ -114,7 +133,7 @@ expression
     ;
 
 functionStatement
-    :   identifier LeftParen identifierList? RightParen newline=compoundStatement
+    :   identifier LeftParen identifierList? RightParen disabledTokens* newline=compoundStatement
     ;
 
 expressionStatement
@@ -178,6 +197,15 @@ qualifiedIdentifier
 
 identifier
     :   Identifier
+    ;
+
+disabledTokens
+    :   { EnableChannel(Hidden); }   
+    (   LineComment
+    |   BlockComment
+    |   Whitespace
+    |   Newline
+    )   { EnableChannel(Hidden); }
     ;
 
 literal

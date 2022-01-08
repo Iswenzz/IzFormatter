@@ -141,8 +141,11 @@ expressionStatement
     ;
 
 labeledStatement
-    :   wsr=Case literal Colon indentShort=statement
-    |   Default Colon indentShort=statement
+    :   Case wsl=literal Colon compoundStatement statement*
+    |   Case wsl=literal newline=Colon startline=labeledStatement
+    |   Case wsl=literal newline=Colon statement+
+    |   Default Colon compoundStatement statement*
+    |   Default newline=Colon statement+
     ;
 
 selectionStatement

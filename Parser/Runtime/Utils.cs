@@ -43,43 +43,43 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// </summary>
         /// <param name="context">The rule context.</param>
         /// <param name="index">The index to remove the child.</param>
-        public static void RemoveChild(this ParserRuleContext context, int index) =>
-            context.ReplaceChilds(null, index);
+        public static void RemoveChildAt(this ParserRuleContext context, int index) =>
+            context.ReplaceChilds(index, null);
 
         /// <summary>
         /// Add child to a specific index.
         /// </summary>
         /// <param name="context">The rule context.</param>
-        /// <param name="child">The child to add.</param>
         /// <param name="index">The index to add the child to.</param>
-        public static void AddChildAt(this ParserRuleContext context, object child, int index) =>
-            context.AddChilds(() => new List<dynamic> { child }, index);
+        /// <param name="child">The child to add.</param>
+        public static void AddChildAt(this ParserRuleContext context, int index, object child) =>
+            context.AddChilds(index, () => new List<dynamic> { child });
 
         /// <summary>
         /// Add child to a specific index.
         /// </summary>
         /// <param name="context">The rule context.</param>
-        /// <param name="child">The child to add.</param>
         /// <param name="index">The index to add the child to.</param>
-        public static void AddChildAt(this ParserRuleContext context, IToken child, int index) =>
-            context.AddChilds(() => new List<dynamic> { child }, index);
+        /// <param name="child">The child to add.</param>
+        public static void AddChildAt(this ParserRuleContext context, int index, IToken child) =>
+            context.AddChilds(index, () => new List<dynamic> { child });
 
         /// <summary>
         /// Add child to a specific index.
         /// </summary>
         /// <param name="context">The rule context.</param>
-        /// <param name="child">The child to add.</param>
         /// <param name="index">The index to add the child to.</param>
-        public static void AddChildAt(this ParserRuleContext context, IParseTree child, int index) =>
-            context.AddChilds(() => new List<dynamic> { child }, index);
+        /// <param name="child">The child to add.</param>
+        public static void AddChildAt(this ParserRuleContext context, int index, IParseTree child) =>
+            context.AddChilds(index, () => new List<dynamic> { child });
 
         /// <summary>
         /// Add childs to a specific index.
         /// </summary>
         /// <param name="context">The rule context.</param>
-        /// <param name="childsToAdd">The childs to add.</param>
         /// <param name="index">The index to add childs to.</param>
-        public static void AddChilds(this ParserRuleContext context, Func<List<dynamic>> childsToAdd, int index)
+        /// <param name="childsToAdd">The childs to add.</param>
+        public static void AddChilds(this ParserRuleContext context, int index, Func<List<dynamic>> childsToAdd)
         {
             List<IParseTree> childs = context.Childs().ToList();
             context.RemoveChilds();
@@ -99,12 +99,30 @@ namespace Iswenzz.CoD4.Parser.Runtime
         }
 
         /// <summary>
+        /// Replace child at a specific index.
+        /// </summary>
+        /// <param name="context">The rule context.</param>
+        /// <param name="index">The index to remove the child.</param>
+        /// <param name="child">The child to add.</param>
+        public static void ReplaceChildAt(this ParserRuleContext context, int index, IToken child) =>
+            context.ReplaceChilds(index, () => new List<dynamic> { child });
+
+        /// <summary>
+        /// Replace child at a specific index.
+        /// </summary>
+        /// <param name="context">The rule context.</param>
+        /// <param name="index">The index to remove the child.</param>
+        /// <param name="child">The child to add.</param>
+        public static void ReplaceChildAt(this ParserRuleContext context, int index, IParseTree child) =>
+            context.ReplaceChilds(index, () => new List<dynamic> { child });
+
+        /// <summary>
         /// Replace childs to a specific index.
         /// </summary>
         /// <param name="context">The rule context.</param>
-        /// <param name="childsToAdd">The childs to add.</param>
         /// <param name="index">The index to add childs to.</param>
-        public static void ReplaceChilds(this ParserRuleContext context, Func<List<dynamic>> childsToAdd, int index)
+        /// <param name="childsToAdd">The childs to add.</param>
+        public static void ReplaceChilds(this ParserRuleContext context, int index, Func<List<dynamic>> childsToAdd)
         {
             List<IParseTree> childs = context.Childs().ToList();
             context.RemoveChilds();

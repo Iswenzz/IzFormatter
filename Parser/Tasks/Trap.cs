@@ -19,7 +19,7 @@ namespace Iswenzz.CoD4.Parser.Tasks
             SimpleInputContext input = Recognizer.ParseSimpleInput(code);
 
             CompoundStatementContext compound = context.compoundStatement();
-            compound.AddChildAt(input.statement(), 1);
+            compound.AddChildAt(1, input.statement());
         }
     }
 }

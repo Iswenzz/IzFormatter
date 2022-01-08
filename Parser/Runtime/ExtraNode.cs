@@ -35,7 +35,7 @@ namespace Iswenzz.CoD4.Parser.Runtime
             if (BuildParseTree == null)
                 return;
             int needChangeIndex = Childs.IndexOfChild((object)Node);
-            Context.ReplaceChilds(BuildParseTree, needChangeIndex);
+            Context.ReplaceChilds(needChangeIndex, BuildParseTree);
         }
 
         /// <summary>

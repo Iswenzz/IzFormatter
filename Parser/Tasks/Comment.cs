@@ -15,13 +15,13 @@ namespace Iswenzz.CoD4.Parser.Tasks
         /// </summary>
         /// <param name="context">The context definition.</param>
         public static void Line(ParserRuleContext context) =>
-            context.AddChildAt(new CommonToken(LineComment), 0);
+            context.AddChildAt(0, new CommonToken(LineComment));
 
         /// <summary>
         /// Block comment the context.
         /// </summary>
         /// <param name="context">The context definition.</param>
         public static void Block(ParserRuleContext context) =>
-            context.AddChildAt(new CommonToken(BlockComment), 0);
+            context.AddChildAt(0, new CommonToken(BlockComment));
     }
 }

@@ -55,7 +55,7 @@ simpleStatement
     ;
 
 compoundStatement
-    :   indent=LeftBrace { EnableChannel(Hidden); } statement+ { DisableChannel(Hidden); } dedent=RightBrace
+    :   indentBrace=LeftBrace { EnableChannel(Hidden); } statement+ { DisableChannel(Hidden); } dedentBrace=RightBrace
     |   newline=emptyCompoundStatement
     ;
 

@@ -325,6 +325,32 @@ namespace Iswenzz.CoD4.Parser.Runtime
         }
 
         /// <summary>
+        /// Reflect a rule field.
+        /// </summary>
+        /// <param name="rule">The rule definition.</param>
+        /// <param name="name">The variable defined name.</param>
+        /// <returns></returns>
+        public static FieldInfo ReflectRuleField(this ParserRuleContext rule, string name) =>
+            rule.GetType().GetField(name);
+
+        /// <summary>
+        /// Reflect rule fields.
+        /// </summary>
+        /// <param name="rule">The rule definition.</param>
+        /// <param name="name">The variable defined name.</param>
+        /// <returns></returns>
+        public static List<FieldInfo> ReflectRuleFields(this ParserRuleContext rule, string name)
+        {
+            List<FieldInfo> vars = new();
+            foreach (FieldInfo var in rule.GetType().GetFields())
+            {
+                if (var.Name == name || var.Name.Split('_').First() == name)
+                    vars.Add(var);
+            }
+            return vars;
+        }
+
+        /// <summary>
         /// Reflect rule variables.
         /// </summary>
         /// <param name="rule">The rule definition.</param>

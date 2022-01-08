@@ -27,9 +27,11 @@ namespace Iswenzz.CoD4.Parser.Runtime
 
             List<dynamic> varsStartline = rule.ReflectRuleVariables("startline");
             List<dynamic> varsNewline = rule.ReflectRuleVariables("newline");
-            List<dynamic> varsDedent = rule.ReflectRuleVariables("dedent");
             List<dynamic> varsIndent = rule.ReflectRuleVariables("indent");
+            List<dynamic> varsIndentBrace = rule.ReflectRuleVariables("indentBrace");
             List<dynamic> varsIndentShort = rule.ReflectRuleVariables("indentShort");
+            List<dynamic> varsDedent = rule.ReflectRuleVariables("dedent");
+            List<dynamic> varsDedentBrace = rule.ReflectRuleVariables("dedentBrace");
             List<dynamic> varsWhitespace = rule.ReflectRuleVariables("ws");
             List<dynamic> varsWhitespaceLeft = rule.ReflectRuleVariables( "wsl");
             List<dynamic> varsWhitespaceRight = rule.ReflectRuleVariables("wsr");
@@ -37,6 +39,7 @@ namespace Iswenzz.CoD4.Parser.Runtime
             ExtraNode.BuildMany(varsStartline, startline => BuildStartline(rule, startline));
             ExtraNode.BuildMany(varsNewline, newline => BuildNewline(rule, newline));
             ExtraNode.BuildMany(varsIndent, indent => BuildIndent(rule, indent));
+            ExtraNode.BuildMany(varsIndentBrace, indentBrace => BuildIndentBrace(rule, indentBrace));
             ExtraNode.BuildMany(varsIndentShort, indentShort => BuildIndentShort(rule, indentShort));
             ExtraNode.BuildMany(varsWhitespace, ws => BuildWhitespace(rule, ws, true, true));
             ExtraNode.BuildMany(varsWhitespaceLeft, wsl => BuildWhitespace(rule, wsl, true, false));
@@ -47,6 +50,7 @@ namespace Iswenzz.CoD4.Parser.Runtime
 
             if (IsComment(rule)) ExtraNode.Build(BuildComment((ParserRuleContext)rule.Parent, rule));
             ExtraNode.BuildMany(varsDedent, dedent => BuildDedent(rule, dedent));
+            ExtraNode.BuildMany(varsDedentBrace, dedentBrace => BuildDedentBrace(rule, dedentBrace));
         }
 
         /// <summary>
@@ -55,7 +59,7 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// <param name="context">The context rule.</param>
         /// <param name="node">The node to apply.</param>
         /// <returns></returns>
-        protected virtual ExtraNode BuildComment(ParserRuleContext context, dynamic node) => new(context)
+        public virtual ExtraNode BuildComment(ParserRuleContext context, dynamic node) => new(context)
         {
             Node = node,
             BuildParseTree = () =>
@@ -72,7 +76,7 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// <param name="context">The context rule.</param>
         /// <param name="node">The node to apply.</param>
         /// <returns></returns>
-        protected virtual ExtraNode BuildStartline(ParserRuleContext context, dynamic node) => new(context)
+        public virtual ExtraNode BuildStartline(ParserRuleContext context, dynamic node) => new(context)
         {
             Node = node,
             BuildParseTree = () => new List<dynamic>
@@ -88,7 +92,7 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// <param name="context">The context rule.</param>
         /// <param name="node">The node to apply.</param>
         /// <returns></returns>
-        protected virtual ExtraNode BuildNewline(ParserRuleContext context, dynamic node) => new(context)
+        public virtual ExtraNode BuildNewline(ParserRuleContext context, dynamic node) => new(context)
         {
             Node = node,
             BuildParseTree = () => new List<dynamic>
@@ -104,18 +108,34 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// <param name="context">The context rule.</param>
         /// <param name="node">The node to apply.</param>
         /// <returns></returns>
-        protected virtual ExtraNode BuildIndent(ParserRuleContext context, dynamic node) => new(context)
+        public virtual ExtraNode BuildIndent(ParserRuleContext context, dynamic node) => new(context)
         {
             Node = node,
             BuildParseTree = () =>
             {
-                string newine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
                 IndentLevel++;
+                return new List<dynamic> { node };
+            }
+        };
 
+        /// <summary>
+        /// Build brace indentation.
+        /// </summary>
+        /// <param name="context">The context rule.</param>
+        /// <param name="node">The node to apply.</param>
+        /// <returns></returns>
+        public virtual ExtraNode BuildIndentBrace(ParserRuleContext context, dynamic node) => new(context)
+        {
+            Node = node,
+            BuildParseTree = () =>
+            {
                 List<dynamic> tree = new();
                 tree.Add(new CommonToken(Indent));
-                tree.Add(new CommonToken(Newline, newine));
-                tree.AddRange(BuildNewline(context, node).BuildParseTree());
+                tree.Add(new CommonToken(Newline, Environment.NewLine));
+                tree.AddRange(BuildStartline(context, node).BuildParseTree());
+                IndentLevel++;
+
+                tree.Add(new CommonToken(Newline, Environment.NewLine));
                 return tree;
             }
         };
@@ -126,24 +146,26 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// <param name="context">The context rule.</param>
         /// <param name="node">The node to apply.</param>
         /// <returns></returns>
-        protected virtual ExtraNode BuildIndentShort(ParserRuleContext context, dynamic node) => new(context)
+        public virtual ExtraNode BuildIndentShort(ParserRuleContext context, dynamic node) => new(context)
         {
             Node = node,
             BuildParseTree = () =>
             {
-                List<dynamic> tree = new();
                 if (node is ParserRuleContext rule && rule.LastChildOfType<CompoundStatementContext>() == null)
                 {
-                    IndentLevel++;
-                    string newline = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
-                    IndentLevel--;
+                    List<dynamic> tree = new();
 
+                    IndentLevel++;
+                    tree.Add(new CommonToken(Newline, Environment.NewLine));
                     tree.Add(new CommonToken(Indent));
-                    tree.Add(new CommonToken(Newline, newline));
+                    tree.AddRange(BuildStartline(context, node).BuildParseTree());
+                    rule.ReflectRuleField("startline")?.SetValue(rule, null);
+ 
+                    IndentLevel--;
                     tree.Add(new CommonToken(Dedent));
+                    return tree;
                 }
-                tree.Add(node);
-                return tree;
+                return new List<dynamic> { node };
             }
         };
 
@@ -153,7 +175,23 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// <param name="context">The context rule.</param>
         /// <param name="node">The node to apply.</param>
         /// <returns></returns>
-        protected virtual ExtraNode BuildDedent(ParserRuleContext context, dynamic node) => new(context)
+        public virtual ExtraNode BuildDedent(ParserRuleContext context, dynamic node) => new(context)
+        {
+            Node = node,
+            BuildParseTree = () =>
+            {
+                IndentLevel--;
+                return new List<dynamic> { node };
+            }
+        };
+
+        /// <summary>
+        /// Build brace dedentation.
+        /// </summary>
+        /// <param name="context">The context rule.</param>
+        /// <param name="node">The node to apply.</param>
+        /// <returns></returns>
+        public virtual ExtraNode BuildDedentBrace(ParserRuleContext context, dynamic node) => new(context)
         {
             Node = node,
             BuildParseTree = () =>
@@ -174,7 +212,7 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// <param name="context">The context rule.</param>
         /// <param name="node">The node to apply.</param>
         /// <returns></returns>
-        protected virtual ExtraNode BuildWhitespace(ParserRuleContext context, dynamic node,
+        public virtual ExtraNode BuildWhitespace(ParserRuleContext context, dynamic node,
             bool left, bool right) => new(context)
         {
             Node = node,

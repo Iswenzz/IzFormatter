@@ -135,11 +135,11 @@ namespace Iswenzz.CoD4.Parser.Runtime
                 if (node is ParserRuleContext rule && rule.LastChildOfType<CompoundStatementContext>() == null)
                 {
                     IndentLevel++;
-                    string newine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
+                    string newline = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
                     IndentLevel--;
 
                     tree.Add(new CommonToken(Indent));
-                    tree.Add(new CommonToken(Newline, newine));
+                    tree.Add(new CommonToken(Newline, newline));
                     tree.Add(new CommonToken(Dedent));
                 }
                 tree.Add(node);
@@ -158,23 +158,13 @@ namespace Iswenzz.CoD4.Parser.Runtime
             Node = node,
             BuildParseTree = () =>
             {
+                List<dynamic> tree = new();
                 IndentLevel--;
-                string newLine = Environment.NewLine + string.Concat(Enumerable.Repeat('\t', IndentLevel));
 
-                // Dedent the previous newline
-                ParserRuleContext last = (ParserRuleContext)context
-                    .RecurseChildsOfType<IParseTree>(Newline)
-                    .Where(c => c.Parent is not DisabledTokensContext)
-                    .Last().Parent;
-                last.RemoveLastChild();
-                last.AddChild(new CommonToken(Newline, newLine));
-
-                return new List<dynamic>
-                {
-                    new CommonToken(Dedent),
-                    node,
-                    new CommonToken(Newline, newLine),
-                };
+                tree.Add(new CommonToken(Dedent));
+                tree.AddRange(BuildStartline(context, node).BuildParseTree());
+                tree.Add(new CommonToken(Newline, Environment.NewLine));
+                return tree;
             }
         };
 

@@ -87,10 +87,10 @@ StringLiteral:                      '"' CharSequence? '"';
 
 IncludeDirective:                   '#' 'include' Whitespace QualifiedIdentifier;
 
-BlockComment:                       Whitespace? '/*' .*? '*/';
-LineComment:                        Whitespace? '//' ~[\r\n]*;
-Whitespace:                         [ \t]+                              -> channel(HIDDEN);
-Newline:                            Whitespace? ('\r'? '\n' | '\r')     -> channel(HIDDEN);
+BlockComment:                       Whitespace? '/*' .*? '*/' Whitespace? Newline?      -> channel(HIDDEN);
+LineComment:                        Whitespace? '//' .*? Newline                        -> channel(HIDDEN);
+Whitespace:                         [ \t]+                                              -> channel(HIDDEN);
+Newline:                            Whitespace? ('\r'? '\n' | '\r')                     -> channel(HIDDEN);
 
 fragment IdentifierNondigit:        Nondigit;
 fragment IdentifierQualified:       NondigitQualified;

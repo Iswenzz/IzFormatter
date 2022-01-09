@@ -24,5 +24,5 @@ main()
 
     // comment
     /* block comment */
-    /# dev section #/
+    /# a = 0; #/
 }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -45,7 +45,7 @@ namespace Iswenzz.CoD4.Parser.Runtime
         }
 
         /// <summary>
-        /// Build a comment.
+        /// Build a comment. @TODO
         /// </summary>
         /// <param name="context">The context rule.</param>
         /// <param name="node">The node to apply.</param>
@@ -55,9 +55,43 @@ namespace Iswenzz.CoD4.Parser.Runtime
             Node = node,
             BuildParseTree = () =>
             {
-                if (node is DisabledTokensContext hiddenContext)
-                    hiddenContext.AddChild(new CommonToken(Newline, Environment.NewLine));
+                //if (node is CommentContext comment && comment.ChildsOfType<IParseTree>(LineComment) != null)
+                //    comment.AddChild(new CommonToken(Newline, Environment.NewLine));
                 return new List<dynamic> { node };
+            }
+        };
+
+        /// <summary>
+        /// Build a start line with indentation whitespaces and a new line.
+        /// </summary>
+        /// <param name="context">The context rule.</param>
+        /// <param name="node">The node to apply.</param>
+        /// <returns></returns>
+        public virtual ExtraNode BuildStartNewline(ParserRuleContext context, dynamic node) => new(context)
+        {
+            Node = node,
+            BuildParseTree = () => new List<dynamic>
+            {
+                new CommonToken(Whitespace, string.Concat(Enumerable.Repeat('\t', IndentLevel))),
+                node,
+                new CommonToken(Newline, Environment.NewLine),
+            }
+        };
+
+        /// <summary>
+        /// Build a new line with indentation whitespaces.
+        /// </summary>
+        /// <param name="context">The context rule.</param>
+        /// <param name="node">The node to apply.</param>
+        /// <returns></returns>
+        public virtual ExtraNode BuildNewStartline(ParserRuleContext context, dynamic node) => new(context)
+        {
+            Node = node,
+            BuildParseTree = () => new List<dynamic>
+            {
+                new CommonToken(Newline, Environment.NewLine),
+                new CommonToken(Whitespace, string.Concat(Enumerable.Repeat('\t', IndentLevel))),
+                node,
             }
         };
 
@@ -151,7 +185,7 @@ namespace Iswenzz.CoD4.Parser.Runtime
                     tree.Add(new CommonToken(Indent));
                     tree.AddRange(BuildStartline(context, node).BuildParseTree());
                     rule.ReflectRuleField("startline")?.SetValue(rule, null);
- 
+
                     IndentLevel--;
                     tree.Add(new CommonToken(Dedent));
                     return tree;
@@ -192,7 +226,6 @@ namespace Iswenzz.CoD4.Parser.Runtime
 
                 tree.Add(new CommonToken(Dedent));
                 tree.AddRange(BuildStartline(context, node).BuildParseTree());
-                tree.Add(new CommonToken(Newline, Environment.NewLine));
                 return tree;
             }
         };
@@ -216,14 +249,5 @@ namespace Iswenzz.CoD4.Parser.Runtime
                 return tree;
             }
         };
-
-        /// <summary>
-        /// Check if a rule is a comment.
-        /// </summary>
-        /// <param name="context">The context definition.</param>
-        /// <returns></returns>
-        public virtual bool IsComment(ParserRuleContext context) =>
-             context.ChildOfType<IParseTree>(LineComment) != null ||
-             context.ChildOfType<IParseTree>(BlockComment) != null;
     }
 }

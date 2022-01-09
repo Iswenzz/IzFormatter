@@ -16,35 +16,26 @@ options
     const int Hidden = 1;
 }
 
-compilationUnit
-    :   translationUnit? EOF
-    ;
+compilationUnit:        translationUnit? EOF;
+simpleInput:            statement;
 
-simpleInput
-    :   statement EOF
-    ;
+translationUnit:        externalDeclaration+;
+externalDeclaration:    directiveStatement | functionStatement;
 
-translationUnit
-    :   externalDeclaration+
-    ;
-
-externalDeclaration
-    :   directiveStatement 
-    |   functionStatement
+statement
+    :   disabledTokens* { DisableChannel(Hidden); }
+    (   startnewline=simpleStatement 
+    |   newline=compoundStatement
+    )   { EnableChannel(Hidden); }
     |   disabledTokens
     ;
 
-statement
-    :   disabledTokens
-    |   { DisableChannel(Hidden); }
-    (   startline=codeStatement
+shortStatement
+    :   disabledTokens* { DisableChannel(Hidden); }
+    (   simpleStatement
     |   compoundStatement
     )   { EnableChannel(Hidden); }
-    ;
-
-codeStatement
-    :   simpleStatement
-    |   shortStatement
+    |   disabledTokens
     ;
 
 simpleStatement
@@ -52,20 +43,18 @@ simpleStatement
     |   labeledStatement
     |   jumpStatement
     |   waitStatement
+    |   selectionStatement
+    |   iterationStatement
     ;
 
 compoundStatement
     :   indentBrace=LeftBrace { EnableChannel(Hidden); } statement+ { DisableChannel(Hidden); } dedentBrace=RightBrace
-    |   newline=emptyCompoundStatement
+    |   indentBrace=LeftDevSection { EnableChannel(Hidden); } statement+ { DisableChannel(Hidden); } dedentBrace=RightDevSection
+    |   emptyCompoundStatement
     ;
 
 emptyCompoundStatement
     :   wsl_1=LeftBrace wsl_2=RightBrace
-    ;
-
-shortStatement
-    :   selectionStatement
-    |   iterationStatement
     ;
 
 primaryExpression
@@ -80,10 +69,10 @@ primaryExpression
 
 postfixExpression
     :   primaryExpression                                                               # PrimaryStatementExpression
-	|   postfixExpression LeftBracket expression RightBracket wsl=postfixExpression?    # MemberIndexExpression
-	|   postfixExpression LeftParen expressionList? RightParen wsl=postfixExpression?   # FunctionExpression
-	|   postfixExpression Dot postfixExpression                                         # MemberDotExpression
-	|   postfixExpression (PlusPlus | MinusMinus)                                       # PostExpression
+    |   postfixExpression LeftBracket expression RightBracket wsl=postfixExpression?    # MemberIndexExpression
+    |   postfixExpression LeftParen expressionList? RightParen wsl=postfixExpression?   # FunctionExpression
+    |   postfixExpression Dot postfixExpression                                         # MemberDotExpression
+    |   postfixExpression (PlusPlus | MinusMinus)                                       # PostExpression
     |   qualifiedIdentifier Qualified postfixExpression                                 # QualifiedCallExpression
     |   LeftBracket LeftBracket postfixExpression RightBracket RightBracket             # FunctionPointerCallExpression
     |   LeftParen expression wsr_1=Comma expression wsr_2=Comma expression RightParen   # VectorExpression
@@ -91,7 +80,7 @@ postfixExpression
 
 unaryExpression
     :   postfixExpression                                                               # PostFixStatementExpression
-	|   (PlusPlus | MinusMinus | Qualified | unaryOperator) unaryExpression             # PreExpression
+    |   (PlusPlus | MinusMinus | Qualified | unaryOperator) unaryExpression             # PreExpression
     ;
 
 memberExpression
@@ -133,42 +122,46 @@ expression
     ;
 
 functionStatement
-    :   identifier LeftParen identifierList? RightParen disabledTokens* newline=compoundStatement
+    :   identifier LeftParen identifierList? RightParen 
+    (   { EnableChannel(Hidden); } disabledTokens* { DisableChannel(Hidden); } newline=compoundStatement
+    )
     ;
 
 expressionStatement
-    :   expression? newline=Semi
+    :   expression? Semi
     ;
 
 labeledStatement
-    :   Case wsl=literal Colon compoundStatement statement*
-    |   Case wsl=literal newline=Colon startline=labeledStatement
-    |   Case wsl=literal newline=Colon statement+
+    :   Case wsl=literal Colon newline_1=compoundStatement statement*
+    |   Case wsl=literal newline_2=Colon startline=labeledStatement
+    |   Case wsl=literal newline_2=Colon statement+
     |   Default Colon compoundStatement statement*
-    |   Default newline=Colon statement+
+    |   Default newline_2=Colon statement+
     ;
 
 selectionStatement
-    :   selectionStatement wsr_1=Else wsr_2=If LeftParen expression RightParen indentShort=statement
-    |   selectionStatement wsr=Else indentShort=statement
-    |   wsr=If LeftParen expression RightParen indentShort=statement
-    |   wsr=Switch LeftParen expression RightParen statement
+    :   selectionStatement { EnableChannel(Hidden); } newstartline=disabledTokens* { DisableChannel(Hidden); } 
+    (   wsr_1=Else wsr_2=If LeftParen expression RightParen indentShort=shortStatement
+    |   wsr=Else indentShort=shortStatement
+    )
+    |   wsr=If LeftParen expression RightParen indentShort=shortStatement
+    |   wsr=Switch LeftParen expression RightParen compoundStatement
     ;
 
 waitStatement
-    :   wsr=Wait LeftParen? expression RightParen? newline=Semi
+    :   wsr=Wait LeftParen? expression RightParen? Semi
     ;
 
 iterationStatement
-    :   wsr=While LeftParen expression RightParen indentShort=statement
-    |   wsr_1=For LeftParen expressionList? Semi wsl_2=expressionList? Semi wsl_3=expressionList? RightParen indentShort=statement
+    :   wsr=While LeftParen expression RightParen indentShort=shortStatement
+    |   wsr_1=For LeftParen expressionList? Semi wsl_2=expressionList? Semi wsl_3=expressionList? RightParen indentShort=shortStatement
     ;
 
 jumpStatement
     :   
     (   (Continue | Break)
     |   Return wsl=expression?
-    )   newline=Semi
+    )   Semi
     ;
 
 directiveStatement
@@ -202,13 +195,23 @@ identifier
     :   Identifier
     ;
 
+comment
+    :   lineComment
+    |   blockComment
+    ;
+
+lineComment
+    :   LineComment
+    ;
+
+blockComment
+    :   wsr=BlockComment
+    ;
+
 disabledTokens
-    :   { EnableChannel(Hidden); }   
-    (   LineComment
-    |   BlockComment
-    |   Whitespace
+    :   comment
     |   Newline
-    )   { EnableChannel(Hidden); }
+    |   Whitespace
     ;
 
 literal

@@ -75,8 +75,8 @@ namespace Iswenzz.CoD4.Parser.Recognizers
             Includes.ForEach(definition => content.Append(definition.Stream));
             if (Includes.Count > 0) 
                 content.AppendLine();
-            Functions.ForEach(definition => content.Append(definition.Stream));
-            if (Functions.Count > 0) 
+            Functions.ForEach(definition => content.Append(definition.Stream + Environment.NewLine));
+            if (Functions.Count > 0)
                 content.Remove(content.Length - Environment.NewLine.Length, Environment.NewLine.Length);
 
             if (!File.Exists(outputPath))

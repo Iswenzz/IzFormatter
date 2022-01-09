@@ -25,11 +25,11 @@ namespace Iswenzz.CoD4.Parser.CLI
         [Option('p', "parser", HelpText = "Parser to use", Default = "GSC")]
         public string Parser { get; set; }
 
-        [Usage(ApplicationAlias = "gittools")]
+        [Usage(ApplicationAlias = "GSC Parser")]
         public static IEnumerable<Example> Examples
         {
             get => new List<Example> {
-                new Example("Copy the commits on a specific date",
+                new Example("Parse GSCs with specific rules",
                     new Options {
                         Parser = "GSC",
                         GSCOutFolder = "output",

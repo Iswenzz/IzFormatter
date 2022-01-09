@@ -61,7 +61,7 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// </summary>
         /// <returns></returns>
 		protected virtual IToken BuildNewline() =>
-            BuildToken(PreviousToken.Type == Newline ? Token.Text : string.Empty);
+            BuildToken(PreviousToken?.Type == Newline ? Token.Text : string.Empty);
 
         /// <summary>
         /// Build whitespaces.

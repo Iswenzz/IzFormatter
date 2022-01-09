@@ -24,7 +24,7 @@ externalDeclaration:    directiveStatement | functionStatement;
 
 statement
     :   disabledTokens* { DisableChannel(Hidden); }
-    (   startnewline=simpleStatement 
+    (   startNewline=simpleStatement 
     |   newline=compoundStatement
     )   { EnableChannel(Hidden); }
     |   disabledTokens
@@ -42,7 +42,6 @@ simpleStatement
     :   expressionStatement
     |   labeledStatement
     |   jumpStatement
-    |   waitStatement
     |   selectionStatement
     |   iterationStatement
     ;
@@ -140,7 +139,7 @@ labeledStatement
     ;
 
 selectionStatement
-    :   selectionStatement newstartline=allowDisabledTokens
+    :   selectionStatement newStartline=allowDisabledTokens
     (   wsr_1=Else wsr_2=If LeftParen expression RightParen indentShort=shortStatement
     |   wsr=Else indentShort=shortStatement
     )

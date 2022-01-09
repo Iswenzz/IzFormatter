@@ -2,7 +2,7 @@
 using Iswenzz.CoD4.Parser.Utils;
 using static GSCParser;
 
-namespace Iswenzz.CoD4.Parser.Definitions.Function
+namespace Iswenzz.CoD4.Parser.Definitions
 {
     /// <summary>
     /// Function statement.

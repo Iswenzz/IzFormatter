@@ -26,8 +26,8 @@ namespace Iswenzz.CoD4.Parser.Runtime
                 return;
 
             ExtraNode.ReflectBuildMany("startline", rule, startline => BuildStartline(rule, startline));
-            ExtraNode.ReflectBuildMany("startnewline", rule, startnewline => BuildStartNewline(rule, startnewline));
-            ExtraNode.ReflectBuildMany("newstartline", rule, newstartline => BuildNewStartline(rule, newstartline));
+            ExtraNode.ReflectBuildMany("startNewline", rule, startnewline => BuildStartNewline(rule, startnewline));
+            ExtraNode.ReflectBuildMany("newStartline", rule, newstartline => BuildNewStartline(rule, newstartline));
             ExtraNode.ReflectBuildMany("newline", rule, newline => BuildNewline(rule, newline));
             ExtraNode.ReflectBuildMany("indent", rule, indent => BuildIndent(rule, indent));
             ExtraNode.ReflectBuildMany("indentBrace", rule, indentBrace => BuildIndentBrace(rule, indentBrace));
@@ -39,24 +39,39 @@ namespace Iswenzz.CoD4.Parser.Runtime
             for (int i = 0; i < context.ChildCount; i++)
                 BuildRule(context.GetChild(i));
 
-            if (rule is CommentContext) ExtraNode.Build(BuildComment((ParserRuleContext)rule.Parent, rule));
             ExtraNode.ReflectBuildMany("dedent", rule, dedent => BuildDedent(rule, dedent));
             ExtraNode.ReflectBuildMany("dedentBrace", rule, dedentBrace => BuildDedentBrace(rule, dedentBrace));
+
+            ExtraNode.ReflectBuildMany("commentLine", rule, commentLine => 
+                BuildComment(rule, commentLine, LineComment));
+            ExtraNode.ReflectBuildMany("commentBlock", rule, commentBlock =>
+                BuildComment(rule, commentBlock, BlockComment));
         }
 
         /// <summary>
-        /// Build a comment. @TODO
+        /// Build a comment.
         /// </summary>
         /// <param name="context">The context rule.</param>
         /// <param name="node">The node to apply.</param>
+        /// <param name="type">The type of comment.</param>
         /// <returns></returns>
-        public virtual ExtraNode BuildComment(ParserRuleContext context, dynamic node) => new(context)
+        public virtual ExtraNode BuildComment(ParserRuleContext context, dynamic node, int type) => new(context)
         {
             Node = node,
             BuildParseTree = () =>
             {
-                //if (node is CommentContext comment && comment.ChildsOfType<IParseTree>(LineComment) != null)
-                //    comment.AddChild(new CommonToken(Newline, Environment.NewLine));
+                if (node is ParserRuleContext nodeContext)
+                {
+                    string content = type switch
+                    {
+                        LineComment => $"// {nodeContext.GetText()}",
+                        BlockComment => $"/* {nodeContext.GetText().Trim()} */",
+                        _ => throw new NotImplementedException()
+                    };
+
+                    nodeContext.RemoveChilds();
+                    nodeContext.AddChild(new CommonToken(type, content));
+                }
                 return new List<dynamic> { node };
             }
         };

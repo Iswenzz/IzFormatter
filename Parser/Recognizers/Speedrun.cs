@@ -1,5 +1,4 @@
-﻿using Iswenzz.CoD4.Parser.Definitions.Function;
-using static GSCParser;
+﻿using Iswenzz.CoD4.Parser.Definitions;
 
 namespace Iswenzz.CoD4.Parser.Recognizers
 {
@@ -15,10 +14,9 @@ namespace Iswenzz.CoD4.Parser.Recognizers
         public Speedrun(string filepath) : base(filepath) { }
 
         /// <summary>
-        /// Create a function.
+        /// Parse the GSC.
         /// </summary>
-        /// <param name="context">The definition context.</param>
-        public override void CreateFunction(FunctionStatementContext context) =>
-            Functions.Add(new SpeedrunFunction(this, context));
+        public override void Parse() =>
+            CompilationUnit = new SpeedrunCompilationUnit(this, Recognizer.Parser.compilationUnit());
     }
 }

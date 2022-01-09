@@ -8,7 +8,7 @@ using Iswenzz.CoD4.Parser.Tasks.Function;
 using Iswenzz.CoD4.Parser.Utils;
 using static GSCParser;
 
-namespace Iswenzz.CoD4.Parser.Definitions.Function
+namespace Iswenzz.CoD4.Parser.Definitions
 {
     /// <summary>
     /// SR Speedrun function statement.
@@ -39,15 +39,15 @@ namespace Iswenzz.CoD4.Parser.Definitions.Function
             IsTrap = IsTrapFunction();
             IsTeleporter = IsTeleporterFunction();
 
-            Remove.DangerousExpressions(FunctionCallIdentifiers);
-            Remove.SpeedrunUnnecessaryExpressions(FunctionCallIdentifiers);
+            Remove.DangerousExpressions(GSC, FunctionCallIdentifiers);
+            Remove.SpeedrunUnnecessaryExpressions(GSC, FunctionCallIdentifiers);
             if (IsMain)
             {
                 Main.AddSpeedrunWays(Context);
                 Main.AddSpeedrunSpawn(Context);
             }
             if (IsTrap) Trap.DisableTrigger(Context);
-            if (IsTeleporter) Teleporter.RemoveDelays(Context);
+            if (IsTeleporter) Teleporter.RemoveDelays(GSC, Context);
 
             base.Construct();
         }

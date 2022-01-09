@@ -1,4 +1,5 @@
-﻿using Antlr4.Runtime.Misc;
+﻿using System;
+using Antlr4.Runtime.Misc;
 
 using Iswenzz.CoD4.Parser.Recognizers;
 using static GSCParser;
@@ -15,7 +16,7 @@ namespace Iswenzz.CoD4.Parser.Definitions
         /// </summary>
         /// <param name="gsc">The GSC instance.</param>
         /// <param name="context">The definition context.</param>
-        public CompilationUnit(GSC gsc, CompilationUnitContext context) : base(gsc, context) { }
+        public CompilationUnit(GSC gsc, CompilationUnitContext context) : base(gsc, context) { } 
 
         /// <summary>
         /// Function statement.
@@ -24,7 +25,7 @@ namespace Iswenzz.CoD4.Parser.Definitions
         /// <returns></returns>
         public override string VisitFunctionStatement([NotNull] FunctionStatementContext context)
         {
-            GSC.CreateFunction(context);
+            GSC.Stream.Append(new Function(GSC, context).Stream + Environment.NewLine);
             return null;
         }
 
@@ -35,7 +36,7 @@ namespace Iswenzz.CoD4.Parser.Definitions
         /// <returns></returns>
         public override string VisitDirectiveStatement([NotNull] DirectiveStatementContext context)
         {
-            GSC.CreateInclude(context);
+            GSC.Stream.Append(new Include(GSC, context).Stream);
             return null;
         }
     }

@@ -1,7 +1,7 @@
 ﻿using Iswenzz.CoD4.Parser.Recognizers;
 using static GSCParser;
 
-namespace Iswenzz.CoD4.Parser.Definitions.Preprocessor
+namespace Iswenzz.CoD4.Parser.Definitions
 {
     /// <summary>
     /// Include directive.

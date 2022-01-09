@@ -123,7 +123,7 @@ expression
 
 functionStatement
     :   identifier LeftParen identifierList? RightParen 
-    (   { EnableChannel(Hidden); } disabledTokens* { DisableChannel(Hidden); } newline=compoundStatement
+    (   allowDisabledTokens newline=compoundStatement
     )
     ;
 
@@ -140,7 +140,7 @@ labeledStatement
     ;
 
 selectionStatement
-    :   selectionStatement { EnableChannel(Hidden); } newstartline=disabledTokens* { DisableChannel(Hidden); } 
+    :   selectionStatement newstartline=allowDisabledTokens
     (   wsr_1=Else wsr_2=If LeftParen expression RightParen indentShort=shortStatement
     |   wsr=Else indentShort=shortStatement
     )
@@ -196,8 +196,8 @@ identifier
     ;
 
 comment
-    :   lineComment
-    |   blockComment
+    :   newline=lineComment
+    |   blockComment+
     ;
 
 lineComment
@@ -212,6 +212,10 @@ disabledTokens
     :   comment
     |   Newline
     |   Whitespace
+    ;
+
+allowDisabledTokens
+    :   { EnableChannel(Hidden); } disabledTokens* { DisableChannel(Hidden); } 
     ;
 
 literal

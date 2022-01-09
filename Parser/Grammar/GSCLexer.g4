@@ -88,7 +88,7 @@ StringLiteral:                      '"' CharSequence? '"';
 IncludeDirective:                   '#' 'include' Whitespace QualifiedIdentifier;
 
 BlockComment:                       Whitespace? '/*' .*? '*/' Whitespace? Newline?      -> channel(HIDDEN);
-LineComment:                        Whitespace? '//' .*? Newline                        -> channel(HIDDEN);
+LineComment:                        Whitespace? '//' ~[\r\n]*                           -> channel(HIDDEN);
 Whitespace:                         [ \t]+                                              -> channel(HIDDEN);
 Newline:                            Whitespace? ('\r'? '\n' | '\r')                     -> channel(HIDDEN);
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -25,32 +25,23 @@ namespace Iswenzz.CoD4.Parser.Runtime
             if (context is not ParserRuleContext rule)
                 return;
 
-            List<dynamic> varsStartline = rule.ReflectRuleVariables("startline");
-            List<dynamic> varsNewline = rule.ReflectRuleVariables("newline");
-            List<dynamic> varsIndent = rule.ReflectRuleVariables("indent");
-            List<dynamic> varsIndentBrace = rule.ReflectRuleVariables("indentBrace");
-            List<dynamic> varsIndentShort = rule.ReflectRuleVariables("indentShort");
-            List<dynamic> varsDedent = rule.ReflectRuleVariables("dedent");
-            List<dynamic> varsDedentBrace = rule.ReflectRuleVariables("dedentBrace");
-            List<dynamic> varsWhitespace = rule.ReflectRuleVariables("ws");
-            List<dynamic> varsWhitespaceLeft = rule.ReflectRuleVariables( "wsl");
-            List<dynamic> varsWhitespaceRight = rule.ReflectRuleVariables("wsr");
-
-            ExtraNode.BuildMany(varsStartline, startline => BuildStartline(rule, startline));
-            ExtraNode.BuildMany(varsNewline, newline => BuildNewline(rule, newline));
-            ExtraNode.BuildMany(varsIndent, indent => BuildIndent(rule, indent));
-            ExtraNode.BuildMany(varsIndentBrace, indentBrace => BuildIndentBrace(rule, indentBrace));
-            ExtraNode.BuildMany(varsIndentShort, indentShort => BuildIndentShort(rule, indentShort));
-            ExtraNode.BuildMany(varsWhitespace, ws => BuildWhitespace(rule, ws, true, true));
-            ExtraNode.BuildMany(varsWhitespaceLeft, wsl => BuildWhitespace(rule, wsl, true, false));
-            ExtraNode.BuildMany(varsWhitespaceRight, wsr => BuildWhitespace(rule, wsr, false, true));
+            ExtraNode.ReflectBuildMany("startline", rule, startline => BuildStartline(rule, startline));
+            ExtraNode.ReflectBuildMany("startnewline", rule, startnewline => BuildStartNewline(rule, startnewline));
+            ExtraNode.ReflectBuildMany("newstartline", rule, newstartline => BuildNewStartline(rule, newstartline));
+            ExtraNode.ReflectBuildMany("newline", rule, newline => BuildNewline(rule, newline));
+            ExtraNode.ReflectBuildMany("indent", rule, indent => BuildIndent(rule, indent));
+            ExtraNode.ReflectBuildMany("indentBrace", rule, indentBrace => BuildIndentBrace(rule, indentBrace));
+            ExtraNode.ReflectBuildMany("indentShort", rule, indentShort => BuildIndentShort(rule, indentShort));
+            ExtraNode.ReflectBuildMany("ws", rule, ws => BuildWhitespace(rule, ws, true, true));
+            ExtraNode.ReflectBuildMany("wsl", rule, wsl => BuildWhitespace(rule, wsl, true, false));
+            ExtraNode.ReflectBuildMany("wsr", rule, wsr => BuildWhitespace(rule, wsr, false, true));
 
             for (int i = 0; i < context.ChildCount; i++)
                 BuildRule(context.GetChild(i));
 
-            if (IsComment(rule)) ExtraNode.Build(BuildComment((ParserRuleContext)rule.Parent, rule));
-            ExtraNode.BuildMany(varsDedent, dedent => BuildDedent(rule, dedent));
-            ExtraNode.BuildMany(varsDedentBrace, dedentBrace => BuildDedentBrace(rule, dedentBrace));
+            if (rule is CommentContext) ExtraNode.Build(BuildComment((ParserRuleContext)rule.Parent, rule));
+            ExtraNode.ReflectBuildMany("dedent", rule, dedent => BuildDedent(rule, dedent));
+            ExtraNode.ReflectBuildMany("dedentBrace", rule, dedentBrace => BuildDedentBrace(rule, dedentBrace));
         }
 
         /// <summary>

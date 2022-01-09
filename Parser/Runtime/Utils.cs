@@ -143,31 +143,33 @@ namespace Iswenzz.CoD4.Parser.Runtime
         }
 
         /// <summary>
-        /// Retrieve the child index from a child object in the collection.
+        /// Retrieve the child index.
         /// </summary>
-        /// <param name="childs">The child collection.</param>
+        /// <param name="context">The rule to find child.</param>
         /// <param name="child">The child to find the index.</param>
         /// <returns></returns>
-        public static int IndexOfChild(this IEnumerable<IParseTree> childs, IToken child) =>
-            childs.IndexOfChild((object)child);
+        public static int IndexOfChild(this ParserRuleContext context, IToken child) =>
+            context.IndexOfChild((object)child);
 
         /// <summary>
-        /// Retrieve the child index from a child object in the collection.
+        /// Retrieve the child index.
         /// </summary>
-        /// <param name="childs">The child collection.</param>
+        /// <param name="context">The rule to find child.</param>
         /// <param name="child">The child to find the index.</param>
         /// <returns></returns>
-        public static int IndexOfChild(this IEnumerable<IParseTree> childs, IParseTree child) =>
-            childs.IndexOfChild((object)child);
+        public static int IndexOfChild(this ParserRuleContext context, IParseTree child) =>
+            context.IndexOfChild((object)child);
 
         /// <summary>
-        /// Retrieve the child index from a child object in the collection.
+        /// Retrieve the child index.
         /// </summary>
-        /// <param name="childs">The child collection.</param>
+        /// <param name="context">The rule to find child.</param>
         /// <param name="child">The child to find the index.</param>
         /// <returns></returns>
-        public static int IndexOfChild(this IEnumerable<IParseTree> childs, object child)
+        public static int IndexOfChild(this ParserRuleContext context, object child)
         {
+            IEnumerable<IParseTree> childs = context.Childs();
+
             for (int i = 0; i < childs.Count(); i++)
             {
                 IParseTree current = childs.ElementAt(i);
@@ -175,8 +177,8 @@ namespace Iswenzz.CoD4.Parser.Runtime
 
                 if (child is IToken token)
                     interval = new Interval(token.TokenIndex, token.TokenIndex);
-                else if (child is IParseTree context)
-                    interval = context.SourceInterval;
+                else if (child is IParseTree tree)
+                    interval = tree.SourceInterval;
 
                 if (current.SourceInterval.Equals(interval))
                     return i;

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 
 using Antlr4.Runtime;
-using Antlr4.Runtime.Tree;
 
 namespace Iswenzz.CoD4.Parser.Runtime
 {
@@ -12,7 +11,6 @@ namespace Iswenzz.CoD4.Parser.Runtime
     public class ExtraNode
     {
         public ParserRuleContext Context { get; set; }
-        public IEnumerable<IParseTree> Childs { get; set; }
         public dynamic Node { get; set; }
 
         public Func<List<dynamic>> BuildParseTree { get; set; }
@@ -21,11 +19,8 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// Initialize a new <see cref="ExtraNode"/>.
         /// </summary>
         /// <param name="context">The rule context.</param>
-        public ExtraNode(ParserRuleContext context)
-        {
+        public ExtraNode(ParserRuleContext context) =>
             Context = context;
-            Childs = context.Childs();
-        }
 
         /// <summary>
         /// Rebuild the tree nodes.
@@ -34,8 +29,7 @@ namespace Iswenzz.CoD4.Parser.Runtime
         {
             if (BuildParseTree == null)
                 return;
-            int needChangeIndex = Childs.IndexOfChild((object)Node);
-            Context.ReplaceChilds(needChangeIndex, BuildParseTree);
+            Context.ReplaceChilds(Context.IndexOfChild((object)Node), BuildParseTree);
         }
 
         /// <summary>
@@ -56,5 +50,15 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// <param name="buildNodeCallback">The build node callback.</param>
         public static void BuildMany(List<dynamic> vars, Func<dynamic, ExtraNode> buildNodeCallback) =>
             vars.ForEach(var => Build(buildNodeCallback(var)));
+
+        /// <summary>
+        /// Build many nodes from a specific variable name in rule.
+        /// </summary>
+        /// <param name="name">The name of variables to reflect.</param>
+        /// <param name="rule">The rule to reflect.</param>
+        /// <param name="buildNodeCallback">The build node callback.</param>
+        public static void ReflectBuildMany(string name, ParserRuleContext rule,
+            Func<dynamic, ExtraNode> buildNodeCallback) =>
+            BuildMany(rule.ReflectRuleVariables(name), buildNodeCallback);
     }
 }

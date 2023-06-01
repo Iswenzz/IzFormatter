@@ -2,63 +2,65 @@
 using System.Collections.Generic;
 
 using Iswenzz.CoD4.Parser.Runtime;
-using Iswenzz.CoD4.Parser.Recognizers;
-using Iswenzz.CoD4.Parser.Tasks;
-using Iswenzz.CoD4.Parser.Tasks.Function;
 using Iswenzz.CoD4.Parser.Utils;
+using Iswenzz.CoD4.Parser.Plugins.GSC.Speedrun.Tasks;
+using Iswenzz.CoD4.Parser.Recognizers.GSC;
 using static GSCParser;
 
-namespace Iswenzz.CoD4.Parser.Definitions
+namespace Iswenzz.CoD4.Parser.Plugins.GSC.Speedrun
 {
     /// <summary>
-    /// SR Speedrun function statement.
+    /// Function definition.
     /// </summary>
-    public class SpeedrunFunction : Function
+    public class Function
     {
-        public IEnumerable<IdentifierContext> FunctionCallIdentifiers { get; set; }
+        public GSCRecognizer GSC { get; set; }
+        public FunctionStatementContext Context { get; set; }
 
+        public string Identifier { get; set; }
+        public bool IsMain { get; set; }
         public bool IsTrap { get; set; }
         public bool IsTeleporter { get; set; }
 
+        public List<IdentifierContext> Calls { get; set; }
+
         /// <summary>
-        /// Initialize a new <see cref="SpeedrunFunction"/>.
+        /// Initialize a new <see cref="Function"/>.
         /// </summary>
         /// <param name="gsc">The GSC instance.</param>
         /// <param name="context">The definition context.</param>
-        public SpeedrunFunction(GSC gsc, FunctionStatementContext context) : base(gsc, context) { }
-
-        /// <summary>
-        /// Construct additional data before visiting the context.
-        /// </summary>
-        public override void Construct()
+        public Function(GSCRecognizer gsc, FunctionStatementContext context)
         {
-            Identifier = Context.identifier().GetText();
-            FunctionCallIdentifiers = GetAllFunctionCallIdentifiers();
+            GSC = gsc;
+            Context = context;
 
+            Identifier = Context.identifier().GetText();
+            Calls = GetCalls();
+
+            IsMain = Identifier.EqualsIgnoreCase("main");
             IsMain = Identifier.EqualsIgnoreCase("main");
             IsTrap = IsTrapFunction();
             IsTeleporter = IsTeleporterFunction();
 
-            Remove.DangerousExpressions(GSC, FunctionCallIdentifiers);
-            Remove.SpeedrunUnnecessaryExpressions(GSC, FunctionCallIdentifiers);
+            Remove.DangerousExpressions(GSC, Calls);
+            Remove.SpeedrunUnnecessaryExpressions(GSC, Calls);
             if (IsMain)
             {
-                Main.AddSpeedrunWays(Context);
-                Main.AddSpeedrunSpawn(Context);
+                Tasks.Main.AddSpeedrunWays(Context);
+                Tasks.Main.AddSpeedrunSpawn(Context);
             }
             if (IsTrap) Trap.DisableTrigger(Context);
             if (IsTeleporter) Teleporter.RemoveDelays(GSC, Context);
-
-            base.Construct();
         }
 
         /// <summary>
-        /// Get all function call identifiers.
+        /// Get all calls.
         /// </summary>
         /// <returns></returns>
-        public virtual IEnumerable<IdentifierContext> GetAllFunctionCallIdentifiers() => Context
+        public virtual List<IdentifierContext> GetCalls() => Context
             .RecurseChildsOfType<FunctionExpressionContext>()
-            .Select(call => call.RecurseChildsOfType<IdentifierContext>().FirstOrDefault());
+            .Select(call => call.RecurseChildsOfType<IdentifierContext>().FirstOrDefault())
+            .ToList();
 
         /// <summary>
         /// Check if the function is a trap.
@@ -68,7 +70,7 @@ namespace Iswenzz.CoD4.Parser.Definitions
         {
             if (!Identifier.ContainsIgnoreCase("trap"))
                 return false;
-            if (!FunctionCallIdentifiers.Any(c => c.Identifier().GetText().EqualsIgnoreCase("waittill")))
+            if (!Calls.Any(c => c.Identifier().GetText().EqualsIgnoreCase("waittill")))
                 return false;
             return true;
         }
@@ -83,7 +85,7 @@ namespace Iswenzz.CoD4.Parser.Definitions
                 return false;
             if (Context.RecurseChildsOfType<WaitStatementContext>() == null)
                 return false;
-            if (!FunctionCallIdentifiers.Any(c => c.Identifier().GetText().EqualsIgnoreCase("setorigin")))
+            if (!Calls.Any(c => c.Identifier().GetText().EqualsIgnoreCase("setorigin")))
                 return false;
             return true;
         }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using Antlr4.Runtime;
 
-namespace Iswenzz.CoD4.Parser.Listeners
+namespace Iswenzz.CoD4.Parser.Recognizers.GSC
 {
     /// <summary>
     /// Listen for GSC errors.
@@ -31,7 +31,7 @@ namespace Iswenzz.CoD4.Parser.Listeners
         /// <param name="charPositionInLine">The character position in line.</param>
         /// <param name="msg">The error message.</param>
         /// <param name="e">Recognition exception.</param>
-        public override void SyntaxError(TextWriter output, IRecognizer recognizer, IToken offendingSymbol, 
+        public override void SyntaxError(TextWriter output, IRecognizer recognizer, IToken offendingSymbol,
             int line, int charPositionInLine, string msg, RecognitionException e)
         {
             string message = $"Error line {line}:{charPositionInLine} {msg}.";

@@ -1,45 +1,49 @@
-﻿using Antlr4.Runtime;
-using Antlr4.Runtime.Atn;
-using Antlr4.Runtime.Tree;
-
-using Iswenzz.CoD4.Parser.Listeners;
+﻿using Iswenzz.CoD4.Parser.Runtime;
 using static GSCParser;
 
-namespace Iswenzz.CoD4.Parser.Runtime
+using Antlr4.Runtime.Atn;
+using Antlr4.Runtime;
+using System.Text;
+using System.IO;
+
+namespace Iswenzz.CoD4.Parser.Recognizers.GSC
 {
     /// <summary>
-    /// Language recognizer
+    /// GSC Recognizer.
     /// </summary>
-    public class Recognizer
+    public class GSCRecognizer
     {
-        public AntlrInputStream Stream { get; protected set; }
+        public StringBuilder Stream { get; set; }
+        public AntlrInputStream AntlrStream { get; set; }
         public MultiChannelTokenStream TokenStream { get; set; }
-        public ParseTreeWalker Walker { get; set; }
 
         public GSCLexer Lexer { get; set; }
         public GSCParser Parser { get; set; }
-        public Formatter Formatter { get; set; }
+        public GSCFormatter Formatter { get; set; }
         protected GSCErrorListener ErrorListener { get; set; }
 
         /// <summary>
-        /// Initialize a new <see cref="Recognizer"/>.
+        /// Initialize a new <see cref="GSCRecognizer"/>.
         /// </summary>
-        /// <param name="input">The input stream.</param>
-        public Recognizer(string input)
+        /// <param name="input">The code input.</param>
+        public GSCRecognizer(string input)
         {
             // Parser & Lexer & Walker
-            Stream = new AntlrInputStream(input);
-            Lexer = new GSCLexer(Stream);
+            Stream = new StringBuilder();
+            AntlrStream = new AntlrInputStream(input);
+            Lexer = new GSCLexer(AntlrStream);
             TokenStream = new MultiChannelTokenStream(Lexer);
             Parser = new GSCParser(TokenStream);
             Parser.Interpreter.PredictionMode = PredictionMode.SLL;
-            Formatter = new Formatter();
-            Walker = new ParseTreeWalker();
+            Formatter = new GSCFormatter(this);
 
             // Error listener
             ErrorListener = new GSCErrorListener();
             Parser.RemoveErrorListeners();
             Parser.AddErrorListener(ErrorListener);
+
+            // Parse
+            Stream.Append(Formatter.Visit(Parser.compilationUnit()));
         }
 
         /// <summary>
@@ -48,6 +52,6 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// <param name="input">The input stream.</param>
         /// <returns></returns>
         public static SimpleInputContext ParseSimpleInput(string input) =>
-            new Recognizer(input).Parser.simpleInput();
+            new GSCRecognizer(input).Parser.simpleInput();
     }
 }

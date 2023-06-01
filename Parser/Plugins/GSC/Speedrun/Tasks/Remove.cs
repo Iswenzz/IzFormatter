@@ -1,13 +1,14 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
-using Antlr4.Runtime;
 
-using Iswenzz.CoD4.Parser.Recognizers;
 using Iswenzz.CoD4.Parser.Runtime;
 using Iswenzz.CoD4.Parser.Utils;
+using Iswenzz.CoD4.Parser.Recognizers.GSC;
 using static GSCParser;
 
-namespace Iswenzz.CoD4.Parser.Tasks.Function
+using Antlr4.Runtime;
+
+namespace Iswenzz.CoD4.Parser.Plugins.GSC.Speedrun.Tasks
 {
     /// <summary>
     /// Remove specific contexts.
@@ -34,7 +35,7 @@ namespace Iswenzz.CoD4.Parser.Tasks.Function
         /// <typeparam name="T">The rule type.</typeparam>
         /// <param name="gsc">The GSC instance.</param>
         /// <param name="expressions">The expressions list.</param>
-        public static void Expressions<T>(GSC gsc, IEnumerable<T> expressions) where T : ParserRuleContext
+        public static void Expressions<T>(GSCRecognizer gsc, IEnumerable<T> expressions) where T : ParserRuleContext
         {
             foreach (T expression in expressions)
             {
@@ -53,8 +54,8 @@ namespace Iswenzz.CoD4.Parser.Tasks.Function
         /// </summary>
         /// <param name="gsc">The GSC instance.</param>
         /// <param name="identifiers">The function call identifiers.</param>
-        public static void DangerousExpressions(GSC gsc, IEnumerable<IdentifierContext> identifiers) => 
-            Expressions(gsc, identifiers.Where(identifier => 
+        public static void DangerousExpressions(GSCRecognizer gsc, IEnumerable<IdentifierContext> identifiers) =>
+            Expressions(gsc, identifiers.Where(identifier =>
             ForbiddenExpressionsList.ContainsIgnoreCase(identifier.GetText())));
 
         /// <summary>
@@ -62,8 +63,8 @@ namespace Iswenzz.CoD4.Parser.Tasks.Function
         /// </summary>
         /// <param name="gsc">The GSC instance.</param>
         /// <param name="identifiers">The function call identifiers.</param>
-        public static void SpeedrunUnnecessaryExpressions(GSC gsc, IEnumerable<IdentifierContext> identifiers) => 
-            Expressions(gsc, identifiers.Where(identifier => 
+        public static void SpeedrunUnnecessaryExpressions(GSCRecognizer gsc, IEnumerable<IdentifierContext> identifiers) =>
+            Expressions(gsc, identifiers.Where(identifier =>
             SpeedrunUnnecessaryExpressionsList.ContainsIgnoreCase(identifier.GetText())));
     }
 }

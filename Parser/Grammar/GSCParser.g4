@@ -3,12 +3,12 @@ parser grammar GSCParser;
 options 
 {
     tokenVocab = GSCLexer;
-    superClass = ParserBase;
+    superClass = GSCParserBase;
 }
 
 @parser::header 
 {
-    using Iswenzz.CoD4.Parser.Runtime;
+    using Iswenzz.CoD4.Parser.Recognizers.GSC;
 }
 
 @parser::members 
@@ -23,37 +23,22 @@ translationUnit:        externalDeclaration+;
 externalDeclaration:    directiveStatement | functionStatement;
 
 statement
-    :   disabledTokens* { DisableChannel(Hidden); }
-    (   startNewline=simpleStatement 
-    |   newline=compoundStatement
-    )   { EnableChannel(Hidden); }
-    |   disabledTokens
-    ;
-
-shortStatement
-    :   disabledTokens* { DisableChannel(Hidden); }
-    (   simpleStatement
-    |   compoundStatement
-    )   { EnableChannel(Hidden); }
-    |   disabledTokens
-    ;
-
-simpleStatement
     :   expressionStatement
     |   labeledStatement
     |   jumpStatement
     |   selectionStatement
-    |   iterationStatement
+    |   iterationStatement 
+    |   compoundStatement
     ;
 
 compoundStatement
-    :   indentBrace=LeftBrace { EnableChannel(Hidden); } statement+ { DisableChannel(Hidden); } dedentBrace=RightBrace
-    |   indentBrace=LeftDevSection { EnableChannel(Hidden); } statement+ { DisableChannel(Hidden); } dedentBrace=RightDevSection
+    :   ID=LeftBrace statement+ DD=RightBrace
+    |   ID=LeftDevSection statement+ DD=RightDevSection
     |   emptyCompoundStatement
     ;
 
 emptyCompoundStatement
-    :   wsl_1=LeftBrace wsl_2=RightBrace
+    :   WSL_1=LeftBrace WSL_2=RightBrace
     ;
 
 primaryExpression
@@ -68,13 +53,13 @@ primaryExpression
 
 postfixExpression
     :   primaryExpression                                                               # PrimaryStatementExpression
-    |   postfixExpression LeftBracket expression RightBracket wsl=postfixExpression?    # MemberIndexExpression
-    |   postfixExpression LeftParen expressionList? RightParen wsl=postfixExpression?   # FunctionExpression
+    |   postfixExpression LeftBracket expression RightBracket WSL=postfixExpression?    # MemberIndexExpression
+    |   postfixExpression LeftParen expressionList? RightParen WSL=postfixExpression?   # FunctionExpression
     |   postfixExpression Dot postfixExpression                                         # MemberDotExpression
     |   postfixExpression (PlusPlus | MinusMinus)                                       # PostExpression
     |   qualifiedIdentifier Qualified postfixExpression                                 # QualifiedCallExpression
     |   LeftBracket LeftBracket postfixExpression RightBracket RightBracket             # FunctionPointerCallExpression
-    |   LeftParen expression wsr_1=Comma expression wsr_2=Comma expression RightParen   # VectorExpression
+    |   LeftParen expression WSR_1=Comma expression WSR_2=Comma expression RightParen   # VectorExpression
     ;
 
 unaryExpression
@@ -83,22 +68,22 @@ unaryExpression
     ;
 
 memberExpression
-    :   wsr=identifier
+    :   WSR=identifier
     (   threadExpression
     |   expression
     )
     ;
 
 threadExpression
-    :   wsr=Thread expression
+    :   WSR=Thread expression
     ;
 
 waitExpression
-    :   wsr=Wait expression
+    :   WSR=Wait expression
     ;
 
 expressionSequence
-    :   wsr=Comma expression
+    :   WSR=Comma expression
     ;
 
 expressionList
@@ -107,23 +92,21 @@ expressionList
 
 expression
     :   unaryExpression                                                                 # UnaryStatementExpression
-    |   expression ws=(Mul | Div | Mod) expression                                      # MultiplicativeExpression
-    |   expression ws=(Plus | Minus) expression                                         # AdditiveExpression
-    |   expression ws=(LeftShift | RightShift) expression                               # BitShiftExpression
-    |   expression ws=(Less | Greater | LessEqual | GreaterEqual) expression            # RelationalExpression
-    |   expression ws=(Equal | NotEqual) expression                                     # EqualityExpression
-    |   expression ws=And expression                                                    # BitAndExpression
-    |   expression ws=Xor expression                                                    # BitXorExpression
-    |   expression ws=Or expression                                                     # BitOrExpression
-    |   expression ws=AndAnd expression                                                 # LogicalAndExpression
-    |   expression ws=OrOr expression                                                   # LogicalOrExpression
-    |   expression ws=assignmentOperator expression                                     # AssignmentExpression
+    |   expression WS=(Mul | Div | Mod) expression                                      # MultiplicativeExpression
+    |   expression WS=(Plus | Minus) expression                                         # AdditiveExpression
+    |   expression WS=(LeftShift | RightShift) expression                               # BitShiftExpression
+    |   expression WS=(Less | Greater | LessEqual | GreaterEqual) expression            # RelationalExpression
+    |   expression WS=(Equal | NotEqual) expression                                     # EqualityExpression
+    |   expression WS=And expression                                                    # BitAndExpression
+    |   expression WS=Xor expression                                                    # BitXorExpression
+    |   expression WS=Or expression                                                     # BitOrExpression
+    |   expression WS=AndAnd expression                                                 # LogicalAndExpression
+    |   expression WS=OrOr expression                                                   # LogicalOrExpression
+    |   expression WS=assignmentOperator expression                                     # AssignmentExpression
     ;
 
 functionStatement
-    :   identifier LeftParen identifierList? RightParen 
-    (   allowDisabledTokens newline=compoundStatement
-    )
+    :   identifier LeftParen identifierList? RightParen compoundStatement
     ;
 
 expressionStatement
@@ -131,40 +114,38 @@ expressionStatement
     ;
 
 labeledStatement
-    :   Case wsl=literal Colon newline_1=compoundStatement statement*
-    |   Case wsl=literal newline_2=Colon startline=labeledStatement
-    |   Case wsl=literal newline_2=Colon statement+
-    |   Default Colon compoundStatement statement*
-    |   Default newline_2=Colon statement+
+    :   Case WSL=literal Colon statement
+    |   Default Colon statement
     ;
 
 selectionStatement
-    :   selectionStatement newStartline=allowDisabledTokens
-    (   wsr_1=Else wsr_2=If LeftParen expression RightParen indentShort=shortStatement
-    |   wsr=Else indentShort=shortStatement
+    :   selectionStatement
+    (   WSR_1=Else WSR_2=If LeftParen expression RightParen statement
+    |   Else statement
     )
-    |   wsr=If LeftParen expression RightParen indentShort=shortStatement
-    |   wsr=Switch LeftParen expression RightParen compoundStatement
+    |   WSR=If LeftParen expression RightParen statement
+    |   WSR=Switch LeftParen expression RightParen compoundStatement
     ;
 
 waitStatement
-    :   wsr=Wait LeftParen? expression RightParen? Semi
+    :   WSR=Wait LeftParen? expression RightParen? Semi
     ;
 
 iterationStatement
-    :   wsr=While LeftParen expression RightParen indentShort=shortStatement
-    |   wsr_1=For LeftParen expressionList? Semi wsl_2=expressionList? Semi wsl_3=expressionList? RightParen indentShort=shortStatement
+    :   WSR=While LeftParen expression RightParen statement
+    |   WSR_1=For LeftParen expressionList? Semi WSL_2=expressionList? Semi WSL_3=expressionList? RightParen statement
     ;
 
 jumpStatement
-    :   
-    (   (Continue | Break)
-    |   Return wsl=expression?
+    : 
+    (   Continue 
+    |   Break
+    |   Return WSL=expression?
     )   Semi
     ;
 
 directiveStatement
-    :   IncludeDirective newline=Semi
+    :   IncludeDirective Semi
     ;
 
 assignmentOperator
@@ -177,8 +158,8 @@ unaryOperator
     ;
 
 identifierSequence
-    :   wsr=Comma identifier
-    |   wsr=Comma identifier Dot identifierSequence
+    :   WSR=Comma identifier
+    |   WSR=Comma identifier Dot identifierSequence
     ;
 
 identifierList
@@ -195,7 +176,7 @@ identifier
     ;
 
 comment
-    :   newline=lineComment
+    :   lineComment
     |   blockComment+
     ;
 
@@ -204,17 +185,13 @@ lineComment
     ;
 
 blockComment
-    :   wsr=BlockComment
+    :   BlockComment
     ;
 
 disabledTokens
     :   comment
     |   Newline
     |   Whitespace
-    ;
-
-allowDisabledTokens
-    :   { EnableChannel(Hidden); } disabledTokens* { DisableChannel(Hidden); } 
     ;
 
 literal

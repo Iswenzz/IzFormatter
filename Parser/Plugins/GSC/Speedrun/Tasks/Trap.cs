@@ -1,8 +1,8 @@
-﻿
+﻿using Iswenzz.CoD4.Parser.Recognizers.GSC;
 using Iswenzz.CoD4.Parser.Runtime;
 using static GSCParser;
 
-namespace Iswenzz.CoD4.Parser.Tasks
+namespace Iswenzz.CoD4.Parser.Plugins.GSC.Speedrun.Tasks
 {
     /// <summary>
     /// Deathrun traps.
@@ -16,7 +16,7 @@ namespace Iswenzz.CoD4.Parser.Tasks
         public static void DisableTrigger(FunctionStatementContext context)
         {
             string code = @"level endon(""trigger"");";
-            SimpleInputContext input = Recognizer.ParseSimpleInput(code);
+            SimpleInputContext input = GSCRecognizer.ParseSimpleInput(code);
 
             CompoundStatementContext compound = context.compoundStatement();
             compound.AddChildAt(1, input.statement());

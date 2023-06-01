@@ -1,32 +1,33 @@
 ﻿using System;
 using System.IO;
 
+using Iswenzz.CoD4.Parser.Runtime;
 using Antlr4.Runtime;
 
-namespace Iswenzz.CoD4.Parser.Runtime
+namespace Iswenzz.CoD4.Parser.Recognizers.GSC
 {
     /// <summary>
     /// Parser base class.
     /// </summary>
-    public class ParserBase : Antlr4.Runtime.Parser
+    public class GSCParserBase : Antlr4.Runtime.Parser
     {
         public override string[] RuleNames => throw new NotImplementedException();
         public override IVocabulary Vocabulary => throw new NotImplementedException();
         public override string GrammarFileName => throw new NotImplementedException();
 
         /// <summary>
-        /// Initialize a new <see cref="ParserBase"/>.
+        /// Initialize a new <see cref="GSCParserBase"/>.
         /// </summary>
         /// <param name="input">The token stream.</param>
-        public ParserBase(ITokenStream input) : base(input) { }
+        public GSCParserBase(ITokenStream input) : base(input) { }
 
         /// <summary>
-        /// Initialize a new <see cref="ParserBase"/>.
+        /// Initialize a new <see cref="GSCParserBase"/>.
         /// </summary>
         /// <param name="input">The token stream.</param>
         /// <param name="output">the output stream.</param>
         /// <param name="errorOutput">The error stream.</param>
-        public ParserBase(ITokenStream input, TextWriter output, TextWriter errorOutput) 
+        public GSCParserBase(ITokenStream input, TextWriter output, TextWriter errorOutput) 
             : base(input, output, errorOutput) { }
 
         /// <summary>

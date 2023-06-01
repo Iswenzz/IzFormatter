@@ -1,10 +1,10 @@
-﻿using Antlr4.Runtime;
-
-using Iswenzz.CoD4.Parser.Recognizers;
-using Iswenzz.CoD4.Parser.Runtime;
+﻿using Iswenzz.CoD4.Parser.Runtime;
+using Iswenzz.CoD4.Parser.Recognizers.GSC;
 using static GSCParser;
 
-namespace Iswenzz.CoD4.Parser.Tasks
+using Antlr4.Runtime;
+
+namespace Iswenzz.CoD4.Parser.Plugins.GSC.Speedrun.Tasks
 {
     /// <summary>
     /// Comment tasks
@@ -16,12 +16,12 @@ namespace Iswenzz.CoD4.Parser.Tasks
         /// </summary>
         /// <param name="gsc">The GSC instance.</param>
         /// <param name="context">The context definition.</param>
-        public static void Line(GSC gsc, ParserRuleContext context)
+        public static void Line(GSCRecognizer gsc, ParserRuleContext context)
         {
-            gsc.Recognizer.Formatter.BuildRule(context);
-            ExtraNode comment = gsc.Recognizer.Formatter.BuildComment(
+            gsc.Formatter.BaseFormatter.BuildRule(context);
+            NodeBuilder comment = gsc.Formatter.BaseFormatter.C(
                 (ParserRuleContext)context.Parent, context, LineComment);
-            ExtraNode.Build(comment);
+            NodeBuilder.Build(comment);
         }
 
         /// <summary>
@@ -29,12 +29,12 @@ namespace Iswenzz.CoD4.Parser.Tasks
         /// </summary>
         /// <param name="gsc">The GSC instance.</param>
         /// <param name="context">The context definition.</param>
-        public static void Block(GSC gsc, ParserRuleContext context)
+        public static void Block(GSCRecognizer gsc, ParserRuleContext context)
         {
-            gsc.Recognizer.Formatter.BuildRule(context);
-            ExtraNode comment = gsc.Recognizer.Formatter.BuildComment(
+            gsc.Formatter.BaseFormatter.BuildRule(context);
+            NodeBuilder comment = gsc.Formatter.BaseFormatter.C(
                 (ParserRuleContext)context.Parent, context, BlockComment);
-            ExtraNode.Build(comment);
+            NodeBuilder.Build(comment);
         }
     }
 }

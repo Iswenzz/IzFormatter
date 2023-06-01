@@ -4,12 +4,12 @@ tokens { Indent, Dedent }
 
 options 
 {
-    superClass = LexerBase;
+    superClass = GSCLexerBase;
 }
 
 @lexer::header 
 {
-    using Iswenzz.CoD4.Parser.Runtime;
+    using Iswenzz.CoD4.Parser.Recognizers.GSC;
 }
 
 Break:                              'break';

@@ -5,8 +5,8 @@ using System.IO;
 using System.Linq;
 
 using Iswenzz.CoD4.Parser.CLI;
-using Iswenzz.CoD4.Parser.Recognizers;
 using Iswenzz.CoD4.Parser.Utils;
+using Iswenzz.CoD4.Parser.Recognizers.GSC;
 
 namespace Iswenzz.CoD4.Parser
 {
@@ -27,18 +27,16 @@ namespace Iswenzz.CoD4.Parser
         /// </summary>
         public static void OpenWithParser()
         {
-            Type parserType = Type.GetType($"Iswenzz.CoD4.Parser.Recognizers.{CLIParser.Options.Parser}");
             if (!string.IsNullOrEmpty(CLIParser.Options.GSCFolder))
-                OpenDirectory(parserType);
+                OpenDirectory();
             else
-                OpenFile(parserType);
+                OpenFile();
         }
 
         /// <summary>
         /// Create a new GSC File for each files in the directory.
         /// </summary>
-        /// <param name="parserType">The parser type.</param>
-        private static void OpenDirectory(Type parserType)
+        private static void OpenDirectory()
         {
             int index = 1;
             List<string> files = Directory.GetFiles(CLIParser.Options.GSCFolder, "*.gs*",
@@ -53,7 +51,7 @@ namespace Iswenzz.CoD4.Parser
             foreach (string file in files ?? Enumerable.Empty<string>())
             {
                 Log.File(file, index, files.Count);
-                Save((GSC)Activator.CreateInstance(parserType, file));
+                Save(new GSCFile(file));
                 index++;
             }
 
@@ -65,7 +63,7 @@ namespace Iswenzz.CoD4.Parser
         /// Create a new GSC File.
         /// </summary>
         /// <param name="parserType">The parser type.</param>
-        private static void OpenFile(Type parserType)
+        private static void OpenFile()
         {
             string file = CLIParser.Options.GSCPath;
 
@@ -73,7 +71,7 @@ namespace Iswenzz.CoD4.Parser
             timer.Start();
 
             Log.File(file);
-            Save((GSC)Activator.CreateInstance(parserType, file));
+            Save(new GSCFile(file));
 
             timer.Stop();
             Console.WriteLine($"\nParsed 1 file in {timer.Elapsed:hh\\:mm\\.ss}.");
@@ -82,7 +80,7 @@ namespace Iswenzz.CoD4.Parser
         /// <summary>
         /// Save all GSCs.
         /// </summary>
-        private static void Save(GSC gsc)
+        private static void Save(GSCFile gsc)
         {
             string path = Path.GetRelativePath(CLIParser.Options.GSCFolder, gsc.FilePathWithoutExtension);
             path = Path.Combine(CLIParser.Options.GSCOutFolder, path);

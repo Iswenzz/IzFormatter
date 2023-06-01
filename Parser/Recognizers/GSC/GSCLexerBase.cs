@@ -2,15 +2,14 @@
 using System.IO;
 
 using Antlr4.Runtime;
-
 using static GSCLexer;
 
-namespace Iswenzz.CoD4.Parser.Runtime
+namespace Iswenzz.CoD4.Parser.Recognizers.GSC
 {
     /// <summary>
     /// Base lexer class.
     /// </summary>
-	public class LexerBase : Lexer
+	public class GSCLexerBase : Lexer
     {
 		public IToken PreviousToken { get; set; }
 
@@ -19,18 +18,18 @@ namespace Iswenzz.CoD4.Parser.Runtime
         public override string GrammarFileName => throw new NotImplementedException();
 
         /// <summary>
-        /// Initialize a new <see cref="LexerBase"/>.
+        /// Initialize a new <see cref="GSCLexerBase"/>.
         /// </summary>
         /// <param name="input">The input stream.</param>
-        public LexerBase(ICharStream input) : base(input) { }
+        public GSCLexerBase(ICharStream input) : base(input) { }
 
         /// <summary>
-        /// Initialize a new <see cref="LexerBase"/>.
+        /// Initialize a new <see cref="GSCLexerBase"/>.
         /// </summary>
         /// <param name="input">The input stream.</param>
         /// <param name="output">the output stream.</param>
         /// <param name="errorOutput">The error stream.</param>
-        public LexerBase(ICharStream input, TextWriter output, TextWriter errorOutput) 
+        public GSCLexerBase(ICharStream input, TextWriter output, TextWriter errorOutput) 
             : base(input, output, errorOutput) { }
 
         /// <summary>

@@ -1,7 +1,8 @@
-﻿using Iswenzz.CoD4.Parser.Runtime;
+﻿using Iswenzz.CoD4.Parser.Recognizers.GSC;
+using Iswenzz.CoD4.Parser.Runtime;
 using static GSCParser;
 
-namespace Iswenzz.CoD4.Parser.Tasks.Function
+namespace Iswenzz.CoD4.Parser.Plugins.GSC.Speedrun.Tasks
 {
     /// <summary>
     /// Add specific context to the main GSC function.
@@ -15,7 +16,7 @@ namespace Iswenzz.CoD4.Parser.Tasks.Function
         public static void AddSpeedrunSpawn(FunctionStatementContext context)
         {
             string code = @"thread sr\api\_map::create_spawn_auto();";
-            SimpleInputContext input = Recognizer.ParseSimpleInput(code);
+            SimpleInputContext input = GSCRecognizer.ParseSimpleInput(code);
 
             CompoundStatementContext compound = context.compoundStatement();
             compound.AddChildAt(1, input.statement());
@@ -28,7 +29,7 @@ namespace Iswenzz.CoD4.Parser.Tasks.Function
         public static void AddSpeedrunWays(FunctionStatementContext context)
         {
             string code = @"thread sr\api\_map::create_normal_way(""Normal Way;"");";
-            SimpleInputContext input = Recognizer.ParseSimpleInput(code);
+            SimpleInputContext input = GSCRecognizer.ParseSimpleInput(code);
 
             CompoundStatementContext compound = context.compoundStatement();
             compound.AddChildAt(1, input.statement());

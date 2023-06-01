@@ -6,9 +6,9 @@ using Antlr4.Runtime;
 namespace Iswenzz.CoD4.Parser.Runtime
 {
     /// <summary>
-    /// Build extra node in a parse tree.
+    /// Node builder editing a parse tree.
     /// </summary>
-    public class ExtraNode
+    public class NodeBuilder
     {
         public ParserRuleContext Context { get; set; }
         public dynamic Node { get; set; }
@@ -16,10 +16,10 @@ namespace Iswenzz.CoD4.Parser.Runtime
         public Func<List<dynamic>> BuildParseTree { get; set; }
 
         /// <summary>
-        /// Initialize a new <see cref="ExtraNode"/>.
+        /// Initialize a new <see cref="NodeBuilder"/>.
         /// </summary>
         /// <param name="context">The rule context.</param>
-        public ExtraNode(ParserRuleContext context) =>
+        public NodeBuilder(ParserRuleContext context) =>
             Context = context;
 
         /// <summary>
@@ -33,14 +33,14 @@ namespace Iswenzz.CoD4.Parser.Runtime
         }
 
         /// <summary>
-        /// Build the <see cref="ExtraNode"/>.
+        /// Build the <see cref="NodeBuilder"/>.
         /// </summary>
-        /// <param name="extraNode">The <see cref="ExtraNode"/> to build.</param>
-        public static void Build(ExtraNode extraNode)
+        /// <param name="builder">The <see cref="NodeBuilder"/> to build.</param>
+        public static void Build(NodeBuilder builder)
         {
-            if (extraNode?.Node == null)
+            if (builder?.Node == null)
                 return;
-            extraNode.RebuildNode();
+            builder.RebuildNode();
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// </summary>
         /// <param name="vars">The nodes to build.</param>
         /// <param name="buildNodeCallback">The build node callback.</param>
-        public static void BuildMany(List<dynamic> vars, Func<dynamic, ExtraNode> buildNodeCallback) =>
+        public static void BuildMany(List<dynamic> vars, Func<dynamic, NodeBuilder> buildNodeCallback) =>
             vars.ForEach(var => Build(buildNodeCallback(var)));
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// <param name="rule">The rule to reflect.</param>
         /// <param name="buildNodeCallback">The build node callback.</param>
         public static void ReflectBuildMany(string name, ParserRuleContext rule,
-            Func<dynamic, ExtraNode> buildNodeCallback) =>
+            Func<dynamic, NodeBuilder> buildNodeCallback) =>
             BuildMany(rule.ReflectRuleVariables(name), buildNodeCallback);
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 
-using Iswenzz.CoD4.Parser.Recognizers;
+using Iswenzz.CoD4.Parser.Recognizers.GSC;
 using Iswenzz.CoD4.Parser.Runtime;
 using static GSCParser;
 
-namespace Iswenzz.CoD4.Parser.Tasks
+namespace Iswenzz.CoD4.Parser.Plugins.GSC.Speedrun.Tasks
 {
     /// <summary>
     /// Teleporter behavior.
@@ -16,7 +16,7 @@ namespace Iswenzz.CoD4.Parser.Tasks
         /// </summary>
         /// <param name="gsc">The GSC instance.</param>
         /// <param name="context">The teleporter function context.</param>
-        public static void RemoveDelays(GSC gsc, FunctionStatementContext context)
+        public static void RemoveDelays(GSCRecognizer gsc, FunctionStatementContext context)
         {
             var loop = context.RecurseChildsOfType<IterationStatementContext>().LastOrDefault();
             if (loop != null)

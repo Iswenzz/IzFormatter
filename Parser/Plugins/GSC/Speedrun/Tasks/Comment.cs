@@ -18,10 +18,10 @@ namespace Iswenzz.CoD4.Parser.Plugins.GSC.Speedrun.Tasks
         /// <param name="context">The context definition.</param>
         public static void Line(GSCRecognizer gsc, ParserRuleContext context)
         {
-            gsc.Formatter.BaseFormatter.BuildRule(context);
-            NodeBuilder comment = gsc.Formatter.BaseFormatter.C(
-                (ParserRuleContext)context.Parent, context, LineComment);
-            NodeBuilder.Build(comment);
+            //gsc.Formatter.BaseFormatter.BuildRule(context);
+            //NodeBuilder comment = gsc.Formatter.BaseFormatter.C(
+            //    (ParserRuleContext)context.Parent, context, LineComment);
+            //NodeBuilder.Build(comment);
         }
 
         /// <summary>
@@ -31,10 +31,10 @@ namespace Iswenzz.CoD4.Parser.Plugins.GSC.Speedrun.Tasks
         /// <param name="context">The context definition.</param>
         public static void Block(GSCRecognizer gsc, ParserRuleContext context)
         {
-            gsc.Formatter.BaseFormatter.BuildRule(context);
-            NodeBuilder comment = gsc.Formatter.BaseFormatter.C(
-                (ParserRuleContext)context.Parent, context, BlockComment);
-            NodeBuilder.Build(comment);
+            //gsc.Formatter.BaseFormatter.BuildRule(context);
+            //NodeBuilder comment = gsc.Formatter.BaseFormatter.C(
+            //    (ParserRuleContext)context.Parent, context, BlockComment);
+            //NodeBuilder.Build(comment);
         }
     }
 }

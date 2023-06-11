@@ -10,9 +10,8 @@ namespace Iswenzz.CoD4.Parser.Runtime
     /// </summary>
     public class NodeBuilder
     {
-        public ParserRuleContext Context { get; set; }
         public dynamic Node { get; set; }
-
+        public ParserRuleContext Context { get; set; }
         public Func<List<dynamic>> BuildParseTree { get; set; }
 
         /// <summary>
@@ -25,7 +24,7 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// <summary>
         /// Rebuild the tree nodes.
         /// </summary>
-        public virtual void RebuildNode()
+        public virtual void Rebuild()
         {
             if (BuildParseTree == null)
                 return;
@@ -40,25 +39,25 @@ namespace Iswenzz.CoD4.Parser.Runtime
         {
             if (builder?.Node == null)
                 return;
-            builder.RebuildNode();
+            builder.Rebuild();
         }
 
         /// <summary>
-        /// Build many nodes.
+        /// Build all nodes.
         /// </summary>
         /// <param name="vars">The nodes to build.</param>
         /// <param name="buildNodeCallback">The build node callback.</param>
-        public static void BuildMany(List<dynamic> vars, Func<dynamic, NodeBuilder> buildNodeCallback) =>
+        public static void BuildAll(List<dynamic> vars, Func<dynamic, NodeBuilder> buildNodeCallback) =>
             vars.ForEach(var => Build(buildNodeCallback(var)));
 
         /// <summary>
-        /// Build many nodes from a specific variable name in rule.
+        /// Build all nodes from a specific variable name in rule.
         /// </summary>
         /// <param name="name">The name of variables to reflect.</param>
         /// <param name="rule">The rule to reflect.</param>
         /// <param name="buildNodeCallback">The build node callback.</param>
-        public static void ReflectBuildMany(string name, ParserRuleContext rule,
+        public static void BuildVariables(string name, ParserRuleContext rule,
             Func<dynamic, NodeBuilder> buildNodeCallback) =>
-            BuildMany(rule.ReflectRuleVariables(name), buildNodeCallback);
+            BuildAll(rule.ReflectRuleVariables(name), buildNodeCallback);
     }
 }

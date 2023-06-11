@@ -1,48 +1,97 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using System.Collections.Generic;
 
-using Antlr4.Runtime;
-using Antlr4.Runtime.Tree;
-
+using Iswenzz.CoD4.Parser.Runtime;
 using static GSCParser;
 
-namespace Iswenzz.CoD4.Parser.Runtime
+using Antlr4.Runtime.Tree;
+using Antlr4.Runtime.Misc;
+using Antlr4.Runtime;
+
+namespace Iswenzz.CoD4.Parser.Recognizers.GSC
 {
     /// <summary>
-    /// Formatter.
+    /// GSC Listener.
     /// </summary>
-    public class Formatter
+    public class GSCFormatterListener : GSCParserBaseListener
     {
-        public virtual int IndentLevel { get; set; }
+        protected GSCRecognizer GSC { get; set; }
+        protected int IndentLevel { get; set; }
+
+        /// <summary>
+        /// Initialize a new <see cref="GSCFormatterListener"/>.
+        /// </summary>
+        /// <param name="gsc">The GSC instance.</param>
+        public GSCFormatterListener(GSCRecognizer gsc)
+        {
+            GSC = gsc;
+        }
+
+        public override void EnterEveryRule([NotNull] ParserRuleContext context)
+        {
+            base.EnterEveryRule(context);
+            //Console.WriteLine($"Enter: {context.GetType().Name}");
+
+            //if (context is CompoundStatementContext)
+            //    IndentLevel++;
+
+            Format(context);
+        }
+
+        public override void ExitEveryRule([NotNull] ParserRuleContext context)
+        {
+            base.ExitEveryRule(context);
+            //Console.WriteLine($"Exit: {context.GetType().Name}");
+
+            //if (context is CompoundStatementContext)
+            //    IndentLevel--;
+
+            Format(context);
+        }
+
+        public override void VisitTerminal([NotNull] ITerminalNode node)
+        {
+            base.VisitTerminal(node);
+
+            string text = node.GetText();
+
+            //if (text == "{" || text == "}")
+            //    text = $"\n{text}\n";
+            //if (text == ";")
+            //{
+            //    text += "\n";
+            //    for (int i = 0; i < IndentLevel; i++)
+            //        text += "\t";
+            //}
+
+            GSC.Stream.Append(text);
+        }
 
         /// <summary>
         /// Build rule and its childrens with formatting.
         /// </summary>
         /// <param name="context">The rule context.</param>
-        public virtual void BuildRule(IParseTree context)
+        public virtual void Format(IParseTree context)
         {
             if (context is not ParserRuleContext rule)
                 return;
 
-            NodeBuilder.ReflectBuildMany("T", rule, node => T(rule, node));
-            NodeBuilder.ReflectBuildMany("TNL", rule, node => TNL(rule, node));
-            NodeBuilder.ReflectBuildMany("NLT", rule, node => NLT(rule, node));
-            NodeBuilder.ReflectBuildMany("NL", rule, node => NL(rule, node));
-            NodeBuilder.ReflectBuildMany("ID", rule, node => ID(rule, node));
-            NodeBuilder.ReflectBuildMany("IDT", rule, node => IDT(rule, node));
-            NodeBuilder.ReflectBuildMany("IDDD", rule, node => IDDD(rule, node));
-            NodeBuilder.ReflectBuildMany("WS", rule, node => WS(rule, node, true, true));
-            NodeBuilder.ReflectBuildMany("WSL", rule, node => WS(rule, node, true, false));
-            NodeBuilder.ReflectBuildMany("WSR", rule, node => WS(rule, node, false, true));
-
-            for (int i = 0; i < context.ChildCount; i++)
-                BuildRule(context.GetChild(i));
-
-            NodeBuilder.ReflectBuildMany("DD", rule, node => DD(rule, node));
-            NodeBuilder.ReflectBuildMany("DDT", rule, node => DDT(rule, node));
-            NodeBuilder.ReflectBuildMany("CL", rule, node => C(rule, node, LineComment));
-            NodeBuilder.ReflectBuildMany("CB", rule, node => C(rule, node, BlockComment));
+            NodeBuilder.BuildVariables("T", rule, node => T(rule, node));
+            NodeBuilder.BuildVariables("TNL", rule, node => TNL(rule, node));
+            NodeBuilder.BuildVariables("NLT", rule, node => NLT(rule, node));
+            NodeBuilder.BuildVariables("NL", rule, node => NL(rule, node));
+            NodeBuilder.BuildVariables("ID", rule, node => ID(rule, node));
+            NodeBuilder.BuildVariables("IDT", rule, node => IDT(rule, node));
+            NodeBuilder.BuildVariables("IDDD", rule, node => IDDD(rule, node));
+            NodeBuilder.BuildVariables("WS", rule, node => WS(rule, node, true, true));
+            NodeBuilder.BuildVariables("WSL", rule, node => WS(rule, node, true, false));
+            NodeBuilder.BuildVariables("WSR", rule, node => WS(rule, node, false, true));
+            NodeBuilder.BuildVariables("DD", rule, node => DD(rule, node));
+            NodeBuilder.BuildVariables("DDT", rule, node => DDT(rule, node));
+            NodeBuilder.BuildVariables("CL", rule, node => C(rule, node, LineComment));
+            NodeBuilder.BuildVariables("CB", rule, node => C(rule, node, BlockComment));
         }
 
         /// <summary>
@@ -248,8 +297,7 @@ namespace Iswenzz.CoD4.Parser.Runtime
         /// <param name="context">The context rule.</param>
         /// <param name="node">The node to apply.</param>
         /// <returns></returns>
-        public virtual NodeBuilder WS(ParserRuleContext context, dynamic node,
-            bool left, bool right) => new(context)
+        public virtual NodeBuilder WS(ParserRuleContext context, dynamic node, bool left, bool right) => new(context)
         {
             Node = node,
             BuildParseTree = () =>

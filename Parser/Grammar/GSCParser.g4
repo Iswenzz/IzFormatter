@@ -23,17 +23,17 @@ translationUnit:        externalDeclaration+;
 externalDeclaration:    directiveStatement | functionStatement;
 
 statement
-    :   expressionStatement
-    |   labeledStatement
-    |   jumpStatement
-    |   selectionStatement
-    |   iterationStatement 
+    :   TNL_1=expressionStatement
+    |   TNL_2=labeledStatement
+    |   TNL_3=jumpStatement
+    |   TNL_4=selectionStatement
+    |   TNL_5=iterationStatement
     |   compoundStatement
     ;
 
 compoundStatement
-    :   ID=LeftBrace statement+ DD=RightBrace
-    |   ID=LeftDevSection statement+ DD=RightDevSection
+    :   IDT=LeftBrace statement+ DDT=RightBrace
+    |   IDT=LeftDevSection statement+ DDT=RightDevSection
     |   emptyCompoundStatement
     ;
 
@@ -114,8 +114,11 @@ expressionStatement
     ;
 
 labeledStatement
-    :   Case WSL=literal Colon statement
-    |   Default Colon statement
+    :   Case WSL=literal Colon compoundStatement statement*
+    |   Case WSL=literal Colon labeledStatement
+    |   Case WSL=literal Colon statement+
+    |   Default Colon compoundStatement statement*
+    |   Default Colon statement+
     ;
 
 selectionStatement
@@ -137,15 +140,15 @@ iterationStatement
     ;
 
 jumpStatement
-    : 
-    (   Continue 
+    :   
+    (   Continue
     |   Break
     |   Return WSL=expression?
     )   Semi
     ;
 
 directiveStatement
-    :   IncludeDirective Semi
+    :   IncludeDirective NL=Semi
     ;
 
 assignmentOperator
@@ -186,12 +189,6 @@ lineComment
 
 blockComment
     :   BlockComment
-    ;
-
-disabledTokens
-    :   comment
-    |   Newline
-    |   Whitespace
     ;
 
 literal

@@ -5,6 +5,7 @@ using Antlr4.Runtime.Atn;
 using Antlr4.Runtime;
 using System.Text;
 using System.IO;
+using Antlr4.Runtime.Tree;
 
 namespace Iswenzz.CoD4.Parser.Recognizers.GSC
 {
@@ -16,10 +17,12 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
         public StringBuilder Stream { get; set; }
         public AntlrInputStream AntlrStream { get; set; }
         public MultiChannelTokenStream TokenStream { get; set; }
+        public ParseTreeWalker Walker { get; set; }
 
         public GSCLexer Lexer { get; set; }
         public GSCParser Parser { get; set; }
         public GSCFormatter Formatter { get; set; }
+        public GSCFormatterListener FormatterListener { get; set; }
         protected GSCErrorListener ErrorListener { get; set; }
 
         /// <summary>
@@ -35,7 +38,9 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
             TokenStream = new MultiChannelTokenStream(Lexer);
             Parser = new GSCParser(TokenStream);
             Parser.Interpreter.PredictionMode = PredictionMode.SLL;
+            Walker = new ParseTreeWalker();
             Formatter = new GSCFormatter(this);
+            FormatterListener = new GSCFormatterListener(this);
 
             // Error listener
             ErrorListener = new GSCErrorListener();
@@ -44,6 +49,7 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
 
             // Parse
             Stream.Append(Formatter.Visit(Parser.compilationUnit()));
+            //Walker.Walk(FormatterListener, Parser.compilationUnit());
         }
 
         /// <summary>

@@ -57,6 +57,7 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
             NodeBuilder.BuildVariables("NL", rule, node => NL(rule, node));
             NodeBuilder.BuildVariables("ID", rule, node => ID(rule, node));
             NodeBuilder.BuildVariables("IDT", rule, node => IDT(rule, node));
+            NodeBuilder.BuildVariables("IDB", rule, node => IDB(rule, node));
             NodeBuilder.BuildVariables("IDDD", rule, node => IDDD(rule, node));
             NodeBuilder.BuildVariables("WS", rule, node => WS(rule, node, true, true));
             NodeBuilder.BuildVariables("WSL", rule, node => WS(rule, node, true, false));
@@ -67,6 +68,7 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
 
             NodeBuilder.BuildVariables("DD", rule, node => DD(rule, node));
             NodeBuilder.BuildVariables("DDT", rule, node => DDT(rule, node));
+            NodeBuilder.BuildVariables("DDB", rule, node => DDB(rule, node));
             NodeBuilder.BuildVariables("CL", rule, node => C(rule, node, LineComment));
             NodeBuilder.BuildVariables("CB", rule, node => C(rule, node, BlockComment));
         }
@@ -186,7 +188,30 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
         };
 
         /// <summary>
-        /// Build brace indentation.
+        /// Build indentation.
+        /// </summary>
+        /// <param name="context">The context rule.</param>
+        /// <param name="node">The node to apply.</param>
+        /// <returns></returns>
+        public virtual NodeBuilder IDB(ParserRuleContext context, dynamic node) => new(context)
+        {
+            Node = node,
+            BuildParseTree = () =>
+            {
+                List<dynamic> tree = new()
+                {
+                    new CommonToken(Indent),
+                    new CommonToken(Newline, Environment.NewLine)
+                };
+                tree.AddRange(T(context, node).BuildParseTree());
+                tree.Add(new CommonToken(Newline, Environment.NewLine));
+                IndentLevel++;
+                return tree;
+            }
+        };
+
+        /// <summary>
+        /// Build indentation.
         /// </summary>
         /// <param name="context">The context rule.</param>
         /// <param name="node">The node to apply.</param>
@@ -201,9 +226,9 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
                     new CommonToken(Indent),
                     new CommonToken(Newline, Environment.NewLine)
                 };
+                IndentLevel++;
                 tree.AddRange(T(context, node).BuildParseTree());
                 tree.Add(new CommonToken(Newline, Environment.NewLine));
-                IndentLevel++;
                 return tree;
             }
         };
@@ -227,7 +252,6 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
                     tree.Add(new CommonToken(Newline, Environment.NewLine));
                     tree.Add(new CommonToken(Indent));
                     tree.AddRange(T(context, node).BuildParseTree());
-                    rule.ReflectRuleField("T")?.SetValue(rule, null);
 
                     IndentLevel--;
                     tree.Add(new CommonToken(Dedent));
@@ -258,12 +282,12 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
         };
 
         /// <summary>
-        /// Build brace dedentation.
+        /// Build dedentation.
         /// </summary>
         /// <param name="context">The context rule.</param>
         /// <param name="node">The node to apply.</param>
         /// <returns></returns>
-        public virtual NodeBuilder DDT(ParserRuleContext context, dynamic node) => new(context)
+        public virtual NodeBuilder DDB(ParserRuleContext context, dynamic node) => new(context)
         {
             Node = node,
             BuildParseTree = () =>
@@ -278,6 +302,30 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
                     tree.Add(new CommonToken(Newline, Environment.NewLine));
                     tree.Add(new CommonToken(Whitespace, string.Concat(Enumerable.Repeat('\t', IndentLevel))));
                 }
+                return tree;
+            }
+        };
+
+        /// <summary>
+        /// Build dedentation.
+        /// </summary>
+        /// <param name="context">The context rule.</param>
+        /// <param name="node">The node to apply.</param>
+        /// <returns></returns>
+        public virtual NodeBuilder DDT(ParserRuleContext context, dynamic node) => new(context)
+        {
+            Node = node,
+            BuildParseTree = () =>
+            {
+                List<dynamic> tree = new();
+                tree.Add(new CommonToken(Dedent));
+                tree.AddRange(T(context, node).BuildParseTree());
+                if (true) // If not last statement of parent ?
+                {
+                    tree.Add(new CommonToken(Newline, Environment.NewLine));
+                    tree.Add(new CommonToken(Whitespace, string.Concat(Enumerable.Repeat('\t', IndentLevel))));
+                }
+                IndentLevel--;
                 return tree;
             }
         };

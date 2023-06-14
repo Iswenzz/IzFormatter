@@ -101,7 +101,7 @@ fragment NonzeroDigit:              [1-9];
 fragment Sign:                      [+-];
 
 fragment SimpleEscapeSequence:      '\\' ['"?abfnrtv\\];
-fragment Char:                     ~["\\\r\n] | EscapeSequence | '\\\n' | '\\\r\n';
+fragment Char:                      ~["\\\r\n] | EscapeSequence | '\\\n' | '\\\r\n';
 fragment EscapeSequence:            SimpleEscapeSequence;
 fragment CharSequence:              Char+;
 fragment DigitSequence:             Digit+;

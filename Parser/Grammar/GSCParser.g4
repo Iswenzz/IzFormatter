@@ -23,17 +23,21 @@ translationUnit:        externalDeclaration+;
 externalDeclaration:    directiveStatement | functionStatement;
 
 statement
-    :   TNL_1=expressionStatement
-    |   TNL_2=labeledStatement
-    |   TNL_3=jumpStatement
-    |   TNL_4=selectionStatement
-    |   TNL_5=iterationStatement
+    :   TNL=simpleStatement
     |   compoundStatement
     ;
 
+simpleStatement
+    :   expressionStatement
+    |   labeledStatement
+    |   jumpStatement
+    |   selectionStatement
+    |   iterationStatement
+    ;
+
 compoundStatement
-    :   IDT=LeftBrace statement+ DDT=RightBrace
-    |   IDT=LeftDevSection statement+ DDT=RightDevSection
+    :   IDB=LeftBrace statement+ DDB=RightBrace
+    |   IDB=LeftDevSection statement+ DDB=RightDevSection
     |   emptyCompoundStatement
     ;
 
@@ -113,21 +117,39 @@ expressionStatement
     :   expression? Semi
     ;
 
+switchStatement
+    :   IDB=LeftBrace labeledStatement+ DDB=RightBrace
+    ;
+
 labeledStatement
-    :   Case WSL=literal Colon compoundStatement statement*
-    |   Case WSL=literal Colon labeledStatement
-    |   Case WSL=literal Colon statement+
-    |   Default Colon compoundStatement statement*
-    |   Default Colon statement+
+    :   TNL=caseBlock
+    ;
+
+caseStatement
+    :   NLT_1=expressionStatement
+    |   NLT_2=jumpStatement
+    |   NLT_3=selectionStatement
+    |   NLT_4=iterationStatement
+    |   NLT_5=compoundStatement
+    ;
+
+caseBlock
+    :   Case WSL=literal Colon compoundStatement caseStatement*
+    |   Case WSL=literal ID=Colon caseStatement* DD=caseStatement
+    |   Case WSL=literal Colon
+    |   Default Colon compoundStatement caseStatement*
+    |   Default ID=Colon caseStatement* DD=caseStatement
+    |   Default Colon
     ;
 
 selectionStatement
-    :   selectionStatement
-    (   WSR_1=Else WSR_2=If LeftParen expression RightParen statement
-    |   Else statement
-    )
-    |   WSR=If LeftParen expression RightParen statement
-    |   WSR=Switch LeftParen expression RightParen compoundStatement
+    :   WSR_1=Else WSR_2=If LeftParen expression RightParen compoundStatement
+    |   WSR_1=Else WSR_2=If LeftParen expression RightParen IDDD=simpleStatement
+    |   Else compoundStatement
+    |   Else IDDD=simpleStatement
+    |   WSR=If LeftParen expression RightParen compoundStatement
+    |   WSR=If LeftParen expression RightParen IDDD=simpleStatement
+    |   WSR=Switch LeftParen expression RightParen switchStatement
     ;
 
 waitStatement
@@ -135,8 +157,10 @@ waitStatement
     ;
 
 iterationStatement
-    :   WSR=While LeftParen expression RightParen statement
-    |   WSR_1=For LeftParen expressionList? Semi WSL_2=expressionList? Semi WSL_3=expressionList? RightParen statement
+    :   WSR=While LeftParen expression RightParen compoundStatement
+    |   WSR=While LeftParen expression RightParen IDDD=simpleStatement
+    |   WSR_1=For LeftParen expressionList? Semi WSL_2=expressionList? Semi WSL_3=expressionList? RightParen compoundStatement
+    |   WSR_1=For LeftParen expressionList? Semi WSL_2=expressionList? Semi WSL_3=expressionList? RightParen IDDD=simpleStatement
     ;
 
 jumpStatement

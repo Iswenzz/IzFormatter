@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Linq;
-using System.Text;
 using System.Collections.Generic;
+
+using Antlr4.Runtime.Tree;
+using Antlr4.Runtime;
 
 using Iswenzz.CoD4.Parser.Runtime;
 using static GSCParser;
-
-using Antlr4.Runtime.Tree;
-using Antlr4.Runtime.Misc;
-using Antlr4.Runtime;
-using System.Data;
 
 namespace Iswenzz.CoD4.Parser.Recognizers.GSC
 {
@@ -90,7 +87,7 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
                     string content = type switch
                     {
                         LineComment => $"// {nodeContext.GetText()}",
-                        BlockComment => $"/* {nodeContext.GetText().Trim()} */",
+                        BlockComment => $"/* {nodeContext.GetText()} */",
                         _ => throw new NotImplementedException()
                     };
 
@@ -297,11 +294,6 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
 
                 tree.Add(new CommonToken(Dedent));
                 tree.AddRange(T(context, node).BuildParseTree());
-                if (true) // If not last statement of parent ?
-                {
-                    tree.Add(new CommonToken(Newline, Environment.NewLine));
-                    tree.Add(new CommonToken(Whitespace, string.Concat(Enumerable.Repeat('\t', IndentLevel))));
-                }
                 return tree;
             }
         };
@@ -317,14 +309,11 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
             Node = node,
             BuildParseTree = () =>
             {
-                List<dynamic> tree = new();
-                tree.Add(new CommonToken(Dedent));
-                tree.AddRange(T(context, node).BuildParseTree());
-                if (true) // If not last statement of parent ?
+                List<dynamic> tree = new()
                 {
-                    tree.Add(new CommonToken(Newline, Environment.NewLine));
-                    tree.Add(new CommonToken(Whitespace, string.Concat(Enumerable.Repeat('\t', IndentLevel))));
-                }
+                    new CommonToken(Dedent)
+                };
+                tree.AddRange(T(context, node).BuildParseTree());
                 IndentLevel--;
                 return tree;
             }

@@ -1,7 +1,7 @@
-﻿using CommandLine;
-using CommandLine.Text;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using CommandLine;
+using CommandLine.Text;
 
 namespace Iswenzz.CoD4.Parser.CLI
 {

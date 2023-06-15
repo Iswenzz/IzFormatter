@@ -83,7 +83,7 @@ namespace Iswenzz.CoD4.Parser.Plugins.GSC.Speedrun
         {
             if (Context.RecurseChildsOfType<IterationStatementContext>() == null)
                 return false;
-            if (Context.RecurseChildsOfType<WaitStatementContext>() == null)
+            if (Context.RecurseChildsOfType<WaitExpressionContext>() == null)
                 return false;
             if (!Calls.Any(c => c.Identifier().GetText().EqualsIgnoreCase("setorigin")))
                 return false;

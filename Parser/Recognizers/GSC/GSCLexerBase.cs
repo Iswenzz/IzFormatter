@@ -41,18 +41,14 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
             PreviousToken = Token;
 			base.NextToken();
 
-            switch (Token.Type)
+            return Token.Type switch
             {
-                case Newline:
-                    return BuildNewline();
-                case Whitespace:
-                    return BuildWhitespace();
-                case BlockComment:
-                    return BuildBlockComment();
-                case LineComment:
-                    return BuildLineComment();
-            }
-            return Token;
+                Newline => BuildNewline(),
+                Whitespace => BuildWhitespace(),
+                BlockComment => BuildBlockComment(),
+                LineComment => BuildLineComment(),
+                _ => Token,
+            };
         }
 
         /// <summary>

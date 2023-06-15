@@ -15,17 +15,12 @@
     <Version>2.0</Version>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="OLD\**" />
-    <EmbeddedResource Remove="OLD\**" />
-    <None Remove="OLD\**" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Antlr4.Runtime.Standard" Version="4.9.3" />
     <PackageReference Include="Antlr4BuildTasks" Version="8.17.0" />
-    <PackageReference Include="CommandLineParser" Version="2.9.0-preview1" />
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
   </ItemGroup>
   <ItemGroup>
-	  <Antlr4 Include="Parser/Grammar/GSCParser.g4" />
-	  <Antlr4 Include="Parser/Grammar/GSCLexer.g4" />
+	  <Antlr4 Include="Parser\Recognizers\GSC\GSCParser.g4" />
+    <Antlr4 Include="Parser\Recognizers\GSC\GSCLexer.g4" />
   </ItemGroup>
 </Project>

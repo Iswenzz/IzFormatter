@@ -25,6 +25,7 @@ externalDeclaration:    directiveStatement | functionStatement;
 statement
     :   TNL=simpleStatement
     |   compoundStatement
+    |   NL=devStatement
     ;
 
 simpleStatement
@@ -37,8 +38,11 @@ simpleStatement
 
 compoundStatement
     :   IDB=LeftBrace statement+ DDB=RightBrace
-    |   IDB=LeftDevSection statement+ DDB=RightDevSection
     |   emptyCompoundStatement
+    ;
+
+devStatement
+    :   IDB=LeftDevSection statement+ DDB=RightDevSection
     ;
 
 emptyCompoundStatement
@@ -56,7 +60,7 @@ primaryExpression
     ;
 
 postfixExpression
-    :   primaryExpression                                                               # PrimaryStatementExpression
+    :   primaryExpression                                                               # PostFixPrimaryExpression
     |   postfixExpression LeftBracket expression RightBracket WSL=postfixExpression?    # MemberIndexExpression
     |   postfixExpression LeftParen expressionList? RightParen WSL=postfixExpression?   # FunctionExpression
     |   postfixExpression Dot postfixExpression                                         # MemberDotExpression
@@ -67,8 +71,8 @@ postfixExpression
     ;
 
 unaryExpression
-    :   postfixExpression                                                               # PostFixStatementExpression
-    |   (PlusPlus | MinusMinus | Qualified | unaryOperator) unaryExpression             # PreExpression
+    :   postfixExpression                                                               # UnaryPostExpression
+    |   (PlusPlus | MinusMinus | Qualified | unaryOperator) unaryExpression             # UnaryPreExpression
     ;
 
 memberExpression
@@ -110,7 +114,7 @@ expression
     ;
 
 functionStatement
-    :   identifier LeftParen identifierList? RightParen compoundStatement
+    :   identifier LeftParen identifierList? RightParen NL=compoundStatement
     ;
 
 expressionStatement
@@ -150,10 +154,6 @@ selectionStatement
     |   WSR=If LeftParen expression RightParen compoundStatement
     |   WSR=If LeftParen expression RightParen IDDD=simpleStatement
     |   WSR=Switch LeftParen expression RightParen switchStatement
-    ;
-
-waitStatement
-    :   WSR=Wait LeftParen? expression RightParen? Semi
     ;
 
 iterationStatement

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
+using Antlr4.Runtime;
 
 using Iswenzz.CoD4.Parser.Runtime;
-using Antlr4.Runtime;
 
 namespace Iswenzz.CoD4.Parser.Recognizers.GSC
 {

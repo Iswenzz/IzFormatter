@@ -1,11 +1,10 @@
-﻿using Iswenzz.CoD4.Parser.Runtime;
-using static GSCParser;
+﻿using System.Text;
 
 using Antlr4.Runtime.Atn;
 using Antlr4.Runtime;
-using System.Text;
-using System.IO;
-using Antlr4.Runtime.Tree;
+
+using Iswenzz.CoD4.Parser.Runtime;
+using static GSCParser;
 
 namespace Iswenzz.CoD4.Parser.Recognizers.GSC
 {

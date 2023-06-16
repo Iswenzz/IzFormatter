@@ -28,7 +28,7 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
         /// <param name="input">The code input.</param>
         public GSCRecognizer(string input)
         {
-            // Parser & Lexer & Walker
+            // Parser & Lexer & Formatter
             Stream = new StringBuilder();
             AntlrStream = new AntlrInputStream(input);
             Lexer = new GSCLexer(AntlrStream);

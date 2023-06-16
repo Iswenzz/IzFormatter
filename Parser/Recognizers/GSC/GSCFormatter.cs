@@ -15,7 +15,7 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
     /// </summary>
     public class GSCFormatter : GSCParserBaseVisitor<string>
     {
-        protected int IndentLevel { get; set; }
+        public int IndentLevel { get; set; }
 
         /// <summary>
         /// Initialize a new <see cref="GSCFormatter"/>.

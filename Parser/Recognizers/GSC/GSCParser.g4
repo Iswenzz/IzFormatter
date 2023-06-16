@@ -16,11 +16,23 @@ options
     const int Hidden = 1;
 }
 
-compilationUnit:        translationUnit? E=EOF;
-simpleInput:            statement;
+compilationUnit
+    :   translationUnit? E=EOF
+    ;
 
-translationUnit:        externalDeclaration+;
-externalDeclaration:    directiveStatement | functionStatement;
+simpleInput
+    :   statement
+    ;
+
+translationUnit
+    :   externalDeclaration+
+    ;
+
+externalDeclaration
+    :   directiveStatement 
+    |   NL=functionStatement* functionStatement
+    |   functionStatement
+    ;
 
 statement
     :   TNL=simpleStatement

@@ -15,17 +15,12 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
     /// </summary>
     public class GSCFormatter : GSCParserBaseVisitor<string>
     {
-        protected GSCRecognizer GSC { get; set; }
         protected int IndentLevel { get; set; }
 
         /// <summary>
         /// Initialize a new <see cref="GSCFormatter"/>.
         /// </summary>
-        /// <param name="gsc">The GSC instance.</param>
-        public GSCFormatter(GSCRecognizer gsc)
-        {
-            GSC = gsc;
-        }
+        public GSCFormatter() { }
 
         /// <summary>
         /// Visit the tree.
@@ -48,6 +43,7 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
             if (context is not ParserRuleContext rule)
                 return;
 
+            NodeBuilder.BuildVariables("E", rule, node => E(rule, node));
             NodeBuilder.BuildVariables("T", rule, node => T(rule, node));
             NodeBuilder.BuildVariables("TNL", rule, node => TNL(rule, node));
             NodeBuilder.BuildVariables("NLT", rule, node => NLT(rule, node));
@@ -107,7 +103,7 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
         public virtual NodeBuilder TNL(ParserRuleContext context, dynamic node) => new(context)
         {
             Node = node,
-            BuildParseTree = () => new List<dynamic>
+            BuildParseTree = () => new()
             {
                 new CommonToken(Whitespace, string.Concat(Enumerable.Repeat('\t', IndentLevel))),
                 node,
@@ -124,7 +120,7 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
         public virtual NodeBuilder NLT(ParserRuleContext context, dynamic node) => new(context)
         {
             Node = node,
-            BuildParseTree = () => new List<dynamic>
+            BuildParseTree = () => new()
             {
                 new CommonToken(Newline, Environment.NewLine),
                 new CommonToken(Whitespace, string.Concat(Enumerable.Repeat('\t', IndentLevel))),
@@ -141,7 +137,7 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
         public virtual NodeBuilder T(ParserRuleContext context, dynamic node) => new(context)
         {
             Node = node,
-            BuildParseTree = () => new List<dynamic>
+            BuildParseTree = () => new()
             {
                 new CommonToken(Whitespace, string.Concat(Enumerable.Repeat('\t', IndentLevel))),
                 node,
@@ -157,7 +153,7 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
         public virtual NodeBuilder NL(ParserRuleContext context, dynamic node) => new(context)
         {
             Node = node,
-            BuildParseTree = () => new List<dynamic>
+            BuildParseTree = () => new() 
             {
                 node,
                 new CommonToken(Newline, Environment.NewLine)
@@ -336,6 +332,18 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
                 if (right) tree.Add(new CommonToken(Whitespace, " "));
                 return tree;
             }
+        };
+
+        /// <summary>
+        /// Build EOF.
+        /// </summary>
+        /// <param name="context">The context rule.</param>
+        /// <param name="node">The node to apply.</param>
+        /// <returns></returns>
+        public virtual NodeBuilder E(ParserRuleContext context, dynamic node) => new(context)
+        {
+            Node = node,
+            BuildParseTree = () => new() { new CommonToken(GSCParser.Eof, "") }
         };
     }
 }

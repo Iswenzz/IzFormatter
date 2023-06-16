@@ -20,7 +20,7 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
         public GSCLexer Lexer { get; set; }
         public GSCParser Parser { get; set; }
         public GSCFormatter Formatter { get; set; }
-        protected GSCErrorListener ErrorListener { get; set; }
+        public GSCErrorListener ErrorListener { get; set; }
 
         /// <summary>
         /// Initialize a new <see cref="GSCRecognizer"/>.
@@ -35,7 +35,7 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
             TokenStream = new MultiChannelTokenStream(Lexer);
             Parser = new GSCParser(TokenStream);
             Parser.Interpreter.PredictionMode = PredictionMode.SLL;
-            Formatter = new GSCFormatter(this);
+            Formatter = new GSCFormatter();
 
             // Error listener
             ErrorListener = new GSCErrorListener();

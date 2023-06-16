@@ -2,7 +2,6 @@
 using System.IO;
 
 using Antlr4.Runtime;
-using static GSCLexer;
 
 namespace Iswenzz.CoD4.Parser.Recognizers.GSC
 {
@@ -31,61 +30,5 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
         /// <param name="errorOutput">The error stream.</param>
         public GSCLexerBase(ICharStream input, TextWriter output, TextWriter errorOutput) 
             : base(input, output, errorOutput) { }
-
-        /// <summary>
-        /// Gets the next token in the input stream.
-        /// </summary>
-        /// <returns></returns>
-        public override IToken NextToken()
-        {
-            PreviousToken = Token;
-			base.NextToken();
-
-            return Token.Type switch
-            {
-                Newline => BuildNewline(),
-                Whitespace => BuildWhitespace(),
-                BlockComment => BuildBlockComment(),
-                LineComment => BuildLineComment(),
-                _ => Token,
-            };
-        }
-
-        /// <summary>
-        /// Build empty new lines.
-        /// </summary>
-        /// <returns></returns>
-		protected virtual IToken BuildNewline() =>
-            BuildToken(PreviousToken?.Type == Newline ? Token.Text : string.Empty);
-
-        /// <summary>
-        /// Build whitespaces.
-        /// </summary>
-        /// <returns></returns>
-		protected virtual IToken BuildWhitespace() =>
-            BuildToken();
-
-        /// <summary>
-        /// Build block comment.
-        /// </summary>
-        /// <returns></returns>
-		protected virtual IToken BuildBlockComment() =>
-            BuildToken(Token.Text);
-
-        /// <summary>
-        /// Build line comment.
-        /// </summary>
-        /// <returns></returns>
-		protected virtual IToken BuildLineComment() =>
-            BuildToken(Token.Text);
-
-        /// <summary>
-        /// Build token for formatting.
-        /// </summary>
-        /// <param name="content">The token content.</param>
-        /// <returns></returns>
-        protected virtual IToken BuildToken(string content = "") => TokenFactory.Create(
-            Tuple.Create((ITokenSource)this, Token.InputStream), Token.Type, 
-            content, Token.Channel, Token.StartIndex, Token.StopIndex, Line, Token.Column);
     }
 }

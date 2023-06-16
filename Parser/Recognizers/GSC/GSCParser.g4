@@ -16,7 +16,7 @@ options
     const int Hidden = 1;
 }
 
-compilationUnit:        translationUnit? EOF;
+compilationUnit:        translationUnit? E=EOF;
 simpleInput:            statement;
 
 translationUnit:        externalDeclaration+;

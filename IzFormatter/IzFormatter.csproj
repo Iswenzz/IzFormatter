@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>IzFormatter</RootNamespace>
+    <AssemblyName>IzFormatter.Engine</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Authors>Iswenzz</Authors>
+    <Company>Iswenzz.com</Company>
+    <Copyright>Iswenzz (c) 2019-2023</Copyright>
+    <FileVersion>1.0</FileVersion>
+    <PackageProjectUrl>https://iswenzz.com</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Iswenzz/IzFormatter</RepositoryUrl>
+    <AssemblyVersion>1.0</AssemblyVersion>
+    <Version>1.0</Version>
+    <Description>IzFormatter is a software application designed to provide a universal code formatting solution for various programming languages. Built upon the ANTLR4 library, IzFormatter utilizes the library's powerful capabilities to generate parsers and parse trees based on grammar specifications. While currently focused on supporting the GSC language, IzFormatter aims to evolve into a comprehensive tool capable of formatting code from multiple programming languages.</Description>
+    <PackageTags>code;formatter;poc;antlr</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>Iswenzz.png</PackageIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.9.3" />
+    <PackageReference Include="Antlr4BuildTasks" Version="8.17.0" />
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Antlr4 Include="Engine\Recognizers\GSC\GSCParser.g4" />
+    <Antlr4 Include="Engine\Recognizers\GSC\GSCLexer.g4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

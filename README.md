@@ -1,24 +1,17 @@
-# GSC Parser
+# IzFormatter
 
-[![Checks](https://img.shields.io/github/checks-status/Iswenzz/GSC-Parser/master?logo=github)](https://github.com/Iswenzz/GSC-Parser/actions)
-[![CodeFactor](https://img.shields.io/codefactor/grade/github/Iswenzz/GSC-Parser?label=codefactor&logo=codefactor)](https://www.codefactor.io/repository/github/iswenzz/GSC-Parser)
-[![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/GSC-Parser?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/GSC-Parser)
-[![License](https://img.shields.io/github/license/Iswenzz/GSC-Parser?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/GSC-Parser/blob/master/LICENSE)
+[![Checks](https://img.shields.io/github/checks-status/Iswenzz/IzFormatter/master?logo=github)](https://github.com/Iswenzz/IzFormatter/actions)
+[![CodeFactor](https://img.shields.io/codefactor/grade/github/Iswenzz/IzFormatter?label=codefactor&logo=codefactor)](https://www.codefactor.io/repository/github/iswenzz/IzFormatter)
+[![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/IzFormatter?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/IzFormatter)
+[![License](https://img.shields.io/github/license/Iswenzz/IzFormatter?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/IzFormatter/blob/master/LICENSE)
 
-GSC Parser is a parser for reading, processing, or translating GSC files using the powerful ANTLR4 library. From a grammar, ANTLR generates a parser that can build parse trees and also generates a listener interface (or visitor) that makes it easy to respond to the recognition of phrases of interest.
+IzFormatter is a software application designed to provide a universal code formatting solution for various programming languages. Built upon the ANTLR4 library, IzFormatter utilizes the library's powerful capabilities to generate parsers and parse trees based on grammar specifications. While currently focused on supporting the GSC language, IzFormatter aims to evolve into a comprehensive tool capable of formatting code from multiple programming languages.
 
 ![](https://i.imgur.com/kyCXC9r.png)
 
-## Features
-
-* Formatting
-* Remove unnecessary calls for SR Speedrun mod
-* Remove traps
-* Remove teleporters delays
-
 ## Instructions
 
-In order to use this application, just download the archived file down below, and extract it to any destination. 
+In order to use this application, just download the archived file down below, and extract it to any destination.
 You can create a shortcut of the executable file and place it anywhere, and run it from said shortcut.
 
 ## Building (Any Platform)
@@ -26,9 +19,9 @@ You can create a shortcut of the executable file and place it anywhere, and run 
 _Pre-Requisites:_
 1. [Visual Studio](https://visualstudio.microsoft.com/) or [Dotnet SDK](https://dotnet.microsoft.com/download)
 
-### [Download](https://github.com/Iswenzz/GSC-Parser/releases)
+### [Download](https://github.com/Iswenzz/IzFormatter/releases)
 
 ## Contributors
 
-***Note:*** If you would like to contribute to this repository, feel free to send a pull request, and I will review your code. 
+***Note:*** If you would like to contribute to this repository, feel free to send a pull request, and I will review your code.
 Also feel free to post about any problems that may arise in the issues section of the repository.

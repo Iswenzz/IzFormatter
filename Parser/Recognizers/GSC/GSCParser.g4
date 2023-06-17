@@ -29,15 +29,26 @@ translationUnit
     ;
 
 externalDeclaration
-    :   directiveStatement 
-    |   NL=functionStatement* functionStatement
-    |   functionStatement
+    :   NL=externalDirective+ 
+    |   externalFunction
+    ;
+
+externalDirective
+    :   directiveStatement
+    ;
+
+externalFunction
+    :   formatFunction* functionStatement
+    ;
+
+formatFunction
+    :   NL=functionStatement
     ;
 
 statement
     :   TNL=simpleStatement
-    |   compoundStatement
-    |   NL=devStatement
+    |   NL_1=compoundStatement
+    |   NL_2=devStatement
     ;
 
 simpleStatement

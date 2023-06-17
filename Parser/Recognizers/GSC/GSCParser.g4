@@ -47,7 +47,7 @@ formatFunction
 
 statement
     :   TNL=simpleStatement
-    |   NL_1=compoundStatement
+    |   NL_1=blockStatement
     |   NL_2=devStatement
     ;
 
@@ -57,6 +57,10 @@ simpleStatement
     |   jumpStatement
     |   selectionStatement
     |   iterationStatement
+    ;
+
+blockStatement
+    :   IDS=LeftBrace statement+ DDB=RightBrace
     ;
 
 compoundStatement

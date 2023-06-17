@@ -51,6 +51,7 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
             NodeBuilder.BuildVariables("ID", rule, node => ID(rule, node));
             NodeBuilder.BuildVariables("IDT", rule, node => IDT(rule, node));
             NodeBuilder.BuildVariables("IDB", rule, node => IDB(rule, node));
+            NodeBuilder.BuildVariables("IDS", rule, node => IDS(rule, node));
             NodeBuilder.BuildVariables("IDDD", rule, node => IDDD(rule, node));
             NodeBuilder.BuildVariables("WS", rule, node => WS(rule, node, true, true));
             NodeBuilder.BuildVariables("WSL", rule, node => WS(rule, node, true, false));
@@ -177,6 +178,28 @@ namespace Iswenzz.CoD4.Parser.Recognizers.GSC
                     new CommonToken(Indent), 
                     node 
                 };
+            }
+        };
+
+        /// <summary>
+        /// Build indentation.
+        /// </summary>
+        /// <param name="context">The context rule.</param>
+        /// <param name="node">The node to apply.</param>
+        /// <returns></returns>
+        public virtual NodeBuilder IDS(ParserRuleContext context, dynamic node) => new(context)
+        {
+            Node = node,
+            BuildParseTree = () =>
+            {
+                List<dynamic> tree = new()
+                {
+                    new CommonToken(Indent)
+                };
+                tree.AddRange(T(context, node).BuildParseTree());
+                tree.Add(new CommonToken(Newline, Environment.NewLine));
+                IndentLevel++;
+                return tree;
             }
         };
 

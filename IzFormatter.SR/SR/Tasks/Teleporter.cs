@@ -1,10 +1,8 @@
-﻿using System.Linq;
-
-using IzFormatter.Engine.Recognizers.GSC;
-using IzFormatter.Engine.Runtime;
+﻿using IzFormatter.Engine.Recognizers.GSC.Refactor;
+using IzFormatter.Engine.Utils;
 using static GSCParser;
 
-namespace IzFormatter.Engine.Plugins.GSC.Speedrun.Tasks
+namespace IzFormatter.SR.Tasks
 {
     /// <summary>
     /// Teleporter behavior.
@@ -14,15 +12,14 @@ namespace IzFormatter.Engine.Plugins.GSC.Speedrun.Tasks
         /// <summary>
         /// Remove the delays of a teleporter.
         /// </summary>
-        /// <param name="gsc">The GSC instance.</param>
         /// <param name="context">The teleporter function context.</param>
-        public static void RemoveDelays(GSCRecognizer gsc, FunctionStatementContext context)
+        public static void RemoveDelays(FunctionStatementContext context)
         {
             var loop = context.RecurseChildsOfType<IterationStatementContext>().LastOrDefault();
             if (loop != null)
             {
                 foreach (var wait in loop.RecurseChildsOfType<WaitExpressionContext>())
-                    Comment.Line(gsc, wait);
+                    Comment.Line(wait);
             }
         }
     }

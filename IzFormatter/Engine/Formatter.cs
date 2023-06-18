@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.IO;
 
 using IzFormatter.Engine.CLI;
-using IzFormatter.Engine.Runtime;
+using IzFormatter.Engine.Runtime.Input;
 using IzFormatter.Engine.Utils;
 
 namespace IzFormatter.Engine
@@ -13,19 +13,19 @@ namespace IzFormatter.Engine
     /// <summary>
     /// IzFormatter API.
     /// </summary>
-    public static class Formatter
+    public class Formatter
     {
-        public static CLIOptions Options { get; set; }
-        public static Queue<Entry> Queue { get; set; }
+        public CLIOptions Options { get; set; }
+        public Queue<FileEntry> Queue { get; set; }
 
-        public static int Total { get; set; }
-        public static bool AllSame { get; set; }
-        public static int Status { get; set; }
+        public int Total { get; set; }
+        public bool AllSame { get; set; }
+        public int Status { get; set; }
 
         /// <summary>
-        /// Initialize the formatter.
+        /// Initialize a new <see cref="Formatter"/>.
         /// </summary>
-        static Formatter()
+        public Formatter()
         {
             Queue = new();
             AllSame = true;
@@ -35,7 +35,7 @@ namespace IzFormatter.Engine
         /// Parse the CLI arguments.
         /// </summary>
         /// <param name="args">The CLI arguments.</param>
-        public static void ParseArgs(string[] args)
+        public void ParseArgs(string[] args)
         {
             CLIParser.Parse(args);
             Options = CLIParser.Options;
@@ -51,7 +51,7 @@ namespace IzFormatter.Engine
         /// <summary>
         /// Format the queue.
         /// </summary>
-        public static void FormatQueue()
+        public void FormatQueue()
         {
             while (Queue.Count > 0)
                 Format(Queue.Dequeue());
@@ -64,7 +64,7 @@ namespace IzFormatter.Engine
         /// Format the entry file.
         /// </summary>
         /// <param name="entry">The entry file.</param>
-        private static void Format(Entry entry)
+        private void Format(FileEntry entry)
         {
             if (!entry.IsFormattable()) 
                 return;
@@ -89,8 +89,8 @@ namespace IzFormatter.Engine
         /// </summary>
         /// <param name="filepath">The file path.</param>
         /// <param name="outpath">The output path.</param>
-        public static void QueueFile(string filepath, string outpath = "") =>
-            Queue.Enqueue(new Entry(filepath, outpath));
+        public void QueueFile(string filepath, string outpath = "") =>
+            Queue.Enqueue(new FileEntry(filepath, outpath));
 
         /// <summary>
         /// Queue a directory to format.
@@ -98,7 +98,7 @@ namespace IzFormatter.Engine
         /// <param name="dirpath">The directory path.</param>
         /// <param name="subdirectory">Allow subdirectories.</param>
         /// <param name="outpath">The output path.</param>
-        public static void QueueDirectory(string dirpath, bool subdirectory = true, string outpath = "") => 
+        public void QueueDirectory(string dirpath, bool subdirectory = true, string outpath = "") => 
             Directory.GetFiles(dirpath, "*", subdirectory ? SearchOption.AllDirectories 
                 : SearchOption.TopDirectoryOnly)
             .ForEach(path => QueueFile(path, Path.Combine(outpath, Path.GetRelativePath(dirpath, path))));

@@ -5,12 +5,11 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyName>IzFormatter</AssemblyName>
-    <RootNamespace>IzFormatter</RootNamespace>
     <Authors>Iswenzz</Authors>
     <Company>Iswenzz.com</Company>
     <Copyright>Iswenzz.com</Copyright>
     <PackageProjectUrl>Iswenzz.com</PackageProjectUrl>
+    <RootNamespace>IzFormatter</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

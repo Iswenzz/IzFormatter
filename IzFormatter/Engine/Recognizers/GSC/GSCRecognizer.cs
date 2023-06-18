@@ -1,6 +1,9 @@
 ﻿using Antlr4.Runtime.Atn;
-
-using IzFormatter.Engine.Runtime;
+using Antlr4.Runtime.Tree;
+using IzFormatter.Engine.Recognizers.GSC.Formatter;
+using IzFormatter.Engine.Recognizers.GSC.Listeners;
+using IzFormatter.Engine.Runtime.Base;
+using IzFormatter.Engine.Runtime.Stream;
 using static GSCParser;
 
 namespace IzFormatter.Engine.Recognizers.GSC
@@ -37,9 +40,9 @@ namespace IzFormatter.Engine.Recognizers.GSC
         }
 
         /// <summary>
-        /// Format the input.
+        /// Process the input.
         /// </summary>
-        public override void Format()
+        public override void Process()
         {
             Stream.Append(Formatter.Visit(Parser.compilationUnit()));
         }

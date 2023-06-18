@@ -2,9 +2,9 @@
 using System.IO;
 using Antlr4.Runtime;
 
-using IzFormatter.Engine.Runtime;
+using IzFormatter.Engine.Runtime.Base;
 
-namespace IzFormatter.Engine.Recognizers.GSC
+namespace IzFormatter.Engine.Recognizers.GSC.Listeners
 {
     /// <summary>
     /// Listen for GSC errors.

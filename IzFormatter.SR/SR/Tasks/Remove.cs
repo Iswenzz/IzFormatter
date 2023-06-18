@@ -1,14 +1,10 @@
-﻿using System.Linq;
-using System.Collections.Generic;
+﻿using Antlr4.Runtime;
 
-using IzFormatter.Engine.Runtime;
 using IzFormatter.Engine.Utils;
-using IzFormatter.Engine.Recognizers.GSC;
+using IzFormatter.Engine.Recognizers.GSC.Refactor;
 using static GSCParser;
 
-using Antlr4.Runtime;
-
-namespace IzFormatter.Engine.Plugins.GSC.Speedrun.Tasks
+namespace IzFormatter.SR.Tasks
 {
     /// <summary>
     /// Remove specific contexts.
@@ -33,9 +29,8 @@ namespace IzFormatter.Engine.Plugins.GSC.Speedrun.Tasks
         /// Remove expression of specific type.
         /// </summary>
         /// <typeparam name="T">The rule type.</typeparam>
-        /// <param name="gsc">The GSC instance.</param>
         /// <param name="expressions">The expressions list.</param>
-        public static void Expressions<T>(GSCRecognizer gsc, IEnumerable<T> expressions) where T : ParserRuleContext
+        public static void Expressions<T>(IEnumerable<T> expressions) where T : ParserRuleContext
         {
             foreach (T expression in expressions)
             {
@@ -43,28 +38,26 @@ namespace IzFormatter.Engine.Plugins.GSC.Speedrun.Tasks
                 ExpressionContext expr = expression.RecurseLastParentOfType<ExpressionContext>();
 
                 if (stmt != null)
-                    Comment.Line(gsc, stmt);
+                    Comment.Line(stmt);
                 else
-                    Comment.Block(gsc, expr);
+                    Comment.Block(expr);
             }
         }
 
         /// <summary>
         /// Remove dangerous expressions.
         /// </summary>
-        /// <param name="gsc">The GSC instance.</param>
         /// <param name="identifiers">The function call identifiers.</param>
-        public static void DangerousExpressions(GSCRecognizer gsc, IEnumerable<IdentifierContext> identifiers) =>
-            Expressions(gsc, identifiers.Where(identifier =>
+        public static void DangerousExpressions(IEnumerable<IdentifierContext> identifiers) =>
+            Expressions(identifiers.Where(identifier =>
             ForbiddenExpressionsList.ContainsIgnoreCase(identifier.GetText())));
 
         /// <summary>
         /// Remove unnecessary expressions for SR Speedrun.
         /// </summary>
-        /// <param name="gsc">The GSC instance.</param>
         /// <param name="identifiers">The function call identifiers.</param>
-        public static void SpeedrunUnnecessaryExpressions(GSCRecognizer gsc, IEnumerable<IdentifierContext> identifiers) =>
-            Expressions(gsc, identifiers.Where(identifier =>
+        public static void SpeedrunUnnecessaryExpressions(IEnumerable<IdentifierContext> identifiers) =>
+            Expressions(identifiers.Where(identifier =>
             SpeedrunUnnecessaryExpressionsList.ContainsIgnoreCase(identifier.GetText())));
     }
 }

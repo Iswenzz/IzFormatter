@@ -2,14 +2,14 @@
 using System.IO;
 using Antlr4.Runtime;
 
-using IzFormatter.Engine.Runtime;
+using IzFormatter.Engine.Runtime.Stream;
 
-namespace IzFormatter.Engine.Recognizers.GSC
+namespace IzFormatter.Engine.Recognizers.GSC.Parser
 {
     /// <summary>
     /// Parser base class.
     /// </summary>
-    public class GSCParserBase : Parser
+    public class GSCParserBase : Antlr4.Runtime.Parser
     {
         public override string[] RuleNames => throw new NotImplementedException();
         public override IVocabulary Vocabulary => throw new NotImplementedException();
@@ -27,7 +27,7 @@ namespace IzFormatter.Engine.Recognizers.GSC
         /// <param name="input">The token stream.</param>
         /// <param name="output">the output stream.</param>
         /// <param name="errorOutput">The error stream.</param>
-        public GSCParserBase(ITokenStream input, TextWriter output, TextWriter errorOutput) 
+        public GSCParserBase(ITokenStream input, TextWriter output, TextWriter errorOutput)
             : base(input, output, errorOutput) { }
 
         /// <summary>

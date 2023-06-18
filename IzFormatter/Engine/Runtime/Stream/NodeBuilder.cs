@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Antlr4.Runtime;
 
-namespace IzFormatter.Engine.Runtime
+using IzFormatter.Engine.Utils;
+
+namespace IzFormatter.Engine.Runtime.Stream
 {
     /// <summary>
     /// Node builder editing a parse tree.

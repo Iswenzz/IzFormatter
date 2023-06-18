@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Antlr4.Runtime;
 
-namespace IzFormatter.Engine.Runtime
+namespace IzFormatter.Engine.Runtime.Base
 {
     /// <summary>
     /// Base error listener.

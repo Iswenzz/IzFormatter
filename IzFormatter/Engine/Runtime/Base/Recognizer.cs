@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using Antlr4.Runtime;
 
-namespace IzFormatter.Engine.Runtime
+namespace IzFormatter.Engine.Runtime.Base
 {
     /// <summary>
     /// Recognizer class.
@@ -22,9 +22,9 @@ namespace IzFormatter.Engine.Runtime
         }
 
         /// <summary>
-        /// Format the input.
+        /// Process the input.
         /// </summary>
-        public abstract void Format();
+        public abstract void Process();
 
         /// <summary>
         /// Has errors.

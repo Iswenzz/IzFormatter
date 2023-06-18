@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using Antlr4.Runtime.Tree;
 using Antlr4.Runtime;
 
-using IzFormatter.Engine.Runtime;
 using static GSCParser;
+using IzFormatter.Engine.Utils;
+using IzFormatter.Engine.Runtime.Stream;
 
-namespace IzFormatter.Engine.Recognizers.GSC
+namespace IzFormatter.Engine.Recognizers.GSC.Formatter
 {
     /// <summary>
     /// GSC Visitor.
@@ -63,37 +64,7 @@ namespace IzFormatter.Engine.Recognizers.GSC
             NodeBuilder.BuildVariables("DD", rule, node => DD(rule, node));
             NodeBuilder.BuildVariables("DDT", rule, node => DDT(rule, node));
             NodeBuilder.BuildVariables("DDB", rule, node => DDB(rule, node));
-            NodeBuilder.BuildVariables("CL", rule, node => C(rule, node, LineComment));
-            NodeBuilder.BuildVariables("CB", rule, node => C(rule, node, BlockComment));
         }
-
-        /// <summary>
-        /// Build a comment.
-        /// </summary>
-        /// <param name="context">The context rule.</param>
-        /// <param name="node">The node to apply.</param>
-        /// <param name="type">The type of comment.</param>
-        /// <returns></returns>
-        public virtual NodeBuilder C(ParserRuleContext context, dynamic node, int type) => new(context)
-        {
-            Node = node,
-            BuildParseTree = () =>
-            {
-                if (node is ParserRuleContext nodeContext)
-                {
-                    string content = type switch
-                    {
-                        LineComment => $"// {nodeContext.GetText()}",
-                        BlockComment => $"/* {nodeContext.GetText()} */",
-                        _ => throw new NotImplementedException()
-                    };
-
-                    nodeContext.RemoveChilds();
-                    nodeContext.AddChild(new CommonToken(type, content));
-                }
-                return new List<dynamic> { node };
-            }
-        };
 
         /// <summary>
         /// Build a start line with indentation whitespaces and a new line.
@@ -154,7 +125,7 @@ namespace IzFormatter.Engine.Recognizers.GSC
         public virtual NodeBuilder NL(ParserRuleContext context, dynamic node) => new(context)
         {
             Node = node,
-            BuildParseTree = () => new() 
+            BuildParseTree = () => new()
             {
                 node,
                 new CommonToken(Newline, Environment.NewLine)
@@ -173,10 +144,10 @@ namespace IzFormatter.Engine.Recognizers.GSC
             BuildParseTree = () =>
             {
                 IndentLevel++;
-                return new List<dynamic> 
-                { 
-                    new CommonToken(Indent), 
-                    node 
+                return new List<dynamic>
+                {
+                    new CommonToken(Indent),
+                    node
                 };
             }
         };
@@ -289,10 +260,10 @@ namespace IzFormatter.Engine.Recognizers.GSC
             BuildParseTree = () =>
             {
                 IndentLevel--;
-                return new List<dynamic> 
-                { 
-                    new CommonToken(Dedent), 
-                    node 
+                return new List<dynamic>
+                {
+                    new CommonToken(Dedent),
+                    node
                 };
             }
         };

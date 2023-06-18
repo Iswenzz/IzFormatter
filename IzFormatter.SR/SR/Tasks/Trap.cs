@@ -1,8 +1,8 @@
 ﻿using IzFormatter.Engine.Recognizers.GSC;
-using IzFormatter.Engine.Runtime;
+using IzFormatter.Engine.Utils;
 using static GSCParser;
 
-namespace IzFormatter.Engine.Plugins.GSC.Speedrun.Tasks
+namespace IzFormatter.SR.Tasks
 {
     /// <summary>
     /// Deathrun traps.

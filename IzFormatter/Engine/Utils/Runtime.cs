@@ -7,12 +7,12 @@ using Antlr4.Runtime;
 using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
 
-namespace IzFormatter.Engine.Runtime
+namespace IzFormatter.Engine.Utils
 {
     /// <summary>
     /// Parser utility class.
     /// </summary>
-    public static class Utils
+    public static class Runtime
     {
         const int OPTIONAL = -1;
 
@@ -193,7 +193,7 @@ namespace IzFormatter.Engine.Runtime
         /// <param name="context">The context definition.</param>
         /// <param name="type">The context type.</param>
         /// <returns></returns>
-        public static T ChildOfType<T>(this ParserRuleContext context, int type = OPTIONAL) 
+        public static T ChildOfType<T>(this ParserRuleContext context, int type = OPTIONAL)
             where T : class, IParseTree
         {
             for (int i = 0; i < context.ChildCount; i++)
@@ -240,7 +240,7 @@ namespace IzFormatter.Engine.Runtime
         /// <param name="context">The rule context.</param>
         /// <param name="type">The node type.</param>
         /// <returns></returns>
-        public static T LastChildOfType<T>(this IParseTree context, int type = OPTIONAL) 
+        public static T LastChildOfType<T>(this IParseTree context, int type = OPTIONAL)
             where T : class, IParseTree
         {
             T result = null;
@@ -260,7 +260,7 @@ namespace IzFormatter.Engine.Runtime
         /// <param name="context">The rule context.</param>
         /// <param name="type">The node type.</param>
         /// <returns></returns>
-        public static T RecurseParentOfType<T>(this IParseTree context, int type = OPTIONAL) 
+        public static T RecurseParentOfType<T>(this IParseTree context, int type = OPTIONAL)
             where T : class, IParseTree
         {
             if (context.Parent != null)

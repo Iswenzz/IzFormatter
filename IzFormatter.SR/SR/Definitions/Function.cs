@@ -1,22 +1,15 @@
-﻿using System.Linq;
-using System.Collections.Generic;
-
-using IzFormatter.Engine.Runtime;
+﻿using IzFormatter.SR.Tasks;
 using IzFormatter.Engine.Utils;
-using IzFormatter.Engine.Plugins.GSC.Speedrun.Tasks;
-using IzFormatter.Engine.Recognizers.GSC;
+using IzFormatter.Engine.Runtime.Base;
 using static GSCParser;
 
-namespace IzFormatter.Engine.Plugins.GSC.Speedrun
+namespace IzFormatter.SR.Definitions
 {
     /// <summary>
     /// Function definition.
     /// </summary>
-    public class Function
+    public class Function : Definition<FunctionStatementContext>
     {
-        public GSCRecognizer GSC { get; set; }
-        public FunctionStatementContext Context { get; set; }
-
         public string Identifier { get; set; }
         public bool IsMain { get; set; }
         public bool IsTrap { get; set; }
@@ -27,11 +20,9 @@ namespace IzFormatter.Engine.Plugins.GSC.Speedrun
         /// <summary>
         /// Initialize a new <see cref="Function"/>.
         /// </summary>
-        /// <param name="gsc">The GSC instance.</param>
         /// <param name="context">The definition context.</param>
-        public Function(GSCRecognizer gsc, FunctionStatementContext context)
+        public Function(FunctionStatementContext context)
         {
-            GSC = gsc;
             Context = context;
 
             Identifier = Context.identifier().GetText();
@@ -42,15 +33,15 @@ namespace IzFormatter.Engine.Plugins.GSC.Speedrun
             IsTrap = IsTrapFunction();
             IsTeleporter = IsTeleporterFunction();
 
-            Remove.DangerousExpressions(GSC, Calls);
-            Remove.SpeedrunUnnecessaryExpressions(GSC, Calls);
+            Remove.DangerousExpressions(Calls);
+            Remove.SpeedrunUnnecessaryExpressions(Calls);
             if (IsMain)
             {
-                Tasks.Main.AddSpeedrunWays(Context);
-                Tasks.Main.AddSpeedrunSpawn(Context);
+                Main.AddSpeedrunWays(Context);
+                Main.AddSpeedrunSpawn(Context);
             }
             if (IsTrap) Trap.DisableTrigger(Context);
-            if (IsTeleporter) Teleporter.RemoveDelays(GSC, Context);
+            if (IsTeleporter) Teleporter.RemoveDelays(Context);
         }
 
         /// <summary>

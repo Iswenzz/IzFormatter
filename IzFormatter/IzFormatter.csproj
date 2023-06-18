@@ -18,6 +18,9 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>Iswenzz.png</PackageIcon>
+    <PackageId>IzFormatter</PackageId>
+    <Title>IzFormatter</Title>
+    <Product>IzFormatter</Product>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Antlr4.Runtime.Standard" Version="4.9.3" />
@@ -25,8 +28,8 @@
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
   </ItemGroup>
   <ItemGroup>
-    <Antlr4 Include="Engine\Recognizers\GSC\GSCParser.g4" />
-    <Antlr4 Include="Engine\Recognizers\GSC\GSCLexer.g4" />
+    <Antlr4 Include="Engine\Recognizers\GSC\Parser\GSCParser.g4" />
+    <Antlr4 Include="Engine\Recognizers\GSC\Parser\GSCLexer.g4" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resources.Designer.cs">

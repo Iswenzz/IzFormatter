@@ -9,7 +9,7 @@ options
 
 @lexer::header 
 {
-    using IzFormatter.Engine.Recognizers.GSC;
+    using IzFormatter.Engine.Recognizers.GSC.Parser;
 }
 
 Break:                              'break';

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IzFormatter.CLI", "IzFormatter.CLI\IzFormatter.CLI.csproj", "{86A5B97A-421D-462D-AE58-42BEEA179582}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IzFormatter.CLI", "IzFormatter.CLI\IzFormatter.CLI.csproj", "{86A5B97A-421D-462D-AE58-42BEEA179582}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IzFormatter", "IzFormatter\IzFormatter.csproj", "{7422AE8F-9DB6-4FA4-A902-E666C7A5AA09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IzFormatter.SR", "IzFormatter.SR\IzFormatter.SR.csproj", "{CFEB2474-F04B-4A18-A2C3-01E1B8EE6CF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7422AE8F-9DB6-4FA4-A902-E666C7A5AA09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7422AE8F-9DB6-4FA4-A902-E666C7A5AA09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7422AE8F-9DB6-4FA4-A902-E666C7A5AA09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFEB2474-F04B-4A18-A2C3-01E1B8EE6CF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFEB2474-F04B-4A18-A2C3-01E1B8EE6CF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFEB2474-F04B-4A18-A2C3-01E1B8EE6CF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFEB2474-F04B-4A18-A2C3-01E1B8EE6CF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

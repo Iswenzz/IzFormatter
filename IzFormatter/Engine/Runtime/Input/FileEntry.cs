@@ -1,12 +1,14 @@
 ﻿using System;
 using System.IO;
 
-namespace IzFormatter.Engine.Runtime
+using IzFormatter.Engine.Runtime.Base;
+
+namespace IzFormatter.Engine.Runtime.Input
 {
     /// <summary>
     /// File entry class.
     /// </summary>
-    public class Entry
+    public class FileEntry
     {
         public string FilePath { get; set; }
         public string FilePathWithoutExtension { get; set; }
@@ -18,10 +20,10 @@ namespace IzFormatter.Engine.Runtime
         public Recognizer Recognizer { get; set; }
 
         /// <summary>
-        /// Initialize a new <see cref="Entry"/>.
+        /// Initialize a new <see cref="FileEntry"/>.
         /// </summary>
         /// <param name="filepath">The file path.</param>
-        public Entry(string filepath, string outpath = "")
+        public FileEntry(string filepath, string outpath = "")
         {
             FilePath = filepath;
             FilePathWithoutExtension = Path.Combine(Path.GetDirectoryName(filepath),
@@ -37,12 +39,12 @@ namespace IzFormatter.Engine.Runtime
         /// </summary>
         public virtual void Format()
         {
-            Type type = Registry.GetRecognizer(FileExtension);
+            Type type = RecognizerRegistry.GetRecognizer(FileExtension);
             if (type == null)
                 return;
 
             Recognizer = Activator.CreateInstance(type, new object[] { Input }) as Recognizer;
-            Recognizer.Format();
+            Recognizer.Process();
             Save();
         }
 
@@ -51,7 +53,7 @@ namespace IzFormatter.Engine.Runtime
         /// </summary>
         /// <returns></returns>
         public virtual bool IsFormattable() =>
-            Registry.GetRecognizer(FileExtension) != null;
+            RecognizerRegistry.GetRecognizer(FileExtension) != null;
 
         /// <summary>
         /// Is same size.

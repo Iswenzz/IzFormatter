@@ -8,7 +8,7 @@ options
 
 @parser::header 
 {
-    using IzFormatter.Engine.Recognizers.GSC;
+    using IzFormatter.Engine.Recognizers.GSC.Parser;
 }
 
 @parser::members 

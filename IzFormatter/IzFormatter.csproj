@@ -18,7 +18,7 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>Iswenzz.png</PackageIcon>
-    <PackageId>IzFormatter</PackageId>
+    <PackageId>IzFormatter.Engine</PackageId>
     <Title>IzFormatter</Title>
     <Product>IzFormatter</Product>
   </PropertyGroup>

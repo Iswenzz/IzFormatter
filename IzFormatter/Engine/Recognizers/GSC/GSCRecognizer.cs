@@ -39,12 +39,20 @@ namespace IzFormatter.Engine.Recognizers.GSC
             Parser.AddErrorListener(ErrorListener);
         }
 
-        /// <summary>
+        /// <summary>-
         /// Process the input.
         /// </summary>
         public override void Process()
         {
-            Stream.Append(Formatter.Visit(Parser.compilationUnit()));
+            Format();
+        }
+
+        /// <summary>
+        /// Format the input.
+        /// </summary>
+        public override void Format()
+        {
+            Stream = new(Formatter.Visit(Parser.compilationUnit()));
         }
 
         /// <summary>

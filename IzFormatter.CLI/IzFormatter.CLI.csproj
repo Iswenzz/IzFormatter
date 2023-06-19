@@ -11,6 +11,9 @@
     <Company>Iswenzz.com</Company>
     <Copyright>Iswenzz.com</Copyright>
     <PackageProjectUrl>Iswenzz.com</PackageProjectUrl>
+    <PackageId>IzFormatter</PackageId>
+    <Title>IzFormatter.CLI</Title>
+    <Product>dzqdzqdzqd</Product>
   </PropertyGroup>
 
   <ItemGroup>

@@ -27,6 +27,11 @@ namespace IzFormatter.Engine.Runtime.Base
         public abstract void Process();
 
         /// <summary>
+        /// Format the input.
+        /// </summary>
+        public abstract void Format();
+
+        /// <summary>
         /// Has errors.
         /// </summary>
         /// <returns></returns>

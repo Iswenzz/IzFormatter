@@ -35,7 +35,7 @@ namespace IzFormatter.Engine.Recognizers.GSC.Parser
         /// </summary>
         /// <param name="channel">The channel index.</param>
         /// <exception cref="TypeAccessException"></exception>
-        protected virtual void EnableChannel(int channel)
+        public virtual void EnableChannel(int channel)
         {
             if (InputStream is not MultiChannelTokenStream multiChannelInputStream)
                 throw new TypeAccessException();
@@ -47,7 +47,7 @@ namespace IzFormatter.Engine.Recognizers.GSC.Parser
         /// </summary>
         /// <param name="channel">The channel index.</param>
         /// <exception cref="TypeAccessException"></exception>
-        protected virtual void DisableChannel(int channel)
+        public virtual void DisableChannel(int channel)
         {
             if (InputStream is not MultiChannelTokenStream multiChannelInputStream)
                 throw new TypeAccessException();

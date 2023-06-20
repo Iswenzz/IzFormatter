@@ -105,7 +105,7 @@ namespace IzFormatter.Engine.Utils
         /// <param name="index">The index to remove the child.</param>
         /// <param name="child">The child to add.</param>
         public static void ReplaceChildAt(this ParserRuleContext context, int index, IToken child) =>
-            context.ReplaceChilds(index, () => new List<dynamic> { child });
+            context.ReplaceChilds(index, new() { child });
 
         /// <summary>
         /// Replace child at a specific index.
@@ -114,15 +114,15 @@ namespace IzFormatter.Engine.Utils
         /// <param name="index">The index to remove the child.</param>
         /// <param name="child">The child to add.</param>
         public static void ReplaceChildAt(this ParserRuleContext context, int index, IParseTree child) =>
-            context.ReplaceChilds(index, () => new List<dynamic> { child });
+            context.ReplaceChilds(index, new() { child });
 
         /// <summary>
         /// Replace childs to a specific index.
         /// </summary>
         /// <param name="context">The rule context.</param>
         /// <param name="index">The index to add childs to.</param>
-        /// <param name="childsToAdd">The childs to add.</param>
-        public static void ReplaceChilds(this ParserRuleContext context, int index, Func<List<dynamic>> childsToAdd)
+        /// <param name="tree">The nodes to add.</param>
+        public static void ReplaceChilds(this ParserRuleContext context, int index, List<dynamic> tree)
         {
             List<IParseTree> childs = context.Childs().ToList();
             context.RemoveChilds();
@@ -131,7 +131,7 @@ namespace IzFormatter.Engine.Utils
             {
                 if (i == index)
                 {
-                    foreach (dynamic child in childsToAdd())
+                    foreach (dynamic child in tree)
                     {
                         if (child != null)
                             context.AddChild(child);

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Antlr4.Runtime;
 
 using IzFormatter.Engine.Utils;
@@ -7,58 +6,30 @@ using IzFormatter.Engine.Utils;
 namespace IzFormatter.Engine.Runtime.Stream
 {
     /// <summary>
-    /// Node builder editing a parse tree.
+    /// Node builder parse tree.
     /// </summary>
-    public class NodeBuilder
+    public static class NodeBuilder
     {
-        public dynamic Node { get; set; }
-        public ParserRuleContext Context { get; set; }
-        public Func<List<dynamic>> BuildParseTree { get; set; }
+        public delegate List<object> BuildVariableCallback(object variable);
 
         /// <summary>
-        /// Initialize a new <see cref="NodeBuilder"/>.
+        /// Build the tree.
         /// </summary>
-        /// <param name="context">The rule context.</param>
-        public NodeBuilder(ParserRuleContext context) =>
-            Context = context;
+        /// <param name="node">The node position.</param>
+        /// <param name="tree">The tree at the node position.</param>
+        public static void Build(this ParserRuleContext context, object node, List<object> tree) =>
+            context.ReplaceChilds(context.IndexOfChild(node), tree);
 
         /// <summary>
-        /// Rebuild the tree nodes.
-        /// </summary>
-        public virtual void Rebuild()
-        {
-            if (BuildParseTree == null)
-                return;
-            Context.ReplaceChilds(Context.IndexOfChild((object)Node), BuildParseTree);
-        }
-
-        /// <summary>
-        /// Build the <see cref="NodeBuilder"/>.
-        /// </summary>
-        /// <param name="builder">The <see cref="NodeBuilder"/> to build.</param>
-        public static void Build(NodeBuilder builder)
-        {
-            if (builder?.Node == null)
-                return;
-            builder.Rebuild();
-        }
-
-        /// <summary>
-        /// Build all nodes.
-        /// </summary>
-        /// <param name="vars">The nodes to build.</param>
-        /// <param name="buildNodeCallback">The build node callback.</param>
-        public static void BuildAll(List<dynamic> vars, Func<dynamic, NodeBuilder> buildNodeCallback) =>
-            vars.ForEach(var => Build(buildNodeCallback(var)));
-
-        /// <summary>
-        /// Build all nodes from a specific variable name in rule.
+        /// Build all nodes from a specific variable name in the context.
         /// </summary>
         /// <param name="name">The name of variables to reflect.</param>
-        /// <param name="rule">The rule to reflect.</param>
-        /// <param name="buildNodeCallback">The build node callback.</param>
-        public static void BuildVariables(string name, ParserRuleContext rule,
-            Func<dynamic, NodeBuilder> buildNodeCallback) =>
-            BuildAll(rule.ReflectRuleVariables(name), buildNodeCallback);
+        /// <param name="context">The context.</param>
+        /// <param name="callback">The build variable callback.</param>
+        public static void BuildVariables(string name, ParserRuleContext context, BuildVariableCallback callback)
+        {
+            foreach (object variable in context.ReflectRuleVariables(name))
+                context.Build(variable, callback(variable));
+        }
     }
 }

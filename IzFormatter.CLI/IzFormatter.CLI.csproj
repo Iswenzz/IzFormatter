@@ -5,13 +5,13 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyName>IzFormatter</AssemblyName>
+    <AssemblyName>formatter</AssemblyName>
     <RootNamespace>IzFormatter</RootNamespace>
     <Authors>Iswenzz</Authors>
     <Company>Iswenzz.com</Company>
     <Copyright>Iswenzz.com</Copyright>
     <PackageProjectUrl>Iswenzz.com</PackageProjectUrl>
-    <PackageId>IzFormatter</PackageId>
+    <PackageId>IzFormatter.CLI</PackageId>
     <Title>IzFormatter.CLI</Title>
     <Product>dzqdzqdzqd</Product>
   </PropertyGroup>

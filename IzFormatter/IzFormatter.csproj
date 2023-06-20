@@ -18,7 +18,7 @@
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>Iswenzz.png</PackageIcon>
-    <PackageId>IzFormatter.Engine</PackageId>
+    <PackageId>IzFormatter</PackageId>
     <Title>IzFormatter</Title>
     <Product>IzFormatter</Product>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>

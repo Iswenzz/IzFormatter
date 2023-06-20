@@ -7,7 +7,7 @@
 
 IzFormatter is a software application designed to provide a universal code formatting solution for various programming languages. Built upon the ANTLR4 library, IzFormatter utilizes the library's powerful capabilities to generate parsers and parse trees based on grammar specifications. While currently focused on supporting the GSC language, IzFormatter aims to evolve into a comprehensive tool capable of formatting code from multiple programming languages.
 
-![](https://i.imgur.com/kyCXC9r.png)
+![](https://i.imgur.com/VvWrZrD.png)
 
 ## Instructions
 

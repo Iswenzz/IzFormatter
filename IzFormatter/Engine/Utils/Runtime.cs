@@ -14,7 +14,7 @@ namespace IzFormatter.Engine.Utils
     /// </summary>
     public static class Runtime
     {
-        const int OPTIONAL = -1;
+        private const int OPTIONAL = -1;
 
         /// <summary>
         /// Get childs in rule context.

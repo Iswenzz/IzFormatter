@@ -1,5 +1,4 @@
 ﻿using Antlr4.Runtime.Atn;
-using Antlr4.Runtime.Tree;
 using IzFormatter.Engine.Recognizers.GSC.Formatter;
 using IzFormatter.Engine.Recognizers.GSC.Listeners;
 using IzFormatter.Engine.Runtime.Base;

@@ -8,7 +8,7 @@ namespace IzFormatter.Engine.Runtime.Stream
     /// </summary>
     public class MultiChannelTokenStream : BufferedTokenStream
     {
-        const int EOF = -1;
+        private const int EOF = -1;
         private int[] channels = new int[] { 0 };
 
         /// <summary>

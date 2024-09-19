@@ -27,7 +27,7 @@ namespace IzFormatter.Engine.CLI
         public static IEnumerable<Example> Examples
         {
             get => new List<Example> {
-                new Example("Format files",
+                new("Format files",
                     new CLIOptions {
                         File = "file.gsc"
                     })

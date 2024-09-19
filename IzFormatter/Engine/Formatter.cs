@@ -66,7 +66,7 @@ namespace IzFormatter.Engine
         /// <param name="entry">The entry file.</param>
         private void Format(FileEntry entry)
         {
-            if (!entry.IsFormattable()) 
+            if (!entry.IsFormattable())
                 return;
 
             Stopwatch timer = new();
@@ -81,6 +81,7 @@ namespace IzFormatter.Engine
             }
             if (entry.Recognizer.HasErrors())
                 Status = -1;
+
             Total++;
         }
 
@@ -98,8 +99,8 @@ namespace IzFormatter.Engine
         /// <param name="dirpath">The directory path.</param>
         /// <param name="subdirectory">Allow subdirectories.</param>
         /// <param name="outpath">The output path.</param>
-        public void QueueDirectory(string dirpath, bool subdirectory = true, string outpath = "") => 
-            Directory.GetFiles(dirpath, "*", subdirectory ? SearchOption.AllDirectories 
+        public void QueueDirectory(string dirpath, bool subdirectory = true, string outpath = "") =>
+            Directory.GetFiles(dirpath, "*", subdirectory ? SearchOption.AllDirectories
                 : SearchOption.TopDirectoryOnly)
             .ForEach(path => QueueFile(path, Path.Combine(outpath, Path.GetRelativePath(dirpath, path))));
     }

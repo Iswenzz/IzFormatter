@@ -1,6 +1,6 @@
 # IzFormatter
 
-[![Checks](https://img.shields.io/github/checks-status/Iswenzz/IzFormatter/master?logo=github)](https://github.com/Iswenzz/IzFormatter/actions)
+[![Checks](https://img.shields.io/github/check-runs/Iswenzz/IzFormatter/master?logo=github)](https://github.com/Iswenzz/IzFormatter/actions)
 [![CodeFactor](https://img.shields.io/codefactor/grade/github/Iswenzz/IzFormatter?label=codefactor&logo=codefactor)](https://www.codefactor.io/repository/github/iswenzz/IzFormatter)
 [![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/IzFormatter?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/IzFormatter)
 [![License](https://img.shields.io/github/license/Iswenzz/IzFormatter?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/IzFormatter/blob/master/LICENSE)

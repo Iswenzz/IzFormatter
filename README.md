@@ -2,7 +2,6 @@
 
 [![Checks](https://img.shields.io/github/check-runs/Iswenzz/IzFormatter/master?logo=github)](https://github.com/Iswenzz/IzFormatter/actions)
 [![CodeFactor](https://img.shields.io/codefactor/grade/github/Iswenzz/IzFormatter?label=codefactor&logo=codefactor)](https://www.codefactor.io/repository/github/iswenzz/IzFormatter)
-[![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/IzFormatter?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/IzFormatter)
 [![License](https://img.shields.io/github/license/Iswenzz/IzFormatter?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/IzFormatter/blob/master/LICENSE)
 
 IzFormatter is a software application designed to provide a universal code formatting solution for various programming languages. Built upon the ANTLR4 library, IzFormatter utilizes the library's powerful capabilities to generate parsers and parse trees based on grammar specifications. While currently focused on supporting the GSC language, IzFormatter aims to evolve into a comprehensive tool capable of formatting code from multiple programming languages.
